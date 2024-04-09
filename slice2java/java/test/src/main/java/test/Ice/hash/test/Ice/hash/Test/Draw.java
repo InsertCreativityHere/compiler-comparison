@@ -166,5 +166,5 @@ public class Draw implements java.lang.Cloneable,
     private static final Draw _nullMarshalValue = new Draw();
 
     /** @hidden */
-    public static final long serialVersionUID = 1044605665680280924L;
+    public static final long serialVersionUID = 7046245876076065596L;
 }

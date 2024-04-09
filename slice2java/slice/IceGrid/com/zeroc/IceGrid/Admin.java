@@ -171,9 +171,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     ServerState getServerState(String id, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
-               DeploymentException,
-               NodeUnreachableException;
+        throws NodeUnreachableException,
+               ServerNotExistException,
+               DeploymentException;
 
     /**
      * Get a server's system process id. The process id is operating system dependent.
@@ -185,9 +185,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     int getServerPid(String id, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
-               DeploymentException,
-               NodeUnreachableException;
+        throws NodeUnreachableException,
+               ServerNotExistException,
+               DeploymentException;
 
     /**
      * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
@@ -207,9 +207,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     com.zeroc.Ice.ObjectPrx getServerAdmin(String id, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
-               DeploymentException,
-               NodeUnreachableException;
+        throws NodeUnreachableException,
+               ServerNotExistException,
+               DeploymentException;
 
     /**
      * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
@@ -223,9 +223,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     void enableServer(String id, boolean enabled, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
-               DeploymentException,
-               NodeUnreachableException;
+        throws NodeUnreachableException,
+               ServerNotExistException,
+               DeploymentException;
 
     /**
      * Check if the server is enabled or disabled.
@@ -237,9 +237,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     boolean isServerEnabled(String id, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
-               DeploymentException,
-               NodeUnreachableException;
+        throws NodeUnreachableException,
+               ServerNotExistException,
+               DeploymentException;
 
     /**
      * Start a server and wait for its activation.
@@ -252,10 +252,10 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws ServerStartException Raised if the server couldn't be started.
      **/
     java.util.concurrent.CompletionStage<Void> startServerAsync(String id, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
+        throws NodeUnreachableException,
+               ServerNotExistException,
                ServerStartException,
-               DeploymentException,
-               NodeUnreachableException;
+               DeploymentException;
 
     /**
      * Stop a server.
@@ -268,10 +268,10 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws ServerStopException Raised if the server couldn't be stopped.
      **/
     java.util.concurrent.CompletionStage<Void> stopServerAsync(String id, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
+        throws NodeUnreachableException,
+               ServerNotExistException,
                ServerStopException,
-               DeploymentException,
-               NodeUnreachableException;
+               DeploymentException;
 
     /**
      * Send signal to a server.
@@ -284,9 +284,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     void sendSignal(String id, String signal, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
+        throws NodeUnreachableException,
+               ServerNotExistException,
                DeploymentException,
-               NodeUnreachableException,
                BadSignalException;
 
     /**
@@ -423,8 +423,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     LoadInfo getNodeLoad(String name, com.zeroc.Ice.Current current)
-        throws NodeNotExistException,
-               NodeUnreachableException;
+        throws NodeUnreachableException,
+               NodeNotExistException;
 
     /**
      * Get the node information for the node with the given name.
@@ -435,8 +435,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     NodeInfo getNodeInfo(String name, com.zeroc.Ice.Current current)
-        throws NodeNotExistException,
-               NodeUnreachableException;
+        throws NodeUnreachableException,
+               NodeNotExistException;
 
     /**
      * Get a proxy to the IceGrid node's admin object.
@@ -447,8 +447,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     com.zeroc.Ice.ObjectPrx getNodeAdmin(String name, com.zeroc.Ice.Current current)
-        throws NodeNotExistException,
-               NodeUnreachableException;
+        throws NodeUnreachableException,
+               NodeNotExistException;
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
@@ -461,8 +461,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     int getNodeProcessorSocketCount(String name, com.zeroc.Ice.Current current)
-        throws NodeNotExistException,
-               NodeUnreachableException;
+        throws NodeUnreachableException,
+               NodeNotExistException;
 
     /**
      * Shutdown an IceGrid node.
@@ -472,8 +472,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     void shutdownNode(String name, com.zeroc.Ice.Current current)
-        throws NodeNotExistException,
-               NodeUnreachableException;
+        throws NodeUnreachableException,
+               NodeNotExistException;
 
     /**
      * Get the hostname of this node.
@@ -484,8 +484,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     String getNodeHostname(String name, com.zeroc.Ice.Current current)
-        throws NodeNotExistException,
-               NodeUnreachableException;
+        throws NodeUnreachableException,
+               NodeNotExistException;
 
     /**
      * Get all the IceGrid nodes currently registered.

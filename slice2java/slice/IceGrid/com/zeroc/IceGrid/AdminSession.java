@@ -116,9 +116,9 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     FileIteratorPrx openServerLog(String id, String path, int count, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
+        throws NodeUnreachableException,
+               ServerNotExistException,
                DeploymentException,
-               NodeUnreachableException,
                FileNotAvailableException;
 
     /**
@@ -134,9 +134,9 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     FileIteratorPrx openServerStdErr(String id, int count, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
+        throws NodeUnreachableException,
+               ServerNotExistException,
                DeploymentException,
-               NodeUnreachableException,
                FileNotAvailableException;
 
     /**
@@ -152,9 +152,9 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     FileIteratorPrx openServerStdOut(String id, int count, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
+        throws NodeUnreachableException,
+               ServerNotExistException,
                DeploymentException,
-               NodeUnreachableException,
                FileNotAvailableException;
 
     /**
@@ -169,8 +169,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     FileIteratorPrx openNodeStdErr(String name, int count, com.zeroc.Ice.Current current)
-        throws NodeNotExistException,
-               NodeUnreachableException,
+        throws NodeUnreachableException,
+               NodeNotExistException,
                FileNotAvailableException;
 
     /**
@@ -185,8 +185,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     FileIteratorPrx openNodeStdOut(String name, int count, com.zeroc.Ice.Current current)
-        throws NodeNotExistException,
-               NodeUnreachableException,
+        throws NodeUnreachableException,
+               NodeNotExistException,
                FileNotAvailableException;
 
     /**
