@@ -139,5 +139,5 @@ public class S8 implements java.lang.Cloneable,
     private static final S8 _nullMarshalValue = new S8();
 
     /** @hidden */
-    public static final long serialVersionUID = 4560077356533781886L;
+    public static final long serialVersionUID = 4560076927821450973L;
 }

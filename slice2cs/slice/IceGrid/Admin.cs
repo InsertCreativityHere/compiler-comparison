@@ -7604,15 +7604,15 @@ namespace IceGrid
                     {
                         throw;
                     }
+                    catch(ServerStartException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(ServerStartException)
                     {
                         throw;
                     }
@@ -7660,15 +7660,15 @@ namespace IceGrid
                     {
                         throw;
                     }
+                    catch(ServerStopException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(ServerStopException)
                     {
                         throw;
                     }

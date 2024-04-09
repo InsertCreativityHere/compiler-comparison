@@ -795,11 +795,11 @@ namespace IceBox
                     {
                         throw ex;
                     }
-                    catch(AlreadyStartedException)
+                    catch(NoSuchServiceException)
                     {
                         throw;
                     }
-                    catch(NoSuchServiceException)
+                    catch(AlreadyStartedException)
                     {
                         throw;
                     }
