@@ -1637,9 +1637,9 @@ namespace and
     {
         #region Inherited Slice operations
 
-        public abstract void @public(global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task<int> caseAsync(int @catch, global::Ice.Current current = null);
+
+        public abstract void @public(global::Ice.Current current = null);
 
         #endregion
 
