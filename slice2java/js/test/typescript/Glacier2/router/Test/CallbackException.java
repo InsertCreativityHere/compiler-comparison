@@ -71,5 +71,5 @@ public class CallbackException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 1084663601995329427L;
+    public static final long serialVersionUID = 4992584995175471838L;
 }
