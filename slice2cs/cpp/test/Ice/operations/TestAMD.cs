@@ -13378,9 +13378,9 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, global::Ice.Current current = null);
 
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         #endregion
 
