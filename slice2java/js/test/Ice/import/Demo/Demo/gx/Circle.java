@@ -152,5 +152,5 @@ public class Circle implements java.lang.Cloneable,
     private static final Circle _nullMarshalValue = new Circle();
 
     /** @hidden */
-    public static final long serialVersionUID = -4144090709173049476L;
+    public static final long serialVersionUID = -5162109777348308740L;
 }
