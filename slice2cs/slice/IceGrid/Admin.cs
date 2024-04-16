@@ -7660,15 +7660,15 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(ServerStopException)
-                    {
-                        throw;
-                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
+                    {
+                        throw;
+                    }
+                    catch(ServerStopException)
                     {
                         throw;
                     }
@@ -7851,11 +7851,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterNotExistException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
