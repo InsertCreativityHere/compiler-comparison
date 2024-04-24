@@ -164,30 +164,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_ClassVarStruct;
-    class ClassVarStruct
-    {
-        public function __construct($a=0)
-        {
-            $this->a = $a;
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_ClassVarStruct;
-            return IcePHP_stringify($this, $Test__t_ClassVarStruct);
-        }
-
-        public $a;
-    }
-
-    global $IcePHP__t_int;
-    $Test__t_ClassVarStruct = IcePHP_defineStruct('::Test::ClassVarStruct', '\\Test\\ClassVarStruct', array(
-        array('a', $IcePHP__t_int)));
-}
-
-namespace Test
-{
     global $Test__t_ByteSeq;
 
     if(!isset($Test__t_ByteSeq))
@@ -903,11 +879,10 @@ namespace Test
     global $Test__t_OptionalWithCustom;
     class OptionalWithCustom extends \Ice\Value
     {
-        public function __construct($l=\Ice\None, $lp=\Ice\None, $s=\Ice\None)
+        public function __construct($l=\Ice\None, $lp=\Ice\None)
         {
             $this->l = $l;
             $this->lp = $lp;
-            $this->s = is_null($s) ? new \Test\ClassVarStruct : $s;
         }
 
         public function ice_id()
@@ -928,16 +903,13 @@ namespace Test
 
         public $l;
         protected $lp;
-        public $s;
     }
 
     global $Ice__t_Value;
     global $Test__t_SmallStructList;
-    global $Test__t_ClassVarStruct;
     $Test__t_OptionalWithCustom = IcePHP_defineClass('::Test::OptionalWithCustom', '\\Test\\OptionalWithCustom', -1, false, $Ice__t_Value, array(
         array('l', $Test__t_SmallStructList, true, 1),
-        array('lp', $Test__t_SmallStructList, true, 2),
-        array('s', $Test__t_ClassVarStruct, true, 3)));
+        array('lp', $Test__t_SmallStructList, true, 2)));
 }
 
 namespace Test

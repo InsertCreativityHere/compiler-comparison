@@ -359,85 +359,6 @@ if 'VarStruct' not in _M_Test.__dict__:
     _M_Test.VarStruct = VarStruct
     del VarStruct
 
-if 'ClassVarStruct' not in _M_Test.__dict__:
-    _M_Test.ClassVarStruct = Ice.createTempClass()
-    class ClassVarStruct(object):
-        def __init__(self, a=0):
-            self.a = a
-
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + Ice.getHash(self.a)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
-            if other is None:
-                return 1
-            elif not isinstance(other, _M_Test.ClassVarStruct):
-                return NotImplemented
-            else:
-                if self.a is None or other.a is None:
-                    if self.a != other.a:
-                        return (-1 if self.a is None else 1)
-                else:
-                    if self.a < other.a:
-                        return -1
-                    elif self.a > other.a:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
-
-        def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_ClassVarStruct)
-
-        __repr__ = __str__
-
-    _M_Test._t_ClassVarStruct = IcePy.defineStruct('::Test::ClassVarStruct', ClassVarStruct, (), (('a', (), IcePy._t_int),))
-
-    _M_Test.ClassVarStruct = ClassVarStruct
-    del ClassVarStruct
-
 if '_t_ByteSeq' not in _M_Test.__dict__:
     _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
 
@@ -791,10 +712,9 @@ if 'RequiredException' not in _M_Test.__dict__:
 if 'OptionalWithCustom' not in _M_Test.__dict__:
     _M_Test.OptionalWithCustom = Ice.createTempClass()
     class OptionalWithCustom(Ice.Value):
-        def __init__(self, l=Ice.Unset, _lp=Ice.Unset, s=Ice.Unset):
+        def __init__(self, l=Ice.Unset, _lp=Ice.Unset):
             self.l = l
             self._lp = _lp
-            self.s = s
 
         def ice_id(self):
             return '::Test::OptionalWithCustom'
@@ -810,8 +730,7 @@ if 'OptionalWithCustom' not in _M_Test.__dict__:
 
     _M_Test._t_OptionalWithCustom = IcePy.defineValue('::Test::OptionalWithCustom', OptionalWithCustom, -1, (), False, None, (
         ('l', (), _M_Test._t_SmallStructList, True, 1),
-        ('_lp', (), _M_Test._t_SmallStructList, True, 2),
-        ('s', (), _M_Test._t_ClassVarStruct, True, 3)
+        ('_lp', (), _M_Test._t_SmallStructList, True, 2)
     ))
     OptionalWithCustom._ice_type = _M_Test._t_OptionalWithCustom
 

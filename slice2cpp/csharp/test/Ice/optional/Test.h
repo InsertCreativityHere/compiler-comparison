@@ -43,8 +43,6 @@ namespace Test
 
     struct VarStruct;
 
-    struct ClassVarStruct;
-
     using ByteSeq = ::std::vector<std::byte>;
 
     using BoolSeq = ::std::vector<bool>;
@@ -907,20 +905,6 @@ struct VarStruct
     }
 };
 
-struct ClassVarStruct
-{
-    ::std::int32_t a;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(a);
-    }
-};
-
 class MultiOptional : public ::Ice::Value
 {
 public:
@@ -1385,10 +1369,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalWithCustom(::std::optional<::Test::SmallStructList> l, ::std::optional<::Test::SmallStructList> lp, ::std::optional<::Test::ClassVarStruct> s) :
+    OptionalWithCustom(::std::optional<::Test::SmallStructList> l, ::std::optional<::Test::SmallStructList> lp) :
         l(::std::move(l)),
-        lp(::std::move(lp)),
-        s(::std::move(s))
+        lp(::std::move(lp))
     {
     }
 
@@ -1404,9 +1387,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::optional<::Test::SmallStructList>&, const ::std::optional<::Test::SmallStructList>&, const ::std::optional<::Test::ClassVarStruct>&> ice_tuple() const
+    std::tuple<const ::std::optional<::Test::SmallStructList>&, const ::std::optional<::Test::SmallStructList>&> ice_tuple() const
     {
-        return std::tie(l, lp, s);
+        return std::tie(l, lp);
     }
 
     /**
@@ -1420,12 +1403,6 @@ public:
 protected:
 
     ::std::optional<::Test::SmallStructList> lp;
-
-public:
-
-    ::std::optional<::Test::ClassVarStruct> s;
-
-protected:
 
     template<typename T>
     friend struct Ice::StreamWriter;
@@ -2220,23 +2197,6 @@ struct StreamReader<::Test::VarStruct>
 };
 
 template<>
-struct StreamableTraits<::Test::ClassVarStruct>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::Test::ClassVarStruct>
-{
-    static void read(InputStream* istr, ::Test::ClassVarStruct& v)
-    {
-        istr->readAll(v.a);
-    }
-};
-
-template<>
 struct StreamWriter<::Test::MultiOptional>
 {
     static void write(OutputStream* ostr, const ::Test::MultiOptional& v)
@@ -2395,7 +2355,7 @@ struct StreamWriter<::Test::OptionalWithCustom>
 {
     static void write(OutputStream* ostr, const ::Test::OptionalWithCustom& v)
     {
-        ostr->writeAll({1, 2, 3}, v.l, v.lp, v.s);
+        ostr->writeAll({1, 2}, v.l, v.lp);
     }
 };
 
@@ -2404,7 +2364,7 @@ struct StreamReader<::Test::OptionalWithCustom>
 {
     static void read(InputStream* istr, ::Test::OptionalWithCustom& v)
     {
-        istr->readAll({1, 2, 3}, v.l, v.lp, v.s);
+        istr->readAll({1, 2}, v.l, v.lp);
     }
 };
 

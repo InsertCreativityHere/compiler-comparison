@@ -1,4 +1,4 @@
-/Users/austin/Code/zeroc/ice/swift/test/Ice/optional/TestAMD.ice:66: warning: ignoring invalid metadata `cs:serializable:Ice.optional.Test.SerializableClass'
+/Users/austin/Code/zeroc/ice/swift/test/Ice/optional/TestAMD.ice:60: warning: ignoring invalid metadata `cs:serializable:Ice.optional.Test.SerializableClass'
 /Users/austin/Code/zeroc/ice/python/test/Ice/objects/Test.ice:178: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/python/test/Ice/operations/Test.ice:68: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/typescript/Ice/objects/Test.ice:182: warning: dictionary key type not supported in PHP

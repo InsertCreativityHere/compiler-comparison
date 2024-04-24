@@ -3,7 +3,6 @@
 % OptionalWithCustom Properties:
 %   l
 %   lp
-%   s
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -11,21 +10,18 @@
 classdef OptionalWithCustom < Ice.Value
     properties
         l
-        s
     end
     properties(Access=protected)
         lp
     end
     methods
-        function obj = OptionalWithCustom(l, lp, s)
+        function obj = OptionalWithCustom(l, lp)
             if nargin == 0
                 obj.l = IceInternal.UnsetI.Instance;
                 obj.lp = IceInternal.UnsetI.Instance;
-                obj.s = IceInternal.UnsetI.Instance;
             elseif ne(l, IceInternal.NoInit.Instance)
                 obj.l = l;
                 obj.lp = lp;
-                obj.s = s;
             end;
         end
         function id = ice_id(obj)
@@ -37,14 +33,12 @@ classdef OptionalWithCustom < Ice.Value
             os.startSlice('::Test::OptionalWithCustom', -1, true);
             Test.SmallStructList.writeOpt(os, 1, obj.l);
             Test.SmallStructList.writeOpt(os, 2, obj.lp);
-            Test.ClassVarStruct.ice_writeOpt(os, 3, obj.s);
             os.endSlice();
         end
         function iceReadImpl(obj, is)
             is.startSlice();
             obj.l = Test.SmallStructList.readOpt(is, 1);
             obj.lp = Test.SmallStructList.readOpt(is, 2);
-            obj.s = Test.ClassVarStruct.ice_readOpt(is, 3);
             is.endSlice();
         end
     end

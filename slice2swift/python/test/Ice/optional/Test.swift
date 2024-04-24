@@ -263,65 +263,6 @@ public extension Ice.OutputStream {
     }
 }
 
-public struct ClassVarStruct: Swift.Hashable {
-    public var a: Swift.Int32 = 0
-
-    public init() {}
-
-    public init(a: Swift.Int32) {
-        self.a = a
-    }
-}
-
-/// An `Ice.InputStream` extension to read `ClassVarStruct` structured values from the stream.
-public extension Ice.InputStream {
-    /// Read a `ClassVarStruct` structured value from the stream.
-    ///
-    /// - returns: `ClassVarStruct` - The structured value read from the stream.
-    func read() throws -> ClassVarStruct {
-        var v = ClassVarStruct()
-        v.a = try self.read()
-        return v
-    }
-
-    /// Read an optional `ClassVarStruct?` structured value from the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ClassVarStruct?` - The structured value read from the stream.
-    func read(tag: Swift.Int32) throws -> ClassVarStruct? {
-        guard try readOptional(tag: tag, expectedFormat: .VSize) else {
-            return nil
-        }
-        try skipSize()
-        return try read() as ClassVarStruct
-    }
-}
-
-/// An `Ice.OutputStream` extension to write `ClassVarStruct` structured values from the stream.
-public extension Ice.OutputStream {
-    /// Write a `ClassVarStruct` structured value to the stream.
-    ///
-    /// - parameter _: `ClassVarStruct` - The value to write to the stream.
-    func write(_ v: ClassVarStruct) {
-        self.write(v.a)
-    }
-
-    /// Write an optional `ClassVarStruct?` structured value to the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ClassVarStruct?` - The value to write to the stream.
-    func write(tag: Swift.Int32, value: ClassVarStruct?) {
-        if let v = value {
-            if writeOptional(tag: tag, format: .VSize) {
-                write(size: 4)
-                write(v)
-            }
-        }
-    }
-}
-
 public typealias ByteSeq = Foundation.Data
 
 public typealias BoolSeq = [Swift.Bool]
@@ -5564,14 +5505,12 @@ public extension Ice.ClassResolver {
 open class OptionalWithCustom: Ice.Value {
     public var l: SmallStructList? = nil
     public var lp: SmallStructList? = nil
-    public var s: ClassVarStruct? = nil
 
     public required init() {}
 
-    public init(l: SmallStructList?, lp: SmallStructList?, s: ClassVarStruct?) {
+    public init(l: SmallStructList?, lp: SmallStructList?) {
         self.l = l
         self.lp = lp
-        self.s = s
     }
 
     /// Returns the Slice type ID of the most-derived interface supported by this object.
@@ -5592,7 +5531,6 @@ open class OptionalWithCustom: Ice.Value {
         _ = try istr.startSlice()
         self.l = try SmallStructListHelper.read(from: istr, tag: 1)
         self.lp = try SmallStructListHelper.read(from: istr, tag: 2)
-        self.s = try istr.read(tag: 3)
         try istr.endSlice()
     }
 
@@ -5600,7 +5538,6 @@ open class OptionalWithCustom: Ice.Value {
         ostr.startSlice(typeId: OptionalWithCustomTraits.staticId, compactId: -1, last: true)
         SmallStructListHelper.write(to: ostr, tag: 1, value: self.l)
         SmallStructListHelper.write(to: ostr, tag: 2, value: self.lp)
-        ostr.write(tag: 3, value: self.s)
         ostr.endSlice()
     }
 }

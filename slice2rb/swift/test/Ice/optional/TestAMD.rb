@@ -199,35 +199,6 @@ module ::Test
         T_VarStruct = ::Ice::__defineStruct('::Test::VarStruct', VarStruct, [["m", ::Ice::T_string]])
     end
 
-    if not defined?(::Test::ClassVarStruct)
-        class ClassVarStruct
-            include ::Ice::Inspect_mixin
-            def initialize(a=0)
-                @a = a
-            end
-
-            def hash
-                _h = 0
-                _h = 5 * _h + @a.hash
-                _h % 0x7fffffff
-            end
-
-            def ==(other)
-                return false if !other.is_a? ::Test::ClassVarStruct or
-                    @a != other.a
-                true
-            end
-
-            def eql?(other)
-                return other.class == self.class && other == self
-            end
-
-            attr_accessor :a
-        end
-
-        T_ClassVarStruct = ::Ice::__defineStruct('::Test::ClassVarStruct', ClassVarStruct, [["a", ::Ice::T_int]])
-    end
-
     if not defined?(::Test::T_ByteSeq)
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
     end
@@ -582,13 +553,12 @@ module ::Test
         end
         class OptionalWithCustom < ::Ice::Value
 
-            def initialize(l=::Ice::Unset, lp=::Ice::Unset, s=::Ice::Unset)
+            def initialize(l=::Ice::Unset, lp=::Ice::Unset)
                 @l = l
                 @lp = lp
-                @s = s
             end
 
-            attr_accessor :l, :lp, :s
+            attr_accessor :l, :lp
             protected :lp, :lp=
         end
 
@@ -598,8 +568,7 @@ module ::Test
 
         T_OptionalWithCustom.defineClass(OptionalWithCustom, -1, false, nil, [
             ['l', ::Test::T_SmallStructList, true, 1],
-            ['lp', ::Test::T_SmallStructList, true, 2],
-            ['s', ::Test::T_ClassVarStruct, true, 3]
+            ['lp', ::Test::T_SmallStructList, true, 2]
         ])
     end
 

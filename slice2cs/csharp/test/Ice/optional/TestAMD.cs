@@ -499,146 +499,6 @@ namespace Ice.optional.AMD
             #endregion
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class ClassVarStruct : global::System.ICloneable
-        {
-            #region Slice data members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int a;
-
-            #endregion
-
-            partial void ice_initialize();
-
-            #region Constructors
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ClassVarStruct()
-            {
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ClassVarStruct(int a)
-            {
-                this.a = a;
-                ice_initialize();
-            }
-
-            #endregion
-
-            #region ICloneable members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
-
-            #endregion
-
-            #region Object members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                int h_ = 5381;
-                global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::ClassVarStruct");
-                global::IceInternal.HashUtil.hashAdd(ref h_, a);
-                return h_;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
-            {
-                if(object.ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                if(other == null)
-                {
-                    return false;
-                }
-                if(GetType() != other.GetType())
-                {
-                    return false;
-                }
-                ClassVarStruct o = (ClassVarStruct)other;
-                if(!this.a.Equals(o.a))
-                {
-                    return false;
-                }
-                return true;
-            }
-
-            #endregion
-
-            #region Comparison members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(ClassVarStruct lhs, ClassVarStruct rhs)
-            {
-                return Equals(lhs, rhs);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(ClassVarStruct lhs, ClassVarStruct rhs)
-            {
-                return !Equals(lhs, rhs);
-            }
-
-            #endregion
-
-            #region Marshaling support
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_writeMembers(global::Ice.OutputStream ostr)
-            {
-                ostr.writeInt(this.a);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.a = istr.readInt();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static void ice_write(global::Ice.OutputStream ostr, ClassVarStruct v)
-            {
-                if(v == null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static ClassVarStruct ice_read(global::Ice.InputStream istr)
-            {
-                var v = new ClassVarStruct();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly ClassVarStruct _nullMarshalValue = new ClassVarStruct();
-
-            #endregion
-        }
-
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
@@ -1863,9 +1723,6 @@ namespace Ice.optional.AMD
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected virtual global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> lp { get; set; }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual global::Ice.Optional<ClassVarStruct> s { get; set; }
-
             #endregion
 
             partial void ice_initialize();
@@ -1877,16 +1734,14 @@ namespace Ice.optional.AMD
             {
                 this.l = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
                 this.lp = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
-                this.s = new global::Ice.Optional<ClassVarStruct>();
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public OptionalWithCustom(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> l, global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> lp, global::Ice.Optional<ClassVarStruct> s)
+            public OptionalWithCustom(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> l, global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> lp)
             {
                 this.l = l;
                 this.lp = lp;
-                this.s = s;
                 ice_initialize();
             }
 
@@ -1919,11 +1774,6 @@ namespace Ice.optional.AMD
                 {
                     SmallStructListHelper.write(ostr_, lp.Value);
                 }
-                if(s.HasValue && ostr_.writeOptional(3, global::Ice.OptionalFormat.VSize))
-                {
-                    ostr_.writeSize(4);
-                    ClassVarStruct.ice_write(ostr_, s.Value);
-                }
                 ostr_.endSlice();
             }
 
@@ -1950,17 +1800,6 @@ namespace Ice.optional.AMD
                 else
                 {
                     lp = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
-                }
-                if(istr_.readOptional(3, global::Ice.OptionalFormat.VSize))
-                {
-                    istr_.skipSize();
-                    ClassVarStruct tmpVal = null;
-                    tmpVal = ClassVarStruct.ice_read(istr_);
-                    s = new global::Ice.Optional<ClassVarStruct>(tmpVal);
-                }
-                else
-                {
-                    s = new global::Ice.Optional<ClassVarStruct>();
                 }
                 istr_.endSlice();
             }
