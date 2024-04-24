@@ -68,21 +68,16 @@ public interface Registry extends com.zeroc.Ice.Object
         throws PermissionDeniedException;
 
     /**
-     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-     * the time interval defined by this timeout, IceGrid might reap the session.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param current The Current object for the invocation.
-     * @return The timeout (in seconds).
-     *
-     * @see Session#keepAlive
-     * @see AdminSession#keepAlive
+     * @return The idle timeout (in seconds).
      **/
     int getSessionTimeout(com.zeroc.Ice.Current current);
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param current The Current object for the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      **/
     int getACMTimeout(com.zeroc.Ice.Current current);
 

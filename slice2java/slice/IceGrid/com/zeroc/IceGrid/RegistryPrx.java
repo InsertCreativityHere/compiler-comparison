@@ -362,12 +362,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-     * the time interval defined by this timeout, IceGrid might reap the session.
-     * @return The timeout (in seconds).
-     *
-     * @see Session#keepAlive
-     * @see AdminSession#keepAlive
+     * Get the idle timeout used by IceGrid for its side of the connection.
+     * @return The idle timeout (in seconds).
      **/
     default int getSessionTimeout()
     {
@@ -375,13 +371,9 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-     * the time interval defined by this timeout, IceGrid might reap the session.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
-     *
-     * @see Session#keepAlive
-     * @see AdminSession#keepAlive
+     * @return The idle timeout (in seconds).
      **/
     default int getSessionTimeout(java.util.Map<String, String> context)
     {
@@ -389,12 +381,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-     * the time interval defined by this timeout, IceGrid might reap the session.
-     * @return The timeout (in seconds).
-     *
-     * @see Session#keepAlive
-     * @see AdminSession#keepAlive
+     * Get the idle timeout used by IceGrid for its side of the connection.
+     * @return The idle timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getSessionTimeoutAsync()
     {
@@ -402,13 +390,9 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-     * the time interval defined by this timeout, IceGrid might reap the session.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
-     *
-     * @see Session#keepAlive
-     * @see AdminSession#keepAlive
+     * @return The idle timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getSessionTimeoutAsync(java.util.Map<String, String> context)
     {
@@ -433,9 +417,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
-     * @return The timeout (in seconds).
+     * Get the idle timeout used by IceGrid for its side of the connection.
+     * @return The idle timeout (in seconds).
      **/
     default int getACMTimeout()
     {
@@ -443,10 +426,9 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      **/
     default int getACMTimeout(java.util.Map<String, String> context)
     {
@@ -454,9 +436,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
-     * @return The timeout (in seconds).
+     * Get the idle timeout used by IceGrid for its side of the connection.
+     * @return The idle timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getACMTimeoutAsync()
     {
@@ -464,10 +445,9 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getACMTimeoutAsync(java.util.Map<String, String> context)
     {

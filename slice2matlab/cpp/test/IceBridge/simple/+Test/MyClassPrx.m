@@ -25,8 +25,6 @@
 %   getCallbackDatagramCountAsync
 %   getHeartbeatCount
 %   getHeartbeatCountAsync
-%   enableHeartbeats
-%   enableHeartbeatsAsync
 %   shutdown
 %   shutdownAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
@@ -342,24 +340,6 @@ classdef MyClassPrx < Ice.ObjectPrx
                 varargout{1} = result;
             end
             r_ = obj.iceInvokeAsync('getHeartbeatCount', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function enableHeartbeats(obj, varargin)
-            % enableHeartbeats
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
-            obj.iceInvoke('enableHeartbeats', 0, false, [], false, {}, varargin{:});
-        end
-        function r_ = enableHeartbeatsAsync(obj, varargin)
-            % enableHeartbeatsAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            r_ = obj.iceInvokeAsync('enableHeartbeats', 0, false, [], 0, [], {}, varargin{:});
         end
         function shutdown(obj, varargin)
             % shutdown

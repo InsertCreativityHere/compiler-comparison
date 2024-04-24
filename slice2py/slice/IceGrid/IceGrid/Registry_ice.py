@@ -374,18 +374,16 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.invokeAsync(self, ((), context))
 
         """
-         Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-         the time interval defined by this timeout, IceGrid might reap the session.
+         Get the idle timeout used by IceGrid for its side of the connection.
         Arguments:
         context -- The request context for the invocation.
-        Returns: The timeout (in seconds).
+        Returns: The idle timeout (in seconds).
         """
         def getSessionTimeout(self, context=None):
             return _M_IceGrid.Registry._op_getSessionTimeout.invoke(self, ((), context))
 
         """
-         Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-         the time interval defined by this timeout, IceGrid might reap the session.
+         Get the idle timeout used by IceGrid for its side of the connection.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -394,18 +392,16 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_getSessionTimeout.invokeAsync(self, ((), context))
 
         """
-         Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-         explicitly sending keep alives requests. This method is only available since Ice 3.6.
+         Get the idle timeout used by IceGrid for its side of the connection.
         Arguments:
         context -- The request context for the invocation.
-        Returns: The timeout (in seconds).
+        Returns: The idle timeout (in seconds).
         """
         def getACMTimeout(self, context=None):
             return _M_IceGrid.Registry._op_getACMTimeout.invoke(self, ((), context))
 
         """
-         Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-         explicitly sending keep alives requests. This method is only available since Ice 3.6.
+         Get the idle timeout used by IceGrid for its side of the connection.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -492,8 +488,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def getSessionTimeout(self, current=None):
             """
-             Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-             the time interval defined by this timeout, IceGrid might reap the session.
+             Get the idle timeout used by IceGrid for its side of the connection.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -502,8 +497,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def getACMTimeout(self, current=None):
             """
-             Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-             explicitly sending keep alives requests. This method is only available since Ice 3.6.
+             Get the idle timeout used by IceGrid for its side of the connection.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.

@@ -102,9 +102,6 @@ namespace Test
     public delegate void Callback_MyClass_getHeartbeatCount(int ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_enableHeartbeats();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_MyClass_shutdown();
 }
 
@@ -181,10 +178,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task<int> getHeartbeatCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        void enableHeartbeats(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task enableHeartbeatsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
         void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -247,9 +240,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         int getHeartbeatCount(global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void enableHeartbeats(global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void shutdown(global::Ice.Current current = null);
@@ -728,18 +718,6 @@ namespace Test
             }
         }
 
-        public void enableHeartbeats(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_enableHeartbeatsAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
@@ -1110,31 +1088,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task enableHeartbeatsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_enableHeartbeatsAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_enableHeartbeatsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_enableHeartbeats(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _enableHeartbeats_name = "enableHeartbeats";
-
-        private void _iceI_enableHeartbeats(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _enableHeartbeats_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous);
-        }
-
         public global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
@@ -1491,8 +1444,6 @@ namespace Test
 
         public abstract int getHeartbeatCount(global::Ice.Current current = null);
 
-        public abstract void enableHeartbeats(global::Ice.Current current = null);
-
         public abstract void shutdown(global::Ice.Current current = null);
 
         #endregion
@@ -1677,16 +1628,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_enableHeartbeats(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            obj.enableHeartbeats(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_shutdown(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -1701,7 +1642,6 @@ namespace Test
             "callDatagramCallback",
             "closeConnection",
             "datagram",
-            "enableHeartbeats",
             "getCallbackCount",
             "getCallbackDatagramCount",
             "getConnectionCount",
@@ -1746,57 +1686,53 @@ namespace Test
                 }
                 case 4:
                 {
-                    return iceD_enableHeartbeats(this, inS, current);
+                    return iceD_getCallbackCount(this, inS, current);
                 }
                 case 5:
                 {
-                    return iceD_getCallbackCount(this, inS, current);
+                    return iceD_getCallbackDatagramCount(this, inS, current);
                 }
                 case 6:
                 {
-                    return iceD_getCallbackDatagramCount(this, inS, current);
+                    return iceD_getConnectionCount(this, inS, current);
                 }
                 case 7:
                 {
-                    return iceD_getConnectionCount(this, inS, current);
+                    return iceD_getConnectionInfo(this, inS, current);
                 }
                 case 8:
                 {
-                    return iceD_getConnectionInfo(this, inS, current);
+                    return iceD_getDatagramCount(this, inS, current);
                 }
                 case 9:
                 {
-                    return iceD_getDatagramCount(this, inS, current);
+                    return iceD_getHeartbeatCount(this, inS, current);
                 }
                 case 10:
                 {
-                    return iceD_getHeartbeatCount(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
                 }
                 case 11:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
                 }
                 case 12:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
                 }
                 case 13:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
                 }
                 case 14:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
+                    return iceD_incCounter(this, inS, current);
                 }
                 case 15:
                 {
-                    return iceD_incCounter(this, inS, current);
-                }
-                case 16:
-                {
                     return iceD_shutdown(this, inS, current);
                 }
-                case 17:
+                case 16:
                 {
                     return iceD_waitCounter(this, inS, current);
                 }

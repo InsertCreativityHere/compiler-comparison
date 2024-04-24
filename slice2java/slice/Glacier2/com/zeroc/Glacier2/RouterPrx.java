@@ -487,9 +487,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     };
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-     * time.
-     * @return The timeout (in seconds).
+     * Get the idle timeout used by the server-side of the connection.
+     * @return The idle timeout (in seconds).
      **/
     default long getSessionTimeout()
     {
@@ -497,10 +496,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-     * time.
+     * Get the idle timeout used by the server-side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      **/
     default long getSessionTimeout(java.util.Map<String, String> context)
     {
@@ -508,9 +506,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-     * time.
-     * @return The timeout (in seconds).
+     * Get the idle timeout used by the server-side of the connection.
+     * @return The idle timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Long> getSessionTimeoutAsync()
     {
@@ -518,10 +515,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-     * time.
+     * Get the idle timeout used by the server-side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Long> getSessionTimeoutAsync(java.util.Map<String, String> context)
     {
@@ -546,9 +542,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
-     * @return The timeout (in seconds).
+     * Get the idle timeout used by the server-side of the connection.
+     * @return The idle timeout (in seconds).
      **/
     default int getACMTimeout()
     {
@@ -556,10 +551,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by the server-side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      **/
     default int getACMTimeout(java.util.Map<String, String> context)
     {
@@ -567,9 +561,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
-     * @return The timeout (in seconds).
+     * Get the idle timeout used by the server-side of the connection.
+     * @return The idle timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getACMTimeoutAsync()
     {
@@ -577,10 +570,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by the server-side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getACMTimeoutAsync(java.util.Map<String, String> context)
     {

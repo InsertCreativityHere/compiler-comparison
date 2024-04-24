@@ -13,10 +13,10 @@
 %   refreshSessionAsync - Keep the calling client's session with this router alive.
 %   destroySession - Destroy the calling client's session with this router.
 %   destroySessionAsync - Destroy the calling client's session with this router.
-%   getSessionTimeout - Get the value of the session timeout.
-%   getSessionTimeoutAsync - Get the value of the session timeout.
-%   getACMTimeout - Get the value of the ACM timeout.
-%   getACMTimeoutAsync - Get the value of the ACM timeout.
+%   getSessionTimeout - Get the idle timeout used by the server-side of the connection.
+%   getSessionTimeoutAsync - Get the idle timeout used by the server-side of the connection.
+%   getACMTimeout - Get the idle timeout used by the server-side of the connection.
+%   getACMTimeoutAsync - Get the idle timeout used by the server-side of the connection.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -227,13 +227,12 @@ classdef RouterPrx < Ice.RouterPrx
             r_ = obj.iceInvokeAsync('destroySession', 0, true, [], 0, [], Glacier2.RouterPrx.destroySession_ex_, varargin{:});
         end
         function result = getSessionTimeout(obj, varargin)
-            % getSessionTimeout   Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-            % time.
+            % getSessionTimeout   Get the idle timeout used by the server-side of the connection.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (int64) - The timeout (in seconds).
+            % Returns (int64) - The idle timeout (in seconds).
             
             is_ = obj.iceInvoke('getSessionTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -241,8 +240,7 @@ classdef RouterPrx < Ice.RouterPrx
             is_.endEncapsulation();
         end
         function r_ = getSessionTimeoutAsync(obj, varargin)
-            % getSessionTimeoutAsync   Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-            % time.
+            % getSessionTimeoutAsync   Get the idle timeout used by the server-side of the connection.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -258,13 +256,12 @@ classdef RouterPrx < Ice.RouterPrx
             r_ = obj.iceInvokeAsync('getSessionTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getACMTimeout(obj, varargin)
-            % getACMTimeout   Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-            % explicitly sending keep alives requests. This method is only available since Ice 3.6.
+            % getACMTimeout   Get the idle timeout used by the server-side of the connection.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (int32) - The timeout (in seconds).
+            % Returns (int32) - The idle timeout (in seconds).
             
             is_ = obj.iceInvoke('getACMTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -272,8 +269,7 @@ classdef RouterPrx < Ice.RouterPrx
             is_.endEncapsulation();
         end
         function r_ = getACMTimeoutAsync(obj, varargin)
-            % getACMTimeoutAsync   Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-            % explicitly sending keep alives requests. This method is only available since Ice 3.6.
+            % getACMTimeoutAsync   Get the idle timeout used by the server-side of the connection.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

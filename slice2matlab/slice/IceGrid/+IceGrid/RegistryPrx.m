@@ -11,10 +11,10 @@
 %   createSessionFromSecureConnectionAsync - Create a client session from a secure connection.
 %   createAdminSessionFromSecureConnection - Create an administrative session from a secure connection.
 %   createAdminSessionFromSecureConnectionAsync - Create an administrative session from a secure connection.
-%   getSessionTimeout - Get the session timeout.
-%   getSessionTimeoutAsync - Get the session timeout.
-%   getACMTimeout - Get the value of the ACM timeout.
-%   getACMTimeoutAsync - Get the value of the ACM timeout.
+%   getSessionTimeout - Get the idle timeout used by IceGrid for its side of the connection.
+%   getSessionTimeoutAsync - Get the idle timeout used by IceGrid for its side of the connection.
+%   getACMTimeout - Get the idle timeout used by IceGrid for its side of the connection.
+%   getACMTimeoutAsync - Get the idle timeout used by IceGrid for its side of the connection.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 %
@@ -198,15 +198,12 @@ classdef RegistryPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('createAdminSessionFromSecureConnection', 0, true, [], 1, @unmarshal, IceGrid.RegistryPrx.createAdminSessionFromSecureConnection_ex_, varargin{:});
         end
         function result = getSessionTimeout(obj, varargin)
-            % getSessionTimeout   Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-            % the time interval defined by this timeout, IceGrid might reap the session.
+            % getSessionTimeout   Get the idle timeout used by IceGrid for its side of the connection.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (int32) - The timeout (in seconds).
-            %
-            % See also IceGrid.Session.keepAlive, IceGrid.AdminSession.keepAlive
+            % Returns (int32) - The idle timeout (in seconds).
             
             is_ = obj.iceInvoke('getSessionTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -214,15 +211,12 @@ classdef RegistryPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getSessionTimeoutAsync(obj, varargin)
-            % getSessionTimeoutAsync   Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-            % the time interval defined by this timeout, IceGrid might reap the session.
+            % getSessionTimeoutAsync   Get the idle timeout used by IceGrid for its side of the connection.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            %
-            % See also IceGrid.Session.keepAlive, IceGrid.AdminSession.keepAlive
             
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
@@ -233,13 +227,12 @@ classdef RegistryPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getSessionTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getACMTimeout(obj, varargin)
-            % getACMTimeout   Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-            % explicitly sending keep alives requests. This method is only available since Ice 3.6.
+            % getACMTimeout   Get the idle timeout used by IceGrid for its side of the connection.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (int32) - The timeout (in seconds).
+            % Returns (int32) - The idle timeout (in seconds).
             
             is_ = obj.iceInvoke('getACMTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -247,8 +240,7 @@ classdef RegistryPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getACMTimeoutAsync(obj, varargin)
-            % getACMTimeoutAsync   Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-            % explicitly sending keep alives requests. This method is only available since Ice 3.6.
+            % getACMTimeoutAsync   Get the idle timeout used by IceGrid for its side of the connection.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

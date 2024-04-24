@@ -270,24 +270,21 @@ public:
     /// \endcond
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-     * time.
+     * Get the idle timeout used by the server-side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      */
     ::std::int64_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-     * time.
+     * Get the idle timeout used by the server-side of the connection.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
     ::std::future<::std::int64_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-     * time.
+     * Get the idle timeout used by the server-side of the connection.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -302,24 +299,21 @@ public:
     /// \endcond
 
     /**
-     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by the server-side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      */
     ::std::int32_t getACMTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by the server-side of the connection.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
     ::std::future<::std::int32_t> getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by the server-side of the connection.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -542,10 +536,9 @@ public:
     /// \endcond
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-     * time.
+     * Get the idle timeout used by the server-side of the connection.
      * @param current The Current object for the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      */
     virtual ::std::int64_t getSessionTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -553,10 +546,9 @@ public:
     /// \endcond
 
     /**
-     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by the server-side of the connection.
      * @param current The Current object for the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      */
     virtual ::std::int32_t getACMTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL

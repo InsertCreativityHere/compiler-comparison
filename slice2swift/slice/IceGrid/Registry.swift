@@ -511,13 +511,13 @@ public extension QueryPrx {
 ///
 ///  - createAdminSessionFromSecureConnectionAsync: Create an administrative session from a secure connection.
 ///
-///  - getSessionTimeout: Get the session timeout.
+///  - getSessionTimeout: Get the idle timeout used by IceGrid for its side of the connection.
 ///
-///  - getSessionTimeoutAsync: Get the session timeout.
+///  - getSessionTimeoutAsync: Get the idle timeout used by IceGrid for its side of the connection.
 ///
-///  - getACMTimeout: Get the value of the ACM timeout.
+///  - getACMTimeout: Get the idle timeout used by IceGrid for its side of the connection.
 ///
-///  - getACMTimeoutAsync: Get the value of the ACM timeout.
+///  - getACMTimeoutAsync: Get the idle timeout used by IceGrid for its side of the connection.
 public protocol RegistryPrx: Ice.ObjectPrx {}
 
 private final class RegistryPrxI: Ice.ObjectPrxI, RegistryPrx {
@@ -613,13 +613,13 @@ public extension Ice.InputStream {
 ///
 ///  - createAdminSessionFromSecureConnectionAsync: Create an administrative session from a secure connection.
 ///
-///  - getSessionTimeout: Get the session timeout.
+///  - getSessionTimeout: Get the idle timeout used by IceGrid for its side of the connection.
 ///
-///  - getSessionTimeoutAsync: Get the session timeout.
+///  - getSessionTimeoutAsync: Get the idle timeout used by IceGrid for its side of the connection.
 ///
-///  - getACMTimeout: Get the value of the ACM timeout.
+///  - getACMTimeout: Get the idle timeout used by IceGrid for its side of the connection.
 ///
-///  - getACMTimeoutAsync: Get the value of the ACM timeout.
+///  - getACMTimeoutAsync: Get the idle timeout used by IceGrid for its side of the connection.
 public extension RegistryPrx {
     /// Create a client session.
     ///
@@ -893,12 +893,11 @@ public extension RegistryPrx {
                                   sent: sent)
     }
 
-    /// Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-    /// the time interval defined by this timeout, IceGrid might reap the session.
+    /// Get the idle timeout used by IceGrid for its side of the connection.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Swift.Int32` - The timeout (in seconds).
+    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
     func getSessionTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getSessionTimeout",
                                  mode: .Idempotent,
@@ -909,8 +908,7 @@ public extension RegistryPrx {
                                  context: context)
     }
 
-    /// Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-    /// the time interval defined by this timeout, IceGrid might reap the session.
+    /// Get the idle timeout used by IceGrid for its side of the connection.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -936,12 +934,11 @@ public extension RegistryPrx {
                                   sent: sent)
     }
 
-    /// Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-    /// explicitly sending keep alives requests. This method is only available since Ice 3.6.
+    /// Get the idle timeout used by IceGrid for its side of the connection.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Swift.Int32` - The timeout (in seconds).
+    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
     func getACMTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getACMTimeout",
                                  mode: .Idempotent,
@@ -952,8 +949,7 @@ public extension RegistryPrx {
                                  context: context)
     }
 
-    /// Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-    /// explicitly sending keep alives requests. This method is only available since Ice 3.6.
+    /// Get the idle timeout used by IceGrid for its side of the connection.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1353,20 +1349,18 @@ public protocol Registry {
     ///     user is not allowed access.
     func createAdminSessionFromSecureConnection(current: Ice.Current) throws -> AdminSessionPrx?
 
-    /// Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-    /// the time interval defined by this timeout, IceGrid might reap the session.
+    /// Get the idle timeout used by IceGrid for its side of the connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The timeout (in seconds).
+    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
     func getSessionTimeout(current: Ice.Current) throws -> Swift.Int32
 
-    /// Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-    /// explicitly sending keep alives requests. This method is only available since Ice 3.6.
+    /// Get the idle timeout used by IceGrid for its side of the connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The timeout (in seconds).
+    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
     func getACMTimeout(current: Ice.Current) throws -> Swift.Int32
 }
 
@@ -1519,9 +1513,9 @@ public extension Query {
 ///
 ///  - createAdminSessionFromSecureConnection: Create an administrative session from a secure connection.
 ///
-///  - getSessionTimeout: Get the session timeout.
+///  - getSessionTimeout: Get the idle timeout used by IceGrid for its side of the connection.
 ///
-///  - getACMTimeout: Get the value of the ACM timeout.
+///  - getACMTimeout: Get the idle timeout used by IceGrid for its side of the connection.
 public extension Registry {
     func _iceD_createSession(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let (iceP_userId, iceP_password): (Swift.String, Swift.String) = try inS.read { istr in

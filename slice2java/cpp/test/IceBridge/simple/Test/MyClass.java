@@ -41,8 +41,6 @@ public interface MyClass extends com.zeroc.Ice.Object
 
     int getHeartbeatCount(com.zeroc.Ice.Current current);
 
-    void enableHeartbeats(com.zeroc.Ice.Current current);
-
     void shutdown(com.zeroc.Ice.Current current);
 
     /** @hidden */
@@ -280,21 +278,6 @@ public interface MyClass extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_enableHeartbeats(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.enableHeartbeats(current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_shutdown(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -310,7 +293,6 @@ public interface MyClass extends com.zeroc.Ice.Object
         "callDatagramCallback",
         "closeConnection",
         "datagram",
-        "enableHeartbeats",
         "getCallbackCount",
         "getCallbackDatagramCount",
         "getConnectionCount",
@@ -357,57 +339,53 @@ public interface MyClass extends com.zeroc.Ice.Object
             }
             case 4:
             {
-                return _iceD_enableHeartbeats(this, in, current);
+                return _iceD_getCallbackCount(this, in, current);
             }
             case 5:
             {
-                return _iceD_getCallbackCount(this, in, current);
+                return _iceD_getCallbackDatagramCount(this, in, current);
             }
             case 6:
             {
-                return _iceD_getCallbackDatagramCount(this, in, current);
+                return _iceD_getConnectionCount(this, in, current);
             }
             case 7:
             {
-                return _iceD_getConnectionCount(this, in, current);
+                return _iceD_getConnectionInfo(this, in, current);
             }
             case 8:
             {
-                return _iceD_getConnectionInfo(this, in, current);
+                return _iceD_getDatagramCount(this, in, current);
             }
             case 9:
             {
-                return _iceD_getDatagramCount(this, in, current);
+                return _iceD_getHeartbeatCount(this, in, current);
             }
             case 10:
             {
-                return _iceD_getHeartbeatCount(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 11:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 12:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 13:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 14:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+                return _iceD_incCounter(this, in, current);
             }
             case 15:
             {
-                return _iceD_incCounter(this, in, current);
-            }
-            case 16:
-            {
                 return _iceD_shutdown(this, in, current);
             }
-            case 17:
+            case 16:
             {
                 return _iceD_waitCounter(this, in, current);
             }

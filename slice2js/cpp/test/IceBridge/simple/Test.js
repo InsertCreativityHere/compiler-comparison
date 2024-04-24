@@ -72,7 +72,6 @@
         "callDatagramCallback": [, , , , , , , , , ],
         "getCallbackDatagramCount": [, , , , [3], , , , , ],
         "getHeartbeatCount": [, , , , [3], , , , , ],
-        "enableHeartbeats": [, , , , , , , , , ],
         "shutdown": [, , , , , , , , , ]
     });
     exports.Test = Test;

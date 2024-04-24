@@ -446,39 +446,6 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void enableHeartbeats()
-    {
-        enableHeartbeats(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void enableHeartbeats(java.util.Map<String, String> context)
-    {
-        _iceI_enableHeartbeatsAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> enableHeartbeatsAsync()
-    {
-        return _iceI_enableHeartbeatsAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> enableHeartbeatsAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_enableHeartbeatsAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_enableHeartbeatsAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "enableHeartbeats", null, sync, null);
-        f.invoke(false, context, null, null, null);
-        return f;
-    }
-
     default void shutdown()
     {
         shutdown(com.zeroc.Ice.ObjectPrx.noExplicitContext);

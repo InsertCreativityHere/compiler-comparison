@@ -83,13 +83,13 @@ public struct RouterTraits: Ice.SliceTraits {
 ///
 ///  - destroySessionAsync: Destroy the calling client's session with this router.
 ///
-///  - getSessionTimeout: Get the value of the session timeout.
+///  - getSessionTimeout: Get the idle timeout used by the server-side of the connection.
 ///
-///  - getSessionTimeoutAsync: Get the value of the session timeout.
+///  - getSessionTimeoutAsync: Get the idle timeout used by the server-side of the connection.
 ///
-///  - getACMTimeout: Get the value of the ACM timeout.
+///  - getACMTimeout: Get the idle timeout used by the server-side of the connection.
 ///
-///  - getACMTimeoutAsync: Get the value of the ACM timeout.
+///  - getACMTimeoutAsync: Get the idle timeout used by the server-side of the connection.
 public protocol RouterPrx: Ice.RouterPrx {}
 
 private final class RouterPrxI: Ice.ObjectPrxI, RouterPrx {
@@ -189,13 +189,13 @@ public extension Ice.InputStream {
 ///
 ///  - destroySessionAsync: Destroy the calling client's session with this router.
 ///
-///  - getSessionTimeout: Get the value of the session timeout.
+///  - getSessionTimeout: Get the idle timeout used by the server-side of the connection.
 ///
-///  - getSessionTimeoutAsync: Get the value of the session timeout.
+///  - getSessionTimeoutAsync: Get the idle timeout used by the server-side of the connection.
 ///
-///  - getACMTimeout: Get the value of the ACM timeout.
+///  - getACMTimeout: Get the idle timeout used by the server-side of the connection.
 ///
-///  - getACMTimeoutAsync: Get the value of the ACM timeout.
+///  - getACMTimeoutAsync: Get the idle timeout used by the server-side of the connection.
 public extension RouterPrx {
     /// This category must be used in the identities of all of the client's callback objects. This is necessary in
     /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
@@ -514,12 +514,11 @@ public extension RouterPrx {
                                   sent: sent)
     }
 
-    /// Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-    /// time.
+    /// Get the idle timeout used by the server-side of the connection.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Swift.Int64` - The timeout (in seconds).
+    /// - returns: `Swift.Int64` - The idle timeout (in seconds).
     func getSessionTimeout(context: Ice.Context? = nil) throws -> Swift.Int64 {
         return try _impl._invoke(operation: "getSessionTimeout",
                                  mode: .Idempotent,
@@ -530,8 +529,7 @@ public extension RouterPrx {
                                  context: context)
     }
 
-    /// Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-    /// time.
+    /// Get the idle timeout used by the server-side of the connection.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -557,12 +555,11 @@ public extension RouterPrx {
                                   sent: sent)
     }
 
-    /// Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-    /// explicitly sending keep alives requests. This method is only available since Ice 3.6.
+    /// Get the idle timeout used by the server-side of the connection.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Swift.Int32` - The timeout (in seconds).
+    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
     func getACMTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getACMTimeout",
                                  mode: .Idempotent,
@@ -573,8 +570,7 @@ public extension RouterPrx {
                                  context: context)
     }
 
-    /// Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-    /// explicitly sending keep alives requests. This method is only available since Ice 3.6.
+    /// Get the idle timeout used by the server-side of the connection.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -704,20 +700,18 @@ public protocol Router: Ice.Router {
     ///   - SessionNotExistException - Raised if no session exists for the calling client.
     func destroySession(current: Ice.Current) throws
 
-    /// Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
-    /// time.
+    /// Get the idle timeout used by the server-side of the connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int64` - The timeout (in seconds).
+    /// - returns: `Swift.Int64` - The idle timeout (in seconds).
     func getSessionTimeout(current: Ice.Current) throws -> Swift.Int64
 
-    /// Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
-    /// explicitly sending keep alives requests. This method is only available since Ice 3.6.
+    /// Get the idle timeout used by the server-side of the connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The timeout (in seconds).
+    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
     func getACMTimeout(current: Ice.Current) throws -> Swift.Int32
 }
 
@@ -735,9 +729,9 @@ public protocol Router: Ice.Router {
 ///
 ///  - destroySession: Destroy the calling client's session with this router.
 ///
-///  - getSessionTimeout: Get the value of the session timeout.
+///  - getSessionTimeout: Get the idle timeout used by the server-side of the connection.
 ///
-///  - getACMTimeout: Get the value of the ACM timeout.
+///  - getACMTimeout: Get the idle timeout used by the server-side of the connection.
 public extension Router {
     func _iceD_getCategoryForClient(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         try inS.readEmptyParams()

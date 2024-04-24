@@ -450,35 +450,26 @@ public:
     /// \endcond
 
     /**
-     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-     * the time interval defined by this timeout, IceGrid might reap the session.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
-     * @see Session#keepAlive
-     * @see AdminSession#keepAlive
+     * @return The idle timeout (in seconds).
      */
     ::std::int32_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-     * the time interval defined by this timeout, IceGrid might reap the session.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
-     * @see Session#keepAlive
-     * @see AdminSession#keepAlive
      */
     ::std::future<::std::int32_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-     * the time interval defined by this timeout, IceGrid might reap the session.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
      * @param context The Context map to send with the invocation.
      * @return A function that can be called to cancel the invocation locally.
-     * @see Session#keepAlive
-     * @see AdminSession#keepAlive
      */
     ::std::function<void()>
     getSessionTimeoutAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -488,24 +479,21 @@ public:
     /// \endcond
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param context The Context map to send with the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      */
     ::std::int32_t getACMTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
     ::std::future<::std::int32_t> getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -879,12 +867,9 @@ public:
     /// \endcond
 
     /**
-     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
-     * the time interval defined by this timeout, IceGrid might reap the session.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param current The Current object for the invocation.
-     * @return The timeout (in seconds).
-     * @see Session#keepAlive
-     * @see AdminSession#keepAlive
+     * @return The idle timeout (in seconds).
      */
     virtual ::std::int32_t getSessionTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -892,10 +877,9 @@ public:
     /// \endcond
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
-     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
+     * Get the idle timeout used by IceGrid for its side of the connection.
      * @param current The Current object for the invocation.
-     * @return The timeout (in seconds).
+     * @return The idle timeout (in seconds).
      */
     virtual ::std::int32_t getACMTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL

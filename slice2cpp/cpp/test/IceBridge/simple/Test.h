@@ -268,17 +268,6 @@ public:
     void _iceI_getHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void enableHeartbeats(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<void> enableHeartbeatsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    enableHeartbeatsAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_enableHeartbeats(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
-    /// \endcond
-
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -480,11 +469,6 @@ public:
     virtual ::std::int32_t getHeartbeatCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getHeartbeatCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual void enableHeartbeats(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_enableHeartbeats(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;

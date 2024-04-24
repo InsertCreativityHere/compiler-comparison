@@ -185,12 +185,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def getHeartbeatCountAsync(self, context=None):
             return _M_Test.MyClass._op_getHeartbeatCount.invokeAsync(self, ((), context))
 
-        def enableHeartbeats(self, context=None):
-            return _M_Test.MyClass._op_enableHeartbeats.invoke(self, ((), context))
-
-        def enableHeartbeatsAsync(self, context=None):
-            return _M_Test.MyClass._op_enableHeartbeats.invokeAsync(self, ((), context))
-
         def shutdown(self, context=None):
             return _M_Test.MyClass._op_shutdown.invoke(self, ((), context))
 
@@ -262,9 +256,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def getHeartbeatCount(self, current=None):
             raise NotImplementedError("servant method 'getHeartbeatCount' not implemented")
 
-        def enableHeartbeats(self, current=None):
-            raise NotImplementedError("servant method 'enableHeartbeats' not implemented")
-
         def shutdown(self, current=None):
             raise NotImplementedError("servant method 'shutdown' not implemented")
 
@@ -288,7 +279,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     MyClass._op_callDatagramCallback = IcePy.Operation('callDatagramCallback', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     MyClass._op_getCallbackDatagramCount = IcePy.Operation('getCallbackDatagramCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     MyClass._op_getHeartbeatCount = IcePy.Operation('getHeartbeatCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    MyClass._op_enableHeartbeats = IcePy.Operation('enableHeartbeats', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.MyClass = MyClass

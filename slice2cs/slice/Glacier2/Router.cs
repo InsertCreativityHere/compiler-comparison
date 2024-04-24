@@ -251,18 +251,15 @@ namespace Glacier2
         global::System.Threading.Tasks.Task destroySessionAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the value of the session timeout.
-        /// Sessions are destroyed if they see no activity for this period of
-        ///  time.
+        /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
-        ///  <returns>The timeout (in seconds).</returns>
+        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         long getSessionTimeout(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the value of the session timeout.
-        /// Sessions are destroyed if they see no activity for this period of
+        /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -271,18 +268,15 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<long> getSessionTimeoutAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the value of the ACM timeout.
-        /// Clients supporting connection heartbeats can enable them instead of
-        ///  explicitly sending keep alives requests. This method is only available since Ice 3.6.
+        /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
-        ///  <returns>The timeout (in seconds).</returns>
+        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         int getACMTimeout(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the value of the ACM timeout.
-        /// Clients supporting connection heartbeats can enable them instead of
+        /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -353,22 +347,18 @@ namespace Glacier2
         void destroySession(global::Ice.Current current = null);
 
         /// <summary>
-        /// Get the value of the session timeout.
-        /// Sessions are destroyed if they see no activity for this period of
-        ///  time.
+        /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
-        ///  <returns>The timeout (in seconds).</returns>
+        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         long getSessionTimeout(global::Ice.Current current = null);
 
         /// <summary>
-        /// Get the value of the ACM timeout.
-        /// Clients supporting connection heartbeats can enable them instead of
-        ///  explicitly sending keep alives requests. This method is only available since Ice 3.6.
+        /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
-        ///  <returns>The timeout (in seconds).</returns>
+        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

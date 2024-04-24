@@ -113,10 +113,6 @@ module ::Test
                 MyClassPrx_mixin::OP_getHeartbeatCount.invoke(self, [], context)
             end
 
-            def enableHeartbeats(context=nil)
-                MyClassPrx_mixin::OP_enableHeartbeats.invoke(self, [], context)
-            end
-
             def shutdown(context=nil)
                 MyClassPrx_mixin::OP_shutdown.invoke(self, [], context)
             end
@@ -146,7 +142,6 @@ module ::Test
         MyClassPrx_mixin::OP_callDatagramCallback = ::Ice::__defineOperation('callDatagramCallback', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         MyClassPrx_mixin::OP_getCallbackDatagramCount = ::Ice::__defineOperation('getCallbackDatagramCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_int, false, 0], [])
         MyClassPrx_mixin::OP_getHeartbeatCount = ::Ice::__defineOperation('getHeartbeatCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        MyClassPrx_mixin::OP_enableHeartbeats = ::Ice::__defineOperation('enableHeartbeats', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

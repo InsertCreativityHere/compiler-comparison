@@ -385,18 +385,15 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<AdminSessionPrx> createAdminSessionFromSecureConnectionAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the session timeout.
-        /// If a client or administrative client doesn't call the session keepAlive method in
-        ///  the time interval defined by this timeout, IceGrid might reap the session.
+        /// Get the idle timeout used by IceGrid for its side of the connection.
         /// </summary>
-        ///  <returns>The timeout (in seconds).</returns>
+        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         int getSessionTimeout(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the session timeout.
-        /// If a client or administrative client doesn't call the session keepAlive method in
+        /// Get the idle timeout used by IceGrid for its side of the connection.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -405,18 +402,15 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<int> getSessionTimeoutAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the value of the ACM timeout.
-        /// Clients supporting ACM connection heartbeats can enable them instead of
-        ///  explicitly sending keep alives requests. This method is only available since Ice 3.6.
+        /// Get the idle timeout used by IceGrid for its side of the connection.
         /// </summary>
-        ///  <returns>The timeout (in seconds).</returns>
+        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         int getACMTimeout(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the value of the ACM timeout.
-        /// Clients supporting ACM connection heartbeats can enable them instead of
+        /// Get the idle timeout used by IceGrid for its side of the connection.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -610,22 +604,18 @@ namespace IceGrid
         AdminSessionPrx createAdminSessionFromSecureConnection(global::Ice.Current current = null);
 
         /// <summary>
-        /// Get the session timeout.
-        /// If a client or administrative client doesn't call the session keepAlive method in
-        ///  the time interval defined by this timeout, IceGrid might reap the session.
+        /// Get the idle timeout used by IceGrid for its side of the connection.
         /// </summary>
-        ///  <returns>The timeout (in seconds).</returns>
+        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         int getSessionTimeout(global::Ice.Current current = null);
 
         /// <summary>
-        /// Get the value of the ACM timeout.
-        /// Clients supporting ACM connection heartbeats can enable them instead of
-        ///  explicitly sending keep alives requests. This method is only available since Ice 3.6.
+        /// Get the idle timeout used by IceGrid for its side of the connection.
         /// </summary>
-        ///  <returns>The timeout (in seconds).</returns>
+        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

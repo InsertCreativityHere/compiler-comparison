@@ -332,10 +332,6 @@ public extension CallbackPrx {
 ///
 ///  - getHeartbeatCountAsync: 
 ///
-///  - enableHeartbeats: 
-///
-///  - enableHeartbeatsAsync: 
-///
 ///  - shutdown: 
 ///
 ///  - shutdownAsync: 
@@ -465,10 +461,6 @@ public extension Ice.InputStream {
 ///  - getHeartbeatCount: 
 ///
 ///  - getHeartbeatCountAsync: 
-///
-///  - enableHeartbeats: 
-///
-///  - enableHeartbeatsAsync: 
 ///
 ///  - shutdown: 
 ///
@@ -914,35 +906,6 @@ public extension MyClassPrx {
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func enableHeartbeats(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "enableHeartbeats",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func enableHeartbeatsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "enableHeartbeats",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "shutdown",
                           mode: .Normal,
@@ -1049,8 +1012,6 @@ public struct MyClassDisp: Ice.Disp {
             return try servant._iceD_closeConnection(incoming: request, current: current)
         case "datagram":
             return try servant._iceD_datagram(incoming: request, current: current)
-        case "enableHeartbeats":
-            return try servant._iceD_enableHeartbeats(incoming: request, current: current)
         case "getCallbackCount":
             return try servant._iceD_getCallbackCount(incoming: request, current: current)
         case "getCallbackDatagramCount":
@@ -1154,10 +1115,6 @@ public protocol MyClass {
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func enableHeartbeats(current: Ice.Current) throws
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) throws
 }
 
@@ -1237,8 +1194,6 @@ public extension Callback {
 ///  - getCallbackDatagramCount: 
 ///
 ///  - getHeartbeatCount: 
-///
-///  - enableHeartbeats: 
 ///
 ///  - shutdown: 
 public extension MyClass {
@@ -1353,14 +1308,6 @@ public extension MyClass {
         return inS.setResult{ ostr in
             ostr.write(iceP_returnValue)
         }
-    }
-
-    func _iceD_enableHeartbeats(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        try self.enableHeartbeats(current: current)
-
-        return inS.setResult()
     }
 
     func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
