@@ -675,11 +675,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
@@ -725,11 +725,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
