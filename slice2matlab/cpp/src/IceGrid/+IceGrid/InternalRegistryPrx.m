@@ -169,7 +169,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             %
             % Returns (IceGrid.NodePrxSeq)
             
-            is_ = obj.iceInvoke('getNodes', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getNodes', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.NodePrxSeq.read(is_);
             is_.endEncapsulation();
@@ -188,7 +188,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getNodes', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getNodes', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getReplicas(obj, varargin)
             % getReplicas   Return the proxies of all the registry replicas known by this registry.
@@ -198,7 +198,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             %
             % Returns (IceGrid.InternalRegistryPrxSeq)
             
-            is_ = obj.iceInvoke('getReplicas', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getReplicas', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.InternalRegistryPrxSeq.read(is_);
             is_.endEncapsulation();
@@ -217,7 +217,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getReplicas', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getReplicas', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function [result, serial] = getApplications(obj, varargin)
             % getApplications   Return applications, adapters, objects from this replica.
@@ -229,7 +229,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             %   result (IceGrid.ApplicationInfoSeq)
             %   serial (int64)
             
-            is_ = obj.iceInvoke('getApplications', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getApplications', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             serial = is_.readLong();
             result = IceGrid.ApplicationInfoSeq.read(is_);
@@ -254,7 +254,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
                 varargout{1} = IceGrid.ApplicationInfoSeq.convert(result);
                 varargout{2} = serial;
             end
-            r_ = obj.iceInvokeAsync('getApplications', 2, true, [], 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getApplications', 1, true, [], 2, @unmarshal, {}, varargin{:});
         end
         function [result, serial] = getAdapters(obj, varargin)
             % getAdapters
@@ -266,7 +266,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             %   result (IceGrid.AdapterInfoSeq)
             %   serial (int64)
             
-            is_ = obj.iceInvoke('getAdapters', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getAdapters', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             serial = is_.readLong();
             result = IceGrid.AdapterInfoSeq.read(is_);
@@ -288,7 +288,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
                 varargout{1} = result;
                 varargout{2} = serial;
             end
-            r_ = obj.iceInvokeAsync('getAdapters', 2, true, [], 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getAdapters', 1, true, [], 2, @unmarshal, {}, varargin{:});
         end
         function [result, serial] = getObjects(obj, varargin)
             % getObjects
@@ -300,7 +300,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             %   result (IceGrid.ObjectInfoSeq)
             %   serial (int64)
             
-            is_ = obj.iceInvoke('getObjects', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getObjects', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             serial = is_.readLong();
             result = IceGrid.ObjectInfoSeq.read(is_);
@@ -322,7 +322,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
                 varargout{1} = result;
                 varargout{2} = serial;
             end
-            r_ = obj.iceInvokeAsync('getObjects', 2, true, [], 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getObjects', 1, true, [], 2, @unmarshal, {}, varargin{:});
         end
         function shutdown(obj, varargin)
             % shutdown   Shutdown this registry.
@@ -330,7 +330,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             
-            obj.iceInvoke('shutdown', 2, false, [], false, {}, varargin{:});
+            obj.iceInvoke('shutdown', 1, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
             % shutdownAsync   Shutdown this registry.
@@ -340,7 +340,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            r_ = obj.iceInvokeAsync('shutdown', 2, false, [], 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('shutdown', 1, false, [], 0, [], {}, varargin{:});
         end
     end
     methods(Static)

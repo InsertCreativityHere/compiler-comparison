@@ -66,7 +66,7 @@ Ice::RouterPrx::_iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "getClientProxy";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr,
         [](InputStream* istr)
@@ -102,7 +102,7 @@ Ice::RouterPrx::_iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "getServerProxy";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -131,7 +131,7 @@ Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<::IceInternal::Outgoing
     static constexpr ::std::string_view operationName = "addProxies";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxies);

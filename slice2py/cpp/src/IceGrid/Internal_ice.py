@@ -343,7 +343,7 @@ if 'AdapterPrx' not in _M_IceGrid.__dict__:
     Adapter._ice_type = _M_IceGrid._t_AdapterDisp
 
     Adapter._op_activate = IcePy.Operation('activate', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Adapter._op_getDirectProxy = IcePy.Operation('getDirectProxy', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceGrid._t_AdapterNotActiveException,))
+    Adapter._op_getDirectProxy = IcePy.Operation('getDirectProxy', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceGrid._t_AdapterNotActiveException,))
     Adapter._op_setDirectProxy = IcePy.Operation('setDirectProxy', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), None, (_M_IceGrid._t_AdapterActiveException,))
 
     _M_IceGrid.Adapter = Adapter
@@ -488,8 +488,8 @@ if 'FileReaderPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_FileReaderDisp = IcePy.defineClass('::IceGrid::FileReader', FileReader, (), None, ())
     FileReader._ice_type = _M_IceGrid._t_FileReaderDisp
 
-    FileReader._op_getOffsetFromEnd = IcePy.Operation('getOffsetFromEnd', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_long, False, 0), (_M_IceGrid._t_FileNotAvailableException,))
-    FileReader._op_read = IcePy.Operation('read', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_long, False, 0), ((), IcePy._t_int, False, 0)), (((), IcePy._t_long, False, 0), ((), _M_Ice._t_StringSeq, False, 0)), ((), IcePy._t_bool, False, 0), (_M_IceGrid._t_FileNotAvailableException,))
+    FileReader._op_getOffsetFromEnd = IcePy.Operation('getOffsetFromEnd', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_long, False, 0), (_M_IceGrid._t_FileNotAvailableException,))
+    FileReader._op_read = IcePy.Operation('read', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_long, False, 0), ((), IcePy._t_int, False, 0)), (((), IcePy._t_long, False, 0), ((), _M_Ice._t_StringSeq, False, 0)), ((), IcePy._t_bool, False, 0), (_M_IceGrid._t_FileNotAvailableException,))
 
     _M_IceGrid.FileReader = FileReader
     del FileReader
@@ -834,11 +834,11 @@ if 'ServerPrx' not in _M_IceGrid.__dict__:
     Server._op_stop = IcePy.Operation('stop', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_IceGrid._t_ServerStopException,))
     Server._op_checkUpdate = IcePy.Operation('checkUpdate', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalServerDescriptor, False, 0), ((), IcePy._t_bool, False, 0)), (), ((), IcePy._t_bool, False, 0), (_M_IceGrid._t_DeploymentException,))
     Server._op_setEnabled = IcePy.Operation('setEnabled', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
-    Server._op_isEnabled = IcePy.Operation('isEnabled', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Server._op_isEnabled = IcePy.Operation('isEnabled', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Server._op_sendSignal = IcePy.Operation('sendSignal', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceGrid._t_BadSignalException,))
     Server._op_writeMessage = IcePy.Operation('writeMessage', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
-    Server._op_getState = IcePy.Operation('getState', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_ServerState, False, 0), ())
-    Server._op_getPid = IcePy.Operation('getPid', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    Server._op_getState = IcePy.Operation('getState', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceGrid._t_ServerState, False, 0), ())
+    Server._op_getPid = IcePy.Operation('getPid', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     Server._op_setProcess = IcePy.Operation('setProcess', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Ice._t_ProcessPrx, False, 0),), (), None, ())
 
     _M_IceGrid.Server = Server
@@ -1352,16 +1352,16 @@ if 'NodePrx' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_NodeDisp = IcePy.defineClass('::IceGrid::Node', Node, (), None, (_M_IceGrid._t_FileReaderDisp, _M_IceGrid._t_ReplicaObserverDisp))
     Node._ice_type = _M_IceGrid._t_NodeDisp
 
-    Node._op_loadServer = IcePy.Operation('loadServer', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (((), _M_IceGrid._t_InternalServerDescriptor, False, 0), ((), IcePy._t_string, False, 0)), (((), _M_IceGrid._t_AdapterPrxDict, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), ((), _M_IceGrid._t_ServerPrx, False, 0), (_M_IceGrid._t_DeploymentException,))
-    Node._op_loadServerWithoutRestart = IcePy.Operation('loadServerWithoutRestart', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (((), _M_IceGrid._t_InternalServerDescriptor, False, 0), ((), IcePy._t_string, False, 0)), (((), _M_IceGrid._t_AdapterPrxDict, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), ((), _M_IceGrid._t_ServerPrx, False, 0), (_M_IceGrid._t_DeploymentException,))
-    Node._op_destroyServer = IcePy.Operation('destroyServer', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceGrid._t_DeploymentException,))
-    Node._op_destroyServerWithoutRestart = IcePy.Operation('destroyServerWithoutRestart', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceGrid._t_DeploymentException,))
+    Node._op_loadServer = IcePy.Operation('loadServer', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, True, None, (), (((), _M_IceGrid._t_InternalServerDescriptor, False, 0), ((), IcePy._t_string, False, 0)), (((), _M_IceGrid._t_AdapterPrxDict, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), ((), _M_IceGrid._t_ServerPrx, False, 0), (_M_IceGrid._t_DeploymentException,))
+    Node._op_loadServerWithoutRestart = IcePy.Operation('loadServerWithoutRestart', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, True, None, (), (((), _M_IceGrid._t_InternalServerDescriptor, False, 0), ((), IcePy._t_string, False, 0)), (((), _M_IceGrid._t_AdapterPrxDict, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), ((), _M_IceGrid._t_ServerPrx, False, 0), (_M_IceGrid._t_DeploymentException,))
+    Node._op_destroyServer = IcePy.Operation('destroyServer', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceGrid._t_DeploymentException,))
+    Node._op_destroyServerWithoutRestart = IcePy.Operation('destroyServerWithoutRestart', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceGrid._t_DeploymentException,))
     Node._op_registerWithReplica = IcePy.Operation('registerWithReplica', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalRegistryPrx, False, 0),), (), None, ())
-    Node._op_getName = IcePy.Operation('getName', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
-    Node._op_getHostname = IcePy.Operation('getHostname', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
-    Node._op_getLoad = IcePy.Operation('getLoad', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_LoadInfo, False, 0), ())
-    Node._op_getProcessorSocketCount = IcePy.Operation('getProcessorSocketCount', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    Node._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    Node._op_getName = IcePy.Operation('getName', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    Node._op_getHostname = IcePy.Operation('getHostname', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    Node._op_getLoad = IcePy.Operation('getLoad', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceGrid._t_LoadInfo, False, 0), ())
+    Node._op_getProcessorSocketCount = IcePy.Operation('getProcessorSocketCount', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    Node._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), None, ())
 
     _M_IceGrid.Node = Node
     del Node
@@ -1665,10 +1665,10 @@ if 'NodeSessionPrx' not in _M_IceGrid.__dict__:
 
     NodeSession._op_keepAlive = IcePy.Operation('keepAlive', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_LoadInfo, False, 0),), (), None, ())
     NodeSession._op_setReplicaObserver = IcePy.Operation('setReplicaObserver', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_ReplicaObserverPrx, False, 0),), (), None, ())
-    NodeSession._op_getTimeout = IcePy.Operation('getTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    NodeSession._op_getObserver = IcePy.Operation('getObserver', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_NodeObserverPrx, False, 0), ())
-    NodeSession._op_loadServers = IcePy.Operation('loadServers', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (), (), None, ())
-    NodeSession._op_getServers = IcePy.Operation('getServers', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
+    NodeSession._op_getTimeout = IcePy.Operation('getTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    NodeSession._op_getObserver = IcePy.Operation('getObserver', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceGrid._t_NodeObserverPrx, False, 0), ())
+    NodeSession._op_loadServers = IcePy.Operation('loadServers', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, True, None, (), (), (), None, ())
+    NodeSession._op_getServers = IcePy.Operation('getServers', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
     NodeSession._op_waitForApplicationUpdate = IcePy.Operation('waitForApplicationUpdate', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
     NodeSession._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
@@ -2062,11 +2062,11 @@ if 'ReplicaSessionPrx' not in _M_IceGrid.__dict__:
     ReplicaSession._ice_type = _M_IceGrid._t_ReplicaSessionDisp
 
     ReplicaSession._op_keepAlive = IcePy.Operation('keepAlive', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    ReplicaSession._op_getTimeout = IcePy.Operation('getTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    ReplicaSession._op_setDatabaseObserver = IcePy.Operation('setDatabaseObserver', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), _M_IceGrid._t_DatabaseObserverPrx, False, 0), ((), _M_IceGrid._t_StringLongDict, True, 1)), (), None, (_M_IceGrid._t_ObserverAlreadyRegisteredException, _M_IceGrid._t_DeploymentException))
-    ReplicaSession._op_setEndpoints = IcePy.Operation('setEndpoints', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), _M_IceGrid._t_StringObjectProxyDict, False, 0),), (), None, ())
-    ReplicaSession._op_registerWellKnownObjects = IcePy.Operation('registerWellKnownObjects', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), _M_IceGrid._t_ObjectInfoSeq, False, 0),), (), None, ())
-    ReplicaSession._op_setAdapterDirectProxy = IcePy.Operation('setAdapterDirectProxy', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_ObjectPrx, False, 0)), (), None, (_M_IceGrid._t_AdapterNotExistException, _M_IceGrid._t_AdapterExistsException))
+    ReplicaSession._op_getTimeout = IcePy.Operation('getTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    ReplicaSession._op_setDatabaseObserver = IcePy.Operation('setDatabaseObserver', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), _M_IceGrid._t_DatabaseObserverPrx, False, 0), ((), _M_IceGrid._t_StringLongDict, True, 1)), (), None, (_M_IceGrid._t_ObserverAlreadyRegisteredException, _M_IceGrid._t_DeploymentException))
+    ReplicaSession._op_setEndpoints = IcePy.Operation('setEndpoints', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), _M_IceGrid._t_StringObjectProxyDict, False, 0),), (), None, ())
+    ReplicaSession._op_registerWellKnownObjects = IcePy.Operation('registerWellKnownObjects', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), _M_IceGrid._t_ObjectInfoSeq, False, 0),), (), None, ())
+    ReplicaSession._op_setAdapterDirectProxy = IcePy.Operation('setAdapterDirectProxy', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_ObjectPrx, False, 0)), (), None, (_M_IceGrid._t_AdapterNotExistException, _M_IceGrid._t_AdapterExistsException))
     ReplicaSession._op_receivedUpdate = IcePy.Operation('receivedUpdate', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_TopicName, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
     ReplicaSession._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
@@ -2445,12 +2445,12 @@ if 'InternalRegistryPrx' not in _M_IceGrid.__dict__:
     InternalRegistry._op_registerNode = IcePy.Operation('registerNode', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalNodeInfo, False, 0), ((), _M_IceGrid._t_NodePrx, False, 0), ((), _M_IceGrid._t_LoadInfo, False, 0)), (), ((), _M_IceGrid._t_NodeSessionPrx, False, 0), (_M_IceGrid._t_NodeActiveException, _M_IceGrid._t_PermissionDeniedException))
     InternalRegistry._op_registerReplica = IcePy.Operation('registerReplica', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalReplicaInfo, False, 0), ((), _M_IceGrid._t_InternalRegistryPrx, False, 0)), (), ((), _M_IceGrid._t_ReplicaSessionPrx, False, 0), (_M_IceGrid._t_ReplicaActiveException, _M_IceGrid._t_PermissionDeniedException))
     InternalRegistry._op_registerWithReplica = IcePy.Operation('registerWithReplica', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalRegistryPrx, False, 0),), (), None, ())
-    InternalRegistry._op_getNodes = IcePy.Operation('getNodes', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_NodePrxSeq, False, 0), ())
-    InternalRegistry._op_getReplicas = IcePy.Operation('getReplicas', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_InternalRegistryPrxSeq, False, 0), ())
-    InternalRegistry._op_getApplications = IcePy.Operation('getApplications', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (((), IcePy._t_long, False, 0),), ((), _M_IceGrid._t_ApplicationInfoSeq, False, 0), ())
-    InternalRegistry._op_getAdapters = IcePy.Operation('getAdapters', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (((), IcePy._t_long, False, 0),), ((), _M_IceGrid._t_AdapterInfoSeq, False, 0), ())
-    InternalRegistry._op_getObjects = IcePy.Operation('getObjects', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (((), IcePy._t_long, False, 0),), ((), _M_IceGrid._t_ObjectInfoSeq, False, 0), ())
-    InternalRegistry._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    InternalRegistry._op_getNodes = IcePy.Operation('getNodes', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceGrid._t_NodePrxSeq, False, 0), ())
+    InternalRegistry._op_getReplicas = IcePy.Operation('getReplicas', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceGrid._t_InternalRegistryPrxSeq, False, 0), ())
+    InternalRegistry._op_getApplications = IcePy.Operation('getApplications', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (((), IcePy._t_long, False, 0),), ((), _M_IceGrid._t_ApplicationInfoSeq, False, 0), ())
+    InternalRegistry._op_getAdapters = IcePy.Operation('getAdapters', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (((), IcePy._t_long, False, 0),), ((), _M_IceGrid._t_AdapterInfoSeq, False, 0), ())
+    InternalRegistry._op_getObjects = IcePy.Operation('getObjects', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (((), IcePy._t_long, False, 0),), ((), _M_IceGrid._t_ObjectInfoSeq, False, 0), ())
+    InternalRegistry._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), None, ())
 
     _M_IceGrid.InternalRegistry = InternalRegistry
     del InternalRegistry

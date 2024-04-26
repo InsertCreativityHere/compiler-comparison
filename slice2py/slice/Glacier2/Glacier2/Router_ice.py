@@ -351,13 +351,13 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2._t_RouterDisp = IcePy.defineClass('::Glacier2::Router', Router, (), None, (_M_Ice._t_RouterDisp,))
     Router._ice_type = _M_Glacier2._t_RouterDisp
 
-    Router._op_getCategoryForClient = IcePy.Operation('getCategoryForClient', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    Router._op_getCategoryForClient = IcePy.Operation('getCategoryForClient', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
     Router._op_createSession = IcePy.Operation('createSession', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_PermissionDeniedException, _M_Glacier2._t_CannotCreateSessionException))
     Router._op_createSessionFromSecureConnection = IcePy.Operation('createSessionFromSecureConnection', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, Ice.FormatType.SlicedFormat, (), (), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_PermissionDeniedException, _M_Glacier2._t_CannotCreateSessionException))
     Router._op_refreshSession = IcePy.Operation('refreshSession', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Glacier2._t_SessionNotExistException,))
     Router._op_destroySession = IcePy.Operation('destroySession', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Glacier2._t_SessionNotExistException,))
-    Router._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_long, False, 0), ())
-    Router._op_getACMTimeout = IcePy.Operation('getACMTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    Router._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_long, False, 0), ())
+    Router._op_getACMTimeout = IcePy.Operation('getACMTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 
     _M_Glacier2.Router = Router
     del Router

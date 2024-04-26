@@ -34,7 +34,7 @@ classdef QueryPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             Ice.Identity.ice_write(os_, id);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('findObjectById', 2, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('findObjectById', 1, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -57,7 +57,7 @@ classdef QueryPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('findObjectById', 2, true, os_, 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('findObjectById', 1, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = findObjectByType(obj, type, varargin)
             % findObjectByType   Find a well-known object by type. If there are several objects registered for the given type, the object is
@@ -72,7 +72,7 @@ classdef QueryPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(type);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('findObjectByType', 2, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('findObjectByType', 1, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -96,7 +96,7 @@ classdef QueryPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('findObjectByType', 2, true, os_, 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('findObjectByType', 1, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = findObjectByTypeOnLeastLoadedNode(obj, type, sample, varargin)
             % findObjectByTypeOnLeastLoadedNode   Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
@@ -114,7 +114,7 @@ classdef QueryPrx < Ice.ObjectPrx
             os_.writeString(type);
             IceGrid.LoadSample.ice_write(os_, sample);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('findObjectByTypeOnLeastLoadedNode', 2, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('findObjectByTypeOnLeastLoadedNode', 1, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -141,7 +141,7 @@ classdef QueryPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('findObjectByTypeOnLeastLoadedNode', 2, true, os_, 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('findObjectByTypeOnLeastLoadedNode', 1, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = findAllObjectsByType(obj, type, varargin)
             % findAllObjectsByType   Find all the well-known objects with the given type.
@@ -155,7 +155,7 @@ classdef QueryPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(type);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('findAllObjectsByType', 2, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('findAllObjectsByType', 1, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
             result = Ice.ObjectProxySeq.read(is_);
             is_.endEncapsulation();
@@ -178,7 +178,7 @@ classdef QueryPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('findAllObjectsByType', 2, true, os_, 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('findAllObjectsByType', 1, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = findAllReplicas(obj, proxy, varargin)
             % findAllReplicas   Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
@@ -194,7 +194,7 @@ classdef QueryPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('findAllReplicas', 2, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('findAllReplicas', 1, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
             result = Ice.ObjectProxySeq.read(is_);
             is_.endEncapsulation();
@@ -218,7 +218,7 @@ classdef QueryPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('findAllReplicas', 2, true, os_, 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('findAllReplicas', 1, true, os_, 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

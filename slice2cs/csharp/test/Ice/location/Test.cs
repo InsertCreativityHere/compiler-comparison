@@ -333,7 +333,7 @@ namespace Ice.location
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _setAdapterDirectProxy_name,
-                    global::Ice.OperationMode.Idempotent,
+                    global::Ice.OperationMode.Nonmutating,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -382,7 +382,7 @@ namespace Ice.location
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _setReplicatedAdapterDirectProxy_name,
-                    global::Ice.OperationMode.Idempotent,
+                    global::Ice.OperationMode.Nonmutating,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -436,7 +436,7 @@ namespace Ice.location
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _setServerProcessProxy_name,
-                    global::Ice.OperationMode.Idempotent,
+                    global::Ice.OperationMode.Nonmutating,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -713,7 +713,7 @@ namespace Ice.location
                 var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
                 outAsync.invoke(
                     _findObjectById_name,
-                    global::Ice.OperationMode.Idempotent,
+                    global::Ice.OperationMode.Nonmutating,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -763,7 +763,7 @@ namespace Ice.location
                 var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
                 outAsync.invoke(
                     _findAdapterById_name,
-                    global::Ice.OperationMode.Idempotent,
+                    global::Ice.OperationMode.Nonmutating,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -813,7 +813,7 @@ namespace Ice.location
                 var outAsync = getOutgoingAsync<global::Ice.LocatorRegistryPrx>(completed);
                 outAsync.invoke(
                     _getRegistry_name,
-                    global::Ice.OperationMode.Idempotent,
+                    global::Ice.OperationMode.Nonmutating,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -845,7 +845,7 @@ namespace Ice.location
                 var outAsync = getOutgoingAsync<int>(completed);
                 outAsync.invoke(
                     _getRequestCount_name,
-                    global::Ice.OperationMode.Idempotent,
+                    global::Ice.OperationMode.Nonmutating,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -1751,11 +1751,11 @@ namespace Ice.location
 
             #region Inherited Slice operations
 
-            public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx proxy, global::Ice.Current current = null);
-
             public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, global::Ice.ObjectPrx proxy, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx proxy, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx proxy, global::Ice.Current current = null);
 
             #endregion
 

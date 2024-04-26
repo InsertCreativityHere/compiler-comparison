@@ -49,7 +49,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             os_.writeString(replicaName);
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('loadServer', 2, true, os_, true, IceGrid.NodePrx.loadServer_ex_, varargin{:});
+            is_ = obj.iceInvoke('loadServer', 1, true, os_, true, IceGrid.NodePrx.loadServer_ex_, varargin{:});
             is_.startEncapsulation();
             adapters = IceGrid.AdapterPrxDict.read(is_);
             activateTimeout = is_.readInt();
@@ -85,7 +85,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
                 varargout{3} = activateTimeout;
                 varargout{4} = deactivateTimeout;
             end
-            r_ = obj.iceInvokeAsync('loadServer', 2, true, os_, 4, @unmarshal, IceGrid.NodePrx.loadServer_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('loadServer', 1, true, os_, 4, @unmarshal, IceGrid.NodePrx.loadServer_ex_, varargin{:});
         end
         function [result, adapters, activateTimeout, deactivateTimeout] = loadServerWithoutRestart(obj, svr, replicaName, varargin)
             % loadServerWithoutRestart   Load the given server and ensure the server won't be restarted. If the server resources weren't already created
@@ -108,7 +108,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             os_.writeString(replicaName);
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('loadServerWithoutRestart', 2, true, os_, true, IceGrid.NodePrx.loadServerWithoutRestart_ex_, varargin{:});
+            is_ = obj.iceInvoke('loadServerWithoutRestart', 1, true, os_, true, IceGrid.NodePrx.loadServerWithoutRestart_ex_, varargin{:});
             is_.startEncapsulation();
             adapters = IceGrid.AdapterPrxDict.read(is_);
             activateTimeout = is_.readInt();
@@ -145,7 +145,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
                 varargout{3} = activateTimeout;
                 varargout{4} = deactivateTimeout;
             end
-            r_ = obj.iceInvokeAsync('loadServerWithoutRestart', 2, true, os_, 4, @unmarshal, IceGrid.NodePrx.loadServerWithoutRestart_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('loadServerWithoutRestart', 1, true, os_, 4, @unmarshal, IceGrid.NodePrx.loadServerWithoutRestart_ex_, varargin{:});
         end
         function destroyServer(obj, name, uuid, revision, replicaName, varargin)
             % destroyServer   Destroy the given server.
@@ -163,7 +163,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             os_.writeInt(revision);
             os_.writeString(replicaName);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('destroyServer', 2, true, os_, false, IceGrid.NodePrx.destroyServer_ex_, varargin{:});
+            obj.iceInvoke('destroyServer', 1, true, os_, false, IceGrid.NodePrx.destroyServer_ex_, varargin{:});
         end
         function r_ = destroyServerAsync(obj, name, uuid, revision, replicaName, varargin)
             % destroyServerAsync   Destroy the given server.
@@ -183,7 +183,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             os_.writeInt(revision);
             os_.writeString(replicaName);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('destroyServer', 2, true, os_, 0, [], IceGrid.NodePrx.destroyServer_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('destroyServer', 1, true, os_, 0, [], IceGrid.NodePrx.destroyServer_ex_, varargin{:});
         end
         function destroyServerWithoutRestart(obj, name, uuid, revision, replicaName, varargin)
             % destroyServerWithoutRestart   Destroy the server if it's not active.
@@ -201,7 +201,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             os_.writeInt(revision);
             os_.writeString(replicaName);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('destroyServerWithoutRestart', 2, true, os_, false, IceGrid.NodePrx.destroyServerWithoutRestart_ex_, varargin{:});
+            obj.iceInvoke('destroyServerWithoutRestart', 1, true, os_, false, IceGrid.NodePrx.destroyServerWithoutRestart_ex_, varargin{:});
         end
         function r_ = destroyServerWithoutRestartAsync(obj, name, uuid, revision, replicaName, varargin)
             % destroyServerWithoutRestartAsync   Destroy the server if it's not active.
@@ -221,7 +221,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             os_.writeInt(revision);
             os_.writeString(replicaName);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('destroyServerWithoutRestart', 2, true, os_, 0, [], IceGrid.NodePrx.destroyServerWithoutRestart_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('destroyServerWithoutRestart', 1, true, os_, 0, [], IceGrid.NodePrx.destroyServerWithoutRestart_ex_, varargin{:});
         end
         function registerWithReplica(obj, replica, varargin)
             % registerWithReplica   Establish a session to the given replica, this method only returns once the registration was attempted (unlike
@@ -259,7 +259,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             %
             % Returns (char)
             
-            is_ = obj.iceInvoke('getName', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getName', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readString();
             is_.endEncapsulation();
@@ -278,7 +278,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getName', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getName', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getHostname(obj, varargin)
             % getHostname   Get the node hostname.
@@ -288,7 +288,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             %
             % Returns (char)
             
-            is_ = obj.iceInvoke('getHostname', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getHostname', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readString();
             is_.endEncapsulation();
@@ -307,7 +307,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getHostname', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getHostname', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getLoad(obj, varargin)
             % getLoad   Get the node load.
@@ -317,7 +317,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             %
             % Returns (IceGrid.LoadInfo)
             
-            is_ = obj.iceInvoke('getLoad', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getLoad', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.LoadInfo.ice_read(is_);
             is_.endEncapsulation();
@@ -336,7 +336,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getLoad', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getLoad', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getProcessorSocketCount(obj, varargin)
             % getProcessorSocketCount   Get the number of processor sockets for the machine where this node is running.
@@ -346,7 +346,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             %
             % Returns (int32)
             
-            is_ = obj.iceInvoke('getProcessorSocketCount', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getProcessorSocketCount', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -365,7 +365,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getProcessorSocketCount', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getProcessorSocketCount', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function shutdown(obj, varargin)
             % shutdown   Shutdown the node.
@@ -373,7 +373,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             
-            obj.iceInvoke('shutdown', 2, false, [], false, {}, varargin{:});
+            obj.iceInvoke('shutdown', 1, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
             % shutdownAsync   Shutdown the node.
@@ -383,7 +383,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            r_ = obj.iceInvokeAsync('shutdown', 2, false, [], 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('shutdown', 1, false, [], 0, [], {}, varargin{:});
         end
     end
     methods(Static)

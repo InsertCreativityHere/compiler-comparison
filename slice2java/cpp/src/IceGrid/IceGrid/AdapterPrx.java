@@ -141,7 +141,7 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getDirectProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getDirectProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getDirectProxy);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getDirectProxy", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getDirectProxy);
         f.invoke(true, context, null, null, istr -> {
                      com.zeroc.Ice.ObjectPrx ret;
                      ret = istr.readProxy();

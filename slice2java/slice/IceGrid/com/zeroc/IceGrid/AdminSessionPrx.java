@@ -80,7 +80,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_keepAliveAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "keepAlive", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "keepAlive", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -131,7 +131,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<AdminPrx> _iceI_getAdminAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<AdminPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAdmin", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<AdminPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAdmin", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      AdminPrx ret;
                      ret = AdminPrx.uncheckedCast(istr.readProxy());
@@ -190,7 +190,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getAdminCallbackTemplateAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAdminCallbackTemplate", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAdminCallbackTemplate", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      com.zeroc.Ice.ObjectPrx ret;
                      ret = istr.readProxy();
@@ -283,7 +283,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setObserversAsync(RegistryObserverPrx iceP_registryObs, NodeObserverPrx iceP_nodeObs, ApplicationObserverPrx iceP_appObs, AdapterObserverPrx iceP_adptObs, ObjectObserverPrx iceP_objObs, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setObservers", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setObservers);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setObservers", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_setObservers);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_registryObs);
                      ostr.writeProxy(iceP_nodeObs);
@@ -392,7 +392,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setObserversByIdentityAsync(com.zeroc.Ice.Identity iceP_registryObs, com.zeroc.Ice.Identity iceP_nodeObs, com.zeroc.Ice.Identity iceP_appObs, com.zeroc.Ice.Identity iceP_adptObs, com.zeroc.Ice.Identity iceP_objObs, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setObserversByIdentity", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setObserversByIdentity);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setObserversByIdentity", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_setObserversByIdentity);
         f.invoke(true, context, null, ostr -> {
                      com.zeroc.Ice.Identity.ice_write(ostr, iceP_registryObs);
                      com.zeroc.Ice.Identity.ice_write(ostr, iceP_nodeObs);
@@ -603,7 +603,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getReplicaNameAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getReplicaName", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getReplicaName", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String ret;
                      ret = istr.readString();

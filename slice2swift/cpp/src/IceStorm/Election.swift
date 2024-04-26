@@ -1571,7 +1571,7 @@ public extension NodePrx {
     /// - returns: `Swift.Bool` - True if the node is a coordinator, false otherwise.
     func areYouCoordinator(context: Ice.Context? = nil) throws -> Swift.Bool {
         return try _impl._invoke(operation: "areYouCoordinator",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Bool = try istr.read()
                                      return iceP_returnValue
@@ -1594,7 +1594,7 @@ public extension NodePrx {
     /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
     func areYouCoordinatorAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
         return _impl._invokeAsync(operation: "areYouCoordinator",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Bool = try istr.read()
                                       return iceP_returnValue
@@ -1616,7 +1616,7 @@ public extension NodePrx {
     /// - returns: `Swift.Bool` - True if the node is a member, false otherwise.
     func areYouThere(gn iceP_gn: Swift.String, j iceP_j: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Bool {
         return try _impl._invoke(operation: "areYouThere",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  write: { ostr in
                                      ostr.write(iceP_gn)
                                      ostr.write(iceP_j)
@@ -1647,7 +1647,7 @@ public extension NodePrx {
     /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
     func areYouThereAsync(gn iceP_gn: Swift.String, j iceP_j: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
         return _impl._invokeAsync(operation: "areYouThere",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   write: { ostr in
                                       ostr.write(iceP_gn)
                                       ostr.write(iceP_j)
@@ -1669,7 +1669,7 @@ public extension NodePrx {
     /// - returns: `Ice.ObjectPrx?` - The sync object.
     func sync(context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "sync",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                      return iceP_returnValue
@@ -1692,7 +1692,7 @@ public extension NodePrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func syncAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
         return _impl._invokeAsync(operation: "sync",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                       return iceP_returnValue
@@ -1710,7 +1710,7 @@ public extension NodePrx {
     /// - returns: `NodeInfoSeq` - The set of configured nodes and the associated priority.
     func nodes(context: Ice.Context? = nil) throws -> NodeInfoSeq {
         return try _impl._invoke(operation: "nodes",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: NodeInfoSeq = try NodeInfoSeqHelper.read(from: istr)
                                      return iceP_returnValue
@@ -1733,7 +1733,7 @@ public extension NodePrx {
     /// - returns: `PromiseKit.Promise<NodeInfoSeq>` - The result of the operation
     func nodesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<NodeInfoSeq> {
         return _impl._invokeAsync(operation: "nodes",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: NodeInfoSeq = try NodeInfoSeqHelper.read(from: istr)
                                       return iceP_returnValue
@@ -1751,7 +1751,7 @@ public extension NodePrx {
     /// - returns: `QueryInfo` - The query information.
     func query(context: Ice.Context? = nil) throws -> QueryInfo {
         return try _impl._invoke(operation: "query",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: QueryInfo = try istr.read()
                                      return iceP_returnValue
@@ -1774,7 +1774,7 @@ public extension NodePrx {
     /// - returns: `PromiseKit.Promise<QueryInfo>` - The result of the operation
     func queryAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<QueryInfo> {
         return _impl._invokeAsync(operation: "query",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: QueryInfo = try istr.read()
                                       return iceP_returnValue

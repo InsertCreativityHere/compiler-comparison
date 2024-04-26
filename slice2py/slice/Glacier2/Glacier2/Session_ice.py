@@ -257,9 +257,9 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2._t_StringSetDisp = IcePy.defineClass('::Glacier2::StringSet', StringSet, (), None, ())
     StringSet._ice_type = _M_Glacier2._t_StringSetDisp
 
-    StringSet._op_add = IcePy.Operation('add', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
-    StringSet._op_remove = IcePy.Operation('remove', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
-    StringSet._op_get = IcePy.Operation('get', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
+    StringSet._op_add = IcePy.Operation('add', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
+    StringSet._op_remove = IcePy.Operation('remove', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
+    StringSet._op_get = IcePy.Operation('get', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
 
     _M_Glacier2.StringSet = StringSet
     del StringSet
@@ -398,9 +398,9 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2._t_IdentitySetDisp = IcePy.defineClass('::Glacier2::IdentitySet', IdentitySet, (), None, ())
     IdentitySet._ice_type = _M_Glacier2._t_IdentitySetDisp
 
-    IdentitySet._op_add = IcePy.Operation('add', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, ())
-    IdentitySet._op_remove = IcePy.Operation('remove', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, ())
-    IdentitySet._op_get = IcePy.Operation('get', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_Ice._t_IdentitySeq, False, 0), ())
+    IdentitySet._op_add = IcePy.Operation('add', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, ())
+    IdentitySet._op_remove = IcePy.Operation('remove', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, ())
+    IdentitySet._op_get = IcePy.Operation('get', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_Ice._t_IdentitySeq, False, 0), ())
 
     _M_Glacier2.IdentitySet = IdentitySet
     del IdentitySet
@@ -585,7 +585,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
     SessionControl._op_categories = IcePy.Operation('categories', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_StringSetPrx, False, 0), ())
     SessionControl._op_adapterIds = IcePy.Operation('adapterIds', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_StringSetPrx, False, 0), ())
     SessionControl._op_identities = IcePy.Operation('identities', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_IdentitySetPrx, False, 0), ())
-    SessionControl._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    SessionControl._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     SessionControl._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Glacier2.SessionControl = SessionControl

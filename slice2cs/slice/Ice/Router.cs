@@ -331,7 +331,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<Router_GetClientProxyResult>(completed);
             outAsync.invoke(
                 _getClientProxy_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -367,7 +367,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<ObjectPrx>(completed);
             outAsync.invoke(
                 _getServerProxy_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -399,7 +399,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<ObjectPrx[]>(completed);
             outAsync.invoke(
                 _addProxies_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

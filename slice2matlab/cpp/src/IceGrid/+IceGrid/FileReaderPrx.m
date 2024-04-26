@@ -27,7 +27,7 @@ classdef FileReaderPrx < Ice.ObjectPrx
             os_.writeString(filename);
             os_.writeInt(lines);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getOffsetFromEnd', 2, true, os_, true, IceGrid.FileReaderPrx.getOffsetFromEnd_ex_, varargin{:});
+            is_ = obj.iceInvoke('getOffsetFromEnd', 1, true, os_, true, IceGrid.FileReaderPrx.getOffsetFromEnd_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readLong();
             is_.endEncapsulation();
@@ -52,7 +52,7 @@ classdef FileReaderPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getOffsetFromEnd', 2, true, os_, 1, @unmarshal, IceGrid.FileReaderPrx.getOffsetFromEnd_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getOffsetFromEnd', 1, true, os_, 1, @unmarshal, IceGrid.FileReaderPrx.getOffsetFromEnd_ex_, varargin{:});
         end
         function [result, newPos, lines] = read(obj, filename, pos, size, varargin)
             % read   Read lines (or size bytes) at the specified position from the given file.
@@ -73,7 +73,7 @@ classdef FileReaderPrx < Ice.ObjectPrx
             os_.writeLong(pos);
             os_.writeInt(size);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('read', 2, true, os_, true, IceGrid.FileReaderPrx.read_ex_, varargin{:});
+            is_ = obj.iceInvoke('read', 1, true, os_, true, IceGrid.FileReaderPrx.read_ex_, varargin{:});
             is_.startEncapsulation();
             newPos = is_.readLong();
             lines = is_.readStringSeq();
@@ -106,7 +106,7 @@ classdef FileReaderPrx < Ice.ObjectPrx
                 varargout{2} = newPos;
                 varargout{3} = lines;
             end
-            r_ = obj.iceInvokeAsync('read', 2, true, os_, 3, @unmarshal, IceGrid.FileReaderPrx.read_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('read', 1, true, os_, 3, @unmarshal, IceGrid.FileReaderPrx.read_ex_, varargin{:});
         end
     end
     methods(Static)

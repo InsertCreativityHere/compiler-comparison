@@ -90,7 +90,7 @@ Glacier2.PermissionsVerifierPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Glacier2.PermissionsVerifier, Glacier2.PermissionsVerifierPrx, iceC_Glacier2_PermissionsVerifier_ids, "::Glacier2::PermissionsVerifier",
 {
-    "checkPermissions": [, 2, 2, 2, [1], [[7], [7]], [[7]],
+    "checkPermissions": [, 2, 1, 2, [1], [[7], [7]], [[7]],
     [
         Glacier2.PermissionDeniedException
     ], , ]
@@ -115,7 +115,7 @@ Glacier2.SSLPermissionsVerifierPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Glacier2.SSLPermissionsVerifier, Glacier2.SSLPermissionsVerifierPrx, iceC_Glacier2_SSLPermissionsVerifier_ids, "::Glacier2::SSLPermissionsVerifier",
 {
-    "authorize": [, 2, 2, 2, [1], [[Glacier2.SSLInfo]], [[7]],
+    "authorize": [, 2, 1, 2, [1], [[Glacier2.SSLInfo]], [[7]],
     [
         Glacier2.PermissionDeniedException
     ], , ]

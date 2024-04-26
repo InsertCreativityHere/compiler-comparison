@@ -79,7 +79,7 @@ namespace Test
     global $Test__t_ByteSeq;
     global $Ice__t_ObjectPrx;
     IcePHP_defineOperation($Test__t_MetricsPrx, 'op', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MetricsPrx, 'fail', 2, 2, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MetricsPrx, 'fail', 2, 1, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_MetricsPrx, 'opWithUserException', 0, 0, 0, null, null, null, array($Test__t_UserEx));
     IcePHP_defineOperation($Test__t_MetricsPrx, 'opWithRequestFailedException', 0, 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_MetricsPrx, 'opWithLocalException', 0, 0, 0, null, null, null, null);

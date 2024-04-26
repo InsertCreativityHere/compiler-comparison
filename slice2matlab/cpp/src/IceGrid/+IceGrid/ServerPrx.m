@@ -150,7 +150,7 @@ classdef ServerPrx < IceGrid.FileReaderPrx
             %
             % Returns (logical)
             
-            is_ = obj.iceInvoke('isEnabled', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('isEnabled', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readBool();
             is_.endEncapsulation();
@@ -169,7 +169,7 @@ classdef ServerPrx < IceGrid.FileReaderPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('isEnabled', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('isEnabled', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function sendSignal(obj, signal, varargin)
             % sendSignal   Send signal to the server
@@ -237,7 +237,7 @@ classdef ServerPrx < IceGrid.FileReaderPrx
             %
             % See also IceGrid.ServerState
             
-            is_ = obj.iceInvoke('getState', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getState', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.ServerState.ice_read(is_);
             is_.endEncapsulation();
@@ -258,7 +258,7 @@ classdef ServerPrx < IceGrid.FileReaderPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getState', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getState', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getPid(obj, varargin)
             % getPid   Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
@@ -269,7 +269,7 @@ classdef ServerPrx < IceGrid.FileReaderPrx
             %
             % Returns (int32)
             
-            is_ = obj.iceInvoke('getPid', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getPid', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -289,7 +289,7 @@ classdef ServerPrx < IceGrid.FileReaderPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getPid', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getPid', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function setProcess(obj, proc, varargin)
             % setProcess   Set the process proxy.

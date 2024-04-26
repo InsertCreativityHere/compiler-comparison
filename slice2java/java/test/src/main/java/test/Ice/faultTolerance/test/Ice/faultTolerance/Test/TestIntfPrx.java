@@ -111,7 +111,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_idempotentAbortAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "idempotentAbort", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "idempotentAbort", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -144,7 +144,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_pidAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "pid", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "pid", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      int ret;
                      ret = istr.readInt();

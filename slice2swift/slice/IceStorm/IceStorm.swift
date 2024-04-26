@@ -778,7 +778,7 @@ public extension TopicPrx {
     /// - returns: `Swift.String` - The name of the topic.
     func getName(context: Ice.Context? = nil) throws -> Swift.String {
         return try _impl._invoke(operation: "getName",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: Swift.String = try istr.read()
                                      return iceP_returnValue
@@ -801,7 +801,7 @@ public extension TopicPrx {
     /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
     func getNameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
         return _impl._invokeAsync(operation: "getName",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: Swift.String = try istr.read()
                                       return iceP_returnValue
@@ -821,7 +821,7 @@ public extension TopicPrx {
     /// - returns: `Ice.ObjectPrx?` - A proxy to publish data on this topic.
     func getPublisher(context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "getPublisher",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                      return iceP_returnValue
@@ -846,7 +846,7 @@ public extension TopicPrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func getPublisherAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
         return _impl._invokeAsync(operation: "getPublisher",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                       return iceP_returnValue
@@ -866,7 +866,7 @@ public extension TopicPrx {
     /// - returns: `Ice.ObjectPrx?` - A proxy to publish data on this topic.
     func getNonReplicatedPublisher(context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "getNonReplicatedPublisher",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                      return iceP_returnValue
@@ -891,7 +891,7 @@ public extension TopicPrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func getNonReplicatedPublisherAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
         return _impl._invokeAsync(operation: "getNonReplicatedPublisher",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                       return iceP_returnValue
@@ -996,7 +996,7 @@ public extension TopicPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func unsubscribe(_ iceP_subscriber: Ice.ObjectPrx?, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "unsubscribe",
-                          mode: .Idempotent,
+                          mode: .Nonmutating,
                           write: { ostr in
                               ostr.write(iceP_subscriber)
                           },
@@ -1020,7 +1020,7 @@ public extension TopicPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func unsubscribeAsync(_ iceP_subscriber: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "unsubscribe",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   write: { ostr in
                                       ostr.write(iceP_subscriber)
                                   },
@@ -1163,7 +1163,7 @@ public extension TopicPrx {
     /// - returns: `LinkInfoSeq` - A sequence of LinkInfo objects.
     func getLinkInfoSeq(context: Ice.Context? = nil) throws -> LinkInfoSeq {
         return try _impl._invoke(operation: "getLinkInfoSeq",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: LinkInfoSeq = try LinkInfoSeqHelper.read(from: istr)
                                      return iceP_returnValue
@@ -1186,7 +1186,7 @@ public extension TopicPrx {
     /// - returns: `PromiseKit.Promise<LinkInfoSeq>` - The result of the operation
     func getLinkInfoSeqAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<LinkInfoSeq> {
         return _impl._invokeAsync(operation: "getLinkInfoSeq",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: LinkInfoSeq = try LinkInfoSeqHelper.read(from: istr)
                                       return iceP_returnValue
@@ -1458,7 +1458,7 @@ public extension TopicManagerPrx {
     ///   - NoSuchTopic - Raised if the topic does not exist.
     func retrieve(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> TopicPrx? {
         return try _impl._invoke(operation: "retrieve",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -1493,7 +1493,7 @@ public extension TopicManagerPrx {
     /// - returns: `PromiseKit.Promise<TopicPrx?>` - The result of the operation
     func retrieveAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<TopicPrx?> {
         return _impl._invokeAsync(operation: "retrieve",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -1521,7 +1521,7 @@ public extension TopicManagerPrx {
     /// - returns: `TopicDict` - A dictionary of string, topic proxy pairs.
     func retrieveAll(context: Ice.Context? = nil) throws -> TopicDict {
         return try _impl._invoke(operation: "retrieveAll",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: TopicDict = try TopicDictHelper.read(from: istr)
                                      return iceP_returnValue
@@ -1544,7 +1544,7 @@ public extension TopicManagerPrx {
     /// - returns: `PromiseKit.Promise<TopicDict>` - The result of the operation
     func retrieveAllAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<TopicDict> {
         return _impl._invokeAsync(operation: "retrieveAll",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: TopicDict = try TopicDictHelper.read(from: istr)
                                       return iceP_returnValue

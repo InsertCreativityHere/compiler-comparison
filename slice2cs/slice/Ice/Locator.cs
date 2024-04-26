@@ -781,7 +781,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<ObjectPrx>(completed);
             outAsync.invoke(
                 _findObjectById_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -831,7 +831,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<ObjectPrx>(completed);
             outAsync.invoke(
                 _findAdapterById_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -881,7 +881,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<LocatorRegistryPrx>(completed);
             outAsync.invoke(
                 _getRegistry_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1103,7 +1103,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _setAdapterDirectProxy_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1152,7 +1152,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _setReplicatedAdapterDirectProxy_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1206,7 +1206,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _setServerProcessProxy_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

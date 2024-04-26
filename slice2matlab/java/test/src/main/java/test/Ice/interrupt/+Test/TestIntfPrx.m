@@ -43,7 +43,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             
-            obj.iceInvoke('opIdempotent', 2, false, [], false, {}, varargin{:});
+            obj.iceInvoke('opIdempotent', 1, false, [], false, {}, varargin{:});
         end
         function r_ = opIdempotentAsync(obj, varargin)
             % opIdempotentAsync
@@ -53,7 +53,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            r_ = obj.iceInvokeAsync('opIdempotent', 2, false, [], 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('opIdempotent', 1, false, [], 0, [], {}, varargin{:});
         end
         function sleep(obj, to, varargin)
             % sleep

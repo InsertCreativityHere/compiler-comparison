@@ -45,7 +45,7 @@ public interface TestLocatorPrx extends com.zeroc.Ice.LocatorPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getRequestCountAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getRequestCount", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getRequestCount", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      int ret;
                      ret = istr.readInt();

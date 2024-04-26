@@ -870,7 +870,7 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwLocalExceptionIdempotentAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwLocalExceptionIdempotent", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwLocalExceptionIdempotent", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }

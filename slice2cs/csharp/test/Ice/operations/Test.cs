@@ -6807,7 +6807,7 @@ namespace Ice.operations
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _opIdempotent_name,
-                    global::Ice.OperationMode.Idempotent,
+                    global::Ice.OperationMode.Nonmutating,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
@@ -10477,7 +10477,7 @@ namespace Ice.operations
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _opIdempotent_name,
-                    global::Ice.OperationMode.Idempotent,
+                    global::Ice.OperationMode.Nonmutating,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);
@@ -14215,7 +14215,7 @@ namespace Test2
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _opIdempotent_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);

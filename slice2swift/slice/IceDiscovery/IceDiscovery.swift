@@ -341,7 +341,7 @@ public extension LookupPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func findObjectById(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "findObjectById",
-                          mode: .Idempotent,
+                          mode: .Nonmutating,
                           write: { ostr in
                               ostr.write(iceP_domainId)
                               ostr.write(iceP_id)
@@ -373,7 +373,7 @@ public extension LookupPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func findObjectByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "findObjectById",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   write: { ostr in
                                       ostr.write(iceP_domainId)
                                       ostr.write(iceP_id)
@@ -398,7 +398,7 @@ public extension LookupPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func findAdapterById(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "findAdapterById",
-                          mode: .Idempotent,
+                          mode: .Nonmutating,
                           write: { ostr in
                               ostr.write(iceP_domainId)
                               ostr.write(iceP_id)
@@ -430,7 +430,7 @@ public extension LookupPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func findAdapterByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "findAdapterById",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   write: { ostr in
                                       ostr.write(iceP_domainId)
                                       ostr.write(iceP_id)

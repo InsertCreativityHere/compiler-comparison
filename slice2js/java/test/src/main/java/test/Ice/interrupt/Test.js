@@ -63,7 +63,7 @@
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
         "op": [, , , , , , , , , ],
-        "opIdempotent": [, 2, 2, , , , , , , ],
+        "opIdempotent": [, 2, 1, , , , , , , ],
         "sleep": [, , , , , [[3]], ,
         [
             Test.InterruptedException

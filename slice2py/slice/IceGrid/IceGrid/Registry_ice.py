@@ -270,11 +270,11 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_QueryDisp = IcePy.defineClass('::IceGrid::Query', Query, (), None, ())
     Query._ice_type = _M_IceGrid._t_QueryDisp
 
-    Query._op_findObjectById = IcePy.Operation('findObjectById', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Query._op_findObjectByType = IcePy.Operation('findObjectByType', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Query._op_findObjectByTypeOnLeastLoadedNode = IcePy.Operation('findObjectByTypeOnLeastLoadedNode', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceGrid._t_LoadSample, False, 0)), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Query._op_findAllObjectsByType = IcePy.Operation('findAllObjectsByType', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
-    Query._op_findAllReplicas = IcePy.Operation('findAllReplicas', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
+    Query._op_findObjectById = IcePy.Operation('findObjectById', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Query._op_findObjectByType = IcePy.Operation('findObjectByType', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Query._op_findObjectByTypeOnLeastLoadedNode = IcePy.Operation('findObjectByTypeOnLeastLoadedNode', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceGrid._t_LoadSample, False, 0)), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Query._op_findAllObjectsByType = IcePy.Operation('findAllObjectsByType', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
+    Query._op_findAllReplicas = IcePy.Operation('findAllReplicas', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
 
     _M_IceGrid.Query = Query
     del Query
@@ -516,8 +516,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
     Registry._op_createAdminSession = IcePy.Operation('createAdminSession', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_IceGrid._t_AdminSessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
     Registry._op_createSessionFromSecureConnection = IcePy.Operation('createSessionFromSecureConnection', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceGrid._t_SessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
     Registry._op_createAdminSessionFromSecureConnection = IcePy.Operation('createAdminSessionFromSecureConnection', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceGrid._t_AdminSessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
-    Registry._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    Registry._op_getACMTimeout = IcePy.Operation('getACMTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    Registry._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    Registry._op_getACMTimeout = IcePy.Operation('getACMTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 
     _M_IceGrid.Registry = Registry
     del Registry
@@ -619,8 +619,8 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_LocatorDisp = IcePy.defineClass('::IceGrid::Locator', Locator, (), None, (_M_Ice._t_LocatorDisp,))
     Locator._ice_type = _M_IceGrid._t_LocatorDisp
 
-    Locator._op_getLocalRegistry = IcePy.Operation('getLocalRegistry', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_RegistryPrx, False, 0), ())
-    Locator._op_getLocalQuery = IcePy.Operation('getLocalQuery', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_QueryPrx, False, 0), ())
+    Locator._op_getLocalRegistry = IcePy.Operation('getLocalRegistry', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceGrid._t_RegistryPrx, False, 0), ())
+    Locator._op_getLocalQuery = IcePy.Operation('getLocalQuery', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceGrid._t_QueryPrx, False, 0), ())
 
     _M_IceGrid.Locator = Locator
     del Locator

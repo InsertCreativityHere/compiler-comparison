@@ -252,7 +252,7 @@ public extension MetricsPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func fail(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "fail",
-                          mode: .Idempotent,
+                          mode: .Nonmutating,
                           context: context)
     }
 
@@ -270,7 +270,7 @@ public extension MetricsPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func failAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "fail",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,

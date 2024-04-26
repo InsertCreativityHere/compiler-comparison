@@ -169,7 +169,7 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTimeout", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      int ret;
                      ret = istr.readInt();
@@ -222,7 +222,7 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.IceGrid.NodeObserverPrx> _iceI_getObserverAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.IceGrid.NodeObserverPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getObserver", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.IceGrid.NodeObserverPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getObserver", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      com.zeroc.IceGrid.NodeObserverPrx ret;
                      ret = com.zeroc.IceGrid.NodeObserverPrx.uncheckedCast(istr.readProxy());
@@ -275,7 +275,7 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_loadServersAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "loadServers", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "loadServers", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -324,7 +324,7 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<String[]> _iceI_getServersAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServers", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServers", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String[] ret;
                      ret = istr.readStringSeq();

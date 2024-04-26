@@ -76,7 +76,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_addAsync(com.zeroc.Ice.Identity[] iceP_additions, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "add", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "add", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(false, context, null, ostr -> {
                      com.zeroc.Ice.IdentitySeqHelper.write(ostr, iceP_additions);
                  }, null);
@@ -136,7 +136,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_removeAsync(com.zeroc.Ice.Identity[] iceP_deletions, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "remove", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "remove", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(false, context, null, ostr -> {
                      com.zeroc.Ice.IdentitySeqHelper.write(ostr, iceP_deletions);
                  }, null);
@@ -189,7 +189,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.Identity[]> _iceI_getAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.Identity[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "get", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.Identity[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "get", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      com.zeroc.Ice.Identity[] ret;
                      ret = com.zeroc.Ice.IdentitySeqHelper.read(istr);

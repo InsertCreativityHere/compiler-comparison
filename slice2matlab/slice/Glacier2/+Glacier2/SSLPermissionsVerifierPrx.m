@@ -35,7 +35,7 @@ classdef SSLPermissionsVerifierPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             Glacier2.SSLInfo.ice_write(os_, info);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('authorize', 2, true, os_, true, Glacier2.SSLPermissionsVerifierPrx.authorize_ex_, varargin{:});
+            is_ = obj.iceInvoke('authorize', 1, true, os_, true, Glacier2.SSLPermissionsVerifierPrx.authorize_ex_, varargin{:});
             is_.startEncapsulation();
             reason = is_.readString();
             result = is_.readBool();
@@ -67,7 +67,7 @@ classdef SSLPermissionsVerifierPrx < Ice.ObjectPrx
                 varargout{1} = result;
                 varargout{2} = reason;
             end
-            r_ = obj.iceInvokeAsync('authorize', 2, true, os_, 2, @unmarshal, Glacier2.SSLPermissionsVerifierPrx.authorize_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('authorize', 1, true, os_, 2, @unmarshal, Glacier2.SSLPermissionsVerifierPrx.authorize_ex_, varargin{:});
         end
     end
     methods(Static)

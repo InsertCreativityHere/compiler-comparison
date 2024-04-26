@@ -1739,7 +1739,7 @@ namespace Ice.exceptions.AMD
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _throwLocalExceptionIdempotent_name,
-                    global::Ice.OperationMode.Idempotent,
+                    global::Ice.OperationMode.Nonmutating,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);

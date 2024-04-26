@@ -41,8 +41,8 @@
     {
         "shutdown": [, , , , , , , , , ],
         "abort": [, , , , , , , , , ],
-        "idempotentAbort": [, 2, 2, , , , , , , ],
-        "pid": [, 2, 2, , [3], , , , , ]
+        "idempotentAbort": [, 2, 1, , , , , , , ],
+        "pid": [, 2, 1, , [3], , , , , ]
     });
     exports.Test = Test;
 }

@@ -291,7 +291,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm._t_TopicInternalDisp = IcePy.defineClass('::IceStorm::TopicInternal', TopicInternal, (), None, (_M_IceStorm._t_TopicDisp,))
     TopicInternal._ice_type = _M_IceStorm._t_TopicInternalDisp
 
-    TopicInternal._op_getLinkProxy = IcePy.Operation('getLinkProxy', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStorm._t_TopicLinkPrx, False, 0), ())
+    TopicInternal._op_getLinkProxy = IcePy.Operation('getLinkProxy', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceStorm._t_TopicLinkPrx, False, 0), ())
     TopicInternal._op_reap = IcePy.Operation('reap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, (_M_IceStorm._t_ReapWouldBlock,))
 
     _M_IceStorm.TopicInternal = TopicInternal
@@ -367,7 +367,7 @@ if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm._t_TopicManagerInternalDisp = IcePy.defineClass('::IceStorm::TopicManagerInternal', TopicManagerInternal, (), None, (_M_IceStorm._t_TopicManagerDisp,))
     TopicManagerInternal._ice_type = _M_IceStorm._t_TopicManagerInternalDisp
 
-    TopicManagerInternal._op_getReplicaNode = IcePy.Operation('getReplicaNode', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStormElection._t_NodePrx, False, 0), ())
+    TopicManagerInternal._op_getReplicaNode = IcePy.Operation('getReplicaNode', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceStormElection._t_NodePrx, False, 0), ())
 
     _M_IceStorm.TopicManagerInternal = TopicManagerInternal
     del TopicManagerInternal

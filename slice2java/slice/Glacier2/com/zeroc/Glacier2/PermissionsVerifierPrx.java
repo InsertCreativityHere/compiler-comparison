@@ -95,7 +95,7 @@ public interface PermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<PermissionsVerifier.CheckPermissionsResult> _iceI_checkPermissionsAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<PermissionsVerifier.CheckPermissionsResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkPermissions", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_checkPermissions);
+        com.zeroc.IceInternal.OutgoingAsync<PermissionsVerifier.CheckPermissionsResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkPermissions", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_checkPermissions);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
                      ostr.writeString(iceP_userId);
                      ostr.writeString(iceP_password);

@@ -224,7 +224,7 @@
         "opMyEnumMyEnumSD": [, , , , ["Test.MyEnumMyEnumSDHelper"], [["Test.MyEnumMyEnumSDHelper"], ["Test.MyEnumMyEnumSDHelper"]], [["Test.MyEnumMyEnumSDHelper"]], , , ],
         "opIntS": [, , , , ["Test.IntSHelper"], [["Test.IntSHelper"]], , , , ],
         "opContext": [, , , , ["Test.StringStringDHelper"], , , , , ],
-        "opIdempotent": [, 2, 2, , , , , , , ],
+        "opIdempotent": [, 2, 1, , , , , , , ],
         "opByte1": [, , , , [0], [[0]], , , , ],
         "opShort1": [, , , , [2], [[2]], , , , ],
         "opInt1": [, , , , [3], [[3]], , , , ],

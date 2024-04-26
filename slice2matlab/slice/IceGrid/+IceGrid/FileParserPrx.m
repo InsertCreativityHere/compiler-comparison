@@ -31,7 +31,7 @@ classdef FileParserPrx < Ice.ObjectPrx
             os_.writeString(xmlFile);
             os_.writeProxy(adminProxy);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('parse', 2, true, os_, true, IceGrid.FileParserPrx.parse_ex_, varargin{:});
+            is_ = obj.iceInvoke('parse', 1, true, os_, true, IceGrid.FileParserPrx.parse_ex_, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.ApplicationDescriptor.ice_read(is_);
             is_.readPendingValues();
@@ -62,7 +62,7 @@ classdef FileParserPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result.ice_convert();
             end
-            r_ = obj.iceInvokeAsync('parse', 2, true, os_, 1, @unmarshal, IceGrid.FileParserPrx.parse_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('parse', 1, true, os_, 1, @unmarshal, IceGrid.FileParserPrx.parse_ex_, varargin{:});
         end
     end
     methods(Static)

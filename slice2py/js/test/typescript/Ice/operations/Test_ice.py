@@ -1200,7 +1200,7 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     MyClass._op_opByteSOnewayCallCount = IcePy.Operation('opByteSOnewayCallCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     MyClass._op_opContext = IcePy.Operation('opContext', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())
     MyClass._op_opDoubleMarshaling = IcePy.Operation('opDoubleMarshaling', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_double, False, 0), ((), _M_Test._t_DoubleS, False, 0)), (), None, ())
-    MyClass._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    MyClass._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), None, ())
     MyClass._op_opByte1 = IcePy.Operation('opByte1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, False, 0),), (), ((), IcePy._t_byte, False, 0), ())
     MyClass._op_opShort1 = IcePy.Operation('opShort1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, False, 0),), (), ((), IcePy._t_short, False, 0), ())
     MyClass._op_opInt1 = IcePy.Operation('opInt1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())

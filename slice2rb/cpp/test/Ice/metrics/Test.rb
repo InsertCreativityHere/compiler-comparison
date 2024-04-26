@@ -91,7 +91,7 @@ module ::Test
         T_MetricsPrx.defineProxy(MetricsPrx, nil, [])
 
         MetricsPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        MetricsPrx_mixin::OP_fail = ::Ice::__defineOperation('fail', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
+        MetricsPrx_mixin::OP_fail = ::Ice::__defineOperation('fail', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], nil, [])
         MetricsPrx_mixin::OP_opWithUserException = ::Ice::__defineOperation('opWithUserException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_UserEx])
         MetricsPrx_mixin::OP_opWithRequestFailedException = ::Ice::__defineOperation('opWithRequestFailedException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         MetricsPrx_mixin::OP_opWithLocalException = ::Ice::__defineOperation('opWithLocalException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

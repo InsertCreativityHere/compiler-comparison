@@ -59,7 +59,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             
-            obj.iceInvoke('idempotentAbort', 2, false, [], false, {}, varargin{:});
+            obj.iceInvoke('idempotentAbort', 1, false, [], false, {}, varargin{:});
         end
         function r_ = idempotentAbortAsync(obj, varargin)
             % idempotentAbortAsync
@@ -69,7 +69,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            r_ = obj.iceInvokeAsync('idempotentAbort', 2, false, [], 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('idempotentAbort', 1, false, [], 0, [], {}, varargin{:});
         end
         function result = pid(obj, varargin)
             % pid
@@ -79,7 +79,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             %
             % Returns (int32)
             
-            is_ = obj.iceInvoke('pid', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('pid', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -98,7 +98,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('pid', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('pid', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

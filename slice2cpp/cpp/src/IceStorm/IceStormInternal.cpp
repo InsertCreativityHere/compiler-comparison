@@ -101,7 +101,7 @@ IceStorm::TopicInternalPrx::_iceI_getLinkProxy(const ::std::shared_ptr<::IceInte
     static constexpr ::std::string_view operationName = "getLinkProxy";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -182,7 +182,7 @@ IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<
     static constexpr ::std::string_view operationName = "getReplicaNode";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }

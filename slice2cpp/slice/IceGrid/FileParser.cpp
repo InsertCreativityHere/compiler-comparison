@@ -66,7 +66,7 @@ IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::Outgo
     static constexpr ::std::string_view operationName = "parse";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_xmlFile, iceP_adminProxy);

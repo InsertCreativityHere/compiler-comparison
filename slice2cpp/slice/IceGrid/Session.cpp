@@ -63,7 +63,7 @@ IceGrid::SessionPrx::_iceI_keepAlive(const ::std::shared_ptr<::IceInternal::Outg
 {
     static constexpr ::std::string_view operationName = "keepAlive";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -234,7 +234,7 @@ IceGrid::SessionPrx::_iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInt
 {
     static constexpr ::std::string_view operationName = "setAllocationTimeout";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_timeout);

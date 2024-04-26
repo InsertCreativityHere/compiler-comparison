@@ -59,7 +59,7 @@ classdef RetryPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(c);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opIdempotent', 2, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('opIdempotent', 1, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -82,7 +82,7 @@ classdef RetryPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('opIdempotent', 2, true, os_, 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('opIdempotent', 1, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function opNotIdempotent(obj, varargin)
             % opNotIdempotent
@@ -130,7 +130,7 @@ classdef RetryPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(delay);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('sleep', 2, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('sleep', 1, false, os_, false, {}, varargin{:});
         end
         function r_ = sleepAsync(obj, delay, varargin)
             % sleepAsync
@@ -144,7 +144,7 @@ classdef RetryPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(delay);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('sleep', 2, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('sleep', 1, false, os_, 0, [], {}, varargin{:});
         end
         function shutdown(obj, varargin)
             % shutdown
@@ -152,7 +152,7 @@ classdef RetryPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             
-            obj.iceInvoke('shutdown', 2, false, [], false, {}, varargin{:});
+            obj.iceInvoke('shutdown', 1, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
             % shutdownAsync
@@ -162,7 +162,7 @@ classdef RetryPrx < Ice.ObjectPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            r_ = obj.iceInvokeAsync('shutdown', 2, false, [], 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('shutdown', 1, false, [], 0, [], {}, varargin{:});
         end
     end
     methods(Static)

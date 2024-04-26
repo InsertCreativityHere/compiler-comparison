@@ -439,7 +439,7 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
     Thrower._op_throwNonIceException = IcePy.Operation('throwNonIceException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Thrower._op_throwAssertException = IcePy.Operation('throwAssertException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Thrower._op_throwMemoryLimitException = IcePy.Operation('throwMemoryLimitException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), ((), _M_Ice._t_ByteSeq, False, 0), ())
-    Thrower._op_throwLocalExceptionIdempotent = IcePy.Operation('throwLocalExceptionIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    Thrower._op_throwLocalExceptionIdempotent = IcePy.Operation('throwLocalExceptionIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), None, ())
     Thrower._op_throwAfterResponse = IcePy.Operation('throwAfterResponse', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Thrower._op_throwAfterException = IcePy.Operation('throwAfterException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_A,))
     Thrower._op_throwMarshalException = IcePy.Operation('throwMarshalException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), IcePy._t_int, False, 0),), ((), IcePy._t_int, False, 0), ())

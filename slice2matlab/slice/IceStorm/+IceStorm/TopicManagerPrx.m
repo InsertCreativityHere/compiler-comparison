@@ -77,7 +77,7 @@ classdef TopicManagerPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('retrieve', 2, true, os_, true, IceStorm.TopicManagerPrx.retrieve_ex_, varargin{:});
+            is_ = obj.iceInvoke('retrieve', 1, true, os_, true, IceStorm.TopicManagerPrx.retrieve_ex_, varargin{:});
             is_.startEncapsulation();
             result = IceStorm.TopicPrx.ice_read(is_);
             is_.endEncapsulation();
@@ -103,7 +103,7 @@ classdef TopicManagerPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('retrieve', 2, true, os_, 1, @unmarshal, IceStorm.TopicManagerPrx.retrieve_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('retrieve', 1, true, os_, 1, @unmarshal, IceStorm.TopicManagerPrx.retrieve_ex_, varargin{:});
         end
         function result = retrieveAll(obj, varargin)
             % retrieveAll   Retrieve all topics managed by this topic manager.
@@ -113,7 +113,7 @@ classdef TopicManagerPrx < Ice.ObjectPrx
             %
             % Returns (containers.Map) - A dictionary of string, topic proxy pairs.
             
-            is_ = obj.iceInvoke('retrieveAll', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('retrieveAll', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceStorm.TopicDict.read(is_);
             is_.endEncapsulation();
@@ -132,7 +132,7 @@ classdef TopicManagerPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('retrieveAll', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('retrieveAll', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

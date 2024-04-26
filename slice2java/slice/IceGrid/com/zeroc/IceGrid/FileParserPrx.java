@@ -92,7 +92,7 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<ApplicationDescriptor> _iceI_parseAsync(String iceP_xmlFile, AdminPrx iceP_adminProxy, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ApplicationDescriptor> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "parse", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_parse);
+        com.zeroc.IceInternal.OutgoingAsync<ApplicationDescriptor> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "parse", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_parse);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_xmlFile);
                      ostr.writeProxy(iceP_adminProxy);

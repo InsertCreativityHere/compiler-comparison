@@ -132,7 +132,7 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2._t_PermissionsVerifierDisp = IcePy.defineClass('::Glacier2::PermissionsVerifier', PermissionsVerifier, (), None, ())
     PermissionsVerifier._ice_type = _M_Glacier2._t_PermissionsVerifierDisp
 
-    PermissionsVerifier._op_checkPermissions = IcePy.Operation('checkPermissions', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (((), IcePy._t_string, False, 0),), ((), IcePy._t_bool, False, 0), (_M_Glacier2._t_PermissionDeniedException,))
+    PermissionsVerifier._op_checkPermissions = IcePy.Operation('checkPermissions', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (((), IcePy._t_string, False, 0),), ((), IcePy._t_bool, False, 0), (_M_Glacier2._t_PermissionDeniedException,))
 
     _M_Glacier2.PermissionsVerifier = PermissionsVerifier
     del PermissionsVerifier
@@ -216,7 +216,7 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2._t_SSLPermissionsVerifierDisp = IcePy.defineClass('::Glacier2::SSLPermissionsVerifier', SSLPermissionsVerifier, (), None, ())
     SSLPermissionsVerifier._ice_type = _M_Glacier2._t_SSLPermissionsVerifierDisp
 
-    SSLPermissionsVerifier._op_authorize = IcePy.Operation('authorize', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, Ice.FormatType.SlicedFormat, (), (((), _M_Glacier2._t_SSLInfo, False, 0),), (((), IcePy._t_string, False, 0),), ((), IcePy._t_bool, False, 0), (_M_Glacier2._t_PermissionDeniedException,))
+    SSLPermissionsVerifier._op_authorize = IcePy.Operation('authorize', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, Ice.FormatType.SlicedFormat, (), (((), _M_Glacier2._t_SSLInfo, False, 0),), (((), IcePy._t_string, False, 0),), ((), IcePy._t_bool, False, 0), (_M_Glacier2._t_PermissionDeniedException,))
 
     _M_Glacier2.SSLPermissionsVerifier = SSLPermissionsVerifier
     del SSLPermissionsVerifier

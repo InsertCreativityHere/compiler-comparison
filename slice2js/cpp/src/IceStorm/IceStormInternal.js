@@ -142,7 +142,7 @@
 
     Slice.defineOperations(IceStorm.TopicInternal, IceStorm.TopicInternalPrx, iceC_IceStorm_TopicInternal_ids, "::IceStorm::TopicInternal",
     {
-        "getLinkProxy": [, 2, 2, , ["IceStorm.TopicLinkPrx"], , , , , ],
+        "getLinkProxy": [, 2, 1, , ["IceStorm.TopicLinkPrx"], , , , , ],
         "reap": [, , , , , [["Ice.IdentitySeqHelper"]], ,
         [
             IceStorm.ReapWouldBlock
@@ -180,7 +180,7 @@
 
     Slice.defineOperations(IceStorm.TopicManagerInternal, IceStorm.TopicManagerInternalPrx, iceC_IceStorm_TopicManagerInternal_ids, "::IceStorm::TopicManagerInternal",
     {
-        "getReplicaNode": [, 2, 2, , ["IceStormElection.NodePrx"], , , , , ]
+        "getReplicaNode": [, 2, 1, , ["IceStormElection.NodePrx"], , , , , ]
     });
     exports.IceStorm = IceStorm;
 }

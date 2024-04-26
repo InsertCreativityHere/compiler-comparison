@@ -1537,7 +1537,7 @@ public extension ThrowerPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func throwLocalExceptionIdempotent(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "throwLocalExceptionIdempotent",
-                          mode: .Idempotent,
+                          mode: .Nonmutating,
                           context: context)
     }
 
@@ -1555,7 +1555,7 @@ public extension ThrowerPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func throwLocalExceptionIdempotentAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "throwLocalExceptionIdempotent",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,

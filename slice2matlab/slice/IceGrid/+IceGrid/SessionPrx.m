@@ -33,7 +33,7 @@ classdef SessionPrx < Glacier2.SessionPrx
             %
             % See also Registry.getSessionTimeout
             
-            obj.iceInvoke('keepAlive', 2, false, [], false, {}, varargin{:});
+            obj.iceInvoke('keepAlive', 1, false, [], false, {}, varargin{:});
         end
         function r_ = keepAliveAsync(obj, varargin)
             % keepAliveAsync   Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
@@ -46,7 +46,7 @@ classdef SessionPrx < Glacier2.SessionPrx
             %
             % See also Registry.getSessionTimeout
             
-            r_ = obj.iceInvokeAsync('keepAlive', 2, false, [], 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('keepAlive', 1, false, [], 0, [], {}, varargin{:});
         end
         function result = allocateObjectById(obj, id, varargin)
             % allocateObjectById   Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
@@ -202,7 +202,7 @@ classdef SessionPrx < Glacier2.SessionPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(timeout);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setAllocationTimeout', 2, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('setAllocationTimeout', 1, false, os_, false, {}, varargin{:});
         end
         function r_ = setAllocationTimeoutAsync(obj, timeout, varargin)
             % setAllocationTimeoutAsync   Set the allocation timeout. If no objects are available for an allocation request, a call to
@@ -218,7 +218,7 @@ classdef SessionPrx < Glacier2.SessionPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(timeout);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setAllocationTimeout', 2, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('setAllocationTimeout', 1, false, os_, 0, [], {}, varargin{:});
         end
     end
     methods(Static)

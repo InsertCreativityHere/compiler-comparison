@@ -335,7 +335,7 @@ public interface ServerPrx extends FileReaderPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_isEnabledAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "isEnabled", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "isEnabled", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      boolean ret;
                      ret = istr.readBool();
@@ -523,7 +523,7 @@ public interface ServerPrx extends FileReaderPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.IceGrid.ServerState> _iceI_getStateAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.IceGrid.ServerState> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getState", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.IceGrid.ServerState> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getState", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      com.zeroc.IceGrid.ServerState ret;
                      ret = com.zeroc.IceGrid.ServerState.ice_read(istr);
@@ -580,7 +580,7 @@ public interface ServerPrx extends FileReaderPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getPidAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getPid", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getPid", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      int ret;
                      ret = istr.readInt();

@@ -54,7 +54,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % See also Registry.getSessionTimeout
             
-            obj.iceInvoke('keepAlive', 2, false, [], false, {}, varargin{:});
+            obj.iceInvoke('keepAlive', 1, false, [], false, {}, varargin{:});
         end
         function r_ = keepAliveAsync(obj, varargin)
             % keepAliveAsync   Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
@@ -67,7 +67,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % See also Registry.getSessionTimeout
             
-            r_ = obj.iceInvokeAsync('keepAlive', 2, false, [], 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('keepAlive', 1, false, [], 0, [], {}, varargin{:});
         end
         function result = getAdmin(obj, varargin)
             % getAdmin   Get the admin interface. The admin object returned by this operation can only be accessed by the session.
@@ -77,7 +77,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Returns (IceGrid.AdminPrx) - The admin interface proxy. The returned proxy is never null.
             
-            is_ = obj.iceInvoke('getAdmin', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getAdmin', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.AdminPrx.ice_read(is_);
             is_.endEncapsulation();
@@ -96,7 +96,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getAdmin', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getAdmin', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getAdminCallbackTemplate(obj, varargin)
             % getAdminCallbackTemplate   Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
@@ -107,7 +107,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Returns (Ice.ObjectPrx) - A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
             
-            is_ = obj.iceInvoke('getAdminCallbackTemplate', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getAdminCallbackTemplate', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -127,7 +127,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getAdminCallbackTemplate', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getAdminCallbackTemplate', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function setObservers(obj, registryObs, nodeObs, appObs, adptObs, objObs, varargin)
             % setObservers   Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -150,7 +150,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             os_.writeProxy(adptObs);
             os_.writeProxy(objObs);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setObservers', 2, true, os_, false, IceGrid.AdminSessionPrx.setObservers_ex_, varargin{:});
+            obj.iceInvoke('setObservers', 1, true, os_, false, IceGrid.AdminSessionPrx.setObservers_ex_, varargin{:});
         end
         function r_ = setObserversAsync(obj, registryObs, nodeObs, appObs, adptObs, objObs, varargin)
             % setObserversAsync   Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -175,7 +175,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             os_.writeProxy(adptObs);
             os_.writeProxy(objObs);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setObservers', 2, true, os_, 0, [], IceGrid.AdminSessionPrx.setObservers_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('setObservers', 1, true, os_, 0, [], IceGrid.AdminSessionPrx.setObservers_ex_, varargin{:});
         end
         function setObserversByIdentity(obj, registryObs, nodeObs, appObs, adptObs, objObs, varargin)
             % setObserversByIdentity   Set the observer identities that receive notifications the state of the registry or nodes changes. This
@@ -200,7 +200,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             Ice.Identity.ice_write(os_, adptObs);
             Ice.Identity.ice_write(os_, objObs);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setObserversByIdentity', 2, true, os_, false, IceGrid.AdminSessionPrx.setObserversByIdentity_ex_, varargin{:});
+            obj.iceInvoke('setObserversByIdentity', 1, true, os_, false, IceGrid.AdminSessionPrx.setObserversByIdentity_ex_, varargin{:});
         end
         function r_ = setObserversByIdentityAsync(obj, registryObs, nodeObs, appObs, adptObs, objObs, varargin)
             % setObserversByIdentityAsync   Set the observer identities that receive notifications the state of the registry or nodes changes. This
@@ -227,7 +227,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             Ice.Identity.ice_write(os_, adptObs);
             Ice.Identity.ice_write(os_, objObs);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setObserversByIdentity', 2, true, os_, 0, [], IceGrid.AdminSessionPrx.setObserversByIdentity_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('setObserversByIdentity', 1, true, os_, 0, [], IceGrid.AdminSessionPrx.setObserversByIdentity_ex_, varargin{:});
         end
         function result = startUpdate(obj, varargin)
             % startUpdate   Acquires an exclusive lock to start updating the registry applications.
@@ -298,7 +298,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Returns (char) - The replica name of the registry.
             
-            is_ = obj.iceInvoke('getReplicaName', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getReplicaName', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readString();
             is_.endEncapsulation();
@@ -317,7 +317,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getReplicaName', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getReplicaName', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = openServerLog(obj, id, path, count, varargin)
             % openServerLog   Open the given server log file for reading. The file can be read with the returned file iterator.

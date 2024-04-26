@@ -51,7 +51,7 @@ classdef MetricsPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             
-            obj.iceInvoke('fail', 2, false, [], false, {}, varargin{:});
+            obj.iceInvoke('fail', 1, false, [], false, {}, varargin{:});
         end
         function r_ = failAsync(obj, varargin)
             % failAsync
@@ -61,7 +61,7 @@ classdef MetricsPrx < Ice.ObjectPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            r_ = obj.iceInvokeAsync('fail', 2, false, [], 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('fail', 1, false, [], 0, [], {}, varargin{:});
         end
         function opWithUserException(obj, varargin)
             % opWithUserException

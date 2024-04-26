@@ -411,7 +411,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getApplicationInfo', 2, true, os_, true, IceGrid.AdminPrx.getApplicationInfo_ex_, varargin{:});
+            is_ = obj.iceInvoke('getApplicationInfo', 1, true, os_, true, IceGrid.AdminPrx.getApplicationInfo_ex_, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.ApplicationInfo.ice_read(is_);
             is_.readPendingValues();
@@ -440,7 +440,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result.ice_convert();
             end
-            r_ = obj.iceInvokeAsync('getApplicationInfo', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getApplicationInfo_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getApplicationInfo', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getApplicationInfo_ex_, varargin{:});
         end
         function result = getDefaultApplicationDescriptor(obj, varargin)
             % getDefaultApplicationDescriptor   Get the default application descriptor.
@@ -453,7 +453,7 @@ classdef AdminPrx < Ice.ObjectPrx
             % Exceptions:
             %   IceGrid.DeploymentException - Raised if the default application descriptor can't be accessed or is invalid.
             
-            is_ = obj.iceInvoke('getDefaultApplicationDescriptor', 2, true, [], true, IceGrid.AdminPrx.getDefaultApplicationDescriptor_ex_, varargin{:});
+            is_ = obj.iceInvoke('getDefaultApplicationDescriptor', 1, true, [], true, IceGrid.AdminPrx.getDefaultApplicationDescriptor_ex_, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.ApplicationDescriptor.ice_read(is_);
             is_.readPendingValues();
@@ -478,7 +478,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result.ice_convert();
             end
-            r_ = obj.iceInvokeAsync('getDefaultApplicationDescriptor', 2, true, [], 1, @unmarshal, IceGrid.AdminPrx.getDefaultApplicationDescriptor_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getDefaultApplicationDescriptor', 1, true, [], 1, @unmarshal, IceGrid.AdminPrx.getDefaultApplicationDescriptor_ex_, varargin{:});
         end
         function result = getAllApplicationNames(obj, varargin)
             % getAllApplicationNames   Get all the IceGrid applications currently registered.
@@ -488,7 +488,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %
             % Returns (Ice.StringSeq) - The application names.
             
-            is_ = obj.iceInvoke('getAllApplicationNames', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getAllApplicationNames', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readStringSeq();
             is_.endEncapsulation();
@@ -507,7 +507,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getAllApplicationNames', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getAllApplicationNames', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getServerInfo(obj, id, varargin)
             % getServerInfo   Get the server information for the server with the given id.
@@ -524,7 +524,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getServerInfo', 2, true, os_, true, IceGrid.AdminPrx.getServerInfo_ex_, varargin{:});
+            is_ = obj.iceInvoke('getServerInfo', 1, true, os_, true, IceGrid.AdminPrx.getServerInfo_ex_, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.ServerInfo.ice_read(is_);
             is_.readPendingValues();
@@ -553,7 +553,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result.ice_convert();
             end
-            r_ = obj.iceInvokeAsync('getServerInfo', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getServerInfo_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getServerInfo', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getServerInfo_ex_, varargin{:});
         end
         function result = getServerState(obj, id, varargin)
             % getServerState   Get a server's state.
@@ -572,7 +572,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getServerState', 2, true, os_, true, IceGrid.AdminPrx.getServerState_ex_, varargin{:});
+            is_ = obj.iceInvoke('getServerState', 1, true, os_, true, IceGrid.AdminPrx.getServerState_ex_, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.ServerState.ice_read(is_);
             is_.endEncapsulation();
@@ -600,7 +600,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getServerState', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getServerState_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getServerState', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getServerState_ex_, varargin{:});
         end
         function result = getServerPid(obj, id, varargin)
             % getServerPid   Get a server's system process id. The process id is operating system dependent.
@@ -619,7 +619,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getServerPid', 2, true, os_, true, IceGrid.AdminPrx.getServerPid_ex_, varargin{:});
+            is_ = obj.iceInvoke('getServerPid', 1, true, os_, true, IceGrid.AdminPrx.getServerPid_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -647,7 +647,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getServerPid', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getServerPid_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getServerPid', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getServerPid_ex_, varargin{:});
         end
         function result = getServerAdminCategory(obj, varargin)
             % getServerAdminCategory   Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
@@ -658,7 +658,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %
             % Returns (char) - The category for server admin objects.
             
-            is_ = obj.iceInvoke('getServerAdminCategory', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getServerAdminCategory', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readString();
             is_.endEncapsulation();
@@ -678,7 +678,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getServerAdminCategory', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getServerAdminCategory', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getServerAdmin(obj, id, varargin)
             % getServerAdmin   Get a proxy to the server's admin object.
@@ -697,7 +697,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getServerAdmin', 2, true, os_, true, IceGrid.AdminPrx.getServerAdmin_ex_, varargin{:});
+            is_ = obj.iceInvoke('getServerAdmin', 1, true, os_, true, IceGrid.AdminPrx.getServerAdmin_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -725,7 +725,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getServerAdmin', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getServerAdmin_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getServerAdmin', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getServerAdmin_ex_, varargin{:});
         end
         function enableServer(obj, id, enabled, varargin)
             % enableServer   Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
@@ -746,7 +746,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_.writeString(id);
             os_.writeBool(enabled);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('enableServer', 2, true, os_, false, IceGrid.AdminPrx.enableServer_ex_, varargin{:});
+            obj.iceInvoke('enableServer', 1, true, os_, false, IceGrid.AdminPrx.enableServer_ex_, varargin{:});
         end
         function r_ = enableServerAsync(obj, id, enabled, varargin)
             % enableServerAsync   Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
@@ -769,7 +769,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_.writeString(id);
             os_.writeBool(enabled);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('enableServer', 2, true, os_, 0, [], IceGrid.AdminPrx.enableServer_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('enableServer', 1, true, os_, 0, [], IceGrid.AdminPrx.enableServer_ex_, varargin{:});
         end
         function result = isServerEnabled(obj, id, varargin)
             % isServerEnabled   Check if the server is enabled or disabled.
@@ -788,7 +788,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('isServerEnabled', 2, true, os_, true, IceGrid.AdminPrx.isServerEnabled_ex_, varargin{:});
+            is_ = obj.iceInvoke('isServerEnabled', 1, true, os_, true, IceGrid.AdminPrx.isServerEnabled_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readBool();
             is_.endEncapsulation();
@@ -816,7 +816,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('isServerEnabled', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.isServerEnabled_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('isServerEnabled', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.isServerEnabled_ex_, varargin{:});
         end
         function startServer(obj, id, varargin)
             % startServer   Start a server and wait for its activation.
@@ -944,7 +944,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %
             % Returns (Ice.StringSeq) - The server ids.
             
-            is_ = obj.iceInvoke('getAllServerIds', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getAllServerIds', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readStringSeq();
             is_.endEncapsulation();
@@ -963,7 +963,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getAllServerIds', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getAllServerIds', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getAdapterInfo(obj, id, varargin)
             % getAdapterInfo   Get the adapter information for the replica group or adapter with the given id.
@@ -982,7 +982,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getAdapterInfo', 2, true, os_, true, IceGrid.AdminPrx.getAdapterInfo_ex_, varargin{:});
+            is_ = obj.iceInvoke('getAdapterInfo', 1, true, os_, true, IceGrid.AdminPrx.getAdapterInfo_ex_, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.AdapterInfoSeq.read(is_);
             is_.endEncapsulation();
@@ -1008,7 +1008,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getAdapterInfo', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getAdapterInfo_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getAdapterInfo', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getAdapterInfo_ex_, varargin{:});
         end
         function removeAdapter(obj, id, varargin)
             % removeAdapter   Remove the adapter with the given id.
@@ -1052,7 +1052,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %
             % Returns (Ice.StringSeq) - The adapter ids.
             
-            is_ = obj.iceInvoke('getAllAdapterIds', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getAllAdapterIds', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readStringSeq();
             is_.endEncapsulation();
@@ -1071,7 +1071,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getAllAdapterIds', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getAllAdapterIds', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function addObject(obj_, obj, varargin)
             % addObject   Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
@@ -1240,7 +1240,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             Ice.Identity.ice_write(os_, id);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getObjectInfo', 2, true, os_, true, IceGrid.AdminPrx.getObjectInfo_ex_, varargin{:});
+            is_ = obj.iceInvoke('getObjectInfo', 1, true, os_, true, IceGrid.AdminPrx.getObjectInfo_ex_, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.ObjectInfo.ice_read(is_);
             is_.endEncapsulation();
@@ -1266,7 +1266,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getObjectInfo', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getObjectInfo_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getObjectInfo', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getObjectInfo_ex_, varargin{:});
         end
         function result = getObjectInfosByType(obj, type, varargin)
             % getObjectInfosByType   Get the object info of all the registered objects with the given type.
@@ -1280,7 +1280,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(type);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getObjectInfosByType', 2, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('getObjectInfosByType', 1, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.ObjectInfoSeq.read(is_);
             is_.endEncapsulation();
@@ -1303,7 +1303,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getObjectInfosByType', 2, true, os_, 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getObjectInfosByType', 1, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = getAllObjectInfos(obj, expr, varargin)
             % getAllObjectInfos   Get the object info of all the registered objects whose stringified identities match the given expression.
@@ -1318,7 +1318,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(expr);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getAllObjectInfos', 2, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('getAllObjectInfos', 1, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.ObjectInfoSeq.read(is_);
             is_.endEncapsulation();
@@ -1342,7 +1342,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getAllObjectInfos', 2, true, os_, 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getAllObjectInfos', 1, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = pingNode(obj, name, varargin)
             % pingNode   Ping an IceGrid node to see if it is active.
@@ -1359,7 +1359,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('pingNode', 2, true, os_, true, IceGrid.AdminPrx.pingNode_ex_, varargin{:});
+            is_ = obj.iceInvoke('pingNode', 1, true, os_, true, IceGrid.AdminPrx.pingNode_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readBool();
             is_.endEncapsulation();
@@ -1385,7 +1385,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('pingNode', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.pingNode_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('pingNode', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.pingNode_ex_, varargin{:});
         end
         function result = getNodeLoad(obj, name, varargin)
             % getNodeLoad   Get the load averages of the node.
@@ -1403,7 +1403,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getNodeLoad', 2, true, os_, true, IceGrid.AdminPrx.getNodeLoad_ex_, varargin{:});
+            is_ = obj.iceInvoke('getNodeLoad', 1, true, os_, true, IceGrid.AdminPrx.getNodeLoad_ex_, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.LoadInfo.ice_read(is_);
             is_.endEncapsulation();
@@ -1430,7 +1430,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getNodeLoad', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getNodeLoad_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getNodeLoad', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getNodeLoad_ex_, varargin{:});
         end
         function result = getNodeInfo(obj, name, varargin)
             % getNodeInfo   Get the node information for the node with the given name.
@@ -1448,7 +1448,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getNodeInfo', 2, true, os_, true, IceGrid.AdminPrx.getNodeInfo_ex_, varargin{:});
+            is_ = obj.iceInvoke('getNodeInfo', 1, true, os_, true, IceGrid.AdminPrx.getNodeInfo_ex_, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.NodeInfo.ice_read(is_);
             is_.endEncapsulation();
@@ -1475,7 +1475,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getNodeInfo', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getNodeInfo_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getNodeInfo', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getNodeInfo_ex_, varargin{:});
         end
         function result = getNodeAdmin(obj, name, varargin)
             % getNodeAdmin   Get a proxy to the IceGrid node's admin object.
@@ -1493,7 +1493,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getNodeAdmin', 2, true, os_, true, IceGrid.AdminPrx.getNodeAdmin_ex_, varargin{:});
+            is_ = obj.iceInvoke('getNodeAdmin', 1, true, os_, true, IceGrid.AdminPrx.getNodeAdmin_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -1520,7 +1520,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getNodeAdmin', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getNodeAdmin_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getNodeAdmin', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getNodeAdmin_ex_, varargin{:});
         end
         function result = getNodeProcessorSocketCount(obj, name, varargin)
             % getNodeProcessorSocketCount   Get the number of physical processor sockets for the machine running the node with the given name.
@@ -1540,7 +1540,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getNodeProcessorSocketCount', 2, true, os_, true, IceGrid.AdminPrx.getNodeProcessorSocketCount_ex_, varargin{:});
+            is_ = obj.iceInvoke('getNodeProcessorSocketCount', 1, true, os_, true, IceGrid.AdminPrx.getNodeProcessorSocketCount_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -1569,7 +1569,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getNodeProcessorSocketCount', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getNodeProcessorSocketCount_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getNodeProcessorSocketCount', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getNodeProcessorSocketCount_ex_, varargin{:});
         end
         function shutdownNode(obj, name, varargin)
             % shutdownNode   Shutdown an IceGrid node.
@@ -1621,7 +1621,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getNodeHostname', 2, true, os_, true, IceGrid.AdminPrx.getNodeHostname_ex_, varargin{:});
+            is_ = obj.iceInvoke('getNodeHostname', 1, true, os_, true, IceGrid.AdminPrx.getNodeHostname_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readString();
             is_.endEncapsulation();
@@ -1648,7 +1648,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getNodeHostname', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getNodeHostname_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getNodeHostname', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getNodeHostname_ex_, varargin{:});
         end
         function result = getAllNodeNames(obj, varargin)
             % getAllNodeNames   Get all the IceGrid nodes currently registered.
@@ -1658,7 +1658,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %
             % Returns (Ice.StringSeq) - The node names.
             
-            is_ = obj.iceInvoke('getAllNodeNames', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getAllNodeNames', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readStringSeq();
             is_.endEncapsulation();
@@ -1677,7 +1677,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getAllNodeNames', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getAllNodeNames', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = pingRegistry(obj, name, varargin)
             % pingRegistry   Ping an IceGrid registry to see if it is active.
@@ -1694,7 +1694,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('pingRegistry', 2, true, os_, true, IceGrid.AdminPrx.pingRegistry_ex_, varargin{:});
+            is_ = obj.iceInvoke('pingRegistry', 1, true, os_, true, IceGrid.AdminPrx.pingRegistry_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readBool();
             is_.endEncapsulation();
@@ -1720,7 +1720,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('pingRegistry', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.pingRegistry_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('pingRegistry', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.pingRegistry_ex_, varargin{:});
         end
         function result = getRegistryInfo(obj, name, varargin)
             % getRegistryInfo   Get the registry information for the registry with the given name.
@@ -1738,7 +1738,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getRegistryInfo', 2, true, os_, true, IceGrid.AdminPrx.getRegistryInfo_ex_, varargin{:});
+            is_ = obj.iceInvoke('getRegistryInfo', 1, true, os_, true, IceGrid.AdminPrx.getRegistryInfo_ex_, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.RegistryInfo.ice_read(is_);
             is_.endEncapsulation();
@@ -1765,7 +1765,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getRegistryInfo', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getRegistryInfo_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getRegistryInfo', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getRegistryInfo_ex_, varargin{:});
         end
         function result = getRegistryAdmin(obj, name, varargin)
             % getRegistryAdmin   Get a proxy to the IceGrid registry's admin object.
@@ -1782,7 +1782,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getRegistryAdmin', 2, true, os_, true, IceGrid.AdminPrx.getRegistryAdmin_ex_, varargin{:});
+            is_ = obj.iceInvoke('getRegistryAdmin', 1, true, os_, true, IceGrid.AdminPrx.getRegistryAdmin_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -1808,7 +1808,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getRegistryAdmin', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getRegistryAdmin_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getRegistryAdmin', 1, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getRegistryAdmin_ex_, varargin{:});
         end
         function shutdownRegistry(obj, name, varargin)
             % shutdownRegistry   Shutdown an IceGrid registry.
@@ -1824,7 +1824,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('shutdownRegistry', 2, true, os_, false, IceGrid.AdminPrx.shutdownRegistry_ex_, varargin{:});
+            obj.iceInvoke('shutdownRegistry', 1, true, os_, false, IceGrid.AdminPrx.shutdownRegistry_ex_, varargin{:});
         end
         function r_ = shutdownRegistryAsync(obj, name, varargin)
             % shutdownRegistryAsync   Shutdown an IceGrid registry.
@@ -1842,7 +1842,7 @@ classdef AdminPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('shutdownRegistry', 2, true, os_, 0, [], IceGrid.AdminPrx.shutdownRegistry_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('shutdownRegistry', 1, true, os_, 0, [], IceGrid.AdminPrx.shutdownRegistry_ex_, varargin{:});
         end
         function result = getAllRegistryNames(obj, varargin)
             % getAllRegistryNames   Get all the IceGrid registries currently registered.
@@ -1852,7 +1852,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %
             % Returns (Ice.StringSeq) - The registry names.
             
-            is_ = obj.iceInvoke('getAllRegistryNames', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getAllRegistryNames', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readStringSeq();
             is_.endEncapsulation();
@@ -1871,7 +1871,7 @@ classdef AdminPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getAllRegistryNames', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getAllRegistryNames', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function shutdown(obj, varargin)
             % shutdown   Shut down the IceGrid registry.

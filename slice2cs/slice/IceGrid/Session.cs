@@ -397,7 +397,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _keepAlive_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
@@ -574,7 +574,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _setAllocationTimeout_name,
-                global::Ice.OperationMode.Idempotent,
+                global::Ice.OperationMode.Nonmutating,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

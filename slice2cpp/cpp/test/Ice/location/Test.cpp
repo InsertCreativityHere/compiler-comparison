@@ -99,7 +99,7 @@ Test::TestLocatorPrx::_iceI_getRequestCount(const ::std::shared_ptr<::IceInterna
     static constexpr ::std::string_view operationName = "getRequestCount";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }

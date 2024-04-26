@@ -96,7 +96,7 @@ Glacier2.RouterPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Glacier2.Router, Glacier2.RouterPrx, iceC_Glacier2_Router_ids, "::Glacier2::Router",
 {
-    "getCategoryForClient": [, 2, 2, , [7], , , , , ],
+    "getCategoryForClient": [, 2, 1, , [7], , , , , ],
     "createSession": [, , , 2, ["Glacier2.SessionPrx"], [[7], [7]], ,
     [
         Glacier2.CannotCreateSessionException,
@@ -115,8 +115,8 @@ Slice.defineOperations(Glacier2.Router, Glacier2.RouterPrx, iceC_Glacier2_Router
     [
         Glacier2.SessionNotExistException
     ], , ],
-    "getSessionTimeout": [, 2, 2, , [4], , , , , ],
-    "getACMTimeout": [, 2, 2, , [3], , , , , ]
+    "getSessionTimeout": [, 2, 1, , [4], , , , , ],
+    "getACMTimeout": [, 2, 1, , [3], , , , , ]
 });
 /* slice2js browser-bundle-skip */
 exports.Glacier2 = Glacier2;

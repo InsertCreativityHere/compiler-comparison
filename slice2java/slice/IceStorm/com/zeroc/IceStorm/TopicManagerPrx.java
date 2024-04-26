@@ -171,7 +171,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<TopicPrx> _iceI_retrieveAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TopicPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "retrieve", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_retrieve);
+        com.zeroc.IceInternal.OutgoingAsync<TopicPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "retrieve", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_retrieve);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                  }, istr -> {
@@ -234,7 +234,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, TopicPrx>> _iceI_retrieveAllAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, TopicPrx>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "retrieveAll", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, TopicPrx>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "retrieveAll", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      java.util.Map<java.lang.String, TopicPrx> ret;
                      ret = TopicDictHelper.read(istr);

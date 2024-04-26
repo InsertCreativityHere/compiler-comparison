@@ -335,7 +335,7 @@ public extension StringSetPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func add(_ iceP_additions: Ice.StringSeq, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "add",
-                          mode: .Idempotent,
+                          mode: .Nonmutating,
                           write: { ostr in
                               ostr.write(iceP_additions)
                           },
@@ -360,7 +360,7 @@ public extension StringSetPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func addAsync(_ iceP_additions: Ice.StringSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "add",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   write: { ostr in
                                       ostr.write(iceP_additions)
                                   },
@@ -377,7 +377,7 @@ public extension StringSetPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func remove(_ iceP_deletions: Ice.StringSeq, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "remove",
-                          mode: .Idempotent,
+                          mode: .Nonmutating,
                           write: { ostr in
                               ostr.write(iceP_deletions)
                           },
@@ -401,7 +401,7 @@ public extension StringSetPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func removeAsync(_ iceP_deletions: Ice.StringSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "remove",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   write: { ostr in
                                       ostr.write(iceP_deletions)
                                   },
@@ -418,7 +418,7 @@ public extension StringSetPrx {
     /// - returns: `Ice.StringSeq` - The sequence of strings for this set.
     func `get`(context: Ice.Context? = nil) throws -> Ice.StringSeq {
         return try _impl._invoke(operation: "get",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: Ice.StringSeq = try istr.read()
                                      return iceP_returnValue
@@ -441,7 +441,7 @@ public extension StringSetPrx {
     /// - returns: `PromiseKit.Promise<Ice.StringSeq>` - The result of the operation
     func getAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.StringSeq> {
         return _impl._invokeAsync(operation: "get",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: Ice.StringSeq = try istr.read()
                                       return iceP_returnValue
@@ -567,7 +567,7 @@ public extension IdentitySetPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func add(_ iceP_additions: Ice.IdentitySeq, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "add",
-                          mode: .Idempotent,
+                          mode: .Nonmutating,
                           write: { ostr in
                               Ice.IdentitySeqHelper.write(to: ostr, value: iceP_additions)
                           },
@@ -592,7 +592,7 @@ public extension IdentitySetPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func addAsync(_ iceP_additions: Ice.IdentitySeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "add",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   write: { ostr in
                                       Ice.IdentitySeqHelper.write(to: ostr, value: iceP_additions)
                                   },
@@ -610,7 +610,7 @@ public extension IdentitySetPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func remove(_ iceP_deletions: Ice.IdentitySeq, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "remove",
-                          mode: .Idempotent,
+                          mode: .Nonmutating,
                           write: { ostr in
                               Ice.IdentitySeqHelper.write(to: ostr, value: iceP_deletions)
                           },
@@ -635,7 +635,7 @@ public extension IdentitySetPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func removeAsync(_ iceP_deletions: Ice.IdentitySeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "remove",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   write: { ostr in
                                       Ice.IdentitySeqHelper.write(to: ostr, value: iceP_deletions)
                                   },
@@ -652,7 +652,7 @@ public extension IdentitySetPrx {
     /// - returns: `Ice.IdentitySeq` - The sequence of Ice identities for this set.
     func `get`(context: Ice.Context? = nil) throws -> Ice.IdentitySeq {
         return try _impl._invoke(operation: "get",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
                                      return iceP_returnValue
@@ -675,7 +675,7 @@ public extension IdentitySetPrx {
     /// - returns: `PromiseKit.Promise<Ice.IdentitySeq>` - The result of the operation
     func getAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.IdentitySeq> {
         return _impl._invokeAsync(operation: "get",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
                                       return iceP_returnValue
@@ -939,7 +939,7 @@ public extension SessionControlPrx {
     /// - returns: `Swift.Int32` - The timeout.
     func getSessionTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getSessionTimeout",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Int32 = try istr.read()
                                      return iceP_returnValue
@@ -962,7 +962,7 @@ public extension SessionControlPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func getSessionTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "getSessionTimeout",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Int32 = try istr.read()
                                       return iceP_returnValue

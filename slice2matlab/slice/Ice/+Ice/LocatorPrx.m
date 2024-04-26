@@ -36,7 +36,7 @@ classdef LocatorPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             Ice.Identity.ice_write(os_, id);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('findObjectById', 2, true, os_, true, Ice.LocatorPrx.findObjectById_ex_, varargin{:});
+            is_ = obj.iceInvoke('findObjectById', 1, true, os_, true, Ice.LocatorPrx.findObjectById_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -63,7 +63,7 @@ classdef LocatorPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('findObjectById', 2, true, os_, 1, @unmarshal, Ice.LocatorPrx.findObjectById_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('findObjectById', 1, true, os_, 1, @unmarshal, Ice.LocatorPrx.findObjectById_ex_, varargin{:});
         end
         function result = findAdapterById(obj, id, varargin)
             % findAdapterById   Find an adapter by id and return a proxy that contains its endpoints.
@@ -80,7 +80,7 @@ classdef LocatorPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('findAdapterById', 2, true, os_, true, Ice.LocatorPrx.findAdapterById_ex_, varargin{:});
+            is_ = obj.iceInvoke('findAdapterById', 1, true, os_, true, Ice.LocatorPrx.findAdapterById_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -106,7 +106,7 @@ classdef LocatorPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('findAdapterById', 2, true, os_, 1, @unmarshal, Ice.LocatorPrx.findAdapterById_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('findAdapterById', 1, true, os_, 1, @unmarshal, Ice.LocatorPrx.findAdapterById_ex_, varargin{:});
         end
         function result = getRegistry(obj, varargin)
             % getRegistry   Get the locator registry.
@@ -116,7 +116,7 @@ classdef LocatorPrx < Ice.ObjectPrx
             %
             % Returns (Ice.LocatorRegistryPrx) - The locator registry.
             
-            is_ = obj.iceInvoke('getRegistry', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getRegistry', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = Ice.LocatorRegistryPrx.ice_read(is_);
             is_.endEncapsulation();
@@ -135,7 +135,7 @@ classdef LocatorPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getRegistry', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getRegistry', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

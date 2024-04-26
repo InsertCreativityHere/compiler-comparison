@@ -118,7 +118,7 @@ classdef SessionControlPrx < Ice.ObjectPrx
             %
             % Returns (int32) - The timeout.
             
-            is_ = obj.iceInvoke('getSessionTimeout', 2, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getSessionTimeout', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -137,7 +137,7 @@ classdef SessionControlPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getSessionTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getSessionTimeout', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function destroy(obj, varargin)
             % destroy   Destroy the associated session.

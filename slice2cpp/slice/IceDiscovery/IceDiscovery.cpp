@@ -125,7 +125,7 @@ IceDiscovery::LookupPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInter
 {
     static constexpr ::std::string_view operationName = "findObjectById";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_domainId, iceP_id, iceP_reply);
@@ -156,7 +156,7 @@ IceDiscovery::LookupPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInte
 {
     static constexpr ::std::string_view operationName = "findAdapterById";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_domainId, iceP_id, iceP_reply);

@@ -205,7 +205,7 @@ public extension TestIntfPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func idempotentAbort(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "idempotentAbort",
-                          mode: .Idempotent,
+                          mode: .Nonmutating,
                           context: context)
     }
 
@@ -223,7 +223,7 @@ public extension TestIntfPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func idempotentAbortAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "idempotentAbort",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,
@@ -236,7 +236,7 @@ public extension TestIntfPrx {
     /// - returns: `Swift.Int32`
     func pid(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "pid",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Int32 = try istr.read()
                                      return iceP_returnValue
@@ -258,7 +258,7 @@ public extension TestIntfPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func pidAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "pid",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Int32 = try istr.read()
                                       return iceP_returnValue

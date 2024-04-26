@@ -679,7 +679,7 @@ namespace Test
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opMyEnumMyEnumSD', 0, 0, 0, array(array($Test__t_MyEnumMyEnumSD), array($Test__t_MyEnumMyEnumSD)), array(array($Test__t_MyEnumMyEnumSD)), array($Test__t_MyEnumMyEnumSD), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opIntS', 0, 0, 0, array(array($Test__t_IntS)), null, array($Test__t_IntS), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opContext', 0, 0, 0, null, null, array($Test__t_StringStringD), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opIdempotent', 2, 2, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opIdempotent', 2, 1, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opByte1', 0, 0, 0, array(array($IcePHP__t_byte)), null, array($IcePHP__t_byte), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opShort1', 0, 0, 0, array(array($IcePHP__t_short)), null, array($IcePHP__t_short), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opInt1', 0, 0, 0, array(array($IcePHP__t_int)), null, array($IcePHP__t_int), null);

@@ -57,7 +57,7 @@ classdef AdapterPrx < Ice.ObjectPrx
             %
             % Returns (Ice.ObjectPrx) - A direct proxy containing the last known adapter endpoints if the adapter is already active.
             
-            is_ = obj.iceInvoke('getDirectProxy', 2, true, [], true, IceGrid.AdapterPrx.getDirectProxy_ex_, varargin{:});
+            is_ = obj.iceInvoke('getDirectProxy', 1, true, [], true, IceGrid.AdapterPrx.getDirectProxy_ex_, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -77,7 +77,7 @@ classdef AdapterPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getDirectProxy', 2, true, [], 1, @unmarshal, IceGrid.AdapterPrx.getDirectProxy_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('getDirectProxy', 1, true, [], 1, @unmarshal, IceGrid.AdapterPrx.getDirectProxy_ex_, varargin{:});
         end
         function setDirectProxy(obj, proxy, varargin)
             % setDirectProxy   Set the direct proxy for this adapter.

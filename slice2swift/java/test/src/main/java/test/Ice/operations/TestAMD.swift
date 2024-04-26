@@ -6391,7 +6391,7 @@ public extension MyClassPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func opIdempotent(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "opIdempotent",
-                          mode: .Idempotent,
+                          mode: .Nonmutating,
                           context: context)
     }
 
@@ -6409,7 +6409,7 @@ public extension MyClassPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func opIdempotentAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "opIdempotent",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,

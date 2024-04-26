@@ -273,7 +273,7 @@ public extension TestLocatorPrx {
     /// - returns: `Swift.Int32`
     func getRequestCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getRequestCount",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Int32 = try istr.read()
                                      return iceP_returnValue
@@ -295,7 +295,7 @@ public extension TestLocatorPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func getRequestCountAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "getRequestCount",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Int32 = try istr.read()
                                       return iceP_returnValue

@@ -133,7 +133,7 @@ if 'TestLocatorPrx' not in _M_Test.__dict__:
     _M_Test._t_TestLocatorDisp = IcePy.defineClass('::Test::TestLocator', TestLocator, (), None, (_M_Ice._t_LocatorDisp,))
     TestLocator._ice_type = _M_Test._t_TestLocatorDisp
 
-    TestLocator._op_getRequestCount = IcePy.Operation('getRequestCount', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    TestLocator._op_getRequestCount = IcePy.Operation('getRequestCount', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 
     _M_Test.TestLocator = TestLocator
     del TestLocator

@@ -132,7 +132,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
     TestIntf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    TestIntf._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), None, ())
     TestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, (_M_Test._t_InterruptedException,))
     TestIntf._op_opWithPayload = IcePy.Operation('opWithPayload', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), None, ())
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())

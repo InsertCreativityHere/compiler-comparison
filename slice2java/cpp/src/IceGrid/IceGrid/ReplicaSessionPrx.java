@@ -110,7 +110,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTimeout", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      int ret;
                      ret = istr.readInt();
@@ -220,7 +220,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setDatabaseObserverAsync(DatabaseObserverPrx iceP_dbObs, java.util.Map<java.lang.String, java.lang.Long> iceP_serials, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setDatabaseObserver", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setDatabaseObserver);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setDatabaseObserver", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_setDatabaseObserver);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_dbObs);
                      StringLongDictHelper.write(ostr, 1, iceP_serials);
@@ -264,7 +264,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setDatabaseObserverAsync(DatabaseObserverPrx iceP_dbObs, java.util.Optional<java.util.Map<java.lang.String, java.lang.Long>> iceP_serials, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setDatabaseObserver", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setDatabaseObserver);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setDatabaseObserver", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_setDatabaseObserver);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_dbObs);
                      StringLongDictHelper.write(ostr, 1, iceP_serials);
@@ -321,7 +321,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setEndpointsAsync(java.util.Map<java.lang.String, com.zeroc.Ice.ObjectPrx> iceP_endpoints, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setEndpoints", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setEndpoints", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(false, context, null, ostr -> {
                      com.zeroc.IceGrid.StringObjectProxyDictHelper.write(ostr, iceP_endpoints);
                  }, null);
@@ -373,7 +373,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_registerWellKnownObjectsAsync(com.zeroc.IceGrid.ObjectInfo[] iceP_objects, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "registerWellKnownObjects", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "registerWellKnownObjects", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
         f.invoke(false, context, null, ostr -> {
                      com.zeroc.IceGrid.ObjectInfoSeqHelper.write(ostr, iceP_objects);
                  }, null);
@@ -450,7 +450,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setAdapterDirectProxyAsync(String iceP_adapterId, String iceP_replicaGroupId, com.zeroc.Ice.ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setAdapterDirectProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setAdapterDirectProxy);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setAdapterDirectProxy", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_setAdapterDirectProxy);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_adapterId);
                      ostr.writeString(iceP_replicaGroupId);

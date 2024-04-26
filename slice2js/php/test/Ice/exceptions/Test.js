@@ -227,7 +227,7 @@
         "throwLocalException": [, , , , , , , , , ],
         "throwNonIceException": [, , , , , , , , , ],
         "throwMemoryLimitException": [, , , , ["Ice.ByteSeqHelper"], [["Ice.ByteSeqHelper"]], , , , ],
-        "throwLocalExceptionIdempotent": [, 2, 2, , , , , , , ]
+        "throwLocalExceptionIdempotent": [, 2, 1, , , , , , , ]
     });
 
     const iceC_Test_WrongOperation_ids = [

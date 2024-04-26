@@ -174,7 +174,7 @@ public extension FileParserPrx {
     ///   - ParseException - Raised if an error occurred during parsing.
     func parse(xmlFile iceP_xmlFile: Swift.String, adminProxy iceP_adminProxy: AdminPrx?, context: Ice.Context? = nil) throws -> ApplicationDescriptor {
         return try _impl._invoke(operation: "parse",
-                                 mode: .Idempotent,
+                                 mode: .Nonmutating,
                                  write: { ostr in
                                      ostr.write(iceP_xmlFile)
                                      ostr.write(iceP_adminProxy)
@@ -213,7 +213,7 @@ public extension FileParserPrx {
     /// - returns: `PromiseKit.Promise<ApplicationDescriptor>` - The result of the operation
     func parseAsync(xmlFile iceP_xmlFile: Swift.String, adminProxy iceP_adminProxy: AdminPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ApplicationDescriptor> {
         return _impl._invokeAsync(operation: "parse",
-                                  mode: .Idempotent,
+                                  mode: .Nonmutating,
                                   write: { ostr in
                                       ostr.write(iceP_xmlFile)
                                       ostr.write(iceP_adminProxy)

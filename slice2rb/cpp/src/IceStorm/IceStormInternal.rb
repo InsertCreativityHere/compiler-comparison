@@ -136,7 +136,7 @@ module ::IceStorm
 
         T_TopicInternalPrx.defineProxy(TopicInternalPrx, nil, [::IceStorm::T_TopicPrx])
 
-        TopicInternalPrx_mixin::OP_getLinkProxy = ::Ice::__defineOperation('getLinkProxy', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStorm::T_TopicLinkPrx, false, 0], [])
+        TopicInternalPrx_mixin::OP_getLinkProxy = ::Ice::__defineOperation('getLinkProxy', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceStorm::T_TopicLinkPrx, false, 0], [])
         TopicInternalPrx_mixin::OP_reap = ::Ice::__defineOperation('reap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [::IceStorm::T_ReapWouldBlock])
     end
 
@@ -164,6 +164,6 @@ module ::IceStorm
 
         T_TopicManagerInternalPrx.defineProxy(TopicManagerInternalPrx, nil, [::IceStorm::T_TopicManagerPrx])
 
-        TopicManagerInternalPrx_mixin::OP_getReplicaNode = ::Ice::__defineOperation('getReplicaNode', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::T_NodePrx, false, 0], [])
+        TopicManagerInternalPrx_mixin::OP_getReplicaNode = ::Ice::__defineOperation('getReplicaNode', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceStormElection::T_NodePrx, false, 0], [])
     end
 end
