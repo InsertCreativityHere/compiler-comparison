@@ -1732,10 +1732,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public virtual global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> l { get; set; }
+        public global::Ice.Optional<SmallStruct[]> l;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected virtual global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> lp { get; set; }
+        protected global::Ice.Optional<SmallStruct[]> lp;
 
         #endregion
 
@@ -1746,13 +1746,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OptionalWithCustom()
         {
-            this.l = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
-            this.lp = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
+            this.l = new global::Ice.Optional<SmallStruct[]>();
+            this.lp = new global::Ice.Optional<SmallStruct[]>();
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OptionalWithCustom(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> l, global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> lp)
+        public OptionalWithCustom(global::Ice.Optional<SmallStruct[]> l, global::Ice.Optional<SmallStruct[]> lp)
         {
             this.l = l;
             this.lp = lp;
@@ -1797,23 +1797,23 @@ namespace Test
             istr_.startSlice();
             if(istr_.readOptional(1, global::Ice.OptionalFormat.VSize))
             {
-                global::System.Collections.Generic.List<SmallStruct> tmpVal;
+                SmallStruct[] tmpVal;
                 tmpVal = SmallStructListHelper.read(istr_);
-                l = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>(tmpVal);
+                l = new global::Ice.Optional<SmallStruct[]>(tmpVal);
             }
             else
             {
-                l = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
+                l = new global::Ice.Optional<SmallStruct[]>();
             }
             if(istr_.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
-                global::System.Collections.Generic.List<SmallStruct> tmpVal;
+                SmallStruct[] tmpVal;
                 tmpVal = SmallStructListHelper.read(istr_);
-                lp = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>(tmpVal);
+                lp = new global::Ice.Optional<SmallStruct[]>(tmpVal);
             }
             else
             {
-                lp = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
+                lp = new global::Ice.Optional<SmallStruct[]>();
             }
             istr_.endSlice();
         }
@@ -2316,13 +2316,13 @@ namespace Test
     public delegate void Callback_Initial_opSmallStructSeq(global::Ice.Optional<SmallStruct[]> ret, global::Ice.Optional<SmallStruct[]> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Initial_opSmallStructList(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> ret, global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> p3);
+    public delegate void Callback_Initial_opSmallStructList(global::Ice.Optional<SmallStruct[]> ret, global::Ice.Optional<SmallStruct[]> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Initial_opFixedStructSeq(global::Ice.Optional<FixedStruct[]> ret, global::Ice.Optional<FixedStruct[]> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Initial_opFixedStructList(global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> ret, global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> p3);
+    public delegate void Callback_Initial_opFixedStructList(global::Ice.Optional<FixedStruct[]> ret, global::Ice.Optional<FixedStruct[]> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Initial_opVarStructSeq(global::Ice.Optional<VarStruct[]> ret, global::Ice.Optional<VarStruct[]> p3);
@@ -2671,14 +2671,14 @@ namespace Test
 
     public struct Initial_OpSmallStructListResult
     {
-        public Initial_OpSmallStructListResult(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> returnValue, global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> p3)
+        public Initial_OpSmallStructListResult(global::Ice.Optional<SmallStruct[]> returnValue, global::Ice.Optional<SmallStruct[]> p3)
         {
             this.returnValue = returnValue;
             this.p3 = p3;
         }
 
-        public global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> returnValue;
-        public global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> p3;
+        public global::Ice.Optional<SmallStruct[]> returnValue;
+        public global::Ice.Optional<SmallStruct[]> p3;
     }
 
     public struct Initial_OpFixedStructSeqResult
@@ -2695,14 +2695,14 @@ namespace Test
 
     public struct Initial_OpFixedStructListResult
     {
-        public Initial_OpFixedStructListResult(global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> returnValue, global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> p3)
+        public Initial_OpFixedStructListResult(global::Ice.Optional<FixedStruct[]> returnValue, global::Ice.Optional<FixedStruct[]> p3)
         {
             this.returnValue = returnValue;
             this.p3 = p3;
         }
 
-        public global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> returnValue;
-        public global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> p3;
+        public global::Ice.Optional<FixedStruct[]> returnValue;
+        public global::Ice.Optional<FixedStruct[]> p3;
     }
 
     public struct Initial_OpVarStructSeqResult
@@ -3154,17 +3154,17 @@ namespace Test
 
         global::System.Threading.Tasks.Task<Initial_OpSmallStructSeqResult> opSmallStructSeqAsync(global::Ice.Optional<SmallStruct[]> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> opSmallStructList(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> p1, out global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.Optional<SmallStruct[]> opSmallStructList(global::Ice.Optional<SmallStruct[]> p1, out global::Ice.Optional<SmallStruct[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<Initial_OpSmallStructListResult> opSmallStructListAsync(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<Initial_OpSmallStructListResult> opSmallStructListAsync(global::Ice.Optional<SmallStruct[]> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         global::Ice.Optional<FixedStruct[]> opFixedStructSeq(global::Ice.Optional<FixedStruct[]> p1, out global::Ice.Optional<FixedStruct[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<Initial_OpFixedStructSeqResult> opFixedStructSeqAsync(global::Ice.Optional<FixedStruct[]> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> opFixedStructList(global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> p1, out global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.Optional<FixedStruct[]> opFixedStructList(global::Ice.Optional<FixedStruct[]> p1, out global::Ice.Optional<FixedStruct[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<Initial_OpFixedStructListResult> opFixedStructListAsync(global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<Initial_OpFixedStructListResult> opFixedStructListAsync(global::Ice.Optional<FixedStruct[]> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         global::Ice.Optional<VarStruct[]> opVarStructSeq(global::Ice.Optional<VarStruct[]> p1, out global::Ice.Optional<VarStruct[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
@@ -3353,13 +3353,13 @@ namespace Test
         global::System.Threading.Tasks.Task<Initial_OpSmallStructSeqResult> opSmallStructSeqAsync(global::Ice.Optional<SmallStruct[]> p1, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Initial_OpSmallStructListResult> opSmallStructListAsync(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> p1, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<Initial_OpSmallStructListResult> opSmallStructListAsync(global::Ice.Optional<SmallStruct[]> p1, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<Initial_OpFixedStructSeqResult> opFixedStructSeqAsync(global::Ice.Optional<FixedStruct[]> p1, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Initial_OpFixedStructListResult> opFixedStructListAsync(global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> p1, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<Initial_OpFixedStructListResult> opFixedStructListAsync(global::Ice.Optional<FixedStruct[]> p1, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<Initial_OpVarStructSeqResult> opVarStructSeqAsync(global::Ice.Optional<VarStruct[]> p1, global::Ice.Current current = null);
@@ -3821,7 +3821,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class SmallStructListHelper
     {
-        public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<SmallStruct> v)
+        public static void write(global::Ice.OutputStream ostr, SmallStruct[] v)
         {
             if(v == null)
             {
@@ -3829,25 +3829,23 @@ namespace Test
             }
             else
             {
-                ostr.writeSize(v.Count);
-                for(int ix = 0; ix < v.Count; ++ix)
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
                 {
                     v[ix].ice_writeMembers(ostr);
                 }
             }
         }
 
-        public static global::System.Collections.Generic.List<SmallStruct> read(global::Ice.InputStream istr)
+        public static SmallStruct[] read(global::Ice.InputStream istr)
         {
-            global::System.Collections.Generic.List<SmallStruct> v;
+            SmallStruct[] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new global::System.Collections.Generic.List<SmallStruct>(szx);
+                v = new SmallStruct[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    SmallStruct val = new SmallStruct();
-                    val.ice_readMembers(istr);
-                    v.Add(val);
+                    v[ix].ice_readMembers(istr);
                 }
             }
             return v;
@@ -3891,7 +3889,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class FixedStructListHelper
     {
-        public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<FixedStruct> v)
+        public static void write(global::Ice.OutputStream ostr, FixedStruct[] v)
         {
             if(v == null)
             {
@@ -3899,26 +3897,23 @@ namespace Test
             }
             else
             {
-                ostr.writeSize(v.Count);
-                global::System.Collections.Generic.IEnumerator<FixedStruct> e = v.GetEnumerator();
-                while(e.MoveNext())
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    e.Current.ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
 
-        public static global::System.Collections.Generic.LinkedList<FixedStruct> read(global::Ice.InputStream istr)
+        public static FixedStruct[] read(global::Ice.InputStream istr)
         {
-            global::System.Collections.Generic.LinkedList<FixedStruct> v;
+            FixedStruct[] v;
             {
                 int szx = istr.readAndCheckSeqSize(4);
-                v = new global::System.Collections.Generic.LinkedList<FixedStruct>();
+                v = new FixedStruct[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    FixedStruct val = new FixedStruct();
-                    val.ice_readMembers(istr);
-                    v.AddLast(val);
+                    v[ix].ice_readMembers(istr);
                 }
             }
             return v;
@@ -4695,7 +4690,7 @@ namespace Test
             }
         }
 
-        public global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> opSmallStructList(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> p1, out global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.Optional<SmallStruct[]> opSmallStructList(global::Ice.Optional<SmallStruct[]> p1, out global::Ice.Optional<SmallStruct[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -4723,7 +4718,7 @@ namespace Test
             }
         }
 
-        public global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> opFixedStructList(global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> p1, out global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.Optional<FixedStruct[]> opFixedStructList(global::Ice.Optional<FixedStruct[]> p1, out global::Ice.Optional<FixedStruct[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -6383,12 +6378,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Initial_OpSmallStructListResult> opSmallStructListAsync(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<Initial_OpSmallStructListResult> opSmallStructListAsync(global::Ice.Optional<SmallStruct[]> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opSmallStructListAsync(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Initial_OpSmallStructListResult> _iceI_opSmallStructListAsync(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Initial_OpSmallStructListResult> _iceI_opSmallStructListAsync(global::Ice.Optional<SmallStruct[]> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSmallStructList_name);
             var completed = new global::IceInternal.OperationTaskCompletionCallback<Initial_OpSmallStructListResult>(progress, cancel);
@@ -6398,7 +6393,7 @@ namespace Test
 
         private const string _opSmallStructList_name = "opSmallStructList";
 
-        private void _iceI_opSmallStructList(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opSmallStructList(global::Ice.Optional<SmallStruct[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Initial_OpSmallStructListResult>(completed);
             outAsync.invoke(
@@ -6419,23 +6414,23 @@ namespace Test
                     Initial_OpSmallStructListResult ret = new Initial_OpSmallStructListResult();
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
-                        global::System.Collections.Generic.List<SmallStruct> tmpVal;
+                        SmallStruct[] tmpVal;
                         tmpVal = SmallStructListHelper.read(istr);
-                        ret.returnValue = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>(tmpVal);
+                        ret.returnValue = new global::Ice.Optional<SmallStruct[]>(tmpVal);
                     }
                     else
                     {
-                        ret.returnValue = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
+                        ret.returnValue = new global::Ice.Optional<SmallStruct[]>();
                     }
                     if(istr.readOptional(3, global::Ice.OptionalFormat.VSize))
                     {
-                        global::System.Collections.Generic.List<SmallStruct> tmpVal;
+                        SmallStruct[] tmpVal;
                         tmpVal = SmallStructListHelper.read(istr);
-                        ret.p3 = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>(tmpVal);
+                        ret.p3 = new global::Ice.Optional<SmallStruct[]>(tmpVal);
                     }
                     else
                     {
-                        ret.p3 = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
+                        ret.p3 = new global::Ice.Optional<SmallStruct[]>();
                     }
                     return ret;
                 });
@@ -6502,12 +6497,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Initial_OpFixedStructListResult> opFixedStructListAsync(global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<Initial_OpFixedStructListResult> opFixedStructListAsync(global::Ice.Optional<FixedStruct[]> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opFixedStructListAsync(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Initial_OpFixedStructListResult> _iceI_opFixedStructListAsync(global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Initial_OpFixedStructListResult> _iceI_opFixedStructListAsync(global::Ice.Optional<FixedStruct[]> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFixedStructList_name);
             var completed = new global::IceInternal.OperationTaskCompletionCallback<Initial_OpFixedStructListResult>(progress, cancel);
@@ -6517,7 +6512,7 @@ namespace Test
 
         private const string _opFixedStructList_name = "opFixedStructList";
 
-        private void _iceI_opFixedStructList(global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opFixedStructList(global::Ice.Optional<FixedStruct[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Initial_OpFixedStructListResult>(completed);
             outAsync.invoke(
@@ -6530,7 +6525,7 @@ namespace Test
                 {
                     if(iceP_p1.HasValue && ostr.writeOptional(2, global::Ice.OptionalFormat.VSize))
                     {
-                        ostr.writeSize(iceP_p1.Value == null ? 1 : iceP_p1.Value.Count * 4 + (iceP_p1.Value.Count > 254 ? 5 : 1));
+                        ostr.writeSize(iceP_p1.Value == null ? 1 : iceP_p1.Value.Length * 4 + (iceP_p1.Value.Length > 254 ? 5 : 1));
                         FixedStructListHelper.write(ostr, iceP_p1.Value);
                     }
                 },
@@ -6540,24 +6535,24 @@ namespace Test
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        global::System.Collections.Generic.LinkedList<FixedStruct> tmpVal;
+                        FixedStruct[] tmpVal;
                         tmpVal = FixedStructListHelper.read(istr);
-                        ret.returnValue = new global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>>(tmpVal);
+                        ret.returnValue = new global::Ice.Optional<FixedStruct[]>(tmpVal);
                     }
                     else
                     {
-                        ret.returnValue = new global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>>();
+                        ret.returnValue = new global::Ice.Optional<FixedStruct[]>();
                     }
                     if(istr.readOptional(3, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        global::System.Collections.Generic.LinkedList<FixedStruct> tmpVal;
+                        FixedStruct[] tmpVal;
                         tmpVal = FixedStructListHelper.read(istr);
-                        ret.p3 = new global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>>(tmpVal);
+                        ret.p3 = new global::Ice.Optional<FixedStruct[]>(tmpVal);
                     }
                     else
                     {
-                        ret.p3 = new global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>>();
+                        ret.p3 = new global::Ice.Optional<FixedStruct[]>();
                     }
                     return ret;
                 });
@@ -7833,11 +7828,11 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<Initial_OpSmallStructSeqResult> opSmallStructSeqAsync(global::Ice.Optional<SmallStruct[]> p1, global::Ice.Current current = null);
 
-        public abstract global::System.Threading.Tasks.Task<Initial_OpSmallStructListResult> opSmallStructListAsync(global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> p1, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<Initial_OpSmallStructListResult> opSmallStructListAsync(global::Ice.Optional<SmallStruct[]> p1, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<Initial_OpFixedStructSeqResult> opFixedStructSeqAsync(global::Ice.Optional<FixedStruct[]> p1, global::Ice.Current current = null);
 
-        public abstract global::System.Threading.Tasks.Task<Initial_OpFixedStructListResult> opFixedStructListAsync(global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> p1, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<Initial_OpFixedStructListResult> opFixedStructListAsync(global::Ice.Optional<FixedStruct[]> p1, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<Initial_OpVarStructSeqResult> opVarStructSeqAsync(global::Ice.Optional<VarStruct[]> p1, global::Ice.Current current = null);
 
@@ -8574,16 +8569,16 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> iceP_p1;
+            global::Ice.Optional<SmallStruct[]> iceP_p1;
             if(istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
-                global::System.Collections.Generic.List<SmallStruct> tmpVal;
+                SmallStruct[] tmpVal;
                 tmpVal = SmallStructListHelper.read(istr);
-                iceP_p1 = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>(tmpVal);
+                iceP_p1 = new global::Ice.Optional<SmallStruct[]>(tmpVal);
             }
             else
             {
-                iceP_p1 = new global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>>();
+                iceP_p1 = new global::Ice.Optional<SmallStruct[]>();
             }
             inS.endReadParams();
             return inS.setResultTask<Initial_OpSmallStructListResult>(obj.opSmallStructListAsync(iceP_p1, current),
@@ -8641,17 +8636,17 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>> iceP_p1;
+            global::Ice.Optional<FixedStruct[]> iceP_p1;
             if(istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
-                global::System.Collections.Generic.LinkedList<FixedStruct> tmpVal;
+                FixedStruct[] tmpVal;
                 tmpVal = FixedStructListHelper.read(istr);
-                iceP_p1 = new global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>>(tmpVal);
+                iceP_p1 = new global::Ice.Optional<FixedStruct[]>(tmpVal);
             }
             else
             {
-                iceP_p1 = new global::Ice.Optional<global::System.Collections.Generic.LinkedList<FixedStruct>>();
+                iceP_p1 = new global::Ice.Optional<FixedStruct[]>();
             }
             inS.endReadParams();
             return inS.setResultTask<Initial_OpFixedStructListResult>(obj.opFixedStructListAsync(iceP_p1, current),
@@ -8659,12 +8654,12 @@ namespace Test
                 {
                     if(ret.returnValue.HasValue && ostr.writeOptional(1, global::Ice.OptionalFormat.VSize))
                     {
-                        ostr.writeSize(ret.returnValue.Value == null ? 1 : ret.returnValue.Value.Count * 4 + (ret.returnValue.Value.Count > 254 ? 5 : 1));
+                        ostr.writeSize(ret.returnValue.Value == null ? 1 : ret.returnValue.Value.Length * 4 + (ret.returnValue.Value.Length > 254 ? 5 : 1));
                         FixedStructListHelper.write(ostr, ret.returnValue.Value);
                     }
                     if(ret.p3.HasValue && ostr.writeOptional(3, global::Ice.OptionalFormat.VSize))
                     {
-                        ostr.writeSize(ret.p3.Value == null ? 1 : ret.p3.Value.Count * 4 + (ret.p3.Value.Count > 254 ? 5 : 1));
+                        ostr.writeSize(ret.p3.Value == null ? 1 : ret.p3.Value.Length * 4 + (ret.p3.Value.Length > 254 ? 5 : 1));
                         FixedStructListHelper.write(ostr, ret.p3.Value);
                     }
                 });
