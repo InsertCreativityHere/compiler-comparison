@@ -2502,7 +2502,7 @@ namespace IceStormElection
             var outAsync = getOutgoingAsync<bool>(completed);
             outAsync.invoke(
                 _areYouCoordinator_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -2534,7 +2534,7 @@ namespace IceStormElection
             var outAsync = getOutgoingAsync<bool>(completed);
             outAsync.invoke(
                 _areYouThere_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -2571,7 +2571,7 @@ namespace IceStormElection
             var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
             outAsync.invoke(
                 _sync_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -2603,7 +2603,7 @@ namespace IceStormElection
             var outAsync = getOutgoingAsync<NodeInfo[]>(completed);
             outAsync.invoke(
                 _nodes_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -2635,7 +2635,7 @@ namespace IceStormElection
             var outAsync = getOutgoingAsync<QueryInfo>(completed);
             outAsync.invoke(
                 _query_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

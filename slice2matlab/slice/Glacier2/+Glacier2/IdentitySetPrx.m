@@ -30,7 +30,7 @@ classdef IdentitySetPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             Ice.IdentitySeq.write(os_, additions);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('add', 1, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('add', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = addAsync(obj, additions, varargin)
             % addAsync   Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
@@ -45,7 +45,7 @@ classdef IdentitySetPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             Ice.IdentitySeq.write(os_, additions);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('add', 1, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('add', 2, false, os_, 0, [], {}, varargin{:});
         end
         function remove(obj, deletions, varargin)
             % remove   Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
@@ -58,7 +58,7 @@ classdef IdentitySetPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             Ice.IdentitySeq.write(os_, deletions);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('remove', 1, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('remove', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = removeAsync(obj, deletions, varargin)
             % removeAsync   Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
@@ -73,7 +73,7 @@ classdef IdentitySetPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             Ice.IdentitySeq.write(os_, deletions);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('remove', 1, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('remove', 2, false, os_, 0, [], {}, varargin{:});
         end
         function result = get(obj, varargin)
             % get   Returns a sequence of identities describing the constraints in this set.
@@ -83,7 +83,7 @@ classdef IdentitySetPrx < Ice.ObjectPrx
             %
             % Returns (Ice.IdentitySeq) - The sequence of Ice identities for this set.
             
-            is_ = obj.iceInvoke('get', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('get', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = Ice.IdentitySeq.read(is_);
             is_.endEncapsulation();
@@ -102,7 +102,7 @@ classdef IdentitySetPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('get', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('get', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

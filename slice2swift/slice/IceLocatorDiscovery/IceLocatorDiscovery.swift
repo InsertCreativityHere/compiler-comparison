@@ -269,7 +269,7 @@ public extension LookupPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func findLocator(instanceName iceP_instanceName: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "findLocator",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           write: { ostr in
                               ostr.write(iceP_instanceName)
                               ostr.write(iceP_reply)
@@ -297,7 +297,7 @@ public extension LookupPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func findLocatorAsync(instanceName iceP_instanceName: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "findLocator",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_instanceName)
                                       ostr.write(iceP_reply)

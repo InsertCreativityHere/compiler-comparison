@@ -70,7 +70,7 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<RegistryPrx> _iceI_getLocalRegistryAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<RegistryPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLocalRegistry", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<RegistryPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLocalRegistry", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      RegistryPrx ret;
                      ret = RegistryPrx.uncheckedCast(istr.readProxy());
@@ -125,7 +125,7 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<QueryPrx> _iceI_getLocalQueryAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<QueryPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLocalQuery", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<QueryPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLocalQuery", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      QueryPrx ret;
                      ret = QueryPrx.uncheckedCast(istr.readProxy());

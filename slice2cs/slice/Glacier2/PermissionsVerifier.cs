@@ -363,7 +363,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<PermissionsVerifier_CheckPermissionsResult>(completed);
             outAsync.invoke(
                 _checkPermissions_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.SlicedFormat,
                 context,
                 synchronous,
@@ -583,7 +583,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<SSLPermissionsVerifier_AuthorizeResult>(completed);
             outAsync.invoke(
                 _authorize_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.SlicedFormat,
                 context,
                 synchronous,

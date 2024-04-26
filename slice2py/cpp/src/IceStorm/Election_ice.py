@@ -964,11 +964,11 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
     Node._op_invitation = IcePy.Operation('invitation', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
     Node._op_ready = IcePy.Operation('ready', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_long, False, 0)), (), None, ())
     Node._op_accept = IcePy.Operation('accept', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0), ((), _M_Ice._t_IntSeq, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
-    Node._op_areYouCoordinator = IcePy.Operation('areYouCoordinator', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    Node._op_areYouThere = IcePy.Operation('areYouThere', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_bool, False, 0), ())
-    Node._op_sync = IcePy.Operation('sync', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Node._op_nodes = IcePy.Operation('nodes', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceStormElection._t_NodeInfoSeq, False, 0), ())
-    Node._op_query = IcePy.Operation('query', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceStormElection._t_QueryInfo, False, 0), ())
+    Node._op_areYouCoordinator = IcePy.Operation('areYouCoordinator', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Node._op_areYouThere = IcePy.Operation('areYouThere', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_bool, False, 0), ())
+    Node._op_sync = IcePy.Operation('sync', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Node._op_nodes = IcePy.Operation('nodes', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStormElection._t_NodeInfoSeq, False, 0), ())
+    Node._op_query = IcePy.Operation('query', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStormElection._t_QueryInfo, False, 0), ())
 
     _M_IceStormElection.Node = Node
     del Node

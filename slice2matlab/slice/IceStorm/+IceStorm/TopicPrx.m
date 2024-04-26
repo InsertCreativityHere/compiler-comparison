@@ -43,7 +43,7 @@ classdef TopicPrx < Ice.ObjectPrx
             %
             % See also IceStorm.TopicManager.create
             
-            is_ = obj.iceInvoke('getName', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getName', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readString();
             is_.endEncapsulation();
@@ -64,7 +64,7 @@ classdef TopicPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getName', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getName', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getPublisher(obj, varargin)
             % getPublisher   Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
@@ -76,7 +76,7 @@ classdef TopicPrx < Ice.ObjectPrx
             %
             % Returns (Ice.ObjectPrx) - A proxy to publish data on this topic.
             
-            is_ = obj.iceInvoke('getPublisher', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getPublisher', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -97,7 +97,7 @@ classdef TopicPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getPublisher', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getPublisher', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getNonReplicatedPublisher(obj, varargin)
             % getNonReplicatedPublisher   Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
@@ -109,7 +109,7 @@ classdef TopicPrx < Ice.ObjectPrx
             %
             % Returns (Ice.ObjectPrx) - A proxy to publish data on this topic.
             
-            is_ = obj.iceInvoke('getNonReplicatedPublisher', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getNonReplicatedPublisher', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -130,7 +130,7 @@ classdef TopicPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getNonReplicatedPublisher', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getNonReplicatedPublisher', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = subscribeAndGetPublisher(obj, theQoS, subscriber, varargin)
             % subscribeAndGetPublisher   Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
@@ -199,7 +199,7 @@ classdef TopicPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(subscriber);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('unsubscribe', 1, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('unsubscribe', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = unsubscribeAsync(obj, subscriber, varargin)
             % unsubscribeAsync   Unsubscribe the given subscriber.
@@ -215,7 +215,7 @@ classdef TopicPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(subscriber);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('unsubscribe', 1, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('unsubscribe', 2, false, os_, 0, [], {}, varargin{:});
         end
         function link(obj, linkTo, cost, varargin)
             % link   Create a link to the given topic. All events originating on this topic will also be sent to
@@ -295,7 +295,7 @@ classdef TopicPrx < Ice.ObjectPrx
             %
             % Returns (IceStorm.LinkInfoSeq) - A sequence of LinkInfo objects.
             
-            is_ = obj.iceInvoke('getLinkInfoSeq', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getLinkInfoSeq', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceStorm.LinkInfoSeq.read(is_);
             is_.endEncapsulation();
@@ -314,7 +314,7 @@ classdef TopicPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getLinkInfoSeq', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getLinkInfoSeq', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getSubscribers(obj, varargin)
             % getSubscribers   Retrieve the list of subscribers for this topic.

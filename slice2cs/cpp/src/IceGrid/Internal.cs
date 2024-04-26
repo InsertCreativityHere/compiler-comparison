@@ -3018,7 +3018,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
             outAsync.invoke(
                 _getDirectProxy_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -3326,7 +3326,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<long>(completed);
             outAsync.invoke(
                 _getOffsetFromEnd_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -3377,7 +3377,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<FileReader_ReadResult>(completed);
             outAsync.invoke(
                 _read_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -3732,7 +3732,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<long>(completed);
             outAsync.invoke(
                 _getOffsetFromEnd_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -3783,7 +3783,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<FileReader_ReadResult>(completed);
             outAsync.invoke(
                 _read_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -3998,7 +3998,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<bool>(completed);
             outAsync.invoke(
                 _isEnabled_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -4104,7 +4104,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<ServerState>(completed);
             outAsync.invoke(
                 _getState_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -4136,7 +4136,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _getPid_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -4854,7 +4854,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<long>(completed);
             outAsync.invoke(
                 _getOffsetFromEnd_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -4905,7 +4905,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<FileReader_ReadResult>(completed);
             outAsync.invoke(
                 _read_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -5046,7 +5046,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<Node_LoadServerResult>(completed);
             outAsync.invoke(
                 _loadServer_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -5101,7 +5101,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<Node_LoadServerWithoutRestartResult>(completed);
             outAsync.invoke(
                 _loadServerWithoutRestart_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -5156,7 +5156,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _destroyServer_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -5203,7 +5203,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _destroyServerWithoutRestart_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -5279,7 +5279,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
                 _getName_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -5311,7 +5311,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
                 _getHostname_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -5343,7 +5343,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<LoadInfo>(completed);
             outAsync.invoke(
                 _getLoad_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -5375,7 +5375,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _getProcessorSocketCount_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -5406,7 +5406,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _shutdown_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
@@ -5776,7 +5776,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _getTimeout_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -5808,7 +5808,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<NodeObserverPrx>(completed);
             outAsync.invoke(
                 _getObserver_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -5839,7 +5839,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _loadServers_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
@@ -5865,7 +5865,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<string[]>(completed);
             outAsync.invoke(
                 _getServers_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -6920,7 +6920,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _getTimeout_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -6952,7 +6952,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _setDatabaseObserver_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -7005,7 +7005,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _setEndpoints_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -7034,7 +7034,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _registerWellKnownObjects_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -7064,7 +7064,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _setAdapterDirectProxy_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -7080,11 +7080,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
@@ -7465,7 +7465,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<long>(completed);
             outAsync.invoke(
                 _getOffsetFromEnd_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -7516,7 +7516,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<FileReader_ReadResult>(completed);
             outAsync.invoke(
                 _read_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -7587,11 +7587,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -7643,11 +7643,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -7712,7 +7712,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<NodePrx[]>(completed);
             outAsync.invoke(
                 _getNodes_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -7744,7 +7744,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<InternalRegistryPrx[]>(completed);
             outAsync.invoke(
                 _getReplicas_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -7776,7 +7776,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<InternalRegistry_GetApplicationsResult>(completed);
             outAsync.invoke(
                 _getApplications_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -7810,7 +7810,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<InternalRegistry_GetAdaptersResult>(completed);
             outAsync.invoke(
                 _getAdapters_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -7843,7 +7843,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<InternalRegistry_GetObjectsResult>(completed);
             outAsync.invoke(
                 _getObjects_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -7875,7 +7875,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _shutdown_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);
@@ -9367,15 +9367,15 @@ namespace IceGrid
 
         public abstract void adapterUpdated(AdapterInfo info, global::Ice.Current current = null);
 
+        public abstract void adapterRemoved(string id, global::Ice.Current current = null);
+
+        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current = null);
+
         public abstract void objectAdded(ObjectInfo info, global::Ice.Current current = null);
 
         public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
 
         public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current = null);
-
-        public abstract void adapterRemoved(string id, global::Ice.Current current = null);
-
-        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current = null);
 
         #endregion
 

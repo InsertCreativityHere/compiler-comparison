@@ -78,6 +78,6 @@ namespace IceLocatorDiscovery
 
     global $IcePHP__t_string;
     global $IceLocatorDiscovery__t_LookupReplyPrx;
-    IcePHP_defineOperation($IceLocatorDiscovery__t_LookupPrx, 'findLocator', 2, 1, 0, array(array($IcePHP__t_string), array($IceLocatorDiscovery__t_LookupReplyPrx)), null, null, null);
+    IcePHP_defineOperation($IceLocatorDiscovery__t_LookupPrx, 'findLocator', 2, 2, 0, array(array($IcePHP__t_string), array($IceLocatorDiscovery__t_LookupReplyPrx)), null, null, null);
 }
 ?>

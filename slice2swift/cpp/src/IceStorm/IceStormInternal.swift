@@ -452,7 +452,7 @@ public extension TopicInternalPrx {
     /// - returns: `TopicLinkPrx?` - The TopicLink for the Topic.
     func getLinkProxy(context: Ice.Context? = nil) throws -> TopicLinkPrx? {
         return try _impl._invoke(operation: "getLinkProxy",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: TopicLinkPrx? = try istr.read(TopicLinkPrx.self)
                                      return iceP_returnValue
@@ -475,7 +475,7 @@ public extension TopicInternalPrx {
     /// - returns: `PromiseKit.Promise<TopicLinkPrx?>` - The result of the operation
     func getLinkProxyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<TopicLinkPrx?> {
         return _impl._invokeAsync(operation: "getLinkProxy",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: TopicLinkPrx? = try istr.read(TopicLinkPrx.self)
                                       return iceP_returnValue
@@ -643,7 +643,7 @@ public extension TopicManagerInternalPrx {
     /// - returns: `IceStormElection.NodePrx?` - The replica proxy, or null if this instance is not replicated.
     func getReplicaNode(context: Ice.Context? = nil) throws -> IceStormElection.NodePrx? {
         return try _impl._invoke(operation: "getReplicaNode",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: IceStormElection.NodePrx? = try istr.read(IceStormElection.NodePrx.self)
                                      return iceP_returnValue
@@ -666,7 +666,7 @@ public extension TopicManagerInternalPrx {
     /// - returns: `PromiseKit.Promise<IceStormElection.NodePrx?>` - The result of the operation
     func getReplicaNodeAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<IceStormElection.NodePrx?> {
         return _impl._invokeAsync(operation: "getReplicaNode",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: IceStormElection.NodePrx? = try istr.read(IceStormElection.NodePrx.self)
                                       return iceP_returnValue

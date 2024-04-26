@@ -303,8 +303,8 @@
         ], , ],
         "throwAorDasAorD": [, , , , , [[3]], ,
         [
-            Test.D,
-            Test.A
+            Test.A,
+            Test.D
         ], , ],
         "throwBasA": [, , , , , [[3], [3]], ,
         [
@@ -337,7 +337,7 @@
         "throwNonIceException": [, , , , , , , , , ],
         "throwAssertException": [, , , , , , , , , ],
         "throwMemoryLimitException": [, , , , ["Ice.ByteSeqHelper"], [["Ice.ByteSeqHelper"]], , , , ],
-        "throwLocalExceptionIdempotent": [, 2, 1, , , , , , , ],
+        "throwLocalExceptionIdempotent": [, 2, 2, , , , , , , ],
         "throwAfterResponse": [, , , , , , , , , ],
         "throwAfterException": [, , , , , , ,
         [

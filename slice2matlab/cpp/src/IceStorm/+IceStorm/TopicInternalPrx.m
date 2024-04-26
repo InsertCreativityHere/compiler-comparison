@@ -25,7 +25,7 @@ classdef TopicInternalPrx < IceStorm.TopicPrx
             %
             % Returns (IceStorm.TopicLinkPrx) - The TopicLink for the Topic.
             
-            is_ = obj.iceInvoke('getLinkProxy', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getLinkProxy', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceStorm.TopicLinkPrx.ice_read(is_);
             is_.endEncapsulation();
@@ -44,7 +44,7 @@ classdef TopicInternalPrx < IceStorm.TopicPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getLinkProxy', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getLinkProxy', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function reap(obj, id, varargin)
             % reap   Reap the given identities.

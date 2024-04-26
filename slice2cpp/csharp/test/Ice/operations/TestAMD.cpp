@@ -2157,7 +2157,7 @@ Test::MyClassPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::Outg
 {
     static constexpr ::std::string_view operationName = "opIdempotent";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }

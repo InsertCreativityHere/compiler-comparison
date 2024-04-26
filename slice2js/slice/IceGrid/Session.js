@@ -66,7 +66,7 @@ IceGrid.SessionPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceGrid.Session, IceGrid.SessionPrx, iceC_IceGrid_Session_ids, "::IceGrid::Session",
 {
-    "keepAlive": [, 2, 1, , , , , , , ],
+    "keepAlive": [, 2, 2, , , , , , , ],
     "allocateObjectById": [, , , , [9], [[Ice.Identity]], ,
     [
         IceGrid.ObjectNotRegisteredException,
@@ -81,7 +81,7 @@ Slice.defineOperations(IceGrid.Session, IceGrid.SessionPrx, iceC_IceGrid_Session
         IceGrid.ObjectNotRegisteredException,
         IceGrid.AllocationException
     ], , ],
-    "setAllocationTimeout": [, 2, 1, , , [[3]], , , , ]
+    "setAllocationTimeout": [, 2, 2, , , [[3]], , , , ]
 });
 /* slice2js browser-bundle-skip */
 exports.IceGrid = IceGrid;

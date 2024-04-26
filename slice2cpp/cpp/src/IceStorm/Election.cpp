@@ -436,7 +436,7 @@ IceStormElection::NodePrx::_iceI_areYouCoordinator(const ::std::shared_ptr<::Ice
     static constexpr ::std::string_view operationName = "areYouCoordinator";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -465,7 +465,7 @@ IceStormElection::NodePrx::_iceI_areYouThere(const ::std::shared_ptr<::IceIntern
     static constexpr ::std::string_view operationName = "areYouThere";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_gn, iceP_j);
@@ -497,7 +497,7 @@ IceStormElection::NodePrx::_iceI_sync(const ::std::shared_ptr<::IceInternal::Out
     static constexpr ::std::string_view operationName = "sync";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -526,7 +526,7 @@ IceStormElection::NodePrx::_iceI_nodes(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "nodes";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -555,7 +555,7 @@ IceStormElection::NodePrx::_iceI_query(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "query";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }

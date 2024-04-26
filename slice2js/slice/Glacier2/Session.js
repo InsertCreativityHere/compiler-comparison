@@ -117,9 +117,9 @@ Glacier2.StringSetPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Glacier2.StringSet, Glacier2.StringSetPrx, iceC_Glacier2_StringSet_ids, "::Glacier2::StringSet",
 {
-    "add": [, 2, 1, , , [["Ice.StringSeqHelper"]], , , , ],
-    "remove": [, 2, 1, , , [["Ice.StringSeqHelper"]], , , , ],
-    "get": [, 2, 1, , ["Ice.StringSeqHelper"], , , , , ]
+    "add": [, 2, 2, , , [["Ice.StringSeqHelper"]], , , , ],
+    "remove": [, 2, 2, , , [["Ice.StringSeqHelper"]], , , , ],
+    "get": [, 2, 2, , ["Ice.StringSeqHelper"], , , , , ]
 });
 
 const iceC_Glacier2_IdentitySet_ids = [
@@ -142,9 +142,9 @@ Glacier2.IdentitySetPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Glacier2.IdentitySet, Glacier2.IdentitySetPrx, iceC_Glacier2_IdentitySet_ids, "::Glacier2::IdentitySet",
 {
-    "add": [, 2, 1, , , [["Ice.IdentitySeqHelper"]], , , , ],
-    "remove": [, 2, 1, , , [["Ice.IdentitySeqHelper"]], , , , ],
-    "get": [, 2, 1, , ["Ice.IdentitySeqHelper"], , , , , ]
+    "add": [, 2, 2, , , [["Ice.IdentitySeqHelper"]], , , , ],
+    "remove": [, 2, 2, , , [["Ice.IdentitySeqHelper"]], , , , ],
+    "get": [, 2, 2, , ["Ice.IdentitySeqHelper"], , , , , ]
 });
 
 const iceC_Glacier2_SessionControl_ids = [
@@ -169,7 +169,7 @@ Slice.defineOperations(Glacier2.SessionControl, Glacier2.SessionControlPrx, iceC
     "categories": [, , , , ["Glacier2.StringSetPrx"], , , , , ],
     "adapterIds": [, , , , ["Glacier2.StringSetPrx"], , , , , ],
     "identities": [, , , , ["Glacier2.IdentitySetPrx"], , , , , ],
-    "getSessionTimeout": [, 2, 1, , [3], , , , , ],
+    "getSessionTimeout": [, 2, 2, , [3], , , , , ],
     "destroy": [, , , , , , , , , ]
 });
 

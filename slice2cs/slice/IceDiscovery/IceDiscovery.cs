@@ -567,7 +567,7 @@ namespace IceDiscovery
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _findObjectById_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -598,7 +598,7 @@ namespace IceDiscovery
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _findAdapterById_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

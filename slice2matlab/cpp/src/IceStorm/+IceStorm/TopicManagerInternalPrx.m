@@ -23,7 +23,7 @@ classdef TopicManagerInternalPrx < IceStorm.TopicManagerPrx
             %
             % Returns (IceStormElection.NodePrx) - The replica proxy, or null if this instance is not replicated.
             
-            is_ = obj.iceInvoke('getReplicaNode', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getReplicaNode', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceStormElection.NodePrx.ice_read(is_);
             is_.endEncapsulation();
@@ -42,7 +42,7 @@ classdef TopicManagerInternalPrx < IceStorm.TopicManagerPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getReplicaNode', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getReplicaNode', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

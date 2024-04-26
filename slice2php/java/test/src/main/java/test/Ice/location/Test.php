@@ -77,7 +77,7 @@ namespace Test
     $Test__t_TestLocatorPrx = IcePHP_defineProxy('::Test::TestLocator', $Ice__t_ObjectPrx, array($Ice__t_LocatorPrx));
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Test__t_TestLocatorPrx, 'getRequestCount', 2, 1, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_TestLocatorPrx, 'getRequestCount', 2, 2, 0, null, null, array($IcePHP__t_int), null);
 }
 
 namespace Test

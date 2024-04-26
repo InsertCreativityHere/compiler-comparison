@@ -55,7 +55,7 @@ module ::Test
 
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_abort = ::Ice::__defineOperation('abort', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_idempotentAbort = ::Ice::__defineOperation('idempotentAbort', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_pid = ::Ice::__defineOperation('pid', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_idempotentAbort = ::Ice::__defineOperation('idempotentAbort', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_pid = ::Ice::__defineOperation('pid', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
     end
 end

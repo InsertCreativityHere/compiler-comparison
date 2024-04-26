@@ -179,7 +179,7 @@ if 'LookupPrx' not in _M_IceLocatorDiscovery.__dict__:
     _M_IceLocatorDiscovery._t_LookupDisp = IcePy.defineClass('::IceLocatorDiscovery::Lookup', Lookup, (), None, ())
     Lookup._ice_type = _M_IceLocatorDiscovery._t_LookupDisp
 
-    Lookup._op_findLocator = IcePy.Operation('findLocator', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceLocatorDiscovery._t_LookupReplyPrx, False, 0)), (), None, ())
+    Lookup._op_findLocator = IcePy.Operation('findLocator', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceLocatorDiscovery._t_LookupReplyPrx, False, 0)), (), None, ())
 
     _M_IceLocatorDiscovery.Lookup = Lookup
     del Lookup

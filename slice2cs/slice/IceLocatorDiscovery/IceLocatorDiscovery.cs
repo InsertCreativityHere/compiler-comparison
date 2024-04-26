@@ -413,7 +413,7 @@ namespace IceLocatorDiscovery
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _findLocator_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

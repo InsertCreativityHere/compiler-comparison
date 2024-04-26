@@ -72,7 +72,7 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_findObjectByIdAsync(com.zeroc.Ice.Identity iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findObjectById", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findObjectById", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, ostr -> {
                      com.zeroc.Ice.Identity.ice_write(ostr, iceP_id);
                  }, istr -> {
@@ -138,7 +138,7 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_findObjectByTypeAsync(String iceP_type, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findObjectByType", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findObjectByType", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_type);
                  }, istr -> {
@@ -213,7 +213,7 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_findObjectByTypeOnLeastLoadedNodeAsync(String iceP_type, LoadSample iceP_sample, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findObjectByTypeOnLeastLoadedNode", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findObjectByTypeOnLeastLoadedNode", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_type);
                      LoadSample.ice_write(ostr, iceP_sample);
@@ -276,7 +276,7 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx[]> _iceI_findAllObjectsByTypeAsync(String iceP_type, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findAllObjectsByType", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findAllObjectsByType", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_type);
                  }, istr -> {
@@ -346,7 +346,7 @@ public interface QueryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx[]> _iceI_findAllReplicasAsync(com.zeroc.Ice.ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findAllReplicas", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findAllReplicas", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_proxy);
                  }, istr -> {

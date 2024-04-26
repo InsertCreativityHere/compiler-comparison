@@ -38,7 +38,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             os_.writeString(id);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setAdapterDirectProxy', 1, true, os_, false, Ice.LocatorRegistryPrx.setAdapterDirectProxy_ex_, varargin{:});
+            obj.iceInvoke('setAdapterDirectProxy', 2, true, os_, false, Ice.LocatorRegistryPrx.setAdapterDirectProxy_ex_, varargin{:});
         end
         function r_ = setAdapterDirectProxyAsync(obj, id, proxy, varargin)
             % setAdapterDirectProxyAsync   Set the adapter endpoints with the locator registry.
@@ -60,7 +60,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             os_.writeString(id);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setAdapterDirectProxy', 1, true, os_, 0, [], Ice.LocatorRegistryPrx.setAdapterDirectProxy_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('setAdapterDirectProxy', 2, true, os_, 0, [], Ice.LocatorRegistryPrx.setAdapterDirectProxy_ex_, varargin{:});
         end
         function setReplicatedAdapterDirectProxy(obj, adapterId, replicaGroupId, proxy, varargin)
             % setReplicatedAdapterDirectProxy   Set the adapter endpoints with the locator registry.
@@ -84,7 +84,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             os_.writeString(replicaGroupId);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setReplicatedAdapterDirectProxy', 1, true, os_, false, Ice.LocatorRegistryPrx.setReplicatedAdapterDirectProxy_ex_, varargin{:});
+            obj.iceInvoke('setReplicatedAdapterDirectProxy', 2, true, os_, false, Ice.LocatorRegistryPrx.setReplicatedAdapterDirectProxy_ex_, varargin{:});
         end
         function r_ = setReplicatedAdapterDirectProxyAsync(obj, adapterId, replicaGroupId, proxy, varargin)
             % setReplicatedAdapterDirectProxyAsync   Set the adapter endpoints with the locator registry.
@@ -110,7 +110,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             os_.writeString(replicaGroupId);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setReplicatedAdapterDirectProxy', 1, true, os_, 0, [], Ice.LocatorRegistryPrx.setReplicatedAdapterDirectProxy_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('setReplicatedAdapterDirectProxy', 2, true, os_, 0, [], Ice.LocatorRegistryPrx.setReplicatedAdapterDirectProxy_ex_, varargin{:});
         end
         function setServerProcessProxy(obj, id, proxy, varargin)
             % setServerProcessProxy   Set the process proxy for a server.
@@ -127,7 +127,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             os_.writeString(id);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setServerProcessProxy', 1, true, os_, false, Ice.LocatorRegistryPrx.setServerProcessProxy_ex_, varargin{:});
+            obj.iceInvoke('setServerProcessProxy', 2, true, os_, false, Ice.LocatorRegistryPrx.setServerProcessProxy_ex_, varargin{:});
         end
         function r_ = setServerProcessProxyAsync(obj, id, proxy, varargin)
             % setServerProcessProxyAsync   Set the process proxy for a server.
@@ -146,7 +146,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             os_.writeString(id);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setServerProcessProxy', 1, true, os_, 0, [], Ice.LocatorRegistryPrx.setServerProcessProxy_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('setServerProcessProxy', 2, true, os_, 0, [], Ice.LocatorRegistryPrx.setServerProcessProxy_ex_, varargin{:});
         end
     end
     methods(Static)

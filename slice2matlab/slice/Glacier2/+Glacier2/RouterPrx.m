@@ -35,7 +35,7 @@ classdef RouterPrx < Ice.RouterPrx
             %
             % Returns (char) - The category.
             
-            is_ = obj.iceInvoke('getCategoryForClient', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getCategoryForClient', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readString();
             is_.endEncapsulation();
@@ -56,7 +56,7 @@ classdef RouterPrx < Ice.RouterPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getCategoryForClient', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getCategoryForClient', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = createSession(obj, userId, password, varargin)
             % createSession   Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
@@ -234,7 +234,7 @@ classdef RouterPrx < Ice.RouterPrx
             %
             % Returns (int64) - The idle timeout (in seconds).
             
-            is_ = obj.iceInvoke('getSessionTimeout', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getSessionTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readLong();
             is_.endEncapsulation();
@@ -253,7 +253,7 @@ classdef RouterPrx < Ice.RouterPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getSessionTimeout', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getSessionTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getACMTimeout(obj, varargin)
             % getACMTimeout   Get the idle timeout used by the server-side of the connection.
@@ -263,7 +263,7 @@ classdef RouterPrx < Ice.RouterPrx
             %
             % Returns (int32) - The idle timeout (in seconds).
             
-            is_ = obj.iceInvoke('getACMTimeout', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getACMTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -282,7 +282,7 @@ classdef RouterPrx < Ice.RouterPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getACMTimeout', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getACMTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

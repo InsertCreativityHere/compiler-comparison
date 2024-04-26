@@ -347,10 +347,10 @@ namespace IceStormElection
     IcePHP_defineOperation($IceStormElection__t_NodePrx, 'invitation', 0, 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_string)), null, null, null);
     IcePHP_defineOperation($IceStormElection__t_NodePrx, 'ready', 0, 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_string), array($Ice__t_ObjectPrx), array($IcePHP__t_int), array($IcePHP__t_long)), null, null, null);
     IcePHP_defineOperation($IceStormElection__t_NodePrx, 'accept', 0, 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_string), array($Ice__t_IntSeq), array($Ice__t_ObjectPrx), array($IceStormElection__t_LogUpdate), array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'areYouCoordinator', 2, 1, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'areYouThere', 2, 1, 0, array(array($IcePHP__t_string), array($IcePHP__t_int)), null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'sync', 2, 1, 0, null, null, array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'nodes', 2, 1, 0, null, null, array($IceStormElection__t_NodeInfoSeq), null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'query', 2, 1, 0, null, null, array($IceStormElection__t_QueryInfo), null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'areYouCoordinator', 2, 2, 0, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'areYouThere', 2, 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_int)), null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'sync', 2, 2, 0, null, null, array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'nodes', 2, 2, 0, null, null, array($IceStormElection__t_NodeInfoSeq), null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'query', 2, 2, 0, null, null, array($IceStormElection__t_QueryInfo), null);
 }
 ?>

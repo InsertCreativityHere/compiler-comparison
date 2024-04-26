@@ -82,7 +82,7 @@ public interface RetryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_opIdempotentAsync(int iceP_c, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opIdempotent", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opIdempotent", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(iceP_c);
                  }, istr -> {
@@ -188,7 +188,7 @@ public interface RetryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sleepAsync(int iceP_delay, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sleep", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sleep", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(iceP_delay);
                  }, null);
@@ -223,7 +223,7 @@ public interface RetryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }

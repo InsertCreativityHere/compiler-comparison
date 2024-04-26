@@ -101,7 +101,7 @@ IceGrid::AdapterPrx::_iceI_getDirectProxy(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "getDirectProxy";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -195,7 +195,7 @@ IceGrid::FileReaderPrx::_iceI_getOffsetFromEnd(const ::std::shared_ptr<::IceInte
     static constexpr ::std::string_view operationName = "getOffsetFromEnd";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_filename, iceP_lines);
@@ -247,7 +247,7 @@ IceGrid::FileReaderPrx::_iceI_read(const ::std::shared_ptr<::IceInternal::Outgoi
     static constexpr ::std::string_view operationName = "read";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_filename, iceP_pos, iceP_size);
@@ -466,7 +466,7 @@ IceGrid::ServerPrx::_iceI_isEnabled(const ::std::shared_ptr<::IceInternal::Outgo
     static constexpr ::std::string_view operationName = "isEnabled";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -571,7 +571,7 @@ IceGrid::ServerPrx::_iceI_getState(const ::std::shared_ptr<::IceInternal::Outgoi
     static constexpr ::std::string_view operationName = "getState";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -600,7 +600,7 @@ IceGrid::ServerPrx::_iceI_getPid(const ::std::shared_ptr<::IceInternal::Outgoing
     static constexpr ::std::string_view operationName = "getPid";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -775,7 +775,7 @@ IceGrid::NodePrx::_iceI_loadServer(const ::std::shared_ptr<::IceInternal::Outgoi
     static constexpr ::std::string_view operationName = "loadServer";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_svr, iceP_replicaName);
@@ -835,7 +835,7 @@ IceGrid::NodePrx::_iceI_loadServerWithoutRestart(const ::std::shared_ptr<::IceIn
     static constexpr ::std::string_view operationName = "loadServerWithoutRestart";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_svr, iceP_replicaName);
@@ -887,7 +887,7 @@ IceGrid::NodePrx::_iceI_destroyServer(const ::std::shared_ptr<::IceInternal::Out
     static constexpr ::std::string_view operationName = "destroyServer";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName);
@@ -932,7 +932,7 @@ IceGrid::NodePrx::_iceI_destroyServerWithoutRestart(const ::std::shared_ptr<::Ic
     static constexpr ::std::string_view operationName = "destroyServerWithoutRestart";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName);
@@ -1008,7 +1008,7 @@ IceGrid::NodePrx::_iceI_getName(const ::std::shared_ptr<::IceInternal::OutgoingA
     static constexpr ::std::string_view operationName = "getName";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1037,7 +1037,7 @@ IceGrid::NodePrx::_iceI_getHostname(const ::std::shared_ptr<::IceInternal::Outgo
     static constexpr ::std::string_view operationName = "getHostname";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1066,7 +1066,7 @@ IceGrid::NodePrx::_iceI_getLoad(const ::std::shared_ptr<::IceInternal::OutgoingA
     static constexpr ::std::string_view operationName = "getLoad";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1095,7 +1095,7 @@ IceGrid::NodePrx::_iceI_getProcessorSocketCount(const ::std::shared_ptr<::IceInt
     static constexpr ::std::string_view operationName = "getProcessorSocketCount";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1123,7 +1123,7 @@ IceGrid::NodePrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1221,7 +1221,7 @@ IceGrid::NodeSessionPrx::_iceI_getTimeout(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "getTimeout";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1250,7 +1250,7 @@ IceGrid::NodeSessionPrx::_iceI_getObserver(const ::std::shared_ptr<::IceInternal
     static constexpr ::std::string_view operationName = "getObserver";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1278,7 +1278,7 @@ IceGrid::NodeSessionPrx::_iceI_loadServers(const ::std::shared_ptr<::IceInternal
 {
     static constexpr ::std::string_view operationName = "loadServers";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1307,7 +1307,7 @@ IceGrid::NodeSessionPrx::_iceI_getServers(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "getServers";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1437,7 +1437,7 @@ IceGrid::ReplicaSessionPrx::_iceI_getTimeout(const ::std::shared_ptr<::IceIntern
     static constexpr ::std::string_view operationName = "getTimeout";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1466,7 +1466,7 @@ IceGrid::ReplicaSessionPrx::_iceI_setDatabaseObserver(const ::std::shared_ptr<::
     static constexpr ::std::string_view operationName = "setDatabaseObserver";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dbObs);
@@ -1515,7 +1515,7 @@ IceGrid::ReplicaSessionPrx::_iceI_setEndpoints(const ::std::shared_ptr<::IceInte
 {
     static constexpr ::std::string_view operationName = "setEndpoints";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_endpoints);
@@ -1546,7 +1546,7 @@ IceGrid::ReplicaSessionPrx::_iceI_registerWellKnownObjects(const ::std::shared_p
 {
     static constexpr ::std::string_view operationName = "registerWellKnownObjects";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_objects);
@@ -1578,7 +1578,7 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
     static constexpr ::std::string_view operationName = "setAdapterDirectProxy";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_adapterId, iceP_replicaGroupId, iceP_proxy);
@@ -1824,7 +1824,7 @@ IceGrid::InternalRegistryPrx::_iceI_getNodes(const ::std::shared_ptr<::IceIntern
     static constexpr ::std::string_view operationName = "getNodes";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1853,7 +1853,7 @@ IceGrid::InternalRegistryPrx::_iceI_getReplicas(const ::std::shared_ptr<::IceInt
     static constexpr ::std::string_view operationName = "getReplicas";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1888,7 +1888,7 @@ IceGrid::InternalRegistryPrx::_iceI_getApplications(const ::std::shared_ptr<::Ic
     static constexpr ::std::string_view operationName = "getApplications";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -1930,7 +1930,7 @@ IceGrid::InternalRegistryPrx::_iceI_getAdapters(const ::std::shared_ptr<::IceInt
     static constexpr ::std::string_view operationName = "getAdapters";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -1971,7 +1971,7 @@ IceGrid::InternalRegistryPrx::_iceI_getObjects(const ::std::shared_ptr<::IceInte
     static constexpr ::std::string_view operationName = "getObjects";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -2005,7 +2005,7 @@ IceGrid::InternalRegistryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceIntern
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }

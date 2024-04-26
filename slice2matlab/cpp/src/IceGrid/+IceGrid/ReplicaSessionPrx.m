@@ -51,7 +51,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             %
             % Returns (int32)
             
-            is_ = obj.iceInvoke('getTimeout', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -70,7 +70,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getTimeout', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function setDatabaseObserver(obj, dbObs, serials, varargin)
             % setDatabaseObserver   Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
@@ -84,7 +84,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             os_.writeProxy(dbObs);
             IceGrid.StringLongDict.writeOpt(os_, 1, serials);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setDatabaseObserver', 1, true, os_, false, IceGrid.ReplicaSessionPrx.setDatabaseObserver_ex_, varargin{:});
+            obj.iceInvoke('setDatabaseObserver', 2, true, os_, false, IceGrid.ReplicaSessionPrx.setDatabaseObserver_ex_, varargin{:});
         end
         function r_ = setDatabaseObserverAsync(obj, dbObs, serials, varargin)
             % setDatabaseObserverAsync   Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
@@ -100,7 +100,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             os_.writeProxy(dbObs);
             IceGrid.StringLongDict.writeOpt(os_, 1, serials);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setDatabaseObserver', 1, true, os_, 0, [], IceGrid.ReplicaSessionPrx.setDatabaseObserver_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('setDatabaseObserver', 2, true, os_, 0, [], IceGrid.ReplicaSessionPrx.setDatabaseObserver_ex_, varargin{:});
         end
         function setEndpoints(obj, endpoints, varargin)
             % setEndpoints   This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
@@ -113,7 +113,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             IceGrid.StringObjectProxyDict.write(os_, endpoints);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setEndpoints', 1, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('setEndpoints', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = setEndpointsAsync(obj, endpoints, varargin)
             % setEndpointsAsync   This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
@@ -128,7 +128,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             IceGrid.StringObjectProxyDict.write(os_, endpoints);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setEndpoints', 1, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('setEndpoints', 2, false, os_, 0, [], {}, varargin{:});
         end
         function registerWellKnownObjects(obj, objects, varargin)
             % registerWellKnownObjects   Registers the replica well-known objects with the master.
@@ -140,7 +140,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             IceGrid.ObjectInfoSeq.write(os_, objects);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('registerWellKnownObjects', 1, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('registerWellKnownObjects', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = registerWellKnownObjectsAsync(obj, objects, varargin)
             % registerWellKnownObjectsAsync   Registers the replica well-known objects with the master.
@@ -154,7 +154,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             IceGrid.ObjectInfoSeq.write(os_, objects);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('registerWellKnownObjects', 1, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('registerWellKnownObjects', 2, false, os_, 0, [], {}, varargin{:});
         end
         function setAdapterDirectProxy(obj, adapterId, replicaGroupId, proxy, varargin)
             % setAdapterDirectProxy   Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
@@ -171,7 +171,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             os_.writeString(replicaGroupId);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setAdapterDirectProxy', 1, true, os_, false, IceGrid.ReplicaSessionPrx.setAdapterDirectProxy_ex_, varargin{:});
+            obj.iceInvoke('setAdapterDirectProxy', 2, true, os_, false, IceGrid.ReplicaSessionPrx.setAdapterDirectProxy_ex_, varargin{:});
         end
         function r_ = setAdapterDirectProxyAsync(obj, adapterId, replicaGroupId, proxy, varargin)
             % setAdapterDirectProxyAsync   Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
@@ -190,7 +190,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             os_.writeString(replicaGroupId);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setAdapterDirectProxy', 1, true, os_, 0, [], IceGrid.ReplicaSessionPrx.setAdapterDirectProxy_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('setAdapterDirectProxy', 2, true, os_, 0, [], IceGrid.ReplicaSessionPrx.setAdapterDirectProxy_ex_, varargin{:});
         end
         function receivedUpdate(obj, name, serial, failure, varargin)
             % receivedUpdate   Notify the master that an update was received. The master might wait for replication updates to be received by

@@ -64,11 +64,11 @@ IceGrid.QueryPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceGrid.Query, IceGrid.QueryPrx, iceC_IceGrid_Query_ids, "::IceGrid::Query",
 {
-    "findObjectById": [, 2, 1, , [9], [[Ice.Identity]], , , , ],
-    "findObjectByType": [, 2, 1, , [9], [[7]], , , , ],
-    "findObjectByTypeOnLeastLoadedNode": [, 2, 1, , [9], [[7], [IceGrid.LoadSample._helper]], , , , ],
-    "findAllObjectsByType": [, 2, 1, , ["Ice.ObjectProxySeqHelper"], [[7]], , , , ],
-    "findAllReplicas": [, 2, 1, , ["Ice.ObjectProxySeqHelper"], [[9]], , , , ]
+    "findObjectById": [, 2, 2, , [9], [[Ice.Identity]], , , , ],
+    "findObjectByType": [, 2, 2, , [9], [[7]], , , , ],
+    "findObjectByTypeOnLeastLoadedNode": [, 2, 2, , [9], [[7], [IceGrid.LoadSample._helper]], , , , ],
+    "findAllObjectsByType": [, 2, 2, , ["Ice.ObjectProxySeqHelper"], [[7]], , , , ],
+    "findAllReplicas": [, 2, 2, , ["Ice.ObjectProxySeqHelper"], [[9]], , , , ]
 });
 
 const iceC_IceGrid_Registry_ids = [
@@ -107,8 +107,8 @@ Slice.defineOperations(IceGrid.Registry, IceGrid.RegistryPrx, iceC_IceGrid_Regis
     [
         IceGrid.PermissionDeniedException
     ], , ],
-    "getSessionTimeout": [, 2, 1, , [3], , , , , ],
-    "getACMTimeout": [, 2, 1, , [3], , , , , ]
+    "getSessionTimeout": [, 2, 2, , [3], , , , , ],
+    "getACMTimeout": [, 2, 2, , [3], , , , , ]
 });
 
 const iceC_IceGrid_Locator_ids = [
@@ -144,8 +144,8 @@ IceGrid.LocatorPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceGrid.Locator, IceGrid.LocatorPrx, iceC_IceGrid_Locator_ids, "::IceGrid::Locator",
 {
-    "getLocalRegistry": [, 2, 1, , ["IceGrid.RegistryPrx"], , , , , ],
-    "getLocalQuery": [, 2, 1, , ["IceGrid.QueryPrx"], , , , , ]
+    "getLocalRegistry": [, 2, 2, , ["IceGrid.RegistryPrx"], , , , , ],
+    "getLocalQuery": [, 2, 2, , ["IceGrid.QueryPrx"], , , , , ]
 });
 /* slice2js browser-bundle-skip */
 exports.IceGrid = IceGrid;

@@ -1053,7 +1053,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _add_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1082,7 +1082,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _remove_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1112,7 +1112,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<string[]>(completed);
             outAsync.invoke(
                 _get_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1333,7 +1333,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _add_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1362,7 +1362,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _remove_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1392,7 +1392,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<global::Ice.Identity[]>(completed);
             outAsync.invoke(
                 _get_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1734,7 +1734,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _getSessionTimeout_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

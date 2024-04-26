@@ -269,7 +269,7 @@
         "throwNonIceException": [, , , , , , , , , ],
         "throwAssertException": [, , , , , , , , , ],
         "throwMemoryLimitException": [, , , , ["Ice.ByteSeqHelper"], [["Ice.ByteSeqHelper"]], , , , ],
-        "throwLocalExceptionIdempotent": [, 2, 1, , , , , , , ],
+        "throwLocalExceptionIdempotent": [, 2, 2, , , , , , , ],
         "throwAfterResponse": [, , , , , , , , , ],
         "throwAfterException": [, , , , , , ,
         [

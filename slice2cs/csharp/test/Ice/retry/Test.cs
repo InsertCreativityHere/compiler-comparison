@@ -264,7 +264,7 @@ namespace Ice.retry
                 var outAsync = getOutgoingAsync<int>(completed);
                 outAsync.invoke(
                     _opIdempotent_name,
-                    global::Ice.OperationMode.Nonmutating,
+                    global::Ice.OperationMode.Idempotent,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -349,7 +349,7 @@ namespace Ice.retry
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _sleep_name,
-                    global::Ice.OperationMode.Nonmutating,
+                    global::Ice.OperationMode.Idempotent,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -378,7 +378,7 @@ namespace Ice.retry
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
                     _shutdown_name,
-                    global::Ice.OperationMode.Nonmutating,
+                    global::Ice.OperationMode.Idempotent,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous);

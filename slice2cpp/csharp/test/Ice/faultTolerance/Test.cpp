@@ -112,7 +112,7 @@ Test::TestIntfPrx::_iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::
 {
     static constexpr ::std::string_view operationName = "idempotentAbort";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -141,7 +141,7 @@ Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
     static constexpr ::std::string_view operationName = "pid";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }

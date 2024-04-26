@@ -207,7 +207,7 @@ module ::Test
         ThrowerPrx_mixin::OP_throwLocalException = ::Ice::__defineOperation('throwLocalException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwNonIceException = ::Ice::__defineOperation('throwNonIceException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwMemoryLimitException = ::Ice::__defineOperation('throwMemoryLimitException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ByteSeq, false, 0]], [], [::Ice::T_ByteSeq, false, 0], [])
-        ThrowerPrx_mixin::OP_throwLocalExceptionIdempotent = ::Ice::__defineOperation('throwLocalExceptionIdempotent', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], nil, [])
+        ThrowerPrx_mixin::OP_throwLocalExceptionIdempotent = ::Ice::__defineOperation('throwLocalExceptionIdempotent', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::WrongOperation_Mixin)

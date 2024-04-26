@@ -31,7 +31,7 @@ classdef LookupPrx < Ice.ObjectPrx
             Ice.Identity.ice_write(os_, id);
             os_.writeProxy(reply);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('findObjectById', 1, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('findObjectById', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = findObjectByIdAsync(obj, domainId, id, reply, varargin)
             % findObjectByIdAsync   Request to find an Ice object
@@ -51,7 +51,7 @@ classdef LookupPrx < Ice.ObjectPrx
             Ice.Identity.ice_write(os_, id);
             os_.writeProxy(reply);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('findObjectById', 1, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('findObjectById', 2, false, os_, 0, [], {}, varargin{:});
         end
         function findAdapterById(obj, domainId, id, reply, varargin)
             % findAdapterById   Request to find an object adapter
@@ -69,7 +69,7 @@ classdef LookupPrx < Ice.ObjectPrx
             os_.writeString(id);
             os_.writeProxy(reply);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('findAdapterById', 1, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('findAdapterById', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = findAdapterByIdAsync(obj, domainId, id, reply, varargin)
             % findAdapterByIdAsync   Request to find an object adapter
@@ -89,7 +89,7 @@ classdef LookupPrx < Ice.ObjectPrx
             os_.writeString(id);
             os_.writeProxy(reply);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('findAdapterById', 1, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('findAdapterById', 2, false, os_, 0, [], {}, varargin{:});
         end
     end
     methods(Static)

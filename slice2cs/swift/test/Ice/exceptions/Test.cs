@@ -1526,11 +1526,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(D)
+                    catch(A)
                     {
                         throw;
                     }
-                    catch(A)
+                    catch(D)
                     {
                         throw;
                     }
@@ -2033,7 +2033,7 @@ namespace Test
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _throwLocalExceptionIdempotent_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous);

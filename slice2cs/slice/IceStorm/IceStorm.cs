@@ -1649,7 +1649,7 @@ namespace IceStorm
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
                 _getName_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1681,7 +1681,7 @@ namespace IceStorm
             var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
             outAsync.invoke(
                 _getPublisher_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1713,7 +1713,7 @@ namespace IceStorm
             var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
             outAsync.invoke(
                 _getNonReplicatedPublisher_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1803,7 +1803,7 @@ namespace IceStorm
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _unsubscribe_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -1922,7 +1922,7 @@ namespace IceStorm
             var outAsync = getOutgoingAsync<LinkInfo[]>(completed);
             outAsync.invoke(
                 _getLinkInfoSeq_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -2288,7 +2288,7 @@ namespace IceStorm
             var outAsync = getOutgoingAsync<TopicPrx>(completed);
             outAsync.invoke(
                 _retrieve_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -2338,7 +2338,7 @@ namespace IceStorm
             var outAsync = getOutgoingAsync<global::System.Collections.Generic.Dictionary<string, TopicPrx>>(completed);
             outAsync.invoke(
                 _retrieveAll_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

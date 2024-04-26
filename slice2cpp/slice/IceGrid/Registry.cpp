@@ -64,7 +64,7 @@ IceGrid::QueryPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::O
     static constexpr ::std::string_view operationName = "findObjectById";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -96,7 +96,7 @@ IceGrid::QueryPrx::_iceI_findObjectByType(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "findObjectByType";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_type);
@@ -128,7 +128,7 @@ IceGrid::QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode(const ::std::shared_p
     static constexpr ::std::string_view operationName = "findObjectByTypeOnLeastLoadedNode";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_type, iceP_sample);
@@ -160,7 +160,7 @@ IceGrid::QueryPrx::_iceI_findAllObjectsByType(const ::std::shared_ptr<::IceInter
     static constexpr ::std::string_view operationName = "findAllObjectsByType";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_type);
@@ -192,7 +192,7 @@ IceGrid::QueryPrx::_iceI_findAllReplicas(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "findAllReplicas";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxy);
@@ -405,7 +405,7 @@ IceGrid::RegistryPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInter
     static constexpr ::std::string_view operationName = "getSessionTimeout";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -434,7 +434,7 @@ IceGrid::RegistryPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "getACMTimeout";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -470,7 +470,7 @@ IceGrid::LocatorPrx::_iceI_getLocalRegistry(const ::std::shared_ptr<::IceInterna
     static constexpr ::std::string_view operationName = "getLocalRegistry";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -499,7 +499,7 @@ IceGrid::LocatorPrx::_iceI_getLocalQuery(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "getLocalQuery";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }

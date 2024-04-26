@@ -101,8 +101,8 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_abort = IcePy.Operation('abort', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_idempotentAbort = IcePy.Operation('idempotentAbort', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), None, ())
-    TestIntf._op_pid = IcePy.Operation('pid', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    TestIntf._op_idempotentAbort = IcePy.Operation('idempotentAbort', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    TestIntf._op_pid = IcePy.Operation('pid', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf

@@ -77,8 +77,8 @@ IceDiscovery.LookupPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceDiscovery.Lookup, IceDiscovery.LookupPrx, iceC_IceDiscovery_Lookup_ids, "::IceDiscovery::Lookup",
 {
-    "findObjectById": [, 2, 1, , , [[7], [Ice.Identity], ["IceDiscovery.LookupReplyPrx"]], , , , ],
-    "findAdapterById": [, 2, 1, , , [[7], [7], ["IceDiscovery.LookupReplyPrx"]], , , , ]
+    "findObjectById": [, 2, 2, , , [[7], [Ice.Identity], ["IceDiscovery.LookupReplyPrx"]], , , , ],
+    "findAdapterById": [, 2, 2, , , [[7], [7], ["IceDiscovery.LookupReplyPrx"]], , , , ]
 });
 /* slice2js browser-bundle-skip */
 exports.IceDiscovery = IceDiscovery;

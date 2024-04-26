@@ -68,7 +68,7 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<TopicLinkPrx> _iceI_getLinkProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TopicLinkPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLinkProxy", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<TopicLinkPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLinkProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      TopicLinkPrx ret;
                      ret = TopicLinkPrx.uncheckedCast(istr.readProxy());

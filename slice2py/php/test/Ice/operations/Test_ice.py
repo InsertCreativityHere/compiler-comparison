@@ -1023,7 +1023,7 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     MyClass._op_opMyEnumMyEnumSD = IcePy.Operation('opMyEnumMyEnumSD', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnumMyEnumSD, False, 0), ((), _M_Test._t_MyEnumMyEnumSD, False, 0)), (((), _M_Test._t_MyEnumMyEnumSD, False, 0),), ((), _M_Test._t_MyEnumMyEnumSD, False, 0), ())
     MyClass._op_opIntS = IcePy.Operation('opIntS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntS, False, 0),), (), ((), _M_Test._t_IntS, False, 0), ())
     MyClass._op_opContext = IcePy.Operation('opContext', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringStringD, False, 0), ())
-    MyClass._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), None, ())
+    MyClass._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
     MyClass._op_opByte1 = IcePy.Operation('opByte1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, False, 0),), (), ((), IcePy._t_byte, False, 0), ())
     MyClass._op_opShort1 = IcePy.Operation('opShort1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, False, 0),), (), ((), IcePy._t_short, False, 0), ())
     MyClass._op_opInt1 = IcePy.Operation('opInt1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())

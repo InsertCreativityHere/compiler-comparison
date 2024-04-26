@@ -225,7 +225,7 @@ module ::Test
         ThrowerPrx_mixin::OP_throwNonIceException = ::Ice::__defineOperation('throwNonIceException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwAssertException = ::Ice::__defineOperation('throwAssertException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwMemoryLimitException = ::Ice::__defineOperation('throwMemoryLimitException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_ByteSeq, false, 0]], [], [::Ice::T_ByteSeq, false, 0], [])
-        ThrowerPrx_mixin::OP_throwLocalExceptionIdempotent = ::Ice::__defineOperation('throwLocalExceptionIdempotent', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, true, nil, [], [], nil, [])
+        ThrowerPrx_mixin::OP_throwLocalExceptionIdempotent = ::Ice::__defineOperation('throwLocalExceptionIdempotent', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwAfterResponse = ::Ice::__defineOperation('throwAfterResponse', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwAfterException = ::Ice::__defineOperation('throwAfterException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_A])
     end

@@ -2057,11 +2057,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2094,11 +2094,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ApplicationNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as AccessDeniedException {
+                                          throw error
+                                      } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2132,11 +2132,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2168,11 +2168,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ApplicationNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as AccessDeniedException {
+                                          throw error
+                                      } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2209,11 +2209,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2248,11 +2248,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ApplicationNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as AccessDeniedException {
+                                          throw error
+                                      } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2288,11 +2288,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2326,11 +2326,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ApplicationNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as AccessDeniedException {
+                                          throw error
+                                      } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2363,11 +2363,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2398,11 +2398,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ApplicationNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as AccessDeniedException {
+                                          throw error
+                                      } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2441,11 +2441,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2482,11 +2482,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ApplicationNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as AccessDeniedException {
+                                          throw error
+                                      } catch let error as ApplicationNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2509,7 +2509,7 @@ public extension AdminPrx {
     ///   - ApplicationNotExistException - Raised if the application doesn't exist.
     func getApplicationInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> ApplicationInfo {
         return try _impl._invoke(operation: "getApplicationInfo",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -2545,7 +2545,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<ApplicationInfo>` - The result of the operation
     func getApplicationInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ApplicationInfo> {
         return _impl._invokeAsync(operation: "getApplicationInfo",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -2578,7 +2578,7 @@ public extension AdminPrx {
     ///   - DeploymentException - Raised if the default application descriptor can't be accessed or is invalid.
     func getDefaultApplicationDescriptor(context: Ice.Context? = nil) throws -> ApplicationDescriptor {
         return try _impl._invoke(operation: "getDefaultApplicationDescriptor",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: ApplicationDescriptor = try istr.read()
                                      try istr.readPendingValues()
@@ -2609,7 +2609,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<ApplicationDescriptor>` - The result of the operation
     func getDefaultApplicationDescriptorAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ApplicationDescriptor> {
         return _impl._invokeAsync(operation: "getDefaultApplicationDescriptor",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: ApplicationDescriptor = try istr.read()
                                       try istr.readPendingValues()
@@ -2635,7 +2635,7 @@ public extension AdminPrx {
     /// - returns: `Ice.StringSeq` - The application names.
     func getAllApplicationNames(context: Ice.Context? = nil) throws -> Ice.StringSeq {
         return try _impl._invoke(operation: "getAllApplicationNames",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Ice.StringSeq = try istr.read()
                                      return iceP_returnValue
@@ -2658,7 +2658,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Ice.StringSeq>` - The result of the operation
     func getAllApplicationNamesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.StringSeq> {
         return _impl._invokeAsync(operation: "getAllApplicationNames",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Ice.StringSeq = try istr.read()
                                       return iceP_returnValue
@@ -2682,7 +2682,7 @@ public extension AdminPrx {
     ///   - ServerNotExistException - Raised if the server doesn't exist.
     func getServerInfo(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> ServerInfo {
         return try _impl._invoke(operation: "getServerInfo",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -2718,7 +2718,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<ServerInfo>` - The result of the operation
     func getServerInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ServerInfo> {
         return _impl._invokeAsync(operation: "getServerInfo",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -2757,7 +2757,7 @@ public extension AdminPrx {
     ///   - ServerNotExistException - Raised if the server doesn't exist.
     func getServerState(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> ServerState {
         return try _impl._invoke(operation: "getServerState",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -2768,11 +2768,11 @@ public extension AdminPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -2796,7 +2796,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<ServerState>` - The result of the operation
     func getServerStateAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ServerState> {
         return _impl._invokeAsync(operation: "getServerState",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -2807,11 +2807,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
+                                          throw error
+                                      } catch let error as ServerNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2838,7 +2838,7 @@ public extension AdminPrx {
     ///   - ServerNotExistException - Raised if the server doesn't exist.
     func getServerPid(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getServerPid",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -2849,11 +2849,11 @@ public extension AdminPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -2877,7 +2877,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func getServerPidAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "getServerPid",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -2888,11 +2888,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
+                                          throw error
+                                      } catch let error as ServerNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -2910,7 +2910,7 @@ public extension AdminPrx {
     /// - returns: `Swift.String` - The category for server admin objects.
     func getServerAdminCategory(context: Ice.Context? = nil) throws -> Swift.String {
         return try _impl._invoke(operation: "getServerAdminCategory",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.String = try istr.read()
                                      return iceP_returnValue
@@ -2934,7 +2934,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
     func getServerAdminCategoryAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
         return _impl._invokeAsync(operation: "getServerAdminCategory",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.String = try istr.read()
                                       return iceP_returnValue
@@ -2962,7 +2962,7 @@ public extension AdminPrx {
     ///   - ServerNotExistException - Raised if the server doesn't exist.
     func getServerAdmin(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "getServerAdmin",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -2973,11 +2973,11 @@ public extension AdminPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -3001,7 +3001,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func getServerAdminAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
         return _impl._invokeAsync(operation: "getServerAdmin",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -3012,11 +3012,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
+                                          throw error
+                                      } catch let error as ServerNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3045,7 +3045,7 @@ public extension AdminPrx {
     ///   - ServerNotExistException - Raised if the server doesn't exist.
     func enableServer(id iceP_id: Swift.String, enabled iceP_enabled: Swift.Bool, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "enableServer",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           write: { ostr in
                               ostr.write(iceP_id)
                               ostr.write(iceP_enabled)
@@ -3053,11 +3053,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as NodeUnreachableException {
+                                  throw error
+                              } catch let error as ServerNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3085,7 +3085,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func enableServerAsync(id iceP_id: Swift.String, enabled iceP_enabled: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "enableServer",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                       ostr.write(iceP_enabled)
@@ -3093,11 +3093,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
+                                          throw error
+                                      } catch let error as ServerNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3124,7 +3124,7 @@ public extension AdminPrx {
     ///   - ServerNotExistException - Raised if the server doesn't exist.
     func isServerEnabled(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> Swift.Bool {
         return try _impl._invoke(operation: "isServerEnabled",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -3135,11 +3135,11 @@ public extension AdminPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -3163,7 +3163,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
     func isServerEnabledAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
         return _impl._invokeAsync(operation: "isServerEnabled",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -3174,11 +3174,11 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
+                                          throw error
+                                      } catch let error as ServerNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3212,13 +3212,13 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
-                              } catch let error as ServerStartException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as NodeUnreachableException {
+                                  throw error
+                              } catch let error as ServerNotExistException {
+                                  throw error
+                              } catch let error as ServerStartException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3249,13 +3249,13 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
-                                      } catch let error as ServerStartException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
+                                          throw error
+                                      } catch let error as ServerNotExistException {
+                                          throw error
+                                      } catch let error as ServerStartException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3289,13 +3289,13 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
-                              } catch let error as ServerStopException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as NodeUnreachableException {
+                                  throw error
+                              } catch let error as ServerNotExistException {
+                                  throw error
+                              } catch let error as ServerStopException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3326,13 +3326,13 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
-                                      } catch let error as ServerStopException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
+                                          throw error
+                                      } catch let error as ServerNotExistException {
+                                          throw error
+                                      } catch let error as ServerStopException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3369,13 +3369,13 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as NodeUnreachableException {
                                   throw error
                               } catch let error as BadSignalException {
+                                  throw error
+                              } catch let error as ServerNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3409,13 +3409,13 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
                                           throw error
                                       } catch let error as BadSignalException {
+                                          throw error
+                                      } catch let error as ServerNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3432,7 +3432,7 @@ public extension AdminPrx {
     /// - returns: `Ice.StringSeq` - The server ids.
     func getAllServerIds(context: Ice.Context? = nil) throws -> Ice.StringSeq {
         return try _impl._invoke(operation: "getAllServerIds",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Ice.StringSeq = try istr.read()
                                      return iceP_returnValue
@@ -3455,7 +3455,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Ice.StringSeq>` - The result of the operation
     func getAllServerIdsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.StringSeq> {
         return _impl._invokeAsync(operation: "getAllServerIds",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Ice.StringSeq = try istr.read()
                                       return iceP_returnValue
@@ -3481,7 +3481,7 @@ public extension AdminPrx {
     ///   - AdapterNotExistException - Raised if the adapter or replica group doesn't exist.
     func getAdapterInfo(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> AdapterInfoSeq {
         return try _impl._invoke(operation: "getAdapterInfo",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -3516,7 +3516,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<AdapterInfoSeq>` - The result of the operation
     func getAdapterInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<AdapterInfoSeq> {
         return _impl._invokeAsync(operation: "getAdapterInfo",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -3557,9 +3557,9 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as AdapterNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
+                                  throw error
+                              } catch let error as AdapterNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3590,9 +3590,9 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as AdapterNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
+                                          throw error
+                                      } catch let error as AdapterNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3609,7 +3609,7 @@ public extension AdminPrx {
     /// - returns: `Ice.StringSeq` - The adapter ids.
     func getAllAdapterIds(context: Ice.Context? = nil) throws -> Ice.StringSeq {
         return try _impl._invoke(operation: "getAllAdapterIds",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Ice.StringSeq = try istr.read()
                                      return iceP_returnValue
@@ -3632,7 +3632,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Ice.StringSeq>` - The result of the operation
     func getAllAdapterIdsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.StringSeq> {
         return _impl._invokeAsync(operation: "getAllAdapterIds",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Ice.StringSeq = try istr.read()
                                       return iceP_returnValue
@@ -3665,9 +3665,9 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ObjectExistsException {
-                                  throw error
                               } catch let error as DeploymentException {
+                                  throw error
+                              } catch let error as ObjectExistsException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3699,9 +3699,9 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ObjectExistsException {
-                                          throw error
                                       } catch let error as DeploymentException {
+                                          throw error
+                                      } catch let error as ObjectExistsException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3802,9 +3802,9 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ObjectExistsException {
-                                  throw error
                               } catch let error as DeploymentException {
+                                  throw error
+                              } catch let error as ObjectExistsException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3838,9 +3838,9 @@ public extension AdminPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ObjectExistsException {
-                                          throw error
                                       } catch let error as DeploymentException {
+                                          throw error
+                                      } catch let error as ObjectExistsException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3931,7 +3931,7 @@ public extension AdminPrx {
     ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
     func getObjectInfo(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) throws -> ObjectInfo {
         return try _impl._invoke(operation: "getObjectInfo",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -3966,7 +3966,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<ObjectInfo>` - The result of the operation
     func getObjectInfoAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ObjectInfo> {
         return _impl._invokeAsync(operation: "getObjectInfo",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -3996,7 +3996,7 @@ public extension AdminPrx {
     /// - returns: `ObjectInfoSeq` - The object infos.
     func getObjectInfosByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) throws -> ObjectInfoSeq {
         return try _impl._invoke(operation: "getObjectInfosByType",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_type)
                                  },
@@ -4024,7 +4024,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<ObjectInfoSeq>` - The result of the operation
     func getObjectInfosByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ObjectInfoSeq> {
         return _impl._invokeAsync(operation: "getObjectInfosByType",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_type)
                                   },
@@ -4048,7 +4048,7 @@ public extension AdminPrx {
     /// - returns: `ObjectInfoSeq` - All the object infos with a stringified identity matching the given expression.
     func getAllObjectInfos(_ iceP_expr: Swift.String, context: Ice.Context? = nil) throws -> ObjectInfoSeq {
         return try _impl._invoke(operation: "getAllObjectInfos",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_expr)
                                  },
@@ -4077,7 +4077,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<ObjectInfoSeq>` - The result of the operation
     func getAllObjectInfosAsync(_ iceP_expr: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ObjectInfoSeq> {
         return _impl._invokeAsync(operation: "getAllObjectInfos",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_expr)
                                   },
@@ -4104,7 +4104,7 @@ public extension AdminPrx {
     ///   - NodeNotExistException - Raised if the node doesn't exist.
     func pingNode(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Swift.Bool {
         return try _impl._invoke(operation: "pingNode",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -4139,7 +4139,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
     func pingNodeAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
         return _impl._invokeAsync(operation: "pingNode",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -4175,7 +4175,7 @@ public extension AdminPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeLoad(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> LoadInfo {
         return try _impl._invoke(operation: "getNodeLoad",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -4212,7 +4212,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<LoadInfo>` - The result of the operation
     func getNodeLoadAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<LoadInfo> {
         return _impl._invokeAsync(operation: "getNodeLoad",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -4250,7 +4250,7 @@ public extension AdminPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> NodeInfo {
         return try _impl._invoke(operation: "getNodeInfo",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -4287,7 +4287,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<NodeInfo>` - The result of the operation
     func getNodeInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<NodeInfo> {
         return _impl._invokeAsync(operation: "getNodeInfo",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -4325,7 +4325,7 @@ public extension AdminPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeAdmin(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "getNodeAdmin",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -4362,7 +4362,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func getNodeAdminAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
         return _impl._invokeAsync(operation: "getNodeAdmin",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -4402,7 +4402,7 @@ public extension AdminPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeProcessorSocketCount(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getNodeProcessorSocketCount",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -4441,7 +4441,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func getNodeProcessorSocketCountAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "getNodeProcessorSocketCount",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -4544,7 +4544,7 @@ public extension AdminPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeHostname(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Swift.String {
         return try _impl._invoke(operation: "getNodeHostname",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -4581,7 +4581,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
     func getNodeHostnameAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
         return _impl._invokeAsync(operation: "getNodeHostname",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -4611,7 +4611,7 @@ public extension AdminPrx {
     /// - returns: `Ice.StringSeq` - The node names.
     func getAllNodeNames(context: Ice.Context? = nil) throws -> Ice.StringSeq {
         return try _impl._invoke(operation: "getAllNodeNames",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Ice.StringSeq = try istr.read()
                                      return iceP_returnValue
@@ -4634,7 +4634,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Ice.StringSeq>` - The result of the operation
     func getAllNodeNamesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.StringSeq> {
         return _impl._invokeAsync(operation: "getAllNodeNames",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Ice.StringSeq = try istr.read()
                                       return iceP_returnValue
@@ -4658,7 +4658,7 @@ public extension AdminPrx {
     ///   - RegistryNotExistException - Raised if the registry doesn't exist.
     func pingRegistry(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Swift.Bool {
         return try _impl._invoke(operation: "pingRegistry",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -4693,7 +4693,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
     func pingRegistryAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
         return _impl._invokeAsync(operation: "pingRegistry",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -4729,7 +4729,7 @@ public extension AdminPrx {
     ///   - RegistryUnreachableException - Raised if the registry could not be reached.
     func getRegistryInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> RegistryInfo {
         return try _impl._invoke(operation: "getRegistryInfo",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -4766,7 +4766,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<RegistryInfo>` - The result of the operation
     func getRegistryInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<RegistryInfo> {
         return _impl._invokeAsync(operation: "getRegistryInfo",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -4802,7 +4802,7 @@ public extension AdminPrx {
     ///   - RegistryNotExistException - Raised if the registry doesn't exist.
     func getRegistryAdmin(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "getRegistryAdmin",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -4837,7 +4837,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func getRegistryAdminAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
         return _impl._invokeAsync(operation: "getRegistryAdmin",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -4871,7 +4871,7 @@ public extension AdminPrx {
     ///   - RegistryUnreachableException - Raised if the registry could not be reached.
     func shutdownRegistry(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "shutdownRegistry",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           write: { ostr in
                               ostr.write(iceP_name)
                           },
@@ -4904,7 +4904,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func shutdownRegistryAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "shutdownRegistry",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -4930,7 +4930,7 @@ public extension AdminPrx {
     /// - returns: `Ice.StringSeq` - The registry names.
     func getAllRegistryNames(context: Ice.Context? = nil) throws -> Ice.StringSeq {
         return try _impl._invoke(operation: "getAllRegistryNames",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Ice.StringSeq = try istr.read()
                                      return iceP_returnValue
@@ -4953,7 +4953,7 @@ public extension AdminPrx {
     /// - returns: `PromiseKit.Promise<Ice.StringSeq>` - The result of the operation
     func getAllRegistryNamesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.StringSeq> {
         return _impl._invokeAsync(operation: "getAllRegistryNames",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Ice.StringSeq = try istr.read()
                                       return iceP_returnValue
@@ -6890,7 +6890,7 @@ public extension AdminSessionPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func keepAlive(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "keepAlive",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           context: context)
     }
 
@@ -6910,7 +6910,7 @@ public extension AdminSessionPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func keepAliveAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "keepAlive",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,
@@ -6924,7 +6924,7 @@ public extension AdminSessionPrx {
     /// - returns: `AdminPrx?` - The admin interface proxy. The returned proxy is never null.
     func getAdmin(context: Ice.Context? = nil) throws -> AdminPrx? {
         return try _impl._invoke(operation: "getAdmin",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: AdminPrx? = try istr.read(AdminPrx.self)
                                      return iceP_returnValue
@@ -6947,7 +6947,7 @@ public extension AdminSessionPrx {
     /// - returns: `PromiseKit.Promise<AdminPrx?>` - The result of the operation
     func getAdminAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<AdminPrx?> {
         return _impl._invokeAsync(operation: "getAdmin",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: AdminPrx? = try istr.read(AdminPrx.self)
                                       return iceP_returnValue
@@ -6966,7 +6966,7 @@ public extension AdminSessionPrx {
     /// - returns: `Ice.ObjectPrx?` - A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
     func getAdminCallbackTemplate(context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "getAdminCallbackTemplate",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                      return iceP_returnValue
@@ -6990,7 +6990,7 @@ public extension AdminSessionPrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func getAdminCallbackTemplateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
         return _impl._invokeAsync(operation: "getAdminCallbackTemplate",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                       return iceP_returnValue
@@ -7020,7 +7020,7 @@ public extension AdminSessionPrx {
     ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
     func setObservers(registryObs iceP_registryObs: RegistryObserverPrx?, nodeObs iceP_nodeObs: NodeObserverPrx?, appObs iceP_appObs: ApplicationObserverPrx?, adptObs iceP_adptObs: AdapterObserverPrx?, objObs iceP_objObs: ObjectObserverPrx?, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "setObservers",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           write: { ostr in
                               ostr.write(iceP_registryObs)
                               ostr.write(iceP_nodeObs)
@@ -7063,7 +7063,7 @@ public extension AdminSessionPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func setObserversAsync(registryObs iceP_registryObs: RegistryObserverPrx?, nodeObs iceP_nodeObs: NodeObserverPrx?, appObs iceP_appObs: ApplicationObserverPrx?, adptObs iceP_adptObs: AdapterObserverPrx?, objObs iceP_objObs: ObjectObserverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "setObservers",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_registryObs)
                                       ostr.write(iceP_nodeObs)
@@ -7105,7 +7105,7 @@ public extension AdminSessionPrx {
     ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
     func setObserversByIdentity(registryObs iceP_registryObs: Ice.Identity, nodeObs iceP_nodeObs: Ice.Identity, appObs iceP_appObs: Ice.Identity, adptObs iceP_adptObs: Ice.Identity, objObs iceP_objObs: Ice.Identity, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "setObserversByIdentity",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           write: { ostr in
                               ostr.write(iceP_registryObs)
                               ostr.write(iceP_nodeObs)
@@ -7150,7 +7150,7 @@ public extension AdminSessionPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func setObserversByIdentityAsync(registryObs iceP_registryObs: Ice.Identity, nodeObs iceP_nodeObs: Ice.Identity, appObs iceP_appObs: Ice.Identity, adptObs iceP_adptObs: Ice.Identity, objObs iceP_objObs: Ice.Identity, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "setObserversByIdentity",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_registryObs)
                                       ostr.write(iceP_nodeObs)
@@ -7287,7 +7287,7 @@ public extension AdminSessionPrx {
     /// - returns: `Swift.String` - The replica name of the registry.
     func getReplicaName(context: Ice.Context? = nil) throws -> Swift.String {
         return try _impl._invoke(operation: "getReplicaName",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.String = try istr.read()
                                      return iceP_returnValue
@@ -7310,7 +7310,7 @@ public extension AdminSessionPrx {
     /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
     func getReplicaNameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
         return _impl._invokeAsync(operation: "getReplicaName",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.String = try istr.read()
                                       return iceP_returnValue
@@ -7359,13 +7359,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
                                          throw error
                                      } catch let error as FileNotAvailableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7408,13 +7408,13 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
                                           throw error
                                       } catch let error as FileNotAvailableException {
+                                          throw error
+                                      } catch let error as ServerNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7458,13 +7458,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
                                          throw error
                                      } catch let error as FileNotAvailableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7503,13 +7503,13 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
                                           throw error
                                       } catch let error as FileNotAvailableException {
+                                          throw error
+                                      } catch let error as ServerNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -7553,13 +7553,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
                                          throw error
                                      } catch let error as FileNotAvailableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7598,13 +7598,13 @@ public extension AdminSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
                                           throw error
                                       } catch let error as FileNotAvailableException {
+                                          throw error
+                                      } catch let error as ServerNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },

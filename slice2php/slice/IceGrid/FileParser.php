@@ -78,6 +78,6 @@ namespace IceGrid
     global $IcePHP__t_string;
     global $IceGrid__t_AdminPrx;
     global $IceGrid__t_ApplicationDescriptor;
-    IcePHP_defineOperation($IceGrid__t_FileParserPrx, 'parse', 2, 1, 0, array(array($IcePHP__t_string), array($IceGrid__t_AdminPrx)), null, array($IceGrid__t_ApplicationDescriptor), array($IceGrid__t_ParseException));
+    IcePHP_defineOperation($IceGrid__t_FileParserPrx, 'parse', 2, 2, 0, array(array($IcePHP__t_string), array($IceGrid__t_AdminPrx)), null, array($IceGrid__t_ApplicationDescriptor), array($IceGrid__t_ParseException));
 }
 ?>

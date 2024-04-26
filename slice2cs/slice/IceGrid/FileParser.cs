@@ -248,7 +248,7 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<ApplicationDescriptor>(completed);
             outAsync.invoke(
                 _parse_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

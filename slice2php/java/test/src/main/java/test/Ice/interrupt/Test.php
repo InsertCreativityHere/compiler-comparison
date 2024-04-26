@@ -73,7 +73,7 @@ namespace Test
     global $IcePHP__t_int;
     global $Ice__t_ByteSeq;
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'op', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opIdempotent', 2, 1, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opIdempotent', 2, 2, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleep', 0, 0, 0, array(array($IcePHP__t_int)), null, null, array($Test__t_InterruptedException));
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithPayload', 0, 0, 0, array(array($Ice__t_ByteSeq)), null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, 0, null, null, null, null);

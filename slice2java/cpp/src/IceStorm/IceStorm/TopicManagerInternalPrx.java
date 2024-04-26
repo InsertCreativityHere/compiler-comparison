@@ -68,7 +68,7 @@ public interface TopicManagerInternalPrx extends com.zeroc.IceStorm.TopicManager
      **/
     default com.zeroc.IceInternal.OutgoingAsync<IceStormElection.NodePrx> _iceI_getReplicaNodeAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<IceStormElection.NodePrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getReplicaNode", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<IceStormElection.NodePrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getReplicaNode", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      IceStormElection.NodePrx ret;
                      ret = IceStormElection.NodePrx.uncheckedCast(istr.readProxy());

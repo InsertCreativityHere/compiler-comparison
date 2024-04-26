@@ -19,7 +19,7 @@ classdef TestLocatorPrx < Ice.LocatorPrx
             %
             % Returns (int32)
             
-            is_ = obj.iceInvoke('getRequestCount', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getRequestCount', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -38,7 +38,7 @@ classdef TestLocatorPrx < Ice.LocatorPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getRequestCount', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getRequestCount', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

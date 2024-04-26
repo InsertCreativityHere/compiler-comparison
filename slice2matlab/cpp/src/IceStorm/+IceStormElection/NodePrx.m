@@ -153,7 +153,7 @@ classdef NodePrx < Ice.ObjectPrx
             %
             % Returns (logical) - True if the node is a coordinator, false otherwise.
             
-            is_ = obj.iceInvoke('areYouCoordinator', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('areYouCoordinator', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readBool();
             is_.endEncapsulation();
@@ -172,7 +172,7 @@ classdef NodePrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('areYouCoordinator', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('areYouCoordinator', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = areYouThere(obj, gn, j, varargin)
             % areYouThere   Determine if the node is a member of the given group with the given coordinator.
@@ -188,7 +188,7 @@ classdef NodePrx < Ice.ObjectPrx
             os_.writeString(gn);
             os_.writeInt(j);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('areYouThere', 1, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('areYouThere', 2, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readBool();
             is_.endEncapsulation();
@@ -213,7 +213,7 @@ classdef NodePrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('areYouThere', 1, true, os_, 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('areYouThere', 2, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = sync(obj, varargin)
             % sync   Get the sync object for the replica hosted by this node.
@@ -223,7 +223,7 @@ classdef NodePrx < Ice.ObjectPrx
             %
             % Returns (Ice.ObjectPrx) - The sync object.
             
-            is_ = obj.iceInvoke('sync', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('sync', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -242,7 +242,7 @@ classdef NodePrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('sync', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('sync', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = nodes(obj, varargin)
             % nodes   Get the replication group information.
@@ -252,7 +252,7 @@ classdef NodePrx < Ice.ObjectPrx
             %
             % Returns (IceStormElection.NodeInfoSeq) - The set of configured nodes and the associated priority.
             
-            is_ = obj.iceInvoke('nodes', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('nodes', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceStormElection.NodeInfoSeq.read(is_);
             is_.endEncapsulation();
@@ -271,7 +271,7 @@ classdef NodePrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('nodes', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('nodes', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = query(obj, varargin)
             % query   Get the query information for the given node.
@@ -281,7 +281,7 @@ classdef NodePrx < Ice.ObjectPrx
             %
             % Returns (IceStormElection.QueryInfo) - The query information.
             
-            is_ = obj.iceInvoke('query', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('query', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceStormElection.QueryInfo.ice_read(is_);
             is_.endEncapsulation();
@@ -300,7 +300,7 @@ classdef NodePrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('query', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('query', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

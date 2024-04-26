@@ -294,7 +294,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_areYouCoordinatorAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "areYouCoordinator", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "areYouCoordinator", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      boolean ret;
                      ret = istr.readBool();
@@ -359,7 +359,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_areYouThereAsync(String iceP_gn, int iceP_j, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "areYouThere", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "areYouThere", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_gn);
                      ostr.writeInt(iceP_j);
@@ -417,7 +417,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_syncAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sync", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sync", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      com.zeroc.Ice.ObjectPrx ret;
                      ret = istr.readProxy();
@@ -472,7 +472,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<NodeInfo[]> _iceI_nodesAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<NodeInfo[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "nodes", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<NodeInfo[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "nodes", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      NodeInfo[] ret;
                      ret = NodeInfoSeqHelper.read(istr);
@@ -527,7 +527,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<QueryInfo> _iceI_queryAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<QueryInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "query", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<QueryInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "query", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      QueryInfo ret;
                      ret = QueryInfo.ice_read(istr);

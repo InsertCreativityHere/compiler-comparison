@@ -391,10 +391,10 @@ module ::IceStormElection
         NodePrx_mixin::OP_invitation = ::Ice::__defineOperation('invitation', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
         NodePrx_mixin::OP_ready = ::Ice::__defineOperation('ready', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_long, false, 0]], [], nil, [])
         NodePrx_mixin::OP_accept = ::Ice::__defineOperation('accept', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0], [::Ice::T_IntSeq, false, 0], [::Ice::T_ObjectPrx, false, 0], [::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
-        NodePrx_mixin::OP_areYouCoordinator = ::Ice::__defineOperation('areYouCoordinator', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        NodePrx_mixin::OP_areYouThere = ::Ice::__defineOperation('areYouThere', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_bool, false, 0], [])
-        NodePrx_mixin::OP_sync = ::Ice::__defineOperation('sync', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        NodePrx_mixin::OP_nodes = ::Ice::__defineOperation('nodes', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceStormElection::T_NodeInfoSeq, false, 0], [])
-        NodePrx_mixin::OP_query = ::Ice::__defineOperation('query', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceStormElection::T_QueryInfo, false, 0], [])
+        NodePrx_mixin::OP_areYouCoordinator = ::Ice::__defineOperation('areYouCoordinator', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_bool, false, 0], [])
+        NodePrx_mixin::OP_areYouThere = ::Ice::__defineOperation('areYouThere', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_bool, false, 0], [])
+        NodePrx_mixin::OP_sync = ::Ice::__defineOperation('sync', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
+        NodePrx_mixin::OP_nodes = ::Ice::__defineOperation('nodes', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::T_NodeInfoSeq, false, 0], [])
+        NodePrx_mixin::OP_query = ::Ice::__defineOperation('query', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::T_QueryInfo, false, 0], [])
     end
 end

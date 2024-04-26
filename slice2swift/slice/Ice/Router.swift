@@ -151,7 +151,7 @@ public extension RouterPrx {
     /// The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
     func getClientProxy(context: Context? = nil) throws -> (returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?) {
         return try _impl._invoke(operation: "getClientProxy",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
                                      let iceP_hasRoutingTable: Swift.Bool? = try istr.read(tag: 1)
@@ -176,7 +176,7 @@ public extension RouterPrx {
     /// - returns: `PromiseKit.Promise<(returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)>` - The result of the operation
     func getClientProxyAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)> {
         return _impl._invokeAsync(operation: "getClientProxy",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
                                       let iceP_hasRoutingTable: Swift.Bool? = try istr.read(tag: 1)
@@ -195,7 +195,7 @@ public extension RouterPrx {
     /// - returns: `ObjectPrx?` - The router's server proxy.
     func getServerProxy(context: Context? = nil) throws -> ObjectPrx? {
         return try _impl._invoke(operation: "getServerProxy",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
                                      return iceP_returnValue
@@ -218,7 +218,7 @@ public extension RouterPrx {
     /// - returns: `PromiseKit.Promise<ObjectPrx?>` - The result of the operation
     func getServerProxyAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ObjectPrx?> {
         return _impl._invokeAsync(operation: "getServerProxy",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
                                       return iceP_returnValue
@@ -238,7 +238,7 @@ public extension RouterPrx {
     /// - returns: `ObjectProxySeq` - Proxies discarded by the router. These proxies are all non-null.
     func addProxies(_ iceP_proxies: ObjectProxySeq, context: Context? = nil) throws -> ObjectProxySeq {
         return try _impl._invoke(operation: "addProxies",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ObjectProxySeqHelper.write(to: ostr, value: iceP_proxies)
                                  },
@@ -266,7 +266,7 @@ public extension RouterPrx {
     /// - returns: `PromiseKit.Promise<ObjectProxySeq>` - The result of the operation
     func addProxiesAsync(_ iceP_proxies: ObjectProxySeq, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ObjectProxySeq> {
         return _impl._invokeAsync(operation: "addProxies",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ObjectProxySeqHelper.write(to: ostr, value: iceP_proxies)
                                   },

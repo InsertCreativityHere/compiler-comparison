@@ -154,7 +154,7 @@ public extension SessionPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func keepAlive(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "keepAlive",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           context: context)
     }
 
@@ -174,7 +174,7 @@ public extension SessionPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func keepAliveAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "keepAlive",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,
@@ -408,7 +408,7 @@ public extension SessionPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func setAllocationTimeout(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "setAllocationTimeout",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           write: { ostr in
                               ostr.write(iceP_timeout)
                           },
@@ -434,7 +434,7 @@ public extension SessionPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func setAllocationTimeoutAsync(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "setAllocationTimeout",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_timeout)
                                   },

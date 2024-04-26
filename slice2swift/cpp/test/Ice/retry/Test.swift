@@ -192,7 +192,7 @@ public extension RetryPrx {
     /// - returns: `Swift.Int32`
     func opIdempotent(_ iceP_c: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "opIdempotent",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_c)
                                  },
@@ -219,7 +219,7 @@ public extension RetryPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func opIdempotentAsync(_ iceP_c: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "opIdempotent",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_c)
                                   },
@@ -268,7 +268,7 @@ public extension RetryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func sleep(_ iceP_delay: Swift.Int32, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "sleep",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           write: { ostr in
                               ostr.write(iceP_delay)
                           },
@@ -291,7 +291,7 @@ public extension RetryPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func sleepAsync(_ iceP_delay: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "sleep",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_delay)
                                   },
@@ -305,7 +305,7 @@ public extension RetryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "shutdown",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           context: context)
     }
 
@@ -323,7 +323,7 @@ public extension RetryPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,

@@ -79,7 +79,7 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_keepAliveAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "keepAlive", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "keepAlive", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -444,7 +444,7 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setAllocationTimeoutAsync(int iceP_timeout, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setAllocationTimeout", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setAllocationTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(iceP_timeout);
                  }, null);

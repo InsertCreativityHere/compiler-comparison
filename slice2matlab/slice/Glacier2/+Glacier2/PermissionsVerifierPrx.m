@@ -35,7 +35,7 @@ classdef PermissionsVerifierPrx < Ice.ObjectPrx
             os_.writeString(userId);
             os_.writeString(password);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('checkPermissions', 1, true, os_, true, Glacier2.PermissionsVerifierPrx.checkPermissions_ex_, varargin{:});
+            is_ = obj.iceInvoke('checkPermissions', 2, true, os_, true, Glacier2.PermissionsVerifierPrx.checkPermissions_ex_, varargin{:});
             is_.startEncapsulation();
             reason = is_.readString();
             result = is_.readBool();
@@ -67,7 +67,7 @@ classdef PermissionsVerifierPrx < Ice.ObjectPrx
                 varargout{1} = result;
                 varargout{2} = reason;
             end
-            r_ = obj.iceInvokeAsync('checkPermissions', 1, true, os_, 2, @unmarshal, Glacier2.PermissionsVerifierPrx.checkPermissions_ex_, varargin{:});
+            r_ = obj.iceInvokeAsync('checkPermissions', 2, true, os_, 2, @unmarshal, Glacier2.PermissionsVerifierPrx.checkPermissions_ex_, varargin{:});
         end
     end
     methods(Static)

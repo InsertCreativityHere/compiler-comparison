@@ -259,7 +259,7 @@
         "opByteSOneway": [, , , , , [["Test.ByteSHelper"]], , , , ],
         "opByteSOnewayCallCount": [, , , , [3], , , , , ],
         "opContext": [, , , , ["Ice.ContextHelper"], , , , , ],
-        "opIdempotent": [, 2, 1, , , , , , , ],
+        "opIdempotent": [, 2, 2, , , , , , , ],
         "opByte1": [, , , , [0], [[0]], , , , ],
         "opShort1": [, , , , [2], [[2]], , , , ],
         "opInt1": [, , , , [3], [[3]], , , , ],

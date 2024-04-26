@@ -315,7 +315,7 @@ namespace IceGrid
 
     global $Ice__t_ObjectPrx;
     IcePHP_defineOperation($IceGrid__t_AdapterPrx, 'activate', 0, 0, 0, null, null, array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($IceGrid__t_AdapterPrx, 'getDirectProxy', 2, 1, 0, null, null, array($Ice__t_ObjectPrx), array($IceGrid__t_AdapterNotActiveException));
+    IcePHP_defineOperation($IceGrid__t_AdapterPrx, 'getDirectProxy', 2, 2, 0, null, null, array($Ice__t_ObjectPrx), array($IceGrid__t_AdapterNotActiveException));
     IcePHP_defineOperation($IceGrid__t_AdapterPrx, 'setDirectProxy', 0, 0, 0, array(array($Ice__t_ObjectPrx)), null, null, array($IceGrid__t_AdapterActiveException));
 }
 
@@ -391,8 +391,8 @@ namespace IceGrid
     global $IcePHP__t_long;
     global $Ice__t_StringSeq;
     global $IcePHP__t_bool;
-    IcePHP_defineOperation($IceGrid__t_FileReaderPrx, 'getOffsetFromEnd', 2, 1, 0, array(array($IcePHP__t_string), array($IcePHP__t_int)), null, array($IcePHP__t_long), array($IceGrid__t_FileNotAvailableException));
-    IcePHP_defineOperation($IceGrid__t_FileReaderPrx, 'read', 2, 1, 0, array(array($IcePHP__t_string), array($IcePHP__t_long), array($IcePHP__t_int)), array(array($IcePHP__t_long), array($Ice__t_StringSeq)), array($IcePHP__t_bool), array($IceGrid__t_FileNotAvailableException));
+    IcePHP_defineOperation($IceGrid__t_FileReaderPrx, 'getOffsetFromEnd', 2, 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_int)), null, array($IcePHP__t_long), array($IceGrid__t_FileNotAvailableException));
+    IcePHP_defineOperation($IceGrid__t_FileReaderPrx, 'read', 2, 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_long), array($IcePHP__t_int)), array(array($IcePHP__t_long), array($Ice__t_StringSeq)), array($IcePHP__t_bool), array($IceGrid__t_FileNotAvailableException));
 }
 
 namespace IceGrid
@@ -431,11 +431,11 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_ServerPrx, 'stop', 0, 0, 0, null, null, null, array($IceGrid__t_ServerStopException));
     IcePHP_defineOperation($IceGrid__t_ServerPrx, 'checkUpdate', 0, 0, 0, array(array($IceGrid__t_InternalServerDescriptor), array($IcePHP__t_bool)), null, array($IcePHP__t_bool), array($IceGrid__t_DeploymentException));
     IcePHP_defineOperation($IceGrid__t_ServerPrx, 'setEnabled', 0, 0, 0, array(array($IcePHP__t_bool)), null, null, null);
-    IcePHP_defineOperation($IceGrid__t_ServerPrx, 'isEnabled', 2, 1, 0, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($IceGrid__t_ServerPrx, 'isEnabled', 2, 2, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($IceGrid__t_ServerPrx, 'sendSignal', 0, 0, 0, array(array($IcePHP__t_string)), null, null, array($IceGrid__t_BadSignalException));
     IcePHP_defineOperation($IceGrid__t_ServerPrx, 'writeMessage', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($IceGrid__t_ServerPrx, 'getState', 2, 1, 0, null, null, array($IceGrid__t_ServerState), null);
-    IcePHP_defineOperation($IceGrid__t_ServerPrx, 'getPid', 2, 1, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($IceGrid__t_ServerPrx, 'getState', 2, 2, 0, null, null, array($IceGrid__t_ServerState), null);
+    IcePHP_defineOperation($IceGrid__t_ServerPrx, 'getPid', 2, 2, 0, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($IceGrid__t_ServerPrx, 'setProcess', 0, 0, 0, array(array($Ice__t_ProcessPrx)), null, null, null);
 }
 
@@ -527,16 +527,16 @@ namespace IceGrid
     global $IceGrid__t_ServerPrx;
     global $IceGrid__t_InternalRegistryPrx;
     global $IceGrid__t_LoadInfo;
-    IcePHP_defineOperation($IceGrid__t_NodePrx, 'loadServer', 2, 1, 0, array(array($IceGrid__t_InternalServerDescriptor), array($IcePHP__t_string)), array(array($IceGrid__t_AdapterPrxDict), array($IcePHP__t_int), array($IcePHP__t_int)), array($IceGrid__t_ServerPrx), array($IceGrid__t_DeploymentException));
-    IcePHP_defineOperation($IceGrid__t_NodePrx, 'loadServerWithoutRestart', 2, 1, 0, array(array($IceGrid__t_InternalServerDescriptor), array($IcePHP__t_string)), array(array($IceGrid__t_AdapterPrxDict), array($IcePHP__t_int), array($IcePHP__t_int)), array($IceGrid__t_ServerPrx), array($IceGrid__t_DeploymentException));
-    IcePHP_defineOperation($IceGrid__t_NodePrx, 'destroyServer', 2, 1, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_int), array($IcePHP__t_string)), null, null, array($IceGrid__t_DeploymentException));
-    IcePHP_defineOperation($IceGrid__t_NodePrx, 'destroyServerWithoutRestart', 2, 1, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_int), array($IcePHP__t_string)), null, null, array($IceGrid__t_DeploymentException));
+    IcePHP_defineOperation($IceGrid__t_NodePrx, 'loadServer', 2, 2, 0, array(array($IceGrid__t_InternalServerDescriptor), array($IcePHP__t_string)), array(array($IceGrid__t_AdapterPrxDict), array($IcePHP__t_int), array($IcePHP__t_int)), array($IceGrid__t_ServerPrx), array($IceGrid__t_DeploymentException));
+    IcePHP_defineOperation($IceGrid__t_NodePrx, 'loadServerWithoutRestart', 2, 2, 0, array(array($IceGrid__t_InternalServerDescriptor), array($IcePHP__t_string)), array(array($IceGrid__t_AdapterPrxDict), array($IcePHP__t_int), array($IcePHP__t_int)), array($IceGrid__t_ServerPrx), array($IceGrid__t_DeploymentException));
+    IcePHP_defineOperation($IceGrid__t_NodePrx, 'destroyServer', 2, 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_int), array($IcePHP__t_string)), null, null, array($IceGrid__t_DeploymentException));
+    IcePHP_defineOperation($IceGrid__t_NodePrx, 'destroyServerWithoutRestart', 2, 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_int), array($IcePHP__t_string)), null, null, array($IceGrid__t_DeploymentException));
     IcePHP_defineOperation($IceGrid__t_NodePrx, 'registerWithReplica', 0, 0, 0, array(array($IceGrid__t_InternalRegistryPrx)), null, null, null);
-    IcePHP_defineOperation($IceGrid__t_NodePrx, 'getName', 2, 1, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($IceGrid__t_NodePrx, 'getHostname', 2, 1, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($IceGrid__t_NodePrx, 'getLoad', 2, 1, 0, null, null, array($IceGrid__t_LoadInfo), null);
-    IcePHP_defineOperation($IceGrid__t_NodePrx, 'getProcessorSocketCount', 2, 1, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($IceGrid__t_NodePrx, 'shutdown', 2, 1, 0, null, null, null, null);
+    IcePHP_defineOperation($IceGrid__t_NodePrx, 'getName', 2, 2, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($IceGrid__t_NodePrx, 'getHostname', 2, 2, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($IceGrid__t_NodePrx, 'getLoad', 2, 2, 0, null, null, array($IceGrid__t_LoadInfo), null);
+    IcePHP_defineOperation($IceGrid__t_NodePrx, 'getProcessorSocketCount', 2, 2, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($IceGrid__t_NodePrx, 'shutdown', 2, 2, 0, null, null, null, null);
 }
 
 namespace IceGrid
@@ -608,10 +608,10 @@ namespace IceGrid
     global $IcePHP__t_string;
     IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'keepAlive', 0, 0, 0, array(array($IceGrid__t_LoadInfo)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'setReplicaObserver', 0, 0, 0, array(array($IceGrid__t_ReplicaObserverPrx)), null, null, null);
-    IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'getTimeout', 2, 1, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'getObserver', 2, 1, 0, null, null, array($IceGrid__t_NodeObserverPrx), null);
-    IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'loadServers', 2, 1, 0, null, null, null, null);
-    IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'getServers', 2, 1, 0, null, null, array($Ice__t_StringSeq), null);
+    IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'getTimeout', 2, 2, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'getObserver', 2, 2, 0, null, null, array($IceGrid__t_NodeObserverPrx), null);
+    IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'loadServers', 2, 2, 0, null, null, null, null);
+    IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'getServers', 2, 2, 0, null, null, array($Ice__t_StringSeq), null);
     IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'waitForApplicationUpdate', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_int)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_NodeSessionPrx, 'destroy', 0, 0, 0, null, null, null, null);
 }
@@ -729,11 +729,11 @@ namespace IceGrid
     global $Ice__t_ObjectPrx;
     global $IceGrid__t_TopicName;
     IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'keepAlive', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'getTimeout', 2, 1, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'setDatabaseObserver', 2, 1, 0, array(array($IceGrid__t_DatabaseObserverPrx), array($IceGrid__t_StringLongDict, 1)), null, null, array($IceGrid__t_ObserverAlreadyRegisteredException, $IceGrid__t_DeploymentException));
-    IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'setEndpoints', 2, 1, 0, array(array($IceGrid__t_StringObjectProxyDict)), null, null, null);
-    IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'registerWellKnownObjects', 2, 1, 0, array(array($IceGrid__t_ObjectInfoSeq)), null, null, null);
-    IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'setAdapterDirectProxy', 2, 1, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($Ice__t_ObjectPrx)), null, null, array($IceGrid__t_AdapterNotExistException, $IceGrid__t_AdapterExistsException));
+    IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'getTimeout', 2, 2, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'setDatabaseObserver', 2, 2, 0, array(array($IceGrid__t_DatabaseObserverPrx), array($IceGrid__t_StringLongDict, 1)), null, null, array($IceGrid__t_ObserverAlreadyRegisteredException, $IceGrid__t_DeploymentException));
+    IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'setEndpoints', 2, 2, 0, array(array($IceGrid__t_StringObjectProxyDict)), null, null, null);
+    IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'registerWellKnownObjects', 2, 2, 0, array(array($IceGrid__t_ObjectInfoSeq)), null, null, null);
+    IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'setAdapterDirectProxy', 2, 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($Ice__t_ObjectPrx)), null, null, array($IceGrid__t_AdapterNotExistException, $IceGrid__t_AdapterExistsException));
     IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'receivedUpdate', 0, 0, 0, array(array($IceGrid__t_TopicName), array($IcePHP__t_int), array($IcePHP__t_string)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'destroy', 0, 0, 0, null, null, null, null);
 }
@@ -875,11 +875,11 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'registerNode', 0, 0, 0, array(array($IceGrid__t_InternalNodeInfo), array($IceGrid__t_NodePrx), array($IceGrid__t_LoadInfo)), null, array($IceGrid__t_NodeSessionPrx), array($IceGrid__t_NodeActiveException, $IceGrid__t_PermissionDeniedException));
     IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'registerReplica', 0, 0, 0, array(array($IceGrid__t_InternalReplicaInfo), array($IceGrid__t_InternalRegistryPrx)), null, array($IceGrid__t_ReplicaSessionPrx), array($IceGrid__t_ReplicaActiveException, $IceGrid__t_PermissionDeniedException));
     IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'registerWithReplica', 0, 0, 0, array(array($IceGrid__t_InternalRegistryPrx)), null, null, null);
-    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'getNodes', 2, 1, 0, null, null, array($IceGrid__t_NodePrxSeq), null);
-    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'getReplicas', 2, 1, 0, null, null, array($IceGrid__t_InternalRegistryPrxSeq), null);
-    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'getApplications', 2, 1, 0, null, array(array($IcePHP__t_long)), array($IceGrid__t_ApplicationInfoSeq), null);
-    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'getAdapters', 2, 1, 0, null, array(array($IcePHP__t_long)), array($IceGrid__t_AdapterInfoSeq), null);
-    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'getObjects', 2, 1, 0, null, array(array($IcePHP__t_long)), array($IceGrid__t_ObjectInfoSeq), null);
-    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'shutdown', 2, 1, 0, null, null, null, null);
+    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'getNodes', 2, 2, 0, null, null, array($IceGrid__t_NodePrxSeq), null);
+    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'getReplicas', 2, 2, 0, null, null, array($IceGrid__t_InternalRegistryPrxSeq), null);
+    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'getApplications', 2, 2, 0, null, array(array($IcePHP__t_long)), array($IceGrid__t_ApplicationInfoSeq), null);
+    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'getAdapters', 2, 2, 0, null, array(array($IcePHP__t_long)), array($IceGrid__t_AdapterInfoSeq), null);
+    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'getObjects', 2, 2, 0, null, array(array($IcePHP__t_long)), array($IceGrid__t_ObjectInfoSeq), null);
+    IcePHP_defineOperation($IceGrid__t_InternalRegistryPrx, 'shutdown', 2, 2, 0, null, null, null, null);
 }
 ?>

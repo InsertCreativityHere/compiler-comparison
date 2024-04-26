@@ -106,7 +106,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setAdapterDirectProxyAsync(String iceP_id, ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setAdapterDirectProxy", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_setAdapterDirectProxy);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setAdapterDirectProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setAdapterDirectProxy);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                      ostr.writeProxy(iceP_proxy);
@@ -219,7 +219,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setReplicatedAdapterDirectProxyAsync(String iceP_adapterId, String iceP_replicaGroupId, ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setReplicatedAdapterDirectProxy", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_setReplicatedAdapterDirectProxy);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setReplicatedAdapterDirectProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setReplicatedAdapterDirectProxy);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_adapterId);
                      ostr.writeString(iceP_replicaGroupId);
@@ -305,7 +305,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setServerProcessProxyAsync(String iceP_id, ProcessPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setServerProcessProxy", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_setServerProcessProxy);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setServerProcessProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setServerProcessProxy);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                      ostr.writeProxy(iceP_proxy);

@@ -72,7 +72,7 @@ module ::Test
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_opIdempotent = ::Ice::__defineOperation('opIdempotent', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_opIdempotent = ::Ice::__defineOperation('opIdempotent', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::T_InterruptedException])
         TestIntfPrx_mixin::OP_opWithPayload = ::Ice::__defineOperation('opWithPayload', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ByteSeq, false, 0]], [], nil, [])
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

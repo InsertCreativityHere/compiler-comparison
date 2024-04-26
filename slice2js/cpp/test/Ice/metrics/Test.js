@@ -65,7 +65,7 @@
     Slice.defineOperations(Test.Metrics, Test.MetricsPrx, iceC_Test_Metrics_ids, "::Test::Metrics",
     {
         "op": [, , , , , , , , , ],
-        "fail": [, 2, 1, , , , , , , ],
+        "fail": [, 2, 2, , , , , , , ],
         "opWithUserException": [, , , , , , ,
         [
             Test.UserEx

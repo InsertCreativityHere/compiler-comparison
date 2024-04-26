@@ -81,7 +81,7 @@
 
     Slice.defineOperations(Test.TestLocator, Test.TestLocatorPrx, iceC_Test_TestLocator_ids, "::Test::TestLocator",
     {
-        "getRequestCount": [, 2, 1, , [3], , , , , ]
+        "getRequestCount": [, 2, 2, , [3], , , , , ]
     });
 
     const iceC_Test_ServerManager_ids = [

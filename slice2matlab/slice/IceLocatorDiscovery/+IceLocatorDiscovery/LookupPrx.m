@@ -31,7 +31,7 @@ classdef LookupPrx < Ice.ObjectPrx
             os_.writeString(instanceName);
             os_.writeProxy(reply);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('findLocator', 1, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('findLocator', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = findLocatorAsync(obj, instanceName, reply, varargin)
             % findLocatorAsync   Find a locator proxy with the given instance name.
@@ -48,7 +48,7 @@ classdef LookupPrx < Ice.ObjectPrx
             os_.writeString(instanceName);
             os_.writeProxy(reply);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('findLocator', 1, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('findLocator', 2, false, os_, 0, [], {}, varargin{:});
         end
     end
     methods(Static)

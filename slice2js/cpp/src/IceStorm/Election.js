@@ -291,11 +291,11 @@
         "invitation": [, , , , , [[3], [7]], , , , ],
         "ready": [, , , , , [[3], [7], [9], [3], [4]], , , , ],
         "accept": [, , , , , [[3], [7], ["Ice.IntSeqHelper"], [9], [IceStormElection.LogUpdate], [3]], , , , ],
-        "areYouCoordinator": [, 2, 1, , [1], , , , , ],
-        "areYouThere": [, 2, 1, , [1], [[7], [3]], , , , ],
-        "sync": [, 2, 1, , [9], , , , , ],
-        "nodes": [, 2, 1, , ["IceStormElection.NodeInfoSeqHelper"], , , , , ],
-        "query": [, 2, 1, , [IceStormElection.QueryInfo], , , , , ]
+        "areYouCoordinator": [, 2, 2, , [1], , , , , ],
+        "areYouThere": [, 2, 2, , [1], [[7], [3]], , , , ],
+        "sync": [, 2, 2, , [9], , , , , ],
+        "nodes": [, 2, 2, , ["IceStormElection.NodeInfoSeqHelper"], , , , , ],
+        "query": [, 2, 2, , [IceStormElection.QueryInfo], , , , , ]
     });
     exports.IceStormElection = IceStormElection;
 }

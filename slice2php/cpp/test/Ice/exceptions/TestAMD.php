@@ -311,7 +311,7 @@ namespace Test
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwNonIceException', 0, 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAssertException', 0, 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwMemoryLimitException', 0, 0, 0, array(array($Ice__t_ByteSeq)), null, array($Ice__t_ByteSeq), null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwLocalExceptionIdempotent', 2, 1, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwLocalExceptionIdempotent', 2, 2, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterResponse', 0, 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterException', 0, 0, 0, null, null, null, array($Test__t_A));
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwE', 0, 0, 0, null, null, null, array($Test__t_E));

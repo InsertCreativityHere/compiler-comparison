@@ -87,7 +87,7 @@ classdef NodeSessionPrx < Ice.ObjectPrx
             %
             % Returns (int32)
             
-            is_ = obj.iceInvoke('getTimeout', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -106,7 +106,7 @@ classdef NodeSessionPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getTimeout', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getObserver(obj, varargin)
             % getObserver   Return the node observer.
@@ -116,7 +116,7 @@ classdef NodeSessionPrx < Ice.ObjectPrx
             %
             % Returns (IceGrid.NodeObserverPrx)
             
-            is_ = obj.iceInvoke('getObserver', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getObserver', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.NodeObserverPrx.ice_read(is_);
             is_.endEncapsulation();
@@ -135,7 +135,7 @@ classdef NodeSessionPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getObserver', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getObserver', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function loadServers(obj, varargin)
             % loadServers   Ask the registry to load the servers on the node.
@@ -143,7 +143,7 @@ classdef NodeSessionPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             
-            obj.iceInvoke('loadServers', 1, false, [], false, {}, varargin{:});
+            obj.iceInvoke('loadServers', 2, false, [], false, {}, varargin{:});
         end
         function r_ = loadServersAsync(obj, varargin)
             % loadServersAsync   Ask the registry to load the servers on the node.
@@ -153,7 +153,7 @@ classdef NodeSessionPrx < Ice.ObjectPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            r_ = obj.iceInvokeAsync('loadServers', 1, false, [], 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('loadServers', 2, false, [], 0, [], {}, varargin{:});
         end
         function result = getServers(obj, varargin)
             % getServers   Get the name of the servers deployed on the node.
@@ -163,7 +163,7 @@ classdef NodeSessionPrx < Ice.ObjectPrx
             %
             % Returns (Ice.StringSeq)
             
-            is_ = obj.iceInvoke('getServers', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getServers', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readStringSeq();
             is_.endEncapsulation();
@@ -182,7 +182,7 @@ classdef NodeSessionPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getServers', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getServers', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function waitForApplicationUpdate(obj, application, revision, varargin)
             % waitForApplicationUpdate   Wait for the application update to complete (the application is completely updated once all the registry

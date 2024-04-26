@@ -554,7 +554,7 @@ classdef ThrowerPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             
-            obj.iceInvoke('throwLocalExceptionIdempotent', 1, false, [], false, {}, varargin{:});
+            obj.iceInvoke('throwLocalExceptionIdempotent', 2, false, [], false, {}, varargin{:});
         end
         function r_ = throwLocalExceptionIdempotentAsync(obj, varargin)
             % throwLocalExceptionIdempotentAsync
@@ -564,7 +564,7 @@ classdef ThrowerPrx < Ice.ObjectPrx
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            r_ = obj.iceInvokeAsync('throwLocalExceptionIdempotent', 1, false, [], 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('throwLocalExceptionIdempotent', 2, false, [], 0, [], {}, varargin{:});
         end
     end
     methods(Static)

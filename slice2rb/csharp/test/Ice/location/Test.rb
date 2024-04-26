@@ -70,7 +70,7 @@ module ::Test
 
         T_TestLocatorPrx.defineProxy(TestLocatorPrx, nil, [::Ice::T_LocatorPrx])
 
-        TestLocatorPrx_mixin::OP_getRequestCount = ::Ice::__defineOperation('getRequestCount', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        TestLocatorPrx_mixin::OP_getRequestCount = ::Ice::__defineOperation('getRequestCount', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
     end
 
     if not defined?(::Test::ServerManager_Mixin)

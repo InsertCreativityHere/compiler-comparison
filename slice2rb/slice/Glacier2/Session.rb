@@ -94,9 +94,9 @@ module ::Glacier2
 
         T_StringSetPrx.defineProxy(StringSetPrx, nil, [])
 
-        StringSetPrx_mixin::OP_add = ::Ice::__defineOperation('add', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
-        StringSetPrx_mixin::OP_remove = ::Ice::__defineOperation('remove', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
-        StringSetPrx_mixin::OP_get = ::Ice::__defineOperation('get', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
+        StringSetPrx_mixin::OP_add = ::Ice::__defineOperation('add', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
+        StringSetPrx_mixin::OP_remove = ::Ice::__defineOperation('remove', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
+        StringSetPrx_mixin::OP_get = ::Ice::__defineOperation('get', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
     end
 
     if not defined?(::Glacier2::IdentitySet_Mixin)
@@ -130,9 +130,9 @@ module ::Glacier2
 
         T_IdentitySetPrx.defineProxy(IdentitySetPrx, nil, [])
 
-        IdentitySetPrx_mixin::OP_add = ::Ice::__defineOperation('add', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [])
-        IdentitySetPrx_mixin::OP_remove = ::Ice::__defineOperation('remove', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [])
-        IdentitySetPrx_mixin::OP_get = ::Ice::__defineOperation('get', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_IdentitySeq, false, 0], [])
+        IdentitySetPrx_mixin::OP_add = ::Ice::__defineOperation('add', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [])
+        IdentitySetPrx_mixin::OP_remove = ::Ice::__defineOperation('remove', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [])
+        IdentitySetPrx_mixin::OP_get = ::Ice::__defineOperation('get', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_IdentitySeq, false, 0], [])
     end
 
     if not defined?(::Glacier2::SessionControl_Mixin)
@@ -177,7 +177,7 @@ module ::Glacier2
         SessionControlPrx_mixin::OP_categories = ::Ice::__defineOperation('categories', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Glacier2::T_StringSetPrx, false, 0], [])
         SessionControlPrx_mixin::OP_adapterIds = ::Ice::__defineOperation('adapterIds', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Glacier2::T_StringSetPrx, false, 0], [])
         SessionControlPrx_mixin::OP_identities = ::Ice::__defineOperation('identities', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Glacier2::T_IdentitySetPrx, false, 0], [])
-        SessionControlPrx_mixin::OP_getSessionTimeout = ::Ice::__defineOperation('getSessionTimeout', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        SessionControlPrx_mixin::OP_getSessionTimeout = ::Ice::__defineOperation('getSessionTimeout', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
         SessionControlPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 

@@ -335,7 +335,7 @@ public extension LocatorPrx {
     ///   - ObjectNotFoundException - Raised if the object cannot be found.
     func findObjectById(_ iceP_id: Identity, context: Context? = nil) throws -> ObjectPrx? {
         return try _impl._invoke(operation: "findObjectById",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -371,7 +371,7 @@ public extension LocatorPrx {
     /// - returns: `PromiseKit.Promise<ObjectPrx?>` - The result of the operation
     func findObjectByIdAsync(_ iceP_id: Identity, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ObjectPrx?> {
         return _impl._invokeAsync(operation: "findObjectById",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -405,7 +405,7 @@ public extension LocatorPrx {
     ///   - AdapterNotFoundException - Raised if the adapter cannot be found.
     func findAdapterById(_ iceP_id: Swift.String, context: Context? = nil) throws -> ObjectPrx? {
         return try _impl._invoke(operation: "findAdapterById",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -440,7 +440,7 @@ public extension LocatorPrx {
     /// - returns: `PromiseKit.Promise<ObjectPrx?>` - The result of the operation
     func findAdapterByIdAsync(_ iceP_id: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ObjectPrx?> {
         return _impl._invokeAsync(operation: "findAdapterById",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -468,7 +468,7 @@ public extension LocatorPrx {
     /// - returns: `LocatorRegistryPrx?` - The locator registry.
     func getRegistry(context: Context? = nil) throws -> LocatorRegistryPrx? {
         return try _impl._invoke(operation: "getRegistry",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: LocatorRegistryPrx? = try istr.read(LocatorRegistryPrx.self)
                                      return iceP_returnValue
@@ -491,7 +491,7 @@ public extension LocatorPrx {
     /// - returns: `PromiseKit.Promise<LocatorRegistryPrx?>` - The result of the operation
     func getRegistryAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<LocatorRegistryPrx?> {
         return _impl._invokeAsync(operation: "getRegistry",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: LocatorRegistryPrx? = try istr.read(LocatorRegistryPrx.self)
                                       return iceP_returnValue
@@ -632,7 +632,7 @@ public extension LocatorRegistryPrx {
     ///     registered adapters to set their active proxy and the adapter is not registered with the locator.
     func setAdapterDirectProxy(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) throws {
         try _impl._invoke(operation: "setAdapterDirectProxy",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           write: { ostr in
                               ostr.write(iceP_id)
                               ostr.write(iceP_proxy)
@@ -669,7 +669,7 @@ public extension LocatorRegistryPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func setAdapterDirectProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "setAdapterDirectProxy",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                       ostr.write(iceP_proxy)
@@ -711,7 +711,7 @@ public extension LocatorRegistryPrx {
     ///     with the locator registry for this object adapter.
     func setReplicatedAdapterDirectProxy(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) throws {
         try _impl._invoke(operation: "setReplicatedAdapterDirectProxy",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           write: { ostr in
                               ostr.write(iceP_adapterId)
                               ostr.write(iceP_replicaGroupId)
@@ -753,7 +753,7 @@ public extension LocatorRegistryPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func setReplicatedAdapterDirectProxyAsync(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "setReplicatedAdapterDirectProxy",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_adapterId)
                                       ostr.write(iceP_replicaGroupId)
@@ -789,7 +789,7 @@ public extension LocatorRegistryPrx {
     ///   - ServerNotFoundException - Raised if the server cannot be found.
     func setServerProcessProxy(id iceP_id: Swift.String, proxy iceP_proxy: ProcessPrx?, context: Context? = nil) throws {
         try _impl._invoke(operation: "setServerProcessProxy",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           write: { ostr in
                               ostr.write(iceP_id)
                               ostr.write(iceP_proxy)
@@ -823,7 +823,7 @@ public extension LocatorRegistryPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func setServerProcessProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ProcessPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "setServerProcessProxy",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                       ostr.write(iceP_proxy)

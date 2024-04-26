@@ -31,7 +31,7 @@ classdef StringSetPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeStringSeq(additions);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('add', 1, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('add', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = addAsync(obj, additions, varargin)
             % addAsync   Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
@@ -46,7 +46,7 @@ classdef StringSetPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeStringSeq(additions);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('add', 1, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('add', 2, false, os_, 0, [], {}, varargin{:});
         end
         function remove(obj, deletions, varargin)
             % remove   Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
@@ -58,7 +58,7 @@ classdef StringSetPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeStringSeq(deletions);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('remove', 1, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('remove', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = removeAsync(obj, deletions, varargin)
             % removeAsync   Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
@@ -72,7 +72,7 @@ classdef StringSetPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeStringSeq(deletions);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('remove', 1, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('remove', 2, false, os_, 0, [], {}, varargin{:});
         end
         function result = get(obj, varargin)
             % get   Returns a sequence of strings describing the constraints in this set.
@@ -82,7 +82,7 @@ classdef StringSetPrx < Ice.ObjectPrx
             %
             % Returns (Ice.StringSeq) - The sequence of strings for this set.
             
-            is_ = obj.iceInvoke('get', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('get', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readStringSeq();
             is_.endEncapsulation();
@@ -101,7 +101,7 @@ classdef StringSetPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('get', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('get', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

@@ -44,7 +44,7 @@ namespace Test
     global $IcePHP__t_int;
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'abort', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'idempotentAbort', 2, 1, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'pid', 2, 1, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'idempotentAbort', 2, 2, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'pid', 2, 2, 0, null, null, array($IcePHP__t_int), null);
 }
 ?>

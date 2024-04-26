@@ -707,9 +707,9 @@ public extension ThrowerPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as D {
-                                  throw error
                               } catch let error as A {
+                                  throw error
+                              } catch let error as D {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -739,9 +739,9 @@ public extension ThrowerPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as D {
-                                          throw error
                                       } catch let error as A {
+                                          throw error
+                                      } catch let error as D {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -1339,7 +1339,7 @@ public extension ThrowerPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func throwLocalExceptionIdempotent(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "throwLocalExceptionIdempotent",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           context: context)
     }
 
@@ -1357,7 +1357,7 @@ public extension ThrowerPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func throwLocalExceptionIdempotentAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "throwLocalExceptionIdempotent",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,

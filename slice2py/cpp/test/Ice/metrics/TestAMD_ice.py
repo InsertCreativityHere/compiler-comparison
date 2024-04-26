@@ -167,7 +167,7 @@ if 'MetricsPrx' not in _M_Test.__dict__:
     Metrics._ice_type = _M_Test._t_MetricsDisp
 
     Metrics._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())
-    Metrics._op_fail = IcePy.Operation('fail', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, True, None, (), (), (), None, ())
+    Metrics._op_fail = IcePy.Operation('fail', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (), (), None, ())
     Metrics._op_opWithUserException = IcePy.Operation('opWithUserException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Test._t_UserEx,))
     Metrics._op_opWithRequestFailedException = IcePy.Operation('opWithRequestFailedException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     Metrics._op_opWithLocalException = IcePy.Operation('opWithLocalException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())

@@ -271,16 +271,16 @@ IceStorm.TopicPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceStorm.Topic, IceStorm.TopicPrx, iceC_IceStorm_Topic_ids, "::IceStorm::Topic",
 {
-    "getName": [, 2, 1, , [7], , , , , ],
-    "getPublisher": [, 2, 1, , [9], , , , , ],
-    "getNonReplicatedPublisher": [, 2, 1, , [9], , , , , ],
+    "getName": [, 2, 2, , [7], , , , , ],
+    "getPublisher": [, 2, 2, , [9], , , , , ],
+    "getNonReplicatedPublisher": [, 2, 2, , [9], , , , , ],
     "subscribeAndGetPublisher": [, , , , [9], [["IceStorm.QoSHelper"], [9]], ,
     [
         IceStorm.AlreadySubscribed,
         IceStorm.InvalidSubscriber,
         IceStorm.BadQoS
     ], , ],
-    "unsubscribe": [, 2, 1, , , [[9]], , , , ],
+    "unsubscribe": [, 2, 2, , , [[9]], , , , ],
     "link": [, , , , , [["IceStorm.TopicPrx"], [3]], ,
     [
         IceStorm.LinkExists
@@ -289,7 +289,7 @@ Slice.defineOperations(IceStorm.Topic, IceStorm.TopicPrx, iceC_IceStorm_Topic_id
     [
         IceStorm.NoSuchLink
     ], , ],
-    "getLinkInfoSeq": [, 2, 1, , ["IceStorm.LinkInfoSeqHelper"], , , , , ],
+    "getLinkInfoSeq": [, 2, 2, , ["IceStorm.LinkInfoSeqHelper"], , , , , ],
     "getSubscribers": [, , , , ["Ice.IdentitySeqHelper"], , , , , ],
     "destroy": [, , , , , , , , , ]
 });
@@ -393,11 +393,11 @@ Slice.defineOperations(IceStorm.TopicManager, IceStorm.TopicManagerPrx, iceC_Ice
     [
         IceStorm.TopicExists
     ], , ],
-    "retrieve": [, 2, 1, , ["IceStorm.TopicPrx"], [[7]], ,
+    "retrieve": [, 2, 2, , ["IceStorm.TopicPrx"], [[7]], ,
     [
         IceStorm.NoSuchTopic
     ], , ],
-    "retrieveAll": [, 2, 1, , ["IceStorm.TopicDictHelper"], , , , , ]
+    "retrieveAll": [, 2, 2, , ["IceStorm.TopicDictHelper"], , , , , ]
 });
 
 const iceC_IceStorm_Finder_ids = [

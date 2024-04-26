@@ -732,7 +732,7 @@ Test::ThrowerPrx::_iceI_throwLocalExceptionIdempotent(const ::std::shared_ptr<::
 {
     static constexpr ::std::string_view operationName = "throwLocalExceptionIdempotent";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }

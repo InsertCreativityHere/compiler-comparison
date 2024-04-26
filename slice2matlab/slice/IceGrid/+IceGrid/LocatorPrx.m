@@ -26,7 +26,7 @@ classdef LocatorPrx < Ice.LocatorPrx
             %
             % Returns (IceGrid.RegistryPrx) - The proxy of the registry object. The returned proxy is never null.
             
-            is_ = obj.iceInvoke('getLocalRegistry', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getLocalRegistry', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.RegistryPrx.ice_read(is_);
             is_.endEncapsulation();
@@ -45,7 +45,7 @@ classdef LocatorPrx < Ice.LocatorPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getLocalRegistry', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getLocalRegistry', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getLocalQuery(obj, varargin)
             % getLocalQuery   Get the proxy of the query object hosted by this IceGrid registry.
@@ -55,7 +55,7 @@ classdef LocatorPrx < Ice.LocatorPrx
             %
             % Returns (IceGrid.QueryPrx) - The proxy of the query object. The returned proxy is never null.
             
-            is_ = obj.iceInvoke('getLocalQuery', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getLocalQuery', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.QueryPrx.ice_read(is_);
             is_.endEncapsulation();
@@ -74,7 +74,7 @@ classdef LocatorPrx < Ice.LocatorPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getLocalQuery', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getLocalQuery', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

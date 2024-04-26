@@ -90,7 +90,7 @@ Test::MetricsPrx::_iceI_fail(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 {
     static constexpr ::std::string_view operationName = "fail";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
