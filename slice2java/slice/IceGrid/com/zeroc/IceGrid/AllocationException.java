@@ -71,5 +71,5 @@ public class AllocationException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 4699853853741163545L;
+    public static final long serialVersionUID = 4699862772634983050L;
 }

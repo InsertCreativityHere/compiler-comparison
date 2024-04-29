@@ -24,10 +24,8 @@ package com.zeroc.IceGrid;
 public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
 {
     /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
-     *
-     * @see Registry#getSessionTimeout
+     * Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+     * need to call this operation and its implementation does nothing.
      **/
     default void keepAlive()
     {
@@ -35,11 +33,9 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
+     * Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+     * need to call this operation and its implementation does nothing.
      * @param context The Context map to send with the invocation.
-     *
-     * @see Registry#getSessionTimeout
      **/
     default void keepAlive(java.util.Map<String, String> context)
     {
@@ -47,11 +43,9 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
+     * Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+     * need to call this operation and its implementation does nothing.
      * @return A future that will be completed when the invocation completes.
-     *
-     * @see Registry#getSessionTimeout
      **/
     default java.util.concurrent.CompletableFuture<Void> keepAliveAsync()
     {
@@ -59,12 +53,10 @@ public interface SessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
+     * Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+     * need to call this operation and its implementation does nothing.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
-     *
-     * @see Registry#getSessionTimeout
      **/
     default java.util.concurrent.CompletableFuture<Void> keepAliveAsync(java.util.Map<String, String> context)
     {

@@ -37,8 +37,8 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
     class SessionPrx(_M_Glacier2.SessionPrx):
 
         """
-         Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-         session.
+         Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+         need to call this operation and its implementation does nothing.
         Arguments:
         context -- The request context for the invocation.
         """
@@ -46,8 +46,8 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Session._op_keepAlive.invoke(self, ((), context))
 
         """
-         Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-         session.
+         Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+         need to call this operation and its implementation does nothing.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -182,8 +182,8 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
 
         def keepAlive(self, current=None):
             """
-             Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-             session.
+             Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+             need to call this operation and its implementation does nothing.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
