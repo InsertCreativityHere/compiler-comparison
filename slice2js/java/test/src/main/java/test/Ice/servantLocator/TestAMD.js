@@ -98,18 +98,18 @@
         ], , ],
         "intfUserException": [, , , , [7], [[1]], ,
         [
-            Test.TestIntfUserException,
-            Test.TestImpossibleException
+            Test.TestImpossibleException,
+            Test.TestIntfUserException
         ], , ],
         "asyncResponse": [, , , , , , ,
         [
-            Test.TestIntfUserException,
-            Test.TestImpossibleException
+            Test.TestImpossibleException,
+            Test.TestIntfUserException
         ], , ],
         "asyncException": [, , , , , , ,
         [
-            Test.TestIntfUserException,
-            Test.TestImpossibleException
+            Test.TestImpossibleException,
+            Test.TestIntfUserException
         ], , ],
         "shutdown": [, , , , , , , , , ]
     });
