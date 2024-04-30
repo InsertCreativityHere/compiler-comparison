@@ -28,8 +28,9 @@
 classdef InternalRegistryPrx < IceGrid.FileReaderPrx
     methods
         function result = registerNode(obj, info, prx, loadInf, varargin)
-            % registerNode   Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-            % overide the previous node only if it's not active.
+            % registerNode   Register a node with the registry. If a node with the same name is already registered,
+            % registerNode overrides the existing registration only when the previously
+            % registered node is not active.
             %
             % Parameters:
             %   info (IceGrid.InternalNodeInfo) - Some information on the node.
@@ -54,8 +55,9 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             is_.endEncapsulation();
         end
         function r_ = registerNodeAsync(obj, info, prx, loadInf, varargin)
-            % registerNodeAsync   Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-            % overide the previous node only if it's not active.
+            % registerNodeAsync   Register a node with the registry. If a node with the same name is already registered,
+            % registerNode overrides the existing registration only when the previously
+            % registered node is not active.
             %
             % Parameters:
             %   info (IceGrid.InternalNodeInfo) - Some information on the node.
@@ -83,8 +85,9 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             r_ = obj.iceInvokeAsync('registerNode', 0, true, os_, 1, @unmarshal, IceGrid.InternalRegistryPrx.registerNode_ex_, varargin{:});
         end
         function result = registerReplica(obj, info, prx, varargin)
-            % registerReplica   Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-            % will overide the previous replica only if it's not active.
+            % registerReplica   Register a replica with the registry. If a replica with the same name is already registered,
+            % registerReplica overrides the existing registration only when the previously
+            % registered node is not active.
             %
             % Parameters:
             %   info (IceGrid.InternalReplicaInfo) - Some information on the replica.
@@ -107,8 +110,9 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             is_.endEncapsulation();
         end
         function r_ = registerReplicaAsync(obj, info, prx, varargin)
-            % registerReplicaAsync   Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-            % will overide the previous replica only if it's not active.
+            % registerReplicaAsync   Register a replica with the registry. If a replica with the same name is already registered,
+            % registerReplica overrides the existing registration only when the previously
+            % registered node is not active.
             %
             % Parameters:
             %   info (IceGrid.InternalReplicaInfo) - Some information on the replica.

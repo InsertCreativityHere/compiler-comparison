@@ -2166,8 +2166,9 @@ if 'InternalRegistryPrx' not in _M_IceGrid.__dict__:
     class InternalRegistryPrx(_M_IceGrid.FileReaderPrx):
 
         """
-         Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-         overide the previous node only if it's not active.
+         Register a node with the registry. If a node with the same name is already registered,
+         registerNode overrides the existing registration only when the previously
+         registered node is not active.
         Arguments:
         info -- Some information on the node.
         prx -- The proxy of the node.
@@ -2181,8 +2182,9 @@ if 'InternalRegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.InternalRegistry._op_registerNode.invoke(self, ((info, prx, loadInf), context))
 
         """
-         Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-         overide the previous node only if it's not active.
+         Register a node with the registry. If a node with the same name is already registered,
+         registerNode overrides the existing registration only when the previously
+         registered node is not active.
         Arguments:
         info -- Some information on the node.
         prx -- The proxy of the node.
@@ -2194,8 +2196,9 @@ if 'InternalRegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.InternalRegistry._op_registerNode.invokeAsync(self, ((info, prx, loadInf), context))
 
         """
-         Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-         will overide the previous replica only if it's not active.
+         Register a replica with the registry. If a replica with the same name is already registered,
+         registerReplica overrides the existing registration only when the previously
+         registered node is not active.
         Arguments:
         info -- Some information on the replica.
         prx -- The proxy of the replica.
@@ -2208,8 +2211,9 @@ if 'InternalRegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.InternalRegistry._op_registerReplica.invoke(self, ((info, prx), context))
 
         """
-         Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-         will overide the previous replica only if it's not active.
+         Register a replica with the registry. If a replica with the same name is already registered,
+         registerReplica overrides the existing registration only when the previously
+         registered node is not active.
         Arguments:
         info -- Some information on the replica.
         prx -- The proxy of the replica.
@@ -2354,8 +2358,9 @@ if 'InternalRegistryPrx' not in _M_IceGrid.__dict__:
 
         def registerNode(self, info, prx, loadInf, current=None):
             """
-             Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-             overide the previous node only if it's not active.
+             Register a node with the registry. If a node with the same name is already registered,
+             registerNode overrides the existing registration only when the previously
+             registered node is not active.
             Arguments:
             info -- Some information on the node.
             prx -- The proxy of the node.
@@ -2369,8 +2374,9 @@ if 'InternalRegistryPrx' not in _M_IceGrid.__dict__:
 
         def registerReplica(self, info, prx, current=None):
             """
-             Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-             will overide the previous replica only if it's not active.
+             Register a replica with the registry. If a replica with the same name is already registered,
+             registerReplica overrides the existing registration only when the previously
+             registered node is not active.
             Arguments:
             info -- Some information on the replica.
             prx -- The proxy of the replica.

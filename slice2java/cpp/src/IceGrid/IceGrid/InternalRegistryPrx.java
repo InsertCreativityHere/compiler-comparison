@@ -18,8 +18,9 @@ package IceGrid;
 public interface InternalRegistryPrx extends FileReaderPrx
 {
     /**
-     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-     * overide the previous node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered,
+     * <code>registerNode</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -34,8 +35,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-     * overide the previous node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered,
+     * <code>registerNode</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -66,8 +68,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-     * overide the previous node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered,
+     * <code>registerNode</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -79,8 +82,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-     * overide the previous node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered,
+     * <code>registerNode</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -125,8 +129,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
     };
 
     /**
-     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-     * will overide the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the same name is already registered,
+     * <code>registerReplica</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @return The replica session proxy.
@@ -140,8 +145,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-     * will overide the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the same name is already registered,
+     * <code>registerReplica</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.
@@ -171,8 +177,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-     * will overide the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the same name is already registered,
+     * <code>registerReplica</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @return The replica session proxy.
@@ -183,8 +190,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-     * will overide the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the same name is already registered,
+     * <code>registerReplica</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.

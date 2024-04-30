@@ -4172,8 +4172,9 @@ public extension Ice.InputStream {
 ///
 ///  - shutdownAsync: Shutdown this registry.
 public extension InternalRegistryPrx {
-    /// Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-    /// overide the previous node only if it's not active.
+    /// Register a node with the registry. If a node with the same name is already registered,
+    /// registerNode overrides the existing registration only when the previously
+    /// registered node is not active.
     ///
     /// - parameter info: `InternalNodeInfo?` Some information on the node.
     ///
@@ -4213,8 +4214,9 @@ public extension InternalRegistryPrx {
                                  context: context)
     }
 
-    /// Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-    /// overide the previous node only if it's not active.
+    /// Register a node with the registry. If a node with the same name is already registered,
+    /// registerNode overrides the existing registration only when the previously
+    /// registered node is not active.
     ///
     /// - parameter info: `InternalNodeInfo?` Some information on the node.
     ///
@@ -4261,8 +4263,9 @@ public extension InternalRegistryPrx {
                                   sent: sent)
     }
 
-    /// Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-    /// will overide the previous replica only if it's not active.
+    /// Register a replica with the registry. If a replica with the same name is already registered,
+    /// registerReplica overrides the existing registration only when the previously
+    /// registered node is not active.
     ///
     /// - parameter info: `InternalReplicaInfo?` Some information on the replica.
     ///
@@ -4299,8 +4302,9 @@ public extension InternalRegistryPrx {
                                  context: context)
     }
 
-    /// Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-    /// will overide the previous replica only if it's not active.
+    /// Register a replica with the registry. If a replica with the same name is already registered,
+    /// registerReplica overrides the existing registration only when the previously
+    /// registered node is not active.
     ///
     /// - parameter info: `InternalReplicaInfo?` Some information on the replica.
     ///
@@ -5825,8 +5829,9 @@ public struct InternalRegistryDisp: Ice.Disp {
 }
 
 public protocol InternalRegistry: FileReader {
-    /// Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-    /// overide the previous node only if it's not active.
+    /// Register a node with the registry. If a node with the same name is already registered,
+    /// registerNode overrides the existing registration only when the previously
+    /// registered node is not active.
     ///
     /// - parameter info: `InternalNodeInfo?` Some information on the node.
     ///
@@ -5843,8 +5848,9 @@ public protocol InternalRegistry: FileReader {
     ///   - NodeActiveException - Raised if the node is already registered and currently active.
     func registerNode(info: InternalNodeInfo?, prx: NodePrx?, loadInf: LoadInfo, current: Ice.Current) throws -> NodeSessionPrx?
 
-    /// Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-    /// will overide the previous replica only if it's not active.
+    /// Register a replica with the registry. If a replica with the same name is already registered,
+    /// registerReplica overrides the existing registration only when the previously
+    /// registered node is not active.
     ///
     /// - parameter info: `InternalReplicaInfo?` Some information on the replica.
     ///

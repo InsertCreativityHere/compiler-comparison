@@ -2145,8 +2145,9 @@ namespace IceGrid
     {
         /// <summary>
         /// Register a node with the registry.
-        /// If a node with the same name is already registered, [registerNode] will
-        ///  overide the previous node only if it's not active.
+        /// If a node with the same name is already registered,
+        ///  registerNode overrides the existing registration only when the previously
+        ///  registered node is not active.
         /// </summary>
         ///  <param name="info">Some information on the node.
         ///  </param>
@@ -2163,7 +2164,7 @@ namespace IceGrid
 
         /// <summary>
         /// Register a node with the registry.
-        /// If a node with the same name is already registered, [registerNode] will
+        /// If a node with the same name is already registered,
         /// </summary>
         ///  <param name="info">Some information on the node.
         ///  </param>
@@ -2179,8 +2180,9 @@ namespace IceGrid
 
         /// <summary>
         /// Register a replica with the registry.
-        /// If a replica with the  same name is already registered, [registerReplica]
-        ///  will overide the previous replica only if it's not active.
+        /// If a replica with the same name is already registered,
+        ///  registerReplica overrides the existing registration only when the previously
+        ///  registered node is not active.
         /// </summary>
         ///  <param name="info">Some information on the replica.
         ///  </param>
@@ -2195,7 +2197,7 @@ namespace IceGrid
 
         /// <summary>
         /// Register a replica with the registry.
-        /// If a replica with the  same name is already registered, [registerReplica]
+        /// If a replica with the same name is already registered,
         /// </summary>
         ///  <param name="info">Some information on the replica.
         ///  </param>
@@ -2725,8 +2727,9 @@ namespace IceGrid
     {
         /// <summary>
         /// Register a node with the registry.
-        /// If a node with the same name is already registered, [registerNode] will
-        ///  overide the previous node only if it's not active.
+        /// If a node with the same name is already registered,
+        ///  registerNode overrides the existing registration only when the previously
+        ///  registered node is not active.
         /// </summary>
         ///  <param name="info">Some information on the node.
         ///  </param>
@@ -2744,8 +2747,9 @@ namespace IceGrid
 
         /// <summary>
         /// Register a replica with the registry.
-        /// If a replica with the  same name is already registered, [registerReplica]
-        ///  will overide the previous replica only if it's not active.
+        /// If a replica with the same name is already registered,
+        ///  registerReplica overrides the existing registration only when the previously
+        ///  registered node is not active.
         /// </summary>
         ///  <param name="info">Some information on the replica.
         ///  </param>

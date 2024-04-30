@@ -1828,8 +1828,9 @@ class InternalRegistryPrx : public ::Ice::Proxy<InternalRegistryPrx, FileReaderP
 public:
 
     /**
-     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-     * overide the previous node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered,
+     * <code>registerNode</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -1840,8 +1841,9 @@ public:
     ::std::optional<NodeSessionPrx> registerNode(const InternalNodeInfoPtr& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-     * overide the previous node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered,
+     * <code>registerNode</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -1851,8 +1853,9 @@ public:
     ::std::future<::std::optional<NodeSessionPrx>> registerNodeAsync(const InternalNodeInfoPtr& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-     * overide the previous node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered,
+     * <code>registerNode</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -1870,8 +1873,9 @@ public:
     /// \endcond
 
     /**
-     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-     * will overide the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the same name is already registered,
+     * <code>registerReplica</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.
@@ -1881,8 +1885,9 @@ public:
     ::std::optional<ReplicaSessionPrx> registerReplica(const InternalReplicaInfoPtr& info, const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-     * will overide the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the same name is already registered,
+     * <code>registerReplica</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.
@@ -1891,8 +1896,9 @@ public:
     ::std::future<::std::optional<ReplicaSessionPrx>> registerReplicaAsync(const InternalReplicaInfoPtr& info, const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-     * will overide the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the same name is already registered,
+     * <code>registerReplica</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param response The response callback.
@@ -3470,8 +3476,9 @@ public:
     static ::std::string_view ice_staticId() noexcept;
 
     /**
-     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-     * overide the previous node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered,
+     * <code>registerNode</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -3485,8 +3492,9 @@ public:
     /// \endcond
 
     /**
-     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-     * will overide the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the same name is already registered,
+     * <code>registerReplica</code> overrides the existing registration only when the previously
+     * registered node is not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param current The Current object for the invocation.
