@@ -81,64 +81,64 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
+     * The <code>registryUp</code> operation is called to notify an observer that a registry replica came up.
+     * @param registryReplica The registry state.
      **/
-    default void registryUp(RegistryInfo node)
+    default void registryUp(RegistryInfo registryReplica)
     {
-        registryUp(node, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        registryUp(registryReplica, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
+     * The <code>registryUp</code> operation is called to notify an observer that a registry replica came up.
+     * @param registryReplica The registry state.
      * @param context The Context map to send with the invocation.
      **/
-    default void registryUp(RegistryInfo node, java.util.Map<String, String> context)
+    default void registryUp(RegistryInfo registryReplica, java.util.Map<String, String> context)
     {
-        _iceI_registryUpAsync(node, context, true).waitForResponse();
+        _iceI_registryUpAsync(registryReplica, context, true).waitForResponse();
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
+     * The <code>registryUp</code> operation is called to notify an observer that a registry replica came up.
+     * @param registryReplica The registry state.
      * @return A future that will be completed when the invocation completes.
      **/
-    default java.util.concurrent.CompletableFuture<Void> registryUpAsync(RegistryInfo node)
+    default java.util.concurrent.CompletableFuture<Void> registryUpAsync(RegistryInfo registryReplica)
     {
-        return _iceI_registryUpAsync(node, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_registryUpAsync(registryReplica, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
+     * The <code>registryUp</code> operation is called to notify an observer that a registry replica came up.
+     * @param registryReplica The registry state.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
-    default java.util.concurrent.CompletableFuture<Void> registryUpAsync(RegistryInfo node, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> registryUpAsync(RegistryInfo registryReplica, java.util.Map<String, String> context)
     {
-        return _iceI_registryUpAsync(node, context, false);
+        return _iceI_registryUpAsync(registryReplica, context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_node -
+     * @param iceP_registryReplica -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_registryUpAsync(RegistryInfo iceP_node, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_registryUpAsync(RegistryInfo iceP_registryReplica, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "registryUp", null, sync, null);
         f.invoke(false, context, null, ostr -> {
-                     RegistryInfo.ice_write(ostr, iceP_node);
+                     RegistryInfo.ice_write(ostr, iceP_registryReplica);
                  }, null);
         return f;
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
+     * The <code>registryDown</code> operation is called to notify an observer that a registry replica went down.
+     * @param name The registry name.
      **/
     default void registryDown(String name)
     {
@@ -146,8 +146,8 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
+     * The <code>registryDown</code> operation is called to notify an observer that a registry replica went down.
+     * @param name The registry name.
      * @param context The Context map to send with the invocation.
      **/
     default void registryDown(String name, java.util.Map<String, String> context)
@@ -156,8 +156,8 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
+     * The <code>registryDown</code> operation is called to notify an observer that a registry replica went down.
+     * @param name The registry name.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> registryDownAsync(String name)
@@ -166,8 +166,8 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
+     * The <code>registryDown</code> operation is called to notify an observer that a registry replica went down.
+     * @param name The registry name.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/

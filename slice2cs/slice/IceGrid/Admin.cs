@@ -3871,35 +3871,35 @@ namespace IceGrid
         global::System.Threading.Tasks.Task registryInitAsync(RegistryInfo[] registries, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
+        /// The registryUp operation is called to notify an observer that a registry replica came up.
         /// </summary>
-        /// <param name="node">The node state.</param>
+        /// <param name="registryReplica">The registry state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void registryUp(RegistryInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void registryUp(RegistryInfo registryReplica, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
+        /// The registryUp operation is called to notify an observer that a registry replica came up.
         /// </summary>
-        /// <param name="node">The node state.</param>
+        /// <param name="registryReplica">The registry state.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task registryUpAsync(RegistryInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task registryUpAsync(RegistryInfo registryReplica, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
+        /// The registryDown operation is called to notify an observer that a registry replica went down.
         /// </summary>
-        /// <param name="name">The node name.</param>
+        /// <param name="name">The registry name.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void registryDown(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
+        /// The registryDown operation is called to notify an observer that a registry replica went down.
         /// </summary>
-        /// <param name="name">The node name.</param>
+        /// <param name="name">The registry name.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5463,18 +5463,18 @@ namespace IceGrid
         void registryInit(RegistryInfo[] registries, global::Ice.Current current = null);
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
+        /// The registryUp operation is called to notify an observer that a registry replica came up.
         /// </summary>
-        /// <param name="node">The node state.</param>
+        /// <param name="registryReplica">The registry state.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void registryUp(RegistryInfo node, global::Ice.Current current = null);
+        void registryUp(RegistryInfo registryReplica, global::Ice.Current current = null);
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
+        /// The registryDown operation is called to notify an observer that a registry replica went down.
         /// </summary>
-        /// <param name="name">The node name.</param>
+        /// <param name="name">The registry name.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -9359,11 +9359,11 @@ namespace IceGrid
             }
         }
 
-        public void registryUp(RegistryInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void registryUp(RegistryInfo registryReplica, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
-                _iceI_registryUpAsync(node, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_registryUpAsync(registryReplica, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch(global::System.AggregateException ex_)
             {
@@ -9416,21 +9416,21 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task registryUpAsync(RegistryInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task registryUpAsync(RegistryInfo registryReplica, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
-            return _iceI_registryUpAsync(node, context, progress, cancel, false);
+            return _iceI_registryUpAsync(registryReplica, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_registryUpAsync(RegistryInfo iceP_node, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_registryUpAsync(RegistryInfo iceP_registryReplica, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_registryUp(iceP_node, context, synchronous, completed);
+            _iceI_registryUp(iceP_registryReplica, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _registryUp_name = "registryUp";
 
-        private void _iceI_registryUp(RegistryInfo iceP_node, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_registryUp(RegistryInfo iceP_registryReplica, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -9441,7 +9441,7 @@ namespace IceGrid
                 synchronous,
                 write: (global::Ice.OutputStream ostr) =>
                 {
-                    RegistryInfo.ice_write(ostr, iceP_node);
+                    RegistryInfo.ice_write(ostr, iceP_registryReplica);
                 });
         }
 
@@ -13271,7 +13271,7 @@ namespace IceGrid
 
         public abstract void registryInit(RegistryInfo[] registries, global::Ice.Current current = null);
 
-        public abstract void registryUp(RegistryInfo node, global::Ice.Current current = null);
+        public abstract void registryUp(RegistryInfo registryReplica, global::Ice.Current current = null);
 
         public abstract void registryDown(string name, global::Ice.Current current = null);
 
@@ -13328,11 +13328,11 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            RegistryInfo iceP_node;
-            iceP_node = null;
-            iceP_node = RegistryInfo.ice_read(istr);
+            RegistryInfo iceP_registryReplica;
+            iceP_registryReplica = null;
+            iceP_registryReplica = RegistryInfo.ice_read(istr);
             inS.endReadParams();
-            obj.registryUp(iceP_node, current);
+            obj.registryUp(iceP_registryReplica, current);
             return inS.setResult(inS.writeEmptyParams());
         }
 

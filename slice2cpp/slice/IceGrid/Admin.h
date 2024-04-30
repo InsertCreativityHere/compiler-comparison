@@ -1932,23 +1932,23 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
+     * The <code>registryUp</code> operation is called to notify an observer that a registry replica came up.
+     * @param registryReplica The registry state.
      * @param context The Context map to send with the invocation.
      */
-    void registryUp(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void registryUp(const RegistryInfo& registryReplica, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
+     * The <code>registryUp</code> operation is called to notify an observer that a registry replica came up.
+     * @param registryReplica The registry state.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> registryUpAsync(const RegistryInfo& node, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> registryUpAsync(const RegistryInfo& registryReplica, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
+     * The <code>registryUp</code> operation is called to notify an observer that a registry replica came up.
+     * @param registryReplica The registry state.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1956,30 +1956,30 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    registryUpAsync(const RegistryInfo& node, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    registryUpAsync(const RegistryInfo& registryReplica, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_registryUp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const RegistryInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
+     * The <code>registryDown</code> operation is called to notify an observer that a registry replica went down.
+     * @param name The registry name.
      * @param context The Context map to send with the invocation.
      */
     void registryDown(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
+     * The <code>registryDown</code> operation is called to notify an observer that a registry replica went down.
+     * @param name The registry name.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
     ::std::future<void> registryDownAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
+     * The <code>registryDown</code> operation is called to notify an observer that a registry replica went down.
+     * @param name The registry name.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -4596,18 +4596,18 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
+     * The <code>registryUp</code> operation is called to notify an observer that a registry replica came up.
+     * @param registryReplica The registry state.
      * @param current The Current object for the invocation.
      */
-    virtual void registryUp(RegistryInfo node, const ::Ice::Current& current) = 0;
+    virtual void registryUp(RegistryInfo registryReplica, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_registryUp(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
+     * The <code>registryDown</code> operation is called to notify an observer that a registry replica went down.
+     * @param name The registry name.
      * @param current The Current object for the invocation.
      */
     virtual void registryDown(::std::string name, const ::Ice::Current& current) = 0;

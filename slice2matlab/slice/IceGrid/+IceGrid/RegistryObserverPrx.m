@@ -5,10 +5,10 @@
 % RegistryObserverPrx Methods:
 %   registryInit - The registryInit operation is called after registration of an observer to indicate the state of the registries.
 %   registryInitAsync - The registryInit operation is called after registration of an observer to indicate the state of the registries.
-%   registryUp - The nodeUp operation is called to notify an observer that a node came up.
-%   registryUpAsync - The nodeUp operation is called to notify an observer that a node came up.
-%   registryDown - The nodeDown operation is called to notify an observer that a node went down.
-%   registryDownAsync - The nodeDown operation is called to notify an observer that a node went down.
+%   registryUp - The registryUp operation is called to notify an observer that a registry replica came up.
+%   registryUpAsync - The registryUp operation is called to notify an observer that a registry replica came up.
+%   registryDown - The registryDown operation is called to notify an observer that a registry replica went down.
+%   registryDownAsync - The registryDown operation is called to notify an observer that a registry replica went down.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -45,37 +45,37 @@ classdef RegistryObserverPrx < Ice.ObjectPrx
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('registryInit', 0, false, os_, 0, [], {}, varargin{:});
         end
-        function registryUp(obj, node, varargin)
-            % registryUp   The nodeUp operation is called to notify an observer that a node came up.
+        function registryUp(obj, registryReplica, varargin)
+            % registryUp   The registryUp operation is called to notify an observer that a registry replica came up.
             %
             % Parameters:
-            %   node (IceGrid.RegistryInfo) - The node state.
+            %   registryReplica (IceGrid.RegistryInfo) - The registry state.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
-            IceGrid.RegistryInfo.ice_write(os_, node);
+            IceGrid.RegistryInfo.ice_write(os_, registryReplica);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('registryUp', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = registryUpAsync(obj, node, varargin)
-            % registryUpAsync   The nodeUp operation is called to notify an observer that a node came up.
+        function r_ = registryUpAsync(obj, registryReplica, varargin)
+            % registryUpAsync   The registryUp operation is called to notify an observer that a registry replica came up.
             %
             % Parameters:
-            %   node (IceGrid.RegistryInfo) - The node state.
+            %   registryReplica (IceGrid.RegistryInfo) - The registry state.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
-            IceGrid.RegistryInfo.ice_write(os_, node);
+            IceGrid.RegistryInfo.ice_write(os_, registryReplica);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('registryUp', 0, false, os_, 0, [], {}, varargin{:});
         end
         function registryDown(obj, name, varargin)
-            % registryDown   The nodeDown operation is called to notify an observer that a node went down.
+            % registryDown   The registryDown operation is called to notify an observer that a registry replica went down.
             %
             % Parameters:
-            %   name (char) - The node name.
+            %   name (char) - The registry name.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -84,10 +84,10 @@ classdef RegistryObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('registryDown', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = registryDownAsync(obj, name, varargin)
-            % registryDownAsync   The nodeDown operation is called to notify an observer that a node went down.
+            % registryDownAsync   The registryDown operation is called to notify an observer that a registry replica went down.
             %
             % Parameters:
-            %   name (char) - The node name.
+            %   name (char) - The registry name.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

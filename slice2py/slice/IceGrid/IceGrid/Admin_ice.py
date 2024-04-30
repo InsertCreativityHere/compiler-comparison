@@ -2720,37 +2720,37 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryInit.invokeAsync(self, ((registries, ), context))
 
         """
-         The nodeUp operation is called to notify an observer that a node came up.
+         The registryUp operation is called to notify an observer that a registry replica came up.
         Arguments:
-        node -- The node state.
+        registryReplica -- The registry state.
         context -- The request context for the invocation.
         """
-        def registryUp(self, node, context=None):
-            return _M_IceGrid.RegistryObserver._op_registryUp.invoke(self, ((node, ), context))
+        def registryUp(self, registryReplica, context=None):
+            return _M_IceGrid.RegistryObserver._op_registryUp.invoke(self, ((registryReplica, ), context))
 
         """
-         The nodeUp operation is called to notify an observer that a node came up.
+         The registryUp operation is called to notify an observer that a registry replica came up.
         Arguments:
-        node -- The node state.
+        registryReplica -- The registry state.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        def registryUpAsync(self, node, context=None):
-            return _M_IceGrid.RegistryObserver._op_registryUp.invokeAsync(self, ((node, ), context))
+        def registryUpAsync(self, registryReplica, context=None):
+            return _M_IceGrid.RegistryObserver._op_registryUp.invokeAsync(self, ((registryReplica, ), context))
 
         """
-         The nodeDown operation is called to notify an observer that a node went down.
+         The registryDown operation is called to notify an observer that a registry replica went down.
         Arguments:
-        name -- The node name.
+        name -- The registry name.
         context -- The request context for the invocation.
         """
         def registryDown(self, name, context=None):
             return _M_IceGrid.RegistryObserver._op_registryDown.invoke(self, ((name, ), context))
 
         """
-         The nodeDown operation is called to notify an observer that a node went down.
+         The registryDown operation is called to notify an observer that a registry replica went down.
         Arguments:
-        name -- The node name.
+        name -- The registry name.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -2797,11 +2797,11 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             """
             raise NotImplementedError("servant method 'registryInit' not implemented")
 
-        def registryUp(self, node, current=None):
+        def registryUp(self, registryReplica, current=None):
             """
-             The nodeUp operation is called to notify an observer that a node came up.
+             The registryUp operation is called to notify an observer that a registry replica came up.
             Arguments:
-            node -- The node state.
+            registryReplica -- The registry state.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             """
@@ -2809,9 +2809,9 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
 
         def registryDown(self, name, current=None):
             """
-             The nodeDown operation is called to notify an observer that a node went down.
+             The registryDown operation is called to notify an observer that a registry replica went down.
             Arguments:
-            name -- The node name.
+            name -- The registry name.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             """

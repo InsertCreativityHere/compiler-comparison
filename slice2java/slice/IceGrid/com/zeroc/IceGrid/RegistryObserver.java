@@ -29,15 +29,15 @@ public interface RegistryObserver extends com.zeroc.Ice.Object
     void registryInit(RegistryInfo[] registries, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
-     * @param node The node state.
+     * The <code>registryUp</code> operation is called to notify an observer that a registry replica came up.
+     * @param registryReplica The registry state.
      * @param current The Current object for the invocation.
      **/
-    void registryUp(RegistryInfo node, com.zeroc.Ice.Current current);
+    void registryUp(RegistryInfo registryReplica, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
-     * @param name The node name.
+     * The <code>registryDown</code> operation is called to notify an observer that a registry replica went down.
+     * @param name The registry name.
      * @param current The Current object for the invocation.
      **/
     void registryDown(String name, com.zeroc.Ice.Current current);
@@ -95,10 +95,10 @@ public interface RegistryObserver extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        RegistryInfo iceP_node;
-        iceP_node = RegistryInfo.ice_read(istr);
+        RegistryInfo iceP_registryReplica;
+        iceP_registryReplica = RegistryInfo.ice_read(istr);
         inS.endReadParams();
-        obj.registryUp(iceP_node, current);
+        obj.registryUp(iceP_registryReplica, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 

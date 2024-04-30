@@ -5213,13 +5213,13 @@ public extension FileIteratorPrx {
 ///
 ///  - registryInitAsync: The registryInit operation is called after registration of an observer to indicate the state of the registries.
 ///
-///  - registryUp: The nodeUp operation is called to notify an observer that a node came up.
+///  - registryUp: The registryUp operation is called to notify an observer that a registry replica came up.
 ///
-///  - registryUpAsync: The nodeUp operation is called to notify an observer that a node came up.
+///  - registryUpAsync: The registryUp operation is called to notify an observer that a registry replica came up.
 ///
-///  - registryDown: The nodeDown operation is called to notify an observer that a node went down.
+///  - registryDown: The registryDown operation is called to notify an observer that a registry replica went down.
 ///
-///  - registryDownAsync: The nodeDown operation is called to notify an observer that a node went down.
+///  - registryDownAsync: The registryDown operation is called to notify an observer that a registry replica went down.
 public protocol RegistryObserverPrx: Ice.ObjectPrx {}
 
 private final class RegistryObserverPrxI: Ice.ObjectPrxI, RegistryObserverPrx {
@@ -5303,13 +5303,13 @@ public extension Ice.InputStream {
 ///
 ///  - registryInitAsync: The registryInit operation is called after registration of an observer to indicate the state of the registries.
 ///
-///  - registryUp: The nodeUp operation is called to notify an observer that a node came up.
+///  - registryUp: The registryUp operation is called to notify an observer that a registry replica came up.
 ///
-///  - registryUpAsync: The nodeUp operation is called to notify an observer that a node came up.
+///  - registryUpAsync: The registryUp operation is called to notify an observer that a registry replica came up.
 ///
-///  - registryDown: The nodeDown operation is called to notify an observer that a node went down.
+///  - registryDown: The registryDown operation is called to notify an observer that a registry replica went down.
 ///
-///  - registryDownAsync: The nodeDown operation is called to notify an observer that a node went down.
+///  - registryDownAsync: The registryDown operation is called to notify an observer that a registry replica went down.
 public extension RegistryObserverPrx {
     /// The registryInit operation is called after registration of an observer to indicate the state of
     /// the registries.
@@ -5354,23 +5354,23 @@ public extension RegistryObserverPrx {
                                   sent: sent)
     }
 
-    /// The nodeUp operation is called to notify an observer that a node came up.
+    /// The registryUp operation is called to notify an observer that a registry replica came up.
     ///
-    /// - parameter _: `RegistryInfo` The node state.
+    /// - parameter _: `RegistryInfo` The registry state.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func registryUp(_ iceP_node: RegistryInfo, context: Ice.Context? = nil) throws {
+    func registryUp(_ iceP_registryReplica: RegistryInfo, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "registryUp",
                           mode: .Normal,
                           write: { ostr in
-                              ostr.write(iceP_node)
+                              ostr.write(iceP_registryReplica)
                           },
                           context: context)
     }
 
-    /// The nodeUp operation is called to notify an observer that a node came up.
+    /// The registryUp operation is called to notify an observer that a registry replica came up.
     ///
-    /// - parameter _: `RegistryInfo` The node state.
+    /// - parameter _: `RegistryInfo` The registry state.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -5383,11 +5383,11 @@ public extension RegistryObserverPrx {
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func registryUpAsync(_ iceP_node: RegistryInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+    func registryUpAsync(_ iceP_registryReplica: RegistryInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "registryUp",
                                   mode: .Normal,
                                   write: { ostr in
-                                      ostr.write(iceP_node)
+                                      ostr.write(iceP_registryReplica)
                                   },
                                   context: context,
                                   sentOn: sentOn,
@@ -5395,9 +5395,9 @@ public extension RegistryObserverPrx {
                                   sent: sent)
     }
 
-    /// The nodeDown operation is called to notify an observer that a node went down.
+    /// The registryDown operation is called to notify an observer that a registry replica went down.
     ///
-    /// - parameter _: `Swift.String` The node name.
+    /// - parameter _: `Swift.String` The registry name.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func registryDown(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws {
@@ -5409,9 +5409,9 @@ public extension RegistryObserverPrx {
                           context: context)
     }
 
-    /// The nodeDown operation is called to notify an observer that a node went down.
+    /// The registryDown operation is called to notify an observer that a registry replica went down.
     ///
-    /// - parameter _: `Swift.String` The node name.
+    /// - parameter _: `Swift.String` The registry name.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -8800,16 +8800,16 @@ public protocol RegistryObserver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func registryInit(registries: RegistryInfoSeq, current: Ice.Current) throws
 
-    /// The nodeUp operation is called to notify an observer that a node came up.
+    /// The registryUp operation is called to notify an observer that a registry replica came up.
     ///
-    /// - parameter node: `RegistryInfo` The node state.
+    /// - parameter registryReplica: `RegistryInfo` The registry state.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func registryUp(node: RegistryInfo, current: Ice.Current) throws
+    func registryUp(registryReplica: RegistryInfo, current: Ice.Current) throws
 
-    /// The nodeDown operation is called to notify an observer that a node went down.
+    /// The registryDown operation is called to notify an observer that a registry replica went down.
     ///
-    /// - parameter name: `Swift.String` The node name.
+    /// - parameter name: `Swift.String` The registry name.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func registryDown(name: Swift.String, current: Ice.Current) throws
@@ -10084,9 +10084,9 @@ public extension FileIterator {
 ///
 ///  - registryInit: The registryInit operation is called after registration of an observer to indicate the state of the registries.
 ///
-///  - registryUp: The nodeUp operation is called to notify an observer that a node came up.
+///  - registryUp: The registryUp operation is called to notify an observer that a registry replica came up.
 ///
-///  - registryDown: The nodeDown operation is called to notify an observer that a node went down.
+///  - registryDown: The registryDown operation is called to notify an observer that a registry replica went down.
 public extension RegistryObserver {
     func _iceD_registryInit(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let iceP_registries: RegistryInfoSeq = try inS.read { istr in
@@ -10100,12 +10100,12 @@ public extension RegistryObserver {
     }
 
     func _iceD_registryUp(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_node: RegistryInfo = try inS.read { istr in
-            let iceP_node: RegistryInfo = try istr.read()
-            return iceP_node
+        let iceP_registryReplica: RegistryInfo = try inS.read { istr in
+            let iceP_registryReplica: RegistryInfo = try istr.read()
+            return iceP_registryReplica
         }
 
-        try self.registryUp(node: iceP_node, current: current)
+        try self.registryUp(registryReplica: iceP_registryReplica, current: current)
 
         return inS.setResult()
     }

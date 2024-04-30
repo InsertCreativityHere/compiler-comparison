@@ -865,8 +865,8 @@ module ::IceGrid
                 RegistryObserverPrx_mixin::OP_registryInit.invoke(self, [registries], context)
             end
 
-            def registryUp(node, context=nil)
-                RegistryObserverPrx_mixin::OP_registryUp.invoke(self, [node], context)
+            def registryUp(registryReplica, context=nil)
+                RegistryObserverPrx_mixin::OP_registryUp.invoke(self, [registryReplica], context)
             end
 
             def registryDown(name, context=nil)

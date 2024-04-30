@@ -2260,32 +2260,32 @@ IceGrid::RegistryObserverPrx::_iceI_registryInit(const ::std::shared_ptr<::IceIn
 }
 
 void
-IceGrid::RegistryObserverPrx::registryUp(const RegistryInfo& iceP_node, const ::Ice::Context& context) const
+IceGrid::RegistryObserverPrx::registryUp(const RegistryInfo& iceP_registryReplica, const ::Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &RegistryObserverPrx::_iceI_registryUp, iceP_node, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RegistryObserverPrx::_iceI_registryUp, iceP_registryReplica, context).get();
 }
 
 ::std::future<void>
-IceGrid::RegistryObserverPrx::registryUpAsync(const RegistryInfo& iceP_node, const ::Ice::Context& context) const
+IceGrid::RegistryObserverPrx::registryUpAsync(const RegistryInfo& iceP_registryReplica, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RegistryObserverPrx::_iceI_registryUp, iceP_node, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RegistryObserverPrx::_iceI_registryUp, iceP_registryReplica, context);
 }
 
 ::std::function<void()>
-IceGrid::RegistryObserverPrx::registryUpAsync(const RegistryInfo& iceP_node, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+IceGrid::RegistryObserverPrx::registryUpAsync(const RegistryInfo& iceP_registryReplica, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryUp, iceP_node, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryUp, iceP_registryReplica, context);
 }
 
 void
-IceGrid::RegistryObserverPrx::_iceI_registryUp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const RegistryInfo& iceP_node, const ::Ice::Context& context) const
+IceGrid::RegistryObserverPrx::_iceI_registryUp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const RegistryInfo& iceP_registryReplica, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "registryUp";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
-            ostr->writeAll(iceP_node);
+            ostr->writeAll(iceP_registryReplica);
         },
         nullptr);
 }
@@ -4777,10 +4777,10 @@ IceGrid::RegistryObserver::_iceD_registryUp(::Ice::IncomingRequest& request, ::s
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    RegistryInfo iceP_node;
-    istr->readAll(iceP_node);
+    RegistryInfo iceP_registryReplica;
+    istr->readAll(iceP_registryReplica);
     istr->endEncapsulation();
-    this->registryUp(::std::move(iceP_node), request.current());
+    this->registryUp(::std::move(iceP_registryReplica), request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
