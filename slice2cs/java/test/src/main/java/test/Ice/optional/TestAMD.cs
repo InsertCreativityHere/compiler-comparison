@@ -543,9 +543,6 @@ namespace Test
         public global::Ice.Optional<MyInterfacePrx> j;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<MultiOptional> k;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.Optional<byte[]> bs;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -621,7 +618,6 @@ namespace Test
             this.h = new global::Ice.Optional<string>();
             this.i = new global::Ice.Optional<MyEnum>();
             this.j = new global::Ice.Optional<MyInterfacePrx>();
-            this.k = new global::Ice.Optional<MultiOptional>();
             this.bs = new global::Ice.Optional<byte[]>();
             this.ss = new global::Ice.Optional<string[]>();
             this.iid = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>>();
@@ -645,7 +641,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MultiOptional(global::Ice.Optional<byte> a, global::Ice.Optional<bool> b, global::Ice.Optional<short> c, global::Ice.Optional<int> d, global::Ice.Optional<long> e, global::Ice.Optional<float> f, global::Ice.Optional<double> g, global::Ice.Optional<string> h, global::Ice.Optional<MyEnum> i, global::Ice.Optional<MyInterfacePrx> j, global::Ice.Optional<MultiOptional> k, global::Ice.Optional<byte[]> bs, global::Ice.Optional<string[]> ss, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> iid, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> sid, global::Ice.Optional<FixedStruct> fs, global::Ice.Optional<VarStruct> vs, global::Ice.Optional<short[]> shs, global::Ice.Optional<MyEnum[]> es, global::Ice.Optional<FixedStruct[]> fss, global::Ice.Optional<VarStruct[]> vss, global::Ice.Optional<OneOptional[]> oos, global::Ice.Optional<MyInterfacePrx[]> mips, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>> ied, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>> ifsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>> ivsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> iood, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>> imipd, global::Ice.Optional<bool[]> bos, global::Ice.Optional<byte[]> ser)
+        public MultiOptional(global::Ice.Optional<byte> a, global::Ice.Optional<bool> b, global::Ice.Optional<short> c, global::Ice.Optional<int> d, global::Ice.Optional<long> e, global::Ice.Optional<float> f, global::Ice.Optional<double> g, global::Ice.Optional<string> h, global::Ice.Optional<MyEnum> i, global::Ice.Optional<MyInterfacePrx> j, global::Ice.Optional<byte[]> bs, global::Ice.Optional<string[]> ss, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> iid, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> sid, global::Ice.Optional<FixedStruct> fs, global::Ice.Optional<VarStruct> vs, global::Ice.Optional<short[]> shs, global::Ice.Optional<MyEnum[]> es, global::Ice.Optional<FixedStruct[]> fss, global::Ice.Optional<VarStruct[]> vss, global::Ice.Optional<OneOptional[]> oos, global::Ice.Optional<MyInterfacePrx[]> mips, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>> ied, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>> ifsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>> ivsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> iood, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>> imipd, global::Ice.Optional<bool[]> bos, global::Ice.Optional<byte[]> ser)
         {
             this.a = a;
             this.b = b;
@@ -657,7 +653,6 @@ namespace Test
             this.h = h;
             this.i = i;
             this.j = j;
-            this.k = k;
             this.bs = bs;
             this.ss = ss;
             this.iid = iid;
@@ -719,7 +714,6 @@ namespace Test
                 MyInterfacePrxHelper.write(ostr_, j.Value);
                 ostr_.endSize(pos);
             }
-            ostr_.writeValue(11, k);
             ostr_.writeByteSeq(12, bs);
             ostr_.writeStringSeq(13, ss);
             if(iid.HasValue && ostr_.writeOptional(14, global::Ice.OptionalFormat.VSize))
@@ -841,7 +835,6 @@ namespace Test
             {
                 j = new global::Ice.Optional<MyInterfacePrx>();
             }
-            istr_.readValue(11, (MultiOptional v) => { this.k = v; });
             if(istr_.readOptional(12, global::Ice.OptionalFormat.VSize))
             {
                 byte[] tmpVal;

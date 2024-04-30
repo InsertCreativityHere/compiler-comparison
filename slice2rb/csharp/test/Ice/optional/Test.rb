@@ -297,7 +297,7 @@ module ::Test
         end
         class MultiOptional < ::Ice::Value
 
-            def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, k=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, oos=::Ice::Unset, mips=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, iood=::Ice::Unset, imipd=::Ice::Unset, bos=::Ice::Unset)
+            def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, oos=::Ice::Unset, mips=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, iood=::Ice::Unset, imipd=::Ice::Unset, bos=::Ice::Unset)
                 @a = a
                 @b = b
                 @c = c
@@ -308,7 +308,6 @@ module ::Test
                 @h = h
                 @i = i
                 @j = j
-                @k = k
                 @bs = bs
                 @ss = ss
                 @iid = iid
@@ -329,7 +328,7 @@ module ::Test
                 @bos = bos
             end
 
-            attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :oos, :mips, :ied, :ifsd, :ivsd, :iood, :imipd, :bos
+            attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :oos, :mips, :ied, :ifsd, :ivsd, :iood, :imipd, :bos
         end
 
         if not defined?(::Test::T_MultiOptional)
@@ -347,7 +346,6 @@ module ::Test
             ['h', ::Ice::T_string, true, 8],
             ['i', ::Test::T_MyEnum, true, 9],
             ['j', ::Test::T_MyInterfacePrx, true, 10],
-            ['k', ::Test::T_MultiOptional, true, 11],
             ['bs', ::Test::T_ByteSeq, true, 12],
             ['ss', ::Test::T_StringSeq, true, 13],
             ['iid', ::Test::T_IntIntDict, true, 14],

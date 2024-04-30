@@ -25,7 +25,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
         this.vs = new VarStruct();
     }
 
-    public MultiOptional(byte a, boolean b, short c, int d, long e, float f, double g, String h, MyEnum i, MyInterfacePrx j, MultiOptional k, byte[] bs, String[] ss, java.util.Map<java.lang.Integer, java.lang.Integer> iid, java.util.Map<java.lang.String, java.lang.Integer> sid, FixedStruct fs, VarStruct vs, short[] shs, MyEnum[] es, FixedStruct[] fss, VarStruct[] vss, OneOptional[] oos, MyInterfacePrx[] mips, java.util.Map<java.lang.Integer, MyEnum> ied, java.util.Map<java.lang.Integer, FixedStruct> ifsd, java.util.Map<java.lang.Integer, VarStruct> ivsd, java.util.Map<java.lang.Integer, OneOptional> iood, java.util.Map<java.lang.Integer, MyInterfacePrx> imipd, boolean[] bos, byte[] ser)
+    public MultiOptional(byte a, boolean b, short c, int d, long e, float f, double g, String h, MyEnum i, MyInterfacePrx j, byte[] bs, String[] ss, java.util.Map<java.lang.Integer, java.lang.Integer> iid, java.util.Map<java.lang.String, java.lang.Integer> sid, FixedStruct fs, VarStruct vs, short[] shs, MyEnum[] es, FixedStruct[] fss, VarStruct[] vss, OneOptional[] oos, MyInterfacePrx[] mips, java.util.Map<java.lang.Integer, MyEnum> ied, java.util.Map<java.lang.Integer, FixedStruct> ifsd, java.util.Map<java.lang.Integer, VarStruct> ivsd, java.util.Map<java.lang.Integer, OneOptional> iood, java.util.Map<java.lang.Integer, MyInterfacePrx> imipd, boolean[] bos, byte[] ser)
     {
         setA(a);
         setB(b);
@@ -37,7 +37,6 @@ public class MultiOptional extends com.zeroc.Ice.Value
         setH(h);
         setI(i);
         setJ(j);
-        setK(k);
         setBs(bs);
         setSs(ss);
         setIid(iid);
@@ -591,59 +590,6 @@ public class MultiOptional extends com.zeroc.Ice.Value
         if(_j)
         {
             return java.util.Optional.of(j);
-        }
-        else
-        {
-            return java.util.Optional.empty();
-        }
-    }
-
-    private MultiOptional k;
-    private boolean _k;
-
-    public MultiOptional getK()
-    {
-        if(!_k)
-        {
-            throw new java.util.NoSuchElementException("k is not set");
-        }
-        return k;
-    }
-
-    public void setK(MultiOptional k)
-    {
-        _k = true;
-        this.k = k;
-    }
-
-    public boolean hasK()
-    {
-        return _k;
-    }
-
-    public void clearK()
-    {
-        _k = false;
-    }
-
-    public void optionalK(java.util.Optional<MultiOptional> v)
-    {
-        if(v == null || !v.isPresent())
-        {
-            _k = false;
-        }
-        else
-        {
-            _k = true;
-            k = v.get();
-        }
-    }
-
-    public java.util.Optional<MultiOptional> optionalK()
-    {
-        if(_k)
-        {
-            return java.util.Optional.ofNullable(k);
         }
         else
         {
@@ -1855,7 +1801,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -6179712883136596251L;
+    public static final long serialVersionUID = 528255346996327571L;
 
     /** @hidden */
     @Override
@@ -1901,10 +1847,6 @@ public class MultiOptional extends com.zeroc.Ice.Value
         if(_j)
         {
             ostr_.writeProxy(10, j);
-        }
-        if(_k)
-        {
-            ostr_.writeValue(11, k);
         }
         if(_bs)
         {
@@ -2030,10 +1972,6 @@ public class MultiOptional extends com.zeroc.Ice.Value
         {
             istr_.skip(4);
             j = MyInterfacePrx.uncheckedCast(istr_.readProxy());
-        }
-        if(_k = istr_.readOptional(11, com.zeroc.Ice.OptionalFormat.Class))
-        {
-            istr_.readValue(v -> k = v, MultiOptional.class);
         }
         if(_bs = istr_.readOptional(12, com.zeroc.Ice.OptionalFormat.VSize))
         {

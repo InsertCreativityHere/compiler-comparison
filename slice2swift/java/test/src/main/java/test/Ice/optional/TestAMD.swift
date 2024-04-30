@@ -6917,7 +6917,6 @@ open class MultiOptional: Ice.Value {
     public var h: Swift.String? = nil
     public var i: MyEnum? = nil
     public var j: MyInterfacePrx? = nil
-    public var k: MultiOptional? = nil
     public var bs: ByteSeq? = nil
     public var ss: StringSeq? = nil
     public var iid: IntIntDict? = nil
@@ -6940,7 +6939,7 @@ open class MultiOptional: Ice.Value {
 
     public required init() {}
 
-    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: MyInterfacePrx?, k: MultiOptional?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, oos: OneOptionalSeq?, mips: MyInterfacePrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, iood: IntOneOptionalDict?, imipd: IntMyInterfacePrxDict?, bos: BoolSeq?, ser: Serializable?) {
+    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: MyInterfacePrx?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, oos: OneOptionalSeq?, mips: MyInterfacePrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, iood: IntOneOptionalDict?, imipd: IntMyInterfacePrxDict?, bos: BoolSeq?, ser: Serializable?) {
         self.a = a
         self.b = b
         self.c = c
@@ -6951,7 +6950,6 @@ open class MultiOptional: Ice.Value {
         self.h = h
         self.i = i
         self.j = j
-        self.k = k
         self.bs = bs
         self.ss = ss
         self.iid = iid
@@ -6999,7 +6997,6 @@ open class MultiOptional: Ice.Value {
         self.h = try istr.read(tag: 8)
         self.i = try istr.read(tag: 9)
         self.j = try istr.read(tag: 10, type: MyInterfacePrx.self)
-        try istr.read(tag: 11, value: MultiOptional.self) { self.k = $0 }
         self.bs = try istr.read(tag: 12)
         self.ss = try istr.read(tag: 13)
         self.iid = try IntIntDictHelper.read(from: istr, tag: 14)
@@ -7034,7 +7031,6 @@ open class MultiOptional: Ice.Value {
         ostr.write(tag: 8, value: self.h)
         ostr.write(tag: 9, value: self.i)
         ostr.write(tag: 10, value: self.j)
-        ostr.write(tag: 11, value: self.k)
         ostr.write(tag: 12, value: self.bs)
         ostr.write(tag: 13, value: self.ss)
         IntIntDictHelper.write(to: ostr, tag: 14, value: self.iid)

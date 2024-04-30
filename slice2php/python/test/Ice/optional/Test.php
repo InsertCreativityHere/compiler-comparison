@@ -438,7 +438,7 @@ namespace Test
     global $Test__t_MultiOptional;
     class MultiOptional extends \Ice\Value
     {
-        public function __construct($a=\Ice\None, $b=\Ice\None, $c=\Ice\None, $d=\Ice\None, $e=\Ice\None, $f=\Ice\None, $g=\Ice\None, $h=\Ice\None, $i=\Ice\None, $j=\Ice\None, $k=\Ice\None, $bs=\Ice\None, $ss=\Ice\None, $iid=\Ice\None, $sid=\Ice\None, $fs=\Ice\None, $vs=\Ice\None, $shs=\Ice\None, $es=\Ice\None, $fss=\Ice\None, $vss=\Ice\None, $oos=\Ice\None, $mips=\Ice\None, $ied=\Ice\None, $ifsd=\Ice\None, $ivsd=\Ice\None, $iood=\Ice\None, $imipd=\Ice\None, $bos=\Ice\None, $ser=\Ice\None)
+        public function __construct($a=\Ice\None, $b=\Ice\None, $c=\Ice\None, $d=\Ice\None, $e=\Ice\None, $f=\Ice\None, $g=\Ice\None, $h=\Ice\None, $i=\Ice\None, $j=\Ice\None, $bs=\Ice\None, $ss=\Ice\None, $iid=\Ice\None, $sid=\Ice\None, $fs=\Ice\None, $vs=\Ice\None, $shs=\Ice\None, $es=\Ice\None, $fss=\Ice\None, $vss=\Ice\None, $oos=\Ice\None, $mips=\Ice\None, $ied=\Ice\None, $ifsd=\Ice\None, $ivsd=\Ice\None, $iood=\Ice\None, $imipd=\Ice\None, $bos=\Ice\None, $ser=\Ice\None)
         {
             $this->a = $a;
             $this->b = $b;
@@ -450,7 +450,6 @@ namespace Test
             $this->h = $h;
             $this->i = $i;
             $this->j = $j;
-            $this->k = $k;
             $this->bs = $bs;
             $this->ss = $ss;
             $this->iid = $iid;
@@ -498,7 +497,6 @@ namespace Test
         public $h;
         public $i;
         public $j;
-        public $k;
         public $bs;
         public $ss;
         public $iid;
@@ -533,7 +531,6 @@ namespace Test
     global $IcePHP__t_string;
     global $Test__t_MyEnum;
     global $Test__t_MyInterfacePrx;
-    global $Test__t_MultiOptional;
     global $Test__t_ByteSeq;
     global $Test__t_StringSeq;
     global $Test__t_IntIntDict;
@@ -564,7 +561,6 @@ namespace Test
         array('h', $IcePHP__t_string, true, 8),
         array('i', $Test__t_MyEnum, true, 9),
         array('j', $Test__t_MyInterfacePrx, true, 10),
-        array('k', $Test__t_MultiOptional, true, 11),
         array('bs', $Test__t_ByteSeq, true, 12),
         array('ss', $Test__t_StringSeq, true, 13),
         array('iid', $Test__t_IntIntDict, true, 14),

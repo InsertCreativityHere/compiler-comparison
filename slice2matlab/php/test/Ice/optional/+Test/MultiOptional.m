@@ -11,7 +11,6 @@
 %   h
 %   i
 %   j
-%   k
 %   bs
 %   ss
 %   iid
@@ -47,7 +46,6 @@ classdef MultiOptional < Ice.Value
         h
         i
         j
-        k
         bs
         ss
         iid
@@ -69,7 +67,7 @@ classdef MultiOptional < Ice.Value
         ser
     end
     methods
-        function obj = MultiOptional(a, b, c, d, e, f, g, h, i, j, k, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, mips, ied, ifsd, ivsd, iood, imipd, bos, ser)
+        function obj = MultiOptional(a, b, c, d, e, f, g, h, i, j, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, mips, ied, ifsd, ivsd, iood, imipd, bos, ser)
             if nargin == 0
                 obj.a = IceInternal.UnsetI.Instance;
                 obj.b = IceInternal.UnsetI.Instance;
@@ -81,7 +79,6 @@ classdef MultiOptional < Ice.Value
                 obj.h = IceInternal.UnsetI.Instance;
                 obj.i = IceInternal.UnsetI.Instance;
                 obj.j = IceInternal.UnsetI.Instance;
-                obj.k = IceInternal.UnsetI.Instance;
                 obj.bs = IceInternal.UnsetI.Instance;
                 obj.ss = IceInternal.UnsetI.Instance;
                 obj.iid = IceInternal.UnsetI.Instance;
@@ -112,7 +109,6 @@ classdef MultiOptional < Ice.Value
                 obj.h = h;
                 obj.i = i;
                 obj.j = j;
-                obj.k = k;
                 obj.bs = bs;
                 obj.ss = ss;
                 obj.iid = iid;
@@ -164,7 +160,6 @@ classdef MultiOptional < Ice.Value
             os.writeStringOpt(8, obj.h);
             Test.MyEnum.ice_writeOpt(os, 9, obj.i);
             os.writeProxyOpt(10, obj.j);
-            os.writeValueOpt(11, obj.k);
             os.writeByteSeqOpt(12, obj.bs);
             os.writeStringSeqOpt(13, obj.ss);
             Test.IntIntDict.writeOpt(os, 14, obj.iid);
@@ -201,7 +196,6 @@ classdef MultiOptional < Ice.Value
                 is.skip(4);
                 obj.j = Test.MyInterfacePrx.ice_read(is);
             end
-            is.readValueOpt(11, @obj.iceSetMember_k, 'Test.MultiOptional');
             obj.bs = is.readByteSeqOpt(12);
             obj.ss = is.readStringSeqOpt(13);
             obj.iid = Test.IntIntDict.readOpt(is, 14);
@@ -222,9 +216,6 @@ classdef MultiOptional < Ice.Value
             obj.bos = is.readBoolSeqOpt(29);
             obj.ser = is.readByteSeqOpt(30);
             is.endSlice();
-        end
-        function iceSetMember_k(obj, v)
-            obj.k = v;
         end
     end
     methods(Static)

@@ -193,7 +193,7 @@
 
     Test.MultiOptional = class extends Ice.Value
     {
-        constructor(a = undefined, b = undefined, c = undefined, d = undefined, e = undefined, f = undefined, g = undefined, h = undefined, i = undefined, j = undefined, k = undefined, bs = undefined, ss = undefined, iid = undefined, sid = undefined, fs = undefined, vs = undefined, shs = undefined, es = undefined, fss = undefined, vss = undefined, oos = undefined, mips = undefined, ied = undefined, ifsd = undefined, ivsd = undefined, iood = undefined, imipd = undefined, bos = undefined, ser = undefined)
+        constructor(a = undefined, b = undefined, c = undefined, d = undefined, e = undefined, f = undefined, g = undefined, h = undefined, i = undefined, j = undefined, bs = undefined, ss = undefined, iid = undefined, sid = undefined, fs = undefined, vs = undefined, shs = undefined, es = undefined, fss = undefined, vss = undefined, oos = undefined, mips = undefined, ied = undefined, ifsd = undefined, ivsd = undefined, iood = undefined, imipd = undefined, bos = undefined, ser = undefined)
         {
             super();
             this.a = a;
@@ -206,7 +206,6 @@
             this.h = h;
             this.i = i;
             this.j = j;
-            this.k = k;
             this.bs = bs;
             this.ss = ss;
             this.iid = iid;
@@ -240,7 +239,6 @@
             Ice.StringHelper.writeOptional(ostr, 8, this.h);
             Test.MyEnum._writeOpt(ostr, 9, this.i);
             Test.MyInterfacePrx.writeOptional(ostr, 10, this.j);
-            ostr.writeOptionalValue(11, this.k);
             Test.ByteSeqHelper.writeOptional(ostr, 12, this.bs);
             Test.StringSeqHelper.writeOptional(ostr, 13, this.ss);
             Test.IntIntDictHelper.writeOptional(ostr, 14, this.iid);
@@ -274,7 +272,6 @@
             this.h = Ice.StringHelper.readOptional(istr, 8);
             this.i = Test.MyEnum._readOpt(istr, 9);
             this.j = Test.MyInterfacePrx.readOptional(istr, 10);
-            istr.readOptionalValue(11, obj => this.k = obj, Test.MultiOptional);
             this.bs = Test.ByteSeqHelper.readOptional(istr, 12);
             this.ss = Test.StringSeqHelper.readOptional(istr, 13);
             this.iid = Test.IntIntDictHelper.readOptional(istr, 14);

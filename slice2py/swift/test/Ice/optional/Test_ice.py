@@ -437,7 +437,7 @@ if '_t_IntStringDict' not in _M_Test.__dict__:
 if 'MultiOptional' not in _M_Test.__dict__:
     _M_Test.MultiOptional = Ice.createTempClass()
     class MultiOptional(Ice.Value):
-        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, k=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, oos=Ice.Unset, mips=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, iood=Ice.Unset, imipd=Ice.Unset, bos=Ice.Unset, ser=Ice.Unset):
+        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, oos=Ice.Unset, mips=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, iood=Ice.Unset, imipd=Ice.Unset, bos=Ice.Unset, ser=Ice.Unset):
             self.a = a
             self.b = b
             self.c = c
@@ -448,7 +448,6 @@ if 'MultiOptional' not in _M_Test.__dict__:
             self.h = h
             self.i = i
             self.j = j
-            self.k = k
             self.bs = bs
             self.ss = ss
             self.iid = iid
@@ -494,7 +493,6 @@ if 'MultiOptional' not in _M_Test.__dict__:
         ('h', (), IcePy._t_string, True, 8),
         ('i', (), _M_Test._t_MyEnum, True, 9),
         ('j', (), _M_Test._t_MyInterfacePrx, True, 10),
-        ('k', (), _M_Test._t_MultiOptional, True, 11),
         ('bs', (), _M_Test._t_ByteSeq, True, 12),
         ('ss', (), _M_Test._t_StringSeq, True, 13),
         ('iid', (), _M_Test._t_IntIntDict, True, 14),
