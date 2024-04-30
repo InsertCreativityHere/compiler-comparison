@@ -75,9 +75,9 @@ public struct RouterTraits: Ice.SliceTraits {
 ///
 ///  - createSessionFromSecureConnectionAsync: Create a per-client session with the router.
 ///
-///  - refreshSession: Keep the calling client's session with this router alive.
+///  - refreshSession: Keep the session with this router alive.
 ///
-///  - refreshSessionAsync: Keep the calling client's session with this router alive.
+///  - refreshSessionAsync: Keep the session with this router alive.
 ///
 ///  - destroySession: Destroy the calling client's session with this router.
 ///
@@ -181,9 +181,9 @@ public extension Ice.InputStream {
 ///
 ///  - createSessionFromSecureConnectionAsync: Create a per-client session with the router.
 ///
-///  - refreshSession: Keep the calling client's session with this router alive.
+///  - refreshSession: Keep the session with this router alive.
 ///
-///  - refreshSessionAsync: Keep the calling client's session with this router alive.
+///  - refreshSessionAsync: Keep the session with this router alive.
 ///
 ///  - destroySession: Destroy the calling client's session with this router.
 ///
@@ -416,13 +416,14 @@ public extension RouterPrx {
                                   sent: sent)
     }
 
-    /// Keep the calling client's session with this router alive.
+    /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+    /// and earlier and does nothing in newer versions of Glacier2.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - throws:
     ///
-    ///   - SessionNotExistException - Raised if no session exists for the calling client.
+    ///   - SessionNotExistException - Raised if no session exists for the caller (client).
     func refreshSession(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "refreshSession",
                           mode: .Normal,
@@ -436,7 +437,8 @@ public extension RouterPrx {
                           context: context)
     }
 
-    /// Keep the calling client's session with this router alive.
+    /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+    /// and earlier and does nothing in newer versions of Glacier2.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -684,12 +686,15 @@ public protocol Router: Ice.Router {
     /// - returns: `PromiseKit.Promise<SessionPrx?>` - The result of the operation
     func createSessionFromSecureConnectionAsync(current: Ice.Current) -> PromiseKit.Promise<SessionPrx?>
 
-    /// Keep the calling client's session with this router alive.
+    /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+    /// and earlier and does nothing in newer versions of Glacier2.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func refreshSessionAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - throws:
+    ///
+    ///   - SessionNotExistException - Raised if no session exists for the caller (client).
+    func refreshSession(current: Ice.Current) throws
 
     /// Destroy the calling client's session with this router.
     ///
@@ -725,7 +730,7 @@ public protocol Router: Ice.Router {
 ///
 ///  - createSessionFromSecureConnection: Create a per-client session with the router.
 ///
-///  - refreshSession: Keep the calling client's session with this router alive.
+///  - refreshSession: Keep the session with this router alive.
 ///
 ///  - destroySession: Destroy the calling client's session with this router.
 ///
@@ -770,7 +775,9 @@ public extension Router {
     func _iceD_refreshSession(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         try inS.readEmptyParams()
 
-        return inS.setResultPromise(refreshSessionAsync(current: current))
+        try self.refreshSession(current: current)
+
+        return inS.setResult()
     }
 
     func _iceD_destroySession(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {

@@ -75,12 +75,12 @@ public interface Router extends com.zeroc.Ice.Router
                PermissionDeniedException;
 
     /**
-     * Keep the calling client's session with this router alive.
+     * Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+     * and earlier and does nothing in newer versions of Glacier2.
      * @param current The Current object for the invocation.
-     * @return A completion stage that the servant will complete when the invocation completes.
-     * @throws SessionNotExistException Raised if no session exists for the calling client.
+     * @throws SessionNotExistException Raised if no session exists for the caller (client).
      **/
-    java.util.concurrent.CompletionStage<Void> refreshSessionAsync(com.zeroc.Ice.Current current)
+    void refreshSession(com.zeroc.Ice.Current current)
         throws SessionNotExistException;
 
     /**
@@ -206,7 +206,8 @@ public interface Router extends com.zeroc.Ice.Router
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         inS.readEmptyParams();
-        return inS.setResultFuture(obj.refreshSessionAsync(current));
+        obj.refreshSession(current);
+        return inS.setResult(inS.writeEmptyParams());
     }
 
     /**

@@ -212,21 +212,24 @@ public:
     /// \endcond
 
     /**
-     * Keep the calling client's session with this router alive.
+     * Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+     * and earlier and does nothing in newer versions of Glacier2.
      * @param context The Context map to send with the invocation.
-     * @throws Glacier2::SessionNotExistException Raised if no session exists for the calling client.
+     * @throws Glacier2::SessionNotExistException Raised if no session exists for the caller (client).
      */
     void refreshSession(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Keep the calling client's session with this router alive.
+     * Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+     * and earlier and does nothing in newer versions of Glacier2.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
     ::std::future<void> refreshSessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Keep the calling client's session with this router alive.
+     * Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+     * and earlier and does nothing in newer versions of Glacier2.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -514,13 +517,12 @@ public:
     /// \endcond
 
     /**
-     * Keep the calling client's session with this router alive.
-     * @param response The response callback.
-     * @param exception The exception callback.
+     * Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+     * and earlier and does nothing in newer versions of Glacier2.
      * @param current The Current object for the invocation.
-     * @throws Glacier2::SessionNotExistException Raised if no session exists for the calling client.
+     * @throws Glacier2::SessionNotExistException Raised if no session exists for the caller (client).
      */
-    virtual void refreshSessionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void refreshSession(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_refreshSession(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

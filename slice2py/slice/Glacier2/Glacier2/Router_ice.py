@@ -153,17 +153,19 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.Router._op_createSessionFromSecureConnection.invokeAsync(self, ((), context))
 
         """
-         Keep the calling client's session with this router alive.
+         Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+         and earlier and does nothing in newer versions of Glacier2.
         Arguments:
         context -- The request context for the invocation.
         Throws:
-        SessionNotExistException -- Raised if no session exists for the calling client.
+        SessionNotExistException -- Raised if no session exists for the caller (client).
         """
         def refreshSession(self, context=None):
             return _M_Glacier2.Router._op_refreshSession.invoke(self, ((), context))
 
         """
-         Keep the calling client's session with this router alive.
+         Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+         and earlier and does nothing in newer versions of Glacier2.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -305,12 +307,13 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
 
         def refreshSession(self, current=None):
             """
-             Keep the calling client's session with this router alive.
+             Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+             and earlier and does nothing in newer versions of Glacier2.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             Throws:
-            SessionNotExistException -- Raised if no session exists for the calling client.
+            SessionNotExistException -- Raised if no session exists for the caller (client).
             """
             raise NotImplementedError("servant method 'refreshSession' not implemented")
 
@@ -354,7 +357,7 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
     Router._op_getCategoryForClient = IcePy.Operation('getCategoryForClient', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
     Router._op_createSession = IcePy.Operation('createSession', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, Ice.FormatType.SlicedFormat, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_PermissionDeniedException, _M_Glacier2._t_CannotCreateSessionException))
     Router._op_createSessionFromSecureConnection = IcePy.Operation('createSessionFromSecureConnection', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, Ice.FormatType.SlicedFormat, (), (), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_PermissionDeniedException, _M_Glacier2._t_CannotCreateSessionException))
-    Router._op_refreshSession = IcePy.Operation('refreshSession', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Glacier2._t_SessionNotExistException,))
+    Router._op_refreshSession = IcePy.Operation('refreshSession', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Glacier2._t_SessionNotExistException,))
     Router._op_destroySession = IcePy.Operation('destroySession', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Glacier2._t_SessionNotExistException,))
     Router._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_long, False, 0), ())
     Router._op_getACMTimeout = IcePy.Operation('getACMTimeout', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())

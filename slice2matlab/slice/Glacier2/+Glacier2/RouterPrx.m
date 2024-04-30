@@ -9,8 +9,8 @@
 %   createSessionAsync - Create a per-client session with the router.
 %   createSessionFromSecureConnection - Create a per-client session with the router.
 %   createSessionFromSecureConnectionAsync - Create a per-client session with the router.
-%   refreshSession - Keep the calling client's session with this router alive.
-%   refreshSessionAsync - Keep the calling client's session with this router alive.
+%   refreshSession - Keep the session with this router alive.
+%   refreshSessionAsync - Keep the session with this router alive.
 %   destroySession - Destroy the calling client's session with this router.
 %   destroySessionAsync - Destroy the calling client's session with this router.
 %   getSessionTimeout - Get the idle timeout used by the server-side of the connection.
@@ -179,18 +179,20 @@ classdef RouterPrx < Ice.RouterPrx
             r_ = obj.iceInvokeAsync('createSessionFromSecureConnection', 0, true, [], 1, @unmarshal, Glacier2.RouterPrx.createSessionFromSecureConnection_ex_, varargin{:});
         end
         function refreshSession(obj, varargin)
-            % refreshSession   Keep the calling client's session with this router alive.
+            % refreshSession   Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+            % and earlier and does nothing in newer versions of Glacier2.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   Glacier2.SessionNotExistException - Raised if no session exists for the calling client.
+            %   Glacier2.SessionNotExistException - Raised if no session exists for the caller (client).
             
             obj.iceInvoke('refreshSession', 0, true, [], false, Glacier2.RouterPrx.refreshSession_ex_, varargin{:});
         end
         function r_ = refreshSessionAsync(obj, varargin)
-            % refreshSessionAsync   Keep the calling client's session with this router alive.
+            % refreshSessionAsync   Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+            % and earlier and does nothing in newer versions of Glacier2.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -198,7 +200,7 @@ classdef RouterPrx < Ice.RouterPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Glacier2.SessionNotExistException - Raised if no session exists for the calling client.
+            %   Glacier2.SessionNotExistException - Raised if no session exists for the caller (client).
             
             r_ = obj.iceInvokeAsync('refreshSession', 0, true, [], 0, [], Glacier2.RouterPrx.refreshSession_ex_, varargin{:});
         end

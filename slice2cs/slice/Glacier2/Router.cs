@@ -217,15 +217,18 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<SessionPrx> createSessionFromSecureConnectionAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Keep the calling client's session with this router alive.
+        /// Keep the session with this router alive.
+        /// This operation is provided for backward compatibility with Ice 3.7
+        ///  and earlier and does nothing in newer versions of Glacier2.
         /// </summary>
-        /// <exception name="SessionNotExistException">Raised if no session exists for the calling client.</exception>
+        ///  <exception name="SessionNotExistException">Raised if no session exists for the caller (client).</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void refreshSession(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Keep the calling client's session with this router alive.
+        /// Keep the session with this router alive.
+        /// This operation is provided for backward compatibility with Ice 3.7
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -330,12 +333,15 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<SessionPrx> createSessionFromSecureConnectionAsync(global::Ice.Current current = null);
 
         /// <summary>
-        /// Keep the calling client's session with this router alive.
+        /// Keep the session with this router alive.
+        /// This operation is provided for backward compatibility with Ice 3.7
+        ///  and earlier and does nothing in newer versions of Glacier2.
         /// </summary>
+        ///  <exception name="SessionNotExistException">Raised if no session exists for the caller (client).</exception>
         /// <param name="current">The Current object for the invocation.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task refreshSessionAsync(global::Ice.Current current = null);
+        void refreshSession(global::Ice.Current current = null);
 
         /// <summary>
         /// Destroy the calling client's session with this router.
@@ -675,11 +681,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
@@ -725,11 +731,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
@@ -1045,7 +1051,7 @@ namespace Glacier2
 
         public abstract global::System.Threading.Tasks.Task<SessionPrx> createSessionFromSecureConnectionAsync(global::Ice.Current current = null);
 
-        public abstract global::System.Threading.Tasks.Task refreshSessionAsync(global::Ice.Current current = null);
+        public abstract void refreshSession(global::Ice.Current current = null);
 
         public abstract void destroySession(global::Ice.Current current = null);
 
@@ -1150,7 +1156,8 @@ namespace Glacier2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
-            return inS.setResultTask(obj.refreshSessionAsync(current));
+            obj.refreshSession(current);
+            return inS.setResult(inS.writeEmptyParams());
         }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]

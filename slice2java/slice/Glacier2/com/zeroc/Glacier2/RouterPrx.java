@@ -347,8 +347,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     };
 
     /**
-     * Keep the calling client's session with this router alive.
-     * @throws SessionNotExistException Raised if no session exists for the calling client.
+     * Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+     * and earlier and does nothing in newer versions of Glacier2.
+     * @throws SessionNotExistException Raised if no session exists for the caller (client).
      **/
     default void refreshSession()
         throws SessionNotExistException
@@ -357,9 +358,10 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Keep the calling client's session with this router alive.
+     * Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+     * and earlier and does nothing in newer versions of Glacier2.
      * @param context The Context map to send with the invocation.
-     * @throws SessionNotExistException Raised if no session exists for the calling client.
+     * @throws SessionNotExistException Raised if no session exists for the caller (client).
      **/
     default void refreshSession(java.util.Map<String, String> context)
         throws SessionNotExistException
@@ -379,7 +381,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Keep the calling client's session with this router alive.
+     * Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+     * and earlier and does nothing in newer versions of Glacier2.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> refreshSessionAsync()
@@ -388,7 +391,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Keep the calling client's session with this router alive.
+     * Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+     * and earlier and does nothing in newer versions of Glacier2.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
