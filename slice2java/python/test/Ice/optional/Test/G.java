@@ -19,12 +19,18 @@ public class G extends com.zeroc.Ice.Value
 {
     public G()
     {
+        this.gg1Opt = new G1();
+        this.gg2 = new G2();
+        this.gg2Opt = new G2();
+        this.gg1 = new G1();
     }
 
     public G(G2 gg2, G1 gg1)
     {
         this.gg2 = gg2;
         this.gg1 = gg1;
+        this.gg2Opt = new G2();
+        this.gg1Opt = new G1();
     }
 
     public G(G1 gg1Opt, G2 gg2, G2 gg2Opt, G1 gg1)
@@ -80,7 +86,7 @@ public class G extends com.zeroc.Ice.Value
     {
         if(_gg1Opt)
         {
-            return java.util.Optional.ofNullable(gg1Opt);
+            return java.util.Optional.of(gg1Opt);
         }
         else
         {
@@ -135,7 +141,7 @@ public class G extends com.zeroc.Ice.Value
     {
         if(_gg2Opt)
         {
-            return java.util.Optional.ofNullable(gg2Opt);
+            return java.util.Optional.of(gg2Opt);
         }
         else
         {
@@ -162,22 +168,22 @@ public class G extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -7874203950878704301L;
+    public static final long serialVersionUID = -1759546097494825517L;
 
     /** @hidden */
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
         ostr_.startSlice(ice_staticId(), -1, true);
-        ostr_.writeValue(gg2);
-        ostr_.writeValue(gg1);
+        G2.ice_write(ostr_, gg2);
+        G1.ice_write(ostr_, gg1);
         if(_gg2Opt)
         {
-            ostr_.writeValue(0, gg2Opt);
+            G2.ice_write(ostr_, 0, gg2Opt);
         }
         if(_gg1Opt)
         {
-            ostr_.writeValue(1, gg1Opt);
+            G1.ice_write(ostr_, 1, gg1Opt);
         }
         ostr_.endSlice();
     }
@@ -187,15 +193,17 @@ public class G extends com.zeroc.Ice.Value
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
         istr_.startSlice();
-        istr_.readValue(v -> gg2 = v, G2.class);
-        istr_.readValue(v -> gg1 = v, G1.class);
-        if(_gg2Opt = istr_.readOptional(0, com.zeroc.Ice.OptionalFormat.Class))
+        gg2 = G2.ice_read(istr_);
+        gg1 = G1.ice_read(istr_);
+        if(_gg2Opt = istr_.readOptional(0, com.zeroc.Ice.OptionalFormat.VSize))
         {
-            istr_.readValue(v -> gg2Opt = v, G2.class);
+            istr_.skipSize();
+            gg2Opt = G2.ice_read(istr_);
         }
-        if(_gg1Opt = istr_.readOptional(1, com.zeroc.Ice.OptionalFormat.Class))
+        if(_gg1Opt = istr_.readOptional(1, com.zeroc.Ice.OptionalFormat.FSize))
         {
-            istr_.readValue(v -> gg1Opt = v, G1.class);
+            istr_.skip(4);
+            gg1Opt = G1.ice_read(istr_);
         }
         istr_.endSlice();
     }

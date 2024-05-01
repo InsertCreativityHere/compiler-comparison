@@ -550,20 +550,20 @@
 
     Test.E = class extends Ice.Value
     {
-        constructor(ae = null)
+        constructor(fse = new Test.FixedStruct())
         {
             super();
-            this.ae = ae;
+            this.fse = fse;
         }
 
         _iceWriteMemberImpl(ostr)
         {
-            ostr.writeValue(this.ae);
+            Test.FixedStruct.write(ostr, this.fse);
         }
 
         _iceReadMemberImpl(istr)
         {
-            istr.readValue(obj => this.ae = obj, Test.A);
+            this.fse = Test.FixedStruct.read(istr, this.fse);
         }
     };
 
@@ -571,70 +571,78 @@
 
     Test.F = class extends Test.E
     {
-        constructor(ae, af = undefined)
+        constructor(fse, fsf = undefined)
         {
-            super(ae);
-            this.af = af;
+            super(fse);
+            this.fsf = fsf;
         }
 
         _iceWriteMemberImpl(ostr)
         {
-            ostr.writeOptionalValue(1, this.af);
+            Test.FixedStruct.writeOptional(ostr, 1, this.fsf);
         }
 
         _iceReadMemberImpl(istr)
         {
-            istr.readOptionalValue(1, obj => this.af = obj, Test.A);
+            this.fsf = Test.FixedStruct.readOptional(istr, 1);
         }
     };
 
     Slice.defineValue(Test.F, "::Test::F");
 
-    Test.G1 = class extends Ice.Value
+    Test.G1 = class
     {
         constructor(a = "")
         {
-            super();
             this.a = a;
         }
 
-        _iceWriteMemberImpl(ostr)
+        _write(ostr)
         {
             ostr.writeString(this.a);
         }
 
-        _iceReadMemberImpl(istr)
+        _read(istr)
         {
             this.a = istr.readString();
         }
+
+        static get minWireSize()
+        {
+            return  1;
+        }
     };
 
-    Slice.defineValue(Test.G1, "::Test::G1");
+    Slice.defineStruct(Test.G1, true, true);
 
-    Test.G2 = class extends Ice.Value
+    Test.G2 = class
     {
         constructor(a = new Ice.Long(0, 0))
         {
-            super();
             this.a = a;
         }
 
-        _iceWriteMemberImpl(ostr)
+        _write(ostr)
         {
             ostr.writeLong(this.a);
         }
 
-        _iceReadMemberImpl(istr)
+        _read(istr)
         {
             this.a = istr.readLong();
         }
+
+        static get minWireSize()
+        {
+            return  8;
+        }
     };
 
-    Slice.defineValue(Test.G2, "::Test::G2");
+    Slice.defineStruct(Test.G2, true, false);
 
     Test.G = class extends Ice.Value
     {
-        constructor(gg1Opt = undefined, gg2 = null, gg2Opt = undefined, gg1 = null)
+        constructor(gg1Opt = undefined, gg2 = new Test.G2(), gg2Opt = undefined, gg1 = new Test.G1())
         {
             super();
             this.gg1Opt = gg1Opt;
@@ -645,18 +653,18 @@
 
         _iceWriteMemberImpl(ostr)
         {
-            ostr.writeValue(this.gg2);
-            ostr.writeValue(this.gg1);
-            ostr.writeOptionalValue(0, this.gg2Opt);
-            ostr.writeOptionalValue(1, this.gg1Opt);
+            Test.G2.write(ostr, this.gg2);
+            Test.G1.write(ostr, this.gg1);
+            Test.G2.writeOptional(ostr, 0, this.gg2Opt);
+            Test.G1.writeOptional(ostr, 1, this.gg1Opt);
         }
 
         _iceReadMemberImpl(istr)
         {
-            istr.readValue(obj => this.gg2 = obj, Test.G2);
-            istr.readValue(obj => this.gg1 = obj, Test.G1);
-            istr.readOptionalValue(0, obj => this.gg2Opt = obj, Test.G2);
-            istr.readOptionalValue(1, obj => this.gg1Opt = obj, Test.G1);
+            this.gg2 = Test.G2.read(istr, this.gg2);
+            this.gg1 = Test.G1.read(istr, this.gg1);
+            this.gg2Opt = Test.G2.readOptional(istr, 0);
+            this.gg1Opt = Test.G1.readOptional(istr, 1);
         }
     };
 
@@ -723,8 +731,6 @@
         "opStringIntDict": [, , , , ["Test.StringIntDictHelper", , 1], [["Test.StringIntDictHelper", , 2]], [["Test.StringIntDictHelper", , 3]], , , ],
         "opIntOneOptionalDict": [, , , , ["Test.IntOneOptionalDictHelper", , 1], [["Test.IntOneOptionalDictHelper", , 2]], [["Test.IntOneOptionalDictHelper", , 3]], , , ],
         "opClassAndUnknownOptional": [, , , , , [["Test.A", true]], , , true, ],
-        "sendOptionalClass": [, , , , , [[1], ["Test.OneOptional", true, 1]], , , , ],
-        "returnOptionalClass": [, , , , , [[1]], [["Test.OneOptional", true, 1]], , , ],
         "opG": [, , , , ["Test.G", true], [["Test.G", true]], , , true, true],
         "opVoid": [, , , , , , , , , ],
         "opMStruct1": [, , , , [Test.SmallStruct, , 1], , , , , ],

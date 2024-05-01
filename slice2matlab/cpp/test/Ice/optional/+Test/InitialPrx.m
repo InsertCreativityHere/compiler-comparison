@@ -75,10 +75,6 @@
 %   opIntOneOptionalDictAsync
 %   opClassAndUnknownOptional
 %   opClassAndUnknownOptionalAsync
-%   sendOptionalClass
-%   sendOptionalClassAsync
-%   returnOptionalClass
-%   returnOptionalClassAsync
 %   opG
 %   opGAsync
 %   opVoid
@@ -1636,76 +1632,6 @@ classdef InitialPrx < Ice.ObjectPrx
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('opClassAndUnknownOptional', 0, false, os_, 0, [], {}, varargin{:});
-        end
-        function sendOptionalClass(obj, req, o, varargin)
-            % sendOptionalClass
-            %
-            % Parameters:
-            %   req (logical)
-            %   o (Test.OneOptional)
-            %   context (containers.Map) - Optional request context.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeBool(req);
-            os_.writeValueOpt(1, o);
-            obj.iceEndWriteParams(os_);
-            obj.iceInvoke('sendOptionalClass', 0, false, os_, false, {}, varargin{:});
-        end
-        function r_ = sendOptionalClassAsync(obj, req, o, varargin)
-            % sendOptionalClassAsync
-            %
-            % Parameters:
-            %   req (logical)
-            %   o (Test.OneOptional)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeBool(req);
-            os_.writeValueOpt(1, o);
-            obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('sendOptionalClass', 0, false, os_, 0, [], {}, varargin{:});
-        end
-        function o = returnOptionalClass(obj, req, varargin)
-            % returnOptionalClass
-            %
-            % Parameters:
-            %   req (logical)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.OneOptional)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeBool(req);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('returnOptionalClass', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            o_h_ = IceInternal.ValueHolder();
-            is_.readValueOpt(1, @(v) o_h_.set(v), 'Test.OneOptional');
-            is_.endEncapsulation();
-            o = o_h_.value;
-        end
-        function r_ = returnOptionalClassAsync(obj, req, varargin)
-            % returnOptionalClassAsync
-            %
-            % Parameters:
-            %   req (logical)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeBool(req);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                o = IceInternal.ValueHolder();
-                is_.readValueOpt(1, @(v) o.set(v), 'Test.OneOptional');
-                is_.endEncapsulation();
-                varargout{1} = o.value;
-            end
-            r_ = obj.iceInvokeAsync('returnOptionalClass', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = opG(obj, g, varargin)
             % opG

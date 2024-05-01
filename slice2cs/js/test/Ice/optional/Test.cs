@@ -1830,7 +1830,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public A ae;
+        public FixedStruct fse;
 
         #endregion
 
@@ -1841,13 +1841,14 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public E()
         {
+            this.fse = new FixedStruct();
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E(A ae)
+        public E(FixedStruct fse)
         {
-            this.ae = ae;
+            this.fse = fse;
             ice_initialize();
         }
 
@@ -1872,7 +1873,7 @@ namespace Test
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeValue(ae);
+            fse.ice_writeMembers(ostr_);
             ostr_.endSlice();
         }
 
@@ -1880,7 +1881,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((A v) => { this.ae = v; });
+            fse.ice_readMembers(istr_);
             istr_.endSlice();
         }
 
@@ -1903,7 +1904,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<A> af;
+        public global::Ice.Optional<FixedStruct> fsf;
 
         #endregion
 
@@ -1914,14 +1915,14 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public F() : base()
         {
-            this.af = new global::Ice.Optional<A>();
+            this.fsf = new global::Ice.Optional<FixedStruct>();
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public F(A ae, global::Ice.Optional<A> af) : base(ae)
+        public F(FixedStruct fse, global::Ice.Optional<FixedStruct> fsf) : base(fse)
         {
-            this.af = af;
+            this.fsf = fsf;
             ice_initialize();
         }
 
@@ -1946,7 +1947,11 @@ namespace Test
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
-            ostr_.writeValue(1, af);
+            if(fsf.HasValue && ostr_.writeOptional(1, global::Ice.OptionalFormat.VSize))
+            {
+                ostr_.writeSize(4);
+                fsf.Value.ice_writeMembers(ostr_);
+            }
             ostr_.endSlice();
             base.iceWriteImpl(ostr_);
         }
@@ -1955,7 +1960,17 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue(1, (A v) => { this.af = v; });
+            if(istr_.readOptional(1, global::Ice.OptionalFormat.VSize))
+            {
+                istr_.skipSize();
+                FixedStruct tmpVal = new FixedStruct();
+                tmpVal.ice_readMembers(istr_);
+                fsf = new global::Ice.Optional<FixedStruct>(tmpVal);
+            }
+            else
+            {
+                fsf = new global::Ice.Optional<FixedStruct>();
+            }
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -1963,7 +1978,6 @@ namespace Test
         #endregion
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -1974,7 +1988,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class G1 : global::Ice.Value
+    public partial class G1 : global::System.ICloneable
     {
         #region Slice data members
 
@@ -2003,41 +2017,118 @@ namespace Test
 
         #endregion
 
-        private const string _id = "::Test::G1";
+        #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
+        public object Clone()
         {
-            return _id;
+            return MemberwiseClone();
         }
+
+        #endregion
+
+        #region Object members
+
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
+        public override int GetHashCode()
         {
-            return _id;
+            int h_ = 5381;
+            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::G1");
+            global::IceInternal.HashUtil.hashAdd(ref h_, a);
+            return h_;
         }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public override bool Equals(object other)
+        {
+            if(object.ReferenceEquals(this, other))
+            {
+                return true;
+            }
+            if(other == null)
+            {
+                return false;
+            }
+            if(GetType() != other.GetType())
+            {
+                return false;
+            }
+            G1 o = (G1)other;
+            if(this.a == null)
+            {
+                if(o.a != null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if(!this.a.Equals(o.a))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        #endregion
+
+        #region Comparison members
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public static bool operator==(G1 lhs, G1 rhs)
+        {
+            return Equals(lhs, rhs);
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public static bool operator!=(G1 lhs, G1 rhs)
+        {
+            return !Equals(lhs, rhs);
+        }
+
+        #endregion
 
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        public void ice_writeMembers(global::Ice.OutputStream ostr)
         {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeString(a);
-            ostr_.endSlice();
+            ostr.writeString(this.a);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        public void ice_readMembers(global::Ice.InputStream istr)
         {
-            istr_.startSlice();
-            a = istr_.readString();
-            istr_.endSlice();
+            this.a = istr.readString();
         }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public static void ice_write(global::Ice.OutputStream ostr, G1 v)
+        {
+            if(v == null)
+            {
+                _nullMarshalValue.ice_writeMembers(ostr);
+            }
+            else
+            {
+                v.ice_writeMembers(ostr);
+            }
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public static G1 ice_read(global::Ice.InputStream istr)
+        {
+            var v = new G1();
+            v.ice_readMembers(istr);
+            return v;
+        }
+
+        private static readonly G1 _nullMarshalValue = new G1();
 
         #endregion
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -2048,7 +2139,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class G2 : global::Ice.Value
+    public partial struct G2
     {
         #region Slice data members
 
@@ -2059,13 +2150,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public G2()
-        {
-            ice_initialize();
-        }
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public G2(long a)
@@ -2076,35 +2161,76 @@ namespace Test
 
         #endregion
 
-        private const string _id = "::Test::G2";
+        #region Object members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
+        public override int GetHashCode()
         {
-            return _id;
+            int h_ = 5381;
+            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::G2");
+            global::IceInternal.HashUtil.hashAdd(ref h_, a);
+            return h_;
         }
+
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
+        public override bool Equals(object other)
         {
-            return _id;
+            if(!(other is G2))
+            {
+                return false;
+            }
+            G2 o = (G2)other;
+            if(!this.a.Equals(o.a))
+            {
+                return false;
+            }
+            return true;
         }
+
+        #endregion
+
+        #region Comparison members
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public static bool operator==(G2 lhs, G2 rhs)
+        {
+            return Equals(lhs, rhs);
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public static bool operator!=(G2 lhs, G2 rhs)
+        {
+            return !Equals(lhs, rhs);
+        }
+
+        #endregion
 
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        public void ice_writeMembers(global::Ice.OutputStream ostr)
         {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeLong(a);
-            ostr_.endSlice();
+            ostr.writeLong(this.a);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        public void ice_readMembers(global::Ice.InputStream istr)
         {
-            istr_.startSlice();
-            a = istr_.readLong();
-            istr_.endSlice();
+            this.a = istr.readLong();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public static void ice_write(global::Ice.OutputStream ostr, G2 v)
+        {
+            v.ice_writeMembers(ostr);
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public static G2 ice_read(global::Ice.InputStream istr)
+        {
+            var v = new G2();
+            v.ice_readMembers(istr);
+            return v;
         }
 
         #endregion
@@ -2147,7 +2273,9 @@ namespace Test
         public G()
         {
             this.gg1Opt = new global::Ice.Optional<G1>();
+            this.gg2 = new G2();
             this.gg2Opt = new global::Ice.Optional<G2>();
+            this.gg1 = new G1();
             ice_initialize();
         }
 
@@ -2182,10 +2310,19 @@ namespace Test
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeValue(gg2);
-            ostr_.writeValue(gg1);
-            ostr_.writeValue(0, gg2Opt);
-            ostr_.writeValue(1, gg1Opt);
+            gg2.ice_writeMembers(ostr_);
+            G1.ice_write(ostr_, gg1);
+            if(gg2Opt.HasValue && ostr_.writeOptional(0, global::Ice.OptionalFormat.VSize))
+            {
+                ostr_.writeSize(8);
+                gg2Opt.Value.ice_writeMembers(ostr_);
+            }
+            if(gg1Opt.HasValue && ostr_.writeOptional(1, global::Ice.OptionalFormat.FSize))
+            {
+                int pos = ostr_.startSize();
+                G1.ice_write(ostr_, gg1Opt.Value);
+                ostr_.endSize(pos);
+            }
             ostr_.endSlice();
         }
 
@@ -2193,10 +2330,30 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((G2 v) => { this.gg2 = v; });
-            istr_.readValue((G1 v) => { this.gg1 = v; });
-            istr_.readValue(0, (G2 v) => { this.gg2Opt = v; });
-            istr_.readValue(1, (G1 v) => { this.gg1Opt = v; });
+            gg2.ice_readMembers(istr_);
+            gg1 = G1.ice_read(istr_);
+            if(istr_.readOptional(0, global::Ice.OptionalFormat.VSize))
+            {
+                istr_.skipSize();
+                G2 tmpVal = new G2();
+                tmpVal.ice_readMembers(istr_);
+                gg2Opt = new global::Ice.Optional<G2>(tmpVal);
+            }
+            else
+            {
+                gg2Opt = new global::Ice.Optional<G2>();
+            }
+            if(istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
+            {
+                istr_.skip(4);
+                G1 tmpVal = null;
+                tmpVal = G1.ice_read(istr_);
+                gg1Opt = new global::Ice.Optional<G1>(tmpVal);
+            }
+            else
+            {
+                gg1Opt = new global::Ice.Optional<G1>();
+            }
             istr_.endSlice();
         }
 
@@ -2349,12 +2506,6 @@ namespace Test
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Initial_opClassAndUnknownOptional();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Initial_sendOptionalClass();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Initial_returnOptionalClass(global::Ice.Optional<OneOptional> o);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Initial_opG(G ret);
@@ -3210,14 +3361,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task opClassAndUnknownOptionalAsync(A p, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        void sendOptionalClass(bool req, global::Ice.Optional<OneOptional> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task sendOptionalClassAsync(bool req, global::Ice.Optional<OneOptional> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        void returnOptionalClass(bool req, out global::Ice.Optional<OneOptional> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<global::Ice.Optional<OneOptional>> returnOptionalClassAsync(bool req, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
         G opG(G g, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<G> opGAsync(G g, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -3418,12 +3561,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void opClassAndUnknownOptional(A p, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void sendOptionalClass(bool req, global::Ice.Optional<OneOptional> o, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void returnOptionalClass(bool req, out global::Ice.Optional<OneOptional> o, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         G opG(G g, global::Ice.Current current = null);
@@ -4863,30 +5000,6 @@ namespace Test
             try
             {
                 _iceI_opClassAndUnknownOptionalAsync(p, context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public void sendOptionalClass(bool req, global::Ice.Optional<OneOptional> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_sendOptionalClassAsync(req, o, context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public void returnOptionalClass(bool req, out global::Ice.Optional<OneOptional> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                o = _iceI_returnOptionalClassAsync(req, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch(global::System.AggregateException ex_)
             {
@@ -6946,72 +7059,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task sendOptionalClassAsync(bool req, global::Ice.Optional<OneOptional> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_sendOptionalClassAsync(req, o, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_sendOptionalClassAsync(bool iceP_req, global::Ice.Optional<OneOptional> iceP_o, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_sendOptionalClass(iceP_req, iceP_o, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _sendOptionalClass_name = "sendOptionalClass";
-
-        private void _iceI_sendOptionalClass(bool iceP_req, global::Ice.Optional<OneOptional> iceP_o, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _sendOptionalClass_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeBool(iceP_req);
-                    ostr.writeValue(1, iceP_o);
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<global::Ice.Optional<OneOptional>> returnOptionalClassAsync(bool req, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_returnOptionalClassAsync(req, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<global::Ice.Optional<OneOptional>> _iceI_returnOptionalClassAsync(bool iceP_req, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_returnOptionalClass_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<global::Ice.Optional<OneOptional>>(progress, cancel);
-            _iceI_returnOptionalClass(iceP_req, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _returnOptionalClass_name = "returnOptionalClass";
-
-        private void _iceI_returnOptionalClass(bool iceP_req, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<global::Ice.Optional<OneOptional>>(completed);
-            outAsync.invoke(
-                _returnOptionalClass_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeBool(iceP_req);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    global::Ice.Optional<OneOptional> iceP_o = global::Ice.Util.None;
-                    istr.readValue(1, (OneOptional v) => {iceP_o = v; });
-                    return iceP_o;
-                });
-        }
-
         public global::System.Threading.Tasks.Task<G> opGAsync(G g, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opGAsync(g, context, progress, cancel, false);
@@ -8204,10 +8251,6 @@ namespace Test
 
         public abstract void opClassAndUnknownOptional(A p, global::Ice.Current current = null);
 
-        public abstract void sendOptionalClass(bool req, global::Ice.Optional<OneOptional> o, global::Ice.Current current = null);
-
-        public abstract void returnOptionalClass(bool req, out global::Ice.Optional<OneOptional> o, global::Ice.Current current = null);
-
         public abstract G opG(G g, global::Ice.Current current = null);
 
         public abstract void opVoid(global::Ice.Current current = null);
@@ -9247,38 +9290,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_sendOptionalClass(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            bool iceP_req;
-            global::Ice.Optional<OneOptional> iceP_o = global::Ice.Util.None;
-            iceP_req = istr.readBool();
-            istr.readValue(1, (OneOptional v) => {iceP_o = v; });
-            inS.endReadParams();
-            obj.sendOptionalClass(iceP_req, iceP_o, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_returnOptionalClass(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            bool iceP_req;
-            iceP_req = istr.readBool();
-            inS.endReadParams();
-            global::Ice.Optional<OneOptional> iceP_o;
-            obj.returnOptionalClass(iceP_req, out iceP_o, current);
-            var ostr = inS.startWriteParams();
-            ostr.writeValue(1, iceP_o);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_opG(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -9524,8 +9535,6 @@ namespace Test
             "opVarStructSeq",
             "opVoid",
             "pingPong",
-            "returnOptionalClass",
-            "sendOptionalClass",
             "shutdown",
             "supportsCsharpSerializable",
             "supportsJavaSerializable",
@@ -9746,29 +9755,21 @@ namespace Test
                 }
                 case 50:
                 {
-                    return iceD_returnOptionalClass(this, inS, current);
+                    return iceD_shutdown(this, inS, current);
                 }
                 case 51:
                 {
-                    return iceD_sendOptionalClass(this, inS, current);
+                    return iceD_supportsCsharpSerializable(this, inS, current);
                 }
                 case 52:
                 {
-                    return iceD_shutdown(this, inS, current);
+                    return iceD_supportsJavaSerializable(this, inS, current);
                 }
                 case 53:
                 {
-                    return iceD_supportsCsharpSerializable(this, inS, current);
-                }
-                case 54:
-                {
-                    return iceD_supportsJavaSerializable(this, inS, current);
-                }
-                case 55:
-                {
                     return iceD_supportsNullOptional(this, inS, current);
                 }
-                case 56:
+                case 54:
                 {
                     return iceD_supportsRequiredParams(this, inS, current);
                 }

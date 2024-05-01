@@ -1556,16 +1556,123 @@ public struct FTraits: Ice.SliceTraits {
     public static let staticId = "::Test::F"
 }
 
-/// Traits for Slice class`G1`.
-public struct G1Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::G1"]
-    public static let staticId = "::Test::G1"
+public struct G1: Swift.Hashable {
+    public var a: Swift.String = ""
+
+    public init() {}
+
+    public init(a: Swift.String) {
+        self.a = a
+    }
 }
 
-/// Traits for Slice class`G2`.
-public struct G2Traits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::G2"]
-    public static let staticId = "::Test::G2"
+/// An `Ice.InputStream` extension to read `G1` structured values from the stream.
+public extension Ice.InputStream {
+    /// Read a `G1` structured value from the stream.
+    ///
+    /// - returns: `G1` - The structured value read from the stream.
+    func read() throws -> G1 {
+        var v = G1()
+        v.a = try self.read()
+        return v
+    }
+
+    /// Read an optional `G1?` structured value from the stream.
+    ///
+    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    ///
+    /// - returns: `G1?` - The structured value read from the stream.
+    func read(tag: Swift.Int32) throws -> G1? {
+        guard try readOptional(tag: tag, expectedFormat: .FSize) else {
+            return nil
+        }
+        try skip(4)
+        return try read() as G1
+    }
+}
+
+/// An `Ice.OutputStream` extension to write `G1` structured values from the stream.
+public extension Ice.OutputStream {
+    /// Write a `G1` structured value to the stream.
+    ///
+    /// - parameter _: `G1` - The value to write to the stream.
+    func write(_ v: G1) {
+        self.write(v.a)
+    }
+
+    /// Write an optional `G1?` structured value to the stream.
+    ///
+    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter value: `G1?` - The value to write to the stream.
+    func write(tag: Swift.Int32, value: G1?) {
+        if let v = value {
+            if writeOptional(tag: tag, format: .FSize) {
+                let pos = startSize()
+                write(v)
+                endSize(position: pos)
+            }
+        }
+    }
+}
+
+public struct G2: Swift.Hashable {
+    public var a: Swift.Int64 = 0
+
+    public init() {}
+
+    public init(a: Swift.Int64) {
+        self.a = a
+    }
+}
+
+/// An `Ice.InputStream` extension to read `G2` structured values from the stream.
+public extension Ice.InputStream {
+    /// Read a `G2` structured value from the stream.
+    ///
+    /// - returns: `G2` - The structured value read from the stream.
+    func read() throws -> G2 {
+        var v = G2()
+        v.a = try self.read()
+        return v
+    }
+
+    /// Read an optional `G2?` structured value from the stream.
+    ///
+    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    ///
+    /// - returns: `G2?` - The structured value read from the stream.
+    func read(tag: Swift.Int32) throws -> G2? {
+        guard try readOptional(tag: tag, expectedFormat: .VSize) else {
+            return nil
+        }
+        try skipSize()
+        return try read() as G2
+    }
+}
+
+/// An `Ice.OutputStream` extension to write `G2` structured values from the stream.
+public extension Ice.OutputStream {
+    /// Write a `G2` structured value to the stream.
+    ///
+    /// - parameter _: `G2` - The value to write to the stream.
+    func write(_ v: G2) {
+        self.write(v.a)
+    }
+
+    /// Write an optional `G2?` structured value to the stream.
+    ///
+    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter value: `G2?` - The value to write to the stream.
+    func write(tag: Swift.Int32, value: G2?) {
+        if let v = value {
+            if writeOptional(tag: tag, format: .VSize) {
+                write(size: 8)
+                write(v)
+            }
+        }
+    }
 }
 
 /// Traits for Slice class`G`.
@@ -1860,14 +1967,6 @@ public extension MyInterfacePrx {
 ///
 ///  - opClassAndUnknownOptionalAsync: 
 ///
-///  - sendOptionalClass: 
-///
-///  - sendOptionalClassAsync: 
-///
-///  - returnOptionalClass: 
-///
-///  - returnOptionalClassAsync: 
-///
 ///  - opG: 
 ///
 ///  - opGAsync: 
@@ -2157,14 +2256,6 @@ public extension Ice.InputStream {
 ///  - opClassAndUnknownOptional: 
 ///
 ///  - opClassAndUnknownOptionalAsync: 
-///
-///  - sendOptionalClass: 
-///
-///  - sendOptionalClassAsync: 
-///
-///  - returnOptionalClass: 
-///
-///  - returnOptionalClassAsync: 
 ///
 ///  - opG: 
 ///
@@ -4362,102 +4453,6 @@ public extension InitialPrx {
     }
 
     ///
-    /// - parameter req: `Swift.Bool`
-    ///
-    /// - parameter o: `OneOptional?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func sendOptionalClass(req iceP_req: Swift.Bool, o iceP_o: OneOptional? = nil, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sendOptionalClass",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_req)
-                              ostr.write(tag: 1, value: iceP_o)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter req: `Swift.Bool`
-    ///
-    /// - parameter o: `OneOptional?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func sendOptionalClassAsync(req iceP_req: Swift.Bool, o iceP_o: OneOptional? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "sendOptionalClass",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_req)
-                                      ostr.write(tag: 1, value: iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `OneOptional?`
-    func returnOptionalClass(_ iceP_req: Swift.Bool, context: Ice.Context? = nil) throws -> OneOptional? {
-        return try _impl._invoke(operation: "returnOptionalClass",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_req)
-                                 },
-                                 read: { istr in
-                                     var iceP_o: OneOptional?
-                                     try istr.read(tag: 1, value: OneOptional.self) { iceP_o = $0 }
-                                     return iceP_o
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<OneOptional?>` - The result of the operation
-    func returnOptionalClassAsync(_ iceP_req: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<OneOptional?> {
-        return _impl._invokeAsync(operation: "returnOptionalClass",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_req)
-                                  },
-                                  read: { istr in
-                                      var iceP_o: OneOptional?
-                                      try istr.read(tag: 1, value: OneOptional.self) { iceP_o = $0 }
-                                      return iceP_o
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
     /// - parameter _: `G?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -5587,12 +5582,12 @@ public extension Ice.ClassResolver {
 }
 
 open class E: Ice.Value {
-    public var ae: A? = nil
+    public var fse: FixedStruct = FixedStruct()
 
     public required init() {}
 
-    public init(ae: A?) {
-        self.ae = ae
+    public init(fse: FixedStruct) {
+        self.fse = fse
     }
 
     /// Returns the Slice type ID of the most-derived interface supported by this object.
@@ -5611,13 +5606,13 @@ open class E: Ice.Value {
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
-        try istr.read(A.self) { self.ae = $0 }
+        self.fse = try istr.read()
         try istr.endSlice()
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: ETraits.staticId, compactId: -1, last: true)
-        ostr.write(self.ae)
+        ostr.write(self.fse)
         ostr.endSlice()
     }
 }
@@ -5636,15 +5631,15 @@ public extension Ice.ClassResolver {
 }
 
 open class F: E {
-    public var af: A? = nil
+    public var fsf: FixedStruct? = nil
 
     public required init() {
         super.init()
     }
 
-    public init(ae: A?, af: A?) {
-        self.af = af
-        super.init(ae: ae)
+    public init(fse: FixedStruct, fsf: FixedStruct?) {
+        self.fsf = fsf
+        super.init(fse: fse)
     }
 
     /// Returns the Slice type ID of the most-derived interface supported by this object.
@@ -5663,114 +5658,16 @@ open class F: E {
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
-        try istr.read(tag: 1, value: A.self) { self.af = $0 }
+        self.fsf = try istr.read(tag: 1)
         try istr.endSlice()
         try super._iceReadImpl(from: istr);
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: FTraits.staticId, compactId: -1, last: false)
-        ostr.write(tag: 1, value: self.af)
+        ostr.write(tag: 1, value: self.fsf)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
-    }
-}
-
-/// :nodoc:
-public class G1_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return G1.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func IceOptionalTest_G1() -> Ice.ValueTypeResolver {
-        return G1_TypeResolver()
-    }
-}
-
-open class G1: Ice.Value {
-    public var a: Swift.String = ""
-
-    public required init() {}
-
-    public init(a: Swift.String) {
-        self.a = a
-    }
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return G1Traits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return G1Traits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        self.a = try istr.read()
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: G1Traits.staticId, compactId: -1, last: true)
-        ostr.write(self.a)
-        ostr.endSlice()
-    }
-}
-
-/// :nodoc:
-public class G2_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return G2.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func IceOptionalTest_G2() -> Ice.ValueTypeResolver {
-        return G2_TypeResolver()
-    }
-}
-
-open class G2: Ice.Value {
-    public var a: Swift.Int64 = 0
-
-    public required init() {}
-
-    public init(a: Swift.Int64) {
-        self.a = a
-    }
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return G2Traits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return G2Traits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        self.a = try istr.read()
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: G2Traits.staticId, compactId: -1, last: true)
-        ostr.write(self.a)
-        ostr.endSlice()
     }
 }
 
@@ -5789,13 +5686,13 @@ public extension Ice.ClassResolver {
 
 open class G: Ice.Value {
     public var gg1Opt: G1? = nil
-    public var gg2: G2? = nil
+    public var gg2: G2 = G2()
     public var gg2Opt: G2? = nil
-    public var gg1: G1? = nil
+    public var gg1: G1 = G1()
 
     public required init() {}
 
-    public init(gg1Opt: G1?, gg2: G2?, gg2Opt: G2?, gg1: G1?) {
+    public init(gg1Opt: G1?, gg2: G2, gg2Opt: G2?, gg1: G1) {
         self.gg1Opt = gg1Opt
         self.gg2 = gg2
         self.gg2Opt = gg2Opt
@@ -5818,10 +5715,10 @@ open class G: Ice.Value {
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
-        try istr.read(G2.self) { self.gg2 = $0 }
-        try istr.read(G1.self) { self.gg1 = $0 }
-        try istr.read(tag: 0, value: G2.self) { self.gg2Opt = $0 }
-        try istr.read(tag: 1, value: G1.self) { self.gg1Opt = $0 }
+        self.gg2 = try istr.read()
+        self.gg1 = try istr.read()
+        self.gg2Opt = try istr.read(tag: 0)
+        self.gg1Opt = try istr.read(tag: 1)
         try istr.endSlice()
     }
 
@@ -5987,10 +5884,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_opVoid(incoming: request, current: current)
         case "pingPong":
             return try servant._iceD_pingPong(incoming: request, current: current)
-        case "returnOptionalClass":
-            return try servant._iceD_returnOptionalClass(incoming: request, current: current)
-        case "sendOptionalClass":
-            return try servant._iceD_sendOptionalClass(incoming: request, current: current)
         case "shutdown":
             return try servant._iceD_shutdown(incoming: request, current: current)
         case "supportsCsharpSerializable":
@@ -6453,22 +6346,6 @@ public protocol Initial {
     func opClassAndUnknownOptional(p: A?, current: Ice.Current) throws
 
     ///
-    /// - parameter req: `Swift.Bool`
-    ///
-    /// - parameter o: `OneOptional?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sendOptionalClass(req: Swift.Bool, o: OneOptional?, current: Ice.Current) throws
-
-    ///
-    /// - parameter req: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `OneOptional?`
-    func returnOptionalClass(req: Swift.Bool, current: Ice.Current) throws -> OneOptional?
-
-    ///
     /// - parameter g: `G?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -6673,10 +6550,6 @@ public extension MyInterface {
 ///  - opIntOneOptionalDict: 
 ///
 ///  - opClassAndUnknownOptional: 
-///
-///  - sendOptionalClass: 
-///
-///  - returnOptionalClass: 
 ///
 ///  - opG: 
 ///
@@ -7246,32 +7119,6 @@ public extension Initial {
         try self.opClassAndUnknownOptional(p: iceP_p, current: current)
 
         return inS.setResult()
-    }
-
-    func _iceD_sendOptionalClass(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_req, iceP_o): (Swift.Bool, OneOptional?) = try inS.read { istr in
-            let iceP_req: Swift.Bool = try istr.read()
-            var iceP_o: OneOptional?
-            try istr.read(tag: 1, value: OneOptional.self) { iceP_o = $0 }
-            return (iceP_req, iceP_o)
-        }
-
-        try self.sendOptionalClass(req: iceP_req, o: iceP_o, current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_returnOptionalClass(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_req: Swift.Bool = try inS.read { istr in
-            let iceP_req: Swift.Bool = try istr.read()
-            return iceP_req
-        }
-
-        let iceP_o = try self.returnOptionalClass(req: iceP_req, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(tag: 1, value: iceP_o)
-        }
     }
 
     func _iceD_opG(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {

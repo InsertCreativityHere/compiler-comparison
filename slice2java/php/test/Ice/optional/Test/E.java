@@ -19,14 +19,15 @@ public class E extends com.zeroc.Ice.Value
 {
     public E()
     {
+        this.fse = new FixedStruct();
     }
 
-    public E(A ae)
+    public E(FixedStruct fse)
     {
-        this.ae = ae;
+        this.fse = fse;
     }
 
-    public A ae;
+    public FixedStruct fse;
 
     public E clone()
     {
@@ -45,14 +46,14 @@ public class E extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 4399096975455613386L;
+    public static final long serialVersionUID = -1850734455617140976L;
 
     /** @hidden */
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
         ostr_.startSlice(ice_staticId(), -1, true);
-        ostr_.writeValue(ae);
+        FixedStruct.ice_write(ostr_, fse);
         ostr_.endSlice();
     }
 
@@ -61,7 +62,7 @@ public class E extends com.zeroc.Ice.Value
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
         istr_.startSlice();
-        istr_.readValue(v -> ae = v, A.class);
+        fse = FixedStruct.ice_read(istr_);
         istr_.endSlice();
     }
 }

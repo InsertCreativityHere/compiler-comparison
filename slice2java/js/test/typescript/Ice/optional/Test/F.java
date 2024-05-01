@@ -20,65 +20,67 @@ public class F extends E
     public F()
     {
         super();
+        this.fsf = new FixedStruct();
     }
 
-    public F(A ae)
+    public F(FixedStruct fse)
     {
-        super(ae);
+        super(fse);
+        this.fsf = new FixedStruct();
     }
 
-    public F(A ae, A af)
+    public F(FixedStruct fse, FixedStruct fsf)
     {
-        super(ae);
-        setAf(af);
+        super(fse);
+        setFsf(fsf);
     }
 
-    private A af;
-    private boolean _af;
+    private FixedStruct fsf;
+    private boolean _fsf;
 
-    public A getAf()
+    public FixedStruct getFsf()
     {
-        if(!_af)
+        if(!_fsf)
         {
-            throw new java.util.NoSuchElementException("af is not set");
+            throw new java.util.NoSuchElementException("fsf is not set");
         }
-        return af;
+        return fsf;
     }
 
-    public void setAf(A af)
+    public void setFsf(FixedStruct fsf)
     {
-        _af = true;
-        this.af = af;
+        _fsf = true;
+        this.fsf = fsf;
     }
 
-    public boolean hasAf()
+    public boolean hasFsf()
     {
-        return _af;
+        return _fsf;
     }
 
-    public void clearAf()
+    public void clearFsf()
     {
-        _af = false;
+        _fsf = false;
     }
 
-    public void optionalAf(java.util.Optional<A> v)
+    public void optionalFsf(java.util.Optional<FixedStruct> v)
     {
         if(v == null || !v.isPresent())
         {
-            _af = false;
+            _fsf = false;
         }
         else
         {
-            _af = true;
-            af = v.get();
+            _fsf = true;
+            fsf = v.get();
         }
     }
 
-    public java.util.Optional<A> optionalAf()
+    public java.util.Optional<FixedStruct> optionalFsf()
     {
-        if(_af)
+        if(_fsf)
         {
-            return java.util.Optional.ofNullable(af);
+            return java.util.Optional.of(fsf);
         }
         else
         {
@@ -103,16 +105,16 @@ public class F extends E
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 2111939663325501633L;
+    public static final long serialVersionUID = -6430497692605325128L;
 
     /** @hidden */
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
         ostr_.startSlice(ice_staticId(), -1, false);
-        if(_af)
+        if(_fsf)
         {
-            ostr_.writeValue(1, af);
+            FixedStruct.ice_write(ostr_, 1, fsf);
         }
         ostr_.endSlice();
         super._iceWriteImpl(ostr_);
@@ -123,9 +125,10 @@ public class F extends E
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
         istr_.startSlice();
-        if(_af = istr_.readOptional(1, com.zeroc.Ice.OptionalFormat.Class))
+        if(_fsf = istr_.readOptional(1, com.zeroc.Ice.OptionalFormat.VSize))
         {
-            istr_.readValue(v -> af = v, A.class);
+            istr_.skipSize();
+            fsf = FixedStruct.ice_read(istr_);
         }
         istr_.endSlice();
         super._iceReadImpl(istr_);

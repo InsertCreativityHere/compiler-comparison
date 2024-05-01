@@ -576,18 +576,18 @@ module ::Test
         end
         class E < ::Ice::Value
 
-            def initialize(ae=nil)
-                @ae = ae
+            def initialize(fse=::Test::FixedStruct.new)
+                @fse = fse
             end
 
-            attr_accessor :ae
+            attr_accessor :fse
         end
 
         if not defined?(::Test::T_E)
             T_E = ::Ice::__declareClass('::Test::E')
         end
 
-        T_E.defineClass(E, -1, false, nil, [['ae', ::Test::T_A, false, 0]])
+        T_E.defineClass(E, -1, false, nil, [['fse', ::Test::T_FixedStruct, false, 0]])
     end
 
     if not defined?(::Test::F_Mixin)
@@ -596,59 +596,77 @@ module ::Test
         end
         class F < ::Test::E
 
-            def initialize(ae=nil, af=::Ice::Unset)
-                super(ae)
-                @af = af
+            def initialize(fse=::Test::FixedStruct.new, fsf=::Ice::Unset)
+                super(fse)
+                @fsf = fsf
             end
 
-            attr_accessor :af
+            attr_accessor :fsf
         end
 
         if not defined?(::Test::T_F)
             T_F = ::Ice::__declareClass('::Test::F')
         end
 
-        T_F.defineClass(F, -1, false, ::Test::T_E, [['af', ::Test::T_A, true, 1]])
+        T_F.defineClass(F, -1, false, ::Test::T_E, [['fsf', ::Test::T_FixedStruct, true, 1]])
     end
 
-    if not defined?(::Test::G1_Mixin)
-
-        module ::Test::G1_Mixin
-        end
-        class G1 < ::Ice::Value
-
+    if not defined?(::Test::G1)
+        class G1
+            include ::Ice::Inspect_mixin
             def initialize(a='')
                 @a = a
             end
 
-            attr_accessor :a
-        end
+            def hash
+                _h = 0
+                _h = 5 * _h + @a.hash
+                _h % 0x7fffffff
+            end
 
-        if not defined?(::Test::T_G1)
-            T_G1 = ::Ice::__declareClass('::Test::G1')
-        end
+            def ==(other)
+                return false if !other.is_a? ::Test::G1 or
+                    @a != other.a
+                true
+            end
 
-        T_G1.defineClass(G1, -1, false, nil, [['a', ::Ice::T_string, false, 0]])
-    end
-
-    if not defined?(::Test::G2_Mixin)
-
-        module ::Test::G2_Mixin
-        end
-        class G2 < ::Ice::Value
-
-            def initialize(a=0)
-                @a = a
+            def eql?(other)
+                return other.class == self.class && other == self
             end
 
             attr_accessor :a
         end
 
-        if not defined?(::Test::T_G2)
-            T_G2 = ::Ice::__declareClass('::Test::G2')
+        T_G1 = ::Ice::__defineStruct('::Test::G1', G1, [["a", ::Ice::T_string]])
+    end
+
+    if not defined?(::Test::G2)
+        class G2
+            include ::Ice::Inspect_mixin
+            def initialize(a=0)
+                @a = a
+            end
+
+            def hash
+                _h = 0
+                _h = 5 * _h + @a.hash
+                _h % 0x7fffffff
+            end
+
+            def ==(other)
+                return false if !other.is_a? ::Test::G2 or
+                    @a != other.a
+                true
+            end
+
+            def eql?(other)
+                return other.class == self.class && other == self
+            end
+
+            attr_accessor :a
         end
 
-        T_G2.defineClass(G2, -1, false, nil, [['a', ::Ice::T_long, false, 0]])
+        T_G2 = ::Ice::__defineStruct('::Test::G2', G2, [["a", ::Ice::T_long]])
     end
 
     if not defined?(::Test::G_Mixin)
@@ -657,7 +675,7 @@ module ::Test
         end
         class G < ::Ice::Value
 
-            def initialize(gg1Opt=::Ice::Unset, gg2=nil, gg2Opt=::Ice::Unset, gg1=nil)
+            def initialize(gg1Opt=::Ice::Unset, gg2=::Test::G2.new, gg2Opt=::Ice::Unset, gg1=::Test::G1.new)
                 @gg1Opt = gg1Opt
                 @gg2 = gg2
                 @gg2Opt = gg2Opt
@@ -833,14 +851,6 @@ module ::Test
                 InitialPrx_mixin::OP_opClassAndUnknownOptional.invoke(self, [p], context)
             end
 
-            def sendOptionalClass(req, o, context=nil)
-                InitialPrx_mixin::OP_sendOptionalClass.invoke(self, [req, o], context)
-            end
-
-            def returnOptionalClass(req, context=nil)
-                InitialPrx_mixin::OP_returnOptionalClass.invoke(self, [req], context)
-            end
-
             def opG(g, context=nil)
                 InitialPrx_mixin::OP_opG.invoke(self, [g], context)
             end
@@ -943,8 +953,6 @@ module ::Test
         InitialPrx_mixin::OP_opStringIntDict = ::Ice::__defineOperation('opStringIntDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringIntDict, true, 2]], [[::Test::T_StringIntDict, true, 3]], [::Test::T_StringIntDict, true, 1], [])
         InitialPrx_mixin::OP_opIntOneOptionalDict = ::Ice::__defineOperation('opIntOneOptionalDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntOneOptionalDict, true, 2]], [[::Test::T_IntOneOptionalDict, true, 3]], [::Test::T_IntOneOptionalDict, true, 1], [])
         InitialPrx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_A, false, 0]], [], nil, [])
-        InitialPrx_mixin::OP_sendOptionalClass = ::Ice::__defineOperation('sendOptionalClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0], [::Test::T_OneOptional, true, 1]], [], nil, [])
-        InitialPrx_mixin::OP_returnOptionalClass = ::Ice::__defineOperation('returnOptionalClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [[::Test::T_OneOptional, true, 1]], nil, [])
         InitialPrx_mixin::OP_opG = ::Ice::__defineOperation('opG', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_G, false, 0]], [], [::Test::T_G, false, 0], [])
         InitialPrx_mixin::OP_opMStruct1 = ::Ice::__defineOperation('opMStruct1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_SmallStruct, true, 1], [])
         InitialPrx_mixin::OP_opMStruct2 = ::Ice::__defineOperation('opMStruct2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SmallStruct, true, 2]], [[::Test::T_SmallStruct, true, 3]], [::Test::T_SmallStruct, true, 1], [])

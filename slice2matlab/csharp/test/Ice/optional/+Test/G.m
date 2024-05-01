@@ -12,17 +12,17 @@
 classdef G < Ice.Value
     properties
         gg1Opt
-        gg2
+        gg2 Test.G2
         gg2Opt
-        gg1
+        gg1 Test.G1
     end
     methods
         function obj = G(gg1Opt, gg2, gg2Opt, gg1)
             if nargin == 0
                 obj.gg1Opt = IceInternal.UnsetI.Instance;
-                obj.gg2 = [];
+                obj.gg2 = Test.G2();
                 obj.gg2Opt = IceInternal.UnsetI.Instance;
-                obj.gg1 = [];
+                obj.gg1 = Test.G1();
             elseif ne(gg1Opt, IceInternal.NoInit.Instance)
                 obj.gg1Opt = gg1Opt;
                 obj.gg2 = gg2;
@@ -37,31 +37,19 @@ classdef G < Ice.Value
     methods(Access=protected)
         function iceWriteImpl(obj, os)
             os.startSlice('::Test::G', -1, true);
-            os.writeValue(obj.gg2);
-            os.writeValue(obj.gg1);
-            os.writeValueOpt(0, obj.gg2Opt);
-            os.writeValueOpt(1, obj.gg1Opt);
+            Test.G2.ice_write(os, obj.gg2);
+            Test.G1.ice_write(os, obj.gg1);
+            Test.G2.ice_writeOpt(os, 0, obj.gg2Opt);
+            Test.G1.ice_writeOpt(os, 1, obj.gg1Opt);
             os.endSlice();
         end
         function iceReadImpl(obj, is)
             is.startSlice();
-            is.readValue(@obj.iceSetMember_gg2, 'Test.G2');
-            is.readValue(@obj.iceSetMember_gg1, 'Test.G1');
-            is.readValueOpt(0, @obj.iceSetMember_gg2Opt, 'Test.G2');
-            is.readValueOpt(1, @obj.iceSetMember_gg1Opt, 'Test.G1');
+            obj.gg2 = Test.G2.ice_read(is);
+            obj.gg1 = Test.G1.ice_read(is);
+            obj.gg2Opt = Test.G2.ice_readOpt(is, 0);
+            obj.gg1Opt = Test.G1.ice_readOpt(is, 1);
             is.endSlice();
-        end
-        function iceSetMember_gg1Opt(obj, v)
-            obj.gg1Opt = v;
-        end
-        function iceSetMember_gg2(obj, v)
-            obj.gg2 = v;
-        end
-        function iceSetMember_gg2Opt(obj, v)
-            obj.gg2Opt = v;
-        end
-        function iceSetMember_gg1(obj, v)
-            obj.gg1 = v;
         end
     end
     methods(Static)

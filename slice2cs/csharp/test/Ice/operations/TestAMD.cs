@@ -13175,16 +13175,6 @@ namespace Ice.operations.AMD
 
             public abstract global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::Ice.Current current = null);
 
-            public abstract global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::Ice.Current current = null);
-
             public abstract global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
@@ -13208,6 +13198,16 @@ namespace Ice.operations.AMD
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::Ice.Current current = null);
 
             #endregion
 

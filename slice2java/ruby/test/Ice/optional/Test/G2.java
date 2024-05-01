@@ -15,8 +15,11 @@
 
 package Test;
 
-public class G2 extends com.zeroc.Ice.Value
+public class G2 implements java.lang.Cloneable,
+                           java.io.Serializable
 {
+    public long a;
+
     public G2()
     {
     }
@@ -26,42 +29,114 @@ public class G2 extends com.zeroc.Ice.Value
         this.a = a;
     }
 
-    public long a;
+    public boolean equals(java.lang.Object rhs)
+    {
+        if(this == rhs)
+        {
+            return true;
+        }
+        G2 r = null;
+        if(rhs instanceof G2)
+        {
+            r = (G2)rhs;
+        }
+
+        if(r != null)
+        {
+            if(this.a != r.a)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public int hashCode()
+    {
+        int h_ = 5381;
+        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::G2");
+        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, a);
+        return h_;
+    }
 
     public G2 clone()
     {
-        return (G2)super.clone();
+        G2 c = null;
+        try
+        {
+            c = (G2)super.clone();
+        }
+        catch(CloneNotSupportedException ex)
+        {
+            assert false; // impossible
+        }
+        return c;
     }
 
-    public static String ice_staticId()
+    public void ice_writeMembers(com.zeroc.Ice.OutputStream ostr)
     {
-        return "::Test::G2";
+        ostr.writeLong(this.a);
     }
 
-    @Override
-    public String ice_id()
+    public void ice_readMembers(com.zeroc.Ice.InputStream istr)
     {
-        return ice_staticId();
+        this.a = istr.readLong();
     }
+
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, G2 v)
+    {
+        if(v == null)
+        {
+            _nullMarshalValue.ice_writeMembers(ostr);
+        }
+        else
+        {
+            v.ice_writeMembers(ostr);
+        }
+    }
+
+    static public G2 ice_read(com.zeroc.Ice.InputStream istr)
+    {
+        G2 v = new G2();
+        v.ice_readMembers(istr);
+        return v;
+    }
+
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<G2> v)
+    {
+        if(v != null && v.isPresent())
+        {
+            ice_write(ostr, tag, v.get());
+        }
+    }
+
+    static public void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, G2 v)
+    {
+        if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
+        {
+            ostr.writeSize(8);
+            ice_write(ostr, v);
+        }
+    }
+
+    static public java.util.Optional<G2> ice_read(com.zeroc.Ice.InputStream istr, int tag)
+    {
+        if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.VSize))
+        {
+            istr.skipSize();
+            return java.util.Optional.of(G2.ice_read(istr));
+        }
+        else
+        {
+            return java.util.Optional.empty();
+        }
+    }
+
+    private static final G2 _nullMarshalValue = new G2();
 
     /** @hidden */
-    public static final long serialVersionUID = 44035475597622987L;
-
-    /** @hidden */
-    @Override
-    protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
-    {
-        ostr_.startSlice(ice_staticId(), -1, true);
-        ostr_.writeLong(a);
-        ostr_.endSlice();
-    }
-
-    /** @hidden */
-    @Override
-    protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
-    {
-        istr_.startSlice();
-        a = istr_.readLong();
-        istr_.endSlice();
-    }
+    public static final long serialVersionUID = 3824549940492934626L;
 }

@@ -115,11 +115,9 @@ namespace Test
     class F;
     using FPtr = ::std::shared_ptr<F>;
 
-    class G1;
-    using G1Ptr = ::std::shared_ptr<G1>;
+    struct G1;
 
-    class G2;
-    using G2Ptr = ::std::shared_ptr<G2>;
+    struct G2;
 
     class G;
     using GPtr = ::std::shared_ptr<G>;
@@ -603,28 +601,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const APtr&, const ::Ice::Context&) const;
-    /// \endcond
-
-    void sendOptionalClass(bool req, const ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<void> sendOptionalClassAsync(bool req, const ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    sendOptionalClassAsync(bool req, const ::std::optional<OneOptionalPtr>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_sendOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::std::optional<OneOptionalPtr>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    void returnOptionalClass(bool req, ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::optional<OneOptionalPtr>> returnOptionalClassAsync(bool req, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    returnOptionalClassAsync(bool req, ::std::function<void(::std::optional<::Test::OneOptionalPtr>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_returnOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<OneOptionalPtr>>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
     GPtr opG(const GPtr& g, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1450,8 +1426,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit E(::Test::APtr ae) :
-        ae(::std::move(ae))
+    explicit E(::Test::FixedStruct fse) :
+        fse(::std::move(fse))
     {
     }
 
@@ -1467,9 +1443,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Test::APtr&> ice_tuple() const
+    std::tuple<const ::Test::FixedStruct&> ice_tuple() const
     {
-        return std::tie(ae);
+        return std::tie(fse);
     }
 
     /**
@@ -1478,7 +1454,7 @@ public:
      */
     EPtr ice_clone() const { return ::std::static_pointer_cast <E>(_iceCloneImpl()); }
 
-    ::Test::APtr ae;
+    ::Test::FixedStruct fse;
 
 protected:
 
@@ -1499,9 +1475,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    F(::Test::APtr ae, ::std::optional<::Test::APtr> af) :
-        E(::std::move(ae)),
-        af(::std::move(af))
+    F(::Test::FixedStruct fse, ::std::optional<::Test::FixedStruct> fsf) :
+        E(::std::move(fse)),
+        fsf(::std::move(fsf))
     {
     }
 
@@ -1517,9 +1493,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Test::APtr&, const ::std::optional<::Test::APtr>&> ice_tuple() const
+    std::tuple<const ::Test::FixedStruct&, const ::std::optional<::Test::FixedStruct>&> ice_tuple() const
     {
-        return std::tie(ae, af);
+        return std::tie(fse, fsf);
     }
 
     /**
@@ -1528,7 +1504,7 @@ public:
      */
     FPtr ice_clone() const { return ::std::static_pointer_cast <F>(_iceCloneImpl()); }
 
-    ::std::optional<::Test::APtr> af;
+    ::std::optional<::Test::FixedStruct> fsf;
 
 protected:
 
@@ -1540,102 +1516,32 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class G1 : public ::Ice::Value
+struct G1
 {
-public:
-
-    G1() = default;
+    ::std::string a;
 
     /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit G1(::std::string a) :
-        a(::std::move(a))
-    {
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId() noexcept;
-
-    ::std::string ice_id() const override;
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
+     * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
     std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(a);
     }
-
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
-    G1Ptr ice_clone() const { return ::std::static_pointer_cast <G1>(_iceCloneImpl()); }
-
-    ::std::string a;
-
-protected:
-
-    G1(const G1&) = default;
-
-    ::Ice::ValuePtr _iceCloneImpl() const override;
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
-
-    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class G2 : public ::Ice::Value
+struct G2
 {
-public:
-
-    G2() = default;
+    ::std::int64_t a;
 
     /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit G2(::std::int64_t a) :
-        a(a)
-    {
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId() noexcept;
-
-    ::std::string ice_id() const override;
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
+     * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
     std::tuple<const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(a);
     }
-
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
-    G2Ptr ice_clone() const { return ::std::static_pointer_cast <G2>(_iceCloneImpl()); }
-
-    ::std::int64_t a;
-
-protected:
-
-    G2(const G2&) = default;
-
-    ::Ice::ValuePtr _iceCloneImpl() const override;
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
-
-    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 class G : public ::Ice::Value
@@ -1647,7 +1553,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    G(::std::optional<::Test::G1Ptr> gg1Opt, ::Test::G2Ptr gg2, ::std::optional<::Test::G2Ptr> gg2Opt, ::Test::G1Ptr gg1) :
+    G(::std::optional<::Test::G1> gg1Opt, ::Test::G2 gg2, ::std::optional<::Test::G2> gg2Opt, ::Test::G1 gg1) :
         gg1Opt(::std::move(gg1Opt)),
         gg2(::std::move(gg2)),
         gg2Opt(::std::move(gg2Opt)),
@@ -1667,7 +1573,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::optional<::Test::G1Ptr>&, const ::Test::G2Ptr&, const ::std::optional<::Test::G2Ptr>&, const ::Test::G1Ptr&> ice_tuple() const
+    std::tuple<const ::std::optional<::Test::G1>&, const ::Test::G2&, const ::std::optional<::Test::G2>&, const ::Test::G1&> ice_tuple() const
     {
         return std::tie(gg1Opt, gg2, gg2Opt, gg1);
     }
@@ -1678,10 +1584,10 @@ public:
      */
     GPtr ice_clone() const { return ::std::static_pointer_cast <G>(_iceCloneImpl()); }
 
-    ::std::optional<::Test::G1Ptr> gg1Opt;
-    ::Test::G2Ptr gg2;
-    ::std::optional<::Test::G2Ptr> gg2Opt;
-    ::Test::G1Ptr gg1;
+    ::std::optional<::Test::G1> gg1Opt;
+    ::Test::G2 gg2;
+    ::std::optional<::Test::G2> gg2Opt;
+    ::Test::G1 gg1;
 
 protected:
 
@@ -1952,16 +1858,6 @@ public:
     virtual void opClassAndUnknownOptional(APtr p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opClassAndUnknownOptional(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual void sendOptionalClass(bool req, ::std::optional<OneOptionalPtr> o, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_sendOptionalClass(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual void returnOptionalClass(bool req, ::std::optional<OneOptionalPtr>& o, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_returnOptionalClass(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual GPtr opG(GPtr g, const ::Ice::Current& current) = 0;
@@ -2407,7 +2303,7 @@ struct StreamReader<::Test::E>
 {
     static void read(InputStream* istr, ::Test::E& v)
     {
-        istr->readAll(v.ae);
+        istr->readAll(v.fse);
     }
 };
 
@@ -2416,7 +2312,7 @@ struct StreamWriter<::Test::F>
 {
     static void write(OutputStream* ostr, const ::Test::F& v)
     {
-        ostr->writeAll({1}, v.af);
+        ostr->writeAll({1}, v.fsf);
     }
 };
 
@@ -2425,8 +2321,16 @@ struct StreamReader<::Test::F>
 {
     static void read(InputStream* istr, ::Test::F& v)
     {
-        istr->readAll({1}, v.af);
+        istr->readAll({1}, v.fsf);
     }
+};
+
+template<>
+struct StreamableTraits<::Test::G1>
+{
+    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+    static const int minWireSize = 1;
+    static const bool fixedLength = false;
 };
 
 template<>
@@ -2436,6 +2340,14 @@ struct StreamReader<::Test::G1>
     {
         istr->readAll(v.a);
     }
+};
+
+template<>
+struct StreamableTraits<::Test::G2>
+{
+    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+    static const int minWireSize = 8;
+    static const bool fixedLength = true;
 };
 
 template<>

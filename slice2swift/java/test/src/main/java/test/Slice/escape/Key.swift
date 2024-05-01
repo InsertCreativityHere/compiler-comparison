@@ -882,9 +882,9 @@ public extension newPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as import {
-                                         throw error
                                      } catch let error as hashCode {
+                                         throw error
+                                     } catch let error as import {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -940,9 +940,9 @@ public extension newPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as import {
-                                          throw error
                                       } catch let error as hashCode {
+                                          throw error
+                                      } catch let error as import {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },

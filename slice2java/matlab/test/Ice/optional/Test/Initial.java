@@ -1714,10 +1714,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     void opClassAndUnknownOptional(A p, com.zeroc.Ice.Current current);
 
-    void sendOptionalClass(boolean req, java.util.Optional<OneOptional> o, com.zeroc.Ice.Current current);
-
-    java.util.Optional<OneOptional> returnOptionalClass(boolean req, com.zeroc.Ice.Current current);
-
     G opG(G g, com.zeroc.Ice.Current current);
 
     void opVoid(com.zeroc.Ice.Current current);
@@ -2563,48 +2559,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_sendOptionalClass(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        boolean iceP_req;
-        final com.zeroc.IceInternal.Holder<java.util.Optional<OneOptional>> icePP_o = new com.zeroc.IceInternal.Holder<>();
-        iceP_req = istr.readBool();
-        istr.readValue(1, v -> icePP_o.value = v, OneOptional.class);
-        inS.endReadParams();
-        java.util.Optional<OneOptional> iceP_o = icePP_o.value;
-        obj.sendOptionalClass(iceP_req, iceP_o, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_returnOptionalClass(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        boolean iceP_req;
-        iceP_req = istr.readBool();
-        inS.endReadParams();
-        java.util.Optional<OneOptional> ret = obj.returnOptionalClass(iceP_req, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeValue(1, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opG(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -2895,8 +2849,6 @@ public interface Initial extends com.zeroc.Ice.Object
         "opVarStructSeq",
         "opVoid",
         "pingPong",
-        "returnOptionalClass",
-        "sendOptionalClass",
         "shutdown",
         "supportsCsharpSerializable",
         "supportsJavaSerializable",
@@ -3119,29 +3071,21 @@ public interface Initial extends com.zeroc.Ice.Object
             }
             case 50:
             {
-                return _iceD_returnOptionalClass(this, in, current);
+                return _iceD_shutdown(this, in, current);
             }
             case 51:
             {
-                return _iceD_sendOptionalClass(this, in, current);
+                return _iceD_supportsCsharpSerializable(this, in, current);
             }
             case 52:
             {
-                return _iceD_shutdown(this, in, current);
+                return _iceD_supportsJavaSerializable(this, in, current);
             }
             case 53:
             {
-                return _iceD_supportsCsharpSerializable(this, in, current);
-            }
-            case 54:
-            {
-                return _iceD_supportsJavaSerializable(this, in, current);
-            }
-            case 55:
-            {
                 return _iceD_supportsNullOptional(this, in, current);
             }
-            case 56:
+            case 54:
             {
                 return _iceD_supportsRequiredParams(this, in, current);
             }

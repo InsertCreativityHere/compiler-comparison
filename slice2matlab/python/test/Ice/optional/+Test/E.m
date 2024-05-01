@@ -1,21 +1,21 @@
 % E   Summary of E
 %
 % E Properties:
-%   ae
+%   fse
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef E < Ice.Value
     properties
-        ae
+        fse Test.FixedStruct
     end
     methods
-        function obj = E(ae)
+        function obj = E(fse)
             if nargin == 0
-                obj.ae = [];
-            elseif ne(ae, IceInternal.NoInit.Instance)
-                obj.ae = ae;
+                obj.fse = Test.FixedStruct();
+            elseif ne(fse, IceInternal.NoInit.Instance)
+                obj.fse = fse;
             end;
         end
         function id = ice_id(obj)
@@ -25,16 +25,13 @@ classdef E < Ice.Value
     methods(Access=protected)
         function iceWriteImpl(obj, os)
             os.startSlice('::Test::E', -1, true);
-            os.writeValue(obj.ae);
+            Test.FixedStruct.ice_write(os, obj.fse);
             os.endSlice();
         end
         function iceReadImpl(obj, is)
             is.startSlice();
-            is.readValue(@obj.iceSetMember_ae, 'Test.A');
+            obj.fse = Test.FixedStruct.ice_read(is);
             is.endSlice();
-        end
-        function iceSetMember_ae(obj, v)
-            obj.ae = v;
         end
     end
     methods(Static)

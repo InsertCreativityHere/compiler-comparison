@@ -1,29 +1,29 @@
 % F   Summary of F
 %
 % F Properties:
-%   af
+%   fsf
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef F < Test.E
     properties
-        af
+        fsf
     end
     methods
-        function obj = F(ae, af)
+        function obj = F(fse, fsf)
             if nargin == 0
-                ae = [];
-                af = IceInternal.UnsetI.Instance;
-                v = { ae };
-            elseif eq(ae, IceInternal.NoInit.Instance)
+                fse = Test.FixedStruct();
+                fsf = IceInternal.UnsetI.Instance;
+                v = { fse };
+            elseif eq(fse, IceInternal.NoInit.Instance)
                 v = { IceInternal.NoInit.Instance };
             else
-                v = { ae };
+                v = { fse };
             end;
             obj = obj@Test.E(v{:});
-            if ne(ae, IceInternal.NoInit.Instance)
-                obj.af = af;
+            if ne(fse, IceInternal.NoInit.Instance)
+                obj.fsf = fsf;
             end
         end
         function id = ice_id(obj)
@@ -33,18 +33,15 @@ classdef F < Test.E
     methods(Access=protected)
         function iceWriteImpl(obj, os)
             os.startSlice('::Test::F', -1, false);
-            os.writeValueOpt(1, obj.af);
+            Test.FixedStruct.ice_writeOpt(os, 1, obj.fsf);
             os.endSlice();
             iceWriteImpl@Test.E(obj, os);
         end
         function iceReadImpl(obj, is)
             is.startSlice();
-            is.readValueOpt(1, @obj.iceSetMember_af, 'Test.A');
+            obj.fsf = Test.FixedStruct.ice_readOpt(is, 1);
             is.endSlice();
             iceReadImpl@Test.E(obj, is);
-        end
-        function iceSetMember_af(obj, v)
-            obj.af = v;
         end
     end
     methods(Static)

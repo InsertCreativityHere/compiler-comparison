@@ -48,8 +48,6 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::OptionalWithCustom> iceC_Test_OptionalWithCustom_init("::Test::OptionalWithCustom");
     const ::IceInternal::DefaultValueFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
     const ::IceInternal::DefaultValueFactoryInit<::Test::F> iceC_Test_F_init("::Test::F");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::G1> iceC_Test_G1_init("::Test::G1");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::G2> iceC_Test_G2_init("::Test::G2");
     const ::IceInternal::DefaultValueFactoryInit<::Test::G> iceC_Test_G_init("::Test::G");
 }
 
@@ -1907,76 +1905,6 @@ Test::InitialPrx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceI
         nullptr);
 }
 
-void
-Test::InitialPrx::sendOptionalClass(bool iceP_req, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
-{
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_sendOptionalClass, iceP_req, iceP_o, context).get();
-}
-
-::std::future<void>
-Test::InitialPrx::sendOptionalClassAsync(bool iceP_req, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_sendOptionalClass, iceP_req, iceP_o, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::sendOptionalClassAsync(bool iceP_req, const ::std::optional<OneOptionalPtr>& iceP_o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_sendOptionalClass, iceP_req, iceP_o, context);
-}
-
-void
-Test::InitialPrx::_iceI_sendOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_req, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "sendOptionalClass";
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_req);
-            ostr->writeAll({1}, iceP_o);
-        },
-        nullptr);
-}
-
-void
-Test::InitialPrx::returnOptionalClass(bool iceP_req, ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
-{
-    iceP_o = ::IceInternal::makePromiseOutgoing<::std::optional<OneOptionalPtr>>(true, this, &InitialPrx::_iceI_returnOptionalClass, iceP_req, context).get();
-}
-
-::std::future<::std::optional<::Test::OneOptionalPtr>>
-Test::InitialPrx::returnOptionalClassAsync(bool iceP_req, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::optional<OneOptionalPtr>>(false, this, &InitialPrx::_iceI_returnOptionalClass, iceP_req, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::returnOptionalClassAsync(bool iceP_req, ::std::function<void(::std::optional<::Test::OneOptionalPtr>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<OneOptionalPtr>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_returnOptionalClass, iceP_req, context);
-}
-
-void
-Test::InitialPrx::_iceI_returnOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<OneOptionalPtr>>>& outAsync, bool iceP_req, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "returnOptionalClass";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_req);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::optional<OneOptionalPtr> iceP_o;
-            istr->readAll({1}, iceP_o);
-            return iceP_o;
-        });
-}
-
 ::Test::GPtr
 Test::InitialPrx::opG(const GPtr& iceP_g, const ::Ice::Context& context) const
 {
@@ -2920,76 +2848,6 @@ Test::F::_iceReadImpl(::Ice::InputStream* istr)
     ::Ice::StreamReader<F>::read(istr, *this);
     istr->endSlice();
     E::_iceReadImpl(istr);
-}
-
-::std::string
-Test::G1::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
-Test::G1::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::Test::G1";
-    return typeId;
-}
-
-::Ice::ValuePtr
-Test::G1::_iceCloneImpl() const
-{
-    return CloneEnabler<G1>::clone(*this);
-}
-
-void
-Test::G1::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<G1>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::G1::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader<G1>::read(istr, *this);
-    istr->endSlice();
-}
-
-::std::string
-Test::G2::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
-Test::G2::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::Test::G2";
-    return typeId;
-}
-
-::Ice::ValuePtr
-Test::G2::_iceCloneImpl() const
-{
-    return CloneEnabler<G2>::clone(*this);
-}
-
-void
-Test::G2::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<G2>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::G2::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader<G2>::read(istr, *this);
-    istr->endSlice();
 }
 
 ::std::string
@@ -4205,60 +4063,6 @@ Test::Initial::_iceD_opClassAndUnknownOptional(::Ice::IncomingRequest& request, 
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_sendOptionalClass(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    bool iceP_req;
-    ::std::optional<OneOptionalPtr> iceP_o;
-    istr->readAll(iceP_req);
-    istr->readAll({1}, iceP_o);
-    istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    try
-    {
-        this->sendOptionalClassAsync(iceP_req, ::std::move(iceP_o), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::Initial::_iceD_returnOptionalClass(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    bool iceP_req;
-    istr->readAll(iceP_req);
-    istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](const ::std::optional<OneOptionalPtr>& iceP_o)
-    {
-        responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
-            {
-                ostr->writeAll({1}, iceP_o);
-            });
-    };
-    try
-    {
-        this->returnOptionalClassAsync(iceP_req, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::Initial::_iceD_opG(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
@@ -4647,10 +4451,10 @@ Test::Initial::_iceD_supportsNullOptional(::Ice::IncomingRequest& request, ::std
 void
 Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntOneOptionalDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMG1", "opMG2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opSerializable", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "returnOptionalClass", "sendOptionalClass", "shutdown", "supportsCsharpSerializable", "supportsJavaSerializable", "supportsNullOptional", "supportsRequiredParams"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntOneOptionalDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMG1", "opMG2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opSerializable", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "shutdown", "supportsCsharpSerializable", "supportsJavaSerializable", "supportsNullOptional", "supportsRequiredParams"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 57, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 55, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -4911,35 +4715,25 @@ Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         }
         case 50:
         {
-            _iceD_returnOptionalClass(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, ::std::move(sendResponse));
             break;
         }
         case 51:
         {
-            _iceD_sendOptionalClass(request, ::std::move(sendResponse));
+            _iceD_supportsCsharpSerializable(request, ::std::move(sendResponse));
             break;
         }
         case 52:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
+            _iceD_supportsJavaSerializable(request, ::std::move(sendResponse));
             break;
         }
         case 53:
         {
-            _iceD_supportsCsharpSerializable(request, ::std::move(sendResponse));
-            break;
-        }
-        case 54:
-        {
-            _iceD_supportsJavaSerializable(request, ::std::move(sendResponse));
-            break;
-        }
-        case 55:
-        {
             _iceD_supportsNullOptional(request, ::std::move(sendResponse));
             break;
         }
-        case 56:
+        case 54:
         {
             _iceD_supportsRequiredParams(request, ::std::move(sendResponse));
             break;

@@ -901,9 +901,9 @@ namespace Test
     global $Test__t_E;
     class E extends \Ice\Value
     {
-        public function __construct($ae=null)
+        public function __construct($fse=null)
         {
-            $this->ae = $ae;
+            $this->fse = is_null($fse) ? new \Test\FixedStruct : $fse;
         }
 
         public function ice_id()
@@ -922,15 +922,13 @@ namespace Test
             return IcePHP_stringify($this, $Test__t_E);
         }
 
-        public $ae;
+        public $fse;
     }
 
-    $Test__t_E = IcePHP_declareClass('::Test::E');
-
     global $Ice__t_Value;
-    global $Test__t_A;
+    global $Test__t_FixedStruct;
     $Test__t_E = IcePHP_defineClass('::Test::E', '\\Test\\E', -1, false, $Ice__t_Value, array(
-        array('ae', $Test__t_A, false, 0)));
+        array('fse', $Test__t_FixedStruct, false, 0)));
 }
 
 namespace Test
@@ -938,10 +936,10 @@ namespace Test
     global $Test__t_F;
     class F extends \Test\E
     {
-        public function __construct($ae=null, $af=\Ice\None)
+        public function __construct($fse=null, $fsf=\Ice\None)
         {
-            parent::__construct($ae);
-            $this->af = $af;
+            parent::__construct($fse);
+            $this->fsf = is_null($fsf) ? new \Test\FixedStruct : $fsf;
         }
 
         public function ice_id()
@@ -960,35 +958,23 @@ namespace Test
             return IcePHP_stringify($this, $Test__t_F);
         }
 
-        public $af;
+        public $fsf;
     }
 
-    $Test__t_F = IcePHP_declareClass('::Test::F');
-
     global $Test__t_E;
-    global $Test__t_A;
+    global $Test__t_FixedStruct;
     $Test__t_F = IcePHP_defineClass('::Test::F', '\\Test\\F', -1, false, $Test__t_E, array(
-        array('af', $Test__t_A, true, 1)));
+        array('fsf', $Test__t_FixedStruct, true, 1)));
 }
 
 namespace Test
 {
     global $Test__t_G1;
-    class G1 extends \Ice\Value
+    class G1
     {
         public function __construct($a='')
         {
             $this->a = $a;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::G1';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::G1';
         }
 
         public function __toString(): string
@@ -1000,30 +986,19 @@ namespace Test
         public $a;
     }
 
-    global $Ice__t_Value;
     global $IcePHP__t_string;
-    $Test__t_G1 = IcePHP_defineClass('::Test::G1', '\\Test\\G1', -1, false, $Ice__t_Value, array(
-        array('a', $IcePHP__t_string, false, 0)));
+    $Test__t_G1 = IcePHP_defineStruct('::Test::G1', '\\Test\\G1', array(
+        array('a', $IcePHP__t_string)));
 }
 
 namespace Test
 {
     global $Test__t_G2;
-    class G2 extends \Ice\Value
+    class G2
     {
         public function __construct($a=0)
         {
             $this->a = $a;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::G2';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::G2';
         }
 
         public function __toString(): string
@@ -1035,10 +1010,9 @@ namespace Test
         public $a;
     }
 
-    global $Ice__t_Value;
     global $IcePHP__t_long;
-    $Test__t_G2 = IcePHP_defineClass('::Test::G2', '\\Test\\G2', -1, false, $Ice__t_Value, array(
-        array('a', $IcePHP__t_long, false, 0)));
+    $Test__t_G2 = IcePHP_defineStruct('::Test::G2', '\\Test\\G2', array(
+        array('a', $IcePHP__t_long)));
 }
 
 namespace Test
@@ -1048,10 +1022,10 @@ namespace Test
     {
         public function __construct($gg1Opt=\Ice\None, $gg2=null, $gg2Opt=\Ice\None, $gg1=null)
         {
-            $this->gg1Opt = $gg1Opt;
-            $this->gg2 = $gg2;
-            $this->gg2Opt = $gg2Opt;
-            $this->gg1 = $gg1;
+            $this->gg1Opt = is_null($gg1Opt) ? new \Test\G1 : $gg1Opt;
+            $this->gg2 = is_null($gg2) ? new \Test\G2 : $gg2;
+            $this->gg2Opt = is_null($gg2Opt) ? new \Test\G2 : $gg2Opt;
+            $this->gg1 = is_null($gg1) ? new \Test\G1 : $gg1;
         }
 
         public function ice_id()
@@ -1075,8 +1049,6 @@ namespace Test
         public $gg2Opt;
         public $gg1;
     }
-
-    $Test__t_G = IcePHP_declareClass('::Test::G');
 
     global $Ice__t_Value;
     global $Test__t_G1;
@@ -1216,8 +1188,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'opIntOneOptionalDict', 0, 0, 0, array(array($Test__t_IntOneOptionalDict, 2)), array(array($Test__t_IntOneOptionalDict, 3)), array($Test__t_IntOneOptionalDict, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opIntOneOptionalDictReq', 0, 0, 0, array(array($Test__t_IntOneOptionalDict, 2)), array(array($Test__t_IntOneOptionalDict, 3)), array($Test__t_IntOneOptionalDict, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opClassAndUnknownOptional', 0, 0, 0, array(array($Test__t_A)), null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'sendOptionalClass', 0, 0, 0, array(array($IcePHP__t_bool), array($Test__t_OneOptional, 1)), null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'returnOptionalClass', 0, 0, 0, array(array($IcePHP__t_bool)), array(array($Test__t_OneOptional, 1)), null, null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opG', 0, 0, 0, array(array($Test__t_G)), null, array($Test__t_G), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opVoid', 0, 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opMStruct1', 0, 0, 0, null, null, array($Test__t_SmallStruct, 1), null);

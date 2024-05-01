@@ -743,8 +743,11 @@ if 'OptionalWithCustom' not in _M_Test.__dict__:
 if 'E' not in _M_Test.__dict__:
     _M_Test.E = Ice.createTempClass()
     class E(Ice.Value):
-        def __init__(self, ae=None):
-            self.ae = ae
+        def __init__(self, fse=Ice._struct_marker):
+            if fse is Ice._struct_marker:
+                self.fse = _M_Test.FixedStruct()
+            else:
+                self.fse = fse
 
         def ice_id(self):
             return '::Test::E'
@@ -758,9 +761,7 @@ if 'E' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_E = IcePy.declareValue('::Test::E')
-
-    _M_Test._t_E = IcePy.defineValue('::Test::E', E, -1, (), False, None, (('ae', (), _M_Test._t_A, False, 0),))
+    _M_Test._t_E = IcePy.defineValue('::Test::E', E, -1, (), False, None, (('fse', (), _M_Test._t_FixedStruct, False, 0),))
     E._ice_type = _M_Test._t_E
 
     _M_Test.E = E
@@ -769,9 +770,9 @@ if 'E' not in _M_Test.__dict__:
 if 'F' not in _M_Test.__dict__:
     _M_Test.F = Ice.createTempClass()
     class F(_M_Test.E):
-        def __init__(self, ae=None, af=Ice.Unset):
-            _M_Test.E.__init__(self, ae)
-            self.af = af
+        def __init__(self, fse=Ice._struct_marker, fsf=Ice.Unset):
+            _M_Test.E.__init__(self, fse)
+            self.fsf = fsf
 
         def ice_id(self):
             return '::Test::F'
@@ -785,9 +786,7 @@ if 'F' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_F = IcePy.declareValue('::Test::F')
-
-    _M_Test._t_F = IcePy.defineValue('::Test::F', F, -1, (), False, _M_Test._t_E, (('af', (), _M_Test._t_A, True, 1),))
+    _M_Test._t_F = IcePy.defineValue('::Test::F', F, -1, (), False, _M_Test._t_E, (('fsf', (), _M_Test._t_FixedStruct, True, 1),))
     F._ice_type = _M_Test._t_F
 
     _M_Test.F = F
@@ -795,48 +794,158 @@ if 'F' not in _M_Test.__dict__:
 
 if 'G1' not in _M_Test.__dict__:
     _M_Test.G1 = Ice.createTempClass()
-    class G1(Ice.Value):
+    class G1(object):
         def __init__(self, a=''):
             self.a = a
 
-        def ice_id(self):
-            return '::Test::G1'
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + Ice.getHash(self.a)
+            return _h % 0x7fffffff
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::G1'
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.G1):
+                return NotImplemented
+            else:
+                if self.a is None or other.a is None:
+                    if self.a != other.a:
+                        return (-1 if self.a is None else 1)
+                else:
+                    if self.a < other.a:
+                        return -1
+                    elif self.a > other.a:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_G1)
 
         __repr__ = __str__
 
-    _M_Test._t_G1 = IcePy.defineValue('::Test::G1', G1, -1, (), False, None, (('a', (), IcePy._t_string, False, 0),))
-    G1._ice_type = _M_Test._t_G1
+    _M_Test._t_G1 = IcePy.defineStruct('::Test::G1', G1, (), (('a', (), IcePy._t_string),))
 
     _M_Test.G1 = G1
     del G1
 
 if 'G2' not in _M_Test.__dict__:
     _M_Test.G2 = Ice.createTempClass()
-    class G2(Ice.Value):
+    class G2(object):
         def __init__(self, a=0):
             self.a = a
 
-        def ice_id(self):
-            return '::Test::G2'
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + Ice.getHash(self.a)
+            return _h % 0x7fffffff
 
-        @staticmethod
-        def ice_staticId():
-            return '::Test::G2'
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_Test.G2):
+                return NotImplemented
+            else:
+                if self.a is None or other.a is None:
+                    if self.a != other.a:
+                        return (-1 if self.a is None else 1)
+                else:
+                    if self.a < other.a:
+                        return -1
+                    elif self.a > other.a:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
 
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_G2)
 
         __repr__ = __str__
 
-    _M_Test._t_G2 = IcePy.defineValue('::Test::G2', G2, -1, (), False, None, (('a', (), IcePy._t_long, False, 0),))
-    G2._ice_type = _M_Test._t_G2
+    _M_Test._t_G2 = IcePy.defineStruct('::Test::G2', G2, (), (('a', (), IcePy._t_long),))
 
     _M_Test.G2 = G2
     del G2
@@ -844,11 +953,17 @@ if 'G2' not in _M_Test.__dict__:
 if 'G' not in _M_Test.__dict__:
     _M_Test.G = Ice.createTempClass()
     class G(Ice.Value):
-        def __init__(self, gg1Opt=Ice.Unset, gg2=None, gg2Opt=Ice.Unset, gg1=None):
+        def __init__(self, gg1Opt=Ice.Unset, gg2=Ice._struct_marker, gg2Opt=Ice.Unset, gg1=Ice._struct_marker):
             self.gg1Opt = gg1Opt
-            self.gg2 = gg2
+            if gg2 is Ice._struct_marker:
+                self.gg2 = _M_Test.G2()
+            else:
+                self.gg2 = gg2
             self.gg2Opt = gg2Opt
-            self.gg1 = gg1
+            if gg1 is Ice._struct_marker:
+                self.gg1 = _M_Test.G1()
+            else:
+                self.gg1 = gg1
 
         def ice_id(self):
             return '::Test::G'
@@ -861,8 +976,6 @@ if 'G' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_G)
 
         __repr__ = __str__
-
-    _M_Test._t_G = IcePy.declareValue('::Test::G')
 
     _M_Test._t_G = IcePy.defineValue('::Test::G', G, -1, (), False, None, (
         ('gg1Opt', (), _M_Test._t_G1, True, 1),
@@ -1289,18 +1402,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opClassAndUnknownOptionalAsync(self, p, context=None):
             return _M_Test.Initial._op_opClassAndUnknownOptional.invokeAsync(self, ((p, ), context))
 
-        def sendOptionalClass(self, req, o=Ice.Unset, context=None):
-            return _M_Test.Initial._op_sendOptionalClass.invoke(self, ((req, o), context))
-
-        def sendOptionalClassAsync(self, req, o, context=None):
-            return _M_Test.Initial._op_sendOptionalClass.invokeAsync(self, ((req, o), context))
-
-        def returnOptionalClass(self, req, context=None):
-            return _M_Test.Initial._op_returnOptionalClass.invoke(self, ((req, ), context))
-
-        def returnOptionalClassAsync(self, req, context=None):
-            return _M_Test.Initial._op_returnOptionalClass.invokeAsync(self, ((req, ), context))
-
         def opG(self, g, context=None):
             return _M_Test.Initial._op_opG.invoke(self, ((g, ), context))
 
@@ -1618,12 +1719,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opClassAndUnknownOptional(self, p, current=None):
             raise NotImplementedError("servant method 'opClassAndUnknownOptional' not implemented")
 
-        def sendOptionalClass(self, req, o, current=None):
-            raise NotImplementedError("servant method 'sendOptionalClass' not implemented")
-
-        def returnOptionalClass(self, req, current=None):
-            raise NotImplementedError("servant method 'returnOptionalClass' not implemented")
-
         def opG(self, g, current=None):
             raise NotImplementedError("servant method 'opG' not implemented")
 
@@ -1846,8 +1941,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opIntOneOptionalDict = IcePy.Operation('opIntOneOptionalDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntOneOptionalDict, True, 2),), (((), _M_Test._t_IntOneOptionalDict, True, 3),), ((), _M_Test._t_IntOneOptionalDict, True, 1), ())
     Initial._op_opIntOneOptionalDictReq = IcePy.Operation('opIntOneOptionalDictReq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntOneOptionalDict, True, 2),), (((), _M_Test._t_IntOneOptionalDict, True, 3),), ((), _M_Test._t_IntOneOptionalDict, True, 1), ())
     Initial._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_A, False, 0),), (), None, ())
-    Initial._op_sendOptionalClass = IcePy.Operation('sendOptionalClass', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0), ((), _M_Test._t_OneOptional, True, 1)), (), None, ())
-    Initial._op_returnOptionalClass = IcePy.Operation('returnOptionalClass', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (((), _M_Test._t_OneOptional, True, 1),), None, ())
     Initial._op_opG = IcePy.Operation('opG', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_G, False, 0),), (), ((), _M_Test._t_G, False, 0), ())
     Initial._op_opVoid = IcePy.Operation('opVoid', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Initial._op_opMStruct1 = IcePy.Operation('opMStruct1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_SmallStruct, True, 1), ())
