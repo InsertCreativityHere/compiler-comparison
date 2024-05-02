@@ -319,14 +319,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<Router_GetClientProxyResult> _iceI_getClientProxyAsync(OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getClientProxy_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Router_GetClientProxyResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Router_GetClientProxyResult>(progress, cancel);
             _iceI_getClientProxy(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getClientProxy_name = "getClientProxy";
 
-        private void _iceI_getClientProxy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getClientProxy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Router_GetClientProxyResult>(completed);
             outAsync.invoke(
@@ -355,14 +355,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<ObjectPrx> _iceI_getServerProxyAsync(OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getServerProxy_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<ObjectPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx>(progress, cancel);
             _iceI_getServerProxy(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getServerProxy_name = "getServerProxy";
 
-        private void _iceI_getServerProxy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getServerProxy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ObjectPrx>(completed);
             outAsync.invoke(
@@ -387,14 +387,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<ObjectPrx[]> _iceI_addProxiesAsync(ObjectPrx[] iceP_proxies, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_addProxies_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<ObjectPrx[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx[]>(progress, cancel);
             _iceI_addProxies(iceP_proxies, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _addProxies_name = "addProxies";
 
-        private void _iceI_addProxies(ObjectPrx[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_addProxies(ObjectPrx[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ObjectPrx[]>(completed);
             outAsync.invoke(
@@ -589,14 +589,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<RouterPrx> _iceI_getRouterAsync(OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getRouter_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<RouterPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<RouterPrx>(progress, cancel);
             _iceI_getRouter(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getRouter_name = "getRouter";
 
-        private void _iceI_getRouter(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getRouter(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<RouterPrx>(completed);
             outAsync.invoke(
@@ -780,7 +780,7 @@ namespace Ice
 
         public override bool ice_isA(string s, Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(Current current = null)
@@ -804,7 +804,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getClientProxy(Router obj, global::IceInternal.Incoming inS, Current current)
+        iceD_getClientProxy(Router obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -819,7 +819,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getServerProxy(Router obj, global::IceInternal.Incoming inS, Current current)
+        iceD_getServerProxy(Router obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -832,7 +832,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_addProxies(Router obj, global::IceInternal.Incoming inS, Current current)
+        iceD_addProxies(Router obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -858,9 +858,9 @@ namespace Ice
         };
 
         public override global::System.Threading.Tasks.Task<OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new OperationNotExistException(current.id, current.facet, current.operation);
@@ -925,7 +925,7 @@ namespace Ice
 
         public override bool ice_isA(string s, Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(Current current = null)
@@ -949,7 +949,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getRouter(RouterFinder obj, global::IceInternal.Incoming inS, Current current)
+        iceD_getRouter(RouterFinder obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -970,9 +970,9 @@ namespace Ice
         };
 
         public override global::System.Threading.Tasks.Task<OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new OperationNotExistException(current.id, current.facet, current.operation);

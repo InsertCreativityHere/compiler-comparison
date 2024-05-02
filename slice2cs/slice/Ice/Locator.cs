@@ -769,14 +769,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<ObjectPrx> _iceI_findObjectByIdAsync(Identity iceP_id, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_findObjectById_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<ObjectPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx>(progress, cancel);
             _iceI_findObjectById(iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _findObjectById_name = "findObjectById";
 
-        private void _iceI_findObjectById(Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_findObjectById(Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ObjectPrx>(completed);
             outAsync.invoke(
@@ -819,14 +819,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<ObjectPrx> _iceI_findAdapterByIdAsync(string iceP_id, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_findAdapterById_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<ObjectPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx>(progress, cancel);
             _iceI_findAdapterById(iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _findAdapterById_name = "findAdapterById";
 
-        private void _iceI_findAdapterById(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_findAdapterById(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ObjectPrx>(completed);
             outAsync.invoke(
@@ -869,14 +869,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<LocatorRegistryPrx> _iceI_getRegistryAsync(OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getRegistry_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<LocatorRegistryPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LocatorRegistryPrx>(progress, cancel);
             _iceI_getRegistry(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getRegistry_name = "getRegistry";
 
-        private void _iceI_getRegistry(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getRegistry(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<LocatorRegistryPrx>(completed);
             outAsync.invoke(
@@ -1091,14 +1091,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task _iceI_setAdapterDirectProxyAsync(string iceP_id, ObjectPrx iceP_proxy, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setAdapterDirectProxy_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setAdapterDirectProxy(iceP_id, iceP_proxy, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setAdapterDirectProxy_name = "setAdapterDirectProxy";
 
-        private void _iceI_setAdapterDirectProxy(string iceP_id, ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setAdapterDirectProxy(string iceP_id, ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1140,14 +1140,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task _iceI_setReplicatedAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx iceP_proxy, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setReplicatedAdapterDirectProxy_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setReplicatedAdapterDirectProxy(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setReplicatedAdapterDirectProxy_name = "setReplicatedAdapterDirectProxy";
 
-        private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1194,14 +1194,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task _iceI_setServerProcessProxyAsync(string iceP_id, ProcessPrx iceP_proxy, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setServerProcessProxy_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setServerProcessProxy(iceP_id, iceP_proxy, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setServerProcessProxy_name = "setServerProcessProxy";
 
-        private void _iceI_setServerProcessProxy(string iceP_id, ProcessPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setServerProcessProxy(string iceP_id, ProcessPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1405,14 +1405,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<LocatorPrx> _iceI_getLocatorAsync(OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getLocator_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<LocatorPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LocatorPrx>(progress, cancel);
             _iceI_getLocator(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getLocator_name = "getLocator";
 
-        private void _iceI_getLocator(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getLocator(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<LocatorPrx>(completed);
             outAsync.invoke(
@@ -1596,7 +1596,7 @@ namespace Ice
 
         public override bool ice_isA(string s, Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(Current current = null)
@@ -1620,7 +1620,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_findObjectById(Locator obj, global::IceInternal.Incoming inS, Current current)
+        iceD_findObjectById(Locator obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -1637,7 +1637,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_findAdapterById(Locator obj, global::IceInternal.Incoming inS, Current current)
+        iceD_findAdapterById(Locator obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -1653,7 +1653,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getRegistry(Locator obj, global::IceInternal.Incoming inS, Current current)
+        iceD_getRegistry(Locator obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -1676,9 +1676,9 @@ namespace Ice
         };
 
         public override global::System.Threading.Tasks.Task<OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new OperationNotExistException(current.id, current.facet, current.operation);
@@ -1747,7 +1747,7 @@ namespace Ice
 
         public override bool ice_isA(string s, Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(Current current = null)
@@ -1771,7 +1771,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_setAdapterDirectProxy(LocatorRegistry obj, global::IceInternal.Incoming inS, Current current)
+        iceD_setAdapterDirectProxy(LocatorRegistry obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -1785,7 +1785,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_setReplicatedAdapterDirectProxy(LocatorRegistry obj, global::IceInternal.Incoming inS, Current current)
+        iceD_setReplicatedAdapterDirectProxy(LocatorRegistry obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -1801,7 +1801,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_setServerProcessProxy(LocatorRegistry obj, global::IceInternal.Incoming inS, Current current)
+        iceD_setServerProcessProxy(LocatorRegistry obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -1825,9 +1825,9 @@ namespace Ice
         };
 
         public override global::System.Threading.Tasks.Task<OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new OperationNotExistException(current.id, current.facet, current.operation);
@@ -1892,7 +1892,7 @@ namespace Ice
 
         public override bool ice_isA(string s, Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(Current current = null)
@@ -1916,7 +1916,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getLocator(LocatorFinder obj, global::IceInternal.Incoming inS, Current current)
+        iceD_getLocator(LocatorFinder obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1937,9 +1937,9 @@ namespace Ice
         };
 
         public override global::System.Threading.Tasks.Task<OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new OperationNotExistException(current.id, current.facet, current.operation);

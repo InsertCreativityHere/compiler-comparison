@@ -64,9 +64,9 @@ namespace Demo
             public override int GetHashCode()
             {
                 int h_ = 5381;
-                global::IceInternal.HashUtil.hashAdd(ref h_, "::Demo::gx::Point");
-                global::IceInternal.HashUtil.hashAdd(ref h_, x);
-                global::IceInternal.HashUtil.hashAdd(ref h_, y);
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Demo::gx::Point");
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, x);
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, y);
                 return h_;
             }
 

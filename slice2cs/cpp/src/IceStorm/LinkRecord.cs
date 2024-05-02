@@ -82,10 +82,10 @@ namespace IceStorm
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceStorm::LinkRecord");
-            global::IceInternal.HashUtil.hashAdd(ref h_, obj);
-            global::IceInternal.HashUtil.hashAdd(ref h_, cost);
-            global::IceInternal.HashUtil.hashAdd(ref h_, theTopic);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStorm::LinkRecord");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, obj);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, cost);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, theTopic);
             return h_;
         }
 

@@ -156,14 +156,14 @@ namespace User
         private global::System.Threading.Tasks.Task<UserInfo> _iceI_getUserInfoAsync(string iceP_id, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getUserInfo_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<UserInfo>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<UserInfo>(progress, cancel);
             _iceI_getUserInfo(iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getUserInfo_name = "getUserInfo";
 
-        private void _iceI_getUserInfo(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getUserInfo(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<UserInfo>(completed);
             outAsync.invoke(
@@ -362,7 +362,7 @@ namespace User
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -386,7 +386,7 @@ namespace User
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getUserInfo(Registry obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getUserInfo(Registry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -411,9 +411,9 @@ namespace User
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);

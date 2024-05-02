@@ -178,7 +178,7 @@ namespace Ice
             v = new Value[v_lenx];
             for(int ix = 0; ix < v_lenx; ++ix)
             {
-                istr.readValue(global::IceInternal.Patcher.arrayReadValue<Value>(v, ix));
+                istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<Value>(v, ix));
             }
             return v;
         }

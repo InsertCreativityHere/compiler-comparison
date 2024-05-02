@@ -97,13 +97,13 @@ namespace Glacier2
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Glacier2::SSLInfo");
-            global::IceInternal.HashUtil.hashAdd(ref h_, remoteHost);
-            global::IceInternal.HashUtil.hashAdd(ref h_, remotePort);
-            global::IceInternal.HashUtil.hashAdd(ref h_, localHost);
-            global::IceInternal.HashUtil.hashAdd(ref h_, localPort);
-            global::IceInternal.HashUtil.hashAdd(ref h_, cipher);
-            global::IceInternal.HashUtil.hashAdd(ref h_, certs);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Glacier2::SSLInfo");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, remoteHost);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, remotePort);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, localHost);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, localPort);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, cipher);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, certs);
             return h_;
         }
 
@@ -182,7 +182,7 @@ namespace Glacier2
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.certs, o.certs))
+                if(!Ice.UtilInternal.Arrays.Equals(this.certs, o.certs))
                 {
                     return false;
                 }

@@ -1103,14 +1103,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_baseAsBaseAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_baseAsBase_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_baseAsBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _baseAsBase_name = "baseAsBase";
 
-        private void _iceI_baseAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_baseAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1143,14 +1143,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_unknownDerivedAsBaseAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_unknownDerivedAsBase_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_unknownDerivedAsBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _unknownDerivedAsBase_name = "unknownDerivedAsBase";
 
-        private void _iceI_unknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_unknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1183,14 +1183,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_knownDerivedAsBaseAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownDerivedAsBase_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_knownDerivedAsBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _knownDerivedAsBase_name = "knownDerivedAsBase";
 
-        private void _iceI_knownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1223,14 +1223,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_knownDerivedAsKnownDerivedAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownDerivedAsKnownDerived_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_knownDerivedAsKnownDerived(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _knownDerivedAsKnownDerived_name = "knownDerivedAsKnownDerived";
 
-        private void _iceI_knownDerivedAsKnownDerived(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownDerivedAsKnownDerived(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1263,14 +1263,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_unknownIntermediateAsBaseAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_unknownIntermediateAsBase_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_unknownIntermediateAsBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _unknownIntermediateAsBase_name = "unknownIntermediateAsBase";
 
-        private void _iceI_unknownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_unknownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1303,14 +1303,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_knownIntermediateAsBaseAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownIntermediateAsBase_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_knownIntermediateAsBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _knownIntermediateAsBase_name = "knownIntermediateAsBase";
 
-        private void _iceI_knownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1343,14 +1343,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_knownMostDerivedAsBaseAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownMostDerivedAsBase_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_knownMostDerivedAsBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _knownMostDerivedAsBase_name = "knownMostDerivedAsBase";
 
-        private void _iceI_knownMostDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownMostDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1383,14 +1383,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_knownIntermediateAsKnownIntermediateAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownIntermediateAsKnownIntermediate_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_knownIntermediateAsKnownIntermediate(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _knownIntermediateAsKnownIntermediate_name = "knownIntermediateAsKnownIntermediate";
 
-        private void _iceI_knownIntermediateAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownIntermediateAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1423,14 +1423,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_knownMostDerivedAsKnownIntermediateAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownMostDerivedAsKnownIntermediate_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_knownMostDerivedAsKnownIntermediate(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _knownMostDerivedAsKnownIntermediate_name = "knownMostDerivedAsKnownIntermediate";
 
-        private void _iceI_knownMostDerivedAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownMostDerivedAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1463,14 +1463,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_knownMostDerivedAsKnownMostDerivedAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownMostDerivedAsKnownMostDerived_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_knownMostDerivedAsKnownMostDerived(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _knownMostDerivedAsKnownMostDerived_name = "knownMostDerivedAsKnownMostDerived";
 
-        private void _iceI_knownMostDerivedAsKnownMostDerived(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownMostDerivedAsKnownMostDerived(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1503,14 +1503,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_unknownMostDerived1AsBaseAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_unknownMostDerived1AsBase_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_unknownMostDerived1AsBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _unknownMostDerived1AsBase_name = "unknownMostDerived1AsBase";
 
-        private void _iceI_unknownMostDerived1AsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_unknownMostDerived1AsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1543,14 +1543,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_unknownMostDerived1AsKnownIntermediateAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_unknownMostDerived1AsKnownIntermediate_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_unknownMostDerived1AsKnownIntermediate(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _unknownMostDerived1AsKnownIntermediate_name = "unknownMostDerived1AsKnownIntermediate";
 
-        private void _iceI_unknownMostDerived1AsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_unknownMostDerived1AsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1583,14 +1583,14 @@ namespace Test
         private global::System.Threading.Tasks.Task _iceI_unknownMostDerived2AsBaseAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_unknownMostDerived2AsBase_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_unknownMostDerived2AsBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _unknownMostDerived2AsBase_name = "unknownMostDerived2AsBase";
 
-        private void _iceI_unknownMostDerived2AsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_unknownMostDerived2AsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1622,14 +1622,14 @@ namespace Test
 
         private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1829,7 +1829,7 @@ namespace Test
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -1853,7 +1853,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_baseAsBase(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_baseAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1864,7 +1864,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownDerivedAsBase(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_unknownDerivedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1875,7 +1875,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownDerivedAsBase(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_knownDerivedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1886,7 +1886,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownDerivedAsKnownDerived(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_knownDerivedAsKnownDerived(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1897,7 +1897,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownIntermediateAsBase(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_unknownIntermediateAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1908,7 +1908,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownIntermediateAsBase(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_knownIntermediateAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1919,7 +1919,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownMostDerivedAsBase(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_knownMostDerivedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1930,7 +1930,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownIntermediateAsKnownIntermediate(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_knownIntermediateAsKnownIntermediate(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1941,7 +1941,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownMostDerivedAsKnownIntermediate(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_knownMostDerivedAsKnownIntermediate(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1952,7 +1952,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownMostDerivedAsKnownMostDerived(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_knownMostDerivedAsKnownMostDerived(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1963,7 +1963,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownMostDerived1AsBase(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_unknownMostDerived1AsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1974,7 +1974,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownMostDerived1AsKnownIntermediate(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_unknownMostDerived1AsKnownIntermediate(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1985,7 +1985,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownMostDerived2AsBase(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_unknownMostDerived2AsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1996,7 +1996,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_shutdown(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_shutdown(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -2028,9 +2028,9 @@ namespace Test
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);

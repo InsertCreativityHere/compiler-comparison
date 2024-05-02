@@ -146,11 +146,11 @@ namespace classdef
             public override int GetHashCode()
             {
                 int h_ = 5381;
-                global::IceInternal.HashUtil.hashAdd(ref h_, "::classdef::break::bitor");
-                global::IceInternal.HashUtil.hashAdd(ref h_, @case);
-                global::IceInternal.HashUtil.hashAdd(ref h_, @continue);
-                global::IceInternal.HashUtil.hashAdd(ref h_, eq);
-                global::IceInternal.HashUtil.hashAdd(ref h_, ne);
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::classdef::break::bitor");
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, @case);
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, @continue);
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, eq);
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, ne);
                 return h_;
             }
 
@@ -1045,14 +1045,14 @@ namespace classdef
 
             private global::System.Threading.Tasks.Task _iceI_eventsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_events(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _events_name = "events";
 
-            private void _iceI_events(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_events(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1070,14 +1070,14 @@ namespace classdef
 
             private global::System.Threading.Tasks.Task _iceI_functionAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_function(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _function_name = "function";
 
-            private void _iceI_function(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_function(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1095,14 +1095,14 @@ namespace classdef
 
             private global::System.Threading.Tasks.Task _iceI_deleteAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_delete(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _delete_name = "delete";
 
-            private void _iceI_delete(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_delete(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1120,14 +1120,14 @@ namespace classdef
 
             private global::System.Threading.Tasks.Task _iceI_checkedCastAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_checkedCast(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _checkedCast_name = "checkedCast";
 
-            private void _iceI_checkedCast(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_checkedCast(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1310,7 +1310,7 @@ namespace classdef
 
             public override bool ice_isA(string s, global::Ice.Current current = null)
             {
-                return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
             public override string[] ice_ids(global::Ice.Current current = null)
@@ -1334,7 +1334,7 @@ namespace classdef
 
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_events(elseif obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+            iceD_events(elseif obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 inS.readEmptyParams();
@@ -1344,7 +1344,7 @@ namespace classdef
 
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_function(elseif obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+            iceD_function(elseif obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 inS.readEmptyParams();
@@ -1354,7 +1354,7 @@ namespace classdef
 
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_delete(elseif obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+            iceD_delete(elseif obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 inS.readEmptyParams();
@@ -1364,7 +1364,7 @@ namespace classdef
 
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_checkedCast(elseif obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+            iceD_checkedCast(elseif obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 inS.readEmptyParams();
@@ -1385,9 +1385,9 @@ namespace classdef
             };
 
             public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+            iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
-                int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+                int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
                 if(pos < 0)
                 {
                     throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);

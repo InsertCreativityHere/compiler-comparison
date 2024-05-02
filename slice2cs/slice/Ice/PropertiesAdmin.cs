@@ -238,14 +238,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<string> _iceI_getPropertyAsync(string iceP_key, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getProperty_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<string>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
             _iceI_getProperty(iceP_key, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getProperty_name = "getProperty";
 
-        private void _iceI_getProperty(string iceP_key, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getProperty(string iceP_key, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
@@ -274,14 +274,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_getPropertiesForPrefixAsync(string iceP_prefix, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getPropertiesForPrefix_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
             _iceI_getPropertiesForPrefix(iceP_prefix, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getPropertiesForPrefix_name = "getPropertiesForPrefix";
 
-        private void _iceI_getPropertiesForPrefix(string iceP_prefix, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getPropertiesForPrefix(string iceP_prefix, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::System.Collections.Generic.Dictionary<string, string>>(completed);
             outAsync.invoke(
@@ -309,14 +309,14 @@ namespace Ice
 
         private global::System.Threading.Tasks.Task _iceI_setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setProperties(iceP_newProperties, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setProperties_name = "setProperties";
 
-        private void _iceI_setProperties(global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setProperties(global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -498,7 +498,7 @@ namespace Ice
 
         public override bool ice_isA(string s, Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(Current current = null)
@@ -522,7 +522,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getProperty(PropertiesAdmin obj, global::IceInternal.Incoming inS, Current current)
+        iceD_getProperty(PropertiesAdmin obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -538,7 +538,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getPropertiesForPrefix(PropertiesAdmin obj, global::IceInternal.Incoming inS, Current current)
+        iceD_getPropertiesForPrefix(PropertiesAdmin obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -554,7 +554,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_setProperties(PropertiesAdmin obj, global::IceInternal.Incoming inS, Current current)
+        iceD_setProperties(PropertiesAdmin obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -577,9 +577,9 @@ namespace Ice
         };
 
         public override global::System.Threading.Tasks.Task<OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new OperationNotExistException(current.id, current.facet, current.operation);

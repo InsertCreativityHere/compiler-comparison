@@ -62,9 +62,9 @@ namespace IceStormElection
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceStormElection::LogUpdate");
-            global::IceInternal.HashUtil.hashAdd(ref h_, generation);
-            global::IceInternal.HashUtil.hashAdd(ref h_, iteration);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStormElection::LogUpdate");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, generation);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, iteration);
             return h_;
         }
 

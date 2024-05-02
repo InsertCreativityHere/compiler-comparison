@@ -93,9 +93,9 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::Foo");
-            global::IceInternal.HashUtil.hashAdd(ref h_, SLmem);
-            global::IceInternal.HashUtil.hashAdd(ref h_, SLSmem);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Foo");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, SLmem);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, SLSmem);
             return h_;
         }
 
@@ -124,7 +124,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.SLmem, o.SLmem))
+                if(!Ice.UtilInternal.Arrays.Equals(this.SLmem, o.SLmem))
                 {
                     return false;
                 }
@@ -138,7 +138,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.SLSmem, o.SLSmem))
+                if(!Ice.UtilInternal.Arrays.Equals(this.SLSmem, o.SLSmem))
                 {
                     return false;
                 }
@@ -593,14 +593,14 @@ namespace Test
 
         private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -619,14 +619,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> _iceI_opSerialSmallJavaAsync(byte[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSerialSmallJava_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<MyClass_OpSerialSmallJavaResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSerialSmallJavaResult>(progress, cancel);
             _iceI_opSerialSmallJava(iceP_i, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opSerialSmallJava_name = "opSerialSmallJava";
 
-        private void _iceI_opSerialSmallJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opSerialSmallJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MyClass_OpSerialSmallJavaResult>(completed);
             outAsync.invoke(
@@ -656,14 +656,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> _iceI_opSerialLargeJavaAsync(byte[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSerialLargeJava_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<MyClass_OpSerialLargeJavaResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSerialLargeJavaResult>(progress, cancel);
             _iceI_opSerialLargeJava(iceP_i, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opSerialLargeJava_name = "opSerialLargeJava";
 
-        private void _iceI_opSerialLargeJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opSerialLargeJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MyClass_OpSerialLargeJavaResult>(completed);
             outAsync.invoke(
@@ -693,14 +693,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> _iceI_opSerialStructJavaAsync(byte[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSerialStructJava_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<MyClass_OpSerialStructJavaResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSerialStructJavaResult>(progress, cancel);
             _iceI_opSerialStructJava(iceP_i, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opSerialStructJava_name = "opSerialStructJava";
 
-        private void _iceI_opSerialStructJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opSerialStructJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MyClass_OpSerialStructJavaResult>(completed);
             outAsync.invoke(
@@ -1033,7 +1033,7 @@ namespace Test
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -1057,7 +1057,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_shutdown(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_shutdown(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1066,7 +1066,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opSerialSmallJava(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opSerialSmallJava(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -1083,7 +1083,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opSerialLargeJava(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opSerialLargeJava(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -1100,7 +1100,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opSerialStructJava(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opSerialStructJava(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -1128,9 +1128,9 @@ namespace Test
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);

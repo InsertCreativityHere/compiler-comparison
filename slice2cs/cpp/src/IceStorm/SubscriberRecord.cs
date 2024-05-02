@@ -80,9 +80,9 @@ namespace IceStorm
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceStorm::SubscriberRecordKey");
-            global::IceInternal.HashUtil.hashAdd(ref h_, topic);
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStorm::SubscriberRecordKey");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, topic);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
             return h_;
         }
 
@@ -273,14 +273,14 @@ namespace IceStorm
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceStorm::SubscriberRecord");
-            global::IceInternal.HashUtil.hashAdd(ref h_, topicName);
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
-            global::IceInternal.HashUtil.hashAdd(ref h_, link);
-            global::IceInternal.HashUtil.hashAdd(ref h_, obj);
-            global::IceInternal.HashUtil.hashAdd(ref h_, theQoS);
-            global::IceInternal.HashUtil.hashAdd(ref h_, cost);
-            global::IceInternal.HashUtil.hashAdd(ref h_, theTopic);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStorm::SubscriberRecord");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, topicName);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, link);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, obj);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, theQoS);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, cost);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, theTopic);
             return h_;
         }
 
@@ -355,7 +355,7 @@ namespace IceStorm
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.theQoS, o.theQoS))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.theQoS, o.theQoS))
                 {
                     return false;
                 }

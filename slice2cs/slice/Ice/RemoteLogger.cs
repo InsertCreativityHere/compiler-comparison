@@ -134,11 +134,11 @@ namespace Ice
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::LogMessage");
-            global::IceInternal.HashUtil.hashAdd(ref h_, type);
-            global::IceInternal.HashUtil.hashAdd(ref h_, timestamp);
-            global::IceInternal.HashUtil.hashAdd(ref h_, traceCategory);
-            global::IceInternal.HashUtil.hashAdd(ref h_, message);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Ice::LogMessage");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, type);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, timestamp);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, traceCategory);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, message);
             return h_;
         }
 
@@ -766,14 +766,14 @@ namespace Ice
 
         private global::System.Threading.Tasks.Task _iceI_initAsync(string iceP_prefix, LogMessage[] iceP_logMessages, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_init(iceP_prefix, iceP_logMessages, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _init_name = "init";
 
-        private void _iceI_init(string iceP_prefix, LogMessage[] iceP_logMessages, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_init(string iceP_prefix, LogMessage[] iceP_logMessages, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -796,14 +796,14 @@ namespace Ice
 
         private global::System.Threading.Tasks.Task _iceI_logAsync(LogMessage iceP_message, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_log(iceP_message, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _log_name = "log";
 
-        private void _iceI_log(LogMessage iceP_message, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_log(LogMessage iceP_message, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1018,14 +1018,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task _iceI_attachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_attachRemoteLogger_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_attachRemoteLogger(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _attachRemoteLogger_name = "attachRemoteLogger";
 
-        private void _iceI_attachRemoteLogger(RemoteLoggerPrx iceP_prx, LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_attachRemoteLogger(RemoteLoggerPrx iceP_prx, LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1065,14 +1065,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<bool> _iceI_detachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_detachRemoteLogger_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<bool>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
             _iceI_detachRemoteLogger(iceP_prx, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _detachRemoteLogger_name = "detachRemoteLogger";
 
-        private void _iceI_detachRemoteLogger(RemoteLoggerPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_detachRemoteLogger(RemoteLoggerPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<bool>(completed);
             outAsync.invoke(
@@ -1101,14 +1101,14 @@ namespace Ice
         private global::System.Threading.Tasks.Task<LoggerAdmin_GetLogResult> _iceI_getLogAsync(LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getLog_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<LoggerAdmin_GetLogResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LoggerAdmin_GetLogResult>(progress, cancel);
             _iceI_getLog(iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getLog_name = "getLog";
 
-        private void _iceI_getLog(LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getLog(LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<LoggerAdmin_GetLogResult>(completed);
             outAsync.invoke(
@@ -1297,7 +1297,7 @@ namespace Ice
 
         public override bool ice_isA(string s, Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(Current current = null)
@@ -1321,7 +1321,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_init(RemoteLogger obj, global::IceInternal.Incoming inS, Current current)
+        iceD_init(RemoteLogger obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -1336,7 +1336,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_log(RemoteLogger obj, global::IceInternal.Incoming inS, Current current)
+        iceD_log(RemoteLogger obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -1359,9 +1359,9 @@ namespace Ice
         };
 
         public override global::System.Threading.Tasks.Task<OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new OperationNotExistException(current.id, current.facet, current.operation);
@@ -1426,7 +1426,7 @@ namespace Ice
 
         public override bool ice_isA(string s, Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(Current current = null)
@@ -1450,7 +1450,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_attachRemoteLogger(LoggerAdmin obj, global::IceInternal.Incoming inS, Current current)
+        iceD_attachRemoteLogger(LoggerAdmin obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -1469,7 +1469,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_detachRemoteLogger(LoggerAdmin obj, global::IceInternal.Incoming inS, Current current)
+        iceD_detachRemoteLogger(LoggerAdmin obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -1485,7 +1485,7 @@ namespace Ice
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getLog(LoggerAdmin obj, global::IceInternal.Incoming inS, Current current)
+        iceD_getLog(LoggerAdmin obj, global::Ice.Internal.Incoming inS, Current current)
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -1517,9 +1517,9 @@ namespace Ice
         };
 
         public override global::System.Threading.Tasks.Task<OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new OperationNotExistException(current.id, current.facet, current.operation);

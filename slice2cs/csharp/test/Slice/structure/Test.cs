@@ -148,8 +148,8 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::S1");
-            global::IceInternal.HashUtil.hashAdd(ref h_, name);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::S1");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, name);
             return h_;
         }
 
@@ -352,21 +352,21 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::S2");
-            global::IceInternal.HashUtil.hashAdd(ref h_, bo);
-            global::IceInternal.HashUtil.hashAdd(ref h_, by);
-            global::IceInternal.HashUtil.hashAdd(ref h_, sh);
-            global::IceInternal.HashUtil.hashAdd(ref h_, i);
-            global::IceInternal.HashUtil.hashAdd(ref h_, l);
-            global::IceInternal.HashUtil.hashAdd(ref h_, f);
-            global::IceInternal.HashUtil.hashAdd(ref h_, d);
-            global::IceInternal.HashUtil.hashAdd(ref h_, str);
-            global::IceInternal.HashUtil.hashAdd(ref h_, ss);
-            global::IceInternal.HashUtil.hashAdd(ref h_, il);
-            global::IceInternal.HashUtil.hashAdd(ref h_, sd);
-            global::IceInternal.HashUtil.hashAdd(ref h_, s);
-            global::IceInternal.HashUtil.hashAdd(ref h_, cls);
-            global::IceInternal.HashUtil.hashAdd(ref h_, prx);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::S2");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, bo);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, by);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, sh);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, f);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, str);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, ss);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, il);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, sd);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, cls);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, prx);
             return h_;
         }
 
@@ -437,7 +437,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.ss, o.ss))
+                if(!Ice.UtilInternal.Arrays.Equals(this.ss, o.ss))
                 {
                     return false;
                 }
@@ -451,7 +451,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.il, o.il))
+                if(!Ice.UtilInternal.Arrays.Equals(this.il, o.il))
                 {
                     return false;
                 }
@@ -465,7 +465,7 @@ namespace Test
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.sd, o.sd))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.sd, o.sd))
                 {
                     return false;
                 }

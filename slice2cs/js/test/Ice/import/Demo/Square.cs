@@ -72,11 +72,11 @@ namespace Demo
             public override int GetHashCode()
             {
                 int h_ = 5381;
-                global::IceInternal.HashUtil.hashAdd(ref h_, "::Demo::gx::Square");
-                global::IceInternal.HashUtil.hashAdd(ref h_, p1);
-                global::IceInternal.HashUtil.hashAdd(ref h_, p2);
-                global::IceInternal.HashUtil.hashAdd(ref h_, p3);
-                global::IceInternal.HashUtil.hashAdd(ref h_, p4);
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Demo::gx::Square");
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, p1);
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, p2);
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, p3);
+                global::Ice.Internal.HashUtil.hashAdd(ref h_, p4);
                 return h_;
             }
 

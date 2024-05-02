@@ -136,17 +136,17 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::SmallStruct");
-            global::IceInternal.HashUtil.hashAdd(ref h_, bo);
-            global::IceInternal.HashUtil.hashAdd(ref h_, by);
-            global::IceInternal.HashUtil.hashAdd(ref h_, sh);
-            global::IceInternal.HashUtil.hashAdd(ref h_, i);
-            global::IceInternal.HashUtil.hashAdd(ref h_, l);
-            global::IceInternal.HashUtil.hashAdd(ref h_, f);
-            global::IceInternal.HashUtil.hashAdd(ref h_, d);
-            global::IceInternal.HashUtil.hashAdd(ref h_, str);
-            global::IceInternal.HashUtil.hashAdd(ref h_, e);
-            global::IceInternal.HashUtil.hashAdd(ref h_, p);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::SmallStruct");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, bo);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, by);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, sh);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, f);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, str);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, e);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, p);
             return h_;
         }
 
@@ -731,7 +731,7 @@ namespace Test
                 v = new MyClass[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::IceInternal.Patcher.arrayReadValue<MyClass>(v, ix));
+                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<MyClass>(v, ix));
                 }
             }
             return v;
@@ -1428,7 +1428,7 @@ namespace Test
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)

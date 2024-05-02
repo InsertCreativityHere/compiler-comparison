@@ -62,9 +62,9 @@ namespace Ice
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ProtocolVersion");
-            global::IceInternal.HashUtil.hashAdd(ref h_, major);
-            global::IceInternal.HashUtil.hashAdd(ref h_, minor);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Ice::ProtocolVersion");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, major);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, minor);
             return h_;
         }
 
@@ -180,9 +180,9 @@ namespace Ice
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::EncodingVersion");
-            global::IceInternal.HashUtil.hashAdd(ref h_, major);
-            global::IceInternal.HashUtil.hashAdd(ref h_, minor);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Ice::EncodingVersion");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, major);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, minor);
             return h_;
         }
 

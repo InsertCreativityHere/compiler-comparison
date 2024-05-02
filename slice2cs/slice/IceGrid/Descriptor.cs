@@ -80,9 +80,9 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::PropertyDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, name);
-            global::IceInternal.HashUtil.hashAdd(ref h_, value);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::PropertyDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, name);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, value);
             return h_;
         }
 
@@ -251,9 +251,9 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::PropertySetDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, references);
-            global::IceInternal.HashUtil.hashAdd(ref h_, properties);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::PropertySetDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, references);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, properties);
             return h_;
         }
 
@@ -282,7 +282,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.references, o.references))
+                if(!Ice.UtilInternal.Arrays.Equals(this.references, o.references))
                 {
                     return false;
                 }
@@ -296,7 +296,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.properties, o.properties))
+                if(!Ice.UtilInternal.Arrays.Equals(this.properties, o.properties))
                 {
                     return false;
                 }
@@ -429,10 +429,10 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::ObjectDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
-            global::IceInternal.HashUtil.hashAdd(ref h_, type);
-            global::IceInternal.HashUtil.hashAdd(ref h_, proxyOptions);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::ObjectDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, type);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, proxyOptions);
             return h_;
         }
 
@@ -650,16 +650,16 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::AdapterDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, name);
-            global::IceInternal.HashUtil.hashAdd(ref h_, description);
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
-            global::IceInternal.HashUtil.hashAdd(ref h_, replicaGroupId);
-            global::IceInternal.HashUtil.hashAdd(ref h_, priority);
-            global::IceInternal.HashUtil.hashAdd(ref h_, registerProcess);
-            global::IceInternal.HashUtil.hashAdd(ref h_, serverLifetime);
-            global::IceInternal.HashUtil.hashAdd(ref h_, objects);
-            global::IceInternal.HashUtil.hashAdd(ref h_, allocatables);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::AdapterDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, name);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, description);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, replicaGroupId);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, priority);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, registerProcess);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, serverLifetime);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, objects);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, allocatables);
             return h_;
         }
 
@@ -766,7 +766,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.objects, o.objects))
+                if(!Ice.UtilInternal.Arrays.Equals(this.objects, o.objects))
                 {
                     return false;
                 }
@@ -780,7 +780,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.allocatables, o.allocatables))
+                if(!Ice.UtilInternal.Arrays.Equals(this.allocatables, o.allocatables))
                 {
                     return false;
                 }
@@ -1014,9 +1014,9 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::DistributionDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, icepatch);
-            global::IceInternal.HashUtil.hashAdd(ref h_, directories);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::DistributionDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, icepatch);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, directories);
             return h_;
         }
 
@@ -1059,7 +1059,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.directories, o.directories))
+                if(!Ice.UtilInternal.Arrays.Equals(this.directories, o.directories))
                 {
                     return false;
                 }
@@ -1434,11 +1434,11 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::ServerInstanceDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, template);
-            global::IceInternal.HashUtil.hashAdd(ref h_, parameterValues);
-            global::IceInternal.HashUtil.hashAdd(ref h_, propertySet);
-            global::IceInternal.HashUtil.hashAdd(ref h_, servicePropertySets);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::ServerInstanceDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, template);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, parameterValues);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, propertySet);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, servicePropertySets);
             return h_;
         }
 
@@ -1481,7 +1481,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.parameterValues, o.parameterValues))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, o.parameterValues))
                 {
                     return false;
                 }
@@ -1509,7 +1509,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.servicePropertySets, o.servicePropertySets))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.servicePropertySets, o.servicePropertySets))
                 {
                     return false;
                 }
@@ -1643,10 +1643,10 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::TemplateDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, descriptor);
-            global::IceInternal.HashUtil.hashAdd(ref h_, parameters);
-            global::IceInternal.HashUtil.hashAdd(ref h_, parameterDefaults);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::TemplateDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, descriptor);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, parameters);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, parameterDefaults);
             return h_;
         }
 
@@ -1689,7 +1689,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.parameters, o.parameters))
+                if(!Ice.UtilInternal.Arrays.Equals(this.parameters, o.parameters))
                 {
                     return false;
                 }
@@ -1703,7 +1703,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.parameterDefaults, o.parameterDefaults))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterDefaults, o.parameterDefaults))
                 {
                     return false;
                 }
@@ -1841,11 +1841,11 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::ServiceInstanceDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, template);
-            global::IceInternal.HashUtil.hashAdd(ref h_, parameterValues);
-            global::IceInternal.HashUtil.hashAdd(ref h_, descriptor);
-            global::IceInternal.HashUtil.hashAdd(ref h_, propertySet);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::ServiceInstanceDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, template);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, parameterValues);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, descriptor);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, propertySet);
             return h_;
         }
 
@@ -1888,7 +1888,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.parameterValues, o.parameterValues))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, o.parameterValues))
                 {
                     return false;
                 }
@@ -2139,13 +2139,13 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::NodeDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, variables);
-            global::IceInternal.HashUtil.hashAdd(ref h_, serverInstances);
-            global::IceInternal.HashUtil.hashAdd(ref h_, servers);
-            global::IceInternal.HashUtil.hashAdd(ref h_, loadFactor);
-            global::IceInternal.HashUtil.hashAdd(ref h_, description);
-            global::IceInternal.HashUtil.hashAdd(ref h_, propertySets);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::NodeDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, variables);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, serverInstances);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, servers);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, loadFactor);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, description);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, propertySets);
             return h_;
         }
 
@@ -2174,7 +2174,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
                 {
                     return false;
                 }
@@ -2188,7 +2188,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.serverInstances, o.serverInstances))
+                if(!Ice.UtilInternal.Arrays.Equals(this.serverInstances, o.serverInstances))
                 {
                     return false;
                 }
@@ -2202,7 +2202,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.servers, o.servers))
+                if(!Ice.UtilInternal.Arrays.Equals(this.servers, o.servers))
                 {
                     return false;
                 }
@@ -2244,7 +2244,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
                 {
                     return false;
                 }
@@ -2743,13 +2743,13 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::ReplicaGroupDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
-            global::IceInternal.HashUtil.hashAdd(ref h_, loadBalancing);
-            global::IceInternal.HashUtil.hashAdd(ref h_, proxyOptions);
-            global::IceInternal.HashUtil.hashAdd(ref h_, objects);
-            global::IceInternal.HashUtil.hashAdd(ref h_, description);
-            global::IceInternal.HashUtil.hashAdd(ref h_, filter);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::ReplicaGroupDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, loadBalancing);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, proxyOptions);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, objects);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, description);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, filter);
             return h_;
         }
 
@@ -2820,7 +2820,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.objects, o.objects))
+                if(!Ice.UtilInternal.Arrays.Equals(this.objects, o.objects))
                 {
                     return false;
                 }
@@ -3013,16 +3013,16 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::ApplicationDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, name);
-            global::IceInternal.HashUtil.hashAdd(ref h_, variables);
-            global::IceInternal.HashUtil.hashAdd(ref h_, replicaGroups);
-            global::IceInternal.HashUtil.hashAdd(ref h_, serverTemplates);
-            global::IceInternal.HashUtil.hashAdd(ref h_, serviceTemplates);
-            global::IceInternal.HashUtil.hashAdd(ref h_, nodes);
-            global::IceInternal.HashUtil.hashAdd(ref h_, distrib);
-            global::IceInternal.HashUtil.hashAdd(ref h_, description);
-            global::IceInternal.HashUtil.hashAdd(ref h_, propertySets);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::ApplicationDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, name);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, variables);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, replicaGroups);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, serverTemplates);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, serviceTemplates);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, nodes);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, distrib);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, description);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, propertySets);
             return h_;
         }
 
@@ -3065,7 +3065,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
                 {
                     return false;
                 }
@@ -3079,7 +3079,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.replicaGroups, o.replicaGroups))
+                if(!Ice.UtilInternal.Arrays.Equals(this.replicaGroups, o.replicaGroups))
                 {
                     return false;
                 }
@@ -3093,7 +3093,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.serverTemplates, o.serverTemplates))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, o.serverTemplates))
                 {
                     return false;
                 }
@@ -3107,7 +3107,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.serviceTemplates, o.serviceTemplates))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, o.serviceTemplates))
                 {
                     return false;
                 }
@@ -3121,7 +3121,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.nodes, o.nodes))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.nodes, o.nodes))
                 {
                     return false;
                 }
@@ -3163,7 +3163,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
                 {
                     return false;
                 }
@@ -3410,17 +3410,17 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::NodeUpdateDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, name);
-            global::IceInternal.HashUtil.hashAdd(ref h_, description);
-            global::IceInternal.HashUtil.hashAdd(ref h_, variables);
-            global::IceInternal.HashUtil.hashAdd(ref h_, removeVariables);
-            global::IceInternal.HashUtil.hashAdd(ref h_, propertySets);
-            global::IceInternal.HashUtil.hashAdd(ref h_, removePropertySets);
-            global::IceInternal.HashUtil.hashAdd(ref h_, serverInstances);
-            global::IceInternal.HashUtil.hashAdd(ref h_, servers);
-            global::IceInternal.HashUtil.hashAdd(ref h_, removeServers);
-            global::IceInternal.HashUtil.hashAdd(ref h_, loadFactor);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::NodeUpdateDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, name);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, description);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, variables);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, removeVariables);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, propertySets);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, removePropertySets);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, serverInstances);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, servers);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, removeServers);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, loadFactor);
             return h_;
         }
 
@@ -3477,7 +3477,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
                 {
                     return false;
                 }
@@ -3491,7 +3491,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.removeVariables, o.removeVariables))
+                if(!Ice.UtilInternal.Arrays.Equals(this.removeVariables, o.removeVariables))
                 {
                     return false;
                 }
@@ -3505,7 +3505,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
                 {
                     return false;
                 }
@@ -3519,7 +3519,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.removePropertySets, o.removePropertySets))
+                if(!Ice.UtilInternal.Arrays.Equals(this.removePropertySets, o.removePropertySets))
                 {
                     return false;
                 }
@@ -3533,7 +3533,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.serverInstances, o.serverInstances))
+                if(!Ice.UtilInternal.Arrays.Equals(this.serverInstances, o.serverInstances))
                 {
                     return false;
                 }
@@ -3547,7 +3547,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.servers, o.servers))
+                if(!Ice.UtilInternal.Arrays.Equals(this.servers, o.servers))
                 {
                     return false;
                 }
@@ -3561,7 +3561,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.removeServers, o.removeServers))
+                if(!Ice.UtilInternal.Arrays.Equals(this.removeServers, o.removeServers))
                 {
                     return false;
                 }
@@ -3844,22 +3844,22 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::ApplicationUpdateDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, name);
-            global::IceInternal.HashUtil.hashAdd(ref h_, description);
-            global::IceInternal.HashUtil.hashAdd(ref h_, distrib);
-            global::IceInternal.HashUtil.hashAdd(ref h_, variables);
-            global::IceInternal.HashUtil.hashAdd(ref h_, removeVariables);
-            global::IceInternal.HashUtil.hashAdd(ref h_, propertySets);
-            global::IceInternal.HashUtil.hashAdd(ref h_, removePropertySets);
-            global::IceInternal.HashUtil.hashAdd(ref h_, replicaGroups);
-            global::IceInternal.HashUtil.hashAdd(ref h_, removeReplicaGroups);
-            global::IceInternal.HashUtil.hashAdd(ref h_, serverTemplates);
-            global::IceInternal.HashUtil.hashAdd(ref h_, removeServerTemplates);
-            global::IceInternal.HashUtil.hashAdd(ref h_, serviceTemplates);
-            global::IceInternal.HashUtil.hashAdd(ref h_, removeServiceTemplates);
-            global::IceInternal.HashUtil.hashAdd(ref h_, nodes);
-            global::IceInternal.HashUtil.hashAdd(ref h_, removeNodes);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::ApplicationUpdateDescriptor");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, name);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, description);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, distrib);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, variables);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, removeVariables);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, propertySets);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, removePropertySets);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, replicaGroups);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, removeReplicaGroups);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, serverTemplates);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, removeServerTemplates);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, serviceTemplates);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, removeServiceTemplates);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, nodes);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, removeNodes);
             return h_;
         }
 
@@ -3930,7 +3930,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
                 {
                     return false;
                 }
@@ -3944,7 +3944,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.removeVariables, o.removeVariables))
+                if(!Ice.UtilInternal.Arrays.Equals(this.removeVariables, o.removeVariables))
                 {
                     return false;
                 }
@@ -3958,7 +3958,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
                 {
                     return false;
                 }
@@ -3972,7 +3972,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.removePropertySets, o.removePropertySets))
+                if(!Ice.UtilInternal.Arrays.Equals(this.removePropertySets, o.removePropertySets))
                 {
                     return false;
                 }
@@ -3986,7 +3986,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.replicaGroups, o.replicaGroups))
+                if(!Ice.UtilInternal.Arrays.Equals(this.replicaGroups, o.replicaGroups))
                 {
                     return false;
                 }
@@ -4000,7 +4000,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.removeReplicaGroups, o.removeReplicaGroups))
+                if(!Ice.UtilInternal.Arrays.Equals(this.removeReplicaGroups, o.removeReplicaGroups))
                 {
                     return false;
                 }
@@ -4014,7 +4014,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.serverTemplates, o.serverTemplates))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, o.serverTemplates))
                 {
                     return false;
                 }
@@ -4028,7 +4028,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.removeServerTemplates, o.removeServerTemplates))
+                if(!Ice.UtilInternal.Arrays.Equals(this.removeServerTemplates, o.removeServerTemplates))
                 {
                     return false;
                 }
@@ -4042,7 +4042,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.serviceTemplates, o.serviceTemplates))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, o.serviceTemplates))
                 {
                     return false;
                 }
@@ -4056,7 +4056,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.removeServiceTemplates, o.removeServiceTemplates))
+                if(!Ice.UtilInternal.Arrays.Equals(this.removeServiceTemplates, o.removeServiceTemplates))
                 {
                     return false;
                 }
@@ -4070,7 +4070,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.nodes, o.nodes))
+                if(!Ice.UtilInternal.Arrays.Equals(this.nodes, o.nodes))
                 {
                     return false;
                 }
@@ -4084,7 +4084,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.removeNodes, o.removeNodes))
+                if(!Ice.UtilInternal.Arrays.Equals(this.removeNodes, o.removeNodes))
                 {
                     return false;
                 }
@@ -4388,7 +4388,7 @@ namespace IceGrid
                 v = new ServerDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::IceInternal.Patcher.arrayReadValue<ServerDescriptor>(v, ix));
+                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<ServerDescriptor>(v, ix));
                 }
             }
             return v;
@@ -4422,7 +4422,7 @@ namespace IceGrid
                 v = new ServiceDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::IceInternal.Patcher.arrayReadValue<ServiceDescriptor>(v, ix));
+                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<ServiceDescriptor>(v, ix));
                 }
             }
             return v;

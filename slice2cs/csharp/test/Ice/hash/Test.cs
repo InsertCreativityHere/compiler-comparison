@@ -402,10 +402,10 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::PointF");
-            global::IceInternal.HashUtil.hashAdd(ref h_, x);
-            global::IceInternal.HashUtil.hashAdd(ref h_, y);
-            global::IceInternal.HashUtil.hashAdd(ref h_, z);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::PointF");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, x);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, y);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, z);
             return h_;
         }
 
@@ -531,10 +531,10 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::PointD");
-            global::IceInternal.HashUtil.hashAdd(ref h_, x);
-            global::IceInternal.HashUtil.hashAdd(ref h_, y);
-            global::IceInternal.HashUtil.hashAdd(ref h_, z);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::PointD");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, x);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, y);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, z);
             return h_;
         }
 
@@ -656,9 +656,9 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::Point");
-            global::IceInternal.HashUtil.hashAdd(ref h_, x);
-            global::IceInternal.HashUtil.hashAdd(ref h_, y);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Point");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, x);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, y);
             return h_;
         }
 
@@ -786,8 +786,8 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::Polyline");
-            global::IceInternal.HashUtil.hashAdd(ref h_, vertices);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Polyline");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, vertices);
             return h_;
         }
 
@@ -816,7 +816,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.vertices, o.vertices))
+                if(!Ice.UtilInternal.Arrays.Equals(this.vertices, o.vertices))
                 {
                     return false;
                 }
@@ -932,11 +932,11 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::Color");
-            global::IceInternal.HashUtil.hashAdd(ref h_, r);
-            global::IceInternal.HashUtil.hashAdd(ref h_, g);
-            global::IceInternal.HashUtil.hashAdd(ref h_, b);
-            global::IceInternal.HashUtil.hashAdd(ref h_, a);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Color");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, r);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, g);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, b);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, a);
             return h_;
         }
 
@@ -1076,8 +1076,8 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::ColorPalette");
-            global::IceInternal.HashUtil.hashAdd(ref h_, colors);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::ColorPalette");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, colors);
             return h_;
         }
 
@@ -1106,7 +1106,7 @@ namespace Test
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.colors, o.colors))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.colors, o.colors))
                 {
                     return false;
                 }
@@ -1315,10 +1315,10 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::Draw");
-            global::IceInternal.HashUtil.hashAdd(ref h_, backgroundColor);
-            global::IceInternal.HashUtil.hashAdd(ref h_, pen);
-            global::IceInternal.HashUtil.hashAdd(ref h_, shared);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Draw");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, backgroundColor);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, pen);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, shared);
             return h_;
         }
 

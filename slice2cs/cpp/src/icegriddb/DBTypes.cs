@@ -90,12 +90,12 @@ namespace IceGrid
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::AllData");
-            global::IceInternal.HashUtil.hashAdd(ref h_, applications);
-            global::IceInternal.HashUtil.hashAdd(ref h_, adapters);
-            global::IceInternal.HashUtil.hashAdd(ref h_, objects);
-            global::IceInternal.HashUtil.hashAdd(ref h_, internalObjects);
-            global::IceInternal.HashUtil.hashAdd(ref h_, serials);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::AllData");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, applications);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, adapters);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, objects);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, internalObjects);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, serials);
             return h_;
         }
 
@@ -124,7 +124,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.applications, o.applications))
+                if(!Ice.UtilInternal.Arrays.Equals(this.applications, o.applications))
                 {
                     return false;
                 }
@@ -138,7 +138,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.adapters, o.adapters))
+                if(!Ice.UtilInternal.Arrays.Equals(this.adapters, o.adapters))
                 {
                     return false;
                 }
@@ -152,7 +152,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.objects, o.objects))
+                if(!Ice.UtilInternal.Arrays.Equals(this.objects, o.objects))
                 {
                     return false;
                 }
@@ -166,7 +166,7 @@ namespace IceGrid
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.internalObjects, o.internalObjects))
+                if(!Ice.UtilInternal.Arrays.Equals(this.internalObjects, o.internalObjects))
                 {
                     return false;
                 }
@@ -180,7 +180,7 @@ namespace IceGrid
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.serials, o.serials))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serials, o.serials))
                 {
                     return false;
                 }

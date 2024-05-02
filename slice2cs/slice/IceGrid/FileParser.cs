@@ -236,14 +236,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<ApplicationDescriptor> _iceI_parseAsync(string iceP_xmlFile, AdminPrx iceP_adminProxy, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_parse_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<ApplicationDescriptor>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ApplicationDescriptor>(progress, cancel);
             _iceI_parse(iceP_xmlFile, iceP_adminProxy, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _parse_name = "parse";
 
-        private void _iceI_parse(string iceP_xmlFile, AdminPrx iceP_adminProxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_parse(string iceP_xmlFile, AdminPrx iceP_adminProxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ApplicationDescriptor>(completed);
             outAsync.invoke(
@@ -443,7 +443,7 @@ namespace IceGrid
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -467,7 +467,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_parse(FileParser obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_parse(FileParser obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -494,9 +494,9 @@ namespace IceGrid
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);

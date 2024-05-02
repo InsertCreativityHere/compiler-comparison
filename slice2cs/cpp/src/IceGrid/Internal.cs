@@ -2842,7 +2842,7 @@ namespace IceGrid
                 v = new InternalDbEnvDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::IceInternal.Patcher.arrayReadValue<InternalDbEnvDescriptor>(v, ix));
+                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<InternalDbEnvDescriptor>(v, ix));
                 }
             }
             return v;
@@ -2876,7 +2876,7 @@ namespace IceGrid
                 v = new InternalAdapterDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::IceInternal.Patcher.arrayReadValue<InternalAdapterDescriptor>(v, ix));
+                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<InternalAdapterDescriptor>(v, ix));
                 }
             }
             return v;
@@ -2978,14 +2978,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_activateAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_activate_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
             _iceI_activate(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _activate_name = "activate";
 
-        private void _iceI_activate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_activate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
             outAsync.invoke(
@@ -3010,14 +3010,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_getDirectProxyAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getDirectProxy_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
             _iceI_getDirectProxy(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getDirectProxy_name = "getDirectProxy";
 
-        private void _iceI_getDirectProxy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getDirectProxy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
             outAsync.invoke(
@@ -3056,14 +3056,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task _iceI_setDirectProxyAsync(global::Ice.ObjectPrx iceP_proxy, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setDirectProxy_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setDirectProxy(iceP_proxy, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setDirectProxy_name = "setDirectProxy";
 
-        private void _iceI_setDirectProxy(global::Ice.ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setDirectProxy(global::Ice.ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3318,14 +3318,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<long> _iceI_getOffsetFromEndAsync(string iceP_filename, int iceP_lines, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getOffsetFromEnd_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<long>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<long>(progress, cancel);
             _iceI_getOffsetFromEnd(iceP_filename, iceP_lines, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getOffsetFromEnd_name = "getOffsetFromEnd";
 
-        private void _iceI_getOffsetFromEnd(string iceP_filename, int iceP_lines, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getOffsetFromEnd(string iceP_filename, int iceP_lines, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<long>(completed);
             outAsync.invoke(
@@ -3369,14 +3369,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<FileReader_ReadResult> _iceI_readAsync(string iceP_filename, long iceP_pos, int iceP_size, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_read_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<FileReader_ReadResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<FileReader_ReadResult>(progress, cancel);
             _iceI_read(iceP_filename, iceP_pos, iceP_size, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _read_name = "read";
 
-        private void _iceI_read(string iceP_filename, long iceP_pos, int iceP_size, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_read(string iceP_filename, long iceP_pos, int iceP_size, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<FileReader_ReadResult>(completed);
             outAsync.invoke(
@@ -3724,14 +3724,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<long> _iceI_getOffsetFromEndAsync(string iceP_filename, int iceP_lines, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getOffsetFromEnd_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<long>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<long>(progress, cancel);
             _iceI_getOffsetFromEnd(iceP_filename, iceP_lines, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getOffsetFromEnd_name = "getOffsetFromEnd";
 
-        private void _iceI_getOffsetFromEnd(string iceP_filename, int iceP_lines, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getOffsetFromEnd(string iceP_filename, int iceP_lines, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<long>(completed);
             outAsync.invoke(
@@ -3775,14 +3775,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<FileReader_ReadResult> _iceI_readAsync(string iceP_filename, long iceP_pos, int iceP_size, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_read_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<FileReader_ReadResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<FileReader_ReadResult>(progress, cancel);
             _iceI_read(iceP_filename, iceP_pos, iceP_size, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _read_name = "read";
 
-        private void _iceI_read(string iceP_filename, long iceP_pos, int iceP_size, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_read(string iceP_filename, long iceP_pos, int iceP_size, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<FileReader_ReadResult>(completed);
             outAsync.invoke(
@@ -3829,14 +3829,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task _iceI_startAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_start_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_start(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _start_name = "start";
 
-        private void _iceI_start(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_start(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3869,14 +3869,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task _iceI_stopAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_stop_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_stop(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _stop_name = "stop";
 
-        private void _iceI_stop(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_stop(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3909,14 +3909,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<bool> _iceI_checkUpdateAsync(InternalServerDescriptor iceP_svr, bool iceP_noRestart, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_checkUpdate_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<bool>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
             _iceI_checkUpdate(iceP_svr, iceP_noRestart, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _checkUpdate_name = "checkUpdate";
 
-        private void _iceI_checkUpdate(InternalServerDescriptor iceP_svr, bool iceP_noRestart, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_checkUpdate(InternalServerDescriptor iceP_svr, bool iceP_noRestart, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<bool>(completed);
             outAsync.invoke(
@@ -3960,14 +3960,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_setEnabledAsync(bool iceP_enable, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setEnabled(iceP_enable, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setEnabled_name = "setEnabled";
 
-        private void _iceI_setEnabled(bool iceP_enable, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setEnabled(bool iceP_enable, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3990,14 +3990,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<bool> _iceI_isEnabledAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_isEnabled_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<bool>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
             _iceI_isEnabled(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _isEnabled_name = "isEnabled";
 
-        private void _iceI_isEnabled(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_isEnabled(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<bool>(completed);
             outAsync.invoke(
@@ -4022,14 +4022,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task _iceI_sendSignalAsync(string iceP_signal, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_sendSignal_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_sendSignal(iceP_signal, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _sendSignal_name = "sendSignal";
 
-        private void _iceI_sendSignal(string iceP_signal, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_sendSignal(string iceP_signal, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -4065,14 +4065,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_writeMessageAsync(string iceP_message, int iceP_fd, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_writeMessage(iceP_message, iceP_fd, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _writeMessage_name = "writeMessage";
 
-        private void _iceI_writeMessage(string iceP_message, int iceP_fd, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_writeMessage(string iceP_message, int iceP_fd, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -4096,14 +4096,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<ServerState> _iceI_getStateAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getState_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<ServerState>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ServerState>(progress, cancel);
             _iceI_getState(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getState_name = "getState";
 
-        private void _iceI_getState(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getState(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ServerState>(completed);
             outAsync.invoke(
@@ -4128,14 +4128,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<int> _iceI_getPidAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getPid_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<int>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
             _iceI_getPid(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getPid_name = "getPid";
 
-        private void _iceI_getPid(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getPid(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
@@ -4159,14 +4159,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_setProcessAsync(global::Ice.ProcessPrx iceP_proc, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setProcess(iceP_proc, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setProcess_name = "setProcess";
 
-        private void _iceI_setProcess(global::Ice.ProcessPrx iceP_proc, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setProcess(global::Ice.ProcessPrx iceP_proc, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -4413,14 +4413,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_replicaInitAsync(InternalRegistryPrx[] iceP_replicas, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_replicaInit(iceP_replicas, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _replicaInit_name = "replicaInit";
 
-        private void _iceI_replicaInit(InternalRegistryPrx[] iceP_replicas, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_replicaInit(InternalRegistryPrx[] iceP_replicas, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -4442,14 +4442,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_replicaAddedAsync(InternalRegistryPrx iceP_replica, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_replicaAdded(iceP_replica, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _replicaAdded_name = "replicaAdded";
 
-        private void _iceI_replicaAdded(InternalRegistryPrx iceP_replica, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_replicaAdded(InternalRegistryPrx iceP_replica, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -4471,14 +4471,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_replicaRemovedAsync(InternalRegistryPrx iceP_replica, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_replicaRemoved(iceP_replica, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _replicaRemoved_name = "replicaRemoved";
 
-        private void _iceI_replicaRemoved(InternalRegistryPrx iceP_replica, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_replicaRemoved(InternalRegistryPrx iceP_replica, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -4846,14 +4846,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<long> _iceI_getOffsetFromEndAsync(string iceP_filename, int iceP_lines, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getOffsetFromEnd_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<long>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<long>(progress, cancel);
             _iceI_getOffsetFromEnd(iceP_filename, iceP_lines, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getOffsetFromEnd_name = "getOffsetFromEnd";
 
-        private void _iceI_getOffsetFromEnd(string iceP_filename, int iceP_lines, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getOffsetFromEnd(string iceP_filename, int iceP_lines, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<long>(completed);
             outAsync.invoke(
@@ -4897,14 +4897,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<FileReader_ReadResult> _iceI_readAsync(string iceP_filename, long iceP_pos, int iceP_size, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_read_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<FileReader_ReadResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<FileReader_ReadResult>(progress, cancel);
             _iceI_read(iceP_filename, iceP_pos, iceP_size, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _read_name = "read";
 
-        private void _iceI_read(string iceP_filename, long iceP_pos, int iceP_size, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_read(string iceP_filename, long iceP_pos, int iceP_size, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<FileReader_ReadResult>(completed);
             outAsync.invoke(
@@ -4950,14 +4950,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_replicaInitAsync(InternalRegistryPrx[] iceP_replicas, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_replicaInit(iceP_replicas, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _replicaInit_name = "replicaInit";
 
-        private void _iceI_replicaInit(InternalRegistryPrx[] iceP_replicas, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_replicaInit(InternalRegistryPrx[] iceP_replicas, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -4979,14 +4979,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_replicaAddedAsync(InternalRegistryPrx iceP_replica, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_replicaAdded(iceP_replica, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _replicaAdded_name = "replicaAdded";
 
-        private void _iceI_replicaAdded(InternalRegistryPrx iceP_replica, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_replicaAdded(InternalRegistryPrx iceP_replica, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5008,14 +5008,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_replicaRemovedAsync(InternalRegistryPrx iceP_replica, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_replicaRemoved(iceP_replica, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _replicaRemoved_name = "replicaRemoved";
 
-        private void _iceI_replicaRemoved(InternalRegistryPrx iceP_replica, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_replicaRemoved(InternalRegistryPrx iceP_replica, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5038,14 +5038,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<Node_LoadServerResult> _iceI_loadServerAsync(InternalServerDescriptor iceP_svr, string iceP_replicaName, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_loadServer_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Node_LoadServerResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Node_LoadServerResult>(progress, cancel);
             _iceI_loadServer(iceP_svr, iceP_replicaName, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _loadServer_name = "loadServer";
 
-        private void _iceI_loadServer(InternalServerDescriptor iceP_svr, string iceP_replicaName, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_loadServer(InternalServerDescriptor iceP_svr, string iceP_replicaName, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Node_LoadServerResult>(completed);
             outAsync.invoke(
@@ -5093,14 +5093,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<Node_LoadServerWithoutRestartResult> _iceI_loadServerWithoutRestartAsync(InternalServerDescriptor iceP_svr, string iceP_replicaName, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_loadServerWithoutRestart_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Node_LoadServerWithoutRestartResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Node_LoadServerWithoutRestartResult>(progress, cancel);
             _iceI_loadServerWithoutRestart(iceP_svr, iceP_replicaName, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _loadServerWithoutRestart_name = "loadServerWithoutRestart";
 
-        private void _iceI_loadServerWithoutRestart(InternalServerDescriptor iceP_svr, string iceP_replicaName, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_loadServerWithoutRestart(InternalServerDescriptor iceP_svr, string iceP_replicaName, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Node_LoadServerWithoutRestartResult>(completed);
             outAsync.invoke(
@@ -5148,14 +5148,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task _iceI_destroyServerAsync(string iceP_name, string iceP_uuid, int iceP_revision, string iceP_replicaName, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_destroyServer_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_destroyServer(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _destroyServer_name = "destroyServer";
 
-        private void _iceI_destroyServer(string iceP_name, string iceP_uuid, int iceP_revision, string iceP_replicaName, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_destroyServer(string iceP_name, string iceP_uuid, int iceP_revision, string iceP_replicaName, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5195,14 +5195,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task _iceI_destroyServerWithoutRestartAsync(string iceP_name, string iceP_uuid, int iceP_revision, string iceP_replicaName, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_destroyServerWithoutRestart_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_destroyServerWithoutRestart(iceP_name, iceP_uuid, iceP_revision, iceP_replicaName, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _destroyServerWithoutRestart_name = "destroyServerWithoutRestart";
 
-        private void _iceI_destroyServerWithoutRestart(string iceP_name, string iceP_uuid, int iceP_revision, string iceP_replicaName, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_destroyServerWithoutRestart(string iceP_name, string iceP_uuid, int iceP_revision, string iceP_replicaName, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5241,14 +5241,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_registerWithReplicaAsync(InternalRegistryPrx iceP_replica, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_registerWithReplica(iceP_replica, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _registerWithReplica_name = "registerWithReplica";
 
-        private void _iceI_registerWithReplica(InternalRegistryPrx iceP_replica, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_registerWithReplica(InternalRegistryPrx iceP_replica, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5271,14 +5271,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<string> _iceI_getNameAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getName_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<string>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
             _iceI_getName(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getName_name = "getName";
 
-        private void _iceI_getName(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getName(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
@@ -5303,14 +5303,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<string> _iceI_getHostnameAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getHostname_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<string>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
             _iceI_getHostname(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getHostname_name = "getHostname";
 
-        private void _iceI_getHostname(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getHostname(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
@@ -5335,14 +5335,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<LoadInfo> _iceI_getLoadAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getLoad_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<LoadInfo>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LoadInfo>(progress, cancel);
             _iceI_getLoad(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getLoad_name = "getLoad";
 
-        private void _iceI_getLoad(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getLoad(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<LoadInfo>(completed);
             outAsync.invoke(
@@ -5367,14 +5367,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<int> _iceI_getProcessorSocketCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getProcessorSocketCount_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<int>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
             _iceI_getProcessorSocketCount(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getProcessorSocketCount_name = "getProcessorSocketCount";
 
-        private void _iceI_getProcessorSocketCount(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getProcessorSocketCount(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
@@ -5398,14 +5398,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5709,14 +5709,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_keepAliveAsync(LoadInfo iceP_load, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_keepAlive(iceP_load, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _keepAlive_name = "keepAlive";
 
-        private void _iceI_keepAlive(LoadInfo iceP_load, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_keepAlive(LoadInfo iceP_load, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5738,14 +5738,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_setReplicaObserverAsync(ReplicaObserverPrx iceP_observer, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setReplicaObserver(iceP_observer, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setReplicaObserver_name = "setReplicaObserver";
 
-        private void _iceI_setReplicaObserver(ReplicaObserverPrx iceP_observer, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setReplicaObserver(ReplicaObserverPrx iceP_observer, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5768,14 +5768,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<int> _iceI_getTimeoutAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getTimeout_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<int>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
             _iceI_getTimeout(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getTimeout_name = "getTimeout";
 
-        private void _iceI_getTimeout(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getTimeout(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
@@ -5800,14 +5800,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<NodeObserverPrx> _iceI_getObserverAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getObserver_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<NodeObserverPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<NodeObserverPrx>(progress, cancel);
             _iceI_getObserver(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getObserver_name = "getObserver";
 
-        private void _iceI_getObserver(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getObserver(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<NodeObserverPrx>(completed);
             outAsync.invoke(
@@ -5831,14 +5831,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_loadServersAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_loadServers(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _loadServers_name = "loadServers";
 
-        private void _iceI_loadServers(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_loadServers(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5857,14 +5857,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<string[]> _iceI_getServersAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getServers_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<string[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
             _iceI_getServers(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getServers_name = "getServers";
 
-        private void _iceI_getServers(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getServers(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<string[]>(completed);
             outAsync.invoke(
@@ -5888,14 +5888,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_waitForApplicationUpdateAsync(string iceP_application, int iceP_revision, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_waitForApplicationUpdate(iceP_application, iceP_revision, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _waitForApplicationUpdate_name = "waitForApplicationUpdate";
 
-        private void _iceI_waitForApplicationUpdate(string iceP_application, int iceP_revision, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_waitForApplicationUpdate(string iceP_application, int iceP_revision, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -5918,14 +5918,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_destroyAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_destroy(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _destroy_name = "destroy";
 
-        private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6241,14 +6241,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_applicationInitAsync(int iceP_serial, ApplicationInfo[] iceP_applications, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_applicationInit(iceP_serial, iceP_applications, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _applicationInit_name = "applicationInit";
 
-        private void _iceI_applicationInit(int iceP_serial, ApplicationInfo[] iceP_applications, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_applicationInit(int iceP_serial, ApplicationInfo[] iceP_applications, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6272,14 +6272,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_applicationAddedAsync(int iceP_serial, ApplicationInfo iceP_desc, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_applicationAdded(iceP_serial, iceP_desc, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _applicationAdded_name = "applicationAdded";
 
-        private void _iceI_applicationAdded(int iceP_serial, ApplicationInfo iceP_desc, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_applicationAdded(int iceP_serial, ApplicationInfo iceP_desc, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6303,14 +6303,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_applicationRemovedAsync(int iceP_serial, string iceP_name, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_applicationRemoved(iceP_serial, iceP_name, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _applicationRemoved_name = "applicationRemoved";
 
-        private void _iceI_applicationRemoved(int iceP_serial, string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_applicationRemoved(int iceP_serial, string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6333,14 +6333,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_applicationUpdatedAsync(int iceP_serial, ApplicationUpdateInfo iceP_desc, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_applicationUpdated(iceP_serial, iceP_desc, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _applicationUpdated_name = "applicationUpdated";
 
-        private void _iceI_applicationUpdated(int iceP_serial, ApplicationUpdateInfo iceP_desc, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_applicationUpdated(int iceP_serial, ApplicationUpdateInfo iceP_desc, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6364,14 +6364,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_objectInitAsync(ObjectInfo[] iceP_objects, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_objectInit(iceP_objects, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _objectInit_name = "objectInit";
 
-        private void _iceI_objectInit(ObjectInfo[] iceP_objects, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_objectInit(ObjectInfo[] iceP_objects, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6393,14 +6393,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_objectAddedAsync(ObjectInfo iceP_info, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_objectAdded(iceP_info, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _objectAdded_name = "objectAdded";
 
-        private void _iceI_objectAdded(ObjectInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_objectAdded(ObjectInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6422,14 +6422,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_objectUpdatedAsync(ObjectInfo iceP_info, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_objectUpdated(iceP_info, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _objectUpdated_name = "objectUpdated";
 
-        private void _iceI_objectUpdated(ObjectInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_objectUpdated(ObjectInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6451,14 +6451,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_objectRemovedAsync(global::Ice.Identity iceP_id, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_objectRemoved(iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _objectRemoved_name = "objectRemoved";
 
-        private void _iceI_objectRemoved(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_objectRemoved(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6480,14 +6480,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_adapterInitAsync(AdapterInfo[] iceP_adpts, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_adapterInit(iceP_adpts, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _adapterInit_name = "adapterInit";
 
-        private void _iceI_adapterInit(AdapterInfo[] iceP_adpts, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_adapterInit(AdapterInfo[] iceP_adpts, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6509,14 +6509,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_adapterAddedAsync(AdapterInfo iceP_info, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_adapterAdded(iceP_info, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _adapterAdded_name = "adapterAdded";
 
-        private void _iceI_adapterAdded(AdapterInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_adapterAdded(AdapterInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6538,14 +6538,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_adapterUpdatedAsync(AdapterInfo iceP_info, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_adapterUpdated(iceP_info, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _adapterUpdated_name = "adapterUpdated";
 
-        private void _iceI_adapterUpdated(AdapterInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_adapterUpdated(AdapterInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6567,14 +6567,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_adapterRemovedAsync(string iceP_id, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_adapterRemoved(iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _adapterRemoved_name = "adapterRemoved";
 
-        private void _iceI_adapterRemoved(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_adapterRemoved(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6886,14 +6886,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_keepAliveAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_keepAlive(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _keepAlive_name = "keepAlive";
 
-        private void _iceI_keepAlive(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_keepAlive(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6912,14 +6912,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<int> _iceI_getTimeoutAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getTimeout_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<int>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
             _iceI_getTimeout(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getTimeout_name = "getTimeout";
 
-        private void _iceI_getTimeout(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getTimeout(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
@@ -6944,14 +6944,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task _iceI_setDatabaseObserverAsync(DatabaseObserverPrx iceP_dbObs, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> iceP_serials, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setDatabaseObserver_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setDatabaseObserver(iceP_dbObs, iceP_serials, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setDatabaseObserver_name = "setDatabaseObserver";
 
-        private void _iceI_setDatabaseObserver(DatabaseObserverPrx iceP_dbObs, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> iceP_serials, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setDatabaseObserver(DatabaseObserverPrx iceP_dbObs, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> iceP_serials, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6976,11 +6976,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ObserverAlreadyRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(ObserverAlreadyRegisteredException)
                     {
                         throw;
                     }
@@ -6997,14 +6997,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_setEndpointsAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx> iceP_endpoints, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setEndpoints(iceP_endpoints, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setEndpoints_name = "setEndpoints";
 
-        private void _iceI_setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx> iceP_endpoints, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx> iceP_endpoints, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -7026,14 +7026,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_registerWellKnownObjectsAsync(ObjectInfo[] iceP_objects, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_registerWellKnownObjects(iceP_objects, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _registerWellKnownObjects_name = "registerWellKnownObjects";
 
-        private void _iceI_registerWellKnownObjects(ObjectInfo[] iceP_objects, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_registerWellKnownObjects(ObjectInfo[] iceP_objects, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -7056,14 +7056,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task _iceI_setAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx iceP_proxy, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setAdapterDirectProxy_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setAdapterDirectProxy(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setAdapterDirectProxy_name = "setAdapterDirectProxy";
 
-        private void _iceI_setAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -7105,14 +7105,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_receivedUpdateAsync(TopicName iceP_name, int iceP_serial, string iceP_failure, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_receivedUpdate(iceP_name, iceP_serial, iceP_failure, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _receivedUpdate_name = "receivedUpdate";
 
-        private void _iceI_receivedUpdate(TopicName iceP_name, int iceP_serial, string iceP_failure, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_receivedUpdate(TopicName iceP_name, int iceP_serial, string iceP_failure, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -7136,14 +7136,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_destroyAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_destroy(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _destroy_name = "destroy";
 
-        private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -7457,14 +7457,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<long> _iceI_getOffsetFromEndAsync(string iceP_filename, int iceP_lines, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getOffsetFromEnd_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<long>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<long>(progress, cancel);
             _iceI_getOffsetFromEnd(iceP_filename, iceP_lines, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getOffsetFromEnd_name = "getOffsetFromEnd";
 
-        private void _iceI_getOffsetFromEnd(string iceP_filename, int iceP_lines, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getOffsetFromEnd(string iceP_filename, int iceP_lines, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<long>(completed);
             outAsync.invoke(
@@ -7508,14 +7508,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<FileReader_ReadResult> _iceI_readAsync(string iceP_filename, long iceP_pos, int iceP_size, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_read_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<FileReader_ReadResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<FileReader_ReadResult>(progress, cancel);
             _iceI_read(iceP_filename, iceP_pos, iceP_size, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _read_name = "read";
 
-        private void _iceI_read(string iceP_filename, long iceP_pos, int iceP_size, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_read(string iceP_filename, long iceP_pos, int iceP_size, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<FileReader_ReadResult>(completed);
             outAsync.invoke(
@@ -7562,14 +7562,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<NodeSessionPrx> _iceI_registerNodeAsync(InternalNodeInfo iceP_info, NodePrx iceP_prx, LoadInfo iceP_loadInf, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_registerNode_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<NodeSessionPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<NodeSessionPrx>(progress, cancel);
             _iceI_registerNode(iceP_info, iceP_prx, iceP_loadInf, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _registerNode_name = "registerNode";
 
-        private void _iceI_registerNode(InternalNodeInfo iceP_info, NodePrx iceP_prx, LoadInfo iceP_loadInf, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_registerNode(InternalNodeInfo iceP_info, NodePrx iceP_prx, LoadInfo iceP_loadInf, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<NodeSessionPrx>(completed);
             outAsync.invoke(
@@ -7591,11 +7591,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -7619,14 +7619,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<ReplicaSessionPrx> _iceI_registerReplicaAsync(InternalReplicaInfo iceP_info, InternalRegistryPrx iceP_prx, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_registerReplica_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<ReplicaSessionPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ReplicaSessionPrx>(progress, cancel);
             _iceI_registerReplica(iceP_info, iceP_prx, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _registerReplica_name = "registerReplica";
 
-        private void _iceI_registerReplica(InternalReplicaInfo iceP_info, InternalRegistryPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_registerReplica(InternalReplicaInfo iceP_info, InternalRegistryPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ReplicaSessionPrx>(completed);
             outAsync.invoke(
@@ -7647,11 +7647,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -7674,14 +7674,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_registerWithReplicaAsync(InternalRegistryPrx iceP_prx, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_registerWithReplica(iceP_prx, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _registerWithReplica_name = "registerWithReplica";
 
-        private void _iceI_registerWithReplica(InternalRegistryPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_registerWithReplica(InternalRegistryPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -7704,14 +7704,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<NodePrx[]> _iceI_getNodesAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getNodes_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<NodePrx[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<NodePrx[]>(progress, cancel);
             _iceI_getNodes(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getNodes_name = "getNodes";
 
-        private void _iceI_getNodes(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getNodes(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<NodePrx[]>(completed);
             outAsync.invoke(
@@ -7736,14 +7736,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<InternalRegistryPrx[]> _iceI_getReplicasAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getReplicas_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<InternalRegistryPrx[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<InternalRegistryPrx[]>(progress, cancel);
             _iceI_getReplicas(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getReplicas_name = "getReplicas";
 
-        private void _iceI_getReplicas(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getReplicas(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<InternalRegistryPrx[]>(completed);
             outAsync.invoke(
@@ -7768,14 +7768,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<InternalRegistry_GetApplicationsResult> _iceI_getApplicationsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getApplications_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<InternalRegistry_GetApplicationsResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<InternalRegistry_GetApplicationsResult>(progress, cancel);
             _iceI_getApplications(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getApplications_name = "getApplications";
 
-        private void _iceI_getApplications(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getApplications(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<InternalRegistry_GetApplicationsResult>(completed);
             outAsync.invoke(
@@ -7802,14 +7802,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<InternalRegistry_GetAdaptersResult> _iceI_getAdaptersAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getAdapters_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<InternalRegistry_GetAdaptersResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<InternalRegistry_GetAdaptersResult>(progress, cancel);
             _iceI_getAdapters(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getAdapters_name = "getAdapters";
 
-        private void _iceI_getAdapters(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getAdapters(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<InternalRegistry_GetAdaptersResult>(completed);
             outAsync.invoke(
@@ -7835,14 +7835,14 @@ namespace IceGrid
         private global::System.Threading.Tasks.Task<InternalRegistry_GetObjectsResult> _iceI_getObjectsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getObjects_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<InternalRegistry_GetObjectsResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<InternalRegistry_GetObjectsResult>(progress, cancel);
             _iceI_getObjects(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getObjects_name = "getObjects";
 
-        private void _iceI_getObjects(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getObjects(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<InternalRegistry_GetObjectsResult>(completed);
             outAsync.invoke(
@@ -7867,14 +7867,14 @@ namespace IceGrid
 
         private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -8053,7 +8053,7 @@ namespace IceGrid
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -8077,7 +8077,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_activate(Adapter obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_activate(Adapter obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -8090,7 +8090,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getDirectProxy(Adapter obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getDirectProxy(Adapter obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -8103,7 +8103,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_setDirectProxy(Adapter obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_setDirectProxy(Adapter obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -8126,9 +8126,9 @@ namespace IceGrid
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
@@ -8195,7 +8195,7 @@ namespace IceGrid
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -8219,7 +8219,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getOffsetFromEnd(FileReader obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getOffsetFromEnd(FileReader obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -8237,7 +8237,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_read(FileReader obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_read(FileReader obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -8270,9 +8270,9 @@ namespace IceGrid
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
@@ -8360,7 +8360,7 @@ namespace IceGrid
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -8384,7 +8384,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_start(Server obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_start(Server obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -8393,7 +8393,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_stop(Server obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_stop(Server obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -8402,7 +8402,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_checkUpdate(Server obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_checkUpdate(Server obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -8422,7 +8422,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_setEnabled(Server obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_setEnabled(Server obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -8435,7 +8435,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_isEnabled(Server obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_isEnabled(Server obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -8448,7 +8448,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_sendSignal(Server obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_sendSignal(Server obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -8461,7 +8461,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_writeMessage(Server obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_writeMessage(Server obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -8476,7 +8476,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getState(Server obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getState(Server obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -8489,7 +8489,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getPid(Server obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getPid(Server obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -8502,7 +8502,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_setProcess(Server obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_setProcess(Server obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -8533,9 +8533,9 @@ namespace IceGrid
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
@@ -8640,7 +8640,7 @@ namespace IceGrid
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -8664,7 +8664,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_replicaInit(ReplicaObserver obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_replicaInit(ReplicaObserver obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -8677,7 +8677,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_replicaAdded(ReplicaObserver obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_replicaAdded(ReplicaObserver obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -8690,7 +8690,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_replicaRemoved(ReplicaObserver obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_replicaRemoved(ReplicaObserver obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -8713,9 +8713,9 @@ namespace IceGrid
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
@@ -8814,7 +8814,7 @@ namespace IceGrid
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -8838,7 +8838,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_loadServer(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_loadServer(Node obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -8861,7 +8861,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_loadServerWithoutRestart(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_loadServerWithoutRestart(Node obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -8884,7 +8884,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_destroyServer(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_destroyServer(Node obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -8902,7 +8902,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_destroyServerWithoutRestart(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_destroyServerWithoutRestart(Node obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -8920,7 +8920,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_registerWithReplica(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_registerWithReplica(Node obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -8933,7 +8933,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getName(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getName(Node obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -8946,7 +8946,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getHostname(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getHostname(Node obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -8959,7 +8959,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getLoad(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getLoad(Node obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -8972,7 +8972,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getProcessorSocketCount(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getProcessorSocketCount(Node obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -8985,7 +8985,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_shutdown(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_shutdown(Node obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -9017,9 +9017,9 @@ namespace IceGrid
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
@@ -9146,7 +9146,7 @@ namespace IceGrid
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -9170,7 +9170,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_keepAlive(NodeSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_keepAlive(NodeSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -9184,7 +9184,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_setReplicaObserver(NodeSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_setReplicaObserver(NodeSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -9197,7 +9197,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getTimeout(NodeSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getTimeout(NodeSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -9210,7 +9210,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getObserver(NodeSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getObserver(NodeSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -9223,7 +9223,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_loadServers(NodeSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_loadServers(NodeSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -9232,7 +9232,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getServers(NodeSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getServers(NodeSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -9245,7 +9245,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_waitForApplicationUpdate(NodeSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_waitForApplicationUpdate(NodeSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -9259,7 +9259,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_destroy(NodeSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_destroy(NodeSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -9284,9 +9284,9 @@ namespace IceGrid
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
@@ -9396,7 +9396,7 @@ namespace IceGrid
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -9437,9 +9437,9 @@ namespace IceGrid
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
@@ -9552,7 +9552,7 @@ namespace IceGrid
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -9576,7 +9576,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_keepAlive(ReplicaSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_keepAlive(ReplicaSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -9586,7 +9586,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getTimeout(ReplicaSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getTimeout(ReplicaSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -9599,7 +9599,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_setDatabaseObserver(ReplicaSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_setDatabaseObserver(ReplicaSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -9624,7 +9624,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_setEndpoints(ReplicaSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_setEndpoints(ReplicaSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -9637,7 +9637,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_registerWellKnownObjects(ReplicaSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_registerWellKnownObjects(ReplicaSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -9650,7 +9650,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_setAdapterDirectProxy(ReplicaSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_setAdapterDirectProxy(ReplicaSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -9667,7 +9667,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_receivedUpdate(ReplicaSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_receivedUpdate(ReplicaSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -9684,7 +9684,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_destroy(ReplicaSession obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_destroy(ReplicaSession obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -9709,9 +9709,9 @@ namespace IceGrid
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
@@ -9821,7 +9821,7 @@ namespace IceGrid
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -9845,7 +9845,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_registerNode(InternalRegistry obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_registerNode(InternalRegistry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -9868,7 +9868,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_registerReplica(InternalRegistry obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_registerReplica(InternalRegistry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -9888,7 +9888,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_registerWithReplica(InternalRegistry obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_registerWithReplica(InternalRegistry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -9901,7 +9901,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getNodes(InternalRegistry obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getNodes(InternalRegistry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -9914,7 +9914,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getReplicas(InternalRegistry obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getReplicas(InternalRegistry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -9927,7 +9927,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getApplications(InternalRegistry obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getApplications(InternalRegistry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -9943,7 +9943,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getAdapters(InternalRegistry obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getAdapters(InternalRegistry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -9958,7 +9958,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getObjects(InternalRegistry obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getObjects(InternalRegistry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -9973,7 +9973,7 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_shutdown(InternalRegistry obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_shutdown(InternalRegistry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
@@ -10001,9 +10001,9 @@ namespace IceGrid
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);

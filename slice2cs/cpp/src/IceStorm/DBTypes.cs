@@ -82,9 +82,9 @@ namespace IceStorm
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceStorm::AllData");
-            global::IceInternal.HashUtil.hashAdd(ref h_, llus);
-            global::IceInternal.HashUtil.hashAdd(ref h_, subscribers);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStorm::AllData");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, llus);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, subscribers);
             return h_;
         }
 
@@ -113,7 +113,7 @@ namespace IceStorm
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.llus, o.llus))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.llus, o.llus))
                 {
                     return false;
                 }
@@ -127,7 +127,7 @@ namespace IceStorm
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.subscribers, o.subscribers))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.subscribers, o.subscribers))
                 {
                     return false;
                 }

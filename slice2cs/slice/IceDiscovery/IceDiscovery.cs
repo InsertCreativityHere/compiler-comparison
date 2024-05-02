@@ -316,14 +316,14 @@ namespace IceDiscovery
 
         private global::System.Threading.Tasks.Task _iceI_foundObjectByIdAsync(global::Ice.Identity iceP_id, global::Ice.ObjectPrx iceP_prx, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_foundObjectById(iceP_id, iceP_prx, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _foundObjectById_name = "foundObjectById";
 
-        private void _iceI_foundObjectById(global::Ice.Identity iceP_id, global::Ice.ObjectPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_foundObjectById(global::Ice.Identity iceP_id, global::Ice.ObjectPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -346,14 +346,14 @@ namespace IceDiscovery
 
         private global::System.Threading.Tasks.Task _iceI_foundAdapterByIdAsync(string iceP_id, global::Ice.ObjectPrx iceP_prx, bool iceP_isReplicaGroup, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_foundAdapterById(iceP_id, iceP_prx, iceP_isReplicaGroup, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _foundAdapterById_name = "foundAdapterById";
 
-        private void _iceI_foundAdapterById(string iceP_id, global::Ice.ObjectPrx iceP_prx, bool iceP_isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_foundAdapterById(string iceP_id, global::Ice.ObjectPrx iceP_prx, bool iceP_isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -555,14 +555,14 @@ namespace IceDiscovery
 
         private global::System.Threading.Tasks.Task _iceI_findObjectByIdAsync(string iceP_domainId, global::Ice.Identity iceP_id, LookupReplyPrx iceP_reply, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_findObjectById(iceP_domainId, iceP_id, iceP_reply, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _findObjectById_name = "findObjectById";
 
-        private void _iceI_findObjectById(string iceP_domainId, global::Ice.Identity iceP_id, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_findObjectById(string iceP_domainId, global::Ice.Identity iceP_id, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -586,14 +586,14 @@ namespace IceDiscovery
 
         private global::System.Threading.Tasks.Task _iceI_findAdapterByIdAsync(string iceP_domainId, string iceP_id, LookupReplyPrx iceP_reply, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_findAdapterById(iceP_domainId, iceP_id, iceP_reply, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _findAdapterById_name = "findAdapterById";
 
-        private void _iceI_findAdapterById(string iceP_domainId, string iceP_id, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_findAdapterById(string iceP_domainId, string iceP_id, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -775,7 +775,7 @@ namespace IceDiscovery
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -799,7 +799,7 @@ namespace IceDiscovery
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_foundObjectById(LookupReply obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_foundObjectById(LookupReply obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -815,7 +815,7 @@ namespace IceDiscovery
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_foundAdapterById(LookupReply obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_foundAdapterById(LookupReply obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -841,9 +841,9 @@ namespace IceDiscovery
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
@@ -906,7 +906,7 @@ namespace IceDiscovery
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -930,7 +930,7 @@ namespace IceDiscovery
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_findObjectById(Lookup obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_findObjectById(Lookup obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -948,7 +948,7 @@ namespace IceDiscovery
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_findAdapterById(Lookup obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_findAdapterById(Lookup obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
@@ -974,9 +974,9 @@ namespace IceDiscovery
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);

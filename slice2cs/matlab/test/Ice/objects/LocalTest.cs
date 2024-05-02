@@ -147,8 +147,8 @@ namespace LocalTest
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::LocalTest::S1");
-            global::IceInternal.HashUtil.hashAdd(ref h_, c1);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::LocalTest::S1");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, c1);
             return h_;
         }
 
@@ -298,8 +298,8 @@ namespace LocalTest
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::LocalTest::S2");
-            global::IceInternal.HashUtil.hashAdd(ref h_, s1);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::LocalTest::S2");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, s1);
             return h_;
         }
 
@@ -448,8 +448,8 @@ namespace LocalTest
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::LocalTest::S3");
-            global::IceInternal.HashUtil.hashAdd(ref h_, c1seq);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::LocalTest::S3");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, c1seq);
             return h_;
         }
 
@@ -478,7 +478,7 @@ namespace LocalTest
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.c1seq, o.c1seq))
+                if(!Ice.UtilInternal.Arrays.Equals(this.c1seq, o.c1seq))
                 {
                     return false;
                 }
@@ -598,8 +598,8 @@ namespace LocalTest
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::LocalTest::S4");
-            global::IceInternal.HashUtil.hashAdd(ref h_, s1seq);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::LocalTest::S4");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, s1seq);
             return h_;
         }
 
@@ -628,7 +628,7 @@ namespace LocalTest
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.s1seq, o.s1seq))
+                if(!Ice.UtilInternal.Arrays.Equals(this.s1seq, o.s1seq))
                 {
                     return false;
                 }
@@ -748,8 +748,8 @@ namespace LocalTest
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::LocalTest::S5");
-            global::IceInternal.HashUtil.hashAdd(ref h_, c1dict);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::LocalTest::S5");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, c1dict);
             return h_;
         }
 
@@ -778,7 +778,7 @@ namespace LocalTest
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.c1dict, o.c1dict))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.c1dict, o.c1dict))
                 {
                     return false;
                 }
@@ -898,8 +898,8 @@ namespace LocalTest
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::LocalTest::S6");
-            global::IceInternal.HashUtil.hashAdd(ref h_, s1dict);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::LocalTest::S6");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, s1dict);
             return h_;
         }
 
@@ -928,7 +928,7 @@ namespace LocalTest
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.s1dict, o.s1dict))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.s1dict, o.s1dict))
                 {
                     return false;
                 }
@@ -1048,8 +1048,8 @@ namespace LocalTest
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::LocalTest::S7");
-            global::IceInternal.HashUtil.hashAdd(ref h_, c1seqseq);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::LocalTest::S7");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, c1seqseq);
             return h_;
         }
 
@@ -1078,7 +1078,7 @@ namespace LocalTest
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.c1seqseq, o.c1seqseq))
+                if(!Ice.UtilInternal.Arrays.Equals(this.c1seqseq, o.c1seqseq))
                 {
                     return false;
                 }
@@ -1198,8 +1198,8 @@ namespace LocalTest
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::LocalTest::S8");
-            global::IceInternal.HashUtil.hashAdd(ref h_, s1seqseq);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::LocalTest::S8");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, s1seqseq);
             return h_;
         }
 
@@ -1228,7 +1228,7 @@ namespace LocalTest
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.s1seqseq, o.s1seqseq))
+                if(!Ice.UtilInternal.Arrays.Equals(this.s1seqseq, o.s1seqseq))
                 {
                     return false;
                 }
@@ -1934,9 +1934,9 @@ namespace LocalTest
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::LocalTest::StructKey");
-            global::IceInternal.HashUtil.hashAdd(ref h_, i);
-            global::IceInternal.HashUtil.hashAdd(ref h_, j);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::LocalTest::StructKey");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, j);
             return h_;
         }
 
@@ -2173,7 +2173,7 @@ namespace LocalTest
                 v = new C1[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::IceInternal.Patcher.arrayReadValue<C1>(v, ix));
+                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<C1>(v, ix));
                 }
             }
             return v;

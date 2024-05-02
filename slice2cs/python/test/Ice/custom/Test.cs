@@ -102,15 +102,15 @@ namespace Test
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::S");
-            global::IceInternal.HashUtil.hashAdd(ref h_, b1);
-            global::IceInternal.HashUtil.hashAdd(ref h_, b2);
-            global::IceInternal.HashUtil.hashAdd(ref h_, b3);
-            global::IceInternal.HashUtil.hashAdd(ref h_, b4);
-            global::IceInternal.HashUtil.hashAdd(ref h_, s1);
-            global::IceInternal.HashUtil.hashAdd(ref h_, s2);
-            global::IceInternal.HashUtil.hashAdd(ref h_, s3);
-            global::IceInternal.HashUtil.hashAdd(ref h_, s4);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::S");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, b1);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, b2);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, b3);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, b4);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, s1);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, s2);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, s3);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, s4);
             return h_;
         }
 
@@ -139,7 +139,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.b1, o.b1))
+                if(!Ice.UtilInternal.Arrays.Equals(this.b1, o.b1))
                 {
                     return false;
                 }
@@ -153,7 +153,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.b2, o.b2))
+                if(!Ice.UtilInternal.Arrays.Equals(this.b2, o.b2))
                 {
                     return false;
                 }
@@ -167,7 +167,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.b3, o.b3))
+                if(!Ice.UtilInternal.Arrays.Equals(this.b3, o.b3))
                 {
                     return false;
                 }
@@ -181,7 +181,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.b4, o.b4))
+                if(!Ice.UtilInternal.Arrays.Equals(this.b4, o.b4))
                 {
                     return false;
                 }
@@ -195,7 +195,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.s1, o.s1))
+                if(!Ice.UtilInternal.Arrays.Equals(this.s1, o.s1))
                 {
                     return false;
                 }
@@ -209,7 +209,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.s2, o.s2))
+                if(!Ice.UtilInternal.Arrays.Equals(this.s2, o.s2))
                 {
                     return false;
                 }
@@ -223,7 +223,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.s3, o.s3))
+                if(!Ice.UtilInternal.Arrays.Equals(this.s3, o.s3))
                 {
                     return false;
                 }
@@ -237,7 +237,7 @@ namespace Test
             }
             else
             {
-                if(!IceUtilInternal.Arrays.Equals(this.s4, o.s4))
+                if(!Ice.UtilInternal.Arrays.Equals(this.s4, o.s4))
                 {
                     return false;
                 }
@@ -1724,14 +1724,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpByteString1Result> _iceI_opByteString1Async(byte[] iceP_b1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteString1_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpByteString1Result>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpByteString1Result>(progress, cancel);
             _iceI_opByteString1(iceP_b1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opByteString1_name = "opByteString1";
 
-        private void _iceI_opByteString1(byte[] iceP_b1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opByteString1(byte[] iceP_b1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpByteString1Result>(completed);
             outAsync.invoke(
@@ -1761,14 +1761,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpByteString2Result> _iceI_opByteString2Async(byte[] iceP_b1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteString2_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpByteString2Result>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpByteString2Result>(progress, cancel);
             _iceI_opByteString2(iceP_b1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opByteString2_name = "opByteString2";
 
-        private void _iceI_opByteString2(byte[] iceP_b1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opByteString2(byte[] iceP_b1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpByteString2Result>(completed);
             outAsync.invoke(
@@ -1798,14 +1798,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpByteList1Result> _iceI_opByteList1Async(byte[] iceP_b1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteList1_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpByteList1Result>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpByteList1Result>(progress, cancel);
             _iceI_opByteList1(iceP_b1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opByteList1_name = "opByteList1";
 
-        private void _iceI_opByteList1(byte[] iceP_b1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opByteList1(byte[] iceP_b1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpByteList1Result>(completed);
             outAsync.invoke(
@@ -1835,14 +1835,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpByteList2Result> _iceI_opByteList2Async(byte[] iceP_b1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteList2_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpByteList2Result>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpByteList2Result>(progress, cancel);
             _iceI_opByteList2(iceP_b1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opByteList2_name = "opByteList2";
 
-        private void _iceI_opByteList2(byte[] iceP_b1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opByteList2(byte[] iceP_b1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpByteList2Result>(completed);
             outAsync.invoke(
@@ -1872,14 +1872,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpStringList1Result> _iceI_opStringList1Async(string[] iceP_s1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringList1_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpStringList1Result>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpStringList1Result>(progress, cancel);
             _iceI_opStringList1(iceP_s1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opStringList1_name = "opStringList1";
 
-        private void _iceI_opStringList1(string[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opStringList1(string[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpStringList1Result>(completed);
             outAsync.invoke(
@@ -1909,14 +1909,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpStringList2Result> _iceI_opStringList2Async(string[] iceP_s1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringList2_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpStringList2Result>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpStringList2Result>(progress, cancel);
             _iceI_opStringList2(iceP_s1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opStringList2_name = "opStringList2";
 
-        private void _iceI_opStringList2(string[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opStringList2(string[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpStringList2Result>(completed);
             outAsync.invoke(
@@ -1946,14 +1946,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpStringTuple1Result> _iceI_opStringTuple1Async(string[] iceP_s1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringTuple1_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpStringTuple1Result>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpStringTuple1Result>(progress, cancel);
             _iceI_opStringTuple1(iceP_s1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opStringTuple1_name = "opStringTuple1";
 
-        private void _iceI_opStringTuple1(string[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opStringTuple1(string[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpStringTuple1Result>(completed);
             outAsync.invoke(
@@ -1983,14 +1983,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpStringTuple2Result> _iceI_opStringTuple2Async(string[] iceP_s1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringTuple2_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpStringTuple2Result>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpStringTuple2Result>(progress, cancel);
             _iceI_opStringTuple2(iceP_s1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opStringTuple2_name = "opStringTuple2";
 
-        private void _iceI_opStringTuple2(string[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opStringTuple2(string[] iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpStringTuple2Result>(completed);
             outAsync.invoke(
@@ -2019,14 +2019,14 @@ namespace Test
 
         private global::System.Threading.Tasks.Task _iceI_sendSAsync(S iceP_val, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_sendS(iceP_val, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _sendS_name = "sendS";
 
-        private void _iceI_sendS(S iceP_val, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_sendS(S iceP_val, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2048,14 +2048,14 @@ namespace Test
 
         private global::System.Threading.Tasks.Task _iceI_sendCAsync(C iceP_val, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_sendC(iceP_val, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _sendC_name = "sendC";
 
-        private void _iceI_sendC(C iceP_val, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_sendC(C iceP_val, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2079,14 +2079,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpBoolSeqResult> _iceI_opBoolSeqAsync(bool[] iceP_v1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBoolSeq_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpBoolSeqResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpBoolSeqResult>(progress, cancel);
             _iceI_opBoolSeq(iceP_v1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opBoolSeq_name = "opBoolSeq";
 
-        private void _iceI_opBoolSeq(bool[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opBoolSeq(bool[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpBoolSeqResult>(completed);
             outAsync.invoke(
@@ -2116,14 +2116,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpByteSeqResult> _iceI_opByteSeqAsync(byte[] iceP_v1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteSeq_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpByteSeqResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpByteSeqResult>(progress, cancel);
             _iceI_opByteSeq(iceP_v1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opByteSeq_name = "opByteSeq";
 
-        private void _iceI_opByteSeq(byte[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opByteSeq(byte[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpByteSeqResult>(completed);
             outAsync.invoke(
@@ -2153,14 +2153,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpShortSeqResult> _iceI_opShortSeqAsync(short[] iceP_v1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortSeq_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpShortSeqResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpShortSeqResult>(progress, cancel);
             _iceI_opShortSeq(iceP_v1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opShortSeq_name = "opShortSeq";
 
-        private void _iceI_opShortSeq(short[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opShortSeq(short[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpShortSeqResult>(completed);
             outAsync.invoke(
@@ -2190,14 +2190,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpIntSeqResult> _iceI_opIntSeqAsync(int[] iceP_v1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opIntSeq_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpIntSeqResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpIntSeqResult>(progress, cancel);
             _iceI_opIntSeq(iceP_v1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opIntSeq_name = "opIntSeq";
 
-        private void _iceI_opIntSeq(int[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opIntSeq(int[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpIntSeqResult>(completed);
             outAsync.invoke(
@@ -2227,14 +2227,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpLongSeqResult> _iceI_opLongSeqAsync(long[] iceP_v1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongSeq_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpLongSeqResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpLongSeqResult>(progress, cancel);
             _iceI_opLongSeq(iceP_v1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opLongSeq_name = "opLongSeq";
 
-        private void _iceI_opLongSeq(long[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opLongSeq(long[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpLongSeqResult>(completed);
             outAsync.invoke(
@@ -2264,14 +2264,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpFloatSeqResult> _iceI_opFloatSeqAsync(float[] iceP_v1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatSeq_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpFloatSeqResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpFloatSeqResult>(progress, cancel);
             _iceI_opFloatSeq(iceP_v1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opFloatSeq_name = "opFloatSeq";
 
-        private void _iceI_opFloatSeq(float[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opFloatSeq(float[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpFloatSeqResult>(completed);
             outAsync.invoke(
@@ -2301,14 +2301,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<Custom_OpDoubleSeqResult> _iceI_opDoubleSeqAsync(double[] iceP_v1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opDoubleSeq_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Custom_OpDoubleSeqResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpDoubleSeqResult>(progress, cancel);
             _iceI_opDoubleSeq(iceP_v1, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opDoubleSeq_name = "opDoubleSeq";
 
-        private void _iceI_opDoubleSeq(double[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opDoubleSeq(double[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Custom_OpDoubleSeqResult>(completed);
             outAsync.invoke(
@@ -2338,14 +2338,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<bool[]> _iceI_opBogusArrayNotExistsFactoryAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBogusArrayNotExistsFactory_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
             _iceI_opBogusArrayNotExistsFactory(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opBogusArrayNotExistsFactory_name = "opBogusArrayNotExistsFactory";
 
-        private void _iceI_opBogusArrayNotExistsFactory(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opBogusArrayNotExistsFactory(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<bool[]>(completed);
             outAsync.invoke(
@@ -2370,14 +2370,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<bool[]> _iceI_opBogusArrayThrowFactoryAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBogusArrayThrowFactory_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
             _iceI_opBogusArrayThrowFactory(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opBogusArrayThrowFactory_name = "opBogusArrayThrowFactory";
 
-        private void _iceI_opBogusArrayThrowFactory(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opBogusArrayThrowFactory(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<bool[]>(completed);
             outAsync.invoke(
@@ -2402,14 +2402,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<bool[]> _iceI_opBogusArrayTypeAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBogusArrayType_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
             _iceI_opBogusArrayType(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opBogusArrayType_name = "opBogusArrayType";
 
-        private void _iceI_opBogusArrayType(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opBogusArrayType(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<bool[]>(completed);
             outAsync.invoke(
@@ -2434,14 +2434,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<bool[]> _iceI_opBogusArrayNoneFactoryAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBogusArrayNoneFactory_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
             _iceI_opBogusArrayNoneFactory(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opBogusArrayNoneFactory_name = "opBogusArrayNoneFactory";
 
-        private void _iceI_opBogusArrayNoneFactory(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opBogusArrayNoneFactory(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<bool[]>(completed);
             outAsync.invoke(
@@ -2466,14 +2466,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<bool[]> _iceI_opBogusArraySignatureFactoryAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBogusArraySignatureFactory_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
             _iceI_opBogusArraySignatureFactory(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opBogusArraySignatureFactory_name = "opBogusArraySignatureFactory";
 
-        private void _iceI_opBogusArraySignatureFactory(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opBogusArraySignatureFactory(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<bool[]>(completed);
             outAsync.invoke(
@@ -2498,14 +2498,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<bool[]> _iceI_opBogusArrayNoCallableFactoryAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBogusArrayNoCallableFactory_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
             _iceI_opBogusArrayNoCallableFactory(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opBogusArrayNoCallableFactory_name = "opBogusArrayNoCallableFactory";
 
-        private void _iceI_opBogusArrayNoCallableFactory(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opBogusArrayNoCallableFactory(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<bool[]>(completed);
             outAsync.invoke(
@@ -2530,14 +2530,14 @@ namespace Test
         private global::System.Threading.Tasks.Task<D> _iceI_opDAsync(D iceP_d, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opD_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<D>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<D>(progress, cancel);
             _iceI_opD(iceP_d, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _opD_name = "opD";
 
-        private void _iceI_opD(D iceP_d, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opD(D iceP_d, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<D>(completed);
             outAsync.invoke(
@@ -2567,14 +2567,14 @@ namespace Test
 
         private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2796,7 +2796,7 @@ namespace Test
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -2820,7 +2820,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteString1(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opByteString1(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2838,7 +2838,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteString2(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opByteString2(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2856,7 +2856,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteList1(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opByteList1(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2874,7 +2874,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteList2(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opByteList2(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2892,7 +2892,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringList1(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opStringList1(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2910,7 +2910,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringList2(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opStringList2(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2928,7 +2928,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringTuple1(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opStringTuple1(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2946,7 +2946,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringTuple2(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opStringTuple2(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2964,7 +2964,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_sendS(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_sendS(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2978,7 +2978,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_sendC(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_sendC(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2993,7 +2993,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBoolSeq(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opBoolSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -3011,7 +3011,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteSeq(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opByteSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -3029,7 +3029,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opShortSeq(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opShortSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -3047,7 +3047,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opIntSeq(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opIntSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -3065,7 +3065,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opLongSeq(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opLongSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -3083,7 +3083,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opFloatSeq(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opFloatSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -3101,7 +3101,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opDoubleSeq(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opDoubleSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -3119,7 +3119,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArrayNotExistsFactory(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opBogusArrayNotExistsFactory(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -3132,7 +3132,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArrayThrowFactory(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opBogusArrayThrowFactory(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -3145,7 +3145,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArrayType(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opBogusArrayType(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -3158,7 +3158,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArrayNoneFactory(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opBogusArrayNoneFactory(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -3171,7 +3171,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArraySignatureFactory(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opBogusArraySignatureFactory(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -3184,7 +3184,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArrayNoCallableFactory(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opBogusArrayNoCallableFactory(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -3197,7 +3197,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opD(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opD(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -3216,7 +3216,7 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_shutdown(Custom obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_shutdown(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -3258,9 +3258,9 @@ namespace Test
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);

@@ -181,9 +181,9 @@ namespace IceMX
         public override int GetHashCode()
         {
             int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceMX::MetricsFailures");
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
-            global::IceInternal.HashUtil.hashAdd(ref h_, failures);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceMX::MetricsFailures");
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
+            global::Ice.Internal.HashUtil.hashAdd(ref h_, failures);
             return h_;
         }
 
@@ -226,7 +226,7 @@ namespace IceMX
             }
             else
             {
-                if(!global::IceUtilInternal.Collections.DictionaryEquals(this.failures, o.failures))
+                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.failures, o.failures))
                 {
                     return false;
                 }
@@ -1344,7 +1344,7 @@ namespace IceMX
                 v = new Metrics[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(global::IceInternal.Patcher.arrayReadValue<Metrics>(v, ix));
+                    istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<Metrics>(v, ix));
                 }
             }
             return v;
@@ -1486,14 +1486,14 @@ namespace IceMX
         private global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewNamesResult> _iceI_getMetricsViewNamesAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMetricsViewNames_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<MetricsAdmin_GetMetricsViewNamesResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsAdmin_GetMetricsViewNamesResult>(progress, cancel);
             _iceI_getMetricsViewNames(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getMetricsViewNames_name = "getMetricsViewNames";
 
-        private void _iceI_getMetricsViewNames(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMetricsViewNames(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsAdmin_GetMetricsViewNamesResult>(completed);
             outAsync.invoke(
@@ -1519,14 +1519,14 @@ namespace IceMX
         private global::System.Threading.Tasks.Task _iceI_enableMetricsViewAsync(string iceP_name, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_enableMetricsView_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_enableMetricsView(iceP_name, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _enableMetricsView_name = "enableMetricsView";
 
-        private void _iceI_enableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_enableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1563,14 +1563,14 @@ namespace IceMX
         private global::System.Threading.Tasks.Task _iceI_disableMetricsViewAsync(string iceP_name, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_disableMetricsView_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_disableMetricsView(iceP_name, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _disableMetricsView_name = "disableMetricsView";
 
-        private void _iceI_disableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_disableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1607,14 +1607,14 @@ namespace IceMX
         private global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewResult> _iceI_getMetricsViewAsync(string iceP_view, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMetricsView_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<MetricsAdmin_GetMetricsViewResult>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsAdmin_GetMetricsViewResult>(progress, cancel);
             _iceI_getMetricsView(iceP_view, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getMetricsView_name = "getMetricsView";
 
-        private void _iceI_getMetricsView(string iceP_view, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMetricsView(string iceP_view, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsAdmin_GetMetricsViewResult>(completed);
             outAsync.invoke(
@@ -1659,14 +1659,14 @@ namespace IceMX
         private global::System.Threading.Tasks.Task<MetricsFailures[]> _iceI_getMapMetricsFailuresAsync(string iceP_view, string iceP_map, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMapMetricsFailures_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<MetricsFailures[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsFailures[]>(progress, cancel);
             _iceI_getMapMetricsFailures(iceP_view, iceP_map, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getMapMetricsFailures_name = "getMapMetricsFailures";
 
-        private void _iceI_getMapMetricsFailures(string iceP_view, string iceP_map, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMapMetricsFailures(string iceP_view, string iceP_map, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsFailures[]>(completed);
             outAsync.invoke(
@@ -1710,14 +1710,14 @@ namespace IceMX
         private global::System.Threading.Tasks.Task<MetricsFailures> _iceI_getMetricsFailuresAsync(string iceP_view, string iceP_map, string iceP_id, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMetricsFailures_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<MetricsFailures>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsFailures>(progress, cancel);
             _iceI_getMetricsFailures(iceP_view, iceP_map, iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getMetricsFailures_name = "getMetricsFailures";
 
-        private void _iceI_getMetricsFailures(string iceP_view, string iceP_map, string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMetricsFailures(string iceP_view, string iceP_map, string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsFailures>(completed);
             outAsync.invoke(
@@ -1927,7 +1927,7 @@ namespace IceMX
 
         public override bool ice_isA(string s, global::Ice.Current current = null)
         {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
         public override string[] ice_ids(global::Ice.Current current = null)
@@ -1951,7 +1951,7 @@ namespace IceMX
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getMetricsViewNames(MetricsAdmin obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getMetricsViewNames(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
@@ -1967,7 +1967,7 @@ namespace IceMX
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_enableMetricsView(MetricsAdmin obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_enableMetricsView(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -1981,7 +1981,7 @@ namespace IceMX
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_disableMetricsView(MetricsAdmin obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_disableMetricsView(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -1995,7 +1995,7 @@ namespace IceMX
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getMetricsView(MetricsAdmin obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getMetricsView(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2015,7 +2015,7 @@ namespace IceMX
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getMapMetricsFailures(MetricsAdmin obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getMapMetricsFailures(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2034,7 +2034,7 @@ namespace IceMX
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getMetricsFailures(MetricsAdmin obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_getMetricsFailures(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
@@ -2068,9 +2068,9 @@ namespace IceMX
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
             if(pos < 0)
             {
                 throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
