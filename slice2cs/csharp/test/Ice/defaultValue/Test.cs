@@ -2349,52 +2349,52 @@ namespace Ice.defaultValue
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual bool boolFalse { get; set; }
+            public bool boolFalse { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual bool boolTrue { get; set; }
+            public bool boolTrue { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual byte b { get; set; }
+            public byte b { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual short s { get; set; }
+            public short s { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual int i { get; set; }
+            public int i { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual long l { get; set; }
+            public long l { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float f { get; set; }
+            public float f { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double d { get; set; }
+            public double d { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual string str { get; set; }
+            public string str { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual string noDefault { get; set; }
+            public string noDefault { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual int zeroI { get; set; }
+            public int zeroI { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual long zeroL { get; set; }
+            public long zeroL { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float zeroF { get; set; }
+            public float zeroF { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float zeroDotF { get; set; }
+            public float zeroDotF { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double zeroD { get; set; }
+            public double zeroD { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double zeroDotD { get; set; }
+            public double zeroDotD { get; set; }
 
             #endregion
 
@@ -2527,52 +2527,52 @@ namespace Ice.defaultValue
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual bool boolFalse { get; set; }
+            public bool boolFalse { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual bool boolTrue { get; set; }
+            public bool boolTrue { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual byte b { get; set; }
+            public byte b { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual short s { get; set; }
+            public short s { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual int i { get; set; }
+            public int i { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual long l { get; set; }
+            public long l { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float f { get; set; }
+            public float f { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double d { get; set; }
+            public double d { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual string str { get; set; }
+            public string str { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual string noDefault { get; set; }
+            public string noDefault { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual int zeroI { get; set; }
+            public int zeroI { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual long zeroL { get; set; }
+            public long zeroL { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float zeroF { get; set; }
+            public float zeroF { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual float zeroDotF { get; set; }
+            public float zeroDotF { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double zeroD { get; set; }
+            public double zeroD { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual double zeroDotD { get; set; }
+            public double zeroDotD { get; set; }
 
             #endregion
 
@@ -2870,52 +2870,52 @@ namespace Ice.defaultValue
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolFalse;
+            public bool boolFalse { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolTrue;
+            public bool boolTrue { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public byte b;
+            public byte b { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public short s;
+            public short s { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int i;
+            public int i { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long l;
+            public long l { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float f;
+            public float f { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double d;
+            public double d { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str;
+            public string str { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string noDefault;
+            public string noDefault { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int zeroI;
+            public int zeroI { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long zeroL;
+            public long zeroL { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroF;
+            public float zeroF { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroDotF;
+            public float zeroDotF { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroD;
+            public double zeroD { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroDotD;
+            public double zeroDotD { get; set; }
 
             #endregion
 

@@ -1711,10 +1711,10 @@ namespace Ice.optional
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public virtual global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> l { get; set; }
+            public global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> l { get; set; }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected virtual global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> lp { get; set; }
+            protected global::Ice.Optional<global::System.Collections.Generic.List<SmallStruct>> lp { get; set; }
 
             #endregion
 
