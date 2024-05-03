@@ -31,10 +31,6 @@ module ::Test
             def checkCert(subjectDN, issuerDN, context=nil)
                 ServerPrx_mixin::OP_checkCert.invoke(self, [subjectDN, issuerDN], context)
             end
-
-            def checkCipher(cipher, context=nil)
-                ServerPrx_mixin::OP_checkCipher.invoke(self, [cipher], context)
-            end
         end
 
         class ServerPrx < ::Ice::ObjectPrx
@@ -51,7 +47,6 @@ module ::Test
 
         ServerPrx_mixin::OP_noCert = ::Ice::__defineOperation('noCert', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         ServerPrx_mixin::OP_checkCert = ::Ice::__defineOperation('checkCert', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
-        ServerPrx_mixin::OP_checkCipher = ::Ice::__defineOperation('checkCipher', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
     end
 
     if not defined?(::Test::T_Properties)

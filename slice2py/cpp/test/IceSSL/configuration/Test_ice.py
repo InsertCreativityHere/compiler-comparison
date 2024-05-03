@@ -38,12 +38,6 @@ if 'ServerPrx' not in _M_Test.__dict__:
         def checkCertAsync(self, subjectDN, issuerDN, context=None):
             return _M_Test.Server._op_checkCert.invokeAsync(self, ((subjectDN, issuerDN), context))
 
-        def checkCipher(self, cipher, context=None):
-            return _M_Test.Server._op_checkCipher.invoke(self, ((cipher, ), context))
-
-        def checkCipherAsync(self, cipher, context=None):
-            return _M_Test.Server._op_checkCipher.invokeAsync(self, ((cipher, ), context))
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.ServerPrx.ice_checkedCast(proxy, '::Test::Server', facetOrContext, context)
@@ -79,9 +73,6 @@ if 'ServerPrx' not in _M_Test.__dict__:
         def checkCert(self, subjectDN, issuerDN, current=None):
             raise NotImplementedError("servant method 'checkCert' not implemented")
 
-        def checkCipher(self, cipher, current=None):
-            raise NotImplementedError("servant method 'checkCipher' not implemented")
-
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_ServerDisp)
 
@@ -92,7 +83,6 @@ if 'ServerPrx' not in _M_Test.__dict__:
 
     Server._op_noCert = IcePy.Operation('noCert', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Server._op_checkCert = IcePy.Operation('checkCert', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
-    Server._op_checkCipher = IcePy.Operation('checkCipher', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
 
     _M_Test.Server = Server
     del Server

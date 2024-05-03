@@ -64,17 +64,6 @@ public:
     void _iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    void checkCipher(::std::string_view cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<void> checkCipherAsync(::std::string_view cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    checkCipherAsync(::std::string_view cipher, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
-    /// \endcond
-
     /**
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
@@ -247,11 +236,6 @@ public:
     virtual void checkCert(::std::string subjectDN, ::std::string issuerDN, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_checkCert(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual void checkCipher(::std::string cipher, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_checkCipher(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL

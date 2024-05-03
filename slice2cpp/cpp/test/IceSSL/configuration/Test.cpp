@@ -92,37 +92,6 @@ Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
-void
-Test::ServerPrx::checkCipher(::std::string_view iceP_cipher, const ::Ice::Context& context) const
-{
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &ServerPrx::_iceI_checkCipher, iceP_cipher, context).get();
-}
-
-::std::future<void>
-Test::ServerPrx::checkCipherAsync(::std::string_view iceP_cipher, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &ServerPrx::_iceI_checkCipher, iceP_cipher, context);
-}
-
-::std::function<void()>
-Test::ServerPrx::checkCipherAsync(::std::string_view iceP_cipher, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ServerPrx::_iceI_checkCipher, iceP_cipher, context);
-}
-
-void
-Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_cipher, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "checkCipher";
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_cipher);
-        },
-        nullptr);
-}
-
 ::std::string_view
 Test::ServerPrx::ice_staticId() noexcept
 {
@@ -277,27 +246,12 @@ Test::Server::_iceD_checkCert(::Ice::IncomingRequest& request, ::std::function<v
 
 /// \cond INTERNAL
 void
-Test::Server::_iceD_checkCipher(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    ::std::string iceP_cipher;
-    istr->readAll(iceP_cipher);
-    istr->endEncapsulation();
-    this->checkCipher(::std::move(iceP_cipher), request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::Server::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"checkCert", "checkCipher", "ice_id", "ice_ids", "ice_isA", "ice_ping", "noCert"};
+    static constexpr ::std::string_view allOperations[] = {"checkCert", "ice_id", "ice_ids", "ice_isA", "ice_ping", "noCert"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -313,30 +267,25 @@ Test::Server::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::I
         }
         case 1:
         {
-            _iceD_checkCipher(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, ::std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, ::std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, ::std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
-            break;
-        }
-        case 5:
-        {
             _iceD_ice_ping(request, ::std::move(sendResponse));
             break;
         }
-        case 6:
+        case 5:
         {
             _iceD_noCert(request, ::std::move(sendResponse));
             break;

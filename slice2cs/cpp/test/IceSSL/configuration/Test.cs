@@ -60,9 +60,6 @@ namespace Test
     public delegate void Callback_Server_checkCert();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Server_checkCipher();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_ServerFactory_createServer(ServerPrx ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -84,10 +81,6 @@ namespace Test
         void checkCert(string subjectDN, string issuerDN, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task checkCertAsync(string subjectDN, string issuerDN, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        void checkCipher(string cipher, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task checkCipherAsync(string cipher, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -117,9 +110,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void checkCert(string subjectDN, string issuerDN, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void checkCipher(string cipher, global::Ice.Current current = null);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -165,18 +155,6 @@ namespace Test
             try
             {
                 _iceI_checkCertAsync(subjectDN, issuerDN, context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public void checkCipher(string cipher, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_checkCipherAsync(cipher, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch(global::System.AggregateException ex_)
             {
@@ -240,35 +218,6 @@ namespace Test
                 {
                     ostr.writeString(iceP_subjectDN);
                     ostr.writeString(iceP_issuerDN);
-                });
-        }
-
-        public global::System.Threading.Tasks.Task checkCipherAsync(string cipher, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_checkCipherAsync(cipher, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_checkCipherAsync(string iceP_cipher, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_checkCipher(iceP_cipher, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _checkCipher_name = "checkCipher";
-
-        private void _iceI_checkCipher(string iceP_cipher, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _checkCipher_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeString(iceP_cipher);
                 });
         }
 
@@ -742,8 +691,6 @@ namespace Test
 
         public abstract void checkCert(string subjectDN, string issuerDN, global::Ice.Current current = null);
 
-        public abstract void checkCipher(string cipher, global::Ice.Current current = null);
-
         #endregion
 
         #region Slice type-related members
@@ -803,23 +750,9 @@ namespace Test
             return inS.setResult(inS.writeEmptyParams());
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_checkCipher(Server obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_cipher;
-            iceP_cipher = istr.readString();
-            inS.endReadParams();
-            obj.checkCipher(iceP_cipher, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
         private static readonly string[] _all =
         {
             "checkCert",
-            "checkCipher",
             "ice_id",
             "ice_ids",
             "ice_isA",
@@ -844,25 +777,21 @@ namespace Test
                 }
                 case 1:
                 {
-                    return iceD_checkCipher(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
                 }
                 case 2:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
                 }
                 case 3:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
                 }
                 case 4:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 5:
-                {
                     return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
                 }
-                case 6:
+                case 5:
                 {
                     return iceD_noCert(this, inS, current);
                 }

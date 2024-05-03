@@ -44,7 +44,6 @@ namespace Test
     global $IcePHP__t_string;
     IcePHP_defineOperation($Test__t_ServerPrx, 'noCert', 0, 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_ServerPrx, 'checkCert', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
-    IcePHP_defineOperation($Test__t_ServerPrx, 'checkCipher', 0, 0, 0, array(array($IcePHP__t_string)), null, null, null);
 }
 
 namespace Test

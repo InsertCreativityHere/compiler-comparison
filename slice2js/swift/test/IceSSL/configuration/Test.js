@@ -40,8 +40,7 @@
     Slice.defineOperations(Test.Server, Test.ServerPrx, iceC_Test_Server_ids, "::Test::Server",
     {
         "noCert": [, , , , , , , , , ],
-        "checkCert": [, , , , , [[7], [7]], , , , ],
-        "checkCipher": [, , , , , [[7]], , , , ]
+        "checkCert": [, , , , , [[7], [7]], , , , ]
     });
 
     Slice.defineDictionary(Test, "Properties", "PropertiesHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);

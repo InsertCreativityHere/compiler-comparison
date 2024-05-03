@@ -107,10 +107,6 @@ public struct SSLServerFactoryTraits: Ice.SliceTraits {
 ///  - checkCert: 
 ///
 ///  - checkCertAsync: 
-///
-///  - checkCipher: 
-///
-///  - checkCipherAsync: 
 public protocol SSLServerPrx: Ice.ObjectPrx {}
 
 private final class SSLServerPrxI: Ice.ObjectPrxI, SSLServerPrx {
@@ -197,10 +193,6 @@ public extension Ice.InputStream {
 ///  - checkCert: 
 ///
 ///  - checkCertAsync: 
-///
-///  - checkCipher: 
-///
-///  - checkCipherAsync: 
 public extension SSLServerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -269,45 +261,6 @@ public extension SSLServerPrx {
                                   write: { ostr in
                                       ostr.write(iceP_subjectDN)
                                       ostr.write(iceP_issuerDN)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func checkCipher(_ iceP_cipher: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "checkCipher",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_cipher)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func checkCipherAsync(_ iceP_cipher: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "checkCipher",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_cipher)
                                   },
                                   context: context,
                                   sentOn: sentOn,
@@ -555,8 +508,6 @@ public struct SSLServerDisp: Ice.Disp {
         switch current.operation {
         case "checkCert":
             return try servant._iceD_checkCert(incoming: request, current: current)
-        case "checkCipher":
-            return try servant._iceD_checkCipher(incoming: request, current: current)
         case "ice_id":
             return try (servant as? Object ?? SSLServerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
         case "ice_ids":
@@ -585,12 +536,6 @@ public protocol SSLServer {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func checkCert(subjectDN: Swift.String, issuerDN: Swift.String, current: Ice.Current) throws
-
-    ///
-    /// - parameter cipher: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func checkCipher(cipher: Swift.String, current: Ice.Current) throws
 }
 
 
@@ -653,8 +598,6 @@ public protocol SSLServerFactory {
 ///  - noCert: 
 ///
 ///  - checkCert: 
-///
-///  - checkCipher: 
 public extension SSLServer {
     func _iceD_noCert(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         try inS.readEmptyParams()
@@ -672,17 +615,6 @@ public extension SSLServer {
         }
 
         try self.checkCert(subjectDN: iceP_subjectDN, issuerDN: iceP_issuerDN, current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_checkCipher(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_cipher: Swift.String = try inS.read { istr in
-            let iceP_cipher: Swift.String = try istr.read()
-            return iceP_cipher
-        }
-
-        try self.checkCipher(cipher: iceP_cipher, current: current)
 
         return inS.setResult()
     }

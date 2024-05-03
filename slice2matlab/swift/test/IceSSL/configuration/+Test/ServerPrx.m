@@ -5,8 +5,6 @@
 %   noCertAsync
 %   checkCert
 %   checkCertAsync
-%   checkCipher
-%   checkCipherAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -62,32 +60,6 @@ classdef ServerPrx < Ice.ObjectPrx
             os_.writeString(issuerDN);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('checkCert', 0, false, os_, 0, [], {}, varargin{:});
-        end
-        function checkCipher(obj, cipher, varargin)
-            % checkCipher
-            %
-            % Parameters:
-            %   cipher (char)
-            %   context (containers.Map) - Optional request context.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeString(cipher);
-            obj.iceEndWriteParams(os_);
-            obj.iceInvoke('checkCipher', 0, false, os_, false, {}, varargin{:});
-        end
-        function r_ = checkCipherAsync(obj, cipher, varargin)
-            % checkCipherAsync
-            %
-            % Parameters:
-            %   cipher (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeString(cipher);
-            obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('checkCipher', 0, false, os_, 0, [], {}, varargin{:});
         end
     end
     methods(Static)
