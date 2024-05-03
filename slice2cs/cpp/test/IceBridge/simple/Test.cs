@@ -361,7 +361,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -418,7 +418,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -785,7 +785,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -875,7 +875,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -907,7 +907,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -993,7 +993,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -1050,7 +1050,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -1082,7 +1082,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -1508,7 +1508,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_expected;
+            int iceP_expected = default;
             iceP_expected = istr.readInt();
             inS.endReadParams();
             obj.incCounter(iceP_expected, current);
@@ -1521,7 +1521,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_value;
+            int iceP_value = default;
             iceP_value = istr.readInt();
             inS.endReadParams();
             obj.waitCounter(iceP_value, current);
@@ -1560,7 +1560,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool iceP_force;
+            bool iceP_force = default;
             iceP_force = istr.readBool();
             inS.endReadParams();
             obj.closeConnection(iceP_force, current);

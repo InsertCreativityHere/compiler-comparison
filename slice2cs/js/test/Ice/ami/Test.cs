@@ -824,7 +824,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -921,7 +921,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -957,7 +957,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -1122,7 +1122,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -1154,7 +1154,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -1747,7 +1747,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_seq;
+            byte[] iceP_seq = default;
             iceP_seq = global::Ice.ByteSeqHelper.read(istr);
             inS.endReadParams();
             obj.opWithPayload(iceP_seq, current);
@@ -1806,7 +1806,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_count;
+            int iceP_count = default;
             iceP_count = istr.readInt();
             inS.endReadParams();
             var ret = obj.waitForBatch(iceP_count, current);
@@ -1822,7 +1822,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            CloseMode iceP_mode;
+            CloseMode iceP_mode = default;
             iceP_mode = (CloseMode)istr.readEnum(2);
             inS.endReadParams();
             obj.close(iceP_mode, current);
@@ -1835,7 +1835,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_ms;
+            int iceP_ms = default;
             iceP_ms = istr.readInt();
             inS.endReadParams();
             obj.sleep(iceP_ms, current);
@@ -1903,8 +1903,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            iceP_id = null;
+            global::Ice.Identity iceP_id = default;
             iceP_id = global::Ice.Identity.ice_read(istr);
             inS.endReadParams();
             obj.pingBidDir(iceP_id, current);

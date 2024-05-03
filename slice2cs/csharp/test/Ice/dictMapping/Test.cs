@@ -32,7 +32,7 @@ namespace Ice.dictMapping
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class TEstNv : global::System.ICloneable
+        public sealed partial class TEstNv : global::System.ICloneable, global::System.IEquatable<TEstNv>
         {
             #region Slice data members
 
@@ -67,10 +67,7 @@ namespace Ice.dictMapping
             #region ICloneable members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
+            public object Clone() => MemberwiseClone();
 
             #endregion
 
@@ -87,45 +84,43 @@ namespace Ice.dictMapping
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
+            public override bool Equals(object other) => Equals(other as TEstNv);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bool Equals(TEstNv other)
             {
-                if(object.ReferenceEquals(this, other))
+                if (object.ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if(other == null)
+                if (other is null)
                 {
                     return false;
                 }
-                if(GetType() != other.GetType())
+                if (this.d is null)
                 {
-                    return false;
-                }
-                TEstNv o = (TEstNv)other;
-                if(this.d == null)
-                {
-                    if(o.d != null)
+                    if (other.d is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.d, o.d))
+                    if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.d, other.d))
                     {
                         return false;
                     }
                 }
-                if(this.s == null)
+                if (this.s is null)
                 {
-                    if(o.s != null)
+                    if (other.s is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!Ice.UtilInternal.Arrays.Equals(this.s, o.s))
+                    if (!Ice.UtilInternal.Arrays.Equals(this.s, other.s))
                     {
                         return false;
                     }
@@ -140,13 +135,13 @@ namespace Ice.dictMapping
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator==(TEstNv lhs, TEstNv rhs)
             {
-                return Equals(lhs, rhs);
+                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator!=(TEstNv lhs, TEstNv rhs)
             {
-                return !Equals(lhs, rhs);
+                return !(lhs == rhs);
             }
 
             #endregion
@@ -170,7 +165,7 @@ namespace Ice.dictMapping
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, TEstNv v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     _nullMarshalValue.ice_writeMembers(ostr);
                 }
@@ -459,9 +454,9 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<int, int> r = new global::System.Collections.Generic.Dictionary<int, int>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    int k;
+                    int k = default;
                     k = istr.readInt();
-                    int v;
+                    int v = default;
                     v = istr.readInt();
                     r[k] = v;
                 }
@@ -496,9 +491,9 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    string v;
+                    string v = default;
                     v = istr.readString();
                     r[k] = v;
                 }
@@ -533,9 +528,9 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> r = new global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    global::System.Collections.Generic.Dictionary<int, int> v;
+                    global::System.Collections.Generic.Dictionary<int, int> v = default;
                     v = NVHelper.read(istr);
                     r[k] = v;
                 }
@@ -570,9 +565,9 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> r = new global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    global::System.Collections.Generic.Dictionary<string, string> v;
+                    global::System.Collections.Generic.Dictionary<string, string> v = default;
                     v = NRHelper.read(istr);
                     r[k] = v;
                 }
@@ -687,9 +682,9 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, int[]> r = new global::System.Collections.Generic.Dictionary<string, int[]>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    int[] v;
+                    int[] v = default;
                     v = AISHelper.read(istr);
                     r[k] = v;
                 }
@@ -724,9 +719,9 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> r = new global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    global::System.Collections.Generic.List<int> v;
+                    global::System.Collections.Generic.List<int> v = default;
                     v = GISHelper.read(istr);
                     r[k] = v;
                 }
@@ -761,9 +756,9 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, string[]> r = new global::System.Collections.Generic.Dictionary<string, string[]>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    string[] v;
+                    string[] v = default;
                     v = ASSHelper.read(istr);
                     r[k] = v;
                 }
@@ -798,9 +793,9 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> r = new global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    global::System.Collections.Generic.List<string> v;
+                    global::System.Collections.Generic.List<string> v = default;
                     v = GSSHelper.read(istr);
                     r[k] = v;
                 }
@@ -1487,7 +1482,7 @@ namespace Ice.dictMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<int, int> iceP_i;
+                global::System.Collections.Generic.Dictionary<int, int> iceP_i = default;
                 iceP_i = NVHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Dictionary<int, int> iceP_o;
@@ -1505,7 +1500,7 @@ namespace Ice.dictMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, string> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, string> iceP_i = default;
                 iceP_i = NRHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Dictionary<string, string> iceP_o;
@@ -1523,7 +1518,7 @@ namespace Ice.dictMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> iceP_i = default;
                 iceP_i = NDVHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> iceP_o;
@@ -1541,7 +1536,7 @@ namespace Ice.dictMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> iceP_i = default;
                 iceP_i = NDRHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> iceP_o;
@@ -1559,7 +1554,7 @@ namespace Ice.dictMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, int[]> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, int[]> iceP_i = default;
                 iceP_i = NDAISHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Dictionary<string, int[]> iceP_o;
@@ -1577,7 +1572,7 @@ namespace Ice.dictMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> iceP_i = default;
                 iceP_i = NDGISHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> iceP_o;
@@ -1595,7 +1590,7 @@ namespace Ice.dictMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, string[]> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, string[]> iceP_i = default;
                 iceP_i = NDASSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Dictionary<string, string[]> iceP_o;
@@ -1613,7 +1608,7 @@ namespace Ice.dictMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> iceP_i = default;
                 iceP_i = NDGSSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> iceP_o;

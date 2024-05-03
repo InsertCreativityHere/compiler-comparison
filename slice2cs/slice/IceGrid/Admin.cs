@@ -92,7 +92,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ObjectInfo : global::System.ICloneable
+    public sealed partial class ObjectInfo : global::System.ICloneable, global::System.IEquatable<ObjectInfo>
     {
         #region Slice data members
 
@@ -100,7 +100,7 @@ namespace IceGrid
         public global::Ice.ObjectPrx proxy;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string type;
+        public string type = "";
 
         #endregion
 
@@ -111,7 +111,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObjectInfo()
         {
-            this.type = "";
             ice_initialize();
         }
 
@@ -128,10 +127,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -148,45 +144,43 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ObjectInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ObjectInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.proxy is null)
             {
-                return false;
-            }
-            ObjectInfo o = (ObjectInfo)other;
-            if(this.proxy == null)
-            {
-                if(o.proxy != null)
+                if (other.proxy is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.proxy.Equals(o.proxy))
+                if (!this.proxy.Equals(other.proxy))
                 {
                     return false;
                 }
             }
-            if(this.type == null)
+            if (this.type is null)
             {
-                if(o.type != null)
+                if (other.type is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.type.Equals(o.type))
+                if (!this.type.Equals(other.type))
                 {
                     return false;
                 }
@@ -201,13 +195,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ObjectInfo lhs, ObjectInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ObjectInfo lhs, ObjectInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -231,7 +225,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ObjectInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -264,18 +258,18 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class AdapterInfo : global::System.ICloneable
+    public sealed partial class AdapterInfo : global::System.ICloneable, global::System.IEquatable<AdapterInfo>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string id;
+        public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.ObjectPrx proxy;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string replicaGroupId;
+        public string replicaGroupId = "";
 
         #endregion
 
@@ -286,8 +280,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterInfo()
         {
-            this.id = "";
-            this.replicaGroupId = "";
             ice_initialize();
         }
 
@@ -305,10 +297,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -326,59 +315,57 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as AdapterInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(AdapterInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.id is null)
             {
-                return false;
-            }
-            AdapterInfo o = (AdapterInfo)other;
-            if(this.id == null)
-            {
-                if(o.id != null)
+                if (other.id is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.id.Equals(o.id))
+                if (!this.id.Equals(other.id))
                 {
                     return false;
                 }
             }
-            if(this.proxy == null)
+            if (this.proxy is null)
             {
-                if(o.proxy != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.proxy.Equals(o.proxy))
-                {
-                    return false;
-                }
-            }
-            if(this.replicaGroupId == null)
-            {
-                if(o.replicaGroupId != null)
+                if (other.proxy is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.replicaGroupId.Equals(o.replicaGroupId))
+                if (!this.proxy.Equals(other.proxy))
+                {
+                    return false;
+                }
+            }
+            if (this.replicaGroupId is null)
+            {
+                if (other.replicaGroupId is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.replicaGroupId.Equals(other.replicaGroupId))
                 {
                     return false;
                 }
@@ -393,13 +380,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(AdapterInfo lhs, AdapterInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(AdapterInfo lhs, AdapterInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -425,7 +412,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, AdapterInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -458,27 +445,27 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ServerInfo : global::System.ICloneable
+    public sealed partial class ServerInfo : global::System.ICloneable, global::System.IEquatable<ServerInfo>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string application;
+        public string application = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string uuid;
+        public string uuid = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int revision;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string node;
+        public string node = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerDescriptor descriptor;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string sessionId;
+        public string sessionId = "";
 
         #endregion
 
@@ -489,10 +476,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerInfo()
         {
-            this.application = "";
-            this.uuid = "";
-            this.node = "";
-            this.sessionId = "";
             ice_initialize();
         }
 
@@ -513,10 +496,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -537,91 +517,89 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ServerInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ServerInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.application is null)
+            {
+                if (other.application is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.application.Equals(other.application))
+                {
+                    return false;
+                }
+            }
+            if (this.uuid is null)
+            {
+                if (other.uuid is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.uuid.Equals(other.uuid))
+                {
+                    return false;
+                }
+            }
+            if (!this.revision.Equals(other.revision))
             {
                 return false;
             }
-            ServerInfo o = (ServerInfo)other;
-            if(this.application == null)
+            if (this.node is null)
             {
-                if(o.application != null)
+                if (other.node is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.application.Equals(o.application))
+                if (!this.node.Equals(other.node))
                 {
                     return false;
                 }
             }
-            if(this.uuid == null)
+            if (this.descriptor is null)
             {
-                if(o.uuid != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.uuid.Equals(o.uuid))
-                {
-                    return false;
-                }
-            }
-            if(!this.revision.Equals(o.revision))
-            {
-                return false;
-            }
-            if(this.node == null)
-            {
-                if(o.node != null)
+                if (other.descriptor is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.node.Equals(o.node))
+                if (!this.descriptor.Equals(other.descriptor))
                 {
                     return false;
                 }
             }
-            if(this.descriptor == null)
+            if (this.sessionId is null)
             {
-                if(o.descriptor != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.descriptor.Equals(o.descriptor))
-                {
-                    return false;
-                }
-            }
-            if(this.sessionId == null)
-            {
-                if(o.sessionId != null)
+                if (other.sessionId is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.sessionId.Equals(o.sessionId))
+                if (!this.sessionId.Equals(other.sessionId))
                 {
                     return false;
                 }
@@ -636,13 +614,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ServerInfo lhs, ServerInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ServerInfo lhs, ServerInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -674,7 +652,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ServerInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -707,33 +685,33 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class NodeInfo : global::System.ICloneable
+    public sealed partial class NodeInfo : global::System.ICloneable, global::System.IEquatable<NodeInfo>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string name;
+        public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string os;
+        public string os = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string hostname;
+        public string hostname = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string release;
+        public string release = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string version;
+        public string version = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string machine;
+        public string machine = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int nProcessors;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string dataDir;
+        public string dataDir = "";
 
         #endregion
 
@@ -744,13 +722,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeInfo()
         {
-            this.name = "";
-            this.os = "";
-            this.hostname = "";
-            this.release = "";
-            this.version = "";
-            this.machine = "";
-            this.dataDir = "";
             ice_initialize();
         }
 
@@ -773,10 +744,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -799,119 +767,117 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as NodeInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(NodeInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.name is null)
+            {
+                if (other.name is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.name.Equals(other.name))
+                {
+                    return false;
+                }
+            }
+            if (this.os is null)
+            {
+                if (other.os is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.os.Equals(other.os))
+                {
+                    return false;
+                }
+            }
+            if (this.hostname is null)
+            {
+                if (other.hostname is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.hostname.Equals(other.hostname))
+                {
+                    return false;
+                }
+            }
+            if (this.release is null)
+            {
+                if (other.release is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.release.Equals(other.release))
+                {
+                    return false;
+                }
+            }
+            if (this.version is null)
+            {
+                if (other.version is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.version.Equals(other.version))
+                {
+                    return false;
+                }
+            }
+            if (this.machine is null)
+            {
+                if (other.machine is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.machine.Equals(other.machine))
+                {
+                    return false;
+                }
+            }
+            if (!this.nProcessors.Equals(other.nProcessors))
             {
                 return false;
             }
-            NodeInfo o = (NodeInfo)other;
-            if(this.name == null)
+            if (this.dataDir is null)
             {
-                if(o.name != null)
+                if (other.dataDir is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.name.Equals(o.name))
-                {
-                    return false;
-                }
-            }
-            if(this.os == null)
-            {
-                if(o.os != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.os.Equals(o.os))
-                {
-                    return false;
-                }
-            }
-            if(this.hostname == null)
-            {
-                if(o.hostname != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.hostname.Equals(o.hostname))
-                {
-                    return false;
-                }
-            }
-            if(this.release == null)
-            {
-                if(o.release != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.release.Equals(o.release))
-                {
-                    return false;
-                }
-            }
-            if(this.version == null)
-            {
-                if(o.version != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.version.Equals(o.version))
-                {
-                    return false;
-                }
-            }
-            if(this.machine == null)
-            {
-                if(o.machine != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.machine.Equals(o.machine))
-                {
-                    return false;
-                }
-            }
-            if(!this.nProcessors.Equals(o.nProcessors))
-            {
-                return false;
-            }
-            if(this.dataDir == null)
-            {
-                if(o.dataDir != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.dataDir.Equals(o.dataDir))
+                if (!this.dataDir.Equals(other.dataDir))
                 {
                     return false;
                 }
@@ -926,13 +892,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(NodeInfo lhs, NodeInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(NodeInfo lhs, NodeInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -968,7 +934,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, NodeInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1001,15 +967,15 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class RegistryInfo : global::System.ICloneable
+    public sealed partial class RegistryInfo : global::System.ICloneable, global::System.IEquatable<RegistryInfo>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string name;
+        public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string hostname;
+        public string hostname = "";
 
         #endregion
 
@@ -1020,8 +986,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public RegistryInfo()
         {
-            this.name = "";
-            this.hostname = "";
             ice_initialize();
         }
 
@@ -1038,10 +1002,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1058,45 +1019,43 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as RegistryInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(RegistryInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.name is null)
             {
-                return false;
-            }
-            RegistryInfo o = (RegistryInfo)other;
-            if(this.name == null)
-            {
-                if(o.name != null)
+                if (other.name is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.name.Equals(o.name))
+                if (!this.name.Equals(other.name))
                 {
                     return false;
                 }
             }
-            if(this.hostname == null)
+            if (this.hostname is null)
             {
-                if(o.hostname != null)
+                if (other.hostname is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.hostname.Equals(o.hostname))
+                if (!this.hostname.Equals(other.hostname))
                 {
                     return false;
                 }
@@ -1111,13 +1070,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(RegistryInfo lhs, RegistryInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(RegistryInfo lhs, RegistryInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1141,7 +1100,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, RegistryInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1174,7 +1133,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct LoadInfo
+    public partial record struct LoadInfo
     {
         #region Slice data members
 
@@ -1200,60 +1159,6 @@ namespace IceGrid
             this.avg5 = avg5;
             this.avg15 = avg15;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::LoadInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, avg1);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, avg5);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, avg15);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is LoadInfo))
-            {
-                return false;
-            }
-            LoadInfo o = (LoadInfo)other;
-            if(!this.avg1.Equals(o.avg1))
-            {
-                return false;
-            }
-            if(!this.avg5.Equals(o.avg5))
-            {
-                return false;
-            }
-            if(!this.avg15.Equals(o.avg15))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(LoadInfo lhs, LoadInfo rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(LoadInfo lhs, LoadInfo rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -1303,24 +1208,24 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ApplicationInfo : global::System.ICloneable
+    public sealed partial class ApplicationInfo : global::System.ICloneable, global::System.IEquatable<ApplicationInfo>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string uuid;
+        public string uuid = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long createTime;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string createUser;
+        public string createUser = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public long updateTime;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string updateUser;
+        public string updateUser = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int revision;
@@ -1337,10 +1242,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationInfo()
         {
-            this.uuid = "";
-            this.createUser = "";
-            this.updateUser = "";
-            this.descriptor = new ApplicationDescriptor();
+            this.descriptor = new();
             ice_initialize();
         }
 
@@ -1362,10 +1264,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1387,85 +1286,83 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ApplicationInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ApplicationInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.uuid is null)
             {
-                return false;
-            }
-            ApplicationInfo o = (ApplicationInfo)other;
-            if(this.uuid == null)
-            {
-                if(o.uuid != null)
+                if (other.uuid is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.uuid.Equals(o.uuid))
+                if (!this.uuid.Equals(other.uuid))
                 {
                     return false;
                 }
             }
-            if(!this.createTime.Equals(o.createTime))
+            if (!this.createTime.Equals(other.createTime))
             {
                 return false;
             }
-            if(this.createUser == null)
+            if (this.createUser is null)
             {
-                if(o.createUser != null)
+                if (other.createUser is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.createUser.Equals(o.createUser))
+                if (!this.createUser.Equals(other.createUser))
                 {
                     return false;
                 }
             }
-            if(!this.updateTime.Equals(o.updateTime))
+            if (!this.updateTime.Equals(other.updateTime))
             {
                 return false;
             }
-            if(this.updateUser == null)
+            if (this.updateUser is null)
             {
-                if(o.updateUser != null)
+                if (other.updateUser is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.updateUser.Equals(o.updateUser))
+                if (!this.updateUser.Equals(other.updateUser))
                 {
                     return false;
                 }
             }
-            if(!this.revision.Equals(o.revision))
+            if (!this.revision.Equals(other.revision))
             {
                 return false;
             }
-            if(this.descriptor == null)
+            if (this.descriptor is null)
             {
-                if(o.descriptor != null)
+                if (other.descriptor is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.descriptor.Equals(o.descriptor))
+                if (!this.descriptor.Equals(other.descriptor))
                 {
                     return false;
                 }
@@ -1480,13 +1377,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ApplicationInfo lhs, ApplicationInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ApplicationInfo lhs, ApplicationInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1520,7 +1417,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ApplicationInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1553,7 +1450,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ApplicationUpdateInfo : global::System.ICloneable
+    public sealed partial class ApplicationUpdateInfo : global::System.ICloneable, global::System.IEquatable<ApplicationUpdateInfo>
     {
         #region Slice data members
 
@@ -1561,7 +1458,7 @@ namespace IceGrid
         public long updateTime;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string updateUser;
+        public string updateUser = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int revision;
@@ -1578,8 +1475,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationUpdateInfo()
         {
-            this.updateUser = "";
-            this.descriptor = new ApplicationUpdateDescriptor();
+            this.descriptor = new();
             ice_initialize();
         }
 
@@ -1598,10 +1494,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1620,53 +1513,51 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ApplicationUpdateInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ApplicationUpdateInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (!this.updateTime.Equals(other.updateTime))
             {
                 return false;
             }
-            ApplicationUpdateInfo o = (ApplicationUpdateInfo)other;
-            if(!this.updateTime.Equals(o.updateTime))
+            if (this.updateUser is null)
             {
-                return false;
-            }
-            if(this.updateUser == null)
-            {
-                if(o.updateUser != null)
+                if (other.updateUser is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.updateUser.Equals(o.updateUser))
+                if (!this.updateUser.Equals(other.updateUser))
                 {
                     return false;
                 }
             }
-            if(!this.revision.Equals(o.revision))
+            if (!this.revision.Equals(other.revision))
             {
                 return false;
             }
-            if(this.descriptor == null)
+            if (this.descriptor is null)
             {
-                if(o.descriptor != null)
+                if (other.descriptor is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.descriptor.Equals(o.descriptor))
+                if (!this.descriptor.Equals(other.descriptor))
                 {
                     return false;
                 }
@@ -1681,13 +1572,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ApplicationUpdateInfo lhs, ApplicationUpdateInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ApplicationUpdateInfo lhs, ApplicationUpdateInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1715,7 +1606,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ApplicationUpdateInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1778,12 +1669,12 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ServerDynamicInfo : global::System.ICloneable
+    public sealed partial class ServerDynamicInfo : global::System.ICloneable, global::System.IEquatable<ServerDynamicInfo>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string id;
+        public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerState state;
@@ -1803,7 +1694,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerDynamicInfo()
         {
-            this.id = "";
             ice_initialize();
         }
 
@@ -1822,10 +1712,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1844,44 +1731,42 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ServerDynamicInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ServerDynamicInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.id is null)
             {
-                return false;
-            }
-            ServerDynamicInfo o = (ServerDynamicInfo)other;
-            if(this.id == null)
-            {
-                if(o.id != null)
+                if (other.id is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.id.Equals(o.id))
+                if (!this.id.Equals(other.id))
                 {
                     return false;
                 }
             }
-            if(!this.state.Equals(o.state))
+            if (!this.state.Equals(other.state))
             {
                 return false;
             }
-            if(!this.pid.Equals(o.pid))
+            if (!this.pid.Equals(other.pid))
             {
                 return false;
             }
-            if(!this.enabled.Equals(o.enabled))
+            if (!this.enabled.Equals(other.enabled))
             {
                 return false;
             }
@@ -1895,13 +1780,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ServerDynamicInfo lhs, ServerDynamicInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ServerDynamicInfo lhs, ServerDynamicInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1929,7 +1814,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ServerDynamicInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1962,12 +1847,12 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class AdapterDynamicInfo : global::System.ICloneable
+    public sealed partial class AdapterDynamicInfo : global::System.ICloneable, global::System.IEquatable<AdapterDynamicInfo>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string id;
+        public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.ObjectPrx proxy;
@@ -1981,7 +1866,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterDynamicInfo()
         {
-            this.id = "";
             ice_initialize();
         }
 
@@ -1998,10 +1882,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -2018,45 +1899,43 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as AdapterDynamicInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(AdapterDynamicInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.id is null)
             {
-                return false;
-            }
-            AdapterDynamicInfo o = (AdapterDynamicInfo)other;
-            if(this.id == null)
-            {
-                if(o.id != null)
+                if (other.id is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.id.Equals(o.id))
+                if (!this.id.Equals(other.id))
                 {
                     return false;
                 }
             }
-            if(this.proxy == null)
+            if (this.proxy is null)
             {
-                if(o.proxy != null)
+                if (other.proxy is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.proxy.Equals(o.proxy))
+                if (!this.proxy.Equals(other.proxy))
                 {
                     return false;
                 }
@@ -2071,13 +1950,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(AdapterDynamicInfo lhs, AdapterDynamicInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(AdapterDynamicInfo lhs, AdapterDynamicInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -2101,7 +1980,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, AdapterDynamicInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -2134,7 +2013,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class NodeDynamicInfo : global::System.ICloneable
+    public sealed partial class NodeDynamicInfo : global::System.ICloneable, global::System.IEquatable<NodeDynamicInfo>
     {
         #region Slice data members
 
@@ -2156,7 +2035,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeDynamicInfo()
         {
-            this.info = new NodeInfo();
+            this.info = new();
             ice_initialize();
         }
 
@@ -2174,10 +2053,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -2195,59 +2071,57 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as NodeDynamicInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(NodeDynamicInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.info is null)
             {
-                return false;
-            }
-            NodeDynamicInfo o = (NodeDynamicInfo)other;
-            if(this.info == null)
-            {
-                if(o.info != null)
+                if (other.info is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.info.Equals(o.info))
+                if (!this.info.Equals(other.info))
                 {
                     return false;
                 }
             }
-            if(this.servers == null)
+            if (this.servers is null)
             {
-                if(o.servers != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.servers, o.servers))
-                {
-                    return false;
-                }
-            }
-            if(this.adapters == null)
-            {
-                if(o.adapters != null)
+                if (other.servers is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.adapters, o.adapters))
+                if (!Ice.UtilInternal.Arrays.Equals(this.servers, other.servers))
+                {
+                    return false;
+                }
+            }
+            if (this.adapters is null)
+            {
+                if (other.adapters is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.adapters, other.adapters))
                 {
                     return false;
                 }
@@ -2262,13 +2136,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(NodeDynamicInfo lhs, NodeDynamicInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(NodeDynamicInfo lhs, NodeDynamicInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -2294,7 +2168,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, NodeDynamicInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -5997,9 +5871,9 @@ namespace IceGrid
             global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx> r = new global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                global::Ice.ObjectPrx v;
+                global::Ice.ObjectPrx v = default;
                 v = istr.readProxy();
                 r[k] = v;
             }
@@ -7112,7 +6986,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    ApplicationInfo ret = null;
+                    ApplicationInfo ret = default;
                     ret = ApplicationInfo.ice_read(istr);
                     istr.readPendingValues();
                     return ret;
@@ -7159,7 +7033,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    ApplicationDescriptor ret = null;
+                    ApplicationDescriptor ret = default;
                     ret = ApplicationDescriptor.ice_read(istr);
                     istr.readPendingValues();
                     return ret;
@@ -7192,7 +7066,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string[] ret;
+                    string[] ret = default;
                     ret = global::Ice.StringSeqHelper.read(istr);
                     return ret;
                 });
@@ -7242,7 +7116,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    ServerInfo ret = null;
+                    ServerInfo ret = default;
                     ret = ServerInfo.ice_read(istr);
                     istr.readPendingValues();
                     return ret;
@@ -7301,7 +7175,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    ServerState ret;
+                    ServerState ret = default;
                     ret = (ServerState)istr.readEnum(6);
                     return ret;
                 });
@@ -7359,7 +7233,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -7391,7 +7265,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -7449,7 +7323,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -7560,7 +7434,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -7761,7 +7635,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string[] ret;
+                    string[] ret = default;
                     ret = global::Ice.StringSeqHelper.read(istr);
                     return ret;
                 });
@@ -7811,7 +7685,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    AdapterInfo[] ret;
+                    AdapterInfo[] ret = default;
                     ret = AdapterInfoSeqHelper.read(istr);
                     return ret;
                 });
@@ -7891,7 +7765,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string[] ret;
+                    string[] ret = default;
                     ret = global::Ice.StringSeqHelper.read(istr);
                     return ret;
                 });
@@ -8134,7 +8008,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    ObjectInfo ret = null;
+                    ObjectInfo ret = default;
                     ret = ObjectInfo.ice_read(istr);
                     return ret;
                 });
@@ -8170,7 +8044,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    ObjectInfo[] ret;
+                    ObjectInfo[] ret = default;
                     ret = ObjectInfoSeqHelper.read(istr);
                     return ret;
                 });
@@ -8206,7 +8080,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    ObjectInfo[] ret;
+                    ObjectInfo[] ret = default;
                     ret = ObjectInfoSeqHelper.read(istr);
                     return ret;
                 });
@@ -8256,7 +8130,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -8310,7 +8184,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    LoadInfo ret = new LoadInfo();
+                    LoadInfo ret = default;
                     ret.ice_readMembers(istr);
                     return ret;
                 });
@@ -8364,7 +8238,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    NodeInfo ret = null;
+                    NodeInfo ret = default;
                     ret = NodeInfo.ice_read(istr);
                     return ret;
                 });
@@ -8418,7 +8292,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -8472,7 +8346,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -8574,7 +8448,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -8606,7 +8480,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string[] ret;
+                    string[] ret = default;
                     ret = global::Ice.StringSeqHelper.read(istr);
                     return ret;
                 });
@@ -8656,7 +8530,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -8710,7 +8584,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    RegistryInfo ret = null;
+                    RegistryInfo ret = default;
                     ret = RegistryInfo.ice_read(istr);
                     return ret;
                 });
@@ -8760,7 +8634,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -8840,7 +8714,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string[] ret;
+                    string[] ret = default;
                     ret = global::Ice.StringSeqHelper.read(istr);
                     return ret;
                 });
@@ -11253,7 +11127,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    AdminPrx ret;
+                    AdminPrx ret = default;
                     ret = AdminPrxHelper.read(istr);
                     return ret;
                 });
@@ -11285,7 +11159,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -11427,7 +11301,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -11499,7 +11373,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -11563,7 +11437,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    FileIteratorPrx ret;
+                    FileIteratorPrx ret = default;
                     ret = FileIteratorPrxHelper.read(istr);
                     return ret;
                 });
@@ -11626,7 +11500,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    FileIteratorPrx ret;
+                    FileIteratorPrx ret = default;
                     ret = FileIteratorPrxHelper.read(istr);
                     return ret;
                 });
@@ -11689,7 +11563,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    FileIteratorPrx ret;
+                    FileIteratorPrx ret = default;
                     ret = FileIteratorPrxHelper.read(istr);
                     return ret;
                 });
@@ -11748,7 +11622,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    FileIteratorPrx ret;
+                    FileIteratorPrx ret = default;
                     ret = FileIteratorPrxHelper.read(istr);
                     return ret;
                 });
@@ -11807,7 +11681,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    FileIteratorPrx ret;
+                    FileIteratorPrx ret = default;
                     ret = FileIteratorPrxHelper.read(istr);
                     return ret;
                 });
@@ -11866,7 +11740,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    FileIteratorPrx ret;
+                    FileIteratorPrx ret = default;
                     ret = FileIteratorPrxHelper.read(istr);
                     return ret;
                 });
@@ -11925,7 +11799,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    FileIteratorPrx ret;
+                    FileIteratorPrx ret = default;
                     ret = FileIteratorPrxHelper.read(istr);
                     return ret;
                 });
@@ -12211,8 +12085,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ApplicationDescriptor iceP_descriptor;
-            iceP_descriptor = null;
+            ApplicationDescriptor iceP_descriptor = default;
             iceP_descriptor = ApplicationDescriptor.ice_read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -12226,8 +12099,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ApplicationDescriptor iceP_descriptor;
-            iceP_descriptor = null;
+            ApplicationDescriptor iceP_descriptor = default;
             iceP_descriptor = ApplicationDescriptor.ice_read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -12241,8 +12113,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ApplicationUpdateDescriptor iceP_descriptor;
-            iceP_descriptor = null;
+            ApplicationUpdateDescriptor iceP_descriptor = default;
             iceP_descriptor = ApplicationUpdateDescriptor.ice_read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -12256,8 +12127,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ApplicationDescriptor iceP_descriptor;
-            iceP_descriptor = null;
+            ApplicationDescriptor iceP_descriptor = default;
             iceP_descriptor = ApplicationDescriptor.ice_read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -12271,8 +12141,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ApplicationUpdateDescriptor iceP_descriptor;
-            iceP_descriptor = null;
+            ApplicationUpdateDescriptor iceP_descriptor = default;
             iceP_descriptor = ApplicationUpdateDescriptor.ice_read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -12286,7 +12155,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             obj.removeApplication(iceP_name, current);
@@ -12299,10 +12168,9 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_application;
-            string iceP_node;
-            ServerInstanceDescriptor iceP_desc;
-            iceP_desc = null;
+            string iceP_application = default;
+            string iceP_node = default;
+            ServerInstanceDescriptor iceP_desc = default;
             iceP_application = istr.readString();
             iceP_node = istr.readString();
             iceP_desc = ServerInstanceDescriptor.ice_read(istr);
@@ -12317,7 +12185,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             var ret = obj.getApplicationInfo(iceP_name, current);
@@ -12361,7 +12229,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             var ret = obj.getServerInfo(iceP_id, current);
@@ -12378,7 +12246,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             var ret = obj.getServerState(iceP_id, current);
@@ -12394,7 +12262,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             var ret = obj.getServerPid(iceP_id, current);
@@ -12423,7 +12291,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             var ret = obj.getServerAdmin(iceP_id, current);
@@ -12439,8 +12307,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
-            bool iceP_enabled;
+            string iceP_id = default;
+            bool iceP_enabled = default;
             iceP_id = istr.readString();
             iceP_enabled = istr.readBool();
             inS.endReadParams();
@@ -12454,7 +12322,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             var ret = obj.isServerEnabled(iceP_id, current);
@@ -12470,7 +12338,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             return inS.setResultTask(obj.startServerAsync(iceP_id, current));
@@ -12482,7 +12350,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             return inS.setResultTask(obj.stopServerAsync(iceP_id, current));
@@ -12494,8 +12362,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
-            string iceP_signal;
+            string iceP_id = default;
+            string iceP_signal = default;
             iceP_id = istr.readString();
             iceP_signal = istr.readString();
             inS.endReadParams();
@@ -12522,7 +12390,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             var ret = obj.getAdapterInfo(iceP_id, current);
@@ -12538,7 +12406,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             obj.removeAdapter(iceP_id, current);
@@ -12564,7 +12432,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.ObjectPrx iceP_obj;
+            global::Ice.ObjectPrx iceP_obj = default;
             iceP_obj = istr.readProxy();
             inS.endReadParams();
             obj.addObject(iceP_obj, current);
@@ -12577,7 +12445,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.ObjectPrx iceP_obj;
+            global::Ice.ObjectPrx iceP_obj = default;
             iceP_obj = istr.readProxy();
             inS.endReadParams();
             obj.updateObject(iceP_obj, current);
@@ -12590,8 +12458,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.ObjectPrx iceP_obj;
-            string iceP_type;
+            global::Ice.ObjectPrx iceP_obj = default;
+            string iceP_type = default;
             iceP_obj = istr.readProxy();
             iceP_type = istr.readString();
             inS.endReadParams();
@@ -12605,8 +12473,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            iceP_id = null;
+            global::Ice.Identity iceP_id = default;
             iceP_id = global::Ice.Identity.ice_read(istr);
             inS.endReadParams();
             obj.removeObject(iceP_id, current);
@@ -12619,8 +12486,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            iceP_id = null;
+            global::Ice.Identity iceP_id = default;
             iceP_id = global::Ice.Identity.ice_read(istr);
             inS.endReadParams();
             var ret = obj.getObjectInfo(iceP_id, current);
@@ -12636,7 +12502,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_type;
+            string iceP_type = default;
             iceP_type = istr.readString();
             inS.endReadParams();
             var ret = obj.getObjectInfosByType(iceP_type, current);
@@ -12652,7 +12518,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_expr;
+            string iceP_expr = default;
             iceP_expr = istr.readString();
             inS.endReadParams();
             var ret = obj.getAllObjectInfos(iceP_expr, current);
@@ -12668,7 +12534,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             var ret = obj.pingNode(iceP_name, current);
@@ -12684,7 +12550,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             var ret = obj.getNodeLoad(iceP_name, current);
@@ -12700,7 +12566,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             var ret = obj.getNodeInfo(iceP_name, current);
@@ -12716,7 +12582,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             var ret = obj.getNodeAdmin(iceP_name, current);
@@ -12732,7 +12598,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             var ret = obj.getNodeProcessorSocketCount(iceP_name, current);
@@ -12748,7 +12614,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             obj.shutdownNode(iceP_name, current);
@@ -12761,7 +12627,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             var ret = obj.getNodeHostname(iceP_name, current);
@@ -12790,7 +12656,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             var ret = obj.pingRegistry(iceP_name, current);
@@ -12806,7 +12672,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             var ret = obj.getRegistryInfo(iceP_name, current);
@@ -12822,7 +12688,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             var ret = obj.getRegistryAdmin(iceP_name, current);
@@ -12838,7 +12704,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             obj.shutdownRegistry(iceP_name, current);
@@ -13187,7 +13053,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_size;
+            int iceP_size = default;
             iceP_size = istr.readInt();
             inS.endReadParams();
             string[] iceP_lines;
@@ -13315,7 +13181,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            RegistryInfo[] iceP_registries;
+            RegistryInfo[] iceP_registries = default;
             iceP_registries = RegistryInfoSeqHelper.read(istr);
             inS.endReadParams();
             obj.registryInit(iceP_registries, current);
@@ -13328,8 +13194,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            RegistryInfo iceP_registryReplica;
-            iceP_registryReplica = null;
+            RegistryInfo iceP_registryReplica = default;
             iceP_registryReplica = RegistryInfo.ice_read(istr);
             inS.endReadParams();
             obj.registryUp(iceP_registryReplica, current);
@@ -13342,7 +13207,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             obj.registryDown(iceP_name, current);
@@ -13464,7 +13329,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            NodeDynamicInfo[] iceP_nodes;
+            NodeDynamicInfo[] iceP_nodes = default;
             iceP_nodes = NodeDynamicInfoSeqHelper.read(istr);
             inS.endReadParams();
             obj.nodeInit(iceP_nodes, current);
@@ -13477,8 +13342,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            NodeDynamicInfo iceP_node;
-            iceP_node = null;
+            NodeDynamicInfo iceP_node = default;
             iceP_node = NodeDynamicInfo.ice_read(istr);
             inS.endReadParams();
             obj.nodeUp(iceP_node, current);
@@ -13491,7 +13355,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             obj.nodeDown(iceP_name, current);
@@ -13504,9 +13368,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_node;
-            ServerDynamicInfo iceP_updatedInfo;
-            iceP_updatedInfo = null;
+            string iceP_node = default;
+            ServerDynamicInfo iceP_updatedInfo = default;
             iceP_node = istr.readString();
             iceP_updatedInfo = ServerDynamicInfo.ice_read(istr);
             inS.endReadParams();
@@ -13520,9 +13383,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_node;
-            AdapterDynamicInfo iceP_updatedInfo;
-            iceP_updatedInfo = null;
+            string iceP_node = default;
+            AdapterDynamicInfo iceP_updatedInfo = default;
             iceP_node = istr.readString();
             iceP_updatedInfo = AdapterDynamicInfo.ice_read(istr);
             inS.endReadParams();
@@ -13653,8 +13515,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_serial;
-            ApplicationInfo[] iceP_applications;
+            int iceP_serial = default;
+            ApplicationInfo[] iceP_applications = default;
             iceP_serial = istr.readInt();
             iceP_applications = ApplicationInfoSeqHelper.read(istr);
             istr.readPendingValues();
@@ -13669,9 +13531,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_serial;
-            ApplicationInfo iceP_desc;
-            iceP_desc = null;
+            int iceP_serial = default;
+            ApplicationInfo iceP_desc = default;
             iceP_serial = istr.readInt();
             iceP_desc = ApplicationInfo.ice_read(istr);
             istr.readPendingValues();
@@ -13686,8 +13547,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_serial;
-            string iceP_name;
+            int iceP_serial = default;
+            string iceP_name = default;
             iceP_serial = istr.readInt();
             iceP_name = istr.readString();
             inS.endReadParams();
@@ -13701,9 +13562,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_serial;
-            ApplicationUpdateInfo iceP_desc;
-            iceP_desc = null;
+            int iceP_serial = default;
+            ApplicationUpdateInfo iceP_desc = default;
             iceP_serial = istr.readInt();
             iceP_desc = ApplicationUpdateInfo.ice_read(istr);
             istr.readPendingValues();
@@ -13830,7 +13690,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            AdapterInfo[] iceP_adpts;
+            AdapterInfo[] iceP_adpts = default;
             iceP_adpts = AdapterInfoSeqHelper.read(istr);
             inS.endReadParams();
             obj.adapterInit(iceP_adpts, current);
@@ -13843,8 +13703,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            AdapterInfo iceP_info;
-            iceP_info = null;
+            AdapterInfo iceP_info = default;
             iceP_info = AdapterInfo.ice_read(istr);
             inS.endReadParams();
             obj.adapterAdded(iceP_info, current);
@@ -13857,8 +13716,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            AdapterInfo iceP_info;
-            iceP_info = null;
+            AdapterInfo iceP_info = default;
             iceP_info = AdapterInfo.ice_read(istr);
             inS.endReadParams();
             obj.adapterUpdated(iceP_info, current);
@@ -13871,7 +13729,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             obj.adapterRemoved(iceP_id, current);
@@ -13996,7 +13854,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ObjectInfo[] iceP_objects;
+            ObjectInfo[] iceP_objects = default;
             iceP_objects = ObjectInfoSeqHelper.read(istr);
             inS.endReadParams();
             obj.objectInit(iceP_objects, current);
@@ -14009,8 +13867,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ObjectInfo iceP_info;
-            iceP_info = null;
+            ObjectInfo iceP_info = default;
             iceP_info = ObjectInfo.ice_read(istr);
             inS.endReadParams();
             obj.objectAdded(iceP_info, current);
@@ -14023,8 +13880,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ObjectInfo iceP_info;
-            iceP_info = null;
+            ObjectInfo iceP_info = default;
             iceP_info = ObjectInfo.ice_read(istr);
             inS.endReadParams();
             obj.objectUpdated(iceP_info, current);
@@ -14037,8 +13893,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            iceP_id = null;
+            global::Ice.Identity iceP_id = default;
             iceP_id = global::Ice.Identity.ice_read(istr);
             inS.endReadParams();
             obj.objectRemoved(iceP_id, current);
@@ -14228,11 +14083,11 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            RegistryObserverPrx iceP_registryObs;
-            NodeObserverPrx iceP_nodeObs;
-            ApplicationObserverPrx iceP_appObs;
-            AdapterObserverPrx iceP_adptObs;
-            ObjectObserverPrx iceP_objObs;
+            RegistryObserverPrx iceP_registryObs = default;
+            NodeObserverPrx iceP_nodeObs = default;
+            ApplicationObserverPrx iceP_appObs = default;
+            AdapterObserverPrx iceP_adptObs = default;
+            ObjectObserverPrx iceP_objObs = default;
             iceP_registryObs = RegistryObserverPrxHelper.read(istr);
             iceP_nodeObs = NodeObserverPrxHelper.read(istr);
             iceP_appObs = ApplicationObserverPrxHelper.read(istr);
@@ -14249,16 +14104,11 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity iceP_registryObs;
-            iceP_registryObs = null;
-            global::Ice.Identity iceP_nodeObs;
-            iceP_nodeObs = null;
-            global::Ice.Identity iceP_appObs;
-            iceP_appObs = null;
-            global::Ice.Identity iceP_adptObs;
-            iceP_adptObs = null;
-            global::Ice.Identity iceP_objObs;
-            iceP_objObs = null;
+            global::Ice.Identity iceP_registryObs = default;
+            global::Ice.Identity iceP_nodeObs = default;
+            global::Ice.Identity iceP_appObs = default;
+            global::Ice.Identity iceP_adptObs = default;
+            global::Ice.Identity iceP_objObs = default;
             iceP_registryObs = global::Ice.Identity.ice_read(istr);
             iceP_nodeObs = global::Ice.Identity.ice_read(istr);
             iceP_appObs = global::Ice.Identity.ice_read(istr);
@@ -14311,9 +14161,9 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
-            string iceP_path;
-            int iceP_count;
+            string iceP_id = default;
+            string iceP_path = default;
+            int iceP_count = default;
             iceP_id = istr.readString();
             iceP_path = istr.readString();
             iceP_count = istr.readInt();
@@ -14331,8 +14181,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
-            int iceP_count;
+            string iceP_id = default;
+            int iceP_count = default;
             iceP_id = istr.readString();
             iceP_count = istr.readInt();
             inS.endReadParams();
@@ -14349,8 +14199,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
-            int iceP_count;
+            string iceP_id = default;
+            int iceP_count = default;
             iceP_id = istr.readString();
             iceP_count = istr.readInt();
             inS.endReadParams();
@@ -14367,8 +14217,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
-            int iceP_count;
+            string iceP_name = default;
+            int iceP_count = default;
             iceP_name = istr.readString();
             iceP_count = istr.readInt();
             inS.endReadParams();
@@ -14385,8 +14235,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
-            int iceP_count;
+            string iceP_name = default;
+            int iceP_count = default;
             iceP_name = istr.readString();
             iceP_count = istr.readInt();
             inS.endReadParams();
@@ -14403,8 +14253,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
-            int iceP_count;
+            string iceP_name = default;
+            int iceP_count = default;
             iceP_name = istr.readString();
             iceP_count = istr.readInt();
             inS.endReadParams();
@@ -14421,8 +14271,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
-            int iceP_count;
+            string iceP_name = default;
+            int iceP_count = default;
             iceP_name = istr.readString();
             iceP_count = istr.readInt();
             inS.endReadParams();

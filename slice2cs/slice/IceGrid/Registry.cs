@@ -756,7 +756,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -792,7 +792,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -829,7 +829,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -865,7 +865,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx[] ret;
+                    global::Ice.ObjectPrx[] ret = default;
                     ret = global::Ice.ObjectProxySeqHelper.read(istr);
                     return ret;
                 });
@@ -901,7 +901,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx[] ret;
+                    global::Ice.ObjectPrx[] ret = default;
                     ret = global::Ice.ObjectProxySeqHelper.read(istr);
                     return ret;
                 });
@@ -1178,7 +1178,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SessionPrx ret;
+                    SessionPrx ret = default;
                     ret = SessionPrxHelper.read(istr);
                     return ret;
                 });
@@ -1229,7 +1229,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    AdminSessionPrx ret;
+                    AdminSessionPrx ret = default;
                     ret = AdminSessionPrxHelper.read(istr);
                     return ret;
                 });
@@ -1275,7 +1275,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SessionPrx ret;
+                    SessionPrx ret = default;
                     ret = SessionPrxHelper.read(istr);
                     return ret;
                 });
@@ -1321,7 +1321,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    AdminSessionPrx ret;
+                    AdminSessionPrx ret = default;
                     ret = AdminSessionPrxHelper.read(istr);
                     return ret;
                 });
@@ -1353,7 +1353,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -1385,7 +1385,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -1649,7 +1649,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -1699,7 +1699,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -1731,7 +1731,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.LocatorRegistryPrx ret;
+                    global::Ice.LocatorRegistryPrx ret = default;
                     ret = global::Ice.LocatorRegistryPrxHelper.read(istr);
                     return ret;
                 });
@@ -1763,7 +1763,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    RegistryPrx ret;
+                    RegistryPrx ret = default;
                     ret = RegistryPrxHelper.read(istr);
                     return ret;
                 });
@@ -1795,7 +1795,7 @@ namespace IceGrid
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    QueryPrx ret;
+                    QueryPrx ret = default;
                     ret = QueryPrxHelper.read(istr);
                     return ret;
                 });
@@ -2001,8 +2001,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            iceP_id = null;
+            global::Ice.Identity iceP_id = default;
             iceP_id = global::Ice.Identity.ice_read(istr);
             inS.endReadParams();
             var ret = obj.findObjectById(iceP_id, current);
@@ -2018,7 +2017,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_type;
+            string iceP_type = default;
             iceP_type = istr.readString();
             inS.endReadParams();
             var ret = obj.findObjectByType(iceP_type, current);
@@ -2034,8 +2033,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_type;
-            LoadSample iceP_sample;
+            string iceP_type = default;
+            LoadSample iceP_sample = default;
             iceP_type = istr.readString();
             iceP_sample = (LoadSample)istr.readEnum(2);
             inS.endReadParams();
@@ -2052,7 +2051,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_type;
+            string iceP_type = default;
             iceP_type = istr.readString();
             inS.endReadParams();
             var ret = obj.findAllObjectsByType(iceP_type, current);
@@ -2068,7 +2067,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.ObjectPrx iceP_proxy;
+            global::Ice.ObjectPrx iceP_proxy = default;
             iceP_proxy = istr.readProxy();
             inS.endReadParams();
             var ret = obj.findAllReplicas(iceP_proxy, current);
@@ -2205,8 +2204,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_userId;
-            string iceP_password;
+            string iceP_userId = default;
+            string iceP_password = default;
             iceP_userId = istr.readString();
             iceP_password = istr.readString();
             inS.endReadParams();
@@ -2223,8 +2222,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_userId;
-            string iceP_password;
+            string iceP_userId = default;
+            string iceP_password = default;
             iceP_userId = istr.readString();
             iceP_password = istr.readString();
             inS.endReadParams();

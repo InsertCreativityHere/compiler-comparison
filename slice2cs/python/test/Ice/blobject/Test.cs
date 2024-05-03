@@ -270,7 +270,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -538,7 +538,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_delay;
+            int iceP_delay = default;
             iceP_delay = istr.readInt();
             inS.endReadParams();
             obj.sayHello(iceP_delay, current);
@@ -551,8 +551,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_s1;
-            int iceP_s2;
+            int iceP_s1 = default;
+            int iceP_s2 = default;
             iceP_s1 = istr.readInt();
             iceP_s2 = istr.readInt();
             inS.endReadParams();

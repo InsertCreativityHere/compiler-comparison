@@ -37,28 +37,20 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string ud;
+        public string ud = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.ud = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownDerived()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownDerived(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -127,28 +119,20 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string ui;
+        public string ui = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.ui = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownIntermediate()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownIntermediate(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -217,28 +201,20 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string umd1;
+        public string umd1 = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.umd1 = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownMostDerived1()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownMostDerived1(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -307,28 +283,20 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string umd2;
+        public string umd2 = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.umd2 = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownMostDerived2()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public UnknownMostDerived2(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

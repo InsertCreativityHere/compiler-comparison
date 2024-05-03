@@ -59,20 +59,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public A()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public A(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -146,20 +139,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public B()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public B(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -235,20 +221,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -324,20 +303,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1183,7 +1155,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -1215,7 +1187,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -1736,7 +1708,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    byte[] ret;
+                    byte[] ret = default;
                     ret = global::Ice.ByteSeqHelper.read(istr);
                     return ret;
                 });
@@ -2625,7 +2597,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_a;
+            int iceP_a = default;
             iceP_a = istr.readInt();
             inS.endReadParams();
             obj.throwAasA(iceP_a, current);
@@ -2638,7 +2610,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_a;
+            int iceP_a = default;
             iceP_a = istr.readInt();
             inS.endReadParams();
             obj.throwAorDasAorD(iceP_a, current);
@@ -2651,8 +2623,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_a;
-            int iceP_b;
+            int iceP_a = default;
+            int iceP_b = default;
             iceP_a = istr.readInt();
             iceP_b = istr.readInt();
             inS.endReadParams();
@@ -2666,9 +2638,9 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_a;
-            int iceP_b;
-            int iceP_c;
+            int iceP_a = default;
+            int iceP_b = default;
+            int iceP_c = default;
             iceP_a = istr.readInt();
             iceP_b = istr.readInt();
             iceP_c = istr.readInt();
@@ -2683,8 +2655,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_a;
-            int iceP_b;
+            int iceP_a = default;
+            int iceP_b = default;
             iceP_a = istr.readInt();
             iceP_b = istr.readInt();
             inS.endReadParams();
@@ -2698,9 +2670,9 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_a;
-            int iceP_b;
-            int iceP_c;
+            int iceP_a = default;
+            int iceP_b = default;
+            int iceP_c = default;
             iceP_a = istr.readInt();
             iceP_b = istr.readInt();
             iceP_c = istr.readInt();
@@ -2715,9 +2687,9 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_a;
-            int iceP_b;
-            int iceP_c;
+            int iceP_a = default;
+            int iceP_b = default;
+            int iceP_c = default;
             iceP_a = istr.readInt();
             iceP_b = istr.readInt();
             iceP_c = istr.readInt();
@@ -2732,7 +2704,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_a;
+            int iceP_a = default;
             iceP_a = istr.readInt();
             inS.endReadParams();
             obj.throwUndeclaredA(iceP_a, current);
@@ -2745,8 +2717,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_a;
-            int iceP_b;
+            int iceP_a = default;
+            int iceP_b = default;
             iceP_a = istr.readInt();
             iceP_b = istr.readInt();
             inS.endReadParams();
@@ -2760,9 +2732,9 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_a;
-            int iceP_b;
-            int iceP_c;
+            int iceP_a = default;
+            int iceP_b = default;
+            int iceP_c = default;
             iceP_a = istr.readInt();
             iceP_b = istr.readInt();
             iceP_c = istr.readInt();
@@ -2807,7 +2779,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_seq;
+            byte[] iceP_seq = default;
             iceP_seq = global::Ice.ByteSeqHelper.read(istr);
             inS.endReadParams();
             var ret = obj.throwMemoryLimitException(iceP_seq, current);

@@ -131,7 +131,7 @@ namespace Ice.defaultServant
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });

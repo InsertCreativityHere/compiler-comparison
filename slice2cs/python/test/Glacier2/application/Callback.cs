@@ -685,7 +685,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            CallbackReceiverPrx iceP_proxy;
+            CallbackReceiverPrx iceP_proxy = default;
             iceP_proxy = CallbackReceiverPrxHelper.read(istr);
             inS.endReadParams();
             obj.initiateCallback(iceP_proxy, current);

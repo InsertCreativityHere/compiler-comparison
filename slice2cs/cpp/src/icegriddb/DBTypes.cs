@@ -30,7 +30,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class AllData : global::System.ICloneable
+    public sealed partial class AllData : global::System.ICloneable, global::System.IEquatable<AllData>
     {
         #region Slice data members
 
@@ -77,10 +77,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -100,87 +97,85 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as AllData);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(AllData other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.applications is null)
             {
-                return false;
-            }
-            AllData o = (AllData)other;
-            if(this.applications == null)
-            {
-                if(o.applications != null)
+                if (other.applications is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.applications, o.applications))
+                if (!Ice.UtilInternal.Arrays.Equals(this.applications, other.applications))
                 {
                     return false;
                 }
             }
-            if(this.adapters == null)
+            if (this.adapters is null)
             {
-                if(o.adapters != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.adapters, o.adapters))
-                {
-                    return false;
-                }
-            }
-            if(this.objects == null)
-            {
-                if(o.objects != null)
+                if (other.adapters is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.objects, o.objects))
+                if (!Ice.UtilInternal.Arrays.Equals(this.adapters, other.adapters))
                 {
                     return false;
                 }
             }
-            if(this.internalObjects == null)
+            if (this.objects is null)
             {
-                if(o.internalObjects != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.internalObjects, o.internalObjects))
-                {
-                    return false;
-                }
-            }
-            if(this.serials == null)
-            {
-                if(o.serials != null)
+                if (other.objects is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serials, o.serials))
+                if (!Ice.UtilInternal.Arrays.Equals(this.objects, other.objects))
+                {
+                    return false;
+                }
+            }
+            if (this.internalObjects is null)
+            {
+                if (other.internalObjects is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.internalObjects, other.internalObjects))
+                {
+                    return false;
+                }
+            }
+            if (this.serials is null)
+            {
+                if (other.serials is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serials, other.serials))
                 {
                     return false;
                 }
@@ -195,13 +190,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(AllData lhs, AllData rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(AllData lhs, AllData rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -231,7 +226,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, AllData v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -284,9 +279,9 @@ namespace IceGrid
             global::System.Collections.Generic.Dictionary<string, long> r = new global::System.Collections.Generic.Dictionary<string, long>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                long v;
+                long v = default;
                 v = istr.readLong();
                 r[k] = v;
             }

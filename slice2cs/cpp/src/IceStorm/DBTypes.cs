@@ -34,7 +34,7 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class AllData : global::System.ICloneable
+    public sealed partial class AllData : global::System.ICloneable, global::System.IEquatable<AllData>
     {
         #region Slice data members
 
@@ -69,10 +69,7 @@ namespace IceStorm
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -89,45 +86,43 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as AllData);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(AllData other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.llus is null)
             {
-                return false;
-            }
-            AllData o = (AllData)other;
-            if(this.llus == null)
-            {
-                if(o.llus != null)
+                if (other.llus is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.llus, o.llus))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.llus, other.llus))
                 {
                     return false;
                 }
             }
-            if(this.subscribers == null)
+            if (this.subscribers is null)
             {
-                if(o.subscribers != null)
+                if (other.subscribers is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.subscribers, o.subscribers))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.subscribers, other.subscribers))
                 {
                     return false;
                 }
@@ -142,13 +137,13 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(AllData lhs, AllData rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(AllData lhs, AllData rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -172,7 +167,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, AllData v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -225,10 +220,9 @@ namespace IceStormElection
             global::System.Collections.Generic.Dictionary<string, LogUpdate> r = new global::System.Collections.Generic.Dictionary<string, LogUpdate>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                LogUpdate v;
-                v = new LogUpdate();
+                LogUpdate v = default;
                 v.ice_readMembers(istr);
                 r[k] = v;
             }
@@ -266,11 +260,9 @@ namespace IceStorm
             global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> r = new global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord>();
             for(int i = 0; i < sz; ++i)
             {
-                SubscriberRecordKey k;
-                k = null;
+                SubscriberRecordKey k = default;
                 k = SubscriberRecordKey.ice_read(istr);
-                SubscriberRecord v;
-                v = null;
+                SubscriberRecord v = default;
                 v = SubscriberRecord.ice_read(istr);
                 r[k] = v;
             }

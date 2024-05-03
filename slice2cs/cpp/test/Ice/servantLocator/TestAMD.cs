@@ -785,7 +785,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -839,7 +839,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -1451,7 +1451,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool iceP_throw;
+            bool iceP_throw = default;
             iceP_throw = istr.readBool();
             inS.endReadParams();
             return inS.setResultTask<string>(obj.impossibleExceptionAsync(iceP_throw, current),
@@ -1467,7 +1467,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool iceP_throw;
+            bool iceP_throw = default;
             iceP_throw = istr.readBool();
             inS.endReadParams();
             return inS.setResultTask<string>(obj.intfUserExceptionAsync(iceP_throw, current),
@@ -1666,7 +1666,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool iceP_activate;
+            bool iceP_activate = default;
             iceP_activate = istr.readBool();
             inS.endReadParams();
             obj.activateServantLocator(iceP_activate, current);

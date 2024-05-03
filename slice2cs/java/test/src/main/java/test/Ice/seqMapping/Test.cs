@@ -45,7 +45,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class Foo : global::System.ICloneable
+    public sealed partial class Foo : global::System.ICloneable, global::System.IEquatable<Foo>
     {
         #region Slice data members
 
@@ -80,10 +80,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -100,45 +97,43 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as Foo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(Foo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.SLmem is null)
             {
-                return false;
-            }
-            Foo o = (Foo)other;
-            if(this.SLmem == null)
-            {
-                if(o.SLmem != null)
+                if (other.SLmem is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.SLmem, o.SLmem))
+                if (!Ice.UtilInternal.Arrays.Equals(this.SLmem, other.SLmem))
                 {
                     return false;
                 }
             }
-            if(this.SLSmem == null)
+            if (this.SLSmem is null)
             {
-                if(o.SLSmem != null)
+                if (other.SLSmem is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.SLSmem, o.SLSmem))
+                if (!Ice.UtilInternal.Arrays.Equals(this.SLSmem, other.SLSmem))
                 {
                     return false;
                 }
@@ -153,13 +148,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(Foo lhs, Foo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(Foo lhs, Foo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -183,7 +178,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Foo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -957,9 +952,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, byte[]> r = new global::System.Collections.Generic.Dictionary<int, byte[]>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                byte[] v;
+                byte[] v = default;
                 v = SerialLargeHelper.read(istr);
                 r[k] = v;
             }
@@ -994,9 +989,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, byte[][]> r = new global::System.Collections.Generic.Dictionary<int, byte[][]>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                byte[][] v;
+                byte[][] v = default;
                 v = SLSHelper.read(istr);
                 r[k] = v;
             }
@@ -1071,7 +1066,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_i;
+            byte[] iceP_i = default;
             iceP_i = SerialSmallHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_o;
@@ -1089,7 +1084,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_i;
+            byte[] iceP_i = default;
             iceP_i = SerialLargeHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_o;
@@ -1107,7 +1102,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_i;
+            byte[] iceP_i = default;
             iceP_i = SerialStructHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_o;

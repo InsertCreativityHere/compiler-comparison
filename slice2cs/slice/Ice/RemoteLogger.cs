@@ -76,7 +76,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class LogMessage : global::System.ICloneable
+    public sealed partial class LogMessage : global::System.ICloneable, global::System.IEquatable<LogMessage>
     {
         #region Slice data members
 
@@ -87,10 +87,10 @@ namespace Ice
         public long timestamp;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string traceCategory;
+        public string traceCategory = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string message;
+        public string message = "";
 
         #endregion
 
@@ -101,8 +101,6 @@ namespace Ice
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LogMessage()
         {
-            this.traceCategory = "";
-            this.message = "";
             ice_initialize();
         }
 
@@ -121,10 +119,7 @@ namespace Ice
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -143,53 +138,51 @@ namespace Ice
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as LogMessage);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(LogMessage other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (!this.type.Equals(other.type))
             {
                 return false;
             }
-            LogMessage o = (LogMessage)other;
-            if(!this.type.Equals(o.type))
+            if (!this.timestamp.Equals(other.timestamp))
             {
                 return false;
             }
-            if(!this.timestamp.Equals(o.timestamp))
+            if (this.traceCategory is null)
             {
-                return false;
-            }
-            if(this.traceCategory == null)
-            {
-                if(o.traceCategory != null)
+                if (other.traceCategory is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.traceCategory.Equals(o.traceCategory))
+                if (!this.traceCategory.Equals(other.traceCategory))
                 {
                     return false;
                 }
             }
-            if(this.message == null)
+            if (this.message is null)
             {
-                if(o.message != null)
+                if (other.message is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.message.Equals(o.message))
+                if (!this.message.Equals(other.message))
                 {
                     return false;
                 }
@@ -204,13 +197,13 @@ namespace Ice
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(LogMessage lhs, LogMessage rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(LogMessage lhs, LogMessage rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -238,7 +231,7 @@ namespace Ice
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(OutputStream ostr, LogMessage v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1087,7 +1080,7 @@ namespace Ice
                 },
                 read: (InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -1325,8 +1318,8 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_prefix;
-            LogMessage[] iceP_logMessages;
+            string iceP_prefix = default;
+            LogMessage[] iceP_logMessages = default;
             iceP_prefix = istr.readString();
             iceP_logMessages = LogMessageSeqHelper.read(istr);
             inS.endReadParams();
@@ -1340,8 +1333,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogMessage iceP_message;
-            iceP_message = null;
+            LogMessage iceP_message = default;
             iceP_message = LogMessage.ice_read(istr);
             inS.endReadParams();
             obj.log(iceP_message, current);
@@ -1454,10 +1446,10 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            RemoteLoggerPrx iceP_prx;
-            LogMessageType[] iceP_messageTypes;
-            string[] iceP_traceCategories;
-            int iceP_messageMax;
+            RemoteLoggerPrx iceP_prx = default;
+            LogMessageType[] iceP_messageTypes = default;
+            string[] iceP_traceCategories = default;
+            int iceP_messageMax = default;
             iceP_prx = RemoteLoggerPrxHelper.read(istr);
             iceP_messageTypes = LogMessageTypeSeqHelper.read(istr);
             iceP_traceCategories = StringSeqHelper.read(istr);
@@ -1473,7 +1465,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            RemoteLoggerPrx iceP_prx;
+            RemoteLoggerPrx iceP_prx = default;
             iceP_prx = RemoteLoggerPrxHelper.read(istr);
             inS.endReadParams();
             var ret = obj.detachRemoteLogger(iceP_prx, current);
@@ -1489,9 +1481,9 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogMessageType[] iceP_messageTypes;
-            string[] iceP_traceCategories;
-            int iceP_messageMax;
+            LogMessageType[] iceP_messageTypes = default;
+            string[] iceP_traceCategories = default;
+            int iceP_messageMax = default;
             iceP_messageTypes = LogMessageTypeSeqHelper.read(istr);
             iceP_traceCategories = StringSeqHelper.read(istr);
             iceP_messageMax = istr.readInt();

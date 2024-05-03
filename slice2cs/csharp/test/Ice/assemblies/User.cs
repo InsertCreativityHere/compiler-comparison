@@ -192,7 +192,7 @@ namespace User
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    UserInfo ret = null;
+                    UserInfo ret = default;
                     istr.readValue((UserInfo v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -390,7 +390,7 @@ namespace User
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             var ret = obj.getUserInfo(iceP_id, current);

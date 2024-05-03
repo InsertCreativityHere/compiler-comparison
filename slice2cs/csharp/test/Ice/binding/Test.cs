@@ -227,7 +227,7 @@ namespace Ice.binding
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -437,7 +437,7 @@ namespace Ice.binding
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        TestIntfPrx ret;
+                        TestIntfPrx ret = default;
                         ret = TestIntfPrxHelper.read(istr);
                         return ret;
                     });
@@ -689,7 +689,7 @@ namespace Ice.binding
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        RemoteObjectAdapterPrx ret;
+                        RemoteObjectAdapterPrx ret = default;
                         ret = RemoteObjectAdapterPrxHelper.read(istr);
                         return ret;
                     });
@@ -1172,8 +1172,8 @@ namespace Ice.binding
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_name;
-                string iceP_endpoints;
+                string iceP_name = default;
+                string iceP_endpoints = default;
                 iceP_name = istr.readString();
                 iceP_endpoints = istr.readString();
                 inS.endReadParams();
@@ -1190,7 +1190,7 @@ namespace Ice.binding
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                RemoteObjectAdapterPrx iceP_adapter;
+                RemoteObjectAdapterPrx iceP_adapter = default;
                 iceP_adapter = RemoteObjectAdapterPrxHelper.read(istr);
                 inS.endReadParams();
                 obj.deactivateObjectAdapter(iceP_adapter, current);

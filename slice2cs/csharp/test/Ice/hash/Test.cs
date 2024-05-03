@@ -97,20 +97,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InvalidPointException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InvalidPointException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -186,20 +179,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InvalidLengthException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InvalidLengthException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -284,20 +270,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OtherException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OtherException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -366,7 +345,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct PointF
+    public partial record struct PointF
     {
         #region Slice data members
 
@@ -392,60 +371,6 @@ namespace Test
             this.y = y;
             this.z = z;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::PointF");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, x);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, y);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, z);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is PointF))
-            {
-                return false;
-            }
-            PointF o = (PointF)other;
-            if(!this.x.Equals(o.x))
-            {
-                return false;
-            }
-            if(!this.y.Equals(o.y))
-            {
-                return false;
-            }
-            if(!this.z.Equals(o.z))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(PointF lhs, PointF rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(PointF lhs, PointF rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -495,7 +420,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct PointD
+    public partial record struct PointD
     {
         #region Slice data members
 
@@ -521,60 +446,6 @@ namespace Test
             this.y = y;
             this.z = z;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::PointD");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, x);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, y);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, z);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is PointD))
-            {
-                return false;
-            }
-            PointD o = (PointD)other;
-            if(!this.x.Equals(o.x))
-            {
-                return false;
-            }
-            if(!this.y.Equals(o.y))
-            {
-                return false;
-            }
-            if(!this.z.Equals(o.z))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(PointD lhs, PointD rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(PointD lhs, PointD rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -624,7 +495,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct Point
+    public partial record struct Point
     {
         #region Slice data members
 
@@ -646,55 +517,6 @@ namespace Test
             this.x = x;
             this.y = y;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Point");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, x);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, y);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is Point))
-            {
-                return false;
-            }
-            Point o = (Point)other;
-            if(!this.x.Equals(o.x))
-            {
-                return false;
-            }
-            if(!this.y.Equals(o.y))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(Point lhs, Point rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(Point lhs, Point rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -742,7 +564,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class Polyline : global::System.ICloneable
+    public sealed partial class Polyline : global::System.ICloneable, global::System.IEquatable<Polyline>
     {
         #region Slice data members
 
@@ -773,10 +595,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -792,31 +611,29 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as Polyline);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(Polyline other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.vertices is null)
             {
-                return false;
-            }
-            Polyline o = (Polyline)other;
-            if(this.vertices == null)
-            {
-                if(o.vertices != null)
+                if (other.vertices is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.vertices, o.vertices))
+                if (!Ice.UtilInternal.Arrays.Equals(this.vertices, other.vertices))
                 {
                     return false;
                 }
@@ -831,13 +648,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(Polyline lhs, Polyline rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(Polyline lhs, Polyline rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -859,7 +676,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Polyline v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -892,7 +709,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct Color
+    public partial record struct Color
     {
         #region Slice data members
 
@@ -922,65 +739,6 @@ namespace Test
             this.b = b;
             this.a = a;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Color");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, r);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, g);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, b);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, a);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is Color))
-            {
-                return false;
-            }
-            Color o = (Color)other;
-            if(!this.r.Equals(o.r))
-            {
-                return false;
-            }
-            if(!this.g.Equals(o.g))
-            {
-                return false;
-            }
-            if(!this.b.Equals(o.b))
-            {
-                return false;
-            }
-            if(!this.a.Equals(o.a))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(Color lhs, Color rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(Color lhs, Color rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -1032,7 +790,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ColorPalette : global::System.ICloneable
+    public sealed partial class ColorPalette : global::System.ICloneable, global::System.IEquatable<ColorPalette>
     {
         #region Slice data members
 
@@ -1063,10 +821,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1082,31 +837,29 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ColorPalette);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ColorPalette other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.colors is null)
             {
-                return false;
-            }
-            ColorPalette o = (ColorPalette)other;
-            if(this.colors == null)
-            {
-                if(o.colors != null)
+                if (other.colors is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.colors, o.colors))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.colors, other.colors))
                 {
                     return false;
                 }
@@ -1121,13 +874,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ColorPalette lhs, ColorPalette rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ColorPalette lhs, ColorPalette rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1149,7 +902,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ColorPalette v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1202,7 +955,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Pen()
         {
-            this.color = new Color();
             ice_initialize();
         }
 
@@ -1262,7 +1014,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class Draw : global::System.ICloneable
+    public sealed partial class Draw : global::System.ICloneable, global::System.IEquatable<Draw>
     {
         #region Slice data members
 
@@ -1284,7 +1036,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Draw()
         {
-            this.backgroundColor = new Color();
             ice_initialize();
         }
 
@@ -1302,10 +1053,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1323,40 +1071,38 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as Draw);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(Draw other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (!this.backgroundColor.Equals(other.backgroundColor))
             {
                 return false;
             }
-            Draw o = (Draw)other;
-            if(!this.backgroundColor.Equals(o.backgroundColor))
+            if (this.pen is null)
             {
-                return false;
-            }
-            if(this.pen == null)
-            {
-                if(o.pen != null)
+                if (other.pen is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.pen.Equals(o.pen))
+                if (!this.pen.Equals(other.pen))
                 {
                     return false;
                 }
             }
-            if(!this.shared.Equals(o.shared))
+            if (!this.shared.Equals(other.shared))
             {
                 return false;
             }
@@ -1370,13 +1116,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(Draw lhs, Draw rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(Draw lhs, Draw rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1402,7 +1148,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Draw v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1489,10 +1235,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, Color> r = new global::System.Collections.Generic.Dictionary<int, Color>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                Color v;
-                v = new Color();
+                Color v = default;
                 v.ice_readMembers(istr);
                 r[k] = v;
             }

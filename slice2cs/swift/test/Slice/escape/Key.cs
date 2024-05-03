@@ -54,7 +54,7 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct guard
+    public partial record struct guard
     {
         #region Slice data members
 
@@ -72,50 +72,6 @@ namespace and
         {
             this.@default = @default;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::and::guard");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, @default);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is guard))
-            {
-                return false;
-            }
-            guard o = (guard)other;
-            if(!this.@default.Equals(o.@default))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(guard lhs, guard rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(guard lhs, guard rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -161,12 +117,12 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class defer : global::System.ICloneable
+    public sealed partial class defer : global::System.ICloneable, global::System.IEquatable<defer>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string @else;
+        public string @else = "";
 
         #endregion
 
@@ -177,7 +133,6 @@ namespace and
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public defer()
         {
-            this.@else = "";
             ice_initialize();
         }
 
@@ -193,10 +148,7 @@ namespace and
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -212,31 +164,29 @@ namespace and
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as defer);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(defer other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.@else is null)
             {
-                return false;
-            }
-            defer o = (defer)other;
-            if(this.@else == null)
-            {
-                if(o.@else != null)
+                if (other.@else is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.@else.Equals(o.@else))
+                if (!this.@else.Equals(other.@else))
                 {
                     return false;
                 }
@@ -251,13 +201,13 @@ namespace and
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(defer lhs, defer rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(defer lhs, defer rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -279,7 +229,7 @@ namespace and
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, defer v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -456,20 +406,13 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @return()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @return(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -546,20 +489,13 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @as()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @as(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -770,7 +706,7 @@ namespace and
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int iceP_try;
+                    int iceP_try = default;
                     iceP_try = istr.readInt();
                     return iceP_try;
                 });
@@ -1200,7 +1136,7 @@ namespace and
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int iceP_try;
+                    int iceP_try = default;
                     iceP_try = istr.readInt();
                     return iceP_try;
                 });
@@ -1409,10 +1345,9 @@ namespace and
             global::System.Collections.Generic.Dictionary<string, guard> r = new global::System.Collections.Generic.Dictionary<string, guard>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                guard v;
-                v = new guard();
+                guard v = default;
                 v.ice_readMembers(istr);
                 r[k] = v;
             }
@@ -1471,7 +1406,7 @@ namespace and
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_catch;
+            int iceP_catch = default;
             iceP_catch = istr.readInt();
             inS.endReadParams();
             return inS.setResultTask<int>(obj.caseAsync(iceP_catch, current),

@@ -30,7 +30,7 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class LinkRecord : global::System.ICloneable
+    public sealed partial class LinkRecord : global::System.ICloneable, global::System.IEquatable<LinkRecord>
     {
         #region Slice data members
 
@@ -69,10 +69,7 @@ namespace IceStorm
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -90,49 +87,47 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as LinkRecord);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(LinkRecord other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.obj is null)
             {
-                return false;
-            }
-            LinkRecord o = (LinkRecord)other;
-            if(this.obj == null)
-            {
-                if(o.obj != null)
+                if (other.obj is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.obj.Equals(o.obj))
+                if (!this.obj.Equals(other.obj))
                 {
                     return false;
                 }
             }
-            if(!this.cost.Equals(o.cost))
+            if (!this.cost.Equals(other.cost))
             {
                 return false;
             }
-            if(this.theTopic == null)
+            if (this.theTopic is null)
             {
-                if(o.theTopic != null)
+                if (other.theTopic is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.theTopic.Equals(o.theTopic))
+                if (!this.theTopic.Equals(other.theTopic))
                 {
                     return false;
                 }
@@ -147,13 +142,13 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(LinkRecord lhs, LinkRecord rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(LinkRecord lhs, LinkRecord rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -179,7 +174,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, LinkRecord v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }

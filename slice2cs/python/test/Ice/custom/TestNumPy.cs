@@ -38,25 +38,25 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool[]> boolSeq;
+            public global::Ice.Optional<bool[]> boolSeq = new global::Ice.Optional<bool[]>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<byte[]> byteSeq;
+            public global::Ice.Optional<byte[]> byteSeq = new global::Ice.Optional<byte[]>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<short[]> shortSeq;
+            public global::Ice.Optional<short[]> shortSeq = new global::Ice.Optional<short[]>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<int[]> intSeq;
+            public global::Ice.Optional<int[]> intSeq = new global::Ice.Optional<int[]>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<long[]> longSeq;
+            public global::Ice.Optional<long[]> longSeq = new global::Ice.Optional<long[]>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<float[]> floatSeq;
+            public global::Ice.Optional<float[]> floatSeq = new global::Ice.Optional<float[]>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<double[]> doubleSeq;
+            public global::Ice.Optional<double[]> doubleSeq = new global::Ice.Optional<double[]>();
 
             #endregion
 
@@ -67,13 +67,6 @@ namespace Test
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public D()
             {
-                this.boolSeq = new global::Ice.Optional<bool[]>();
-                this.byteSeq = new global::Ice.Optional<byte[]>();
-                this.shortSeq = new global::Ice.Optional<short[]>();
-                this.intSeq = new global::Ice.Optional<int[]>();
-                this.longSeq = new global::Ice.Optional<long[]>();
-                this.floatSeq = new global::Ice.Optional<float[]>();
-                this.doubleSeq = new global::Ice.Optional<double[]>();
                 ice_initialize();
             }
 
@@ -1296,7 +1289,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        byte[] ret;
+                        byte[] ret = default;
                         ret = Complex128SeqHelper.read(istr);
                         return ret;
                     });
@@ -1328,7 +1321,7 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        bool[] ret;
+                        bool[] ret = default;
                         ret = BoolSeq1Helper.read(istr);
                         return ret;
                     });
@@ -1360,7 +1353,7 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        byte[] ret;
+                        byte[] ret = default;
                         ret = ByteSeq1Helper.read(istr);
                         return ret;
                     });
@@ -1392,7 +1385,7 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        short[] ret;
+                        short[] ret = default;
                         ret = ShortSeq1Helper.read(istr);
                         return ret;
                     });
@@ -1424,7 +1417,7 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        int[] ret;
+                        int[] ret = default;
                         ret = IntSeq1Helper.read(istr);
                         return ret;
                     });
@@ -1456,7 +1449,7 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        long[] ret;
+                        long[] ret = default;
                         ret = LongSeq1Helper.read(istr);
                         return ret;
                     });
@@ -1488,7 +1481,7 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        float[] ret;
+                        float[] ret = default;
                         ret = FloatSeq1Helper.read(istr);
                         return ret;
                     });
@@ -1520,7 +1513,7 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        double[] ret;
+                        double[] ret = default;
                         ret = DoubleSeq1Helper.read(istr);
                         return ret;
                     });
@@ -1552,7 +1545,7 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        bool[] ret;
+                        bool[] ret = default;
                         ret = BoolSeq1Helper.read(istr);
                         return ret;
                     });
@@ -1589,7 +1582,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        D ret = null;
+                        D ret = default;
                         istr.readValue((D v) => {ret = v; });
                         istr.readPendingValues();
                         return ret;
@@ -1849,7 +1842,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                bool[] iceP_v1;
+                bool[] iceP_v1 = default;
                 iceP_v1 = BoolSeq1Helper.read(istr);
                 inS.endReadParams();
                 bool[] iceP_v2;
@@ -1867,7 +1860,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                byte[] iceP_v1;
+                byte[] iceP_v1 = default;
                 iceP_v1 = ByteSeq1Helper.read(istr);
                 inS.endReadParams();
                 byte[] iceP_v2;
@@ -1885,7 +1878,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                short[] iceP_v1;
+                short[] iceP_v1 = default;
                 iceP_v1 = ShortSeq1Helper.read(istr);
                 inS.endReadParams();
                 short[] iceP_v2;
@@ -1903,7 +1896,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int[] iceP_v1;
+                int[] iceP_v1 = default;
                 iceP_v1 = IntSeq1Helper.read(istr);
                 inS.endReadParams();
                 int[] iceP_v2;
@@ -1921,7 +1914,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                long[] iceP_v1;
+                long[] iceP_v1 = default;
                 iceP_v1 = LongSeq1Helper.read(istr);
                 inS.endReadParams();
                 long[] iceP_v2;
@@ -1939,7 +1932,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                float[] iceP_v1;
+                float[] iceP_v1 = default;
                 iceP_v1 = FloatSeq1Helper.read(istr);
                 inS.endReadParams();
                 float[] iceP_v2;
@@ -1957,7 +1950,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                double[] iceP_v1;
+                double[] iceP_v1 = default;
                 iceP_v1 = DoubleSeq1Helper.read(istr);
                 inS.endReadParams();
                 double[] iceP_v2;
@@ -1975,7 +1968,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                byte[] iceP_v1;
+                byte[] iceP_v1 = default;
                 iceP_v1 = Complex128SeqHelper.read(istr);
                 inS.endReadParams();
                 var ret = obj.opComplex128Seq(iceP_v1, current);
@@ -2095,8 +2088,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                D iceP_d;
-                iceP_d = null;
+                D iceP_d = default;
                 istr.readValue((D v) => {iceP_d = v; });
                 istr.readPendingValues();
                 inS.endReadParams();

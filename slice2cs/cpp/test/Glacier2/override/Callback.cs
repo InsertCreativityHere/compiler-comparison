@@ -691,7 +691,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_token;
+            int iceP_token = default;
             iceP_token = istr.readInt();
             inS.endReadParams();
             obj.callback(iceP_token, current);
@@ -704,7 +704,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_payload;
+            byte[] iceP_payload = default;
             iceP_payload = global::Ice.ByteSeqHelper.read(istr);
             inS.endReadParams();
             obj.callbackWithPayload(iceP_payload, current);
@@ -817,8 +817,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            CallbackReceiverPrx iceP_proxy;
-            int iceP_token;
+            CallbackReceiverPrx iceP_proxy = default;
+            int iceP_token = default;
             iceP_proxy = CallbackReceiverPrxHelper.read(istr);
             iceP_token = istr.readInt();
             inS.endReadParams();
@@ -831,7 +831,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            CallbackReceiverPrx iceP_proxy;
+            CallbackReceiverPrx iceP_proxy = default;
             iceP_proxy = CallbackReceiverPrxHelper.read(istr);
             inS.endReadParams();
             return inS.setResultTask(obj.initiateCallbackWithPayloadAsync(iceP_proxy, current));

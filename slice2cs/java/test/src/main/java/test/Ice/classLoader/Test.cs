@@ -287,7 +287,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    ConcreteClass ret = null;
+                    ConcreteClass ret = default;
                     istr.readValue((ConcreteClass v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;

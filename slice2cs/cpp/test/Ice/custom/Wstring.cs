@@ -30,12 +30,12 @@ namespace Test1
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class WstringStruct : global::System.ICloneable
+    public sealed partial class WstringStruct : global::System.ICloneable, global::System.IEquatable<WstringStruct>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string s;
+        public string s = "";
 
         #endregion
 
@@ -46,7 +46,6 @@ namespace Test1
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public WstringStruct()
         {
-            this.s = "";
             ice_initialize();
         }
 
@@ -62,10 +61,7 @@ namespace Test1
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -81,31 +77,29 @@ namespace Test1
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as WstringStruct);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(WstringStruct other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.s is null)
             {
-                return false;
-            }
-            WstringStruct o = (WstringStruct)other;
-            if(this.s == null)
-            {
-                if(o.s != null)
+                if (other.s is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.s.Equals(o.s))
+                if (!this.s.Equals(other.s))
                 {
                     return false;
                 }
@@ -120,13 +114,13 @@ namespace Test1
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(WstringStruct lhs, WstringStruct rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(WstringStruct lhs, WstringStruct rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -148,7 +142,7 @@ namespace Test1
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, WstringStruct v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -188,28 +182,20 @@ namespace Test1
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string reason;
+        public string reason = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.reason = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public WstringException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public WstringException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -287,12 +273,12 @@ namespace Test2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class WstringStruct : global::System.ICloneable
+    public sealed partial class WstringStruct : global::System.ICloneable, global::System.IEquatable<WstringStruct>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string s;
+        public string s = "";
 
         #endregion
 
@@ -303,7 +289,6 @@ namespace Test2
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public WstringStruct()
         {
-            this.s = "";
             ice_initialize();
         }
 
@@ -319,10 +304,7 @@ namespace Test2
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -338,31 +320,29 @@ namespace Test2
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as WstringStruct);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(WstringStruct other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.s is null)
             {
-                return false;
-            }
-            WstringStruct o = (WstringStruct)other;
-            if(this.s == null)
-            {
-                if(o.s != null)
+                if (other.s is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.s.Equals(o.s))
+                if (!this.s.Equals(other.s))
                 {
                     return false;
                 }
@@ -377,13 +357,13 @@ namespace Test2
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(WstringStruct lhs, WstringStruct rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(WstringStruct lhs, WstringStruct rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -405,7 +385,7 @@ namespace Test2
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, WstringStruct v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -445,28 +425,20 @@ namespace Test2
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string reason;
+        public string reason = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.reason = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public WstringException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public WstringException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -725,9 +697,9 @@ namespace Test1
             global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                string v;
+                string v = default;
                 v = istr.readString();
                 r[k] = v;
             }
@@ -1093,9 +1065,9 @@ namespace Test2
             global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                string v;
+                string v = default;
                 v = istr.readString();
                 r[k] = v;
             }
@@ -1470,7 +1442,7 @@ namespace Test1
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_s1;
+            string iceP_s1 = default;
             iceP_s1 = istr.readString();
             inS.endReadParams();
             string iceP_s2;
@@ -1488,8 +1460,7 @@ namespace Test1
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            WstringStruct iceP_s1;
-            iceP_s1 = null;
+            WstringStruct iceP_s1 = default;
             iceP_s1 = WstringStruct.ice_read(istr);
             inS.endReadParams();
             WstringStruct iceP_s2;
@@ -1507,7 +1478,7 @@ namespace Test1
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_reason;
+            string iceP_reason = default;
             iceP_reason = istr.readString();
             inS.endReadParams();
             obj.throwExcept(iceP_reason, current);
@@ -1628,7 +1599,7 @@ namespace Test2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_s1;
+            string iceP_s1 = default;
             iceP_s1 = istr.readString();
             inS.endReadParams();
             string iceP_s2;
@@ -1646,8 +1617,7 @@ namespace Test2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            WstringStruct iceP_s1;
-            iceP_s1 = null;
+            WstringStruct iceP_s1 = default;
             iceP_s1 = WstringStruct.ice_read(istr);
             inS.endReadParams();
             WstringStruct iceP_s2;
@@ -1665,7 +1635,7 @@ namespace Test2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_reason;
+            string iceP_reason = default;
             iceP_reason = istr.readString();
             inS.endReadParams();
             obj.throwExcept(iceP_reason, current);

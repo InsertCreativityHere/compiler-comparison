@@ -30,7 +30,7 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class SubscriberRecordKey : global::System.ICloneable
+    public sealed partial class SubscriberRecordKey : global::System.ICloneable, global::System.IEquatable<SubscriberRecordKey>
     {
         #region Slice data members
 
@@ -49,8 +49,8 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberRecordKey()
         {
-            this.topic = new global::Ice.Identity();
-            this.id = new global::Ice.Identity();
+            this.topic = new();
+            this.id = new();
             ice_initialize();
         }
 
@@ -67,10 +67,7 @@ namespace IceStorm
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -87,45 +84,43 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as SubscriberRecordKey);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(SubscriberRecordKey other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.topic is null)
             {
-                return false;
-            }
-            SubscriberRecordKey o = (SubscriberRecordKey)other;
-            if(this.topic == null)
-            {
-                if(o.topic != null)
+                if (other.topic is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.topic.Equals(o.topic))
+                if (!this.topic.Equals(other.topic))
                 {
                     return false;
                 }
             }
-            if(this.id == null)
+            if (this.id is null)
             {
-                if(o.id != null)
+                if (other.id is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.id.Equals(o.id))
+                if (!this.id.Equals(other.id))
                 {
                     return false;
                 }
@@ -140,13 +135,13 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(SubscriberRecordKey lhs, SubscriberRecordKey rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(SubscriberRecordKey lhs, SubscriberRecordKey rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -170,7 +165,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, SubscriberRecordKey v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -203,12 +198,12 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class SubscriberRecord : global::System.ICloneable
+    public sealed partial class SubscriberRecord : global::System.ICloneable, global::System.IEquatable<SubscriberRecord>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string topicName;
+        public string topicName = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.Identity id;
@@ -237,8 +232,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberRecord()
         {
-            this.topicName = "";
-            this.id = new global::Ice.Identity();
+            this.id = new();
             ice_initialize();
         }
 
@@ -260,10 +254,7 @@ namespace IceStorm
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -285,95 +276,93 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as SubscriberRecord);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(SubscriberRecord other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.topicName is null)
+            {
+                if (other.topicName is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.topicName.Equals(other.topicName))
+                {
+                    return false;
+                }
+            }
+            if (this.id is null)
+            {
+                if (other.id is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.id.Equals(other.id))
+                {
+                    return false;
+                }
+            }
+            if (!this.link.Equals(other.link))
             {
                 return false;
             }
-            SubscriberRecord o = (SubscriberRecord)other;
-            if(this.topicName == null)
+            if (this.obj is null)
             {
-                if(o.topicName != null)
+                if (other.obj is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.topicName.Equals(o.topicName))
+                if (!this.obj.Equals(other.obj))
                 {
                     return false;
                 }
             }
-            if(this.id == null)
+            if (this.theQoS is null)
             {
-                if(o.id != null)
+                if (other.theQoS is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.id.Equals(o.id))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.theQoS, other.theQoS))
                 {
                     return false;
                 }
             }
-            if(!this.link.Equals(o.link))
+            if (!this.cost.Equals(other.cost))
             {
                 return false;
             }
-            if(this.obj == null)
+            if (this.theTopic is null)
             {
-                if(o.obj != null)
+                if (other.theTopic is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.obj.Equals(o.obj))
-                {
-                    return false;
-                }
-            }
-            if(this.theQoS == null)
-            {
-                if(o.theQoS != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.theQoS, o.theQoS))
-                {
-                    return false;
-                }
-            }
-            if(!this.cost.Equals(o.cost))
-            {
-                return false;
-            }
-            if(this.theTopic == null)
-            {
-                if(o.theTopic != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.theTopic.Equals(o.theTopic))
+                if (!this.theTopic.Equals(other.theTopic))
                 {
                     return false;
                 }
@@ -388,13 +377,13 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(SubscriberRecord lhs, SubscriberRecord rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(SubscriberRecord lhs, SubscriberRecord rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -428,7 +417,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, SubscriberRecord v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }

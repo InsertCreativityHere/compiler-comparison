@@ -190,7 +190,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -858,9 +858,9 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
-            string iceP_adapterId;
-            string iceP_replicaGroupId;
+            string iceP_name = default;
+            string iceP_adapterId = default;
+            string iceP_replicaGroupId = default;
             iceP_name = istr.readString();
             iceP_adapterId = istr.readString();
             iceP_replicaGroupId = istr.readString();
@@ -875,7 +875,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             obj.deactivateObjectAdapter(iceP_name, current);
@@ -888,8 +888,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_oaName;
-            string iceP_id;
+            string iceP_oaName = default;
+            string iceP_id = default;
             iceP_oaName = istr.readString();
             iceP_id = istr.readString();
             inS.endReadParams();
@@ -903,8 +903,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_oaName;
-            string iceP_id;
+            string iceP_oaName = default;
+            string iceP_id = default;
             iceP_oaName = istr.readString();
             iceP_id = istr.readString();
             inS.endReadParams();

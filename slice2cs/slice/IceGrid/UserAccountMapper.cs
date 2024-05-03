@@ -240,7 +240,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -437,7 +437,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_user;
+            string iceP_user = default;
             iceP_user = istr.readString();
             inS.endReadParams();
             var ret = obj.getUserAccount(iceP_user, current);

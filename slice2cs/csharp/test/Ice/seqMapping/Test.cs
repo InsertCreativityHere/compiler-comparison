@@ -32,7 +32,7 @@ namespace Ice.seqMapping
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial struct S
+        public partial record struct S
         {
             #region Slice data members
 
@@ -50,50 +50,6 @@ namespace Ice.seqMapping
             {
                 this.i = i;
                 ice_initialize();
-            }
-
-            #endregion
-
-            #region Object members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::S");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-                return h_;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
-            {
-                if(!(other is S))
-                {
-                    return false;
-                }
-                S o = (S)other;
-                if(!this.i.Equals(o.i))
-                {
-                    return false;
-                }
-                return true;
-            }
-
-            #endregion
-
-            #region Comparison members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(S lhs, S rhs)
-            {
-                return Equals(lhs, rhs);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(S lhs, S rhs)
-            {
-                return !Equals(lhs, rhs);
             }
 
             #endregion
@@ -139,12 +95,12 @@ namespace Ice.seqMapping
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class SD : global::System.ICloneable
+        public sealed partial class SD : global::System.ICloneable, global::System.IEquatable<SD>
         {
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int i;
+            public int i = 1;
 
             #endregion
 
@@ -155,7 +111,6 @@ namespace Ice.seqMapping
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public SD()
             {
-                this.i = 1;
                 ice_initialize();
             }
 
@@ -171,10 +126,7 @@ namespace Ice.seqMapping
             #region ICloneable members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
+            public object Clone() => MemberwiseClone();
 
             #endregion
 
@@ -190,22 +142,20 @@ namespace Ice.seqMapping
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
+            public override bool Equals(object other) => Equals(other as SD);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bool Equals(SD other)
             {
-                if(object.ReferenceEquals(this, other))
+                if (object.ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if(other == null)
+                if (other is null)
                 {
                     return false;
                 }
-                if(GetType() != other.GetType())
-                {
-                    return false;
-                }
-                SD o = (SD)other;
-                if(!this.i.Equals(o.i))
+                if (!this.i.Equals(other.i))
                 {
                     return false;
                 }
@@ -219,13 +169,13 @@ namespace Ice.seqMapping
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator==(SD lhs, SD rhs)
             {
-                return Equals(lhs, rhs);
+                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator!=(SD lhs, SD rhs)
             {
-                return !Equals(lhs, rhs);
+                return !(lhs == rhs);
             }
 
             #endregion
@@ -247,7 +197,7 @@ namespace Ice.seqMapping
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, SD v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     _nullMarshalValue.ice_writeMembers(ostr);
                 }
@@ -8939,7 +8889,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                byte[] iceP_i;
+                byte[] iceP_i = default;
                 iceP_i = AByteSHelper.read(istr);
                 inS.endReadParams();
                 byte[] iceP_o;
@@ -8957,7 +8907,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<byte> iceP_i;
+                global::System.Collections.Generic.List<byte> iceP_i = default;
                 iceP_i = LByteSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<byte> iceP_o;
@@ -8975,7 +8925,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<byte> iceP_i;
+                global::System.Collections.Generic.LinkedList<byte> iceP_i = default;
                 iceP_i = KByteSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<byte> iceP_o;
@@ -8993,7 +8943,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<byte> iceP_i;
+                global::System.Collections.Generic.Queue<byte> iceP_i = default;
                 iceP_i = QByteSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<byte> iceP_o;
@@ -9011,7 +8961,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<byte> iceP_i;
+                global::System.Collections.Generic.Stack<byte> iceP_i = default;
                 iceP_i = SByteSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<byte> iceP_o;
@@ -9029,7 +8979,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                bool[] iceP_i;
+                bool[] iceP_i = default;
                 iceP_i = ABoolSHelper.read(istr);
                 inS.endReadParams();
                 bool[] iceP_o;
@@ -9047,7 +8997,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<bool> iceP_i;
+                global::System.Collections.Generic.List<bool> iceP_i = default;
                 iceP_i = LBoolSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<bool> iceP_o;
@@ -9065,7 +9015,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<bool> iceP_i;
+                global::System.Collections.Generic.LinkedList<bool> iceP_i = default;
                 iceP_i = KBoolSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<bool> iceP_o;
@@ -9083,7 +9033,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<bool> iceP_i;
+                global::System.Collections.Generic.Queue<bool> iceP_i = default;
                 iceP_i = QBoolSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<bool> iceP_o;
@@ -9101,7 +9051,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<bool> iceP_i;
+                global::System.Collections.Generic.Stack<bool> iceP_i = default;
                 iceP_i = SBoolSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<bool> iceP_o;
@@ -9119,7 +9069,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                short[] iceP_i;
+                short[] iceP_i = default;
                 iceP_i = AShortSHelper.read(istr);
                 inS.endReadParams();
                 short[] iceP_o;
@@ -9137,7 +9087,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<short> iceP_i;
+                global::System.Collections.Generic.List<short> iceP_i = default;
                 iceP_i = LShortSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<short> iceP_o;
@@ -9155,7 +9105,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<short> iceP_i;
+                global::System.Collections.Generic.LinkedList<short> iceP_i = default;
                 iceP_i = KShortSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<short> iceP_o;
@@ -9173,7 +9123,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<short> iceP_i;
+                global::System.Collections.Generic.Queue<short> iceP_i = default;
                 iceP_i = QShortSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<short> iceP_o;
@@ -9191,7 +9141,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<short> iceP_i;
+                global::System.Collections.Generic.Stack<short> iceP_i = default;
                 iceP_i = SShortSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<short> iceP_o;
@@ -9209,7 +9159,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int[] iceP_i;
+                int[] iceP_i = default;
                 iceP_i = AIntSHelper.read(istr);
                 inS.endReadParams();
                 int[] iceP_o;
@@ -9227,7 +9177,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<int> iceP_i;
+                global::System.Collections.Generic.List<int> iceP_i = default;
                 iceP_i = LIntSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<int> iceP_o;
@@ -9245,7 +9195,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<int> iceP_i;
+                global::System.Collections.Generic.LinkedList<int> iceP_i = default;
                 iceP_i = KIntSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<int> iceP_o;
@@ -9263,7 +9213,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<int> iceP_i;
+                global::System.Collections.Generic.Queue<int> iceP_i = default;
                 iceP_i = QIntSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<int> iceP_o;
@@ -9281,7 +9231,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<int> iceP_i;
+                global::System.Collections.Generic.Stack<int> iceP_i = default;
                 iceP_i = SIntSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<int> iceP_o;
@@ -9299,7 +9249,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                long[] iceP_i;
+                long[] iceP_i = default;
                 iceP_i = ALongSHelper.read(istr);
                 inS.endReadParams();
                 long[] iceP_o;
@@ -9317,7 +9267,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<long> iceP_i;
+                global::System.Collections.Generic.List<long> iceP_i = default;
                 iceP_i = LLongSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<long> iceP_o;
@@ -9335,7 +9285,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<long> iceP_i;
+                global::System.Collections.Generic.LinkedList<long> iceP_i = default;
                 iceP_i = KLongSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<long> iceP_o;
@@ -9353,7 +9303,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<long> iceP_i;
+                global::System.Collections.Generic.Queue<long> iceP_i = default;
                 iceP_i = QLongSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<long> iceP_o;
@@ -9371,7 +9321,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<long> iceP_i;
+                global::System.Collections.Generic.Stack<long> iceP_i = default;
                 iceP_i = SLongSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<long> iceP_o;
@@ -9389,7 +9339,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                float[] iceP_i;
+                float[] iceP_i = default;
                 iceP_i = AFloatSHelper.read(istr);
                 inS.endReadParams();
                 float[] iceP_o;
@@ -9407,7 +9357,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<float> iceP_i;
+                global::System.Collections.Generic.List<float> iceP_i = default;
                 iceP_i = LFloatSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<float> iceP_o;
@@ -9425,7 +9375,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<float> iceP_i;
+                global::System.Collections.Generic.LinkedList<float> iceP_i = default;
                 iceP_i = KFloatSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<float> iceP_o;
@@ -9443,7 +9393,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<float> iceP_i;
+                global::System.Collections.Generic.Queue<float> iceP_i = default;
                 iceP_i = QFloatSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<float> iceP_o;
@@ -9461,7 +9411,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<float> iceP_i;
+                global::System.Collections.Generic.Stack<float> iceP_i = default;
                 iceP_i = SFloatSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<float> iceP_o;
@@ -9479,7 +9429,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                double[] iceP_i;
+                double[] iceP_i = default;
                 iceP_i = ADoubleSHelper.read(istr);
                 inS.endReadParams();
                 double[] iceP_o;
@@ -9497,7 +9447,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<double> iceP_i;
+                global::System.Collections.Generic.List<double> iceP_i = default;
                 iceP_i = LDoubleSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<double> iceP_o;
@@ -9515,7 +9465,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<double> iceP_i;
+                global::System.Collections.Generic.LinkedList<double> iceP_i = default;
                 iceP_i = KDoubleSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<double> iceP_o;
@@ -9533,7 +9483,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<double> iceP_i;
+                global::System.Collections.Generic.Queue<double> iceP_i = default;
                 iceP_i = QDoubleSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<double> iceP_o;
@@ -9551,7 +9501,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<double> iceP_i;
+                global::System.Collections.Generic.Stack<double> iceP_i = default;
                 iceP_i = SDoubleSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<double> iceP_o;
@@ -9569,7 +9519,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string[] iceP_i;
+                string[] iceP_i = default;
                 iceP_i = AStringSHelper.read(istr);
                 inS.endReadParams();
                 string[] iceP_o;
@@ -9587,7 +9537,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<string> iceP_i;
+                global::System.Collections.Generic.List<string> iceP_i = default;
                 iceP_i = LStringSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<string> iceP_o;
@@ -9605,7 +9555,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<string> iceP_i;
+                global::System.Collections.Generic.LinkedList<string> iceP_i = default;
                 iceP_i = KStringSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<string> iceP_o;
@@ -9623,7 +9573,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<string> iceP_i;
+                global::System.Collections.Generic.Queue<string> iceP_i = default;
                 iceP_i = QStringSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<string> iceP_o;
@@ -9641,7 +9591,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<string> iceP_i;
+                global::System.Collections.Generic.Stack<string> iceP_i = default;
                 iceP_i = SStringSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<string> iceP_o;
@@ -9659,7 +9609,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::Ice.Value[] iceP_i;
+                global::Ice.Value[] iceP_i = default;
                 iceP_i = AObjectSHelper.read(istr);
                 istr.readPendingValues();
                 inS.endReadParams();
@@ -9679,7 +9629,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<global::Ice.Value> iceP_i;
+                global::System.Collections.Generic.List<global::Ice.Value> iceP_i = default;
                 iceP_i = LObjectSHelper.read(istr);
                 istr.readPendingValues();
                 inS.endReadParams();
@@ -9699,7 +9649,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::Ice.ObjectPrx[] iceP_i;
+                global::Ice.ObjectPrx[] iceP_i = default;
                 iceP_i = AObjectPrxSHelper.read(istr);
                 inS.endReadParams();
                 global::Ice.ObjectPrx[] iceP_o;
@@ -9717,7 +9667,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<global::Ice.ObjectPrx> iceP_i;
+                global::System.Collections.Generic.List<global::Ice.ObjectPrx> iceP_i = default;
                 iceP_i = LObjectPrxSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<global::Ice.ObjectPrx> iceP_o;
@@ -9735,7 +9685,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> iceP_i;
+                global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> iceP_i = default;
                 iceP_i = KObjectPrxSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> iceP_o;
@@ -9753,7 +9703,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> iceP_i;
+                global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> iceP_i = default;
                 iceP_i = QObjectPrxSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> iceP_o;
@@ -9771,7 +9721,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> iceP_i;
+                global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> iceP_i = default;
                 iceP_i = SObjectPrxSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> iceP_o;
@@ -9789,7 +9739,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                S[] iceP_i;
+                S[] iceP_i = default;
                 iceP_i = AStructSHelper.read(istr);
                 inS.endReadParams();
                 S[] iceP_o;
@@ -9807,7 +9757,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<S> iceP_i;
+                global::System.Collections.Generic.List<S> iceP_i = default;
                 iceP_i = LStructSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<S> iceP_o;
@@ -9825,7 +9775,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<S> iceP_i;
+                global::System.Collections.Generic.LinkedList<S> iceP_i = default;
                 iceP_i = KStructSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<S> iceP_o;
@@ -9843,7 +9793,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<S> iceP_i;
+                global::System.Collections.Generic.Queue<S> iceP_i = default;
                 iceP_i = QStructSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<S> iceP_o;
@@ -9861,7 +9811,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<S> iceP_i;
+                global::System.Collections.Generic.Stack<S> iceP_i = default;
                 iceP_i = SStructSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<S> iceP_o;
@@ -9879,7 +9829,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                SD[] iceP_i;
+                SD[] iceP_i = default;
                 iceP_i = AStructSDHelper.read(istr);
                 inS.endReadParams();
                 SD[] iceP_o;
@@ -9897,7 +9847,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<SD> iceP_i;
+                global::System.Collections.Generic.List<SD> iceP_i = default;
                 iceP_i = LStructSDHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<SD> iceP_o;
@@ -9915,7 +9865,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<SD> iceP_i;
+                global::System.Collections.Generic.LinkedList<SD> iceP_i = default;
                 iceP_i = KStructSDHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<SD> iceP_o;
@@ -9933,7 +9883,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<SD> iceP_i;
+                global::System.Collections.Generic.Queue<SD> iceP_i = default;
                 iceP_i = QStructSDHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<SD> iceP_o;
@@ -9951,7 +9901,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<SD> iceP_i;
+                global::System.Collections.Generic.Stack<SD> iceP_i = default;
                 iceP_i = SStructSDHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<SD> iceP_o;
@@ -9969,7 +9919,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                CV[] iceP_i;
+                CV[] iceP_i = default;
                 iceP_i = ACVSHelper.read(istr);
                 istr.readPendingValues();
                 inS.endReadParams();
@@ -9989,7 +9939,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<CV> iceP_i;
+                global::System.Collections.Generic.List<CV> iceP_i = default;
                 iceP_i = LCVSHelper.read(istr);
                 istr.readPendingValues();
                 inS.endReadParams();
@@ -10009,7 +9959,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                CR[] iceP_i;
+                CR[] iceP_i = default;
                 iceP_i = ACRSHelper.read(istr);
                 istr.readPendingValues();
                 inS.endReadParams();
@@ -10029,7 +9979,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<CR> iceP_i;
+                global::System.Collections.Generic.List<CR> iceP_i = default;
                 iceP_i = LCRSHelper.read(istr);
                 istr.readPendingValues();
                 inS.endReadParams();
@@ -10049,7 +9999,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                En[] iceP_i;
+                En[] iceP_i = default;
                 iceP_i = AEnSHelper.read(istr);
                 inS.endReadParams();
                 En[] iceP_o;
@@ -10067,7 +10017,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<En> iceP_i;
+                global::System.Collections.Generic.List<En> iceP_i = default;
                 iceP_i = LEnSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<En> iceP_o;
@@ -10085,7 +10035,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<En> iceP_i;
+                global::System.Collections.Generic.LinkedList<En> iceP_i = default;
                 iceP_i = KEnSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<En> iceP_o;
@@ -10103,7 +10053,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<En> iceP_i;
+                global::System.Collections.Generic.Queue<En> iceP_i = default;
                 iceP_i = QEnSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<En> iceP_o;
@@ -10121,7 +10071,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<En> iceP_i;
+                global::System.Collections.Generic.Stack<En> iceP_i = default;
                 iceP_i = SEnSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<En> iceP_o;
@@ -10139,7 +10089,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                IPrx[] iceP_i;
+                IPrx[] iceP_i = default;
                 iceP_i = AIPrxSHelper.read(istr);
                 inS.endReadParams();
                 IPrx[] iceP_o;
@@ -10157,7 +10107,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.List<IPrx> iceP_i;
+                global::System.Collections.Generic.List<IPrx> iceP_i = default;
                 iceP_i = LIPrxSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.List<IPrx> iceP_o;
@@ -10175,7 +10125,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.LinkedList<IPrx> iceP_i;
+                global::System.Collections.Generic.LinkedList<IPrx> iceP_i = default;
                 iceP_i = KIPrxSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.LinkedList<IPrx> iceP_o;
@@ -10193,7 +10143,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Queue<IPrx> iceP_i;
+                global::System.Collections.Generic.Queue<IPrx> iceP_i = default;
                 iceP_i = QIPrxSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Queue<IPrx> iceP_o;
@@ -10211,7 +10161,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Stack<IPrx> iceP_i;
+                global::System.Collections.Generic.Stack<IPrx> iceP_i = default;
                 iceP_i = SIPrxSHelper.read(istr);
                 inS.endReadParams();
                 global::System.Collections.Generic.Stack<IPrx> iceP_o;
@@ -10229,7 +10179,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::Ice.seqMapping.Custom<int> iceP_i;
+                global::Ice.seqMapping.Custom<int> iceP_i = default;
                 iceP_i = CustomIntSHelper.read(istr);
                 inS.endReadParams();
                 global::Ice.seqMapping.Custom<int> iceP_o;
@@ -10247,7 +10197,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::Ice.seqMapping.Custom<CV> iceP_i;
+                global::Ice.seqMapping.Custom<CV> iceP_i = default;
                 iceP_i = CustomCVSHelper.read(istr);
                 istr.readPendingValues();
                 inS.endReadParams();
@@ -10267,7 +10217,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> iceP_i;
+                global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> iceP_i = default;
                 iceP_i = CustomIntSSHelper.read(istr);
                 inS.endReadParams();
                 global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> iceP_o;
@@ -10285,7 +10235,7 @@ namespace Ice.seqMapping
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> iceP_i;
+                global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> iceP_i = default;
                 iceP_i = CustomCVSSHelper.read(istr);
                 istr.readPendingValues();
                 inS.endReadParams();

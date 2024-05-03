@@ -85,75 +85,75 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class Struct1 : global::System.ICloneable
+        public sealed partial class Struct1 : global::System.ICloneable, global::System.IEquatable<Struct1>
         {
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolFalse;
+            public bool boolFalse = false;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolTrue;
+            public bool boolTrue = true;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public byte b;
+            public byte b = 254;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public short s;
+            public short s = 16000;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int i;
+            public int i = 3;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long l;
+            public long l = 4L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float f;
+            public float f = 5.1F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double d;
+            public double d = 6.2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str;
+            public string str = "foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c1;
+            public Color c1 = Test.Color.red;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c2;
+            public Color c2 = Test.Color.green;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c3;
+            public Color c3 = Test.Color.blue;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc1;
+            public global::Ice.defaultValue.Test.Nested.Color nc1 = Test.Nested.Color.red;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc2;
+            public global::Ice.defaultValue.Test.Nested.Color nc2 = Test.Nested.Color.green;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc3;
+            public global::Ice.defaultValue.Test.Nested.Color nc3 = Test.Nested.Color.blue;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string noDefault;
+            public string noDefault = "";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int zeroI;
+            public int zeroI = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long zeroL;
+            public long zeroL = 0L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroF;
+            public float zeroF = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroDotF;
+            public float zeroDotF = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroD;
+            public double zeroD = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroDotD;
+            public double zeroDotD = 0;
 
             #endregion
 
@@ -164,28 +164,6 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct1()
             {
-                this.boolFalse = false;
-                this.boolTrue = true;
-                this.b = 254;
-                this.s = 16000;
-                this.i = 3;
-                this.l = 4L;
-                this.f = 5.1F;
-                this.d = 6.2;
-                this.str = "foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a";
-                this.c1 = Test.Color.red;
-                this.c2 = Test.Color.green;
-                this.c3 = Test.Color.blue;
-                this.nc1 = Test.Nested.Color.red;
-                this.nc2 = Test.Nested.Color.green;
-                this.nc3 = Test.Nested.Color.blue;
-                this.noDefault = "";
-                this.zeroI = 0;
-                this.zeroL = 0L;
-                this.zeroF = 0F;
-                this.zeroDotF = 0F;
-                this.zeroD = 0;
-                this.zeroDotD = 0;
                 ice_initialize();
             }
 
@@ -222,10 +200,7 @@ namespace Ice.defaultValue
             #region ICloneable members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
+            public object Clone() => MemberwiseClone();
 
             #endregion
 
@@ -262,126 +237,124 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
+            public override bool Equals(object other) => Equals(other as Struct1);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bool Equals(Struct1 other)
             {
-                if(object.ReferenceEquals(this, other))
+                if (object.ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if(other == null)
+                if (other is null)
                 {
                     return false;
                 }
-                if(GetType() != other.GetType())
+                if (!this.boolFalse.Equals(other.boolFalse))
                 {
                     return false;
                 }
-                Struct1 o = (Struct1)other;
-                if(!this.boolFalse.Equals(o.boolFalse))
+                if (!this.boolTrue.Equals(other.boolTrue))
                 {
                     return false;
                 }
-                if(!this.boolTrue.Equals(o.boolTrue))
+                if (!this.b.Equals(other.b))
                 {
                     return false;
                 }
-                if(!this.b.Equals(o.b))
+                if (!this.s.Equals(other.s))
                 {
                     return false;
                 }
-                if(!this.s.Equals(o.s))
+                if (!this.i.Equals(other.i))
                 {
                     return false;
                 }
-                if(!this.i.Equals(o.i))
+                if (!this.l.Equals(other.l))
                 {
                     return false;
                 }
-                if(!this.l.Equals(o.l))
+                if (!this.f.Equals(other.f))
                 {
                     return false;
                 }
-                if(!this.f.Equals(o.f))
+                if (!this.d.Equals(other.d))
                 {
                     return false;
                 }
-                if(!this.d.Equals(o.d))
+                if (this.str is null)
                 {
-                    return false;
-                }
-                if(this.str == null)
-                {
-                    if(o.str != null)
+                    if (other.str is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!this.str.Equals(o.str))
+                    if (!this.str.Equals(other.str))
                     {
                         return false;
                     }
                 }
-                if(!this.c1.Equals(o.c1))
+                if (!this.c1.Equals(other.c1))
                 {
                     return false;
                 }
-                if(!this.c2.Equals(o.c2))
+                if (!this.c2.Equals(other.c2))
                 {
                     return false;
                 }
-                if(!this.c3.Equals(o.c3))
+                if (!this.c3.Equals(other.c3))
                 {
                     return false;
                 }
-                if(!this.nc1.Equals(o.nc1))
+                if (!this.nc1.Equals(other.nc1))
                 {
                     return false;
                 }
-                if(!this.nc2.Equals(o.nc2))
+                if (!this.nc2.Equals(other.nc2))
                 {
                     return false;
                 }
-                if(!this.nc3.Equals(o.nc3))
+                if (!this.nc3.Equals(other.nc3))
                 {
                     return false;
                 }
-                if(this.noDefault == null)
+                if (this.noDefault is null)
                 {
-                    if(o.noDefault != null)
+                    if (other.noDefault is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!this.noDefault.Equals(o.noDefault))
+                    if (!this.noDefault.Equals(other.noDefault))
                     {
                         return false;
                     }
                 }
-                if(!this.zeroI.Equals(o.zeroI))
+                if (!this.zeroI.Equals(other.zeroI))
                 {
                     return false;
                 }
-                if(!this.zeroL.Equals(o.zeroL))
+                if (!this.zeroL.Equals(other.zeroL))
                 {
                     return false;
                 }
-                if(!this.zeroF.Equals(o.zeroF))
+                if (!this.zeroF.Equals(other.zeroF))
                 {
                     return false;
                 }
-                if(!this.zeroDotF.Equals(o.zeroDotF))
+                if (!this.zeroDotF.Equals(other.zeroDotF))
                 {
                     return false;
                 }
-                if(!this.zeroD.Equals(o.zeroD))
+                if (!this.zeroD.Equals(other.zeroD))
                 {
                     return false;
                 }
-                if(!this.zeroDotD.Equals(o.zeroDotD))
+                if (!this.zeroDotD.Equals(other.zeroDotD))
                 {
                     return false;
                 }
@@ -395,13 +368,13 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator==(Struct1 lhs, Struct1 rhs)
             {
-                return Equals(lhs, rhs);
+                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator!=(Struct1 lhs, Struct1 rhs)
             {
-                return !Equals(lhs, rhs);
+                return !(lhs == rhs);
             }
 
             #endregion
@@ -465,7 +438,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, Struct1 v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     _nullMarshalValue.ice_writeMembers(ostr);
                 }
@@ -618,69 +591,69 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class Struct2 : global::System.ICloneable
+        public sealed partial class Struct2 : global::System.ICloneable, global::System.IEquatable<Struct2>
         {
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolTrue;
+            public bool boolTrue = Test.ConstBool.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public byte b;
+            public byte b = Test.ConstByte.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public short s;
+            public short s = Test.ConstShort.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int i;
+            public int i = Test.ConstInt.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long l;
+            public long l = Test.ConstLong.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float f;
+            public float f = Test.ConstFloat.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double d;
+            public double d = Test.ConstDouble.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str;
+            public string str = Test.ConstString.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c1;
+            public Color c1 = Test.ConstColor1.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c2;
+            public Color c2 = Test.ConstColor2.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c3;
+            public Color c3 = Test.ConstColor3.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc1;
+            public global::Ice.defaultValue.Test.Nested.Color nc1 = Test.ConstNestedColor1.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc2;
+            public global::Ice.defaultValue.Test.Nested.Color nc2 = Test.ConstNestedColor2.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc3;
+            public global::Ice.defaultValue.Test.Nested.Color nc3 = Test.ConstNestedColor3.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int zeroI;
+            public int zeroI = Test.ConstZeroI.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long zeroL;
+            public long zeroL = Test.ConstZeroL.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroF;
+            public float zeroF = Test.ConstZeroF.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroDotF;
+            public float zeroDotF = Test.ConstZeroDotF.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroD;
+            public double zeroD = Test.ConstZeroD.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroDotD;
+            public double zeroDotD = Test.ConstZeroDotD.value;
 
             #endregion
 
@@ -691,26 +664,6 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct2()
             {
-                this.boolTrue = Test.ConstBool.value;
-                this.b = Test.ConstByte.value;
-                this.s = Test.ConstShort.value;
-                this.i = Test.ConstInt.value;
-                this.l = Test.ConstLong.value;
-                this.f = Test.ConstFloat.value;
-                this.d = Test.ConstDouble.value;
-                this.str = Test.ConstString.value;
-                this.c1 = Test.ConstColor1.value;
-                this.c2 = Test.ConstColor2.value;
-                this.c3 = Test.ConstColor3.value;
-                this.nc1 = Test.ConstNestedColor1.value;
-                this.nc2 = Test.ConstNestedColor2.value;
-                this.nc3 = Test.ConstNestedColor3.value;
-                this.zeroI = Test.ConstZeroI.value;
-                this.zeroL = Test.ConstZeroL.value;
-                this.zeroF = Test.ConstZeroF.value;
-                this.zeroDotF = Test.ConstZeroDotF.value;
-                this.zeroD = Test.ConstZeroD.value;
-                this.zeroDotD = Test.ConstZeroDotD.value;
                 ice_initialize();
             }
 
@@ -745,10 +698,7 @@ namespace Ice.defaultValue
             #region ICloneable members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
+            public object Clone() => MemberwiseClone();
 
             #endregion
 
@@ -783,108 +733,106 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
+            public override bool Equals(object other) => Equals(other as Struct2);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bool Equals(Struct2 other)
             {
-                if(object.ReferenceEquals(this, other))
+                if (object.ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if(other == null)
+                if (other is null)
                 {
                     return false;
                 }
-                if(GetType() != other.GetType())
+                if (!this.boolTrue.Equals(other.boolTrue))
                 {
                     return false;
                 }
-                Struct2 o = (Struct2)other;
-                if(!this.boolTrue.Equals(o.boolTrue))
+                if (!this.b.Equals(other.b))
                 {
                     return false;
                 }
-                if(!this.b.Equals(o.b))
+                if (!this.s.Equals(other.s))
                 {
                     return false;
                 }
-                if(!this.s.Equals(o.s))
+                if (!this.i.Equals(other.i))
                 {
                     return false;
                 }
-                if(!this.i.Equals(o.i))
+                if (!this.l.Equals(other.l))
                 {
                     return false;
                 }
-                if(!this.l.Equals(o.l))
+                if (!this.f.Equals(other.f))
                 {
                     return false;
                 }
-                if(!this.f.Equals(o.f))
+                if (!this.d.Equals(other.d))
                 {
                     return false;
                 }
-                if(!this.d.Equals(o.d))
+                if (this.str is null)
                 {
-                    return false;
-                }
-                if(this.str == null)
-                {
-                    if(o.str != null)
+                    if (other.str is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!this.str.Equals(o.str))
+                    if (!this.str.Equals(other.str))
                     {
                         return false;
                     }
                 }
-                if(!this.c1.Equals(o.c1))
+                if (!this.c1.Equals(other.c1))
                 {
                     return false;
                 }
-                if(!this.c2.Equals(o.c2))
+                if (!this.c2.Equals(other.c2))
                 {
                     return false;
                 }
-                if(!this.c3.Equals(o.c3))
+                if (!this.c3.Equals(other.c3))
                 {
                     return false;
                 }
-                if(!this.nc1.Equals(o.nc1))
+                if (!this.nc1.Equals(other.nc1))
                 {
                     return false;
                 }
-                if(!this.nc2.Equals(o.nc2))
+                if (!this.nc2.Equals(other.nc2))
                 {
                     return false;
                 }
-                if(!this.nc3.Equals(o.nc3))
+                if (!this.nc3.Equals(other.nc3))
                 {
                     return false;
                 }
-                if(!this.zeroI.Equals(o.zeroI))
+                if (!this.zeroI.Equals(other.zeroI))
                 {
                     return false;
                 }
-                if(!this.zeroL.Equals(o.zeroL))
+                if (!this.zeroL.Equals(other.zeroL))
                 {
                     return false;
                 }
-                if(!this.zeroF.Equals(o.zeroF))
+                if (!this.zeroF.Equals(other.zeroF))
                 {
                     return false;
                 }
-                if(!this.zeroDotF.Equals(o.zeroDotF))
+                if (!this.zeroDotF.Equals(other.zeroDotF))
                 {
                     return false;
                 }
-                if(!this.zeroD.Equals(o.zeroD))
+                if (!this.zeroD.Equals(other.zeroD))
                 {
                     return false;
                 }
-                if(!this.zeroDotD.Equals(o.zeroDotD))
+                if (!this.zeroDotD.Equals(other.zeroDotD))
                 {
                     return false;
                 }
@@ -898,13 +846,13 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator==(Struct2 lhs, Struct2 rhs)
             {
-                return Equals(lhs, rhs);
+                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator!=(Struct2 lhs, Struct2 rhs)
             {
-                return !Equals(lhs, rhs);
+                return !(lhs == rhs);
             }
 
             #endregion
@@ -964,7 +912,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, Struct2 v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     _nullMarshalValue.ice_writeMembers(ostr);
                 }
@@ -997,69 +945,69 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class Struct3 : global::System.ICloneable
+        public sealed partial class Struct3 : global::System.ICloneable, global::System.IEquatable<Struct3>
         {
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolFalse;
+            public bool boolFalse = false;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolTrue;
+            public bool boolTrue = true;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public byte b;
+            public byte b = 1;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public short s;
+            public short s = 2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int i;
+            public int i = 3;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long l;
+            public long l = 4L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float f;
+            public float f = 5.1F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double d;
+            public double d = 6.2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c1;
+            public Color c1 = Test.Color.red;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c2;
+            public Color c2 = Test.Color.green;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c3;
+            public Color c3 = Test.Color.blue;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc1;
+            public global::Ice.defaultValue.Test.Nested.Color nc1 = Test.Nested.Color.red;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc2;
+            public global::Ice.defaultValue.Test.Nested.Color nc2 = Test.Nested.Color.green;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc3;
+            public global::Ice.defaultValue.Test.Nested.Color nc3 = Test.Nested.Color.blue;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int zeroI;
+            public int zeroI = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long zeroL;
+            public long zeroL = 0L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroF;
+            public float zeroF = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroDotF;
+            public float zeroDotF = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroD;
+            public double zeroD = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroDotD;
+            public double zeroDotD = 0;
 
             #endregion
 
@@ -1070,26 +1018,6 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct3()
             {
-                this.boolFalse = false;
-                this.boolTrue = true;
-                this.b = 1;
-                this.s = 2;
-                this.i = 3;
-                this.l = 4L;
-                this.f = 5.1F;
-                this.d = 6.2;
-                this.c1 = Test.Color.red;
-                this.c2 = Test.Color.green;
-                this.c3 = Test.Color.blue;
-                this.nc1 = Test.Nested.Color.red;
-                this.nc2 = Test.Nested.Color.green;
-                this.nc3 = Test.Nested.Color.blue;
-                this.zeroI = 0;
-                this.zeroL = 0L;
-                this.zeroF = 0F;
-                this.zeroDotF = 0F;
-                this.zeroD = 0;
-                this.zeroDotD = 0;
                 ice_initialize();
             }
 
@@ -1124,10 +1052,7 @@ namespace Ice.defaultValue
             #region ICloneable members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
+            public object Clone() => MemberwiseClone();
 
             #endregion
 
@@ -1162,98 +1087,96 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
+            public override bool Equals(object other) => Equals(other as Struct3);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bool Equals(Struct3 other)
             {
-                if(object.ReferenceEquals(this, other))
+                if (object.ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if(other == null)
+                if (other is null)
                 {
                     return false;
                 }
-                if(GetType() != other.GetType())
+                if (!this.boolFalse.Equals(other.boolFalse))
                 {
                     return false;
                 }
-                Struct3 o = (Struct3)other;
-                if(!this.boolFalse.Equals(o.boolFalse))
+                if (!this.boolTrue.Equals(other.boolTrue))
                 {
                     return false;
                 }
-                if(!this.boolTrue.Equals(o.boolTrue))
+                if (!this.b.Equals(other.b))
                 {
                     return false;
                 }
-                if(!this.b.Equals(o.b))
+                if (!this.s.Equals(other.s))
                 {
                     return false;
                 }
-                if(!this.s.Equals(o.s))
+                if (!this.i.Equals(other.i))
                 {
                     return false;
                 }
-                if(!this.i.Equals(o.i))
+                if (!this.l.Equals(other.l))
                 {
                     return false;
                 }
-                if(!this.l.Equals(o.l))
+                if (!this.f.Equals(other.f))
                 {
                     return false;
                 }
-                if(!this.f.Equals(o.f))
+                if (!this.d.Equals(other.d))
                 {
                     return false;
                 }
-                if(!this.d.Equals(o.d))
+                if (!this.c1.Equals(other.c1))
                 {
                     return false;
                 }
-                if(!this.c1.Equals(o.c1))
+                if (!this.c2.Equals(other.c2))
                 {
                     return false;
                 }
-                if(!this.c2.Equals(o.c2))
+                if (!this.c3.Equals(other.c3))
                 {
                     return false;
                 }
-                if(!this.c3.Equals(o.c3))
+                if (!this.nc1.Equals(other.nc1))
                 {
                     return false;
                 }
-                if(!this.nc1.Equals(o.nc1))
+                if (!this.nc2.Equals(other.nc2))
                 {
                     return false;
                 }
-                if(!this.nc2.Equals(o.nc2))
+                if (!this.nc3.Equals(other.nc3))
                 {
                     return false;
                 }
-                if(!this.nc3.Equals(o.nc3))
+                if (!this.zeroI.Equals(other.zeroI))
                 {
                     return false;
                 }
-                if(!this.zeroI.Equals(o.zeroI))
+                if (!this.zeroL.Equals(other.zeroL))
                 {
                     return false;
                 }
-                if(!this.zeroL.Equals(o.zeroL))
+                if (!this.zeroF.Equals(other.zeroF))
                 {
                     return false;
                 }
-                if(!this.zeroF.Equals(o.zeroF))
+                if (!this.zeroDotF.Equals(other.zeroDotF))
                 {
                     return false;
                 }
-                if(!this.zeroDotF.Equals(o.zeroDotF))
+                if (!this.zeroD.Equals(other.zeroD))
                 {
                     return false;
                 }
-                if(!this.zeroD.Equals(o.zeroD))
-                {
-                    return false;
-                }
-                if(!this.zeroDotD.Equals(o.zeroDotD))
+                if (!this.zeroDotD.Equals(other.zeroDotD))
                 {
                     return false;
                 }
@@ -1267,13 +1190,13 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator==(Struct3 lhs, Struct3 rhs)
             {
-                return Equals(lhs, rhs);
+                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator!=(Struct3 lhs, Struct3 rhs)
             {
-                return !Equals(lhs, rhs);
+                return !(lhs == rhs);
             }
 
             #endregion
@@ -1333,7 +1256,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, Struct3 v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     _nullMarshalValue.ice_writeMembers(ostr);
                 }
@@ -1366,69 +1289,69 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class Struct4 : global::System.ICloneable
+        public sealed partial class Struct4 : global::System.ICloneable, global::System.IEquatable<Struct4>
         {
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolFalse;
+            public bool boolFalse = false;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolTrue;
+            public bool boolTrue = true;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public byte b;
+            public byte b = 1;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public short s;
+            public short s = 2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int i;
+            public int i = 3;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long l;
+            public long l = 4L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float f;
+            public float f = 5.1F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double d;
+            public double d = 6.2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c1;
+            public Color c1 = Test.Color.red;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c2;
+            public Color c2 = Test.Color.green;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c3;
+            public Color c3 = Test.Color.blue;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc1;
+            public global::Ice.defaultValue.Test.Nested.Color nc1 = Test.Nested.Color.red;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc2;
+            public global::Ice.defaultValue.Test.Nested.Color nc2 = Test.Nested.Color.green;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc3;
+            public global::Ice.defaultValue.Test.Nested.Color nc3 = Test.Nested.Color.blue;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int zeroI;
+            public int zeroI = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long zeroL;
+            public long zeroL = 0L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroF;
+            public float zeroF = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroDotF;
+            public float zeroDotF = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroD;
+            public double zeroD = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroDotD;
+            public double zeroDotD = 0;
 
             #endregion
 
@@ -1439,26 +1362,6 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct4()
             {
-                this.boolFalse = false;
-                this.boolTrue = true;
-                this.b = 1;
-                this.s = 2;
-                this.i = 3;
-                this.l = 4L;
-                this.f = 5.1F;
-                this.d = 6.2;
-                this.c1 = Test.Color.red;
-                this.c2 = Test.Color.green;
-                this.c3 = Test.Color.blue;
-                this.nc1 = Test.Nested.Color.red;
-                this.nc2 = Test.Nested.Color.green;
-                this.nc3 = Test.Nested.Color.blue;
-                this.zeroI = 0;
-                this.zeroL = 0L;
-                this.zeroF = 0F;
-                this.zeroDotF = 0F;
-                this.zeroD = 0;
-                this.zeroDotD = 0;
                 ice_initialize();
             }
 
@@ -1493,10 +1396,7 @@ namespace Ice.defaultValue
             #region ICloneable members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
+            public object Clone() => MemberwiseClone();
 
             #endregion
 
@@ -1531,98 +1431,96 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
+            public override bool Equals(object other) => Equals(other as Struct4);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bool Equals(Struct4 other)
             {
-                if(object.ReferenceEquals(this, other))
+                if (object.ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if(other == null)
+                if (other is null)
                 {
                     return false;
                 }
-                if(GetType() != other.GetType())
+                if (!this.boolFalse.Equals(other.boolFalse))
                 {
                     return false;
                 }
-                Struct4 o = (Struct4)other;
-                if(!this.boolFalse.Equals(o.boolFalse))
+                if (!this.boolTrue.Equals(other.boolTrue))
                 {
                     return false;
                 }
-                if(!this.boolTrue.Equals(o.boolTrue))
+                if (!this.b.Equals(other.b))
                 {
                     return false;
                 }
-                if(!this.b.Equals(o.b))
+                if (!this.s.Equals(other.s))
                 {
                     return false;
                 }
-                if(!this.s.Equals(o.s))
+                if (!this.i.Equals(other.i))
                 {
                     return false;
                 }
-                if(!this.i.Equals(o.i))
+                if (!this.l.Equals(other.l))
                 {
                     return false;
                 }
-                if(!this.l.Equals(o.l))
+                if (!this.f.Equals(other.f))
                 {
                     return false;
                 }
-                if(!this.f.Equals(o.f))
+                if (!this.d.Equals(other.d))
                 {
                     return false;
                 }
-                if(!this.d.Equals(o.d))
+                if (!this.c1.Equals(other.c1))
                 {
                     return false;
                 }
-                if(!this.c1.Equals(o.c1))
+                if (!this.c2.Equals(other.c2))
                 {
                     return false;
                 }
-                if(!this.c2.Equals(o.c2))
+                if (!this.c3.Equals(other.c3))
                 {
                     return false;
                 }
-                if(!this.c3.Equals(o.c3))
+                if (!this.nc1.Equals(other.nc1))
                 {
                     return false;
                 }
-                if(!this.nc1.Equals(o.nc1))
+                if (!this.nc2.Equals(other.nc2))
                 {
                     return false;
                 }
-                if(!this.nc2.Equals(o.nc2))
+                if (!this.nc3.Equals(other.nc3))
                 {
                     return false;
                 }
-                if(!this.nc3.Equals(o.nc3))
+                if (!this.zeroI.Equals(other.zeroI))
                 {
                     return false;
                 }
-                if(!this.zeroI.Equals(o.zeroI))
+                if (!this.zeroL.Equals(other.zeroL))
                 {
                     return false;
                 }
-                if(!this.zeroL.Equals(o.zeroL))
+                if (!this.zeroF.Equals(other.zeroF))
                 {
                     return false;
                 }
-                if(!this.zeroF.Equals(o.zeroF))
+                if (!this.zeroDotF.Equals(other.zeroDotF))
                 {
                     return false;
                 }
-                if(!this.zeroDotF.Equals(o.zeroDotF))
+                if (!this.zeroD.Equals(other.zeroD))
                 {
                     return false;
                 }
-                if(!this.zeroD.Equals(o.zeroD))
-                {
-                    return false;
-                }
-                if(!this.zeroDotD.Equals(o.zeroDotD))
+                if (!this.zeroDotD.Equals(other.zeroDotD))
                 {
                     return false;
                 }
@@ -1636,13 +1534,13 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator==(Struct4 lhs, Struct4 rhs)
             {
-                return Equals(lhs, rhs);
+                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator!=(Struct4 lhs, Struct4 rhs)
             {
-                return !Equals(lhs, rhs);
+                return !(lhs == rhs);
             }
 
             #endregion
@@ -1702,7 +1600,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, Struct4 v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     _nullMarshalValue.ice_writeMembers(ostr);
                 }
@@ -1741,52 +1639,52 @@ namespace Ice.defaultValue
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolFalse;
+            public bool boolFalse = false;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolTrue;
+            public bool boolTrue = true;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public byte b;
+            public byte b = 1;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public short s;
+            public short s = 2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int i;
+            public int i = 3;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long l;
+            public long l = 4L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float f;
+            public float f = 5.1F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double d;
+            public double d = 6.2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str;
+            public string str = "foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string noDefault;
+            public string noDefault = "";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int zeroI;
+            public int zeroI = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long zeroL;
+            public long zeroL = 0L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroF;
+            public float zeroF = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroDotF;
+            public float zeroDotF = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroD;
+            public double zeroD = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroDotD;
+            public double zeroDotD = 0;
 
             #endregion
 
@@ -1797,22 +1695,6 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public @Base()
             {
-                this.boolFalse = false;
-                this.boolTrue = true;
-                this.b = 1;
-                this.s = 2;
-                this.i = 3;
-                this.l = 4L;
-                this.f = 5.1F;
-                this.d = 6.2;
-                this.str = "foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a";
-                this.noDefault = "";
-                this.zeroI = 0;
-                this.zeroL = 0L;
-                this.zeroF = 0F;
-                this.zeroDotF = 0F;
-                this.zeroD = 0;
-                this.zeroDotD = 0;
                 ice_initialize();
             }
 
@@ -1920,22 +1802,22 @@ namespace Ice.defaultValue
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c1;
+            public Color c1 = Test.Color.red;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c2;
+            public Color c2 = Test.Color.green;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c3;
+            public Color c3 = Test.Color.blue;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc1;
+            public global::Ice.defaultValue.Test.Nested.Color nc1 = Test.Nested.Color.red;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc2;
+            public global::Ice.defaultValue.Test.Nested.Color nc2 = Test.Nested.Color.green;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc3;
+            public global::Ice.defaultValue.Test.Nested.Color nc3 = Test.Nested.Color.blue;
 
             #endregion
 
@@ -1946,12 +1828,6 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Derived() : base()
             {
-                this.c1 = Test.Color.red;
-                this.c2 = Test.Color.green;
-                this.c3 = Test.Color.blue;
-                this.nc1 = Test.Nested.Color.red;
-                this.nc2 = Test.Nested.Color.green;
-                this.nc3 = Test.Nested.Color.blue;
                 ice_initialize();
             }
 
@@ -2032,88 +1908,65 @@ namespace Ice.defaultValue
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolFalse;
+            public bool boolFalse = false;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolTrue;
+            public bool boolTrue = true;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public byte b;
+            public byte b = 1;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public short s;
+            public short s = 2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int i;
+            public int i = 3;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long l;
+            public long l = 4L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float f;
+            public float f = 5.1F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double d;
+            public double d = 6.2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str;
+            public string str = "foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string noDefault;
+            public string noDefault = "";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int zeroI;
+            public int zeroI = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long zeroL;
+            public long zeroL = 0L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroF;
+            public float zeroF = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroDotF;
+            public float zeroDotF = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroD;
+            public double zeroD = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroDotD;
+            public double zeroDotD = 0;
 
             #endregion
 
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM()
-            {
-                this.boolFalse = false;
-                this.boolTrue = true;
-                this.b = 1;
-                this.s = 2;
-                this.i = 3;
-                this.l = 4L;
-                this.f = 5.1F;
-                this.d = 6.2;
-                this.str = "foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a";
-                this.noDefault = "";
-                this.zeroI = 0;
-                this.zeroL = 0L;
-                this.zeroF = 0F;
-                this.zeroDotF = 0F;
-                this.zeroD = 0;
-                this.zeroDotD = 0;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public BaseEx()
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public BaseEx(global::System.Exception ex) : base(ex)
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2225,48 +2078,35 @@ namespace Ice.defaultValue
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c1;
+            public Color c1 = Test.ConstColor1.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c2;
+            public Color c2 = Test.ConstColor2.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Color c3;
+            public Color c3 = Test.ConstColor3.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc1;
+            public global::Ice.defaultValue.Test.Nested.Color nc1 = Test.ConstNestedColor1.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc2;
+            public global::Ice.defaultValue.Test.Nested.Color nc2 = Test.ConstNestedColor2.value;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.defaultValue.Test.Nested.Color nc3;
+            public global::Ice.defaultValue.Test.Nested.Color nc3 = Test.ConstNestedColor3.value;
 
             #endregion
 
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM()
-            {
-                this.c1 = Test.ConstColor1.value;
-                this.c2 = Test.ConstColor2.value;
-                this.c3 = Test.ConstColor3.value;
-                this.nc1 = Test.ConstNestedColor1.value;
-                this.nc2 = Test.ConstNestedColor2.value;
-                this.nc3 = Test.ConstNestedColor3.value;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public DerivedEx()
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public DerivedEx(global::System.Exception ex) : base(ex)
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2349,52 +2189,52 @@ namespace Ice.defaultValue
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolFalse { get; set; }
+            public bool boolFalse { get; set; } = false;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolTrue { get; set; }
+            public bool boolTrue { get; set; } = true;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public byte b { get; set; }
+            public byte b { get; set; } = 1;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public short s { get; set; }
+            public short s { get; set; } = 2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int i { get; set; }
+            public int i { get; set; } = 3;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long l { get; set; }
+            public long l { get; set; } = 4L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float f { get; set; }
+            public float f { get; set; } = 5.1F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double d { get; set; }
+            public double d { get; set; } = 6.2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str { get; set; }
+            public string str { get; set; } = "foo bar";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string noDefault { get; set; }
+            public string noDefault { get; set; } = "";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int zeroI { get; set; }
+            public int zeroI { get; set; } = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long zeroL { get; set; }
+            public long zeroL { get; set; } = 0L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroF { get; set; }
+            public float zeroF { get; set; } = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroDotF { get; set; }
+            public float zeroDotF { get; set; } = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroD { get; set; }
+            public double zeroD { get; set; } = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroDotD { get; set; }
+            public double zeroDotD { get; set; } = 0;
 
             #endregion
 
@@ -2405,22 +2245,6 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ClassProperty()
             {
-                this.boolFalse = false;
-                this.boolTrue = true;
-                this.b = 1;
-                this.s = 2;
-                this.i = 3;
-                this.l = 4L;
-                this.f = 5.1F;
-                this.d = 6.2;
-                this.str = "foo bar";
-                this.noDefault = "";
-                this.zeroI = 0;
-                this.zeroL = 0L;
-                this.zeroF = 0F;
-                this.zeroDotF = 0F;
-                this.zeroD = 0;
-                this.zeroDotD = 0;
                 ice_initialize();
             }
 
@@ -2522,57 +2346,57 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class StructProperty : global::System.ICloneable
+        public sealed partial class StructProperty : global::System.ICloneable, global::System.IEquatable<StructProperty>
         {
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolFalse { get; set; }
+            public bool boolFalse { get; set; } = false;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolTrue { get; set; }
+            public bool boolTrue { get; set; } = true;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public byte b { get; set; }
+            public byte b { get; set; } = 1;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public short s { get; set; }
+            public short s { get; set; } = 2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int i { get; set; }
+            public int i { get; set; } = 3;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long l { get; set; }
+            public long l { get; set; } = 4L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float f { get; set; }
+            public float f { get; set; } = 5.1F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double d { get; set; }
+            public double d { get; set; } = 6.2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str { get; set; }
+            public string str { get; set; } = "foo bar";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string noDefault { get; set; }
+            public string noDefault { get; set; } = "";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int zeroI { get; set; }
+            public int zeroI { get; set; } = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long zeroL { get; set; }
+            public long zeroL { get; set; } = 0L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroF { get; set; }
+            public float zeroF { get; set; } = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroDotF { get; set; }
+            public float zeroDotF { get; set; } = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroD { get; set; }
+            public double zeroD { get; set; } = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroDotD { get; set; }
+            public double zeroDotD { get; set; } = 0;
 
             #endregion
 
@@ -2583,22 +2407,6 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public StructProperty()
             {
-                this.boolFalse = false;
-                this.boolTrue = true;
-                this.b = 1;
-                this.s = 2;
-                this.i = 3;
-                this.l = 4L;
-                this.f = 5.1F;
-                this.d = 6.2;
-                this.str = "foo bar";
-                this.noDefault = "";
-                this.zeroI = 0;
-                this.zeroL = 0L;
-                this.zeroF = 0F;
-                this.zeroDotF = 0F;
-                this.zeroD = 0;
-                this.zeroDotD = 0;
                 ice_initialize();
             }
 
@@ -2629,10 +2437,7 @@ namespace Ice.defaultValue
             #region ICloneable members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
+            public object Clone() => MemberwiseClone();
 
             #endregion
 
@@ -2663,102 +2468,100 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
+            public override bool Equals(object other) => Equals(other as StructProperty);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bool Equals(StructProperty other)
             {
-                if(object.ReferenceEquals(this, other))
+                if (object.ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if(other == null)
+                if (other is null)
                 {
                     return false;
                 }
-                if(GetType() != other.GetType())
+                if (!this.boolFalse.Equals(other.boolFalse))
                 {
                     return false;
                 }
-                StructProperty o = (StructProperty)other;
-                if(!this.boolFalse.Equals(o.boolFalse))
+                if (!this.boolTrue.Equals(other.boolTrue))
                 {
                     return false;
                 }
-                if(!this.boolTrue.Equals(o.boolTrue))
+                if (!this.b.Equals(other.b))
                 {
                     return false;
                 }
-                if(!this.b.Equals(o.b))
+                if (!this.s.Equals(other.s))
                 {
                     return false;
                 }
-                if(!this.s.Equals(o.s))
+                if (!this.i.Equals(other.i))
                 {
                     return false;
                 }
-                if(!this.i.Equals(o.i))
+                if (!this.l.Equals(other.l))
                 {
                     return false;
                 }
-                if(!this.l.Equals(o.l))
+                if (!this.f.Equals(other.f))
                 {
                     return false;
                 }
-                if(!this.f.Equals(o.f))
+                if (!this.d.Equals(other.d))
                 {
                     return false;
                 }
-                if(!this.d.Equals(o.d))
+                if (this.str is null)
                 {
-                    return false;
-                }
-                if(this.str == null)
-                {
-                    if(o.str != null)
+                    if (other.str is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!this.str.Equals(o.str))
+                    if (!this.str.Equals(other.str))
                     {
                         return false;
                     }
                 }
-                if(this.noDefault == null)
+                if (this.noDefault is null)
                 {
-                    if(o.noDefault != null)
+                    if (other.noDefault is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!this.noDefault.Equals(o.noDefault))
+                    if (!this.noDefault.Equals(other.noDefault))
                     {
                         return false;
                     }
                 }
-                if(!this.zeroI.Equals(o.zeroI))
+                if (!this.zeroI.Equals(other.zeroI))
                 {
                     return false;
                 }
-                if(!this.zeroL.Equals(o.zeroL))
+                if (!this.zeroL.Equals(other.zeroL))
                 {
                     return false;
                 }
-                if(!this.zeroF.Equals(o.zeroF))
+                if (!this.zeroF.Equals(other.zeroF))
                 {
                     return false;
                 }
-                if(!this.zeroDotF.Equals(o.zeroDotF))
+                if (!this.zeroDotF.Equals(other.zeroDotF))
                 {
                     return false;
                 }
-                if(!this.zeroD.Equals(o.zeroD))
+                if (!this.zeroD.Equals(other.zeroD))
                 {
                     return false;
                 }
-                if(!this.zeroDotD.Equals(o.zeroDotD))
+                if (!this.zeroDotD.Equals(other.zeroDotD))
                 {
                     return false;
                 }
@@ -2772,13 +2575,13 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator==(StructProperty lhs, StructProperty rhs)
             {
-                return Equals(lhs, rhs);
+                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator!=(StructProperty lhs, StructProperty rhs)
             {
-                return !Equals(lhs, rhs);
+                return !(lhs == rhs);
             }
 
             #endregion
@@ -2830,7 +2633,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, StructProperty v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     _nullMarshalValue.ice_writeMembers(ostr);
                 }
@@ -2870,88 +2673,65 @@ namespace Ice.defaultValue
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolFalse { get; set; }
+            public bool boolFalse { get; set; } = false;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool boolTrue { get; set; }
+            public bool boolTrue { get; set; } = true;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public byte b { get; set; }
+            public byte b { get; set; } = 1;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public short s { get; set; }
+            public short s { get; set; } = 2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int i { get; set; }
+            public int i { get; set; } = 3;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long l { get; set; }
+            public long l { get; set; } = 4L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float f { get; set; }
+            public float f { get; set; } = 5.1F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double d { get; set; }
+            public double d { get; set; } = 6.2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str { get; set; }
+            public string str { get; set; } = "foo bar";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string noDefault { get; set; }
+            public string noDefault { get; set; } = "";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int zeroI { get; set; }
+            public int zeroI { get; set; } = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long zeroL { get; set; }
+            public long zeroL { get; set; } = 0L;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroF { get; set; }
+            public float zeroF { get; set; } = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float zeroDotF { get; set; }
+            public float zeroDotF { get; set; } = 0F;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroD { get; set; }
+            public double zeroD { get; set; } = 0;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double zeroDotD { get; set; }
+            public double zeroDotD { get; set; } = 0;
 
             #endregion
 
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM()
-            {
-                this.boolFalse = false;
-                this.boolTrue = true;
-                this.b = 1;
-                this.s = 2;
-                this.i = 3;
-                this.l = 4L;
-                this.f = 5.1F;
-                this.d = 6.2;
-                this.str = "foo bar";
-                this.noDefault = "";
-                this.zeroI = 0;
-                this.zeroL = 0L;
-                this.zeroF = 0F;
-                this.zeroDotF = 0F;
-                this.zeroD = 0;
-                this.zeroDotD = 0;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ExceptionProperty()
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ExceptionProperty(global::System.Exception ex) : base(ex)
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -3056,7 +2836,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial struct InnerStruct
+        public partial record struct InnerStruct
         {
             #region Slice data members
 
@@ -3074,50 +2854,6 @@ namespace Ice.defaultValue
             {
                 this.a = a;
                 ice_initialize();
-            }
-
-            #endregion
-
-            #region Object members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::InnerStruct");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, a);
-                return h_;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
-            {
-                if(!(other is InnerStruct))
-                {
-                    return false;
-                }
-                InnerStruct o = (InnerStruct)other;
-                if(!this.a.Equals(o.a))
-                {
-                    return false;
-                }
-                return true;
-            }
-
-            #endregion
-
-            #region Comparison members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(InnerStruct lhs, InnerStruct rhs)
-            {
-                return Equals(lhs, rhs);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(InnerStruct lhs, InnerStruct rhs)
-            {
-                return !Equals(lhs, rhs);
             }
 
             #endregion
@@ -3163,12 +2899,12 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class InnerStruct2 : global::System.ICloneable
+        public sealed partial class InnerStruct2 : global::System.ICloneable, global::System.IEquatable<InnerStruct2>
         {
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string a;
+            public string a = "";
 
             #endregion
 
@@ -3179,7 +2915,6 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public InnerStruct2()
             {
-                this.a = "";
                 ice_initialize();
             }
 
@@ -3195,10 +2930,7 @@ namespace Ice.defaultValue
             #region ICloneable members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
+            public object Clone() => MemberwiseClone();
 
             #endregion
 
@@ -3214,31 +2946,29 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
+            public override bool Equals(object other) => Equals(other as InnerStruct2);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bool Equals(InnerStruct2 other)
             {
-                if(object.ReferenceEquals(this, other))
+                if (object.ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if(other == null)
+                if (other is null)
                 {
                     return false;
                 }
-                if(GetType() != other.GetType())
+                if (this.a is null)
                 {
-                    return false;
-                }
-                InnerStruct2 o = (InnerStruct2)other;
-                if(this.a == null)
-                {
-                    if(o.a != null)
+                    if (other.a is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!this.a.Equals(o.a))
+                    if (!this.a.Equals(other.a))
                     {
                         return false;
                     }
@@ -3253,13 +2983,13 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator==(InnerStruct2 lhs, InnerStruct2 rhs)
             {
-                return Equals(lhs, rhs);
+                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator!=(InnerStruct2 lhs, InnerStruct2 rhs)
             {
-                return !Equals(lhs, rhs);
+                return !(lhs == rhs);
             }
 
             #endregion
@@ -3281,7 +3011,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, InnerStruct2 v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     _nullMarshalValue.ice_writeMembers(ostr);
                 }
@@ -3314,7 +3044,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class StructNoDefaults : global::System.ICloneable
+        public sealed partial class StructNoDefaults : global::System.ICloneable, global::System.IEquatable<StructNoDefaults>
         {
             #region Slice data members
 
@@ -3340,7 +3070,7 @@ namespace Ice.defaultValue
             public double d;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str;
+            public string str = "";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Color c1;
@@ -3369,9 +3099,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public StructNoDefaults()
             {
-                this.str = "";
-                this.st = new InnerStruct();
-                this.st2 = new InnerStruct2();
+                this.st2 = new();
                 ice_initialize();
             }
 
@@ -3400,10 +3128,7 @@ namespace Ice.defaultValue
             #region ICloneable members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
+            public object Clone() => MemberwiseClone();
 
             #endregion
 
@@ -3432,123 +3157,121 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
+            public override bool Equals(object other) => Equals(other as StructNoDefaults);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bool Equals(StructNoDefaults other)
             {
-                if(object.ReferenceEquals(this, other))
+                if (object.ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if(other == null)
+                if (other is null)
                 {
                     return false;
                 }
-                if(GetType() != other.GetType())
+                if (!this.bo.Equals(other.bo))
                 {
                     return false;
                 }
-                StructNoDefaults o = (StructNoDefaults)other;
-                if(!this.bo.Equals(o.bo))
+                if (!this.b.Equals(other.b))
                 {
                     return false;
                 }
-                if(!this.b.Equals(o.b))
+                if (!this.s.Equals(other.s))
                 {
                     return false;
                 }
-                if(!this.s.Equals(o.s))
+                if (!this.i.Equals(other.i))
                 {
                     return false;
                 }
-                if(!this.i.Equals(o.i))
+                if (!this.l.Equals(other.l))
                 {
                     return false;
                 }
-                if(!this.l.Equals(o.l))
+                if (!this.f.Equals(other.f))
                 {
                     return false;
                 }
-                if(!this.f.Equals(o.f))
+                if (!this.d.Equals(other.d))
                 {
                     return false;
                 }
-                if(!this.d.Equals(o.d))
+                if (this.str is null)
                 {
-                    return false;
-                }
-                if(this.str == null)
-                {
-                    if(o.str != null)
+                    if (other.str is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!this.str.Equals(o.str))
+                    if (!this.str.Equals(other.str))
                     {
                         return false;
                     }
                 }
-                if(!this.c1.Equals(o.c1))
+                if (!this.c1.Equals(other.c1))
                 {
                     return false;
                 }
-                if(this.bs == null)
+                if (this.bs is null)
                 {
-                    if(o.bs != null)
+                    if (other.bs is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!Ice.UtilInternal.Arrays.Equals(this.bs, o.bs))
+                    if (!Ice.UtilInternal.Arrays.Equals(this.bs, other.bs))
                     {
                         return false;
                     }
                 }
-                if(this.iseq == null)
+                if (this.iseq is null)
                 {
-                    if(o.iseq != null)
+                    if (other.iseq is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!Ice.UtilInternal.Arrays.Equals(this.iseq, o.iseq))
+                    if (!Ice.UtilInternal.Arrays.Equals(this.iseq, other.iseq))
                     {
                         return false;
                     }
                 }
-                if(!this.st.Equals(o.st))
+                if (!this.st.Equals(other.st))
                 {
                     return false;
                 }
-                if(this.st2 == null)
+                if (this.st2 is null)
                 {
-                    if(o.st2 != null)
+                    if (other.st2 is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!this.st2.Equals(o.st2))
+                    if (!this.st2.Equals(other.st2))
                     {
                         return false;
                     }
                 }
-                if(this.dict == null)
+                if (this.dict is null)
                 {
-                    if(o.dict != null)
+                    if (other.dict is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.dict, o.dict))
+                    if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.dict, other.dict))
                     {
                         return false;
                     }
@@ -3563,13 +3286,13 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator==(StructNoDefaults lhs, StructNoDefaults rhs)
             {
-                return Equals(lhs, rhs);
+                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator!=(StructNoDefaults lhs, StructNoDefaults rhs)
             {
-                return !Equals(lhs, rhs);
+                return !(lhs == rhs);
             }
 
             #endregion
@@ -3617,7 +3340,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, StructNoDefaults v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     _nullMarshalValue.ice_writeMembers(ostr);
                 }
@@ -3657,7 +3380,7 @@ namespace Ice.defaultValue
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str;
+            public string str = "";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Color c1;
@@ -3670,21 +3393,13 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM()
-            {
-                this.str = "";
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ExceptionNoDefaultsBase()
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ExceptionNoDefaultsBase(global::System.Exception ex) : base(ex)
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -3772,8 +3487,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             private void _initDM()
             {
-                this.st = new InnerStruct();
-                this.st2 = new InnerStruct2();
+                this.st2 = new();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -3859,7 +3573,7 @@ namespace Ice.defaultValue
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str;
+            public string str = "";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Color c1;
@@ -3876,7 +3590,6 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ClassNoDefaultsBase()
             {
-                this.str = "";
                 ice_initialize();
             }
 
@@ -3962,8 +3675,7 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ClassNoDefaults() : base()
             {
-                this.st = new InnerStruct();
-                this.st2 = new InnerStruct2();
+                this.st2 = new();
                 ice_initialize();
             }
 
@@ -4146,9 +3858,9 @@ namespace Ice.defaultValue
                 global::System.Collections.Generic.Dictionary<int, string> r = new global::System.Collections.Generic.Dictionary<int, string>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    int k;
+                    int k = default;
                     k = istr.readInt();
-                    string v;
+                    string v = default;
                     v = istr.readString();
                     r[k] = v;
                 }

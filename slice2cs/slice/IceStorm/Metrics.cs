@@ -36,10 +36,10 @@ namespace IceMX
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public long published;
+        public long published = 0L;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public long forwarded;
+        public long forwarded = 0L;
 
         #endregion
 
@@ -50,8 +50,6 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TopicMetrics() : base()
         {
-            this.published = 0L;
-            this.forwarded = 0L;
             ice_initialize();
         }
 
@@ -119,13 +117,13 @@ namespace IceMX
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int queued;
+        public int queued = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int outstanding;
+        public int outstanding = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public long delivered;
+        public long delivered = 0L;
 
         #endregion
 
@@ -136,9 +134,6 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberMetrics() : base()
         {
-            this.queued = 0;
-            this.outstanding = 0;
-            this.delivered = 0L;
             ice_initialize();
         }
 

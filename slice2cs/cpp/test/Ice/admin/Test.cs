@@ -413,7 +413,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -445,7 +445,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::System.Collections.Generic.Dictionary<string, string> ret;
+                    global::System.Collections.Generic.Dictionary<string, string> ret = default;
                     ret = global::Ice.PropertyDictHelper.read(istr);
                     return ret;
                 });
@@ -901,7 +901,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    RemoteCommunicatorPrx ret;
+                    RemoteCommunicatorPrx ret = default;
                     ret = RemoteCommunicatorPrxHelper.read(istr);
                     return ret;
                 });
@@ -1380,7 +1380,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_message;
+            string iceP_message = default;
             iceP_message = istr.readString();
             inS.endReadParams();
             obj.print(iceP_message, current);
@@ -1393,8 +1393,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_category;
-            string iceP_message;
+            string iceP_category = default;
+            string iceP_message = default;
             iceP_category = istr.readString();
             iceP_message = istr.readString();
             inS.endReadParams();
@@ -1408,7 +1408,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_message;
+            string iceP_message = default;
             iceP_message = istr.readString();
             inS.endReadParams();
             obj.warning(iceP_message, current);
@@ -1421,7 +1421,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_message;
+            string iceP_message = default;
             iceP_message = istr.readString();
             inS.endReadParams();
             obj.error(iceP_message, current);
@@ -1607,7 +1607,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, string> iceP_props;
+            global::System.Collections.Generic.Dictionary<string, string> iceP_props = default;
             iceP_props = global::Ice.PropertyDictHelper.read(istr);
             inS.endReadParams();
             var ret = obj.createCommunicator(iceP_props, current);

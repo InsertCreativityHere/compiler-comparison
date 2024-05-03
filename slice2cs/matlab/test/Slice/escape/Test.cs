@@ -86,21 +86,21 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class bitor : global::System.ICloneable
+        public sealed partial class bitor : global::System.ICloneable, global::System.IEquatable<bitor>
         {
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bitand @case;
+            public bitand @case = classdef.@break.bitand.@catch;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int @continue;
+            public int @continue = 1;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int eq;
+            public int eq = 2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int ne;
+            public int ne = 3;
 
             #endregion
 
@@ -111,10 +111,6 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bitor()
             {
-                this.@case = classdef.@break.bitand.@catch;
-                this.@continue = 1;
-                this.eq = 2;
-                this.ne = 3;
                 ice_initialize();
             }
 
@@ -133,10 +129,7 @@ namespace classdef
             #region ICloneable members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
+            public object Clone() => MemberwiseClone();
 
             #endregion
 
@@ -155,34 +148,32 @@ namespace classdef
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
+            public override bool Equals(object other) => Equals(other as bitor);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bool Equals(bitor other)
             {
-                if(object.ReferenceEquals(this, other))
+                if (object.ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if(other == null)
+                if (other is null)
                 {
                     return false;
                 }
-                if(GetType() != other.GetType())
+                if (!this.@case.Equals(other.@case))
                 {
                     return false;
                 }
-                bitor o = (bitor)other;
-                if(!this.@case.Equals(o.@case))
+                if (!this.@continue.Equals(other.@continue))
                 {
                     return false;
                 }
-                if(!this.@continue.Equals(o.@continue))
+                if (!this.eq.Equals(other.eq))
                 {
                     return false;
                 }
-                if(!this.eq.Equals(o.eq))
-                {
-                    return false;
-                }
-                if(!this.ne.Equals(o.ne))
+                if (!this.ne.Equals(other.ne))
                 {
                     return false;
                 }
@@ -196,13 +187,13 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator==(bitor lhs, bitor rhs)
             {
-                return Equals(lhs, rhs);
+                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator!=(bitor lhs, bitor rhs)
             {
-                return !Equals(lhs, rhs);
+                return !(lhs == rhs);
             }
 
             #endregion
@@ -230,7 +221,7 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, bitor v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     _nullMarshalValue.ice_writeMembers(ostr);
                 }
@@ -269,13 +260,13 @@ namespace classdef
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bitand @else;
+            public bitand @else = classdef.@break.bitand.enumeration;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bitor @for;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool int64;
+            public bool int64 = true;
 
             #endregion
 
@@ -286,9 +277,7 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public logical()
             {
-                this.@else = classdef.@break.bitand.enumeration;
-                this.@for = new bitor();
-                this.int64 = true;
+                this.@for = new();
                 ice_initialize();
             }
 
@@ -357,7 +346,7 @@ namespace classdef
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int @return;
+            public int @return = 1;
 
             #endregion
 
@@ -368,7 +357,6 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public xor() : base()
             {
-                this.@return = 1;
                 ice_initialize();
             }
 
@@ -433,10 +421,10 @@ namespace classdef
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int @while;
+            public int @while = 1;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int delete;
+            public int delete = 2;
 
             #endregion
 
@@ -447,8 +435,6 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public @try()
             {
-                this.@while = 1;
-                this.delete = 2;
                 ice_initialize();
             }
 
@@ -514,7 +500,7 @@ namespace classdef
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int @if;
+            public int @if = 2;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public xor @catch;
@@ -534,7 +520,6 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public properties() : base()
             {
-                this.@if = 2;
                 ice_initialize();
             }
 
@@ -609,19 +594,19 @@ namespace classdef
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string identifier;
+            public string identifier = "1";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string ice_message_;
+            public string ice_message_ = "2";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string stack;
+            public string stack = "3";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string cause;
+            public string cause = "4";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string type;
+            public string type = "5";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public logical end;
@@ -631,25 +616,13 @@ namespace classdef
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM()
-            {
-                this.identifier = "1";
-                this.ice_message_ = "2";
-                this.stack = "3";
-                this.cause = "4";
-                this.type = "5";
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public persistent()
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public persistent(global::System.Exception ex) : base(ex)
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -737,28 +710,20 @@ namespace classdef
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int enumeration;
+            public int enumeration = 1;
 
             #endregion
 
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM()
-            {
-                this.enumeration = 1;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global()
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global(global::System.Exception ex) : base(ex)
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -965,10 +930,9 @@ namespace classdef
                 global::System.Collections.Generic.Dictionary<int, bitor> r = new global::System.Collections.Generic.Dictionary<int, bitor>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    int k;
+                    int k = default;
                     k = istr.readInt();
-                    bitor v;
-                    v = null;
+                    bitor v = default;
                     v = bitor.ice_read(istr);
                     r[k] = v;
                 }

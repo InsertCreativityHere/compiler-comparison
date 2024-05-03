@@ -778,7 +778,7 @@ namespace Ice.timeout
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                byte[] iceP_seq;
+                byte[] iceP_seq = default;
                 iceP_seq = ByteSeqHelper.read(istr);
                 inS.endReadParams();
                 obj.sendData(iceP_seq, current);
@@ -791,7 +791,7 @@ namespace Ice.timeout
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_to;
+                int iceP_to = default;
                 iceP_to = istr.readInt();
                 inS.endReadParams();
                 obj.sleep(iceP_to, current);
@@ -909,7 +909,7 @@ namespace Ice.timeout
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_to;
+                int iceP_to = default;
                 iceP_to = istr.readInt();
                 inS.endReadParams();
                 obj.holdAdapter(iceP_to, current);

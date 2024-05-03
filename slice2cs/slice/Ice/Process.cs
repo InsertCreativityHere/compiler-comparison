@@ -430,8 +430,8 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_message;
-            int iceP_fd;
+            string iceP_message = default;
+            int iceP_fd = default;
             iceP_message = istr.readString();
             iceP_fd = istr.readInt();
             inS.endReadParams();

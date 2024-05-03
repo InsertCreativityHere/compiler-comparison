@@ -32,7 +32,7 @@ namespace Demo
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial struct Square
+        public partial record struct Square
         {
             #region Slice data members
 
@@ -62,65 +62,6 @@ namespace Demo
                 this.p3 = p3;
                 this.p4 = p4;
                 ice_initialize();
-            }
-
-            #endregion
-
-            #region Object members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Demo::gx::Square");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, p1);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, p2);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, p3);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, p4);
-                return h_;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
-            {
-                if(!(other is Square))
-                {
-                    return false;
-                }
-                Square o = (Square)other;
-                if(!this.p1.Equals(o.p1))
-                {
-                    return false;
-                }
-                if(!this.p2.Equals(o.p2))
-                {
-                    return false;
-                }
-                if(!this.p3.Equals(o.p3))
-                {
-                    return false;
-                }
-                if(!this.p4.Equals(o.p4))
-                {
-                    return false;
-                }
-                return true;
-            }
-
-            #endregion
-
-            #region Comparison members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(Square lhs, Square rhs)
-            {
-                return Equals(lhs, rhs);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(Square lhs, Square rhs)
-            {
-                return !Equals(lhs, rhs);
             }
 
             #endregion

@@ -454,7 +454,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TestIntfPrx ret;
+                    TestIntfPrx ret = default;
                     ret = TestIntfPrxHelper.read(istr);
                     return ret;
                 });
@@ -486,7 +486,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -518,7 +518,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -757,7 +757,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    RemoteCommunicatorPrx ret;
+                    RemoteCommunicatorPrx ret = default;
                     ret = RemoteCommunicatorPrxHelper.read(istr);
                     return ret;
                 });
@@ -979,7 +979,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_ms;
+            int iceP_ms = default;
             iceP_ms = istr.readInt();
             inS.endReadParams();
             obj.sleep(iceP_ms, current);
@@ -1246,7 +1246,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, string> iceP_props;
+            global::System.Collections.Generic.Dictionary<string, string> iceP_props = default;
             iceP_props = global::Ice.PropertyDictHelper.read(istr);
             inS.endReadParams();
             var ret = obj.createCommunicator(iceP_props, current);

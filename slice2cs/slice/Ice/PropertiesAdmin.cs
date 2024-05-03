@@ -260,7 +260,7 @@ namespace Ice
                 },
                 read: (InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -296,7 +296,7 @@ namespace Ice
                 },
                 read: (InputStream istr) =>
                 {
-                    global::System.Collections.Generic.Dictionary<string, string> ret;
+                    global::System.Collections.Generic.Dictionary<string, string> ret = default;
                     ret = PropertyDictHelper.read(istr);
                     return ret;
                 });
@@ -526,7 +526,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_key;
+            string iceP_key = default;
             iceP_key = istr.readString();
             inS.endReadParams();
             var ret = obj.getProperty(iceP_key, current);
@@ -542,7 +542,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_prefix;
+            string iceP_prefix = default;
             iceP_prefix = istr.readString();
             inS.endReadParams();
             var ret = obj.getPropertiesForPrefix(iceP_prefix, current);
@@ -558,7 +558,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties;
+            global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties = default;
             iceP_newProperties = PropertyDictHelper.read(istr);
             inS.endReadParams();
             obj.setProperties(iceP_newProperties, current);

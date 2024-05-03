@@ -808,7 +808,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            PingReplyPrx iceP_reply;
+            PingReplyPrx iceP_reply = default;
             iceP_reply = PingReplyPrxHelper.read(istr);
             inS.endReadParams();
             obj.ping(iceP_reply, current);
@@ -821,8 +821,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_seq;
-            PingReplyPrx iceP_reply;
+            byte[] iceP_seq = default;
+            PingReplyPrx iceP_reply = default;
             iceP_seq = ByteSeqHelper.read(istr);
             iceP_reply = PingReplyPrxHelper.read(istr);
             inS.endReadParams();
@@ -836,8 +836,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            iceP_id = null;
+            global::Ice.Identity iceP_id = default;
             iceP_id = global::Ice.Identity.ice_read(istr);
             inS.endReadParams();
             obj.pingBiDir(iceP_id, current);

@@ -38,25 +38,25 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<string> protocol;
+            public global::Ice.Optional<string> protocol = new global::Ice.Optional<string>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool> mx;
+            public global::Ice.Optional<bool> mx = new global::Ice.Optional<bool>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool> serialize;
+            public global::Ice.Optional<bool> serialize = new global::Ice.Optional<bool>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool> compress;
+            public global::Ice.Optional<bool> compress = new global::Ice.Optional<bool>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool> ipv6;
+            public global::Ice.Optional<bool> ipv6 = new global::Ice.Optional<bool>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<string[]> cprops;
+            public global::Ice.Optional<string[]> cprops = new global::Ice.Optional<string[]>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<string[]> sprops;
+            public global::Ice.Optional<string[]> sprops = new global::Ice.Optional<string[]>();
 
             #endregion
 
@@ -67,13 +67,6 @@ namespace Test
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Config()
             {
-                this.protocol = new global::Ice.Optional<string>();
-                this.mx = new global::Ice.Optional<bool>();
-                this.serialize = new global::Ice.Optional<bool>();
-                this.compress = new global::Ice.Optional<bool>();
-                this.ipv6 = new global::Ice.Optional<bool>();
-                this.cprops = new global::Ice.Optional<string[]>();
-                this.sprops = new global::Ice.Optional<string[]>();
                 ice_initialize();
             }
 
@@ -174,19 +167,19 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<string[]> protocol;
+            public global::Ice.Optional<string[]> protocol = new global::Ice.Optional<string[]>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool[]> mx;
+            public global::Ice.Optional<bool[]> mx = new global::Ice.Optional<bool[]>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool[]> serialize;
+            public global::Ice.Optional<bool[]> serialize = new global::Ice.Optional<bool[]>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool[]> compress;
+            public global::Ice.Optional<bool[]> compress = new global::Ice.Optional<bool[]>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool[]> ipv6;
+            public global::Ice.Optional<bool[]> ipv6 = new global::Ice.Optional<bool[]>();
 
             #endregion
 
@@ -197,11 +190,6 @@ namespace Test
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public OptionOverrides()
             {
-                this.protocol = new global::Ice.Optional<string[]>();
-                this.mx = new global::Ice.Optional<bool[]>();
-                this.serialize = new global::Ice.Optional<bool[]>();
-                this.compress = new global::Ice.Optional<bool[]>();
-                this.ipv6 = new global::Ice.Optional<bool[]>();
                 ice_initialize();
             }
 
@@ -323,28 +311,20 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string reason;
+            public string reason = "";
 
             #endregion
 
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM()
-            {
-                this.reason = "";
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public TestCaseNotExistException()
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public TestCaseNotExistException(global::System.Exception ex) : base(ex)
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -411,28 +391,20 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string output;
+            public string output = "";
 
             #endregion
 
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM()
-            {
-                this.output = "";
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public TestCaseFailedException()
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public TestCaseFailedException(global::System.Exception ex) : base(ex)
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -529,28 +501,20 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string reason;
+            public string reason = "";
 
             #endregion
 
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM()
-            {
-                this.reason = "";
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ProcessFailedException()
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ProcessFailedException(global::System.Exception ex) : base(ex)
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1021,7 +985,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1071,7 +1035,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1123,7 +1087,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1403,7 +1367,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        TestCasePrx ret;
+                        TestCasePrx ret = default;
                         ret = TestCasePrxHelper.read(istr);
                         return ret;
                     });
@@ -1435,7 +1399,7 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        OptionOverrides ret = null;
+                        OptionOverrides ret = default;
                         istr.readValue((OptionOverrides v) => {ret = v; });
                         istr.readPendingValues();
                         return ret;
@@ -1472,7 +1436,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string[] ret;
+                        string[] ret = default;
                         ret = StringSeqHelper.read(istr);
                         return ret;
                     });
@@ -1509,7 +1473,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1793,7 +1757,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        int ret;
+                        int ret = default;
                         ret = istr.readInt();
                         return ret;
                     });
@@ -1825,7 +1789,7 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -2055,7 +2019,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        ProcessPrx ret;
+                        ProcessPrx ret = default;
                         ret = ProcessPrxHelper.read(istr);
                         return ret;
                     });
@@ -2092,7 +2056,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -2334,7 +2298,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        ProcessPrx ret;
+                        ProcessPrx ret = default;
                         ret = ProcessPrxHelper.read(istr);
                         return ret;
                     });
@@ -2371,7 +2335,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -2802,8 +2766,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                Config iceP_config;
-                iceP_config = null;
+                Config iceP_config = default;
                 istr.readValue((Config v) => {iceP_config = v; });
                 istr.readPendingValues();
                 inS.endReadParams();
@@ -2820,7 +2783,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                bool iceP_success;
+                bool iceP_success = default;
                 iceP_success = istr.readBool();
                 inS.endReadParams();
                 var ret = obj.stopServerSide(iceP_success, current);
@@ -2836,9 +2799,8 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_host;
-                Config iceP_config;
-                iceP_config = null;
+                string iceP_host = default;
+                Config iceP_config = default;
                 iceP_host = istr.readString();
                 istr.readValue((Config v) => {iceP_config = v; });
                 istr.readPendingValues();
@@ -2978,10 +2940,10 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_mapping;
-                string iceP_testsuite;
-                string iceP_testcase;
-                string iceP_cross;
+                string iceP_mapping = default;
+                string iceP_testsuite = default;
+                string iceP_testcase = default;
+                string iceP_cross = default;
                 iceP_mapping = istr.readString();
                 iceP_testsuite = istr.readString();
                 iceP_testcase = istr.readString();
@@ -3014,7 +2976,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_mapping;
+                string iceP_mapping = default;
                 iceP_mapping = istr.readString();
                 inS.endReadParams();
                 var ret = obj.getTestSuites(iceP_mapping, current);
@@ -3030,8 +2992,8 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_protocol;
-                bool iceP_ipv6;
+                string iceP_protocol = default;
+                bool iceP_ipv6 = default;
                 iceP_protocol = istr.readString();
                 iceP_ipv6 = istr.readBool();
                 inS.endReadParams();
@@ -3158,7 +3120,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_timeout;
+                int iceP_timeout = default;
                 iceP_timeout = istr.readInt();
                 inS.endReadParams();
                 obj.waitReady(iceP_timeout, current);
@@ -3171,7 +3133,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_timeout;
+                int iceP_timeout = default;
                 iceP_timeout = istr.readInt();
                 inS.endReadParams();
                 var ret = obj.waitSuccess(iceP_timeout, current);
@@ -3303,9 +3265,9 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_testsuite;
-                string iceP_exe;
-                string[] iceP_args;
+                string iceP_testsuite = default;
+                string iceP_exe = default;
+                string[] iceP_args = default;
                 iceP_testsuite = istr.readString();
                 iceP_exe = istr.readString();
                 iceP_args = StringSeqHelper.read(istr);
@@ -3323,8 +3285,8 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_protocol;
-                bool iceP_ipv6;
+                string iceP_protocol = default;
+                bool iceP_ipv6 = default;
                 iceP_protocol = istr.readString();
                 iceP_ipv6 = istr.readBool();
                 inS.endReadParams();
@@ -3446,7 +3408,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_url;
+                string iceP_url = default;
                 iceP_url = istr.readString();
                 inS.endReadParams();
                 obj.redirect(iceP_url, current);
@@ -3560,7 +3522,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                ProcessControllerPrx iceP_controller;
+                ProcessControllerPrx iceP_controller = default;
                 iceP_controller = ProcessControllerPrxHelper.read(istr);
                 inS.endReadParams();
                 obj.setProcessController(iceP_controller, current);

@@ -373,7 +373,7 @@ namespace Ice
                 synchronous,
                 read: (InputStream istr) =>
                 {
-                    ObjectPrx ret;
+                    ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -409,7 +409,7 @@ namespace Ice
                 },
                 read: (InputStream istr) =>
                 {
-                    ObjectPrx[] ret;
+                    ObjectPrx[] ret = default;
                     ret = ObjectProxySeqHelper.read(istr);
                     return ret;
                 });
@@ -607,7 +607,7 @@ namespace Ice
                 synchronous,
                 read: (InputStream istr) =>
                 {
-                    RouterPrx ret;
+                    RouterPrx ret = default;
                     ret = RouterPrxHelper.read(istr);
                     return ret;
                 });
@@ -836,7 +836,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            ObjectPrx[] iceP_proxies;
+            ObjectPrx[] iceP_proxies = default;
             iceP_proxies = ObjectProxySeqHelper.read(istr);
             inS.endReadParams();
             var ret = obj.addProxies(iceP_proxies, current);

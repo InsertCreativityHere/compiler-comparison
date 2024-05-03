@@ -197,7 +197,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::System.Collections.Generic.Dictionary<string, string> ret;
+                    global::System.Collections.Generic.Dictionary<string, string> ret = default;
                     ret = global::Ice.ContextHelper.read(istr);
                     return ret;
                 });
@@ -444,7 +444,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::System.Collections.Generic.Dictionary<string, string> ret;
+                    global::System.Collections.Generic.Dictionary<string, string> ret = default;
                     ret = global::Ice.ContextHelper.read(istr);
                     return ret;
                 });
@@ -480,7 +480,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -762,9 +762,9 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
 
         #endregion
 
@@ -807,7 +807,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.ObjectPrx iceP_obj;
+            global::Ice.ObjectPrx iceP_obj = default;
             iceP_obj = istr.readProxy();
             inS.endReadParams();
             return inS.setResultTask<global::Ice.ObjectPrx>(obj.echoAsync(iceP_obj, current),

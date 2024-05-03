@@ -41,28 +41,20 @@ namespace Glacier2
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string reason;
+        public string reason = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.reason = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CannotCreateSessionException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CannotCreateSessionException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1118,7 +1110,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string[] ret;
+                    string[] ret = default;
                     ret = global::Ice.StringSeqHelper.read(istr);
                     return ret;
                 });
@@ -1398,7 +1390,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Identity[] ret;
+                    global::Ice.Identity[] ret = default;
                     ret = global::Ice.IdentitySeqHelper.read(istr);
                     return ret;
                 });
@@ -1644,7 +1636,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    StringSetPrx ret;
+                    StringSetPrx ret = default;
                     ret = StringSetPrxHelper.read(istr);
                     return ret;
                 });
@@ -1676,7 +1668,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    StringSetPrx ret;
+                    StringSetPrx ret = default;
                     ret = StringSetPrxHelper.read(istr);
                     return ret;
                 });
@@ -1708,7 +1700,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    IdentitySetPrx ret;
+                    IdentitySetPrx ret = default;
                     ret = IdentitySetPrxHelper.read(istr);
                     return ret;
                 });
@@ -1740,7 +1732,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -1982,7 +1974,7 @@ namespace Glacier2
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SessionPrx ret;
+                    SessionPrx ret = default;
                     ret = SessionPrxHelper.read(istr);
                     return ret;
                 });
@@ -2199,7 +2191,7 @@ namespace Glacier2
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SessionPrx ret;
+                    SessionPrx ret = default;
                     ret = SessionPrxHelper.read(istr);
                     return ret;
                 });
@@ -2501,7 +2493,7 @@ namespace Glacier2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_additions;
+            string[] iceP_additions = default;
             iceP_additions = global::Ice.StringSeqHelper.read(istr);
             inS.endReadParams();
             obj.add(iceP_additions, current);
@@ -2514,7 +2506,7 @@ namespace Glacier2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_deletions;
+            string[] iceP_deletions = default;
             iceP_deletions = global::Ice.StringSeqHelper.read(istr);
             inS.endReadParams();
             obj.remove(iceP_deletions, current);
@@ -2645,7 +2637,7 @@ namespace Glacier2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity[] iceP_additions;
+            global::Ice.Identity[] iceP_additions = default;
             iceP_additions = global::Ice.IdentitySeqHelper.read(istr);
             inS.endReadParams();
             obj.add(iceP_additions, current);
@@ -2658,7 +2650,7 @@ namespace Glacier2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity[] iceP_deletions;
+            global::Ice.Identity[] iceP_deletions = default;
             iceP_deletions = global::Ice.IdentitySeqHelper.read(istr);
             inS.endReadParams();
             obj.remove(iceP_deletions, current);
@@ -2966,8 +2958,8 @@ namespace Glacier2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_userId;
-            SessionControlPrx iceP_control;
+            string iceP_userId = default;
+            SessionControlPrx iceP_control = default;
             iceP_userId = istr.readString();
             iceP_control = SessionControlPrxHelper.read(istr);
             inS.endReadParams();
@@ -3076,9 +3068,8 @@ namespace Glacier2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            SSLInfo iceP_info;
-            iceP_info = null;
-            SessionControlPrx iceP_control;
+            SSLInfo iceP_info = default;
+            SessionControlPrx iceP_control = default;
             iceP_info = SSLInfo.ice_read(istr);
             iceP_control = SessionControlPrxHelper.read(istr);
             inS.endReadParams();

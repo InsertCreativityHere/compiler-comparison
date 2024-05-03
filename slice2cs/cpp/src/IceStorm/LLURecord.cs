@@ -30,7 +30,7 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct LogUpdate
+    public partial record struct LogUpdate
     {
         #region Slice data members
 
@@ -52,55 +52,6 @@ namespace IceStormElection
             this.generation = generation;
             this.iteration = iteration;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStormElection::LogUpdate");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, generation);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, iteration);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is LogUpdate))
-            {
-                return false;
-            }
-            LogUpdate o = (LogUpdate)other;
-            if(!this.generation.Equals(o.generation))
-            {
-                return false;
-            }
-            if(!this.iteration.Equals(o.iteration))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(LogUpdate lhs, LogUpdate rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(LogUpdate lhs, LogUpdate rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion

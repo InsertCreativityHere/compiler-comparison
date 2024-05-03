@@ -211,7 +211,7 @@ namespace Ice.proxy
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::System.Collections.Generic.Dictionary<string, string> ret;
+                        global::System.Collections.Generic.Dictionary<string, string> ret = default;
                         ret = global::Ice.ContextHelper.read(istr);
                         return ret;
                     });
@@ -458,7 +458,7 @@ namespace Ice.proxy
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::System.Collections.Generic.Dictionary<string, string> ret;
+                        global::System.Collections.Generic.Dictionary<string, string> ret = default;
                         ret = global::Ice.ContextHelper.read(istr);
                         return ret;
                     });
@@ -494,7 +494,7 @@ namespace Ice.proxy
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Ice.ObjectPrx ret;
+                        global::Ice.ObjectPrx ret = default;
                         ret = istr.readProxy();
                         return ret;
                     });
@@ -825,7 +825,7 @@ namespace Ice.proxy
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::Ice.ObjectPrx iceP_obj;
+                global::Ice.ObjectPrx iceP_obj = default;
                 iceP_obj = istr.readProxy();
                 inS.endReadParams();
                 var ret = obj.echo(iceP_obj, current);

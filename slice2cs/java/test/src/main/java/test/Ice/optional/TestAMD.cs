@@ -36,7 +36,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<int> a;
+        public global::Ice.Optional<int> a = new global::Ice.Optional<int>();
 
         #endregion
 
@@ -47,7 +47,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OneOptional()
         {
-            this.a = new global::Ice.Optional<int>();
             ice_initialize();
         }
 
@@ -142,7 +141,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct SmallStruct
+    public partial record struct SmallStruct
     {
         #region Slice data members
 
@@ -160,50 +159,6 @@ namespace Test
         {
             this.m = m;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::SmallStruct");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, m);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is SmallStruct))
-            {
-                return false;
-            }
-            SmallStruct o = (SmallStruct)other;
-            if(!this.m.Equals(o.m))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(SmallStruct lhs, SmallStruct rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(SmallStruct lhs, SmallStruct rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -249,7 +204,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct FixedStruct
+    public partial record struct FixedStruct
     {
         #region Slice data members
 
@@ -267,50 +222,6 @@ namespace Test
         {
             this.m = m;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::FixedStruct");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, m);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is FixedStruct))
-            {
-                return false;
-            }
-            FixedStruct o = (FixedStruct)other;
-            if(!this.m.Equals(o.m))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(FixedStruct lhs, FixedStruct rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(FixedStruct lhs, FixedStruct rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -356,12 +267,12 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class VarStruct : global::System.ICloneable
+    public sealed partial class VarStruct : global::System.ICloneable, global::System.IEquatable<VarStruct>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string m;
+        public string m = "";
 
         #endregion
 
@@ -372,7 +283,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public VarStruct()
         {
-            this.m = "";
             ice_initialize();
         }
 
@@ -388,10 +298,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -407,31 +314,29 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as VarStruct);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(VarStruct other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.m is null)
             {
-                return false;
-            }
-            VarStruct o = (VarStruct)other;
-            if(this.m == null)
-            {
-                if(o.m != null)
+                if (other.m is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.m.Equals(o.m))
+                if (!this.m.Equals(other.m))
                 {
                     return false;
                 }
@@ -446,13 +351,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(VarStruct lhs, VarStruct rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(VarStruct lhs, VarStruct rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -474,7 +379,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, VarStruct v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -513,91 +418,91 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<byte> a;
+        public global::Ice.Optional<byte> a = new global::Ice.Optional<byte>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<bool> b;
+        public global::Ice.Optional<bool> b = new global::Ice.Optional<bool>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<short> c;
+        public global::Ice.Optional<short> c = new global::Ice.Optional<short>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<int> d;
+        public global::Ice.Optional<int> d = new global::Ice.Optional<int>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<long> e;
+        public global::Ice.Optional<long> e = new global::Ice.Optional<long>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<float> f;
+        public global::Ice.Optional<float> f = new global::Ice.Optional<float>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<double> g;
+        public global::Ice.Optional<double> g = new global::Ice.Optional<double>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<string> h;
+        public global::Ice.Optional<string> h = new global::Ice.Optional<string>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<MyEnum> i;
+        public global::Ice.Optional<MyEnum> i = new global::Ice.Optional<MyEnum>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<MyInterfacePrx> j;
+        public global::Ice.Optional<MyInterfacePrx> j = new global::Ice.Optional<MyInterfacePrx>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<byte[]> bs;
+        public global::Ice.Optional<byte[]> bs = new global::Ice.Optional<byte[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<string[]> ss;
+        public global::Ice.Optional<string[]> ss = new global::Ice.Optional<string[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> iid;
+        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> iid = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> sid;
+        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> sid = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<FixedStruct> fs;
+        public global::Ice.Optional<FixedStruct> fs = new global::Ice.Optional<FixedStruct>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<VarStruct> vs;
+        public global::Ice.Optional<VarStruct> vs = new global::Ice.Optional<VarStruct>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<short[]> shs;
+        public global::Ice.Optional<short[]> shs = new global::Ice.Optional<short[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<MyEnum[]> es;
+        public global::Ice.Optional<MyEnum[]> es = new global::Ice.Optional<MyEnum[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<FixedStruct[]> fss;
+        public global::Ice.Optional<FixedStruct[]> fss = new global::Ice.Optional<FixedStruct[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<VarStruct[]> vss;
+        public global::Ice.Optional<VarStruct[]> vss = new global::Ice.Optional<VarStruct[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<OneOptional[]> oos;
+        public global::Ice.Optional<OneOptional[]> oos = new global::Ice.Optional<OneOptional[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<MyInterfacePrx[]> mips;
+        public global::Ice.Optional<MyInterfacePrx[]> mips = new global::Ice.Optional<MyInterfacePrx[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>> ied;
+        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>> ied = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>> ifsd;
+        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>> ifsd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>> ivsd;
+        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>> ivsd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> iood;
+        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> iood = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>> imipd;
+        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>> imipd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<bool[]> bos;
+        public global::Ice.Optional<bool[]> bos = new global::Ice.Optional<bool[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<byte[]> ser;
+        public global::Ice.Optional<byte[]> ser = new global::Ice.Optional<byte[]>();
 
         #endregion
 
@@ -608,35 +513,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MultiOptional()
         {
-            this.a = new global::Ice.Optional<byte>();
-            this.b = new global::Ice.Optional<bool>();
-            this.c = new global::Ice.Optional<short>();
-            this.d = new global::Ice.Optional<int>();
-            this.e = new global::Ice.Optional<long>();
-            this.f = new global::Ice.Optional<float>();
-            this.g = new global::Ice.Optional<double>();
-            this.h = new global::Ice.Optional<string>();
-            this.i = new global::Ice.Optional<MyEnum>();
-            this.j = new global::Ice.Optional<MyInterfacePrx>();
-            this.bs = new global::Ice.Optional<byte[]>();
-            this.ss = new global::Ice.Optional<string[]>();
-            this.iid = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>>();
-            this.sid = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>>();
-            this.fs = new global::Ice.Optional<FixedStruct>();
-            this.vs = new global::Ice.Optional<VarStruct>();
-            this.shs = new global::Ice.Optional<short[]>();
-            this.es = new global::Ice.Optional<MyEnum[]>();
-            this.fss = new global::Ice.Optional<FixedStruct[]>();
-            this.vss = new global::Ice.Optional<VarStruct[]>();
-            this.oos = new global::Ice.Optional<OneOptional[]>();
-            this.mips = new global::Ice.Optional<MyInterfacePrx[]>();
-            this.ied = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>>();
-            this.ifsd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>>();
-            this.ivsd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>>();
-            this.iood = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>>();
-            this.imipd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>>();
-            this.bos = new global::Ice.Optional<bool[]>();
-            this.ser = new global::Ice.Optional<byte[]>();
+            this.vs = new();
             ice_initialize();
         }
 
@@ -881,7 +758,7 @@ namespace Test
             if(istr_.readOptional(16, global::Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
-                FixedStruct tmpVal = new FixedStruct();
+                FixedStruct tmpVal = default;
                 tmpVal.ice_readMembers(istr_);
                 fs = new global::Ice.Optional<FixedStruct>(tmpVal);
             }
@@ -892,7 +769,7 @@ namespace Test
             if(istr_.readOptional(17, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                VarStruct tmpVal = null;
+                VarStruct tmpVal = default;
                 tmpVal = VarStruct.ice_read(istr_);
                 vs = new global::Ice.Optional<VarStruct>(tmpVal);
             }
@@ -1066,13 +943,13 @@ namespace Test
         public int requiredA;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<int> ma;
+        public global::Ice.Optional<int> ma = new global::Ice.Optional<int>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<int> mb;
+        public global::Ice.Optional<int> mb = new global::Ice.Optional<int>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<int> mc;
+        public global::Ice.Optional<int> mc = new global::Ice.Optional<int>();
 
         #endregion
 
@@ -1083,9 +960,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public A()
         {
-            this.ma = new global::Ice.Optional<int>();
-            this.mb = new global::Ice.Optional<int>();
-            this.mc = new global::Ice.Optional<int>();
             ice_initialize();
         }
 
@@ -1160,7 +1034,7 @@ namespace Test
         public int requiredB;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<int> md;
+        public global::Ice.Optional<int> md = new global::Ice.Optional<int>();
 
         #endregion
 
@@ -1171,7 +1045,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public B() : base()
         {
-            this.md = new global::Ice.Optional<int>();
             ice_initialize();
         }
 
@@ -1239,10 +1112,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string ss;
+        public string ss = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<string> ms;
+        public global::Ice.Optional<string> ms = new global::Ice.Optional<string>();
 
         #endregion
 
@@ -1253,8 +1126,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C() : base()
         {
-            this.ss = "";
-            this.ms = new global::Ice.Optional<string>();
             ice_initialize();
         }
 
@@ -1322,10 +1193,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<int> a;
+        public global::Ice.Optional<int> a = 5;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<string> s;
+        public global::Ice.Optional<string> s = "test";
 
         #endregion
 
@@ -1336,8 +1207,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public WD()
         {
-            this.a = 5;
-            this.s = "test";
             ice_initialize();
         }
 
@@ -1404,40 +1273,29 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool req;
+        public bool req = false;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<int> a;
+        public global::Ice.Optional<int> a = 5;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<string> b;
+        public global::Ice.Optional<string> b = new global::Ice.Optional<string>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<OneOptional> o;
+        public global::Ice.Optional<OneOptional> o = new global::Ice.Optional<OneOptional>();
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.req = false;
-            this.a = 5;
-            this.b = new global::Ice.Optional<string>();
-            this.o = new global::Ice.Optional<OneOptional>();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OptionalException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OptionalException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1513,40 +1371,29 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string d1;
+        public string d1 = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<string> ss;
+        public global::Ice.Optional<string> ss = "test";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<OneOptional> o2;
+        public global::Ice.Optional<OneOptional> o2 = new global::Ice.Optional<OneOptional>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string d2;
+        public string d2 = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.d1 = "";
-            this.ss = "test";
-            this.o2 = new global::Ice.Optional<OneOptional>();
-            this.d2 = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DerivedException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DerivedException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1624,7 +1471,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string ss;
+        public string ss = "test";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OneOptional o2;
@@ -1634,21 +1481,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.ss = "test";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public RequiredException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public RequiredException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1725,10 +1564,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<SmallStruct[]> l;
+        public global::Ice.Optional<SmallStruct[]> l = new global::Ice.Optional<SmallStruct[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected global::Ice.Optional<SmallStruct[]> lp;
+        protected global::Ice.Optional<SmallStruct[]> lp = new global::Ice.Optional<SmallStruct[]>();
 
         #endregion
 
@@ -1739,8 +1578,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OptionalWithCustom()
         {
-            this.l = new global::Ice.Optional<SmallStruct[]>();
-            this.lp = new global::Ice.Optional<SmallStruct[]>();
             ice_initialize();
         }
 
@@ -1841,7 +1678,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public E()
         {
-            this.fse = new FixedStruct();
             ice_initialize();
         }
 
@@ -1904,7 +1740,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<FixedStruct> fsf;
+        public global::Ice.Optional<FixedStruct> fsf = new global::Ice.Optional<FixedStruct>();
 
         #endregion
 
@@ -1915,7 +1751,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public F() : base()
         {
-            this.fsf = new global::Ice.Optional<FixedStruct>();
             ice_initialize();
         }
 
@@ -1963,7 +1798,7 @@ namespace Test
             if(istr_.readOptional(1, global::Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
-                FixedStruct tmpVal = new FixedStruct();
+                FixedStruct tmpVal = default;
                 tmpVal.ice_readMembers(istr_);
                 fsf = new global::Ice.Optional<FixedStruct>(tmpVal);
             }
@@ -1988,12 +1823,12 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class G1 : global::System.ICloneable
+    public sealed partial class G1 : global::System.ICloneable, global::System.IEquatable<G1>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string a;
+        public string a = "";
 
         #endregion
 
@@ -2004,7 +1839,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public G1()
         {
-            this.a = "";
             ice_initialize();
         }
 
@@ -2020,10 +1854,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -2039,31 +1870,29 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as G1);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(G1 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.a is null)
             {
-                return false;
-            }
-            G1 o = (G1)other;
-            if(this.a == null)
-            {
-                if(o.a != null)
+                if (other.a is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.a.Equals(o.a))
+                if (!this.a.Equals(other.a))
                 {
                     return false;
                 }
@@ -2078,13 +1907,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(G1 lhs, G1 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(G1 lhs, G1 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -2106,7 +1935,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, G1 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -2139,7 +1968,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct G2
+    public partial record struct G2
     {
         #region Slice data members
 
@@ -2157,50 +1986,6 @@ namespace Test
         {
             this.a = a;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::G2");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, a);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is G2))
-            {
-                return false;
-            }
-            G2 o = (G2)other;
-            if(!this.a.Equals(o.a))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(G2 lhs, G2 rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(G2 lhs, G2 rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -2252,13 +2037,13 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<G1> gg1Opt;
+        public global::Ice.Optional<G1> gg1Opt = new global::Ice.Optional<G1>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public G2 gg2;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<G2> gg2Opt;
+        public global::Ice.Optional<G2> gg2Opt = new global::Ice.Optional<G2>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public G1 gg1;
@@ -2272,10 +2057,8 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public G()
         {
-            this.gg1Opt = new global::Ice.Optional<G1>();
-            this.gg2 = new G2();
-            this.gg2Opt = new global::Ice.Optional<G2>();
-            this.gg1 = new G1();
+            this.gg1Opt = new();
+            this.gg1 = new();
             ice_initialize();
         }
 
@@ -2335,7 +2118,7 @@ namespace Test
             if(istr_.readOptional(0, global::Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
-                G2 tmpVal = new G2();
+                G2 tmpVal = default;
                 tmpVal.ice_readMembers(istr_);
                 gg2Opt = new global::Ice.Optional<G2>(tmpVal);
             }
@@ -2346,7 +2129,7 @@ namespace Test
             if(istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                G1 tmpVal = null;
+                G1 tmpVal = default;
                 tmpVal = G1.ice_read(istr_);
                 gg1Opt = new global::Ice.Optional<G1>(tmpVal);
             }
@@ -3393,7 +3176,7 @@ namespace Test
         {
             if(_ostr == null)
             {
-                return new Initial_OpMStruct1MarshaledResult(new SmallStruct(), current).getOutputStream(current);
+                return new Initial_OpMStruct1MarshaledResult(default, current).getOutputStream(current);
             }
             return _ostr;
         }
@@ -3437,7 +3220,7 @@ namespace Test
         {
             if(_ostr == null)
             {
-                return new Initial_OpMStruct2MarshaledResult(new SmallStruct(), new SmallStruct(), current).getOutputStream(current);
+                return new Initial_OpMStruct2MarshaledResult(default, default, current).getOutputStream(current);
             }
             return _ostr;
         }
@@ -4878,9 +4661,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, int> r = new global::System.Collections.Generic.Dictionary<int, int>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                int v;
+                int v = default;
                 v = istr.readInt();
                 r[k] = v;
             }
@@ -4915,9 +4698,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, int> r = new global::System.Collections.Generic.Dictionary<string, int>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                int v;
+                int v = default;
                 v = istr.readInt();
                 r[k] = v;
             }
@@ -4952,9 +4735,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, MyEnum> r = new global::System.Collections.Generic.Dictionary<int, MyEnum>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                MyEnum v;
+                MyEnum v = default;
                 v = (MyEnum)istr.readEnum(0);
                 r[k] = v;
             }
@@ -4989,10 +4772,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, FixedStruct> r = new global::System.Collections.Generic.Dictionary<int, FixedStruct>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                FixedStruct v;
-                v = new FixedStruct();
+                FixedStruct v = default;
                 v.ice_readMembers(istr);
                 r[k] = v;
             }
@@ -5027,10 +4809,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, VarStruct> r = new global::System.Collections.Generic.Dictionary<int, VarStruct>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                VarStruct v;
-                v = null;
+                VarStruct v = default;
                 v = VarStruct.ice_read(istr);
                 r[k] = v;
             }
@@ -5065,7 +4846,7 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, OneOptional> r = new global::System.Collections.Generic.Dictionary<int, OneOptional>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
                 istr.readValue((OneOptional v) => { r[k] = v; });
             }
@@ -5100,9 +4881,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, MyInterfacePrx> r = new global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                MyInterfacePrx v;
+                MyInterfacePrx v = default;
                 v = MyInterfacePrxHelper.read(istr);
                 r[k] = v;
             }
@@ -6296,7 +6077,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Value ret = null;
+                    global::Ice.Value ret = default;
                     istr.readValue((global::Ice.Value v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -7211,7 +6992,7 @@ namespace Test
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        SmallStruct tmpVal = new SmallStruct();
+                        SmallStruct tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.returnValue = new global::Ice.Optional<SmallStruct>(tmpVal);
                     }
@@ -7222,7 +7003,7 @@ namespace Test
                     if(istr.readOptional(3, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        SmallStruct tmpVal = new SmallStruct();
+                        SmallStruct tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.p3 = new global::Ice.Optional<SmallStruct>(tmpVal);
                     }
@@ -7272,7 +7053,7 @@ namespace Test
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        SmallStruct tmpVal = new SmallStruct();
+                        SmallStruct tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.returnValue = new global::Ice.Optional<SmallStruct>(tmpVal);
                     }
@@ -7283,7 +7064,7 @@ namespace Test
                     if(istr.readOptional(3, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        SmallStruct tmpVal = new SmallStruct();
+                        SmallStruct tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.p3 = new global::Ice.Optional<SmallStruct>(tmpVal);
                     }
@@ -7333,7 +7114,7 @@ namespace Test
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        FixedStruct tmpVal = new FixedStruct();
+                        FixedStruct tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.returnValue = new global::Ice.Optional<FixedStruct>(tmpVal);
                     }
@@ -7344,7 +7125,7 @@ namespace Test
                     if(istr.readOptional(3, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        FixedStruct tmpVal = new FixedStruct();
+                        FixedStruct tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.p3 = new global::Ice.Optional<FixedStruct>(tmpVal);
                     }
@@ -7394,7 +7175,7 @@ namespace Test
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        FixedStruct tmpVal = new FixedStruct();
+                        FixedStruct tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.returnValue = new global::Ice.Optional<FixedStruct>(tmpVal);
                     }
@@ -7405,7 +7186,7 @@ namespace Test
                     if(istr.readOptional(3, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        FixedStruct tmpVal = new FixedStruct();
+                        FixedStruct tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.p3 = new global::Ice.Optional<FixedStruct>(tmpVal);
                     }
@@ -7456,7 +7237,7 @@ namespace Test
                     if(istr.readOptional(1, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        VarStruct tmpVal = null;
+                        VarStruct tmpVal = default;
                         tmpVal = VarStruct.ice_read(istr);
                         ret.returnValue = new global::Ice.Optional<VarStruct>(tmpVal);
                     }
@@ -7467,7 +7248,7 @@ namespace Test
                     if(istr.readOptional(3, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        VarStruct tmpVal = null;
+                        VarStruct tmpVal = default;
                         tmpVal = VarStruct.ice_read(istr);
                         ret.p3 = new global::Ice.Optional<VarStruct>(tmpVal);
                     }
@@ -7518,7 +7299,7 @@ namespace Test
                     if(istr.readOptional(1, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        VarStruct tmpVal = null;
+                        VarStruct tmpVal = default;
                         tmpVal = VarStruct.ice_read(istr);
                         ret.returnValue = new global::Ice.Optional<VarStruct>(tmpVal);
                     }
@@ -7529,7 +7310,7 @@ namespace Test
                     if(istr.readOptional(3, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        VarStruct tmpVal = null;
+                        VarStruct tmpVal = default;
                         tmpVal = VarStruct.ice_read(istr);
                         ret.p3 = new global::Ice.Optional<VarStruct>(tmpVal);
                     }
@@ -9784,7 +9565,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    G ret = null;
+                    G ret = default;
                     istr.readValue((G v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -9842,11 +9623,11 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Optional<SmallStruct> ret;
+                    global::Ice.Optional<SmallStruct> ret = default;
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        SmallStruct tmpVal = new SmallStruct();
+                        SmallStruct tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret = new global::Ice.Optional<SmallStruct>(tmpVal);
                     }
@@ -9896,7 +9677,7 @@ namespace Test
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        SmallStruct tmpVal = new SmallStruct();
+                        SmallStruct tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.returnValue = new global::Ice.Optional<SmallStruct>(tmpVal);
                     }
@@ -9907,7 +9688,7 @@ namespace Test
                     if(istr.readOptional(3, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        SmallStruct tmpVal = new SmallStruct();
+                        SmallStruct tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.p2 = new global::Ice.Optional<SmallStruct>(tmpVal);
                     }
@@ -9945,7 +9726,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Optional<string[]> ret;
+                    global::Ice.Optional<string[]> ret = default;
                     if(istr.readOptional(1, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
@@ -10044,7 +9825,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> ret;
+                    global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> ret = default;
                     if(istr.readOptional(1, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
@@ -10148,7 +9929,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Optional<G> ret = global::Ice.Util.None;
+                    global::Ice.Optional<G> ret = default;
                     istr.readValue(1, (G v) => {ret = v; });
                     return ret;
                 });
@@ -10217,7 +9998,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -10249,7 +10030,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -10281,7 +10062,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -10313,7 +10094,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -10782,8 +10563,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Value iceP_o;
-            iceP_o = null;
+            global::Ice.Value iceP_o = default;
             istr.readValue((global::Ice.Value v) => {iceP_o = v; });
             istr.readPendingValues();
             inS.endReadParams();
@@ -11189,7 +10969,7 @@ namespace Test
             if(istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
-                SmallStruct tmpVal = new SmallStruct();
+                SmallStruct tmpVal = default;
                 tmpVal.ice_readMembers(istr);
                 iceP_p1 = new global::Ice.Optional<SmallStruct>(tmpVal);
             }
@@ -11224,7 +11004,7 @@ namespace Test
             if(istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
-                SmallStruct tmpVal = new SmallStruct();
+                SmallStruct tmpVal = default;
                 tmpVal.ice_readMembers(istr);
                 iceP_p1 = new global::Ice.Optional<SmallStruct>(tmpVal);
             }
@@ -11259,7 +11039,7 @@ namespace Test
             if(istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
-                FixedStruct tmpVal = new FixedStruct();
+                FixedStruct tmpVal = default;
                 tmpVal.ice_readMembers(istr);
                 iceP_p1 = new global::Ice.Optional<FixedStruct>(tmpVal);
             }
@@ -11294,7 +11074,7 @@ namespace Test
             if(istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
-                FixedStruct tmpVal = new FixedStruct();
+                FixedStruct tmpVal = default;
                 tmpVal.ice_readMembers(istr);
                 iceP_p1 = new global::Ice.Optional<FixedStruct>(tmpVal);
             }
@@ -11329,7 +11109,7 @@ namespace Test
             if(istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
-                VarStruct tmpVal = null;
+                VarStruct tmpVal = default;
                 tmpVal = VarStruct.ice_read(istr);
                 iceP_p1 = new global::Ice.Optional<VarStruct>(tmpVal);
             }
@@ -11366,7 +11146,7 @@ namespace Test
             if(istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
-                VarStruct tmpVal = null;
+                VarStruct tmpVal = default;
                 tmpVal = VarStruct.ice_read(istr);
                 iceP_p1 = new global::Ice.Optional<VarStruct>(tmpVal);
             }
@@ -12547,8 +12327,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            A iceP_p;
-            iceP_p = null;
+            A iceP_p = default;
             istr.readValue((A v) => {iceP_p = v; });
             istr.readPendingValues();
             inS.endReadParams();
@@ -12561,8 +12340,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            G iceP_g;
-            iceP_g = null;
+            G iceP_g = default;
             istr.readValue((G v) => {iceP_g = v; });
             istr.readPendingValues();
             inS.endReadParams();
@@ -12602,7 +12380,7 @@ namespace Test
             if(istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
-                SmallStruct tmpVal = new SmallStruct();
+                SmallStruct tmpVal = default;
                 tmpVal.ice_readMembers(istr);
                 iceP_p1 = new global::Ice.Optional<SmallStruct>(tmpVal);
             }

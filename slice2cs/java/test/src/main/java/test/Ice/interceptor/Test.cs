@@ -37,28 +37,20 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string ice_message_;
+        public string ice_message_ = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.ice_message_ = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InvalidInputException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InvalidInputException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -408,7 +400,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -445,7 +437,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -496,7 +488,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -533,7 +525,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -570,7 +562,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -607,7 +599,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -644,7 +636,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -695,7 +687,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -732,7 +724,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -769,7 +761,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -984,8 +976,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
+            int iceP_x = default;
+            int iceP_y = default;
             iceP_x = istr.readInt();
             iceP_y = istr.readInt();
             inS.endReadParams();
@@ -1002,8 +994,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
+            int iceP_x = default;
+            int iceP_y = default;
             iceP_x = istr.readInt();
             iceP_y = istr.readInt();
             inS.endReadParams();
@@ -1020,8 +1012,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
+            int iceP_x = default;
+            int iceP_y = default;
             iceP_x = istr.readInt();
             iceP_y = istr.readInt();
             inS.endReadParams();
@@ -1038,8 +1030,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
+            int iceP_x = default;
+            int iceP_y = default;
             iceP_x = istr.readInt();
             iceP_y = istr.readInt();
             inS.endReadParams();
@@ -1056,8 +1048,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
+            int iceP_x = default;
+            int iceP_y = default;
             iceP_x = istr.readInt();
             iceP_y = istr.readInt();
             inS.endReadParams();
@@ -1074,8 +1066,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
+            int iceP_x = default;
+            int iceP_y = default;
             iceP_x = istr.readInt();
             iceP_y = istr.readInt();
             inS.endReadParams();
@@ -1092,8 +1084,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
+            int iceP_x = default;
+            int iceP_y = default;
             iceP_x = istr.readInt();
             iceP_y = istr.readInt();
             inS.endReadParams();
@@ -1110,8 +1102,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
+            int iceP_x = default;
+            int iceP_y = default;
             iceP_x = istr.readInt();
             iceP_y = istr.readInt();
             inS.endReadParams();
@@ -1128,8 +1120,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
+            int iceP_x = default;
+            int iceP_y = default;
             iceP_x = istr.readInt();
             iceP_y = istr.readInt();
             inS.endReadParams();
@@ -1146,8 +1138,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
+            int iceP_x = default;
+            int iceP_y = default;
             iceP_x = istr.readInt();
             iceP_y = istr.readInt();
             inS.endReadParams();

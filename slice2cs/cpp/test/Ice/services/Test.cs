@@ -311,7 +311,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_time;
+            string iceP_time = default;
             iceP_time = istr.readString();
             inS.endReadParams();
             obj.tick(iceP_time, current);

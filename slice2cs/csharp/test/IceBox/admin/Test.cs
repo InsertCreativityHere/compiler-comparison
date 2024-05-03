@@ -117,7 +117,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::System.Collections.Generic.Dictionary<string, string> ret;
+                    global::System.Collections.Generic.Dictionary<string, string> ret = default;
                     ret = global::Ice.PropertyDictHelper.read(istr);
                     return ret;
                 });

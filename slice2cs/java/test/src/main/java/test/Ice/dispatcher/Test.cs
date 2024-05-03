@@ -743,7 +743,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_to;
+            int iceP_to = default;
             iceP_to = istr.readInt();
             inS.endReadParams();
             obj.sleep(iceP_to, current);
@@ -756,7 +756,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_seq;
+            byte[] iceP_seq = default;
             iceP_seq = global::Ice.ByteSeqHelper.read(istr);
             inS.endReadParams();
             obj.opWithPayload(iceP_seq, current);

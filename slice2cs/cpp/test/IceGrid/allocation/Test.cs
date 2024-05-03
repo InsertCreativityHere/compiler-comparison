@@ -168,7 +168,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -377,7 +377,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             var ret = obj.getProperty(iceP_name, current);

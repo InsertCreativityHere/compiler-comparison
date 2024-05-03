@@ -70,7 +70,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class TestToken : global::System.ICloneable
+    public sealed partial class TestToken : global::System.ICloneable, global::System.IEquatable<TestToken>
     {
         #region Slice data members
 
@@ -78,7 +78,7 @@ namespace Test
         public bool expectedResult;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string description;
+        public string description = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public StateCode code;
@@ -90,7 +90,7 @@ namespace Test
         public short caseIndex;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string testReference;
+        public string testReference = "";
 
         #endregion
 
@@ -101,8 +101,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TestToken()
         {
-            this.description = "";
-            this.testReference = "";
             ice_initialize();
         }
 
@@ -123,10 +121,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -147,61 +142,59 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as TestToken);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(TestToken other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (!this.expectedResult.Equals(other.expectedResult))
             {
                 return false;
             }
-            TestToken o = (TestToken)other;
-            if(!this.expectedResult.Equals(o.expectedResult))
+            if (this.description is null)
             {
-                return false;
-            }
-            if(this.description == null)
-            {
-                if(o.description != null)
+                if (other.description is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.description.Equals(o.description))
+                if (!this.description.Equals(other.description))
                 {
                     return false;
                 }
             }
-            if(!this.code.Equals(o.code))
+            if (!this.code.Equals(other.code))
             {
                 return false;
             }
-            if(!this.config.Equals(o.config))
+            if (!this.config.Equals(other.config))
             {
                 return false;
             }
-            if(!this.caseIndex.Equals(o.caseIndex))
+            if (!this.caseIndex.Equals(other.caseIndex))
             {
                 return false;
             }
-            if(this.testReference == null)
+            if (this.testReference is null)
             {
-                if(o.testReference != null)
+                if (other.testReference is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.testReference.Equals(o.testReference))
+                if (!this.testReference.Equals(other.testReference))
                 {
                     return false;
                 }
@@ -216,13 +209,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(TestToken lhs, TestToken rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(TestToken lhs, TestToken rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -254,7 +247,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, TestToken v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -708,7 +701,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TestToken iceP_newState = null;
+                    TestToken iceP_newState = default;
                     iceP_newState = TestToken.ice_read(istr);
                     return iceP_newState;
                 });
@@ -1279,9 +1272,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Glacier2.SessionPrx iceP_currentSession;
-            TestToken iceP_currentState;
-            iceP_currentState = null;
+            global::Glacier2.SessionPrx iceP_currentSession = default;
+            TestToken iceP_currentState = default;
             iceP_currentSession = global::Glacier2.SessionPrxHelper.read(istr);
             iceP_currentState = TestToken.ice_read(istr);
             inS.endReadParams();

@@ -30,15 +30,15 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class PropertyDescriptor : global::System.ICloneable
+    public sealed partial class PropertyDescriptor : global::System.ICloneable, global::System.IEquatable<PropertyDescriptor>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string name;
+        public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string value;
+        public string value = "";
 
         #endregion
 
@@ -49,8 +49,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertyDescriptor()
         {
-            this.name = "";
-            this.value = "";
             ice_initialize();
         }
 
@@ -67,10 +65,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -87,45 +82,43 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as PropertyDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(PropertyDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.name is null)
             {
-                return false;
-            }
-            PropertyDescriptor o = (PropertyDescriptor)other;
-            if(this.name == null)
-            {
-                if(o.name != null)
+                if (other.name is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.name.Equals(o.name))
+                if (!this.name.Equals(other.name))
                 {
                     return false;
                 }
             }
-            if(this.value == null)
+            if (this.value is null)
             {
-                if(o.value != null)
+                if (other.value is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.value.Equals(o.value))
+                if (!this.value.Equals(other.value))
                 {
                     return false;
                 }
@@ -140,13 +133,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(PropertyDescriptor lhs, PropertyDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(PropertyDescriptor lhs, PropertyDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -170,7 +163,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, PropertyDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -203,7 +196,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class PropertySetDescriptor : global::System.ICloneable
+    public sealed partial class PropertySetDescriptor : global::System.ICloneable, global::System.IEquatable<PropertySetDescriptor>
     {
         #region Slice data members
 
@@ -238,10 +231,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -258,45 +248,43 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as PropertySetDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(PropertySetDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.references is null)
             {
-                return false;
-            }
-            PropertySetDescriptor o = (PropertySetDescriptor)other;
-            if(this.references == null)
-            {
-                if(o.references != null)
+                if (other.references is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.references, o.references))
+                if (!Ice.UtilInternal.Arrays.Equals(this.references, other.references))
                 {
                     return false;
                 }
             }
-            if(this.properties == null)
+            if (this.properties is null)
             {
-                if(o.properties != null)
+                if (other.properties is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.properties, o.properties))
+                if (!Ice.UtilInternal.Arrays.Equals(this.properties, other.properties))
                 {
                     return false;
                 }
@@ -311,13 +299,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(PropertySetDescriptor lhs, PropertySetDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(PropertySetDescriptor lhs, PropertySetDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -341,7 +329,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, PropertySetDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -374,7 +362,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ObjectDescriptor : global::System.ICloneable
+    public sealed partial class ObjectDescriptor : global::System.ICloneable, global::System.IEquatable<ObjectDescriptor>
     {
         #region Slice data members
 
@@ -382,10 +370,10 @@ namespace IceGrid
         public global::Ice.Identity id;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string type;
+        public string type = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string proxyOptions;
+        public string proxyOptions = "";
 
         #endregion
 
@@ -396,9 +384,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObjectDescriptor()
         {
-            this.id = new global::Ice.Identity();
-            this.type = "";
-            this.proxyOptions = "";
+            this.id = new();
             ice_initialize();
         }
 
@@ -416,10 +402,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -437,59 +420,57 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ObjectDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ObjectDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.id is null)
             {
-                return false;
-            }
-            ObjectDescriptor o = (ObjectDescriptor)other;
-            if(this.id == null)
-            {
-                if(o.id != null)
+                if (other.id is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.id.Equals(o.id))
+                if (!this.id.Equals(other.id))
                 {
                     return false;
                 }
             }
-            if(this.type == null)
+            if (this.type is null)
             {
-                if(o.type != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.type.Equals(o.type))
-                {
-                    return false;
-                }
-            }
-            if(this.proxyOptions == null)
-            {
-                if(o.proxyOptions != null)
+                if (other.type is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.proxyOptions.Equals(o.proxyOptions))
+                if (!this.type.Equals(other.type))
+                {
+                    return false;
+                }
+            }
+            if (this.proxyOptions is null)
+            {
+                if (other.proxyOptions is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.proxyOptions.Equals(other.proxyOptions))
                 {
                     return false;
                 }
@@ -504,13 +485,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ObjectDescriptor lhs, ObjectDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ObjectDescriptor lhs, ObjectDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -536,7 +517,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ObjectDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -569,24 +550,24 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class AdapterDescriptor : global::System.ICloneable
+    public sealed partial class AdapterDescriptor : global::System.ICloneable, global::System.IEquatable<AdapterDescriptor>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string name;
+        public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string description;
+        public string description = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string id;
+        public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string replicaGroupId;
+        public string replicaGroupId = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string priority;
+        public string priority = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool registerProcess;
@@ -609,11 +590,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdapterDescriptor()
         {
-            this.name = "";
-            this.description = "";
-            this.id = "";
-            this.replicaGroupId = "";
-            this.priority = "";
             ice_initialize();
         }
 
@@ -637,10 +613,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -664,123 +637,121 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as AdapterDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(AdapterDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.name is null)
+            {
+                if (other.name is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.name.Equals(other.name))
+                {
+                    return false;
+                }
+            }
+            if (this.description is null)
+            {
+                if (other.description is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.description.Equals(other.description))
+                {
+                    return false;
+                }
+            }
+            if (this.id is null)
+            {
+                if (other.id is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.id.Equals(other.id))
+                {
+                    return false;
+                }
+            }
+            if (this.replicaGroupId is null)
+            {
+                if (other.replicaGroupId is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.replicaGroupId.Equals(other.replicaGroupId))
+                {
+                    return false;
+                }
+            }
+            if (this.priority is null)
+            {
+                if (other.priority is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.priority.Equals(other.priority))
+                {
+                    return false;
+                }
+            }
+            if (!this.registerProcess.Equals(other.registerProcess))
             {
                 return false;
             }
-            AdapterDescriptor o = (AdapterDescriptor)other;
-            if(this.name == null)
-            {
-                if(o.name != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.name.Equals(o.name))
-                {
-                    return false;
-                }
-            }
-            if(this.description == null)
-            {
-                if(o.description != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.description.Equals(o.description))
-                {
-                    return false;
-                }
-            }
-            if(this.id == null)
-            {
-                if(o.id != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.id.Equals(o.id))
-                {
-                    return false;
-                }
-            }
-            if(this.replicaGroupId == null)
-            {
-                if(o.replicaGroupId != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.replicaGroupId.Equals(o.replicaGroupId))
-                {
-                    return false;
-                }
-            }
-            if(this.priority == null)
-            {
-                if(o.priority != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.priority.Equals(o.priority))
-                {
-                    return false;
-                }
-            }
-            if(!this.registerProcess.Equals(o.registerProcess))
+            if (!this.serverLifetime.Equals(other.serverLifetime))
             {
                 return false;
             }
-            if(!this.serverLifetime.Equals(o.serverLifetime))
+            if (this.objects is null)
             {
-                return false;
-            }
-            if(this.objects == null)
-            {
-                if(o.objects != null)
+                if (other.objects is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.objects, o.objects))
+                if (!Ice.UtilInternal.Arrays.Equals(this.objects, other.objects))
                 {
                     return false;
                 }
             }
-            if(this.allocatables == null)
+            if (this.allocatables is null)
             {
-                if(o.allocatables != null)
+                if (other.allocatables is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.allocatables, o.allocatables))
+                if (!Ice.UtilInternal.Arrays.Equals(this.allocatables, other.allocatables))
                 {
                     return false;
                 }
@@ -795,13 +766,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(AdapterDescriptor lhs, AdapterDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(AdapterDescriptor lhs, AdapterDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -839,7 +810,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, AdapterDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -887,7 +858,7 @@ namespace IceGrid
         public string[] logs;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string description;
+        public string description = "";
 
         #endregion
 
@@ -898,8 +869,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CommunicatorDescriptor()
         {
-            this.propertySet = new PropertySetDescriptor();
-            this.description = "";
+            this.propertySet = new();
             ice_initialize();
         }
 
@@ -965,12 +935,12 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class DistributionDescriptor : global::System.ICloneable
+    public sealed partial class DistributionDescriptor : global::System.ICloneable, global::System.IEquatable<DistributionDescriptor>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string icepatch;
+        public string icepatch = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string[] directories;
@@ -984,7 +954,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DistributionDescriptor()
         {
-            this.icepatch = "";
             ice_initialize();
         }
 
@@ -1001,10 +970,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1021,45 +987,43 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as DistributionDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(DistributionDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.icepatch is null)
             {
-                return false;
-            }
-            DistributionDescriptor o = (DistributionDescriptor)other;
-            if(this.icepatch == null)
-            {
-                if(o.icepatch != null)
+                if (other.icepatch is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.icepatch.Equals(o.icepatch))
+                if (!this.icepatch.Equals(other.icepatch))
                 {
                     return false;
                 }
             }
-            if(this.directories == null)
+            if (this.directories is null)
             {
-                if(o.directories != null)
+                if (other.directories is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.directories, o.directories))
+                if (!Ice.UtilInternal.Arrays.Equals(this.directories, other.directories))
                 {
                     return false;
                 }
@@ -1074,13 +1038,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(DistributionDescriptor lhs, DistributionDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(DistributionDescriptor lhs, DistributionDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1104,7 +1068,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, DistributionDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1143,16 +1107,16 @@ namespace IceGrid
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string id;
+        public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string exe;
+        public string exe = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string iceVersion;
+        public string iceVersion = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string pwd;
+        public string pwd = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string[] options;
@@ -1161,13 +1125,13 @@ namespace IceGrid
         public string[] envs;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string activation;
+        public string activation = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string activationTimeout;
+        public string activationTimeout = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string deactivationTimeout;
+        public string deactivationTimeout = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool applicationDistrib;
@@ -1179,7 +1143,7 @@ namespace IceGrid
         public bool allocatable;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string user;
+        public string user = "";
 
         #endregion
 
@@ -1190,15 +1154,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerDescriptor() : base()
         {
-            this.id = "";
-            this.exe = "";
-            this.iceVersion = "";
-            this.pwd = "";
-            this.activation = "";
-            this.activationTimeout = "";
-            this.deactivationTimeout = "";
-            this.distrib = new DistributionDescriptor();
-            this.user = "";
+            this.distrib = new();
             ice_initialize();
         }
 
@@ -1299,10 +1255,10 @@ namespace IceGrid
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string name;
+        public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string entry;
+        public string entry = "";
 
         #endregion
 
@@ -1313,8 +1269,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServiceDescriptor() : base()
         {
-            this.name = "";
-            this.entry = "";
             ice_initialize();
         }
 
@@ -1376,12 +1330,12 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ServerInstanceDescriptor : global::System.ICloneable
+    public sealed partial class ServerInstanceDescriptor : global::System.ICloneable, global::System.IEquatable<ServerInstanceDescriptor>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string template;
+        public string template = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, string> parameterValues;
@@ -1401,8 +1355,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerInstanceDescriptor()
         {
-            this.template = "";
-            this.propertySet = new PropertySetDescriptor();
+            this.propertySet = new();
             ice_initialize();
         }
 
@@ -1421,10 +1374,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1443,73 +1393,71 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ServerInstanceDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ServerInstanceDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.template is null)
             {
-                return false;
-            }
-            ServerInstanceDescriptor o = (ServerInstanceDescriptor)other;
-            if(this.template == null)
-            {
-                if(o.template != null)
+                if (other.template is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.template.Equals(o.template))
+                if (!this.template.Equals(other.template))
                 {
                     return false;
                 }
             }
-            if(this.parameterValues == null)
+            if (this.parameterValues is null)
             {
-                if(o.parameterValues != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, o.parameterValues))
-                {
-                    return false;
-                }
-            }
-            if(this.propertySet == null)
-            {
-                if(o.propertySet != null)
+                if (other.parameterValues is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.propertySet.Equals(o.propertySet))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, other.parameterValues))
                 {
                     return false;
                 }
             }
-            if(this.servicePropertySets == null)
+            if (this.propertySet is null)
             {
-                if(o.servicePropertySets != null)
+                if (other.propertySet is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.servicePropertySets, o.servicePropertySets))
+                if (!this.propertySet.Equals(other.propertySet))
+                {
+                    return false;
+                }
+            }
+            if (this.servicePropertySets is null)
+            {
+                if (other.servicePropertySets is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.servicePropertySets, other.servicePropertySets))
                 {
                     return false;
                 }
@@ -1524,13 +1472,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ServerInstanceDescriptor lhs, ServerInstanceDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ServerInstanceDescriptor lhs, ServerInstanceDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1558,7 +1506,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ServerInstanceDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1591,7 +1539,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class TemplateDescriptor : global::System.ICloneable
+    public sealed partial class TemplateDescriptor : global::System.ICloneable, global::System.IEquatable<TemplateDescriptor>
     {
         #region Slice data members
 
@@ -1630,10 +1578,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1651,59 +1596,57 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as TemplateDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(TemplateDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.descriptor is null)
             {
-                return false;
-            }
-            TemplateDescriptor o = (TemplateDescriptor)other;
-            if(this.descriptor == null)
-            {
-                if(o.descriptor != null)
+                if (other.descriptor is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.descriptor.Equals(o.descriptor))
+                if (!this.descriptor.Equals(other.descriptor))
                 {
                     return false;
                 }
             }
-            if(this.parameters == null)
+            if (this.parameters is null)
             {
-                if(o.parameters != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.parameters, o.parameters))
-                {
-                    return false;
-                }
-            }
-            if(this.parameterDefaults == null)
-            {
-                if(o.parameterDefaults != null)
+                if (other.parameters is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterDefaults, o.parameterDefaults))
+                if (!Ice.UtilInternal.Arrays.Equals(this.parameters, other.parameters))
+                {
+                    return false;
+                }
+            }
+            if (this.parameterDefaults is null)
+            {
+                if (other.parameterDefaults is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterDefaults, other.parameterDefaults))
                 {
                     return false;
                 }
@@ -1718,13 +1661,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(TemplateDescriptor lhs, TemplateDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(TemplateDescriptor lhs, TemplateDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1750,7 +1693,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, TemplateDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1783,12 +1726,12 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ServiceInstanceDescriptor : global::System.ICloneable
+    public sealed partial class ServiceInstanceDescriptor : global::System.ICloneable, global::System.IEquatable<ServiceInstanceDescriptor>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string template;
+        public string template = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, string> parameterValues;
@@ -1808,8 +1751,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServiceInstanceDescriptor()
         {
-            this.template = "";
-            this.propertySet = new PropertySetDescriptor();
+            this.propertySet = new();
             ice_initialize();
         }
 
@@ -1828,10 +1770,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1850,73 +1789,71 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ServiceInstanceDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ServiceInstanceDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.template is null)
             {
-                return false;
-            }
-            ServiceInstanceDescriptor o = (ServiceInstanceDescriptor)other;
-            if(this.template == null)
-            {
-                if(o.template != null)
+                if (other.template is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.template.Equals(o.template))
+                if (!this.template.Equals(other.template))
                 {
                     return false;
                 }
             }
-            if(this.parameterValues == null)
+            if (this.parameterValues is null)
             {
-                if(o.parameterValues != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, o.parameterValues))
-                {
-                    return false;
-                }
-            }
-            if(this.descriptor == null)
-            {
-                if(o.descriptor != null)
+                if (other.parameterValues is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.descriptor.Equals(o.descriptor))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, other.parameterValues))
                 {
                     return false;
                 }
             }
-            if(this.propertySet == null)
+            if (this.descriptor is null)
             {
-                if(o.propertySet != null)
+                if (other.descriptor is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.propertySet.Equals(o.propertySet))
+                if (!this.descriptor.Equals(other.descriptor))
+                {
+                    return false;
+                }
+            }
+            if (this.propertySet is null)
+            {
+                if (other.propertySet is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.propertySet.Equals(other.propertySet))
                 {
                     return false;
                 }
@@ -1931,13 +1868,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ServiceInstanceDescriptor lhs, ServiceInstanceDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ServiceInstanceDescriptor lhs, ServiceInstanceDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1965,7 +1902,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ServiceInstanceDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -2073,7 +2010,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class NodeDescriptor : global::System.ICloneable
+    public sealed partial class NodeDescriptor : global::System.ICloneable, global::System.IEquatable<NodeDescriptor>
     {
         #region Slice data members
 
@@ -2087,10 +2024,10 @@ namespace IceGrid
         public ServerDescriptor[] servers;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string loadFactor;
+        public string loadFactor = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string description;
+        public string description = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets;
@@ -2104,8 +2041,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeDescriptor()
         {
-            this.loadFactor = "";
-            this.description = "";
             ice_initialize();
         }
 
@@ -2126,10 +2061,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -2150,101 +2082,99 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as NodeDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(NodeDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.variables is null)
             {
-                return false;
-            }
-            NodeDescriptor o = (NodeDescriptor)other;
-            if(this.variables == null)
-            {
-                if(o.variables != null)
+                if (other.variables is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables))
                 {
                     return false;
                 }
             }
-            if(this.serverInstances == null)
+            if (this.serverInstances is null)
             {
-                if(o.serverInstances != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.serverInstances, o.serverInstances))
-                {
-                    return false;
-                }
-            }
-            if(this.servers == null)
-            {
-                if(o.servers != null)
+                if (other.serverInstances is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.servers, o.servers))
+                if (!Ice.UtilInternal.Arrays.Equals(this.serverInstances, other.serverInstances))
                 {
                     return false;
                 }
             }
-            if(this.loadFactor == null)
+            if (this.servers is null)
             {
-                if(o.loadFactor != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.loadFactor.Equals(o.loadFactor))
-                {
-                    return false;
-                }
-            }
-            if(this.description == null)
-            {
-                if(o.description != null)
+                if (other.servers is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.description.Equals(o.description))
+                if (!Ice.UtilInternal.Arrays.Equals(this.servers, other.servers))
                 {
                     return false;
                 }
             }
-            if(this.propertySets == null)
+            if (this.loadFactor is null)
             {
-                if(o.propertySets != null)
+                if (other.loadFactor is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
+                if (!this.loadFactor.Equals(other.loadFactor))
+                {
+                    return false;
+                }
+            }
+            if (this.description is null)
+            {
+                if (other.description is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.description.Equals(other.description))
+                {
+                    return false;
+                }
+            }
+            if (this.propertySets is null)
+            {
+                if (other.propertySets is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets))
                 {
                     return false;
                 }
@@ -2259,13 +2189,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(NodeDescriptor lhs, NodeDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(NodeDescriptor lhs, NodeDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -2297,7 +2227,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, NodeDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -2336,7 +2266,7 @@ namespace IceGrid
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string nReplicas;
+        public string nReplicas = "";
 
         #endregion
 
@@ -2347,7 +2277,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LoadBalancingPolicy()
         {
-            this.nReplicas = "";
             ice_initialize();
         }
 
@@ -2605,7 +2534,7 @@ namespace IceGrid
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string loadSample;
+        public string loadSample = "";
 
         #endregion
 
@@ -2616,7 +2545,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AdaptiveLoadBalancingPolicy() : base()
         {
-            this.loadSample = "";
             ice_initialize();
         }
 
@@ -2675,27 +2603,27 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ReplicaGroupDescriptor : global::System.ICloneable
+    public sealed partial class ReplicaGroupDescriptor : global::System.ICloneable, global::System.IEquatable<ReplicaGroupDescriptor>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string id;
+        public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LoadBalancingPolicy loadBalancing;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string proxyOptions;
+        public string proxyOptions = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObjectDescriptor[] objects;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string description;
+        public string description = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string filter;
+        public string filter = "";
 
         #endregion
 
@@ -2706,10 +2634,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ReplicaGroupDescriptor()
         {
-            this.id = "";
-            this.proxyOptions = "";
-            this.description = "";
-            this.filter = "";
             ice_initialize();
         }
 
@@ -2730,10 +2654,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -2754,101 +2675,99 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ReplicaGroupDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ReplicaGroupDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.id is null)
             {
-                return false;
-            }
-            ReplicaGroupDescriptor o = (ReplicaGroupDescriptor)other;
-            if(this.id == null)
-            {
-                if(o.id != null)
+                if (other.id is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.id.Equals(o.id))
+                if (!this.id.Equals(other.id))
                 {
                     return false;
                 }
             }
-            if(this.loadBalancing == null)
+            if (this.loadBalancing is null)
             {
-                if(o.loadBalancing != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.loadBalancing.Equals(o.loadBalancing))
-                {
-                    return false;
-                }
-            }
-            if(this.proxyOptions == null)
-            {
-                if(o.proxyOptions != null)
+                if (other.loadBalancing is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.proxyOptions.Equals(o.proxyOptions))
+                if (!this.loadBalancing.Equals(other.loadBalancing))
                 {
                     return false;
                 }
             }
-            if(this.objects == null)
+            if (this.proxyOptions is null)
             {
-                if(o.objects != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.objects, o.objects))
-                {
-                    return false;
-                }
-            }
-            if(this.description == null)
-            {
-                if(o.description != null)
+                if (other.proxyOptions is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.description.Equals(o.description))
+                if (!this.proxyOptions.Equals(other.proxyOptions))
                 {
                     return false;
                 }
             }
-            if(this.filter == null)
+            if (this.objects is null)
             {
-                if(o.filter != null)
+                if (other.objects is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.filter.Equals(o.filter))
+                if (!Ice.UtilInternal.Arrays.Equals(this.objects, other.objects))
+                {
+                    return false;
+                }
+            }
+            if (this.description is null)
+            {
+                if (other.description is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.description.Equals(other.description))
+                {
+                    return false;
+                }
+            }
+            if (this.filter is null)
+            {
+                if (other.filter is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.filter.Equals(other.filter))
                 {
                     return false;
                 }
@@ -2863,13 +2782,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ReplicaGroupDescriptor lhs, ReplicaGroupDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ReplicaGroupDescriptor lhs, ReplicaGroupDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -2901,7 +2820,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ReplicaGroupDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -2934,12 +2853,12 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ApplicationDescriptor : global::System.ICloneable
+    public sealed partial class ApplicationDescriptor : global::System.ICloneable, global::System.IEquatable<ApplicationDescriptor>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string name;
+        public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, string> variables;
@@ -2960,7 +2879,7 @@ namespace IceGrid
         public DistributionDescriptor distrib;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string description;
+        public string description = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets;
@@ -2974,9 +2893,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationDescriptor()
         {
-            this.name = "";
-            this.distrib = new DistributionDescriptor();
-            this.description = "";
+            this.distrib = new();
             ice_initialize();
         }
 
@@ -3000,10 +2917,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -3027,143 +2941,141 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ApplicationDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ApplicationDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.name is null)
             {
-                return false;
-            }
-            ApplicationDescriptor o = (ApplicationDescriptor)other;
-            if(this.name == null)
-            {
-                if(o.name != null)
+                if (other.name is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.name.Equals(o.name))
+                if (!this.name.Equals(other.name))
                 {
                     return false;
                 }
             }
-            if(this.variables == null)
+            if (this.variables is null)
             {
-                if(o.variables != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
-                {
-                    return false;
-                }
-            }
-            if(this.replicaGroups == null)
-            {
-                if(o.replicaGroups != null)
+                if (other.variables is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.replicaGroups, o.replicaGroups))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables))
                 {
                     return false;
                 }
             }
-            if(this.serverTemplates == null)
+            if (this.replicaGroups is null)
             {
-                if(o.serverTemplates != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, o.serverTemplates))
-                {
-                    return false;
-                }
-            }
-            if(this.serviceTemplates == null)
-            {
-                if(o.serviceTemplates != null)
+                if (other.replicaGroups is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, o.serviceTemplates))
+                if (!Ice.UtilInternal.Arrays.Equals(this.replicaGroups, other.replicaGroups))
                 {
                     return false;
                 }
             }
-            if(this.nodes == null)
+            if (this.serverTemplates is null)
             {
-                if(o.nodes != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.nodes, o.nodes))
-                {
-                    return false;
-                }
-            }
-            if(this.distrib == null)
-            {
-                if(o.distrib != null)
+                if (other.serverTemplates is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.distrib.Equals(o.distrib))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, other.serverTemplates))
                 {
                     return false;
                 }
             }
-            if(this.description == null)
+            if (this.serviceTemplates is null)
             {
-                if(o.description != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.description.Equals(o.description))
-                {
-                    return false;
-                }
-            }
-            if(this.propertySets == null)
-            {
-                if(o.propertySets != null)
+                if (other.serviceTemplates is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, other.serviceTemplates))
+                {
+                    return false;
+                }
+            }
+            if (this.nodes is null)
+            {
+                if (other.nodes is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.nodes, other.nodes))
+                {
+                    return false;
+                }
+            }
+            if (this.distrib is null)
+            {
+                if (other.distrib is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.distrib.Equals(other.distrib))
+                {
+                    return false;
+                }
+            }
+            if (this.description is null)
+            {
+                if (other.description is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.description.Equals(other.description))
+                {
+                    return false;
+                }
+            }
+            if (this.propertySets is null)
+            {
+                if (other.propertySets is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets))
                 {
                     return false;
                 }
@@ -3178,13 +3090,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ApplicationDescriptor lhs, ApplicationDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ApplicationDescriptor lhs, ApplicationDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -3222,7 +3134,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ApplicationDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -3261,7 +3173,7 @@ namespace IceGrid
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string value;
+        public string value = "";
 
         #endregion
 
@@ -3272,7 +3184,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BoxedString()
         {
-            this.value = "";
             ice_initialize();
         }
 
@@ -3329,12 +3240,12 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class NodeUpdateDescriptor : global::System.ICloneable
+    public sealed partial class NodeUpdateDescriptor : global::System.ICloneable, global::System.IEquatable<NodeUpdateDescriptor>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string name;
+        public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BoxedString description;
@@ -3372,7 +3283,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeUpdateDescriptor()
         {
-            this.name = "";
             ice_initialize();
         }
 
@@ -3397,10 +3307,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -3425,157 +3332,155 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as NodeUpdateDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(NodeUpdateDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.name is null)
             {
-                return false;
-            }
-            NodeUpdateDescriptor o = (NodeUpdateDescriptor)other;
-            if(this.name == null)
-            {
-                if(o.name != null)
+                if (other.name is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.name.Equals(o.name))
+                if (!this.name.Equals(other.name))
                 {
                     return false;
                 }
             }
-            if(this.description == null)
+            if (this.description is null)
             {
-                if(o.description != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.description.Equals(o.description))
-                {
-                    return false;
-                }
-            }
-            if(this.variables == null)
-            {
-                if(o.variables != null)
+                if (other.description is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
+                if (!this.description.Equals(other.description))
                 {
                     return false;
                 }
             }
-            if(this.removeVariables == null)
+            if (this.variables is null)
             {
-                if(o.removeVariables != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.removeVariables, o.removeVariables))
-                {
-                    return false;
-                }
-            }
-            if(this.propertySets == null)
-            {
-                if(o.propertySets != null)
+                if (other.variables is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables))
                 {
                     return false;
                 }
             }
-            if(this.removePropertySets == null)
+            if (this.removeVariables is null)
             {
-                if(o.removePropertySets != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.removePropertySets, o.removePropertySets))
-                {
-                    return false;
-                }
-            }
-            if(this.serverInstances == null)
-            {
-                if(o.serverInstances != null)
+                if (other.removeVariables is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.serverInstances, o.serverInstances))
+                if (!Ice.UtilInternal.Arrays.Equals(this.removeVariables, other.removeVariables))
                 {
                     return false;
                 }
             }
-            if(this.servers == null)
+            if (this.propertySets is null)
             {
-                if(o.servers != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.servers, o.servers))
-                {
-                    return false;
-                }
-            }
-            if(this.removeServers == null)
-            {
-                if(o.removeServers != null)
+                if (other.propertySets is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.removeServers, o.removeServers))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets))
                 {
                     return false;
                 }
             }
-            if(this.loadFactor == null)
+            if (this.removePropertySets is null)
             {
-                if(o.loadFactor != null)
+                if (other.removePropertySets is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.loadFactor.Equals(o.loadFactor))
+                if (!Ice.UtilInternal.Arrays.Equals(this.removePropertySets, other.removePropertySets))
+                {
+                    return false;
+                }
+            }
+            if (this.serverInstances is null)
+            {
+                if (other.serverInstances is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.serverInstances, other.serverInstances))
+                {
+                    return false;
+                }
+            }
+            if (this.servers is null)
+            {
+                if (other.servers is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.servers, other.servers))
+                {
+                    return false;
+                }
+            }
+            if (this.removeServers is null)
+            {
+                if (other.removeServers is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.removeServers, other.removeServers))
+                {
+                    return false;
+                }
+            }
+            if (this.loadFactor is null)
+            {
+                if (other.loadFactor is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.loadFactor.Equals(other.loadFactor))
                 {
                     return false;
                 }
@@ -3590,13 +3495,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(NodeUpdateDescriptor lhs, NodeUpdateDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(NodeUpdateDescriptor lhs, NodeUpdateDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -3636,7 +3541,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, NodeUpdateDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -3686,7 +3591,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BoxedDistributionDescriptor()
         {
-            this.value = new DistributionDescriptor();
+            this.value = new();
             ice_initialize();
         }
 
@@ -3743,12 +3648,12 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ApplicationUpdateDescriptor : global::System.ICloneable
+    public sealed partial class ApplicationUpdateDescriptor : global::System.ICloneable, global::System.IEquatable<ApplicationUpdateDescriptor>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string name;
+        public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BoxedString description;
@@ -3801,7 +3706,6 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ApplicationUpdateDescriptor()
         {
-            this.name = "";
             ice_initialize();
         }
 
@@ -3831,10 +3735,7 @@ namespace IceGrid
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -3864,227 +3765,225 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as ApplicationUpdateDescriptor);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(ApplicationUpdateDescriptor other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.name is null)
             {
-                return false;
-            }
-            ApplicationUpdateDescriptor o = (ApplicationUpdateDescriptor)other;
-            if(this.name == null)
-            {
-                if(o.name != null)
+                if (other.name is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.name.Equals(o.name))
+                if (!this.name.Equals(other.name))
                 {
                     return false;
                 }
             }
-            if(this.description == null)
+            if (this.description is null)
             {
-                if(o.description != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.description.Equals(o.description))
-                {
-                    return false;
-                }
-            }
-            if(this.distrib == null)
-            {
-                if(o.distrib != null)
+                if (other.description is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.distrib.Equals(o.distrib))
+                if (!this.description.Equals(other.description))
                 {
                     return false;
                 }
             }
-            if(this.variables == null)
+            if (this.distrib is null)
             {
-                if(o.variables != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, o.variables))
-                {
-                    return false;
-                }
-            }
-            if(this.removeVariables == null)
-            {
-                if(o.removeVariables != null)
+                if (other.distrib is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.removeVariables, o.removeVariables))
+                if (!this.distrib.Equals(other.distrib))
                 {
                     return false;
                 }
             }
-            if(this.propertySets == null)
+            if (this.variables is null)
             {
-                if(o.propertySets != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, o.propertySets))
-                {
-                    return false;
-                }
-            }
-            if(this.removePropertySets == null)
-            {
-                if(o.removePropertySets != null)
+                if (other.variables is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.removePropertySets, o.removePropertySets))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables))
                 {
                     return false;
                 }
             }
-            if(this.replicaGroups == null)
+            if (this.removeVariables is null)
             {
-                if(o.replicaGroups != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.replicaGroups, o.replicaGroups))
-                {
-                    return false;
-                }
-            }
-            if(this.removeReplicaGroups == null)
-            {
-                if(o.removeReplicaGroups != null)
+                if (other.removeVariables is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.removeReplicaGroups, o.removeReplicaGroups))
+                if (!Ice.UtilInternal.Arrays.Equals(this.removeVariables, other.removeVariables))
                 {
                     return false;
                 }
             }
-            if(this.serverTemplates == null)
+            if (this.propertySets is null)
             {
-                if(o.serverTemplates != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, o.serverTemplates))
-                {
-                    return false;
-                }
-            }
-            if(this.removeServerTemplates == null)
-            {
-                if(o.removeServerTemplates != null)
+                if (other.propertySets is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.removeServerTemplates, o.removeServerTemplates))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets))
                 {
                     return false;
                 }
             }
-            if(this.serviceTemplates == null)
+            if (this.removePropertySets is null)
             {
-                if(o.serviceTemplates != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, o.serviceTemplates))
-                {
-                    return false;
-                }
-            }
-            if(this.removeServiceTemplates == null)
-            {
-                if(o.removeServiceTemplates != null)
+                if (other.removePropertySets is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.removeServiceTemplates, o.removeServiceTemplates))
+                if (!Ice.UtilInternal.Arrays.Equals(this.removePropertySets, other.removePropertySets))
                 {
                     return false;
                 }
             }
-            if(this.nodes == null)
+            if (this.replicaGroups is null)
             {
-                if(o.nodes != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.nodes, o.nodes))
-                {
-                    return false;
-                }
-            }
-            if(this.removeNodes == null)
-            {
-                if(o.removeNodes != null)
+                if (other.replicaGroups is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.removeNodes, o.removeNodes))
+                if (!Ice.UtilInternal.Arrays.Equals(this.replicaGroups, other.replicaGroups))
+                {
+                    return false;
+                }
+            }
+            if (this.removeReplicaGroups is null)
+            {
+                if (other.removeReplicaGroups is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.removeReplicaGroups, other.removeReplicaGroups))
+                {
+                    return false;
+                }
+            }
+            if (this.serverTemplates is null)
+            {
+                if (other.serverTemplates is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, other.serverTemplates))
+                {
+                    return false;
+                }
+            }
+            if (this.removeServerTemplates is null)
+            {
+                if (other.removeServerTemplates is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.removeServerTemplates, other.removeServerTemplates))
+                {
+                    return false;
+                }
+            }
+            if (this.serviceTemplates is null)
+            {
+                if (other.serviceTemplates is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, other.serviceTemplates))
+                {
+                    return false;
+                }
+            }
+            if (this.removeServiceTemplates is null)
+            {
+                if (other.removeServiceTemplates is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.removeServiceTemplates, other.removeServiceTemplates))
+                {
+                    return false;
+                }
+            }
+            if (this.nodes is null)
+            {
+                if (other.nodes is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.nodes, other.nodes))
+                {
+                    return false;
+                }
+            }
+            if (this.removeNodes is null)
+            {
+                if (other.removeNodes is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.removeNodes, other.removeNodes))
                 {
                     return false;
                 }
@@ -4099,13 +3998,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(ApplicationUpdateDescriptor lhs, ApplicationUpdateDescriptor rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(ApplicationUpdateDescriptor lhs, ApplicationUpdateDescriptor rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -4155,7 +4054,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ApplicationUpdateDescriptor v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -4208,9 +4107,9 @@ namespace IceGrid
             global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                string v;
+                string v = default;
                 v = istr.readString();
                 r[k] = v;
             }
@@ -4280,10 +4179,9 @@ namespace IceGrid
             global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> r = new global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                PropertySetDescriptor v;
-                v = null;
+                PropertySetDescriptor v = default;
                 v = PropertySetDescriptor.ice_read(istr);
                 r[k] = v;
             }
@@ -4491,10 +4389,9 @@ namespace IceGrid
             global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> r = new global::System.Collections.Generic.Dictionary<string, TemplateDescriptor>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                TemplateDescriptor v;
-                v = null;
+                TemplateDescriptor v = default;
                 v = TemplateDescriptor.ice_read(istr);
                 r[k] = v;
             }
@@ -4564,10 +4461,9 @@ namespace IceGrid
             global::System.Collections.Generic.Dictionary<string, NodeDescriptor> r = new global::System.Collections.Generic.Dictionary<string, NodeDescriptor>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                NodeDescriptor v;
-                v = null;
+                NodeDescriptor v = default;
                 v = NodeDescriptor.ice_read(istr);
                 r[k] = v;
             }

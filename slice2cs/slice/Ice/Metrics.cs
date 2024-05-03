@@ -36,19 +36,19 @@ namespace IceMX
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string id;
+        public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public long total;
+        public long total = 0L;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int current;
+        public int current = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public long totalLifetime;
+        public long totalLifetime = 0L;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int failures;
+        public int failures = 0;
 
         #endregion
 
@@ -59,11 +59,6 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Metrics()
         {
-            this.id = "";
-            this.total = 0L;
-            this.current = 0;
-            this.totalLifetime = 0L;
-            this.failures = 0;
             ice_initialize();
         }
 
@@ -132,12 +127,12 @@ namespace IceMX
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class MetricsFailures : global::System.ICloneable
+    public sealed partial class MetricsFailures : global::System.ICloneable, global::System.IEquatable<MetricsFailures>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string id;
+        public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, int> failures;
@@ -151,7 +146,6 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MetricsFailures()
         {
-            this.id = "";
             ice_initialize();
         }
 
@@ -168,10 +162,7 @@ namespace IceMX
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -188,45 +179,43 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as MetricsFailures);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(MetricsFailures other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.id is null)
             {
-                return false;
-            }
-            MetricsFailures o = (MetricsFailures)other;
-            if(this.id == null)
-            {
-                if(o.id != null)
+                if (other.id is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.id.Equals(o.id))
+                if (!this.id.Equals(other.id))
                 {
                     return false;
                 }
             }
-            if(this.failures == null)
+            if (this.failures is null)
             {
-                if(o.failures != null)
+                if (other.failures is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.failures, o.failures))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.failures, other.failures))
                 {
                     return false;
                 }
@@ -241,13 +230,13 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(MetricsFailures lhs, MetricsFailures rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(MetricsFailures lhs, MetricsFailures rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -271,7 +260,7 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, MetricsFailures v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -382,13 +371,13 @@ namespace IceMX
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int inUseForIO;
+        public int inUseForIO = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int inUseForUser;
+        public int inUseForUser = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int inUseForOther;
+        public int inUseForOther = 0;
 
         #endregion
 
@@ -399,9 +388,6 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ThreadMetrics() : base()
         {
-            this.inUseForIO = 0;
-            this.inUseForUser = 0;
-            this.inUseForOther = 0;
             ice_initialize();
         }
 
@@ -472,13 +458,13 @@ namespace IceMX
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int userException;
+        public int userException = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public long size;
+        public long size = 0L;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public long replySize;
+        public long replySize = 0L;
 
         #endregion
 
@@ -489,9 +475,6 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public DispatchMetrics() : base()
         {
-            this.userException = 0;
-            this.size = 0L;
-            this.replySize = 0L;
             ice_initialize();
         }
 
@@ -562,10 +545,10 @@ namespace IceMX
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public long size;
+        public long size = 0L;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public long replySize;
+        public long replySize = 0L;
 
         #endregion
 
@@ -576,8 +559,6 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ChildInvocationMetrics() : base()
         {
-            this.size = 0L;
-            this.replySize = 0L;
             ice_initialize();
         }
 
@@ -775,10 +756,10 @@ namespace IceMX
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int retry;
+        public int retry = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int userException;
+        public int userException = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Metrics[] remotes;
@@ -795,8 +776,6 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public InvocationMetrics() : base()
         {
-            this.retry = 0;
-            this.userException = 0;
             ice_initialize();
         }
 
@@ -870,10 +849,10 @@ namespace IceMX
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public long receivedBytes;
+        public long receivedBytes = 0L;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public long sentBytes;
+        public long sentBytes = 0L;
 
         #endregion
 
@@ -884,8 +863,6 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ConnectionMetrics() : base()
         {
-            this.receivedBytes = 0L;
-            this.sentBytes = 0L;
             ice_initialize();
         }
 
@@ -1272,9 +1249,9 @@ namespace IceMX
             global::System.Collections.Generic.Dictionary<string, int> r = new global::System.Collections.Generic.Dictionary<string, int>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                int v;
+                int v = default;
                 v = istr.readInt();
                 r[k] = v;
             }
@@ -1378,9 +1355,9 @@ namespace IceMX
             global::System.Collections.Generic.Dictionary<string, Metrics[]> r = new global::System.Collections.Generic.Dictionary<string, Metrics[]>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                Metrics[] v;
+                Metrics[] v = default;
                 v = MetricsMapHelper.read(istr);
                 r[k] = v;
             }
@@ -1696,7 +1673,7 @@ namespace IceMX
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    MetricsFailures[] ret;
+                    MetricsFailures[] ret = default;
                     ret = MetricsFailuresSeqHelper.read(istr);
                     return ret;
                 });
@@ -1748,7 +1725,7 @@ namespace IceMX
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    MetricsFailures ret = null;
+                    MetricsFailures ret = default;
                     ret = MetricsFailures.ice_read(istr);
                     return ret;
                 });
@@ -1971,7 +1948,7 @@ namespace IceMX
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
@@ -1985,7 +1962,7 @@ namespace IceMX
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name;
+            string iceP_name = default;
             iceP_name = istr.readString();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
@@ -1999,7 +1976,7 @@ namespace IceMX
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_view;
+            string iceP_view = default;
             iceP_view = istr.readString();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
@@ -2019,8 +1996,8 @@ namespace IceMX
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_view;
-            string iceP_map;
+            string iceP_view = default;
+            string iceP_map = default;
             iceP_view = istr.readString();
             iceP_map = istr.readString();
             inS.endReadParams();
@@ -2038,9 +2015,9 @@ namespace IceMX
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_view;
-            string iceP_map;
-            string iceP_id;
+            string iceP_view = default;
+            string iceP_map = default;
+            string iceP_id = default;
             iceP_view = istr.readString();
             iceP_map = istr.readString();
             iceP_id = istr.readString();

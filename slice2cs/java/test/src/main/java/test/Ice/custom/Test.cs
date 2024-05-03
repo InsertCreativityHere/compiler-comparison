@@ -112,7 +112,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct S
+    public partial record struct S
     {
         #region Slice data members
 
@@ -130,50 +130,6 @@ namespace Test
         {
             this.en = en;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::S");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, en);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is S))
-            {
-                return false;
-            }
-            S o = (S)other;
-            if(!this.en.Equals(o.en))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S lhs, S rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S lhs, S rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -1602,9 +1558,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, string> r = new global::System.Collections.Generic.Dictionary<int, string>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                string v;
+                string v = default;
                 v = istr.readString();
                 r[k] = v;
             }
@@ -4603,7 +4559,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            C[] iceP_inSeq;
+            C[] iceP_inSeq = default;
             iceP_inSeq = CSeqHelper.read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -4623,7 +4579,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            C[] iceP_inSeq;
+            C[] iceP_inSeq = default;
             iceP_inSeq = CArrayHelper.read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -4643,7 +4599,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            C[] iceP_inSeq;
+            C[] iceP_inSeq = default;
             iceP_inSeq = CListHelper.read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -4663,7 +4619,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool[] iceP_inSeq;
+            bool[] iceP_inSeq = default;
             iceP_inSeq = BoolSeqHelper.read(istr);
             inS.endReadParams();
             bool[] iceP_outSeq;
@@ -4681,7 +4637,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_inSeq;
+            byte[] iceP_inSeq = default;
             iceP_inSeq = ByteSeqHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_outSeq;
@@ -4699,7 +4655,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            short[] iceP_inSeq;
+            short[] iceP_inSeq = default;
             iceP_inSeq = ShortSeqHelper.read(istr);
             inS.endReadParams();
             short[] iceP_outSeq;
@@ -4717,7 +4673,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int[] iceP_inSeq;
+            int[] iceP_inSeq = default;
             iceP_inSeq = IntSeqHelper.read(istr);
             inS.endReadParams();
             int[] iceP_outSeq;
@@ -4735,7 +4691,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            long[] iceP_inSeq;
+            long[] iceP_inSeq = default;
             iceP_inSeq = LongSeqHelper.read(istr);
             inS.endReadParams();
             long[] iceP_outSeq;
@@ -4753,7 +4709,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            float[] iceP_inSeq;
+            float[] iceP_inSeq = default;
             iceP_inSeq = FloatSeqHelper.read(istr);
             inS.endReadParams();
             float[] iceP_outSeq;
@@ -4771,7 +4727,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            double[] iceP_inSeq;
+            double[] iceP_inSeq = default;
             iceP_inSeq = DoubleSeqHelper.read(istr);
             inS.endReadParams();
             double[] iceP_outSeq;
@@ -4789,7 +4745,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_inSeq;
+            string[] iceP_inSeq = default;
             iceP_inSeq = StringSeqHelper.read(istr);
             inS.endReadParams();
             string[] iceP_outSeq;
@@ -4807,7 +4763,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            E[] iceP_inSeq;
+            E[] iceP_inSeq = default;
             iceP_inSeq = ESeqHelper.read(istr);
             inS.endReadParams();
             E[] iceP_outSeq;
@@ -4825,7 +4781,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            S[] iceP_inSeq;
+            S[] iceP_inSeq = default;
             iceP_inSeq = SSeqHelper.read(istr);
             inS.endReadParams();
             S[] iceP_outSeq;
@@ -4843,7 +4799,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<int, string>[] iceP_inSeq;
+            global::System.Collections.Generic.Dictionary<int, string>[] iceP_inSeq = default;
             iceP_inSeq = DSeqHelper.read(istr);
             inS.endReadParams();
             global::System.Collections.Generic.Dictionary<int, string>[] iceP_outSeq;
@@ -4861,7 +4817,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[][] iceP_inSeq;
+            string[][] iceP_inSeq = default;
             iceP_inSeq = StringSeqSeqHelper.read(istr);
             inS.endReadParams();
             string[][] iceP_outSeq;
@@ -4879,7 +4835,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_inSeq;
+            byte[] iceP_inSeq = default;
             iceP_inSeq = ByteBufferHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_outSeq;
@@ -4897,7 +4853,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            short[] iceP_inSeq;
+            short[] iceP_inSeq = default;
             iceP_inSeq = ShortBufferHelper.read(istr);
             inS.endReadParams();
             short[] iceP_outSeq;
@@ -4915,7 +4871,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int[] iceP_inSeq;
+            int[] iceP_inSeq = default;
             iceP_inSeq = IntBufferHelper.read(istr);
             inS.endReadParams();
             int[] iceP_outSeq;
@@ -4933,7 +4889,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            long[] iceP_inSeq;
+            long[] iceP_inSeq = default;
             iceP_inSeq = LongBufferHelper.read(istr);
             inS.endReadParams();
             long[] iceP_outSeq;
@@ -4951,7 +4907,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            float[] iceP_inSeq;
+            float[] iceP_inSeq = default;
             iceP_inSeq = FloatBufferHelper.read(istr);
             inS.endReadParams();
             float[] iceP_outSeq;
@@ -4969,7 +4925,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            double[] iceP_inSeq;
+            double[] iceP_inSeq = default;
             iceP_inSeq = DoubleBufferHelper.read(istr);
             inS.endReadParams();
             double[] iceP_outSeq;

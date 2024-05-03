@@ -40,28 +40,20 @@ namespace Test
         public double someValue;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string someString;
+        public string someString = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.someString = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CallbackException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CallbackException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -926,7 +918,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            CallbackReceiverPrx iceP_proxy;
+            CallbackReceiverPrx iceP_proxy = default;
             iceP_proxy = CallbackReceiverPrxHelper.read(istr);
             inS.endReadParams();
             obj.initiateCallback(iceP_proxy, current);
@@ -939,7 +931,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            CallbackReceiverPrx iceP_proxy;
+            CallbackReceiverPrx iceP_proxy = default;
             iceP_proxy = CallbackReceiverPrxHelper.read(istr);
             inS.endReadParams();
             obj.initiateCallbackEx(iceP_proxy, current);

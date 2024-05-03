@@ -489,7 +489,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class SOneMember : global::System.ICloneable
+    public sealed partial class SOneMember : global::System.ICloneable, global::System.IEquatable<SOneMember>
     {
         #region Slice data members
 
@@ -520,10 +520,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -539,31 +536,29 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as SOneMember);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(SOneMember other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.e is null)
             {
-                return false;
-            }
-            SOneMember o = (SOneMember)other;
-            if(this.e == null)
-            {
-                if(o.e != null)
+                if (other.e is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.e.Equals(o.e))
+                if (!this.e.Equals(other.e))
                 {
                     return false;
                 }
@@ -578,13 +573,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(SOneMember lhs, SOneMember rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(SOneMember lhs, SOneMember rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -606,7 +601,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, SOneMember v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -639,7 +634,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class STwoMembers : global::System.ICloneable
+    public sealed partial class STwoMembers : global::System.ICloneable, global::System.IEquatable<STwoMembers>
     {
         #region Slice data members
 
@@ -674,10 +669,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -694,45 +686,43 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as STwoMembers);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(STwoMembers other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.e1 is null)
             {
-                return false;
-            }
-            STwoMembers o = (STwoMembers)other;
-            if(this.e1 == null)
-            {
-                if(o.e1 != null)
+                if (other.e1 is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.e1.Equals(o.e1))
+                if (!this.e1.Equals(other.e1))
                 {
                     return false;
                 }
             }
-            if(this.e2 == null)
+            if (this.e2 is null)
             {
-                if(o.e2 != null)
+                if (other.e2 is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.e2.Equals(o.e2))
+                if (!this.e2.Equals(other.e2))
                 {
                     return false;
                 }
@@ -747,13 +737,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(STwoMembers lhs, STwoMembers rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(STwoMembers lhs, STwoMembers rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -777,7 +767,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, STwoMembers v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -882,7 +872,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    Empty ret = null;
+                    Empty ret = default;
                     istr.readValue((Empty v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -1056,7 +1046,7 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, COneMember> r = new global::System.Collections.Generic.Dictionary<int, COneMember>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
                 istr.readValue((COneMember v) => { r[k] = v; });
             }
@@ -1091,7 +1081,7 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, CTwoMembers> r = new global::System.Collections.Generic.Dictionary<int, CTwoMembers>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
                 istr.readValue((CTwoMembers v) => { r[k] = v; });
             }

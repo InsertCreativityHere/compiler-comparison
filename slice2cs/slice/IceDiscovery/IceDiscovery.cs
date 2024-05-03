@@ -803,9 +803,8 @@ namespace IceDiscovery
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            iceP_id = null;
-            global::Ice.ObjectPrx iceP_prx;
+            global::Ice.Identity iceP_id = default;
+            global::Ice.ObjectPrx iceP_prx = default;
             iceP_id = global::Ice.Identity.ice_read(istr);
             iceP_prx = istr.readProxy();
             inS.endReadParams();
@@ -819,9 +818,9 @@ namespace IceDiscovery
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
-            global::Ice.ObjectPrx iceP_prx;
-            bool iceP_isReplicaGroup;
+            string iceP_id = default;
+            global::Ice.ObjectPrx iceP_prx = default;
+            bool iceP_isReplicaGroup = default;
             iceP_id = istr.readString();
             iceP_prx = istr.readProxy();
             iceP_isReplicaGroup = istr.readBool();
@@ -934,10 +933,9 @@ namespace IceDiscovery
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_domainId;
-            global::Ice.Identity iceP_id;
-            iceP_id = null;
-            LookupReplyPrx iceP_reply;
+            string iceP_domainId = default;
+            global::Ice.Identity iceP_id = default;
+            LookupReplyPrx iceP_reply = default;
             iceP_domainId = istr.readString();
             iceP_id = global::Ice.Identity.ice_read(istr);
             iceP_reply = LookupReplyPrxHelper.read(istr);
@@ -952,9 +950,9 @@ namespace IceDiscovery
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_domainId;
-            string iceP_id;
-            LookupReplyPrx iceP_reply;
+            string iceP_domainId = default;
+            string iceP_id = default;
+            LookupReplyPrx iceP_reply = default;
             iceP_domainId = istr.readString();
             iceP_id = istr.readString();
             iceP_reply = LookupReplyPrxHelper.read(istr);

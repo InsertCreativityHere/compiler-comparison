@@ -53,7 +53,7 @@ namespace @abstract
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct @break
+    public partial record struct @break
     {
         #region Slice data members
 
@@ -71,50 +71,6 @@ namespace @abstract
         {
             this.@case = @case;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::abstract::break");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, @case);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is @break))
-            {
-                return false;
-            }
-            @break o = (@break)other;
-            if(!this.@case.Equals(o.@case))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(@break lhs, @break rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(@break lhs, @break rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -304,20 +260,13 @@ namespace @abstract
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public hashCode()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public hashCode(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -394,20 +343,13 @@ namespace @abstract
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public import()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public import(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -681,7 +623,7 @@ namespace @abstract
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int iceP_continue;
+                    int iceP_continue = default;
                     iceP_continue = istr.readInt();
                     return iceP_continue;
                 });
@@ -1111,7 +1053,7 @@ namespace @abstract
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int iceP_continue;
+                    int iceP_continue = default;
                     iceP_continue = istr.readInt();
                     return iceP_continue;
                 });
@@ -1320,9 +1262,9 @@ namespace @abstract
             global::System.Collections.Generic.Dictionary<string, assert> r = new global::System.Collections.Generic.Dictionary<string, assert>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                assert v;
+                assert v = default;
                 v = (assert)istr.readEnum(0);
                 r[k] = v;
             }
@@ -1412,7 +1354,7 @@ namespace @abstract
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    assert ret;
+                    assert ret = default;
                     ret = (assert)istr.readEnum(0);
                     return ret;
                 });
@@ -1609,7 +1551,7 @@ namespace @abstract
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_clone;
+            int iceP_clone = default;
             iceP_clone = istr.readInt();
             inS.endReadParams();
             return inS.setResultTask<int>(obj.checkedCastAsync(iceP_clone, current),
@@ -1913,16 +1855,14 @@ namespace @abstract
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            @break iceP_notifyAll;
-            iceP_notifyAll = new @break();
-            @else iceP_null;
-            iceP_null = null;
-            finalizePrx iceP_package;
-            catchPrx iceP_public;
-            defaultPrx iceP_return;
-            int iceP_static;
-            int iceP_strictfp;
-            int iceP_super;
+            @break iceP_notifyAll = default;
+            @else iceP_null = default;
+            finalizePrx iceP_package = default;
+            catchPrx iceP_public = default;
+            defaultPrx iceP_return = default;
+            int iceP_static = default;
+            int iceP_strictfp = default;
+            int iceP_super = default;
             iceP_notifyAll.ice_readMembers(istr);
             istr.readValue((@else v) => {iceP_null = v; });
             iceP_package = finalizePrxHelper.read(istr);

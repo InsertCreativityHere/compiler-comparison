@@ -403,7 +403,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test1.C1 ret = null;
+                    global::Test1.C1 ret = default;
                     istr.readValue((global::Test1.C1 v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -436,7 +436,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test1.C2 ret = null;
+                    global::Test1.C2 ret = default;
                     istr.readValue((global::Test1.C2 v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -589,7 +589,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test2.C1 ret = null;
+                    global::Test2.C1 ret = default;
                     istr.readValue((global::Test2.C1 v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -622,7 +622,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test2.C2 ret = null;
+                    global::Test2.C2 ret = default;
                     istr.readValue((global::Test2.C2 v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -735,7 +735,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test3.C1 ret = null;
+                    global::Test3.C1 ret = default;
                     istr.readValue((global::Test3.C1 v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -768,7 +768,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test3.C2 ret = null;
+                    global::Test3.C2 ret = default;
                     istr.readValue((global::Test3.C2 v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;

@@ -288,9 +288,9 @@ namespace Ice.dictMapping.AMD
                 global::System.Collections.Generic.Dictionary<int, int> r = new global::System.Collections.Generic.Dictionary<int, int>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    int k;
+                    int k = default;
                     k = istr.readInt();
-                    int v;
+                    int v = default;
                     v = istr.readInt();
                     r[k] = v;
                 }
@@ -325,9 +325,9 @@ namespace Ice.dictMapping.AMD
                 global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    string v;
+                    string v = default;
                     v = istr.readString();
                     r[k] = v;
                 }
@@ -362,9 +362,9 @@ namespace Ice.dictMapping.AMD
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> r = new global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    global::System.Collections.Generic.Dictionary<int, int> v;
+                    global::System.Collections.Generic.Dictionary<int, int> v = default;
                     v = NVHelper.read(istr);
                     r[k] = v;
                 }
@@ -399,9 +399,9 @@ namespace Ice.dictMapping.AMD
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> r = new global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    global::System.Collections.Generic.Dictionary<string, string> v;
+                    global::System.Collections.Generic.Dictionary<string, string> v = default;
                     v = NRHelper.read(istr);
                     r[k] = v;
                 }
@@ -500,9 +500,9 @@ namespace Ice.dictMapping.AMD
                 global::System.Collections.Generic.Dictionary<string, int[]> r = new global::System.Collections.Generic.Dictionary<string, int[]>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    int[] v;
+                    int[] v = default;
                     v = AISHelper.read(istr);
                     r[k] = v;
                 }
@@ -537,9 +537,9 @@ namespace Ice.dictMapping.AMD
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> r = new global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    global::System.Collections.Generic.List<int> v;
+                    global::System.Collections.Generic.List<int> v = default;
                     v = GISHelper.read(istr);
                     r[k] = v;
                 }
@@ -574,9 +574,9 @@ namespace Ice.dictMapping.AMD
                 global::System.Collections.Generic.Dictionary<string, string[]> r = new global::System.Collections.Generic.Dictionary<string, string[]>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    string[] v;
+                    string[] v = default;
                     v = ASSHelper.read(istr);
                     r[k] = v;
                 }
@@ -611,9 +611,9 @@ namespace Ice.dictMapping.AMD
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> r = new global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    global::System.Collections.Generic.List<string> v;
+                    global::System.Collections.Generic.List<string> v = default;
                     v = GSSHelper.read(istr);
                     r[k] = v;
                 }
@@ -1299,7 +1299,7 @@ namespace Ice.dictMapping.AMD
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<int, int> iceP_i;
+                global::System.Collections.Generic.Dictionary<int, int> iceP_i = default;
                 iceP_i = NVHelper.read(istr);
                 inS.endReadParams();
                 return inS.setResultTask<MyClass_OpNVResult>(obj.opNVAsync(iceP_i, current),
@@ -1316,7 +1316,7 @@ namespace Ice.dictMapping.AMD
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, string> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, string> iceP_i = default;
                 iceP_i = NRHelper.read(istr);
                 inS.endReadParams();
                 return inS.setResultTask<MyClass_OpNRResult>(obj.opNRAsync(iceP_i, current),
@@ -1333,7 +1333,7 @@ namespace Ice.dictMapping.AMD
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> iceP_i = default;
                 iceP_i = NDVHelper.read(istr);
                 inS.endReadParams();
                 return inS.setResultTask<MyClass_OpNDVResult>(obj.opNDVAsync(iceP_i, current),
@@ -1350,7 +1350,7 @@ namespace Ice.dictMapping.AMD
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> iceP_i = default;
                 iceP_i = NDRHelper.read(istr);
                 inS.endReadParams();
                 return inS.setResultTask<MyClass_OpNDRResult>(obj.opNDRAsync(iceP_i, current),
@@ -1367,7 +1367,7 @@ namespace Ice.dictMapping.AMD
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, int[]> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, int[]> iceP_i = default;
                 iceP_i = NDAISHelper.read(istr);
                 inS.endReadParams();
                 return inS.setResultTask<MyClass_OpNDAISResult>(obj.opNDAISAsync(iceP_i, current),
@@ -1384,7 +1384,7 @@ namespace Ice.dictMapping.AMD
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> iceP_i = default;
                 iceP_i = NDGISHelper.read(istr);
                 inS.endReadParams();
                 return inS.setResultTask<MyClass_OpNDGISResult>(obj.opNDGISAsync(iceP_i, current),
@@ -1401,7 +1401,7 @@ namespace Ice.dictMapping.AMD
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, string[]> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, string[]> iceP_i = default;
                 iceP_i = NDASSHelper.read(istr);
                 inS.endReadParams();
                 return inS.setResultTask<MyClass_OpNDASSResult>(obj.opNDASSAsync(iceP_i, current),
@@ -1418,7 +1418,7 @@ namespace Ice.dictMapping.AMD
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> iceP_i;
+                global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> iceP_i = default;
                 iceP_i = NDGSSHelper.read(istr);
                 inS.endReadParams();
                 return inS.setResultTask<MyClass_OpNDGSSResult>(obj.opNDGSSAsync(iceP_i, current),

@@ -103,7 +103,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class S1 : global::System.ICloneable
+    public sealed partial class S1 : global::System.ICloneable, global::System.IEquatable<S1>
     {
         #region Slice data members
 
@@ -134,10 +134,7 @@ namespace LocalTest
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -153,31 +150,29 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as S1);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(S1 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.c1 is null)
             {
-                return false;
-            }
-            S1 o = (S1)other;
-            if(this.c1 == null)
-            {
-                if(o.c1 != null)
+                if (other.c1 is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.c1.Equals(o.c1))
+                if (!this.c1.Equals(other.c1))
                 {
                     return false;
                 }
@@ -192,13 +187,13 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(S1 lhs, S1 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(S1 lhs, S1 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -220,7 +215,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S1 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -253,7 +248,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class S2 : global::System.ICloneable
+    public sealed partial class S2 : global::System.ICloneable, global::System.IEquatable<S2>
     {
         #region Slice data members
 
@@ -269,7 +264,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S2()
         {
-            this.s1 = new S1();
+            this.s1 = new();
             ice_initialize();
         }
 
@@ -285,10 +280,7 @@ namespace LocalTest
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -304,31 +296,29 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as S2);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(S2 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.s1 is null)
             {
-                return false;
-            }
-            S2 o = (S2)other;
-            if(this.s1 == null)
-            {
-                if(o.s1 != null)
+                if (other.s1 is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.s1.Equals(o.s1))
+                if (!this.s1.Equals(other.s1))
                 {
                     return false;
                 }
@@ -343,13 +333,13 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(S2 lhs, S2 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(S2 lhs, S2 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -371,7 +361,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S2 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -404,7 +394,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class S3 : global::System.ICloneable
+    public sealed partial class S3 : global::System.ICloneable, global::System.IEquatable<S3>
     {
         #region Slice data members
 
@@ -435,10 +425,7 @@ namespace LocalTest
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -454,31 +441,29 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as S3);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(S3 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.c1seq is null)
             {
-                return false;
-            }
-            S3 o = (S3)other;
-            if(this.c1seq == null)
-            {
-                if(o.c1seq != null)
+                if (other.c1seq is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.c1seq, o.c1seq))
+                if (!Ice.UtilInternal.Arrays.Equals(this.c1seq, other.c1seq))
                 {
                     return false;
                 }
@@ -493,13 +478,13 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(S3 lhs, S3 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(S3 lhs, S3 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -521,7 +506,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S3 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -554,7 +539,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class S4 : global::System.ICloneable
+    public sealed partial class S4 : global::System.ICloneable, global::System.IEquatable<S4>
     {
         #region Slice data members
 
@@ -585,10 +570,7 @@ namespace LocalTest
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -604,31 +586,29 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as S4);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(S4 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.s1seq is null)
             {
-                return false;
-            }
-            S4 o = (S4)other;
-            if(this.s1seq == null)
-            {
-                if(o.s1seq != null)
+                if (other.s1seq is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.s1seq, o.s1seq))
+                if (!Ice.UtilInternal.Arrays.Equals(this.s1seq, other.s1seq))
                 {
                     return false;
                 }
@@ -643,13 +623,13 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(S4 lhs, S4 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(S4 lhs, S4 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -671,7 +651,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S4 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -704,7 +684,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class S5 : global::System.ICloneable
+    public sealed partial class S5 : global::System.ICloneable, global::System.IEquatable<S5>
     {
         #region Slice data members
 
@@ -735,10 +715,7 @@ namespace LocalTest
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -754,31 +731,29 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as S5);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(S5 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.c1dict is null)
             {
-                return false;
-            }
-            S5 o = (S5)other;
-            if(this.c1dict == null)
-            {
-                if(o.c1dict != null)
+                if (other.c1dict is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.c1dict, o.c1dict))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.c1dict, other.c1dict))
                 {
                     return false;
                 }
@@ -793,13 +768,13 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(S5 lhs, S5 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(S5 lhs, S5 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -821,7 +796,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S5 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -854,7 +829,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class S6 : global::System.ICloneable
+    public sealed partial class S6 : global::System.ICloneable, global::System.IEquatable<S6>
     {
         #region Slice data members
 
@@ -885,10 +860,7 @@ namespace LocalTest
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -904,31 +876,29 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as S6);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(S6 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.s1dict is null)
             {
-                return false;
-            }
-            S6 o = (S6)other;
-            if(this.s1dict == null)
-            {
-                if(o.s1dict != null)
+                if (other.s1dict is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.s1dict, o.s1dict))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.s1dict, other.s1dict))
                 {
                     return false;
                 }
@@ -943,13 +913,13 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(S6 lhs, S6 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(S6 lhs, S6 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -971,7 +941,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S6 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1004,7 +974,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class S7 : global::System.ICloneable
+    public sealed partial class S7 : global::System.ICloneable, global::System.IEquatable<S7>
     {
         #region Slice data members
 
@@ -1035,10 +1005,7 @@ namespace LocalTest
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1054,31 +1021,29 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as S7);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(S7 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.c1seqseq is null)
             {
-                return false;
-            }
-            S7 o = (S7)other;
-            if(this.c1seqseq == null)
-            {
-                if(o.c1seqseq != null)
+                if (other.c1seqseq is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.c1seqseq, o.c1seqseq))
+                if (!Ice.UtilInternal.Arrays.Equals(this.c1seqseq, other.c1seqseq))
                 {
                     return false;
                 }
@@ -1093,13 +1058,13 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(S7 lhs, S7 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(S7 lhs, S7 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1121,7 +1086,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S7 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1154,7 +1119,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class S8 : global::System.ICloneable
+    public sealed partial class S8 : global::System.ICloneable, global::System.IEquatable<S8>
     {
         #region Slice data members
 
@@ -1185,10 +1150,7 @@ namespace LocalTest
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -1204,31 +1166,29 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as S8);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(S8 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.s1seqseq is null)
             {
-                return false;
-            }
-            S8 o = (S8)other;
-            if(this.s1seqseq == null)
-            {
-                if(o.s1seqseq != null)
+                if (other.s1seqseq is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.s1seqseq, o.s1seqseq))
+                if (!Ice.UtilInternal.Arrays.Equals(this.s1seqseq, other.s1seqseq))
                 {
                     return false;
                 }
@@ -1243,13 +1203,13 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(S8 lhs, S8 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(S8 lhs, S8 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -1271,7 +1231,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S8 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -1321,7 +1281,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB1()
         {
-            this.s1 = new S1();
+            this.s1 = new();
             ice_initialize();
         }
 
@@ -1839,7 +1799,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CB8()
         {
-            this.s1 = new S1();
+            this.s1 = new();
             ice_initialize();
         }
 
@@ -1902,7 +1862,7 @@ namespace LocalTest
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct StructKey
+    public partial record struct StructKey
     {
         #region Slice data members
 
@@ -1924,55 +1884,6 @@ namespace LocalTest
             this.i = i;
             this.j = j;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::LocalTest::StructKey");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, j);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is StructKey))
-            {
-                return false;
-            }
-            StructKey o = (StructKey)other;
-            if(!this.i.Equals(o.i))
-            {
-                return false;
-            }
-            if(!this.j.Equals(o.j))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(StructKey lhs, StructKey rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(StructKey lhs, StructKey rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -2026,13 +1937,13 @@ namespace LocalTest
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<S1> s1;
+        public global::Ice.Optional<S1> s1 = new global::Ice.Optional<S1>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<C1[]> c1seq;
+        public global::Ice.Optional<C1[]> c1seq = new global::Ice.Optional<C1[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, S1>> s1dict;
+        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, S1>> s1dict = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, S1>>();
 
         #endregion
 
@@ -2043,9 +1954,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Opt()
         {
-            this.s1 = new global::Ice.Optional<S1>();
-            this.c1seq = new global::Ice.Optional<C1[]>();
-            this.s1dict = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, S1>>();
+            this.s1 = new();
             ice_initialize();
         }
 
@@ -2107,7 +2016,7 @@ namespace LocalTest
             if(istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                S1 tmpVal = null;
+                S1 tmpVal = default;
                 tmpVal = S1.ice_read(istr_);
                 s1 = new global::Ice.Optional<S1>(tmpVal);
             }
@@ -2242,7 +2151,7 @@ namespace LocalTest
             global::System.Collections.Generic.Dictionary<int, C1> r = new global::System.Collections.Generic.Dictionary<int, C1>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
                 istr.readValue((C1 v) => { r[k] = v; });
             }
@@ -2277,10 +2186,9 @@ namespace LocalTest
             global::System.Collections.Generic.Dictionary<int, S1> r = new global::System.Collections.Generic.Dictionary<int, S1>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                S1 v;
-                v = null;
+                S1 v = default;
                 v = S1.ice_read(istr);
                 r[k] = v;
             }
@@ -2383,8 +2291,7 @@ namespace LocalTest
             global::System.Collections.Generic.Dictionary<StructKey, C1> r = new global::System.Collections.Generic.Dictionary<StructKey, C1>();
             for(int i = 0; i < sz; ++i)
             {
-                StructKey k;
-                k = new StructKey();
+                StructKey k = default;
                 k.ice_readMembers(istr);
                 istr.readValue((C1 v) => { r[k] = v; });
             }
@@ -2419,11 +2326,9 @@ namespace LocalTest
             global::System.Collections.Generic.Dictionary<StructKey, S1> r = new global::System.Collections.Generic.Dictionary<StructKey, S1>();
             for(int i = 0; i < sz; ++i)
             {
-                StructKey k;
-                k = new StructKey();
+                StructKey k = default;
                 k.ice_readMembers(istr);
-                S1 v;
-                v = null;
+                S1 v = default;
                 v = S1.ice_read(istr);
                 r[k] = v;
             }
@@ -2458,9 +2363,9 @@ namespace LocalTest
             global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1>> r = new global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1>>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                global::System.Collections.Generic.Dictionary<int, C1> v;
+                global::System.Collections.Generic.Dictionary<int, C1> v = default;
                 v = C1DictHelper.read(istr);
                 r[k] = v;
             }
@@ -2495,9 +2400,9 @@ namespace LocalTest
             global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, S1>> r = new global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, S1>>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                global::System.Collections.Generic.Dictionary<int, S1> v;
+                global::System.Collections.Generic.Dictionary<int, S1> v = default;
                 v = S1DictHelper.read(istr);
                 r[k] = v;
             }

@@ -783,7 +783,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ByteEnum iceP_b1;
+            ByteEnum iceP_b1 = default;
             iceP_b1 = (ByteEnum)istr.readEnum(126);
             inS.endReadParams();
             ByteEnum iceP_b2;
@@ -801,7 +801,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ShortEnum iceP_s1;
+            ShortEnum iceP_s1 = default;
             iceP_s1 = (ShortEnum)istr.readEnum(32766);
             inS.endReadParams();
             ShortEnum iceP_s2;
@@ -819,7 +819,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            IntEnum iceP_i1;
+            IntEnum iceP_i1 = default;
             iceP_i1 = (IntEnum)istr.readEnum(2147483647);
             inS.endReadParams();
             IntEnum iceP_i2;
@@ -837,7 +837,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            SimpleEnum iceP_s1;
+            SimpleEnum iceP_s1 = default;
             iceP_s1 = (SimpleEnum)istr.readEnum(2);
             inS.endReadParams();
             SimpleEnum iceP_s2;

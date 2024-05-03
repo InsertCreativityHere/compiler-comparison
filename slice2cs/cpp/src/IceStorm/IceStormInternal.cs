@@ -30,12 +30,12 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class EventData : global::System.ICloneable
+    public sealed partial class EventData : global::System.ICloneable, global::System.IEquatable<EventData>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string op;
+        public string op = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.OperationMode mode;
@@ -55,7 +55,6 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public EventData()
         {
-            this.op = "";
             ice_initialize();
         }
 
@@ -74,10 +73,7 @@ namespace IceStorm
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -96,63 +92,61 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as EventData);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(EventData other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.op is null)
             {
-                return false;
-            }
-            EventData o = (EventData)other;
-            if(this.op == null)
-            {
-                if(o.op != null)
+                if (other.op is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.op.Equals(o.op))
+                if (!this.op.Equals(other.op))
                 {
                     return false;
                 }
             }
-            if(!this.mode.Equals(o.mode))
+            if (!this.mode.Equals(other.mode))
             {
                 return false;
             }
-            if(this.data == null)
+            if (this.data is null)
             {
-                if(o.data != null)
+                if (other.data is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.data, o.data))
+                if (!Ice.UtilInternal.Arrays.Equals(this.data, other.data))
                 {
                     return false;
                 }
             }
-            if(this.context == null)
+            if (this.context is null)
             {
-                if(o.context != null)
+                if (other.context is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.context, o.context))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.context, other.context))
                 {
                     return false;
                 }
@@ -167,13 +161,13 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(EventData lhs, EventData rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(EventData lhs, EventData rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -201,7 +195,7 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, EventData v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -925,7 +919,7 @@ namespace IceStorm
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -957,7 +951,7 @@ namespace IceStorm
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -989,7 +983,7 @@ namespace IceStorm
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -1048,7 +1042,7 @@ namespace IceStorm
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -1198,7 +1192,7 @@ namespace IceStorm
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    LinkInfo[] ret;
+                    LinkInfo[] ret = default;
                     ret = LinkInfoSeqHelper.read(istr);
                     return ret;
                 });
@@ -1230,7 +1224,7 @@ namespace IceStorm
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Identity[] ret;
+                    global::Ice.Identity[] ret = default;
                     ret = global::Ice.IdentitySeqHelper.read(istr);
                     return ret;
                 });
@@ -1287,7 +1281,7 @@ namespace IceStorm
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TopicLinkPrx ret;
+                    TopicLinkPrx ret = default;
                     ret = TopicLinkPrxHelper.read(istr);
                     return ret;
                 });
@@ -1584,7 +1578,7 @@ namespace IceStorm
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TopicPrx ret;
+                    TopicPrx ret = default;
                     ret = TopicPrxHelper.read(istr);
                     return ret;
                 });
@@ -1634,7 +1628,7 @@ namespace IceStorm
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TopicPrx ret;
+                    TopicPrx ret = default;
                     ret = TopicPrxHelper.read(istr);
                     return ret;
                 });
@@ -1666,7 +1660,7 @@ namespace IceStorm
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::System.Collections.Generic.Dictionary<string, TopicPrx> ret;
+                    global::System.Collections.Generic.Dictionary<string, TopicPrx> ret = default;
                     ret = TopicDictHelper.read(istr);
                     return ret;
                 });
@@ -1698,7 +1692,7 @@ namespace IceStorm
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::IceStormElection.NodePrx ret;
+                    global::IceStormElection.NodePrx ret = default;
                     ret = global::IceStormElection.NodePrxHelper.read(istr);
                     return ret;
                 });
@@ -1896,7 +1890,7 @@ namespace IceStorm
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            EventData[] iceP_events;
+            EventData[] iceP_events = default;
             iceP_events = EventDataSeqHelper.read(istr);
             inS.endReadParams();
             obj.forward(iceP_events, current);
@@ -1966,16 +1960,6 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
-        public abstract string getName(global::Ice.Current current = null);
-
-        public abstract global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
-
-        public abstract global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.Current current = null);
-
-        public abstract global::Ice.ObjectPrx subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
-
-        public abstract void unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
-
         public abstract void link(TopicPrx linkTo, int cost, global::Ice.Current current = null);
 
         public abstract void unlink(TopicPrx linkTo, global::Ice.Current current = null);
@@ -1985,6 +1969,16 @@ namespace IceStorm
         public abstract global::Ice.Identity[] getSubscribers(global::Ice.Current current = null);
 
         public abstract void destroy(global::Ice.Current current = null);
+
+        public abstract string getName(global::Ice.Current current = null);
+
+        public abstract global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
+
+        public abstract global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.Current current = null);
+
+        public abstract global::Ice.ObjectPrx subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
+
+        public abstract void unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
 
         #endregion
 
@@ -2040,7 +2034,7 @@ namespace IceStorm
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity[] iceP_id;
+            global::Ice.Identity[] iceP_id = default;
             iceP_id = global::Ice.IdentitySeqHelper.read(istr);
             inS.endReadParams();
             obj.reap(iceP_id, current);
@@ -2163,11 +2157,11 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
+        public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx> retrieveAll(global::Ice.Current current = null);
+
         public abstract TopicPrx create(string name, global::Ice.Current current = null);
 
         public abstract TopicPrx retrieve(string name, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx> retrieveAll(global::Ice.Current current = null);
 
         #endregion
 

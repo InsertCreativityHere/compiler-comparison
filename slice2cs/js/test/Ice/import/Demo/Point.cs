@@ -32,7 +32,7 @@ namespace Demo
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial struct Point
+        public partial record struct Point
         {
             #region Slice data members
 
@@ -54,55 +54,6 @@ namespace Demo
                 this.x = x;
                 this.y = y;
                 ice_initialize();
-            }
-
-            #endregion
-
-            #region Object members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Demo::gx::Point");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, x);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, y);
-                return h_;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
-            {
-                if(!(other is Point))
-                {
-                    return false;
-                }
-                Point o = (Point)other;
-                if(!this.x.Equals(o.x))
-                {
-                    return false;
-                }
-                if(!this.y.Equals(o.y))
-                {
-                    return false;
-                }
-                return true;
-            }
-
-            #endregion
-
-            #region Comparison members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(Point lhs, Point rhs)
-            {
-                return Equals(lhs, rhs);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(Point lhs, Point rhs)
-            {
-                return !Equals(lhs, rhs);
             }
 
             #endregion

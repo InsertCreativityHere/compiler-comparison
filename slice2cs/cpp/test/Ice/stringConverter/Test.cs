@@ -232,7 +232,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -268,7 +268,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -494,7 +494,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_msg;
+            string iceP_msg = default;
             iceP_msg = istr.readString();
             inS.endReadParams();
             var ret = obj.widen(iceP_msg, current);
@@ -510,7 +510,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_wmsg;
+            string iceP_wmsg = default;
             iceP_wmsg = istr.readString();
             inS.endReadParams();
             var ret = obj.narrow(iceP_wmsg, current);

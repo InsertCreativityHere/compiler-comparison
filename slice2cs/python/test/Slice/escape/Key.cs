@@ -53,7 +53,7 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct @continue
+    public partial record struct @continue
     {
         #region Slice data members
 
@@ -71,50 +71,6 @@ namespace and
         {
             this.def = def;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::and::continue");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, def);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is @continue))
-            {
-                return false;
-            }
-            @continue o = (@continue)other;
-            if(!this.def.Equals(o.def))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(@continue lhs, @continue rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(@continue lhs, @continue rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -304,20 +260,13 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @is()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @is(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -394,20 +343,13 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public not()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public not(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -638,7 +580,7 @@ namespace and
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int iceP_except;
+                    int iceP_except = default;
                     iceP_except = istr.readInt();
                     return iceP_except;
                 });
@@ -1068,7 +1010,7 @@ namespace and
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int iceP_except;
+                    int iceP_except = default;
                     iceP_except = istr.readInt();
                     return iceP_except;
                 });
@@ -1277,9 +1219,9 @@ namespace and
             global::System.Collections.Generic.Dictionary<string, assert> r = new global::System.Collections.Generic.Dictionary<string, assert>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                assert v;
+                assert v = default;
                 v = (assert)istr.readEnum(0);
                 r[k] = v;
             }
@@ -1363,7 +1305,7 @@ namespace and
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    assert ret;
+                    assert ret = default;
                     ret = (assert)istr.readEnum(0);
                     return ret;
                 });
@@ -1560,7 +1502,7 @@ namespace and
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_else;
+            int iceP_else = default;
             iceP_else = istr.readInt();
             inS.endReadParams();
             return inS.setResultTask<int>(obj.elifAsync(iceP_else, current),
@@ -1864,14 +1806,12 @@ namespace and
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            @continue iceP_else;
-            iceP_else = new @continue();
-            @for iceP_return;
-            iceP_return = null;
-            delPrx iceP_while;
-            execPrx iceP_yield;
-            ifPrx iceP_or;
-            int iceP_global;
+            @continue iceP_else = default;
+            @for iceP_return = default;
+            delPrx iceP_while = default;
+            execPrx iceP_yield = default;
+            ifPrx iceP_or = default;
+            int iceP_global = default;
             iceP_else.ice_readMembers(istr);
             istr.readValue((@for v) => {iceP_return = v; });
             iceP_while = delPrxHelper.read(istr);

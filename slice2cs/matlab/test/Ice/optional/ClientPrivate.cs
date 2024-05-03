@@ -36,13 +36,13 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string ds;
+        public string ds = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<string[]> seq;
+        public global::Ice.Optional<string[]> seq = new global::Ice.Optional<string[]>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<A> ao;
+        public global::Ice.Optional<A> ao = new global::Ice.Optional<A>();
 
         #endregion
 
@@ -53,9 +53,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D() : base()
         {
-            this.ds = "";
-            this.seq = new global::Ice.Optional<string[]>();
-            this.ao = new global::Ice.Optional<A>();
             ice_initialize();
         }
 
@@ -467,8 +464,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            A iceP_p;
-            iceP_p = null;
+            A iceP_p = default;
             global::Ice.Optional<global::Ice.Value> iceP_o = global::Ice.Util.None;
             istr.readValue((A v) => {iceP_p = v; });
             istr.readValue(1, (global::Ice.Value v) => {iceP_o = v; });

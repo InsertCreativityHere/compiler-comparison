@@ -200,7 +200,7 @@ namespace Ice.info
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::System.Collections.Generic.Dictionary<string, string> ret;
+                        global::System.Collections.Generic.Dictionary<string, string> ret = default;
                         ret = global::Ice.ContextHelper.read(istr);
                         return ret;
                     });
@@ -232,7 +232,7 @@ namespace Ice.info
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::System.Collections.Generic.Dictionary<string, string> ret;
+                        global::System.Collections.Generic.Dictionary<string, string> ret = default;
                         ret = global::Ice.ContextHelper.read(istr);
                         return ret;
                     });

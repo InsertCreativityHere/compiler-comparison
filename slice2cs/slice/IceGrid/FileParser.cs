@@ -41,28 +41,20 @@ namespace IceGrid
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string reason;
+        public string reason = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.reason = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ParseException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ParseException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -273,7 +265,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    ApplicationDescriptor ret = null;
+                    ApplicationDescriptor ret = default;
                     ret = ApplicationDescriptor.ice_read(istr);
                     istr.readPendingValues();
                     return ret;
@@ -471,8 +463,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_xmlFile;
-            AdminPrx iceP_adminProxy;
+            string iceP_xmlFile = default;
+            AdminPrx iceP_adminProxy = default;
             iceP_xmlFile = istr.readString();
             iceP_adminProxy = AdminPrxHelper.read(istr);
             inS.endReadParams();

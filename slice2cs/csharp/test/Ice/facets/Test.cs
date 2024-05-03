@@ -547,7 +547,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -757,7 +757,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -789,7 +789,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1000,7 +1000,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1032,7 +1032,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1267,7 +1267,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1299,7 +1299,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1331,7 +1331,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1363,7 +1363,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1564,7 +1564,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1774,7 +1774,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -1806,7 +1806,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -2042,7 +2042,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -2289,7 +2289,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });
@@ -2321,7 +2321,7 @@ namespace Ice.facets
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret;
+                        string ret = default;
                         ret = istr.readString();
                         return ret;
                     });

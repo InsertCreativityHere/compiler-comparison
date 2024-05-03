@@ -45,12 +45,12 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class S : global::System.ICloneable
+    public sealed partial class S : global::System.ICloneable, global::System.IEquatable<S>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string str;
+        public string str = "";
 
         #endregion
 
@@ -61,7 +61,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S()
         {
-            this.str = "";
             ice_initialize();
         }
 
@@ -77,10 +76,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -96,31 +92,29 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as S);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(S other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.str is null)
             {
-                return false;
-            }
-            S o = (S)other;
-            if(this.str == null)
-            {
-                if(o.str != null)
+                if (other.str is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.str.Equals(o.str))
+                if (!this.str.Equals(other.str))
                 {
                     return false;
                 }
@@ -135,13 +129,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(S lhs, S rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(S lhs, S rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -163,7 +157,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -205,7 +199,7 @@ namespace Test
         public S theS;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string str;
+        public string str = "";
 
         #endregion
 
@@ -216,8 +210,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @Base()
         {
-            this.theS = new S();
-            this.str = "";
+            this.theS = new();
             ice_initialize();
         }
 
@@ -284,28 +277,20 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string reason;
+        public string reason = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.reason = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BaseEx()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BaseEx(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -722,7 +707,7 @@ namespace Test
         protected int i;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected string s;
+        protected string s = "";
 
         #endregion
 
@@ -733,7 +718,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public E()
         {
-            this.s = "";
             ice_initialize();
         }
 
@@ -1171,28 +1155,20 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string reason;
+            public string reason = "";
 
             #endregion
 
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM()
-            {
-                this.reason = "";
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Ex()
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Ex(global::System.Exception ex) : base(ex)
             {
-                _initDM();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1334,28 +1310,20 @@ namespace Test
                 #region Slice data members
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                public string reason;
+                public string reason = "";
 
                 #endregion
 
                 #region Constructors
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                private void _initDM()
-                {
-                    this.reason = "";
-                }
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public Ex()
                 {
-                    _initDM();
                 }
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public Ex(global::System.Exception ex) : base(ex)
                 {
-                    _initDM();
                 }
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1423,7 +1391,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string name;
+        public string name = "";
 
         #endregion
 
@@ -1434,7 +1402,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public A1()
         {
-            this.name = "";
             ice_initialize();
         }
 
@@ -1983,7 +1950,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string data;
+        public string data = "";
 
         #endregion
 
@@ -1994,7 +1961,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public L()
         {
-            this.data = "";
             ice_initialize();
         }
 
@@ -2051,7 +2017,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class StructKey : global::System.ICloneable
+    public sealed partial class StructKey : global::System.ICloneable, global::System.IEquatable<StructKey>
     {
         #region Slice data members
 
@@ -2059,7 +2025,7 @@ namespace Test
         public int i;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string s;
+        public string s = "";
 
         #endregion
 
@@ -2070,7 +2036,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public StructKey()
         {
-            this.s = "";
             ice_initialize();
         }
 
@@ -2087,10 +2052,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -2107,35 +2069,33 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as StructKey);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(StructKey other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (!this.i.Equals(other.i))
             {
                 return false;
             }
-            StructKey o = (StructKey)other;
-            if(!this.i.Equals(o.i))
+            if (this.s is null)
             {
-                return false;
-            }
-            if(this.s == null)
-            {
-                if(o.s != null)
+                if (other.s is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.s.Equals(o.s))
+                if (!this.s.Equals(other.s))
                 {
                     return false;
                 }
@@ -2150,13 +2110,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(StructKey lhs, StructKey rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(StructKey lhs, StructKey rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -2180,7 +2140,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, StructKey v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -2854,7 +2814,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class SOneMember : global::System.ICloneable
+    public sealed partial class SOneMember : global::System.ICloneable, global::System.IEquatable<SOneMember>
     {
         #region Slice data members
 
@@ -2885,10 +2845,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -2904,31 +2861,29 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as SOneMember);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(SOneMember other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.e is null)
             {
-                return false;
-            }
-            SOneMember o = (SOneMember)other;
-            if(this.e == null)
-            {
-                if(o.e != null)
+                if (other.e is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.e.Equals(o.e))
+                if (!this.e.Equals(other.e))
                 {
                     return false;
                 }
@@ -2943,13 +2898,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(SOneMember lhs, SOneMember rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(SOneMember lhs, SOneMember rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -2971,7 +2926,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, SOneMember v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -3004,7 +2959,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class STwoMembers : global::System.ICloneable
+    public sealed partial class STwoMembers : global::System.ICloneable, global::System.IEquatable<STwoMembers>
     {
         #region Slice data members
 
@@ -3039,10 +2994,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -3059,45 +3011,43 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as STwoMembers);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(STwoMembers other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.e1 is null)
             {
-                return false;
-            }
-            STwoMembers o = (STwoMembers)other;
-            if(this.e1 == null)
-            {
-                if(o.e1 != null)
+                if (other.e1 is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.e1.Equals(o.e1))
+                if (!this.e1.Equals(other.e1))
                 {
                     return false;
                 }
             }
-            if(this.e2 == null)
+            if (this.e2 is null)
             {
-                if(o.e2 != null)
+                if (other.e2 is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.e2.Equals(o.e2))
+                if (!this.e2.Equals(other.e2))
                 {
                     return false;
                 }
@@ -3112,13 +3062,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(STwoMembers lhs, STwoMembers rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(STwoMembers lhs, STwoMembers rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -3142,7 +3092,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, STwoMembers v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -4128,7 +4078,7 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, global::Ice.Value> r = new global::System.Collections.Generic.Dictionary<string, global::Ice.Value>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
                 istr.readValue((global::Ice.Value v) => { r[k] = v; });
             }
@@ -4163,8 +4113,7 @@ namespace Test
             global::System.Collections.Generic.Dictionary<StructKey, L> r = new global::System.Collections.Generic.Dictionary<StructKey, L>();
             for(int i = 0; i < sz; ++i)
             {
-                StructKey k;
-                k = null;
+                StructKey k = default;
                 k = StructKey.ice_read(istr);
                 istr.readValue((L v) => { r[k] = v; });
             }
@@ -4641,7 +4590,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    B ret = null;
+                    B ret = default;
                     istr.readValue((B v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -4674,7 +4623,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    B ret = null;
+                    B ret = default;
                     istr.readValue((B v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -4707,7 +4656,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    C ret = null;
+                    C ret = default;
                     istr.readValue((C v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -4740,7 +4689,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    D ret = null;
+                    D ret = default;
                     istr.readValue((D v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -4773,7 +4722,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    E ret = null;
+                    E ret = default;
                     istr.readValue((E v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -4806,7 +4755,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    F ret = null;
+                    F ret = default;
                     istr.readValue((F v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -4869,7 +4818,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -4931,7 +4880,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -4963,7 +4912,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    B ret = null;
+                    B ret = default;
                     istr.readValue((B v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -4996,7 +4945,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    B ret = null;
+                    B ret = default;
                     istr.readValue((B v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -5065,7 +5014,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    K ret = null;
+                    K ret = default;
                     istr.readValue((K v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -5220,7 +5169,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    D1 ret = null;
+                    D1 ret = default;
                     istr.readValue((D1 v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -5362,7 +5311,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    Compact ret = null;
+                    Compact ret = default;
                     istr.readValue((Compact v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -5395,7 +5344,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test.Inner.A ret = null;
+                    global::Test.Inner.A ret = default;
                     istr.readValue((global::Test.Inner.A v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -5428,7 +5377,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test.Inner.Sub.A ret = null;
+                    global::Test.Inner.Sub.A ret = default;
                     istr.readValue((global::Test.Inner.Sub.A v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -5656,7 +5605,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -5905,7 +5854,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    @Base ret = null;
+                    @Base ret = default;
                     istr.readValue((@Base v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -6144,7 +6093,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    Empty ret = null;
+                    Empty ret = default;
                     istr.readValue((Empty v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
@@ -6318,7 +6267,7 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, COneMember> r = new global::System.Collections.Generic.Dictionary<int, COneMember>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
                 istr.readValue((COneMember v) => { r[k] = v; });
             }
@@ -6353,7 +6302,7 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, CTwoMembers> r = new global::System.Collections.Generic.Dictionary<int, CTwoMembers>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
                 istr.readValue((CTwoMembers v) => { r[k] = v; });
             }
@@ -6643,8 +6592,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            Recursive iceP_p;
-            iceP_p = null;
+            Recursive iceP_p = default;
             istr.readValue((Recursive v) => {iceP_p = v; });
             istr.readPendingValues();
             inS.endReadParams();
@@ -6671,8 +6619,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            Recursive iceP_r;
-            iceP_r = null;
+            Recursive iceP_r = default;
             istr.readValue((Recursive v) => {iceP_r = v; });
             istr.readPendingValues();
             inS.endReadParams();
@@ -6752,8 +6699,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Value iceP_v1;
-            iceP_v1 = null;
+            global::Ice.Value iceP_v1 = default;
             istr.readValue((global::Ice.Value v) => {iceP_v1 = v; });
             istr.readPendingValues();
             inS.endReadParams();
@@ -6773,7 +6719,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Value[] iceP_v1;
+            global::Ice.Value[] iceP_v1 = default;
             iceP_v1 = ValueSeqHelper.read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -6793,7 +6739,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, global::Ice.Value> iceP_v1;
+            global::System.Collections.Generic.Dictionary<string, global::Ice.Value> iceP_v1 = default;
             iceP_v1 = ValueMapHelper.read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -6813,8 +6759,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            D1 iceP_d1;
-            iceP_d1 = null;
+            D1 iceP_d1 = default;
             istr.readValue((D1 v) => {iceP_d1 = v; });
             istr.readPendingValues();
             inS.endReadParams();
@@ -6842,8 +6787,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            G iceP_theG;
-            iceP_theG = null;
+            G iceP_theG = default;
             istr.readValue((G v) => {iceP_theG = v; });
             istr.readPendingValues();
             inS.endReadParams();
@@ -6857,7 +6801,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            @Base[] iceP_inSeq;
+            @Base[] iceP_inSeq = default;
             iceP_inSeq = BaseSeqHelper.read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -6939,8 +6883,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            M iceP_v1;
-            iceP_v1 = null;
+            M iceP_v1 = default;
             istr.readValue((M v) => {iceP_v1 = v; });
             istr.readPendingValues();
             inS.endReadParams();
@@ -6960,8 +6903,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            F1 iceP_f11;
-            iceP_f11 = null;
+            F1 iceP_f11 = default;
             istr.readValue((F1 v) => {iceP_f11 = v; });
             istr.readPendingValues();
             inS.endReadParams();
@@ -6981,7 +6923,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            F2Prx iceP_f21;
+            F2Prx iceP_f21 = default;
             iceP_f21 = F2PrxHelper.read(istr);
             inS.endReadParams();
             F2Prx iceP_f22;
@@ -7012,8 +6954,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            F3 iceP_f31;
-            iceP_f31 = null;
+            F3 iceP_f31 = default;
             istr.readValue((F3 v) => {iceP_f31 = v; });
             istr.readPendingValues();
             inS.endReadParams();

@@ -360,7 +360,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_ms;
+            int iceP_ms = default;
             iceP_ms = istr.readInt();
             inS.endReadParams();
             obj.sleep(iceP_ms, current);

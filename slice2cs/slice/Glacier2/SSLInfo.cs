@@ -30,24 +30,24 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class SSLInfo : global::System.ICloneable
+    public sealed partial class SSLInfo : global::System.ICloneable, global::System.IEquatable<SSLInfo>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string remoteHost;
+        public string remoteHost = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int remotePort;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string localHost;
+        public string localHost = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int localPort;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string cipher;
+        public string cipher = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string[] certs;
@@ -61,9 +61,6 @@ namespace Glacier2
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SSLInfo()
         {
-            this.remoteHost = "";
-            this.localHost = "";
-            this.cipher = "";
             ice_initialize();
         }
 
@@ -84,10 +81,7 @@ namespace Glacier2
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -108,81 +102,79 @@ namespace Glacier2
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as SSLInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(SSLInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.remoteHost is null)
             {
-                return false;
-            }
-            SSLInfo o = (SSLInfo)other;
-            if(this.remoteHost == null)
-            {
-                if(o.remoteHost != null)
+                if (other.remoteHost is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.remoteHost.Equals(o.remoteHost))
+                if (!this.remoteHost.Equals(other.remoteHost))
                 {
                     return false;
                 }
             }
-            if(!this.remotePort.Equals(o.remotePort))
+            if (!this.remotePort.Equals(other.remotePort))
             {
                 return false;
             }
-            if(this.localHost == null)
+            if (this.localHost is null)
             {
-                if(o.localHost != null)
+                if (other.localHost is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.localHost.Equals(o.localHost))
+                if (!this.localHost.Equals(other.localHost))
                 {
                     return false;
                 }
             }
-            if(!this.localPort.Equals(o.localPort))
+            if (!this.localPort.Equals(other.localPort))
             {
                 return false;
             }
-            if(this.cipher == null)
+            if (this.cipher is null)
             {
-                if(o.cipher != null)
+                if (other.cipher is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.cipher.Equals(o.cipher))
+                if (!this.cipher.Equals(other.cipher))
                 {
                     return false;
                 }
             }
-            if(this.certs == null)
+            if (this.certs is null)
             {
-                if(o.certs != null)
+                if (other.certs is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.certs, o.certs))
+                if (!Ice.UtilInternal.Arrays.Equals(this.certs, other.certs))
                 {
                     return false;
                 }
@@ -197,13 +189,13 @@ namespace Glacier2
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(SSLInfo lhs, SSLInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(SSLInfo lhs, SSLInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -235,7 +227,7 @@ namespace Glacier2
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, SSLInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }

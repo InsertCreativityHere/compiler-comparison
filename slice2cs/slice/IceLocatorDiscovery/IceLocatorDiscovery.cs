@@ -615,7 +615,7 @@ namespace IceLocatorDiscovery
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.LocatorPrx iceP_prx;
+            global::Ice.LocatorPrx iceP_prx = default;
             iceP_prx = global::Ice.LocatorPrxHelper.read(istr);
             inS.endReadParams();
             obj.foundLocator(iceP_prx, current);
@@ -719,8 +719,8 @@ namespace IceLocatorDiscovery
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_instanceName;
-            LookupReplyPrx iceP_reply;
+            string iceP_instanceName = default;
+            LookupReplyPrx iceP_reply = default;
             iceP_instanceName = istr.readString();
             iceP_reply = LookupReplyPrxHelper.read(istr);
             inS.endReadParams();

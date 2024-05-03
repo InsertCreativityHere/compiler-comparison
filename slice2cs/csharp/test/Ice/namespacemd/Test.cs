@@ -329,7 +329,7 @@ namespace Ice.namespacemd
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::NoNamespace.C1 ret = null;
+                        global::NoNamespace.C1 ret = default;
                         istr.readValue((global::NoNamespace.C1 v) => {ret = v; });
                         istr.readPendingValues();
                         return ret;
@@ -362,7 +362,7 @@ namespace Ice.namespacemd
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::NoNamespace.C2 ret = null;
+                        global::NoNamespace.C2 ret = default;
                         istr.readValue((global::NoNamespace.C2 v) => {ret = v; });
                         istr.readPendingValues();
                         return ret;
@@ -515,7 +515,7 @@ namespace Ice.namespacemd
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Ice.namespacemd.WithNamespace.C1 ret = null;
+                        global::Ice.namespacemd.WithNamespace.C1 ret = default;
                         istr.readValue((global::Ice.namespacemd.WithNamespace.C1 v) => {ret = v; });
                         istr.readPendingValues();
                         return ret;
@@ -548,7 +548,7 @@ namespace Ice.namespacemd
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Ice.namespacemd.WithNamespace.C2 ret = null;
+                        global::Ice.namespacemd.WithNamespace.C2 ret = default;
                         istr.readValue((global::Ice.namespacemd.WithNamespace.C2 v) => {ret = v; });
                         istr.readPendingValues();
                         return ret;

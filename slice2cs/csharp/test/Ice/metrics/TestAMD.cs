@@ -599,7 +599,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -1119,7 +1119,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_bs;
+            byte[] iceP_bs = default;
             iceP_bs = ByteSeqHelper.read(istr);
             inS.endReadParams();
             return inS.setResultTask(obj.opByteSAsync(iceP_bs, current));

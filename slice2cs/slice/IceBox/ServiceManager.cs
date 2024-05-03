@@ -1104,7 +1104,7 @@ namespace IceBox
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_services;
+            string[] iceP_services = default;
             iceP_services = global::Ice.StringSeqHelper.read(istr);
             inS.endReadParams();
             obj.servicesStarted(iceP_services, current);
@@ -1117,7 +1117,7 @@ namespace IceBox
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_services;
+            string[] iceP_services = default;
             iceP_services = global::Ice.StringSeqHelper.read(istr);
             inS.endReadParams();
             obj.servicesStopped(iceP_services, current);
@@ -1232,7 +1232,7 @@ namespace IceBox
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_service;
+            string iceP_service = default;
             iceP_service = istr.readString();
             inS.endReadParams();
             obj.startService(iceP_service, current);
@@ -1245,7 +1245,7 @@ namespace IceBox
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_service;
+            string iceP_service = default;
             iceP_service = istr.readString();
             inS.endReadParams();
             obj.stopService(iceP_service, current);
@@ -1258,7 +1258,7 @@ namespace IceBox
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ServiceObserverPrx iceP_observer;
+            ServiceObserverPrx iceP_observer = default;
             iceP_observer = ServiceObserverPrxHelper.read(istr);
             inS.endReadParams();
             obj.addObserver(iceP_observer, current);

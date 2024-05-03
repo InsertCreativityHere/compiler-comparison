@@ -1098,7 +1098,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_seq;
+            byte[] iceP_seq = default;
             iceP_seq = global::Ice.ByteSeqHelper.read(istr);
             inS.endReadParams();
             obj.opWithPayload(iceP_seq, current);
@@ -1240,7 +1240,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_call;
+            string iceP_call = default;
             iceP_call = istr.readString();
             inS.endReadParams();
             obj.pauseCall(iceP_call, current);
@@ -1253,7 +1253,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_call;
+            string iceP_call = default;
             iceP_call = istr.readString();
             inS.endReadParams();
             obj.resumeCall(iceP_call, current);
@@ -1286,7 +1286,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool iceP_enable;
+            bool iceP_enable = default;
             iceP_enable = istr.readBool();
             inS.endReadParams();
             obj.initializeException(iceP_enable, current);
@@ -1299,7 +1299,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool iceP_enable;
+            bool iceP_enable = default;
             iceP_enable = istr.readBool();
             inS.endReadParams();
             obj.readReady(iceP_enable, current);
@@ -1312,7 +1312,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool iceP_enable;
+            bool iceP_enable = default;
             iceP_enable = istr.readBool();
             inS.endReadParams();
             obj.readException(iceP_enable, current);
@@ -1325,7 +1325,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool iceP_enable;
+            bool iceP_enable = default;
             iceP_enable = istr.readBool();
             inS.endReadParams();
             obj.writeReady(iceP_enable, current);
@@ -1338,7 +1338,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool iceP_enable;
+            bool iceP_enable = default;
             iceP_enable = istr.readBool();
             inS.endReadParams();
             obj.writeException(iceP_enable, current);
@@ -1351,7 +1351,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool iceP_enable;
+            bool iceP_enable = default;
             iceP_enable = istr.readBool();
             inS.endReadParams();
             obj.buffered(iceP_enable, current);

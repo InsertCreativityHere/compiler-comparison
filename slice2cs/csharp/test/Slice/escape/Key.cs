@@ -53,7 +53,7 @@ namespace @abstract
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct @break
+    public partial record struct @break
     {
         #region Slice data members
 
@@ -71,50 +71,6 @@ namespace @abstract
         {
             this.@readonly = @readonly;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::abstract::break");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, @readonly);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is @break))
-            {
-                return false;
-            }
-            @break o = (@break)other;
-            if(!this.@readonly.Equals(o.@readonly))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(@break lhs, @break rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(@break lhs, @break rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -296,19 +252,19 @@ namespace @abstract
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<@break> @for;
+        public global::Ice.Optional<@break> @for = new global::Ice.Optional<@break>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<@as> @goto;
+        public global::Ice.Optional<@as> @goto = new global::Ice.Optional<@as>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<explicitPrx> @if;
+        public global::Ice.Optional<explicitPrx> @if = new global::Ice.Optional<explicitPrx>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal;
+        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<string> @namespace;
+        public global::Ice.Optional<string> @namespace = new global::Ice.Optional<string>();
 
         #endregion
 
@@ -319,11 +275,6 @@ namespace @abstract
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public optionalMembers()
         {
-            this.@for = new global::Ice.Optional<@break>();
-            this.@goto = new global::Ice.Optional<@as>();
-            this.@if = new global::Ice.Optional<explicitPrx>();
-            this.@internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>();
-            this.@namespace = new global::Ice.Optional<string>();
             ice_initialize();
         }
 
@@ -391,7 +342,7 @@ namespace @abstract
             if(istr_.readOptional(1, global::Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
-                @break tmpVal = new @break();
+                @break tmpVal = default;
                 tmpVal.ice_readMembers(istr_);
                 @for = new global::Ice.Optional<@break>(tmpVal);
             }
@@ -477,20 +428,13 @@ namespace @abstract
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @fixed()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @fixed(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -567,20 +511,13 @@ namespace @abstract
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @foreach()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @foreach(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -701,20 +638,13 @@ namespace @abstract
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BaseMethods()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BaseMethods(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1142,7 +1072,7 @@ namespace @abstract
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int iceP_continue;
+                    int iceP_continue = default;
                     iceP_continue = istr.readInt();
                     return iceP_continue;
                 });
@@ -1572,7 +1502,7 @@ namespace @abstract
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int iceP_continue;
+                    int iceP_continue = default;
                     iceP_continue = istr.readInt();
                     return iceP_continue;
                 });
@@ -1747,10 +1677,9 @@ namespace @abstract
             global::System.Collections.Generic.Dictionary<string, @break> r = new global::System.Collections.Generic.Dictionary<string, @break>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                @break v;
-                v = new @break();
+                @break v = default;
                 v.ice_readMembers(istr);
                 r[k] = v;
             }
@@ -1876,11 +1805,11 @@ namespace @abstract
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Optional<@break> ret;
+                    global::Ice.Optional<@break> ret = default;
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        @break tmpVal = new @break();
+                        @break tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret = new global::Ice.Optional<@break>(tmpVal);
                     }
@@ -1938,11 +1867,11 @@ namespace @abstract
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Optional<@break> ret;
+                    global::Ice.Optional<@break> ret = default;
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        @break tmpVal = new @break();
+                        @break tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret = new global::Ice.Optional<@break>(tmpVal);
                     }
@@ -1984,7 +1913,7 @@ namespace @abstract
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        @break tmpVal = new @break();
+                        @break tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.returnValue = new global::Ice.Optional<@break>(tmpVal);
                     }
@@ -2059,7 +1988,7 @@ namespace @abstract
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
-                        @break tmpVal = new @break();
+                        @break tmpVal = default;
                         tmpVal.ice_readMembers(istr);
                         ret.returnValue = new global::Ice.Optional<@break>(tmpVal);
                     }
@@ -2327,7 +2256,7 @@ namespace @abstract
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    @as ret;
+                    @as ret = default;
                     ret = (@as)istr.readEnum(0);
                     return ret;
                 });
@@ -2912,7 +2841,7 @@ namespace @abstract
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_checked;
+            int iceP_checked = default;
             iceP_checked = istr.readInt();
             inS.endReadParams();
             return inS.setResultTask<int>(obj.catchAsync(iceP_checked, current),
@@ -3510,18 +3439,15 @@ namespace @abstract
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            @break iceP_internal;
-            iceP_internal = new @break();
-            @delegate iceP_is;
-            iceP_is = null;
-            explicitPrx iceP_lock;
-            casePrx iceP_namespace;
-            decimalPrx iceP_new;
-            @delegate iceP_null;
-            iceP_null = null;
-            int iceP_override;
-            int iceP_params;
-            int iceP_private;
+            @break iceP_internal = default;
+            @delegate iceP_is = default;
+            explicitPrx iceP_lock = default;
+            casePrx iceP_namespace = default;
+            decimalPrx iceP_new = default;
+            @delegate iceP_null = default;
+            int iceP_override = default;
+            int iceP_params = default;
+            int iceP_private = default;
             iceP_internal.ice_readMembers(istr);
             istr.readValue((@delegate v) => {iceP_is = v; });
             iceP_lock = explicitPrxHelper.read(istr);

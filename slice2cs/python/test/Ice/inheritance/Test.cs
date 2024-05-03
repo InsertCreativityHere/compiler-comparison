@@ -331,7 +331,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        IAPrx ret;
+                        IAPrx ret = default;
                         ret = IAPrxHelper.read(istr);
                         return ret;
                     });
@@ -548,7 +548,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Test.MA.IAPrx ret;
+                        global::Test.MA.IAPrx ret = default;
                         ret = global::Test.MA.IAPrxHelper.read(istr);
                         return ret;
                     });
@@ -584,7 +584,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        IB1Prx ret;
+                        IB1Prx ret = default;
                         ret = IB1PrxHelper.read(istr);
                         return ret;
                     });
@@ -799,7 +799,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Test.MA.IAPrx ret;
+                        global::Test.MA.IAPrx ret = default;
                         ret = global::Test.MA.IAPrxHelper.read(istr);
                         return ret;
                     });
@@ -835,7 +835,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        IB2Prx ret;
+                        IB2Prx ret = default;
                         ret = IB2PrxHelper.read(istr);
                         return ret;
                     });
@@ -1077,7 +1077,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        IAPrx ret;
+                        IAPrx ret = default;
                         ret = IAPrxHelper.read(istr);
                         return ret;
                     });
@@ -1113,7 +1113,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Test.MB.IB1Prx ret;
+                        global::Test.MB.IB1Prx ret = default;
                         ret = global::Test.MB.IB1PrxHelper.read(istr);
                         return ret;
                     });
@@ -1149,7 +1149,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Test.MB.IB2Prx ret;
+                        global::Test.MB.IB2Prx ret = default;
                         ret = global::Test.MB.IB2PrxHelper.read(istr);
                         return ret;
                     });
@@ -1185,7 +1185,7 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        ICPrx ret;
+                        ICPrx ret = default;
                         ret = ICPrxHelper.read(istr);
                         return ret;
                     });
@@ -1460,7 +1460,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test.MA.IAPrx ret;
+                    global::Test.MA.IAPrx ret = default;
                     ret = global::Test.MA.IAPrxHelper.read(istr);
                     return ret;
                 });
@@ -1492,7 +1492,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test.MB.IB1Prx ret;
+                    global::Test.MB.IB1Prx ret = default;
                     ret = global::Test.MB.IB1PrxHelper.read(istr);
                     return ret;
                 });
@@ -1524,7 +1524,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test.MB.IB2Prx ret;
+                    global::Test.MB.IB2Prx ret = default;
                     ret = global::Test.MB.IB2PrxHelper.read(istr);
                     return ret;
                 });
@@ -1556,7 +1556,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Test.MA.ICPrx ret;
+                    global::Test.MA.ICPrx ret = default;
                     ret = global::Test.MA.ICPrxHelper.read(istr);
                     return ret;
                 });
@@ -1755,7 +1755,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                IAPrx iceP_p;
+                IAPrx iceP_p = default;
                 iceP_p = IAPrxHelper.read(istr);
                 inS.endReadParams();
                 var ret = obj.iaop(iceP_p, current);
@@ -1872,7 +1872,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                IB1Prx iceP_p;
+                IB1Prx iceP_p = default;
                 iceP_p = IB1PrxHelper.read(istr);
                 inS.endReadParams();
                 var ret = obj.ib1op(iceP_p, current);
@@ -1991,7 +1991,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                IB2Prx iceP_p;
+                IB2Prx iceP_p = default;
                 iceP_p = IB2PrxHelper.read(istr);
                 inS.endReadParams();
                 var ret = obj.ib2op(iceP_p, current);
@@ -2119,7 +2119,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                ICPrx iceP_p;
+                ICPrx iceP_p = default;
                 iceP_p = ICPrxHelper.read(istr);
                 inS.endReadParams();
                 var ret = obj.icop(iceP_p, current);

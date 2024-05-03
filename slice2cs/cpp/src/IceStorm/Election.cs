@@ -30,7 +30,7 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class TopicContent : global::System.ICloneable
+    public sealed partial class TopicContent : global::System.ICloneable, global::System.IEquatable<TopicContent>
     {
         #region Slice data members
 
@@ -49,7 +49,7 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TopicContent()
         {
-            this.id = new global::Ice.Identity();
+            this.id = new();
             ice_initialize();
         }
 
@@ -66,10 +66,7 @@ namespace IceStormElection
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -86,45 +83,43 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as TopicContent);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(TopicContent other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.id is null)
             {
-                return false;
-            }
-            TopicContent o = (TopicContent)other;
-            if(this.id == null)
-            {
-                if(o.id != null)
+                if (other.id is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.id.Equals(o.id))
+                if (!this.id.Equals(other.id))
                 {
                     return false;
                 }
             }
-            if(this.records == null)
+            if (this.records is null)
             {
-                if(o.records != null)
+                if (other.records is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.records, o.records))
+                if (!Ice.UtilInternal.Arrays.Equals(this.records, other.records))
                 {
                     return false;
                 }
@@ -139,13 +134,13 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(TopicContent lhs, TopicContent rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(TopicContent lhs, TopicContent rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -169,7 +164,7 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, TopicContent v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -213,28 +208,20 @@ namespace IceStormElection
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string reason;
+        public string reason = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.reason = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObserverInconsistencyException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ObserverInconsistencyException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -370,7 +357,7 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class NodeInfo : global::System.ICloneable
+    public sealed partial class NodeInfo : global::System.ICloneable, global::System.IEquatable<NodeInfo>
     {
         #region Slice data members
 
@@ -405,10 +392,7 @@ namespace IceStormElection
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -425,35 +409,33 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as NodeInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(NodeInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (!this.id.Equals(other.id))
             {
                 return false;
             }
-            NodeInfo o = (NodeInfo)other;
-            if(!this.id.Equals(o.id))
+            if (this.n is null)
             {
-                return false;
-            }
-            if(this.n == null)
-            {
-                if(o.n != null)
+                if (other.n is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.n.Equals(o.n))
+                if (!this.n.Equals(other.n))
                 {
                     return false;
                 }
@@ -468,13 +450,13 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(NodeInfo lhs, NodeInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(NodeInfo lhs, NodeInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -498,7 +480,7 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, NodeInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -531,7 +513,7 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct GroupInfo
+    public partial record struct GroupInfo
     {
         #region Slice data members
 
@@ -553,55 +535,6 @@ namespace IceStormElection
             this.id = id;
             this.llu = llu;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStormElection::GroupInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, llu);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is GroupInfo))
-            {
-                return false;
-            }
-            GroupInfo o = (GroupInfo)other;
-            if(!this.id.Equals(o.id))
-            {
-                return false;
-            }
-            if(!this.llu.Equals(o.llu))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(GroupInfo lhs, GroupInfo rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(GroupInfo lhs, GroupInfo rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -649,7 +582,7 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class QueryInfo : global::System.ICloneable
+    public sealed partial class QueryInfo : global::System.ICloneable, global::System.IEquatable<QueryInfo>
     {
         #region Slice data members
 
@@ -660,7 +593,7 @@ namespace IceStormElection
         public int coord;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string group;
+        public string group = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.ObjectPrx replica;
@@ -683,7 +616,6 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public QueryInfo()
         {
-            this.group = "";
             ice_initialize();
         }
 
@@ -705,10 +637,7 @@ namespace IceStormElection
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -730,76 +659,74 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as QueryInfo);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(QueryInfo other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (!this.id.Equals(other.id))
             {
                 return false;
             }
-            QueryInfo o = (QueryInfo)other;
-            if(!this.id.Equals(o.id))
+            if (!this.coord.Equals(other.coord))
             {
                 return false;
             }
-            if(!this.coord.Equals(o.coord))
+            if (this.group is null)
             {
-                return false;
-            }
-            if(this.group == null)
-            {
-                if(o.group != null)
+                if (other.group is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.group.Equals(o.group))
+                if (!this.group.Equals(other.group))
                 {
                     return false;
                 }
             }
-            if(this.replica == null)
+            if (this.replica is null)
             {
-                if(o.replica != null)
+                if (other.replica is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.replica.Equals(o.replica))
+                if (!this.replica.Equals(other.replica))
                 {
                     return false;
                 }
             }
-            if(!this.state.Equals(o.state))
+            if (!this.state.Equals(other.state))
             {
                 return false;
             }
-            if(this.up == null)
+            if (this.up is null)
             {
-                if(o.up != null)
+                if (other.up is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.up, o.up))
+                if (!Ice.UtilInternal.Arrays.Equals(this.up, other.up))
                 {
                     return false;
                 }
             }
-            if(!this.max.Equals(o.max))
+            if (!this.max.Equals(other.max))
             {
                 return false;
             }
@@ -813,13 +740,13 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(QueryInfo lhs, QueryInfo rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(QueryInfo lhs, QueryInfo rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -853,7 +780,7 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, QueryInfo v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -2508,7 +2435,7 @@ namespace IceStormElection
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -2545,7 +2472,7 @@ namespace IceStormElection
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret;
+                    bool ret = default;
                     ret = istr.readBool();
                     return ret;
                 });
@@ -2577,7 +2504,7 @@ namespace IceStormElection
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -2609,7 +2536,7 @@ namespace IceStormElection
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    NodeInfo[] ret;
+                    NodeInfo[] ret = default;
                     ret = NodeInfoSeqHelper.read(istr);
                     return ret;
                 });
@@ -2641,7 +2568,7 @@ namespace IceStormElection
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    QueryInfo ret = null;
+                    QueryInfo ret = default;
                     ret = QueryInfo.ice_read(istr);
                     return ret;
                 });
@@ -2846,9 +2773,8 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogUpdate iceP_llu;
-            iceP_llu = new LogUpdate();
-            TopicContent[] iceP_content;
+            LogUpdate iceP_llu = default;
+            TopicContent[] iceP_content = default;
             iceP_llu.ice_readMembers(istr);
             iceP_content = TopicContentSeqHelper.read(istr);
             inS.endReadParams();
@@ -2862,9 +2788,8 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogUpdate iceP_llu;
-            iceP_llu = new LogUpdate();
-            string iceP_name;
+            LogUpdate iceP_llu = default;
+            string iceP_name = default;
             iceP_llu.ice_readMembers(istr);
             iceP_name = istr.readString();
             inS.endReadParams();
@@ -2878,9 +2803,8 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogUpdate iceP_llu;
-            iceP_llu = new LogUpdate();
-            string iceP_name;
+            LogUpdate iceP_llu = default;
+            string iceP_name = default;
             iceP_llu.ice_readMembers(istr);
             iceP_name = istr.readString();
             inS.endReadParams();
@@ -2894,11 +2818,9 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogUpdate iceP_llu;
-            iceP_llu = new LogUpdate();
-            string iceP_topic;
-            global::IceStorm.SubscriberRecord iceP_record;
-            iceP_record = null;
+            LogUpdate iceP_llu = default;
+            string iceP_topic = default;
+            global::IceStorm.SubscriberRecord iceP_record = default;
             iceP_llu.ice_readMembers(istr);
             iceP_topic = istr.readString();
             iceP_record = global::IceStorm.SubscriberRecord.ice_read(istr);
@@ -2913,10 +2835,9 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogUpdate iceP_llu;
-            iceP_llu = new LogUpdate();
-            string iceP_topic;
-            global::Ice.Identity[] iceP_subscribers;
+            LogUpdate iceP_llu = default;
+            string iceP_topic = default;
+            global::Ice.Identity[] iceP_subscribers = default;
             iceP_llu.ice_readMembers(istr);
             iceP_topic = istr.readString();
             iceP_subscribers = global::Ice.IdentitySeqHelper.read(istr);
@@ -3163,8 +3084,8 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_j;
-            string iceP_gn;
+            int iceP_j = default;
+            string iceP_gn = default;
             iceP_j = istr.readInt();
             iceP_gn = istr.readString();
             inS.endReadParams();
@@ -3178,11 +3099,11 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_j;
-            string iceP_gn;
-            global::Ice.ObjectPrx iceP_coordinator;
-            int iceP_max;
-            long iceP_generation;
+            int iceP_j = default;
+            string iceP_gn = default;
+            global::Ice.ObjectPrx iceP_coordinator = default;
+            int iceP_max = default;
+            long iceP_generation = default;
             iceP_j = istr.readInt();
             iceP_gn = istr.readString();
             iceP_coordinator = istr.readProxy();
@@ -3199,13 +3120,12 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_j;
-            string iceP_gn;
-            int[] iceP_forwardedInvites;
-            global::Ice.ObjectPrx iceP_observer;
-            LogUpdate iceP_llu;
-            iceP_llu = new LogUpdate();
-            int iceP_max;
+            int iceP_j = default;
+            string iceP_gn = default;
+            int[] iceP_forwardedInvites = default;
+            global::Ice.ObjectPrx iceP_observer = default;
+            LogUpdate iceP_llu = default;
+            int iceP_max = default;
             iceP_j = istr.readInt();
             iceP_gn = istr.readString();
             iceP_forwardedInvites = global::Ice.IntSeqHelper.read(istr);
@@ -3236,8 +3156,8 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_gn;
-            int iceP_j;
+            string iceP_gn = default;
+            int iceP_j = default;
             iceP_gn = istr.readString();
             iceP_j = istr.readInt();
             inS.endReadParams();

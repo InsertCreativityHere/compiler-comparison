@@ -36,25 +36,25 @@ namespace IceMX
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int forwardedClient;
+        public int forwardedClient = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int forwardedServer;
+        public int forwardedServer = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int routingTableSize;
+        public int routingTableSize = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int queuedClient;
+        public int queuedClient = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int queuedServer;
+        public int queuedServer = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int overriddenClient;
+        public int overriddenClient = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int overriddenServer;
+        public int overriddenServer = 0;
 
         #endregion
 
@@ -65,13 +65,6 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SessionMetrics() : base()
         {
-            this.forwardedClient = 0;
-            this.forwardedServer = 0;
-            this.routingTableSize = 0;
-            this.queuedClient = 0;
-            this.queuedServer = 0;
-            this.overriddenClient = 0;
-            this.overriddenServer = 0;
             ice_initialize();
         }
 

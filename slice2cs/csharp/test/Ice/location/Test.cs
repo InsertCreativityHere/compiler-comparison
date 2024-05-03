@@ -737,7 +737,7 @@ namespace Ice.location
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Ice.ObjectPrx ret;
+                        global::Ice.ObjectPrx ret = default;
                         ret = istr.readProxy();
                         return ret;
                     });
@@ -787,7 +787,7 @@ namespace Ice.location
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Ice.ObjectPrx ret;
+                        global::Ice.ObjectPrx ret = default;
                         ret = istr.readProxy();
                         return ret;
                     });
@@ -819,7 +819,7 @@ namespace Ice.location
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Ice.LocatorRegistryPrx ret;
+                        global::Ice.LocatorRegistryPrx ret = default;
                         ret = global::Ice.LocatorRegistryPrxHelper.read(istr);
                         return ret;
                     });
@@ -851,7 +851,7 @@ namespace Ice.location
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        int ret;
+                        int ret = default;
                         ret = istr.readInt();
                         return ret;
                     });
@@ -1530,7 +1530,7 @@ namespace Ice.location
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        HelloPrx ret;
+                        HelloPrx ret = default;
                         ret = HelloPrxHelper.read(istr);
                         return ret;
                     });
@@ -1562,7 +1562,7 @@ namespace Ice.location
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        HelloPrx ret;
+                        HelloPrx ret = default;
                         ret = HelloPrxHelper.read(istr);
                         return ret;
                     });
@@ -1798,7 +1798,7 @@ namespace Ice.location
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::Ice.ObjectPrx iceP_obj;
+                global::Ice.ObjectPrx iceP_obj = default;
                 iceP_obj = istr.readProxy();
                 inS.endReadParams();
                 obj.addObject(iceP_obj, current);
@@ -1881,11 +1881,11 @@ namespace Ice.location
 
             #region Inherited Slice operations
 
-            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current = null);
-
             public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findAdapterByIdAsync(string id, global::Ice.Current current = null);
 
             public abstract global::Ice.LocatorRegistryPrx getRegistry(global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current = null);
 
             #endregion
 

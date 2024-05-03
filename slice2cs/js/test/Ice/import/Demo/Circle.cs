@@ -32,7 +32,7 @@ namespace Demo
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial struct Circle
+        public partial record struct Circle
         {
             #region Slice data members
 
@@ -54,55 +54,6 @@ namespace Demo
                 this.center = center;
                 this.radius = radius;
                 ice_initialize();
-            }
-
-            #endregion
-
-            #region Object members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override int GetHashCode()
-            {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Demo::gx::Circle");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, center);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, radius);
-                return h_;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
-            {
-                if(!(other is Circle))
-                {
-                    return false;
-                }
-                Circle o = (Circle)other;
-                if(!this.center.Equals(o.center))
-                {
-                    return false;
-                }
-                if(!this.radius.Equals(o.radius))
-                {
-                    return false;
-                }
-                return true;
-            }
-
-            #endregion
-
-            #region Comparison members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(Circle lhs, Circle rhs)
-            {
-                return Equals(lhs, rhs);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(Circle lhs, Circle rhs)
-            {
-                return !Equals(lhs, rhs);
             }
 
             #endregion

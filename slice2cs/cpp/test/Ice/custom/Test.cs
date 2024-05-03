@@ -30,7 +30,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct @Fixed
+    public partial record struct @Fixed
     {
         #region Slice data members
 
@@ -48,50 +48,6 @@ namespace Test
         {
             this.s = s;
             ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Fixed");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is @Fixed))
-            {
-                return false;
-            }
-            @Fixed o = (@Fixed)other;
-            if(!this.s.Equals(o.s))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(@Fixed lhs, @Fixed rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(@Fixed lhs, @Fixed rhs)
-        {
-            return !Equals(lhs, rhs);
         }
 
         #endregion
@@ -137,12 +93,12 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class Variable : global::System.ICloneable
+    public sealed partial class Variable : global::System.ICloneable, global::System.IEquatable<Variable>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string s;
+        public string s = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool[] bl;
@@ -159,7 +115,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Variable()
         {
-            this.s = "";
             ice_initialize();
         }
 
@@ -177,10 +132,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -198,59 +150,57 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as Variable);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(Variable other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.s is null)
             {
-                return false;
-            }
-            Variable o = (Variable)other;
-            if(this.s == null)
-            {
-                if(o.s != null)
+                if (other.s is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.s.Equals(o.s))
+                if (!this.s.Equals(other.s))
                 {
                     return false;
                 }
             }
-            if(this.bl == null)
+            if (this.bl is null)
             {
-                if(o.bl != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.bl, o.bl))
-                {
-                    return false;
-                }
-            }
-            if(this.ss == null)
-            {
-                if(o.ss != null)
+                if (other.bl is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.ss, o.ss))
+                if (!Ice.UtilInternal.Arrays.Equals(this.bl, other.bl))
+                {
+                    return false;
+                }
+            }
+            if (this.ss is null)
+            {
+                if (other.ss is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.ss, other.ss))
                 {
                     return false;
                 }
@@ -265,13 +215,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(Variable lhs, Variable rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(Variable lhs, Variable rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -297,7 +247,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Variable v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -500,7 +450,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class BufferStruct : global::System.ICloneable
+    public sealed partial class BufferStruct : global::System.ICloneable, global::System.IEquatable<BufferStruct>
     {
         #region Slice data members
 
@@ -555,10 +505,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -580,115 +527,113 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as BufferStruct);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(BufferStruct other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.byteBuf is null)
             {
-                return false;
-            }
-            BufferStruct o = (BufferStruct)other;
-            if(this.byteBuf == null)
-            {
-                if(o.byteBuf != null)
+                if (other.byteBuf is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.byteBuf, o.byteBuf))
+                if (!Ice.UtilInternal.Arrays.Equals(this.byteBuf, other.byteBuf))
                 {
                     return false;
                 }
             }
-            if(this.boolBuf == null)
+            if (this.boolBuf is null)
             {
-                if(o.boolBuf != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.boolBuf, o.boolBuf))
-                {
-                    return false;
-                }
-            }
-            if(this.shortBuf == null)
-            {
-                if(o.shortBuf != null)
+                if (other.boolBuf is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.shortBuf, o.shortBuf))
+                if (!Ice.UtilInternal.Arrays.Equals(this.boolBuf, other.boolBuf))
                 {
                     return false;
                 }
             }
-            if(this.intBuf == null)
+            if (this.shortBuf is null)
             {
-                if(o.intBuf != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.intBuf, o.intBuf))
-                {
-                    return false;
-                }
-            }
-            if(this.longBuf == null)
-            {
-                if(o.longBuf != null)
+                if (other.shortBuf is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.longBuf, o.longBuf))
+                if (!Ice.UtilInternal.Arrays.Equals(this.shortBuf, other.shortBuf))
                 {
                     return false;
                 }
             }
-            if(this.floatBuf == null)
+            if (this.intBuf is null)
             {
-                if(o.floatBuf != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.floatBuf, o.floatBuf))
-                {
-                    return false;
-                }
-            }
-            if(this.doubleBuf == null)
-            {
-                if(o.doubleBuf != null)
+                if (other.intBuf is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.doubleBuf, o.doubleBuf))
+                if (!Ice.UtilInternal.Arrays.Equals(this.intBuf, other.intBuf))
+                {
+                    return false;
+                }
+            }
+            if (this.longBuf is null)
+            {
+                if (other.longBuf is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.longBuf, other.longBuf))
+                {
+                    return false;
+                }
+            }
+            if (this.floatBuf is null)
+            {
+                if (other.floatBuf is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.floatBuf, other.floatBuf))
+                {
+                    return false;
+                }
+            }
+            if (this.doubleBuf is null)
+            {
+                if (other.doubleBuf is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Ice.UtilInternal.Arrays.Equals(this.doubleBuf, other.doubleBuf))
                 {
                     return false;
                 }
@@ -703,13 +648,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(BufferStruct lhs, BufferStruct rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(BufferStruct lhs, BufferStruct rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -743,7 +688,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, BufferStruct v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -2287,9 +2232,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                string v;
+                string v = default;
                 v = istr.readString();
                 r[k] = v;
             }
@@ -3170,9 +3115,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, string> r = new global::System.Collections.Generic.Dictionary<int, string>();
             for(int i = 0; i < sz; ++i)
             {
-                int k;
+                int k = default;
                 k = istr.readInt();
-                string v;
+                string v = default;
                 v = istr.readString();
                 r[k] = v;
             }
@@ -3207,9 +3152,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<long, long> r = new global::System.Collections.Generic.Dictionary<long, long>();
             for(int i = 0; i < sz; ++i)
             {
-                long k;
+                long k = default;
                 k = istr.readLong();
-                long v;
+                long v = default;
                 v = istr.readLong();
                 r[k] = v;
             }
@@ -3244,9 +3189,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, int> r = new global::System.Collections.Generic.Dictionary<string, int>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                int v;
+                int v = default;
                 v = istr.readInt();
                 r[k] = v;
             }
@@ -4781,7 +4726,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    byte[] iceP_copy;
+                    byte[] iceP_copy = default;
                     iceP_copy = ByteSeqHelper.read(istr);
                     return iceP_copy;
                 });
@@ -4965,7 +4910,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    BufferStruct ret = null;
+                    BufferStruct ret = default;
                     ret = BufferStruct.ice_read(istr);
                     return ret;
                 });
@@ -5284,7 +5229,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            double[] iceP_inSeq;
+            double[] iceP_inSeq = default;
             iceP_inSeq = DoubleSeqHelper.read(istr);
             inS.endReadParams();
             double[] iceP_outSeq;
@@ -5302,7 +5247,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool[] iceP_inSeq;
+            bool[] iceP_inSeq = default;
             iceP_inSeq = BoolSeqHelper.read(istr);
             inS.endReadParams();
             bool[] iceP_outSeq;
@@ -5320,7 +5265,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_inSeq;
+            byte[] iceP_inSeq = default;
             iceP_inSeq = ByteListHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_outSeq;
@@ -5338,7 +5283,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            Variable[] iceP_inSeq;
+            Variable[] iceP_inSeq = default;
             iceP_inSeq = VariableListHelper.read(istr);
             inS.endReadParams();
             Variable[] iceP_outSeq;
@@ -5356,7 +5301,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool[] iceP_inSeq;
+            bool[] iceP_inSeq = default;
             iceP_inSeq = BoolSeqHelper.read(istr);
             inS.endReadParams();
             bool[] iceP_outSeq;
@@ -5374,7 +5319,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool[] iceP_inSeq;
+            bool[] iceP_inSeq = default;
             iceP_inSeq = BoolListHelper.read(istr);
             inS.endReadParams();
             bool[] iceP_outSeq;
@@ -5392,7 +5337,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool[][] iceP_inSeq;
+            bool[][] iceP_inSeq = default;
             iceP_inSeq = BoolDequeListHelper.read(istr);
             inS.endReadParams();
             bool[][] iceP_outSeq;
@@ -5410,7 +5355,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool[][] iceP_inSeq;
+            bool[][] iceP_inSeq = default;
             iceP_inSeq = BoolDequeListHelper.read(istr);
             inS.endReadParams();
             bool[][] iceP_outSeq;
@@ -5428,7 +5373,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_inSeq;
+            byte[] iceP_inSeq = default;
             iceP_inSeq = ByteSeqHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_outSeq;
@@ -5446,7 +5391,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_inSeq;
+            byte[] iceP_inSeq = default;
             iceP_inSeq = ByteListHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_outSeq;
@@ -5464,7 +5409,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_inSeq;
+            byte[] iceP_inSeq = default;
             iceP_inSeq = ByteSeqHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_outSeq;
@@ -5482,7 +5427,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_inSeq;
+            string[] iceP_inSeq = default;
             iceP_inSeq = StringSeqHelper.read(istr);
             inS.endReadParams();
             string[] iceP_outSeq;
@@ -5500,7 +5445,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_inSeq;
+            string[] iceP_inSeq = default;
             iceP_inSeq = StringListHelper.read(istr);
             inS.endReadParams();
             string[] iceP_outSeq;
@@ -5518,7 +5463,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            @Fixed[] iceP_inSeq;
+            @Fixed[] iceP_inSeq = default;
             iceP_inSeq = FixedSeqHelper.read(istr);
             inS.endReadParams();
             @Fixed[] iceP_outSeq;
@@ -5536,7 +5481,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            @Fixed[] iceP_inSeq;
+            @Fixed[] iceP_inSeq = default;
             iceP_inSeq = FixedListHelper.read(istr);
             inS.endReadParams();
             @Fixed[] iceP_outSeq;
@@ -5554,7 +5499,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            Variable[] iceP_inSeq;
+            Variable[] iceP_inSeq = default;
             iceP_inSeq = VariableSeqHelper.read(istr);
             inS.endReadParams();
             Variable[] iceP_outSeq;
@@ -5572,7 +5517,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            Variable[] iceP_inSeq;
+            Variable[] iceP_inSeq = default;
             iceP_inSeq = VariableListHelper.read(istr);
             inS.endReadParams();
             Variable[] iceP_outSeq;
@@ -5590,7 +5535,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, string>[] iceP_inSeq;
+            global::System.Collections.Generic.Dictionary<string, string>[] iceP_inSeq = default;
             iceP_inSeq = StringStringDictSeqHelper.read(istr);
             inS.endReadParams();
             global::System.Collections.Generic.Dictionary<string, string>[] iceP_outSeq;
@@ -5608,7 +5553,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, string>[] iceP_inSeq;
+            global::System.Collections.Generic.Dictionary<string, string>[] iceP_inSeq = default;
             iceP_inSeq = StringStringDictListHelper.read(istr);
             inS.endReadParams();
             global::System.Collections.Generic.Dictionary<string, string>[] iceP_outSeq;
@@ -5626,7 +5571,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            E[] iceP_inSeq;
+            E[] iceP_inSeq = default;
             iceP_inSeq = ESeqHelper.read(istr);
             inS.endReadParams();
             E[] iceP_outSeq;
@@ -5644,7 +5589,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            E[] iceP_inSeq;
+            E[] iceP_inSeq = default;
             iceP_inSeq = EListHelper.read(istr);
             inS.endReadParams();
             E[] iceP_outSeq;
@@ -5662,7 +5607,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            DPrx[] iceP_inSeq;
+            DPrx[] iceP_inSeq = default;
             iceP_inSeq = DPrxSeqHelper.read(istr);
             inS.endReadParams();
             DPrx[] iceP_outSeq;
@@ -5680,7 +5625,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            DPrx[] iceP_inSeq;
+            DPrx[] iceP_inSeq = default;
             iceP_inSeq = DPrxListHelper.read(istr);
             inS.endReadParams();
             DPrx[] iceP_outSeq;
@@ -5698,7 +5643,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            C[] iceP_inSeq;
+            C[] iceP_inSeq = default;
             iceP_inSeq = CSeqHelper.read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -5718,7 +5663,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            C[] iceP_inSeq;
+            C[] iceP_inSeq = default;
             iceP_inSeq = CListHelper.read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -5738,7 +5683,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_org;
+            byte[] iceP_org = default;
             iceP_org = ByteSeqHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_copy;
@@ -5755,7 +5700,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<int, string> iceP_idict;
+            global::System.Collections.Generic.Dictionary<int, string> iceP_idict = default;
             iceP_idict = IntStringDictHelper.read(istr);
             inS.endReadParams();
             global::System.Collections.Generic.Dictionary<int, string> iceP_odict;
@@ -5773,7 +5718,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, int> iceP_idict;
+            global::System.Collections.Generic.Dictionary<string, int> iceP_idict = default;
             iceP_idict = StringIntDictHelper.read(istr);
             inS.endReadParams();
             global::System.Collections.Generic.Dictionary<string, int> iceP_odict;
@@ -5791,7 +5736,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            short[] iceP_inS;
+            short[] iceP_inS = default;
             iceP_inS = ShortBufferHelper.read(istr);
             inS.endReadParams();
             short[] iceP_outS;
@@ -5809,7 +5754,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool[] iceP_inS;
+            bool[] iceP_inS = default;
             iceP_inS = BoolSeqHelper.read(istr);
             inS.endReadParams();
             bool[] iceP_outS;
@@ -5827,8 +5772,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            BufferStruct iceP_s;
-            iceP_s = null;
+            BufferStruct iceP_s = default;
             iceP_s = BufferStruct.ice_read(istr);
             inS.endReadParams();
             var ret = obj.opBufferStruct(iceP_s, current);

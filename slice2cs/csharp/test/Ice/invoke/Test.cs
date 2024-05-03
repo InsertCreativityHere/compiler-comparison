@@ -590,7 +590,7 @@ namespace Ice.invoke
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_s1;
+                string iceP_s1 = default;
                 iceP_s1 = istr.readString();
                 inS.endReadParams();
                 string iceP_s2;

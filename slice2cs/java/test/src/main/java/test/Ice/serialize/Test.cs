@@ -55,7 +55,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class Struct1 : global::System.ICloneable
+    public sealed partial class Struct1 : global::System.ICloneable, global::System.IEquatable<Struct1>
     {
         #region Slice data members
 
@@ -81,7 +81,7 @@ namespace Test
         public double d;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string str;
+        public string str = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MyEnum e;
@@ -98,7 +98,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Struct1()
         {
-            this.str = "";
             ice_initialize();
         }
 
@@ -123,10 +122,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -151,77 +147,75 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as Struct1);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(Struct1 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (!this.bo.Equals(other.bo))
             {
                 return false;
             }
-            Struct1 o = (Struct1)other;
-            if(!this.bo.Equals(o.bo))
+            if (!this.by.Equals(other.by))
             {
                 return false;
             }
-            if(!this.by.Equals(o.by))
+            if (!this.sh.Equals(other.sh))
             {
                 return false;
             }
-            if(!this.sh.Equals(o.sh))
+            if (!this.i.Equals(other.i))
             {
                 return false;
             }
-            if(!this.i.Equals(o.i))
+            if (!this.l.Equals(other.l))
             {
                 return false;
             }
-            if(!this.l.Equals(o.l))
+            if (!this.f.Equals(other.f))
             {
                 return false;
             }
-            if(!this.f.Equals(o.f))
+            if (!this.d.Equals(other.d))
             {
                 return false;
             }
-            if(!this.d.Equals(o.d))
+            if (this.str is null)
             {
-                return false;
-            }
-            if(this.str == null)
-            {
-                if(o.str != null)
+                if (other.str is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.str.Equals(o.str))
+                if (!this.str.Equals(other.str))
                 {
                     return false;
                 }
             }
-            if(!this.e.Equals(o.e))
+            if (!this.e.Equals(other.e))
             {
                 return false;
             }
-            if(this.p == null)
+            if (this.p is null)
             {
-                if(o.p != null)
+                if (other.p is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.p.Equals(o.p))
+                if (!this.p.Equals(other.p))
                 {
                     return false;
                 }
@@ -236,13 +230,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(Struct1 lhs, Struct1 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(Struct1 lhs, Struct1 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -282,7 +276,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Struct1 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -362,7 +356,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @Base()
         {
-            this.s = new Struct1();
+            this.s = new();
             ice_initialize();
         }
 
@@ -543,7 +537,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         private void _initDM()
         {
-            this.s = new Struct1();
+            this.s = new();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -816,9 +810,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<byte, bool> r = new global::System.Collections.Generic.Dictionary<byte, bool>();
             for(int i = 0; i < sz; ++i)
             {
-                byte k;
+                byte k = default;
                 k = istr.readByte();
-                bool v;
+                bool v = default;
                 v = istr.readBool();
                 r[k] = v;
             }
@@ -853,9 +847,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<short, int> r = new global::System.Collections.Generic.Dictionary<short, int>();
             for(int i = 0; i < sz; ++i)
             {
-                short k;
+                short k = default;
                 k = istr.readShort();
-                int v;
+                int v = default;
                 v = istr.readInt();
                 r[k] = v;
             }
@@ -890,9 +884,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, MyEnum> r = new global::System.Collections.Generic.Dictionary<string, MyEnum>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                MyEnum v;
+                MyEnum v = default;
                 v = (MyEnum)istr.readEnum(2);
                 r[k] = v;
             }
@@ -927,7 +921,7 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, @Base> r = new global::System.Collections.Generic.Dictionary<string, @Base>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
                 istr.readValue((@Base v) => { r[k] = v; });
             }
@@ -1023,7 +1017,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    byte[] ret;
+                    byte[] ret = default;
                     ret = ByteSHelper.read(istr);
                     return ret;
                 });
@@ -1055,7 +1049,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    byte[] ret;
+                    byte[] ret = default;
                     ret = ByteSHelper.read(istr);
                     return ret;
                 });
@@ -1087,7 +1081,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    byte[] ret;
+                    byte[] ret = default;
                     ret = ByteSHelper.read(istr);
                     return ret;
                 });

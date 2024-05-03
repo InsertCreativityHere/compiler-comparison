@@ -45,7 +45,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string sd3;
+        public string sd3 = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public B pd3;
@@ -59,7 +59,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D3() : base()
         {
-            this.sd3 = "";
             ice_initialize();
         }
 
@@ -127,7 +126,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string pu;
+        public string pu = "";
 
         #endregion
 
@@ -138,7 +137,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PCUnknown() : base()
         {
-            this.pu = "";
             ice_initialize();
         }
 

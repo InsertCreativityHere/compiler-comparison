@@ -278,7 +278,7 @@ namespace Ice.hold
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        int ret;
+                        int ret = default;
                         ret = istr.readInt();
                         return ret;
                     });
@@ -541,7 +541,7 @@ namespace Ice.hold
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_seconds;
+                int iceP_seconds = default;
                 iceP_seconds = istr.readInt();
                 inS.endReadParams();
                 obj.putOnHold(iceP_seconds, current);
@@ -564,8 +564,8 @@ namespace Ice.hold
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_value;
-                int iceP_delay;
+                int iceP_value = default;
+                int iceP_delay = default;
                 iceP_value = istr.readInt();
                 iceP_delay = istr.readInt();
                 inS.endReadParams();
@@ -582,8 +582,8 @@ namespace Ice.hold
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_value;
-                int iceP_expected;
+                int iceP_value = default;
+                int iceP_expected = default;
                 iceP_value = istr.readInt();
                 iceP_expected = istr.readInt();
                 inS.endReadParams();

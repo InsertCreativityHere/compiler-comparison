@@ -324,7 +324,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -360,7 +360,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -768,7 +768,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            TestIntfPrx iceP_proxy;
+            TestIntfPrx iceP_proxy = default;
             iceP_proxy = TestIntfPrxHelper.read(istr);
             inS.endReadParams();
             var ret = obj.callOpOn(iceP_proxy, current);
@@ -824,7 +824,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_ms;
+            int iceP_ms = default;
             iceP_ms = istr.readInt();
             inS.endReadParams();
             obj.sleep(iceP_ms, current);

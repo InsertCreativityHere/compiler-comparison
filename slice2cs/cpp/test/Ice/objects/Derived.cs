@@ -40,7 +40,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string b;
+        public string b = "";
 
         #endregion
 
@@ -51,7 +51,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Derived() : base()
         {
-            this.b = "";
             ice_initialize();
         }
 

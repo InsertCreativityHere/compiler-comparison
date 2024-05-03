@@ -30,15 +30,15 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class Identity : global::System.ICloneable
+    public sealed partial class Identity : global::System.ICloneable, global::System.IEquatable<Identity>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string name;
+        public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string category;
+        public string category = "";
 
         #endregion
 
@@ -49,8 +49,6 @@ namespace Ice
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Identity()
         {
-            this.name = "";
-            this.category = "";
             ice_initialize();
         }
 
@@ -67,10 +65,7 @@ namespace Ice
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -87,45 +82,43 @@ namespace Ice
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as Identity);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(Identity other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.name is null)
             {
-                return false;
-            }
-            Identity o = (Identity)other;
-            if(this.name == null)
-            {
-                if(o.name != null)
+                if (other.name is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.name.Equals(o.name))
+                if (!this.name.Equals(other.name))
                 {
                     return false;
                 }
             }
-            if(this.category == null)
+            if (this.category is null)
             {
-                if(o.category != null)
+                if (other.category is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.category.Equals(o.category))
+                if (!this.category.Equals(other.category))
                 {
                     return false;
                 }
@@ -140,13 +133,13 @@ namespace Ice
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(Identity lhs, Identity rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(Identity lhs, Identity rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -170,7 +163,7 @@ namespace Ice
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(OutputStream ostr, Identity v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }

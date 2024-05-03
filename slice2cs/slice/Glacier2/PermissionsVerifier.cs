@@ -41,28 +41,20 @@ namespace Glacier2
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string reason;
+        public string reason = "";
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.reason = "";
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PermissionDeniedException()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PermissionDeniedException(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -805,8 +797,8 @@ namespace Glacier2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_userId;
-            string iceP_password;
+            string iceP_userId = default;
+            string iceP_password = default;
             iceP_userId = istr.readString();
             iceP_password = istr.readString();
             inS.endReadParams();
@@ -917,8 +909,7 @@ namespace Glacier2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            SSLInfo iceP_info;
-            iceP_info = null;
+            SSLInfo iceP_info = default;
             iceP_info = SSLInfo.ice_read(istr);
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);

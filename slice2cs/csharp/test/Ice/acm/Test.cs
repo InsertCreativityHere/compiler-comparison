@@ -664,7 +664,7 @@ namespace Ice.acm
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        TestIntfPrx ret;
+                        TestIntfPrx ret = default;
                         ret = TestIntfPrxHelper.read(istr);
                         return ret;
                     });
@@ -955,7 +955,7 @@ namespace Ice.acm
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        RemoteObjectAdapterPrx ret;
+                        RemoteObjectAdapterPrx ret = default;
                         ret = RemoteObjectAdapterPrxHelper.read(istr);
                         return ret;
                     });
@@ -1188,7 +1188,7 @@ namespace Ice.acm
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_seconds;
+                int iceP_seconds = default;
                 iceP_seconds = istr.readInt();
                 inS.endReadParams();
                 obj.sleep(iceP_seconds, current);
@@ -1201,7 +1201,7 @@ namespace Ice.acm
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_seconds;
+                int iceP_seconds = default;
                 iceP_seconds = istr.readInt();
                 inS.endReadParams();
                 obj.sleepAndHold(iceP_seconds, current);
@@ -1234,7 +1234,7 @@ namespace Ice.acm
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_count;
+                int iceP_count = default;
                 iceP_count = istr.readInt();
                 inS.endReadParams();
                 obj.waitForHeartbeatCount(iceP_count, current);
@@ -1515,9 +1515,9 @@ namespace Ice.acm
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_acmTimeout;
-                int iceP_close;
-                int iceP_heartbeat;
+                int iceP_acmTimeout = default;
+                int iceP_close = default;
+                int iceP_heartbeat = default;
                 iceP_acmTimeout = istr.readInt();
                 iceP_close = istr.readInt();
                 iceP_heartbeat = istr.readInt();

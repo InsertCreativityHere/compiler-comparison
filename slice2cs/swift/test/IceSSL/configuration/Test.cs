@@ -388,9 +388,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                string v;
+                string v = default;
                 v = istr.readString();
                 r[k] = v;
             }
@@ -478,7 +478,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    ServerPrx ret;
+                    ServerPrx ret = default;
                     ret = ServerPrxHelper.read(istr);
                     return ret;
                 });
@@ -741,8 +741,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_subjectDN;
-            string iceP_issuerDN;
+            string iceP_subjectDN = default;
+            string iceP_issuerDN = default;
             iceP_subjectDN = istr.readString();
             iceP_issuerDN = istr.readString();
             inS.endReadParams();
@@ -856,7 +856,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, string> iceP_props;
+            global::System.Collections.Generic.Dictionary<string, string> iceP_props = default;
             iceP_props = PropertiesHelper.read(istr);
             inS.endReadParams();
             var ret = obj.createServer(iceP_props, current);
@@ -872,7 +872,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ServerPrx iceP_srv;
+            ServerPrx iceP_srv = default;
             iceP_srv = ServerPrxHelper.read(istr);
             inS.endReadParams();
             obj.destroyServer(iceP_srv, current);

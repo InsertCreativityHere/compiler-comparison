@@ -866,7 +866,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_dataIn;
+            byte[] iceP_dataIn = default;
             iceP_dataIn = ByteSeqHelper.read(istr);
             inS.endReadParams();
             return inS.setResultTask<TestIntf_OpByteSpanResult>(obj.opByteSpanAsync(iceP_dataIn, current),
@@ -883,7 +883,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            short[] iceP_dataIn;
+            short[] iceP_dataIn = default;
             iceP_dataIn = ShortSeqHelper.read(istr);
             inS.endReadParams();
             return inS.setResultTask<TestIntf_OpShortSpanResult>(obj.opShortSpanAsync(iceP_dataIn, current),
@@ -900,7 +900,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_dataIn;
+            string[] iceP_dataIn = default;
             iceP_dataIn = StringSeqHelper.read(istr);
             inS.endReadParams();
             return inS.setResultTask<TestIntf_OpStringSpanResult>(obj.opStringSpanAsync(iceP_dataIn, current),

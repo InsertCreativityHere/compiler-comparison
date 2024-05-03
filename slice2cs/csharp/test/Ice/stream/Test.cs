@@ -57,7 +57,7 @@ namespace Ice.stream
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class SmallStruct : global::System.ICloneable
+        public sealed partial class SmallStruct : global::System.ICloneable, global::System.IEquatable<SmallStruct>
         {
             #region Slice data members
 
@@ -83,7 +83,7 @@ namespace Ice.stream
             public double d;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public string str;
+            public string str = "";
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public MyEnum e;
@@ -100,7 +100,6 @@ namespace Ice.stream
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public SmallStruct()
             {
-                this.str = "";
                 ice_initialize();
             }
 
@@ -125,10 +124,7 @@ namespace Ice.stream
             #region ICloneable members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone()
-            {
-                return MemberwiseClone();
-            }
+            public object Clone() => MemberwiseClone();
 
             #endregion
 
@@ -153,77 +149,75 @@ namespace Ice.stream
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other)
+            public override bool Equals(object other) => Equals(other as SmallStruct);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bool Equals(SmallStruct other)
             {
-                if(object.ReferenceEquals(this, other))
+                if (object.ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if(other == null)
+                if (other is null)
                 {
                     return false;
                 }
-                if(GetType() != other.GetType())
+                if (!this.bo.Equals(other.bo))
                 {
                     return false;
                 }
-                SmallStruct o = (SmallStruct)other;
-                if(!this.bo.Equals(o.bo))
+                if (!this.by.Equals(other.by))
                 {
                     return false;
                 }
-                if(!this.by.Equals(o.by))
+                if (!this.sh.Equals(other.sh))
                 {
                     return false;
                 }
-                if(!this.sh.Equals(o.sh))
+                if (!this.i.Equals(other.i))
                 {
                     return false;
                 }
-                if(!this.i.Equals(o.i))
+                if (!this.l.Equals(other.l))
                 {
                     return false;
                 }
-                if(!this.l.Equals(o.l))
+                if (!this.f.Equals(other.f))
                 {
                     return false;
                 }
-                if(!this.f.Equals(o.f))
+                if (!this.d.Equals(other.d))
                 {
                     return false;
                 }
-                if(!this.d.Equals(o.d))
+                if (this.str is null)
                 {
-                    return false;
-                }
-                if(this.str == null)
-                {
-                    if(o.str != null)
+                    if (other.str is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!this.str.Equals(o.str))
+                    if (!this.str.Equals(other.str))
                     {
                         return false;
                     }
                 }
-                if(!this.e.Equals(o.e))
+                if (!this.e.Equals(other.e))
                 {
                     return false;
                 }
-                if(this.p == null)
+                if (this.p is null)
                 {
-                    if(o.p != null)
+                    if (other.p is not null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    if(!this.p.Equals(o.p))
+                    if (!this.p.Equals(other.p))
                     {
                         return false;
                     }
@@ -238,13 +232,13 @@ namespace Ice.stream
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator==(SmallStruct lhs, SmallStruct rhs)
             {
-                return Equals(lhs, rhs);
+                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static bool operator!=(SmallStruct lhs, SmallStruct rhs)
             {
-                return !Equals(lhs, rhs);
+                return !(lhs == rhs);
             }
 
             #endregion
@@ -284,7 +278,7 @@ namespace Ice.stream
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, SmallStruct v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     _nullMarshalValue.ice_writeMembers(ostr);
                 }
@@ -329,10 +323,10 @@ namespace Ice.stream
             public byte by;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<short> sh;
+            public global::Ice.Optional<short> sh = new global::Ice.Optional<short>();
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<int> i;
+            public global::Ice.Optional<int> i = new global::Ice.Optional<int>();
 
             #endregion
 
@@ -343,8 +337,6 @@ namespace Ice.stream
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public OptionalClass()
             {
-                this.sh = new global::Ice.Optional<short>();
-                this.i = new global::Ice.Optional<int>();
                 ice_initialize();
             }
 
@@ -466,7 +458,7 @@ namespace Ice.stream
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public MyClass()
             {
-                this.s = new SmallStruct();
+                this.s = new();
                 ice_initialize();
             }
 
@@ -1137,9 +1129,9 @@ namespace Ice.stream
                 global::System.Collections.Generic.Dictionary<byte, bool> r = new global::System.Collections.Generic.Dictionary<byte, bool>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    byte k;
+                    byte k = default;
                     k = istr.readByte();
-                    bool v;
+                    bool v = default;
                     v = istr.readBool();
                     r[k] = v;
                 }
@@ -1174,9 +1166,9 @@ namespace Ice.stream
                 global::System.Collections.Generic.Dictionary<short, int> r = new global::System.Collections.Generic.Dictionary<short, int>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    short k;
+                    short k = default;
                     k = istr.readShort();
-                    int v;
+                    int v = default;
                     v = istr.readInt();
                     r[k] = v;
                 }
@@ -1211,9 +1203,9 @@ namespace Ice.stream
                 global::System.Collections.Generic.Dictionary<long, float> r = new global::System.Collections.Generic.Dictionary<long, float>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    long k;
+                    long k = default;
                     k = istr.readLong();
-                    float v;
+                    float v = default;
                     v = istr.readFloat();
                     r[k] = v;
                 }
@@ -1248,9 +1240,9 @@ namespace Ice.stream
                 global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    string v;
+                    string v = default;
                     v = istr.readString();
                     r[k] = v;
                 }
@@ -1285,7 +1277,7 @@ namespace Ice.stream
                 global::System.Collections.Generic.Dictionary<string, MyClass> r = new global::System.Collections.Generic.Dictionary<string, MyClass>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
                     istr.readValue((MyClass v) => { r[k] = v; });
                 }
@@ -1907,9 +1899,9 @@ namespace Ice.stream
                 global::System.Collections.Generic.SortedDictionary<string, string> r = new global::System.Collections.Generic.SortedDictionary<string, string>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    string k;
+                    string k = default;
                     k = istr.readString();
-                    string v;
+                    string v = default;
                     v = istr.readString();
                     r[k] = v;
                 }

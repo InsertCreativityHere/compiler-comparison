@@ -54,7 +54,7 @@ namespace Clash
         public IntfPrx s;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string context;
+        public string context = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int current;
@@ -63,7 +63,7 @@ namespace Clash
         public short response;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string upCast;
+        public string upCast = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int typeId;
@@ -72,28 +72,28 @@ namespace Clash
         public short del;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<short> cookie;
+        public global::Ice.Optional<short> cookie = new global::Ice.Optional<short>();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string ex;
+        public string ex = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int result;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string istr;
+        public string istr = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string ostr;
+        public string ostr = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string inS;
+        public string inS = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string @in;
+        public string @in = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string proxy;
+        public string proxy = "";
 
         #endregion
 
@@ -104,15 +104,6 @@ namespace Clash
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Cls()
         {
-            this.context = "";
-            this.upCast = "";
-            this.cookie = new global::Ice.Optional<short>();
-            this.ex = "";
-            this.istr = "";
-            this.ostr = "";
-            this.inS = "";
-            this.@in = "";
-            this.proxy = "";
             ice_initialize();
         }
 
@@ -211,12 +202,12 @@ namespace Clash
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class St : global::System.ICloneable
+    public sealed partial class St : global::System.ICloneable, global::System.IEquatable<St>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string v;
+        public string v = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public short istr;
@@ -236,7 +227,6 @@ namespace Clash
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public St()
         {
-            this.v = "";
             ice_initialize();
         }
 
@@ -255,10 +245,7 @@ namespace Clash
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -277,44 +264,42 @@ namespace Clash
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as St);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(St other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.v is null)
             {
-                return false;
-            }
-            St o = (St)other;
-            if(this.v == null)
-            {
-                if(o.v != null)
+                if (other.v is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.v.Equals(o.v))
+                if (!this.v.Equals(other.v))
                 {
                     return false;
                 }
             }
-            if(!this.istr.Equals(o.istr))
+            if (!this.istr.Equals(other.istr))
             {
                 return false;
             }
-            if(!this.ostr.Equals(o.ostr))
+            if (!this.ostr.Equals(other.ostr))
             {
                 return false;
             }
-            if(!this.rhs.Equals(o.rhs))
+            if (!this.rhs.Equals(other.rhs))
             {
                 return false;
             }
@@ -328,13 +313,13 @@ namespace Clash
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(St lhs, St rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(St lhs, St rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -362,7 +347,7 @@ namespace Clash
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, St v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -412,20 +397,13 @@ namespace Clash
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Ex()
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Ex(global::System.Exception ex) : base(ex)
         {
-            _initDM();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1464,16 +1442,16 @@ namespace Clash
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_context;
-            string iceP_current;
-            string iceP_response;
-            string iceP_ex;
-            string iceP_sent;
-            string iceP_cookie;
-            string iceP_sync;
-            string iceP_result;
-            string iceP_istr;
-            string iceP_ostr;
+            string iceP_context = default;
+            string iceP_current = default;
+            string iceP_response = default;
+            string iceP_ex = default;
+            string iceP_sent = default;
+            string iceP_cookie = default;
+            string iceP_sync = default;
+            string iceP_result = default;
+            string iceP_istr = default;
+            string iceP_ostr = default;
             global::Ice.Optional<string> iceP_proxy;
             iceP_context = istr.readString();
             iceP_current = istr.readString();

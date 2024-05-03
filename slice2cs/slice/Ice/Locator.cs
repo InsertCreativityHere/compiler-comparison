@@ -805,7 +805,7 @@ namespace Ice
                 },
                 read: (InputStream istr) =>
                 {
-                    ObjectPrx ret;
+                    ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -855,7 +855,7 @@ namespace Ice
                 },
                 read: (InputStream istr) =>
                 {
-                    ObjectPrx ret;
+                    ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -887,7 +887,7 @@ namespace Ice
                 synchronous,
                 read: (InputStream istr) =>
                 {
-                    LocatorRegistryPrx ret;
+                    LocatorRegistryPrx ret = default;
                     ret = LocatorRegistryPrxHelper.read(istr);
                     return ret;
                 });
@@ -1423,7 +1423,7 @@ namespace Ice
                 synchronous,
                 read: (InputStream istr) =>
                 {
-                    LocatorPrx ret;
+                    LocatorPrx ret = default;
                     ret = LocatorPrxHelper.read(istr);
                     return ret;
                 });
@@ -1624,8 +1624,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            Identity iceP_id;
-            iceP_id = null;
+            Identity iceP_id = default;
             iceP_id = Identity.ice_read(istr);
             inS.endReadParams();
             return inS.setResultTask<ObjectPrx>(obj.findObjectByIdAsync(iceP_id, current),
@@ -1641,7 +1640,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
+            string iceP_id = default;
             iceP_id = istr.readString();
             inS.endReadParams();
             return inS.setResultTask<ObjectPrx>(obj.findAdapterByIdAsync(iceP_id, current),
@@ -1775,8 +1774,8 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
-            ObjectPrx iceP_proxy;
+            string iceP_id = default;
+            ObjectPrx iceP_proxy = default;
             iceP_id = istr.readString();
             iceP_proxy = istr.readProxy();
             inS.endReadParams();
@@ -1789,9 +1788,9 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_adapterId;
-            string iceP_replicaGroupId;
-            ObjectPrx iceP_proxy;
+            string iceP_adapterId = default;
+            string iceP_replicaGroupId = default;
+            ObjectPrx iceP_proxy = default;
             iceP_adapterId = istr.readString();
             iceP_replicaGroupId = istr.readString();
             iceP_proxy = istr.readProxy();
@@ -1805,8 +1804,8 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id;
-            ProcessPrx iceP_proxy;
+            string iceP_id = default;
+            ProcessPrx iceP_proxy = default;
             iceP_id = istr.readString();
             iceP_proxy = ProcessPrxHelper.read(istr);
             inS.endReadParams();

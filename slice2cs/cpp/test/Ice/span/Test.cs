@@ -866,7 +866,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_dataIn;
+            byte[] iceP_dataIn = default;
             iceP_dataIn = ByteSeqHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_dataOut;
@@ -884,7 +884,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            short[] iceP_dataIn;
+            short[] iceP_dataIn = default;
             iceP_dataIn = ShortSeqHelper.read(istr);
             inS.endReadParams();
             short[] iceP_dataOut;
@@ -902,7 +902,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_dataIn;
+            string[] iceP_dataIn = default;
             iceP_dataIn = StringSeqHelper.read(istr);
             inS.endReadParams();
             string[] iceP_dataOut;

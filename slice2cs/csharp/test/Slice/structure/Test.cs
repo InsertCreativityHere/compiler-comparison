@@ -103,12 +103,12 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class S1 : global::System.ICloneable
+    public sealed partial class S1 : global::System.ICloneable, global::System.IEquatable<S1>
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string name;
+        public string name = "";
 
         #endregion
 
@@ -119,7 +119,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1()
         {
-            this.name = "";
             ice_initialize();
         }
 
@@ -135,10 +134,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -154,31 +150,29 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as S1);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(S1 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (this.name is null)
             {
-                return false;
-            }
-            S1 o = (S1)other;
-            if(this.name == null)
-            {
-                if(o.name != null)
+                if (other.name is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.name.Equals(o.name))
+                if (!this.name.Equals(other.name))
                 {
                     return false;
                 }
@@ -193,13 +187,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(S1 lhs, S1 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(S1 lhs, S1 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -221,7 +215,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S1 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -254,7 +248,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class S2 : global::System.ICloneable
+    public sealed partial class S2 : global::System.ICloneable, global::System.IEquatable<S2>
     {
         #region Slice data members
 
@@ -280,7 +274,7 @@ namespace Test
         public double d;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string str;
+        public string str = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string[] ss;
@@ -309,8 +303,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S2()
         {
-            this.str = "";
-            this.s = new S1();
+            this.s = new();
             ice_initialize();
         }
 
@@ -339,10 +332,7 @@ namespace Test
         #region ICloneable members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
         #endregion
 
@@ -371,143 +361,141 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
+        public override bool Equals(object other) => Equals(other as S2);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public bool Equals(S2 other)
         {
-            if(object.ReferenceEquals(this, other))
+            if (object.ReferenceEquals(this, other))
             {
                 return true;
             }
-            if(other == null)
+            if (other is null)
             {
                 return false;
             }
-            if(GetType() != other.GetType())
+            if (!this.bo.Equals(other.bo))
             {
                 return false;
             }
-            S2 o = (S2)other;
-            if(!this.bo.Equals(o.bo))
+            if (!this.by.Equals(other.by))
             {
                 return false;
             }
-            if(!this.by.Equals(o.by))
+            if (!this.sh.Equals(other.sh))
             {
                 return false;
             }
-            if(!this.sh.Equals(o.sh))
+            if (!this.i.Equals(other.i))
             {
                 return false;
             }
-            if(!this.i.Equals(o.i))
+            if (!this.l.Equals(other.l))
             {
                 return false;
             }
-            if(!this.l.Equals(o.l))
+            if (!this.f.Equals(other.f))
             {
                 return false;
             }
-            if(!this.f.Equals(o.f))
+            if (!this.d.Equals(other.d))
             {
                 return false;
             }
-            if(!this.d.Equals(o.d))
+            if (this.str is null)
             {
-                return false;
-            }
-            if(this.str == null)
-            {
-                if(o.str != null)
+                if (other.str is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.str.Equals(o.str))
+                if (!this.str.Equals(other.str))
                 {
                     return false;
                 }
             }
-            if(this.ss == null)
+            if (this.ss is null)
             {
-                if(o.ss != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!Ice.UtilInternal.Arrays.Equals(this.ss, o.ss))
-                {
-                    return false;
-                }
-            }
-            if(this.il == null)
-            {
-                if(o.il != null)
+                if (other.ss is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!Ice.UtilInternal.Arrays.Equals(this.il, o.il))
+                if (!Ice.UtilInternal.Arrays.Equals(this.ss, other.ss))
                 {
                     return false;
                 }
             }
-            if(this.sd == null)
+            if (this.il is null)
             {
-                if(o.sd != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!global::Ice.UtilInternal.Collections.DictionaryEquals(this.sd, o.sd))
-                {
-                    return false;
-                }
-            }
-            if(this.s == null)
-            {
-                if(o.s != null)
+                if (other.il is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.s.Equals(o.s))
+                if (!Ice.UtilInternal.Arrays.Equals(this.il, other.il))
                 {
                     return false;
                 }
             }
-            if(this.cls == null)
+            if (this.sd is null)
             {
-                if(o.cls != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.cls.Equals(o.cls))
-                {
-                    return false;
-                }
-            }
-            if(this.prx == null)
-            {
-                if(o.prx != null)
+                if (other.sd is not null)
                 {
                     return false;
                 }
             }
             else
             {
-                if(!this.prx.Equals(o.prx))
+                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.sd, other.sd))
+                {
+                    return false;
+                }
+            }
+            if (this.s is null)
+            {
+                if (other.s is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.s.Equals(other.s))
+                {
+                    return false;
+                }
+            }
+            if (this.cls is null)
+            {
+                if (other.cls is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.cls.Equals(other.cls))
+                {
+                    return false;
+                }
+            }
+            if (this.prx is null)
+            {
+                if (other.prx is not null)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (!this.prx.Equals(other.prx))
                 {
                     return false;
                 }
@@ -522,13 +510,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator==(S2 lhs, S2 rhs)
         {
-            return Equals(lhs, rhs);
+            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static bool operator!=(S2 lhs, S2 rhs)
         {
-            return !Equals(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         #endregion
@@ -576,7 +564,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S2 v)
         {
-            if(v == null)
+            if (v is null)
             {
                 _nullMarshalValue.ice_writeMembers(ostr);
             }
@@ -661,9 +649,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
             for(int i = 0; i < sz; ++i)
             {
-                string k;
+                string k = default;
                 k = istr.readString();
-                string v;
+                string v = default;
                 v = istr.readString();
                 r[k] = v;
             }

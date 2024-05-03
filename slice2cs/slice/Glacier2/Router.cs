@@ -572,7 +572,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -608,7 +608,7 @@ namespace Glacier2
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx[] ret;
+                    global::Ice.ObjectPrx[] ret = default;
                     ret = global::Ice.ObjectProxySeqHelper.read(istr);
                     return ret;
                 });
@@ -640,7 +640,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret;
+                    string ret = default;
                     ret = istr.readString();
                     return ret;
                 });
@@ -695,7 +695,7 @@ namespace Glacier2
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SessionPrx ret;
+                    SessionPrx ret = default;
                     ret = SessionPrxHelper.read(istr);
                     return ret;
                 });
@@ -745,7 +745,7 @@ namespace Glacier2
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SessionPrx ret;
+                    SessionPrx ret = default;
                     ret = SessionPrxHelper.read(istr);
                     return ret;
                 });
@@ -857,7 +857,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    long ret;
+                    long ret = default;
                     ret = istr.readLong();
                     return ret;
                 });
@@ -889,7 +889,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret;
+                    int ret = default;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -1123,8 +1123,8 @@ namespace Glacier2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_userId;
-            string iceP_password;
+            string iceP_userId = default;
+            string iceP_password = default;
             iceP_userId = istr.readString();
             iceP_password = istr.readString();
             inS.endReadParams();

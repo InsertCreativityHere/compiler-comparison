@@ -36,10 +36,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int x;
+        public int x = 10;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int y;
+        public int y = 10;
 
         #endregion
 
@@ -50,8 +50,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @Default()
         {
-            this.x = 10;
-            this.y = 10;
             ice_initialize();
         }
 
@@ -196,10 +194,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string lang;
+        public string lang = "cs";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int version;
+        public int version = 30850;
 
         #endregion
 
@@ -210,8 +208,6 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CsOnly()
         {
-            this.lang = "cs";
-            this.version = 30850;
             ice_initialize();
         }
 

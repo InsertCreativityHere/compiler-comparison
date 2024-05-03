@@ -1094,7 +1094,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    HelloPrx ret;
+                    HelloPrx ret = default;
                     ret = HelloPrxHelper.read(istr);
                     return ret;
                 });
@@ -1327,7 +1327,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.ObjectPrx iceP_obj;
+            global::Ice.ObjectPrx iceP_obj = default;
             iceP_obj = istr.readProxy();
             inS.endReadParams();
             obj.addObject(iceP_obj, current);

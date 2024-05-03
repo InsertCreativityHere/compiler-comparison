@@ -451,7 +451,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -501,7 +501,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret;
+                    global::Ice.ObjectPrx ret = default;
                     ret = istr.readProxy();
                     return ret;
                 });
@@ -801,8 +801,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            iceP_id = null;
+            global::Ice.Identity iceP_id = default;
             iceP_id = global::Ice.Identity.ice_read(istr);
             inS.endReadParams();
             return inS.setResultTask<global::Ice.ObjectPrx>(obj.allocateObjectByIdAsync(iceP_id, current),
@@ -818,7 +817,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_type;
+            string iceP_type = default;
             iceP_type = istr.readString();
             inS.endReadParams();
             return inS.setResultTask<global::Ice.ObjectPrx>(obj.allocateObjectByTypeAsync(iceP_type, current),
@@ -834,8 +833,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            iceP_id = null;
+            global::Ice.Identity iceP_id = default;
             iceP_id = global::Ice.Identity.ice_read(istr);
             inS.endReadParams();
             obj.releaseObject(iceP_id, current);
@@ -848,7 +846,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            int iceP_timeout;
+            int iceP_timeout = default;
             iceP_timeout = istr.readInt();
             inS.endReadParams();
             obj.setAllocationTimeout(iceP_timeout, current);
