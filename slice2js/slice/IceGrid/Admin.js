@@ -389,39 +389,39 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
     ], true, ],
     "syncApplication": [, , , , , [[IceGrid.ApplicationDescriptor]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], true, ],
     "updateApplication": [, , , , , [[IceGrid.ApplicationUpdateDescriptor]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], true, ],
     "syncApplicationWithoutRestart": [, , , , , [[IceGrid.ApplicationDescriptor]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], true, ],
     "updateApplicationWithoutRestart": [, , , , , [[IceGrid.ApplicationUpdateDescriptor]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], true, ],
     "removeApplication": [, , , , , [[7]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], , ],
     "instantiateServer": [, , , , , [[7], [7], [IceGrid.ServerInstanceDescriptor]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], , ],
     "getApplicationInfo": [, 2, 2, , [IceGrid.ApplicationInfo], [[7]], ,
     [
