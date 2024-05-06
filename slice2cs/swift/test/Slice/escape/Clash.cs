@@ -72,7 +72,7 @@ namespace Clash
         public short del;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<short> cookie = new global::Ice.Optional<short>();
+        public short? cookie;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string ex = "";
@@ -108,7 +108,7 @@ namespace Clash
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Cls(IntfPrx s, string context, int current, short response, string upCast, int typeId, short del, global::Ice.Optional<short> cookie, string ex, int result, string istr, string ostr, string inS, string @in, string proxy)
+        public Cls(IntfPrx s, string context, int current, short response, string upCast, int typeId, short del, short? cookie, string ex, int result, string istr, string ostr, string inS, string @in, string proxy)
         {
             this.s = s;
             this.context = context;
@@ -461,14 +461,14 @@ namespace Clash
     public delegate void Callback_Intf_op();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_opOut(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, global::Ice.Optional<string> proxy);
+    public delegate void Callback_Intf_opOut(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy);
 }
 
 namespace Clash
 {
     public struct Intf_OpOutResult
     {
-        public Intf_OpOutResult(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, global::Ice.Optional<string> proxy)
+        public Intf_OpOutResult(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy)
         {
             this.context = context;
             this.current = current;
@@ -493,7 +493,7 @@ namespace Clash
         public string result;
         public string istr;
         public string ostr;
-        public global::Ice.Optional<string> proxy;
+        public string proxy;
     }
 }
 
@@ -542,11 +542,11 @@ namespace Clash
 
         global::System.Threading.Tasks.Task istrAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, global::Ice.Optional<string> proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext());
+        void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task opAsync(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, global::Ice.Optional<string> proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task opAsync(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out global::Ice.Optional<string> proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext());
+        void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<Intf_OpOutResult> opOutAsync(global::Ice.OptionalContext context_ = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
     }
@@ -588,10 +588,10 @@ namespace Clash
         void istr(global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, global::Ice.Optional<string> proxy, global::Ice.Current current_ = null);
+        void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::Ice.Current current_ = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out global::Ice.Optional<string> proxy, global::Ice.Current current_ = null);
+        void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string proxy, global::Ice.Current current_ = null);
     }
 }
 
@@ -727,7 +727,7 @@ namespace Clash
             }
         }
 
-        public void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, global::Ice.Optional<string> proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext())
+        public void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext())
         {
             try
             {
@@ -739,7 +739,7 @@ namespace Clash
             }
         }
 
-        public void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out global::Ice.Optional<string> proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext())
+        public void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext())
         {
             try
             {
@@ -1016,12 +1016,12 @@ namespace Clash
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task opAsync(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, global::Ice.Optional<string> proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opAsync(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opAsync(context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, context_, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opAsync(string iceP_context, string iceP_current, string iceP_response, string iceP_ex, string iceP_sent, string iceP_cookie, string iceP_sync, string iceP_result, string iceP_istr, string iceP_ostr, global::Ice.Optional<string> iceP_proxy, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opAsync(string iceP_context, string iceP_current, string iceP_response, string iceP_ex, string iceP_sent, string iceP_cookie, string iceP_sync, string iceP_result, string iceP_istr, string iceP_ostr, string iceP_proxy, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_op(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, context, synchronous, completed);
@@ -1030,7 +1030,7 @@ namespace Clash
 
         private const string _op_name = "op";
 
-        private void _iceI_op(string iceP_context, string iceP_current, string iceP_response, string iceP_ex, string iceP_sent, string iceP_cookie, string iceP_sync, string iceP_result, string iceP_istr, string iceP_ostr, global::Ice.Optional<string> iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_op(string iceP_context, string iceP_current, string iceP_response, string iceP_ex, string iceP_sent, string iceP_cookie, string iceP_sync, string iceP_result, string iceP_istr, string iceP_ostr, string iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1266,9 +1266,9 @@ namespace Clash
 
         public abstract void istr(global::Ice.Current current = null);
 
-        public abstract void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, global::Ice.Optional<string> proxy, global::Ice.Current current_ = null);
+        public abstract void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::Ice.Current current_ = null);
 
-        public abstract void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out global::Ice.Optional<string> proxy, global::Ice.Current current_ = null);
+        public abstract void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string proxy, global::Ice.Current current_ = null);
 
         #endregion
 
@@ -1420,7 +1420,7 @@ namespace Clash
             string iceP_result = default;
             string iceP_istr = default;
             string iceP_ostr = default;
-            global::Ice.Optional<string> iceP_proxy;
+            string iceP_proxy;
             iceP_context = istr.readString();
             iceP_current = istr.readString();
             iceP_response = istr.readString();
@@ -1453,7 +1453,7 @@ namespace Clash
             string iceP_result;
             string iceP_istr;
             string iceP_ostr;
-            global::Ice.Optional<string> iceP_proxy;
+            string iceP_proxy;
             obj.opOut(out iceP_context, out iceP_current, out iceP_response, out iceP_ex, out iceP_sent, out iceP_cookie, out iceP_sync, out iceP_result, out iceP_istr, out iceP_ostr, out iceP_proxy, current);
             var ostr = inS.startWriteParams();
             ostr.writeString(iceP_context);

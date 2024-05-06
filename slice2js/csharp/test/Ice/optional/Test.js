@@ -189,7 +189,7 @@
 
     Test.MultiOptional = class extends Ice.Value
     {
-        constructor(a = undefined, b = undefined, c = undefined, d = undefined, e = undefined, f = undefined, g = undefined, h = undefined, i = undefined, j = undefined, bs = undefined, ss = undefined, iid = undefined, sid = undefined, fs = undefined, vs = undefined, shs = undefined, es = undefined, fss = undefined, vss = undefined, oos = undefined, mips = undefined, ied = undefined, ifsd = undefined, ivsd = undefined, iood = undefined, imipd = undefined, bos = undefined)
+        constructor(a = undefined, b = undefined, c = undefined, d = undefined, e = undefined, f = undefined, g = undefined, h = undefined, i = undefined, j = undefined, bs = undefined, ss = undefined, iid = undefined, sid = undefined, fs = undefined, vs = undefined, shs = undefined, es = undefined, fss = undefined, vss = undefined, mips = undefined, ied = undefined, ifsd = undefined, ivsd = undefined, imipd = undefined, bos = undefined)
         {
             super();
             this.a = a;
@@ -212,12 +212,10 @@
             this.es = es;
             this.fss = fss;
             this.vss = vss;
-            this.oos = oos;
             this.mips = mips;
             this.ied = ied;
             this.ifsd = ifsd;
             this.ivsd = ivsd;
-            this.iood = iood;
             this.imipd = imipd;
             this.bos = bos;
         }
@@ -244,12 +242,10 @@
             Test.MyEnumSeqHelper.writeOptional(ostr, 19, this.es);
             Test.FixedStructSeqHelper.writeOptional(ostr, 20, this.fss);
             Test.VarStructSeqHelper.writeOptional(ostr, 21, this.vss);
-            Test.OneOptionalSeqHelper.writeOptional(ostr, 22, this.oos);
             Test.MyInterfacePrxSeqHelper.writeOptional(ostr, 23, this.mips);
             Test.IntEnumDictHelper.writeOptional(ostr, 24, this.ied);
             Test.IntFixedStructDictHelper.writeOptional(ostr, 25, this.ifsd);
             Test.IntVarStructDictHelper.writeOptional(ostr, 26, this.ivsd);
-            Test.IntOneOptionalDictHelper.writeOptional(ostr, 27, this.iood);
             Test.IntMyInterfacePrxDictHelper.writeOptional(ostr, 28, this.imipd);
             Test.BoolSeqHelper.writeOptional(ostr, 29, this.bos);
         }
@@ -276,12 +272,10 @@
             this.es = Test.MyEnumSeqHelper.readOptional(istr, 19);
             this.fss = Test.FixedStructSeqHelper.readOptional(istr, 20);
             this.vss = Test.VarStructSeqHelper.readOptional(istr, 21);
-            this.oos = Test.OneOptionalSeqHelper.readOptional(istr, 22);
             this.mips = Test.MyInterfacePrxSeqHelper.readOptional(istr, 23);
             this.ied = Test.IntEnumDictHelper.readOptional(istr, 24);
             this.ifsd = Test.IntFixedStructDictHelper.readOptional(istr, 25);
             this.ivsd = Test.IntVarStructDictHelper.readOptional(istr, 26);
-            this.iood = Test.IntOneOptionalDictHelper.readOptional(istr, 27);
             this.imipd = Test.IntMyInterfacePrxDictHelper.readOptional(istr, 28);
             this.bos = Test.BoolSeqHelper.readOptional(istr, 29);
         }
@@ -393,13 +387,12 @@
 
     Test.OptionalException = class extends Ice.UserException
     {
-        constructor(req = false, a = 5, b = undefined, o = undefined, _cause = "")
+        constructor(req = false, a = 5, b = undefined, _cause = "")
         {
             super(_cause);
             this.req = req;
             this.a = a;
             this.b = b;
-            this.o = o;
         }
 
         static get _parent()
@@ -422,7 +415,6 @@
             ostr.writeBool(this.req);
             Ice.IntHelper.writeOptional(ostr, 1, this.a);
             Ice.StringHelper.writeOptional(ostr, 2, this.b);
-            ostr.writeOptionalValue(50, this.o);
         }
 
         _readMemberImpl(istr)
@@ -430,18 +422,16 @@
             this.req = istr.readBool();
             this.a = Ice.IntHelper.readOptional(istr, 1);
             this.b = Ice.StringHelper.readOptional(istr, 2);
-            istr.readOptionalValue(50, obj => this.o = obj, Test.OneOptional);
         }
     };
 
     Test.DerivedException = class extends Test.OptionalException
     {
-        constructor(req, a, b, o, d1 = "", ss = "test", o2 = undefined, d2 = "", _cause = "")
+        constructor(req, a, b, d1 = "", ss = "test", d2 = "", _cause = "")
         {
-            super(req, a, b, o, _cause);
+            super(req, a, b, _cause);
             this.d1 = d1;
             this.ss = ss;
-            this.o2 = o2;
             this.d2 = d2;
         }
 
@@ -465,7 +455,6 @@
             ostr.writeString(this.d1);
             ostr.writeString(this.d2);
             Ice.StringHelper.writeOptional(ostr, 600, this.ss);
-            ostr.writeOptionalValue(601, this.o2);
         }
 
         _readMemberImpl(istr)
@@ -473,17 +462,15 @@
             this.d1 = istr.readString();
             this.d2 = istr.readString();
             this.ss = Ice.StringHelper.readOptional(istr, 600);
-            istr.readOptionalValue(601, obj => this.o2 = obj, Test.OneOptional);
         }
     };
 
     Test.RequiredException = class extends Test.OptionalException
     {
-        constructor(req, a, b, o, ss = "test", o2 = null, _cause = "")
+        constructor(req, a, b, ss = "test", _cause = "")
         {
-            super(req, a, b, o, _cause);
+            super(req, a, b, _cause);
             this.ss = ss;
-            this.o2 = o2;
         }
 
         static get _parent()
@@ -504,18 +491,11 @@
         _writeMemberImpl(ostr)
         {
             ostr.writeString(this.ss);
-            ostr.writeValue(this.o2);
         }
 
         _readMemberImpl(istr)
         {
             this.ss = istr.readString();
-            istr.readValue(obj => this.o2 = obj, Test.OneOptional);
-        }
-
-        _usesClasses()
-        {
-            return true;
         }
     };
 
@@ -682,15 +662,15 @@
     {
         "shutdown": [, , , , , , , , , ],
         "pingPong": [, , , , [8, true], [[8, true]], , , true, true],
-        "opOptionalException": [, , , , , [[3, , 1], [7, , 2], ["Test.OneOptional", true, 3]], ,
+        "opOptionalException": [, , , , , [[3, , 1], [7, , 2]], ,
         [
             Test.OptionalException
         ], , ],
-        "opDerivedException": [, , , , , [[3, , 1], [7, , 2], ["Test.OneOptional", true, 3]], ,
+        "opDerivedException": [, , , , , [[3, , 1], [7, , 2]], ,
         [
             Test.OptionalException
         ], , ],
-        "opRequiredException": [, , , , , [[3, , 1], [7, , 2], ["Test.OneOptional", true, 3]], ,
+        "opRequiredException": [, , , , , [[3, , 1], [7, , 2]], ,
         [
             Test.OptionalException
         ], , ],
@@ -706,7 +686,6 @@
         "opSmallStruct": [, , , , [Test.SmallStruct, , 1], [[Test.SmallStruct, , 2]], [[Test.SmallStruct, , 3]], , , ],
         "opFixedStruct": [, , , , [Test.FixedStruct, , 1], [[Test.FixedStruct, , 2]], [[Test.FixedStruct, , 3]], , , ],
         "opVarStruct": [, , , , [Test.VarStruct, , 1], [[Test.VarStruct, , 2]], [[Test.VarStruct, , 3]], , , ],
-        "opOneOptional": [, , , , ["Test.OneOptional", true, 1], [["Test.OneOptional", true, 2]], [["Test.OneOptional", true, 3]], , , ],
         "opMyInterfaceProxy": [, , , , ["Test.MyInterfacePrx", , 1], [["Test.MyInterfacePrx", , 2]], [["Test.MyInterfacePrx", , 3]], , , ],
         "opByteSeq": [, , , , ["Test.ByteSeqHelper", , 1], [["Test.ByteSeqHelper", , 2]], [["Test.ByteSeqHelper", , 3]], , , ],
         "opBoolSeq": [, , , , ["Test.BoolSeqHelper", , 1], [["Test.BoolSeqHelper", , 2]], [["Test.BoolSeqHelper", , 3]], , , ],
@@ -723,7 +702,6 @@
         "opVarStructSeq": [, , , , ["Test.VarStructSeqHelper", , 1], [["Test.VarStructSeqHelper", , 2]], [["Test.VarStructSeqHelper", , 3]], , , ],
         "opIntIntDict": [, , , , ["Test.IntIntDictHelper", , 1], [["Test.IntIntDictHelper", , 2]], [["Test.IntIntDictHelper", , 3]], , , ],
         "opStringIntDict": [, , , , ["Test.StringIntDictHelper", , 1], [["Test.StringIntDictHelper", , 2]], [["Test.StringIntDictHelper", , 3]], , , ],
-        "opIntOneOptionalDict": [, , , , ["Test.IntOneOptionalDictHelper", , 1], [["Test.IntOneOptionalDictHelper", , 2]], [["Test.IntOneOptionalDictHelper", , 3]], , , ],
         "opClassAndUnknownOptional": [, , , , , [["Test.A", true]], , , true, ],
         "opG": [, , , , ["Test.G", true], [["Test.G", true]], , , true, true],
         "opVoid": [, , , , , , , , , ],
@@ -733,8 +711,6 @@
         "opMSeq2": [, , , , ["Test.StringSeqHelper", , 1], [["Test.StringSeqHelper", , 2]], [["Test.StringSeqHelper", , 3]], , , ],
         "opMDict1": [, , , , ["Test.StringIntDictHelper", , 1], , , , , ],
         "opMDict2": [, , , , ["Test.StringIntDictHelper", , 1], [["Test.StringIntDictHelper", , 2]], [["Test.StringIntDictHelper", , 3]], , , ],
-        "opMG1": [, , , , ["Test.G", true, 1], , , , , ],
-        "opMG2": [, , , , ["Test.G", true, 1], [["Test.G", true, 2]], [["Test.G", true, 3]], , , ],
         "supportsRequiredParams": [, , , , [1], , , , , ],
         "supportsJavaSerializable": [, , , , [1], , , , , ],
         "supportsNullOptional": [, , , , [1], , , , , ]

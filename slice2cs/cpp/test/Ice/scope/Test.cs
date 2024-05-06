@@ -1695,7 +1695,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, S[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1764,7 +1764,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, C[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2484,7 +2484,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, IPrx[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2559,7 +2559,7 @@ namespace Test
             {
                 public static void write(global::Ice.OutputStream ostr, S[] v)
                 {
-                    if(v == null)
+                    if (v is null)
                     {
                         ostr.writeSize(0);
                     }
@@ -2628,7 +2628,7 @@ namespace Test
             {
                 public static void write(global::Ice.OutputStream ostr, C[] v)
                 {
-                    if(v == null)
+                    if (v is null)
                     {
                         ostr.writeSize(0);
                     }
@@ -3202,7 +3202,7 @@ namespace Test
             {
                 public static void write(global::Ice.OutputStream ostr, IPrx[] v)
                 {
-                    if(v == null)
+                    if (v is null)
                     {
                         ostr.writeSize(0);
                     }
@@ -3237,7 +3237,7 @@ namespace Test
         {
             public static void write(global::Ice.OutputStream ostr, global::Test.Inner.Inner2.S[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3343,7 +3343,7 @@ namespace Test
         {
             public static void write(global::Ice.OutputStream ostr, global::Test.Inner.Inner2.C[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3917,7 +3917,7 @@ namespace Test
         {
             public static void write(global::Ice.OutputStream ostr, IPrx[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }

@@ -1206,7 +1206,7 @@ namespace @abstract
     {
         public static void write(global::Ice.OutputStream ostr, assert[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

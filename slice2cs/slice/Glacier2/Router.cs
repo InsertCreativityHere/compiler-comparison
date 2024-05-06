@@ -384,7 +384,7 @@ namespace Glacier2
 
         #region Synchronous operations
 
-        public global::Ice.ObjectPrx getClientProxy(out global::Ice.Optional<bool> hasRoutingTable, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.ObjectPrx getClientProxy(out bool? hasRoutingTable, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -1063,7 +1063,7 @@ namespace Glacier2
 
         #region Inherited Slice operations
 
-        public abstract global::Ice.ObjectPrx getClientProxy(out global::Ice.Optional<bool> hasRoutingTable, global::Ice.Current current = null);
+        public abstract global::Ice.ObjectPrx getClientProxy(out bool? hasRoutingTable, global::Ice.Current current = null);
 
         public abstract global::Ice.ObjectPrx getServerProxy(global::Ice.Current current = null);
 

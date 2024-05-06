@@ -5353,7 +5353,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, ObjectInfo[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -5388,7 +5388,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, AdapterInfo[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -5423,7 +5423,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, RegistryInfo[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -5458,7 +5458,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, ApplicationInfo[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -8613,7 +8613,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, ServerDynamicInfo[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -8648,7 +8648,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, AdapterDynamicInfo[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -8960,7 +8960,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, NodeDynamicInfo[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

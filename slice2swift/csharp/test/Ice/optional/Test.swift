@@ -1318,15 +1318,13 @@ open class OptionalException: Ice.UserException {
     public var req: Swift.Bool = false
     public var a: Swift.Int32? = 5
     public var b: Swift.String? = nil
-    public var o: OneOptional? = nil
 
     public required init() {}
 
-    public init(req: Swift.Bool, a: Swift.Int32?, b: Swift.String?, o: OneOptional?) {
+    public init(req: Swift.Bool, a: Swift.Int32?, b: Swift.String?) {
         self.req = req
         self.a = a
         self.b = b
-        self.o = o
     }
 
     /// Returns the Slice type ID of this exception.
@@ -1341,7 +1339,6 @@ open class OptionalException: Ice.UserException {
         ostr.write(self.req)
         ostr.write(tag: 1, value: self.a)
         ostr.write(tag: 2, value: self.b)
-        ostr.write(tag: 50, value: self.o)
         ostr.endSlice()
     }
 
@@ -1350,7 +1347,6 @@ open class OptionalException: Ice.UserException {
         self.req = try istr.read()
         self.a = try istr.read(tag: 1)
         self.b = try istr.read(tag: 2)
-        try istr.read(tag: 50, value: OneOptional.self) { self.o = $0 }
         try istr.endSlice()
     }
 }
@@ -1371,19 +1367,17 @@ public extension Ice.ClassResolver {
 open class DerivedException: OptionalException {
     public var d1: Swift.String = ""
     public var ss: Swift.String? = "test"
-    public var o2: OneOptional? = nil
     public var d2: Swift.String = ""
 
     public required init() {
         super.init()
     }
 
-    public init(req: Swift.Bool, a: Swift.Int32?, b: Swift.String?, o: OneOptional?, d1: Swift.String, ss: Swift.String?, o2: OneOptional?, d2: Swift.String) {
+    public init(req: Swift.Bool, a: Swift.Int32?, b: Swift.String?, d1: Swift.String, ss: Swift.String?, d2: Swift.String) {
         self.d1 = d1
         self.ss = ss
-        self.o2 = o2
         self.d2 = d2
-        super.init(req: req, a: a, b: b, o: o)
+        super.init(req: req, a: a, b: b)
     }
 
     /// Returns the Slice type ID of this exception.
@@ -1398,7 +1392,6 @@ open class DerivedException: OptionalException {
         ostr.write(self.d1)
         ostr.write(self.d2)
         ostr.write(tag: 600, value: self.ss)
-        ostr.write(tag: 601, value: self.o2)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
     }
@@ -1408,7 +1401,6 @@ open class DerivedException: OptionalException {
         self.d1 = try istr.read()
         self.d2 = try istr.read()
         self.ss = try istr.read(tag: 600)
-        try istr.read(tag: 601, value: OneOptional.self) { self.o2 = $0 }
         try istr.endSlice()
         try super._iceReadImpl(from: istr);
     }
@@ -1429,16 +1421,14 @@ public extension Ice.ClassResolver {
 
 open class RequiredException: OptionalException {
     public var ss: Swift.String = "test"
-    public var o2: OneOptional? = nil
 
     public required init() {
         super.init()
     }
 
-    public init(req: Swift.Bool, a: Swift.Int32?, b: Swift.String?, o: OneOptional?, ss: Swift.String, o2: OneOptional?) {
+    public init(req: Swift.Bool, a: Swift.Int32?, b: Swift.String?, ss: Swift.String) {
         self.ss = ss
-        self.o2 = o2
-        super.init(req: req, a: a, b: b, o: o)
+        super.init(req: req, a: a, b: b)
     }
 
     /// Returns the Slice type ID of this exception.
@@ -1451,7 +1441,6 @@ open class RequiredException: OptionalException {
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: RequiredException.ice_staticId(), compactId: -1, last: false)
         ostr.write(self.ss)
-        ostr.write(self.o2)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
     }
@@ -1459,13 +1448,8 @@ open class RequiredException: OptionalException {
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
         self.ss = try istr.read()
-        try istr.read(OneOptional.self) { self.o2 = $0 }
         try istr.endSlice()
         try super._iceReadImpl(from: istr);
-    }
-
-    open override func _usesClasses() -> Swift.Bool {
-        return true
     }
 }
 
@@ -1810,10 +1794,6 @@ public extension MyInterfacePrx {
 ///
 ///  - opVarStructAsync: 
 ///
-///  - opOneOptional: 
-///
-///  - opOneOptionalAsync: 
-///
 ///  - opMyInterfaceProxy: 
 ///
 ///  - opMyInterfaceProxyAsync: 
@@ -1878,10 +1858,6 @@ public extension MyInterfacePrx {
 ///
 ///  - opStringIntDictAsync: 
 ///
-///  - opIntOneOptionalDict: 
-///
-///  - opIntOneOptionalDictAsync: 
-///
 ///  - opClassAndUnknownOptional: 
 ///
 ///  - opClassAndUnknownOptionalAsync: 
@@ -1917,14 +1893,6 @@ public extension MyInterfacePrx {
 ///  - opMDict2: 
 ///
 ///  - opMDict2Async: 
-///
-///  - opMG1: 
-///
-///  - opMG1Async: 
-///
-///  - opMG2: 
-///
-///  - opMG2Async: 
 ///
 ///  - supportsRequiredParams: 
 ///
@@ -2084,10 +2052,6 @@ public extension Ice.InputStream {
 ///
 ///  - opVarStructAsync: 
 ///
-///  - opOneOptional: 
-///
-///  - opOneOptionalAsync: 
-///
 ///  - opMyInterfaceProxy: 
 ///
 ///  - opMyInterfaceProxyAsync: 
@@ -2152,10 +2116,6 @@ public extension Ice.InputStream {
 ///
 ///  - opStringIntDictAsync: 
 ///
-///  - opIntOneOptionalDict: 
-///
-///  - opIntOneOptionalDictAsync: 
-///
 ///  - opClassAndUnknownOptional: 
 ///
 ///  - opClassAndUnknownOptionalAsync: 
@@ -2191,14 +2151,6 @@ public extension Ice.InputStream {
 ///  - opMDict2: 
 ///
 ///  - opMDict2Async: 
-///
-///  - opMG1: 
-///
-///  - opMG1Async: 
-///
-///  - opMG2: 
-///
-///  - opMG2Async: 
 ///
 ///  - supportsRequiredParams: 
 ///
@@ -2301,16 +2253,13 @@ public extension InitialPrx {
     ///
     /// - parameter b: `Swift.String?`
     ///
-    /// - parameter o: `OneOptional?`
-    ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func opOptionalException(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, o iceP_o: OneOptional? = nil, context: Ice.Context? = nil) throws {
+    func opOptionalException(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "opOptionalException",
                           mode: .Normal,
                           write: { ostr in
                               ostr.write(tag: 1, value: iceP_a)
                               ostr.write(tag: 2, value: iceP_b)
-                              ostr.write(tag: 3, value: iceP_o)
                           },
                           userException:{ ex in
                               do  {
@@ -2327,8 +2276,6 @@ public extension InitialPrx {
     ///
     /// - parameter b: `Swift.String?`
     ///
-    /// - parameter o: `OneOptional?`
-    ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
@@ -2340,13 +2287,12 @@ public extension InitialPrx {
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opOptionalExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, o iceP_o: OneOptional? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+    func opOptionalExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "opOptionalException",
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(tag: 1, value: iceP_a)
                                       ostr.write(tag: 2, value: iceP_b)
-                                      ostr.write(tag: 3, value: iceP_o)
                                   },
                                   userException:{ ex in
                                       do  {
@@ -2366,16 +2312,13 @@ public extension InitialPrx {
     ///
     /// - parameter b: `Swift.String?`
     ///
-    /// - parameter o: `OneOptional?`
-    ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func opDerivedException(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, o iceP_o: OneOptional? = nil, context: Ice.Context? = nil) throws {
+    func opDerivedException(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "opDerivedException",
                           mode: .Normal,
                           write: { ostr in
                               ostr.write(tag: 1, value: iceP_a)
                               ostr.write(tag: 2, value: iceP_b)
-                              ostr.write(tag: 3, value: iceP_o)
                           },
                           userException:{ ex in
                               do  {
@@ -2392,8 +2335,6 @@ public extension InitialPrx {
     ///
     /// - parameter b: `Swift.String?`
     ///
-    /// - parameter o: `OneOptional?`
-    ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
@@ -2405,13 +2346,12 @@ public extension InitialPrx {
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opDerivedExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, o iceP_o: OneOptional? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+    func opDerivedExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "opDerivedException",
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(tag: 1, value: iceP_a)
                                       ostr.write(tag: 2, value: iceP_b)
-                                      ostr.write(tag: 3, value: iceP_o)
                                   },
                                   userException:{ ex in
                                       do  {
@@ -2431,16 +2371,13 @@ public extension InitialPrx {
     ///
     /// - parameter b: `Swift.String?`
     ///
-    /// - parameter o: `OneOptional?`
-    ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func opRequiredException(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, o iceP_o: OneOptional? = nil, context: Ice.Context? = nil) throws {
+    func opRequiredException(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "opRequiredException",
                           mode: .Normal,
                           write: { ostr in
                               ostr.write(tag: 1, value: iceP_a)
                               ostr.write(tag: 2, value: iceP_b)
-                              ostr.write(tag: 3, value: iceP_o)
                           },
                           userException:{ ex in
                               do  {
@@ -2457,8 +2394,6 @@ public extension InitialPrx {
     ///
     /// - parameter b: `Swift.String?`
     ///
-    /// - parameter o: `OneOptional?`
-    ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
@@ -2470,13 +2405,12 @@ public extension InitialPrx {
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opRequiredExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, o iceP_o: OneOptional? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+    func opRequiredExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "opRequiredException",
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(tag: 1, value: iceP_a)
                                       ostr.write(tag: 2, value: iceP_b)
-                                      ostr.write(tag: 3, value: iceP_o)
                                   },
                                   userException:{ ex in
                                       do  {
@@ -3143,65 +3077,6 @@ public extension InitialPrx {
                                   read: { istr in
                                       let iceP_returnValue: VarStruct? = try istr.read(tag: 1)
                                       let iceP_p3: VarStruct? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `OneOptional?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: OneOptional?, p3: OneOptional?)`:
-    ///
-    ///   - returnValue: `OneOptional?`
-    ///
-    ///   - p3: `OneOptional?`
-    func opOneOptional(_ iceP_p1: OneOptional? = nil, context: Ice.Context? = nil) throws -> (returnValue: OneOptional?, p3: OneOptional?) {
-        return try _impl._invoke(operation: "opOneOptional",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_p1)
-                                 },
-                                 read: { istr in
-                                     var iceP_returnValue: OneOptional?
-                                     try istr.read(tag: 1, value: OneOptional.self) { iceP_returnValue = $0 }
-                                     var iceP_p3: OneOptional?
-                                     try istr.read(tag: 3, value: OneOptional.self) { iceP_p3 = $0 }
-                                     return (iceP_returnValue, iceP_p3)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `OneOptional?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: OneOptional?, p3: OneOptional?)>` - The result of the operation
-    func opOneOptionalAsync(_ iceP_p1: OneOptional? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: OneOptional?, p3: OneOptional?)> {
-        return _impl._invokeAsync(operation: "opOneOptional",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      var iceP_returnValue: OneOptional?
-                                      try istr.read(tag: 1, value: OneOptional.self) { iceP_returnValue = $0 }
-                                      var iceP_p3: OneOptional?
-                                      try istr.read(tag: 3, value: OneOptional.self) { iceP_p3 = $0 }
                                       return (iceP_returnValue, iceP_p3)
                                   },
                                   context: context,
@@ -4091,61 +3966,6 @@ public extension InitialPrx {
     }
 
     ///
-    /// - parameter _: `IntOneOptionalDict?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntOneOptionalDict?, p3: IntOneOptionalDict?)`:
-    ///
-    ///   - returnValue: `IntOneOptionalDict?`
-    ///
-    ///   - p3: `IntOneOptionalDict?`
-    func opIntOneOptionalDict(_ iceP_p1: IntOneOptionalDict? = nil, context: Ice.Context? = nil) throws -> (returnValue: IntOneOptionalDict?, p3: IntOneOptionalDict?) {
-        return try _impl._invoke(operation: "opIntOneOptionalDict",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     IntOneOptionalDictHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: IntOneOptionalDict? = try IntOneOptionalDictHelper.read(from: istr, tag: 1)
-                                     let iceP_p3: IntOneOptionalDict? = try IntOneOptionalDictHelper.read(from: istr, tag: 3)
-                                     return (iceP_returnValue, iceP_p3)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `IntOneOptionalDict?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: IntOneOptionalDict?, p3: IntOneOptionalDict?)>` - The result of the operation
-    func opIntOneOptionalDictAsync(_ iceP_p1: IntOneOptionalDict? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: IntOneOptionalDict?, p3: IntOneOptionalDict?)> {
-        return _impl._invokeAsync(operation: "opIntOneOptionalDict",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      IntOneOptionalDictHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: IntOneOptionalDict? = try IntOneOptionalDictHelper.read(from: istr, tag: 1)
-                                      let iceP_p3: IntOneOptionalDict? = try IntOneOptionalDictHelper.read(from: istr, tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
     /// - parameter _: `A?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -4555,106 +4375,6 @@ public extension InitialPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `G?`
-    func opMG1(context: Ice.Context? = nil) throws -> G? {
-        return try _impl._invoke(operation: "opMG1",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     var iceP_returnValue: G?
-                                     try istr.read(tag: 1, value: G.self) { iceP_returnValue = $0 }
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<G?>` - The result of the operation
-    func opMG1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<G?> {
-        return _impl._invokeAsync(operation: "opMG1",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      var iceP_returnValue: G?
-                                      try istr.read(tag: 1, value: G.self) { iceP_returnValue = $0 }
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `G?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: G?, p2: G?)`:
-    ///
-    ///   - returnValue: `G?`
-    ///
-    ///   - p2: `G?`
-    func opMG2(_ iceP_p1: G? = nil, context: Ice.Context? = nil) throws -> (returnValue: G?, p2: G?) {
-        return try _impl._invoke(operation: "opMG2",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_p1)
-                                 },
-                                 read: { istr in
-                                     var iceP_returnValue: G?
-                                     try istr.read(tag: 1, value: G.self) { iceP_returnValue = $0 }
-                                     var iceP_p2: G?
-                                     try istr.read(tag: 3, value: G.self) { iceP_p2 = $0 }
-                                     return (iceP_returnValue, iceP_p2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `G?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: G?, p2: G?)>` - The result of the operation
-    func opMG2Async(_ iceP_p1: G? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: G?, p2: G?)> {
-        return _impl._invokeAsync(operation: "opMG2",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      var iceP_returnValue: G?
-                                      try istr.read(tag: 1, value: G.self) { iceP_returnValue = $0 }
-                                      var iceP_p2: G?
-                                      try istr.read(tag: 3, value: G.self) { iceP_p2 = $0 }
-                                      return (iceP_returnValue, iceP_p2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
     /// - returns: `Swift.Bool`
     func supportsRequiredParams(context: Ice.Context? = nil) throws -> Swift.Bool {
         return try _impl._invoke(operation: "supportsRequiredParams",
@@ -4853,18 +4573,16 @@ open class MultiOptional: Ice.Value {
     public var es: MyEnumSeq? = nil
     public var fss: FixedStructSeq? = nil
     public var vss: VarStructSeq? = nil
-    public var oos: OneOptionalSeq? = nil
     public var mips: MyInterfacePrxSeq? = nil
     public var ied: IntEnumDict? = nil
     public var ifsd: IntFixedStructDict? = nil
     public var ivsd: IntVarStructDict? = nil
-    public var iood: IntOneOptionalDict? = nil
     public var imipd: IntMyInterfacePrxDict? = nil
     public var bos: BoolSeq? = nil
 
     public required init() {}
 
-    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: MyInterfacePrx?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, oos: OneOptionalSeq?, mips: MyInterfacePrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, iood: IntOneOptionalDict?, imipd: IntMyInterfacePrxDict?, bos: BoolSeq?) {
+    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: MyInterfacePrx?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, mips: MyInterfacePrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, imipd: IntMyInterfacePrxDict?, bos: BoolSeq?) {
         self.a = a
         self.b = b
         self.c = c
@@ -4885,12 +4603,10 @@ open class MultiOptional: Ice.Value {
         self.es = es
         self.fss = fss
         self.vss = vss
-        self.oos = oos
         self.mips = mips
         self.ied = ied
         self.ifsd = ifsd
         self.ivsd = ivsd
-        self.iood = iood
         self.imipd = imipd
         self.bos = bos
     }
@@ -4931,12 +4647,10 @@ open class MultiOptional: Ice.Value {
         self.es = try MyEnumSeqHelper.read(from: istr, tag: 19)
         self.fss = try FixedStructSeqHelper.read(from: istr, tag: 20)
         self.vss = try VarStructSeqHelper.read(from: istr, tag: 21)
-        self.oos = try OneOptionalSeqHelper.read(from: istr, tag: 22)
         self.mips = try MyInterfacePrxSeqHelper.read(from: istr, tag: 23)
         self.ied = try IntEnumDictHelper.read(from: istr, tag: 24)
         self.ifsd = try IntFixedStructDictHelper.read(from: istr, tag: 25)
         self.ivsd = try IntVarStructDictHelper.read(from: istr, tag: 26)
-        self.iood = try IntOneOptionalDictHelper.read(from: istr, tag: 27)
         self.imipd = try IntMyInterfacePrxDictHelper.read(from: istr, tag: 28)
         self.bos = try istr.read(tag: 29)
         try istr.endSlice()
@@ -4964,12 +4678,10 @@ open class MultiOptional: Ice.Value {
         MyEnumSeqHelper.write(to: ostr, tag: 19, value: self.es)
         FixedStructSeqHelper.write(to: ostr, tag: 20, value: self.fss)
         VarStructSeqHelper.write(to: ostr, tag: 21, value: self.vss)
-        OneOptionalSeqHelper.write(to: ostr, tag: 22, value: self.oos)
         MyInterfacePrxSeqHelper.write(to: ostr, tag: 23, value: self.mips)
         IntEnumDictHelper.write(to: ostr, tag: 24, value: self.ied)
         IntFixedStructDictHelper.write(to: ostr, tag: 25, value: self.ifsd)
         IntVarStructDictHelper.write(to: ostr, tag: 26, value: self.ivsd)
-        IntOneOptionalDictHelper.write(to: ostr, tag: 27, value: self.iood)
         IntMyInterfacePrxDictHelper.write(to: ostr, tag: 28, value: self.imipd)
         ostr.write(tag: 29, value: self.bos)
         ostr.endSlice()
@@ -5511,8 +5223,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_opInt(incoming: request, current: current)
         case "opIntIntDict":
             return try servant._iceD_opIntIntDict(incoming: request, current: current)
-        case "opIntOneOptionalDict":
-            return try servant._iceD_opIntOneOptionalDict(incoming: request, current: current)
         case "opIntSeq":
             return try servant._iceD_opIntSeq(incoming: request, current: current)
         case "opLong":
@@ -5523,10 +5233,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_opMDict1(incoming: request, current: current)
         case "opMDict2":
             return try servant._iceD_opMDict2(incoming: request, current: current)
-        case "opMG1":
-            return try servant._iceD_opMG1(incoming: request, current: current)
-        case "opMG2":
-            return try servant._iceD_opMG2(incoming: request, current: current)
         case "opMSeq1":
             return try servant._iceD_opMSeq1(incoming: request, current: current)
         case "opMSeq2":
@@ -5539,8 +5245,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_opMyEnum(incoming: request, current: current)
         case "opMyInterfaceProxy":
             return try servant._iceD_opMyInterfaceProxy(incoming: request, current: current)
-        case "opOneOptional":
-            return try servant._iceD_opOneOptional(incoming: request, current: current)
         case "opOptionalException":
             return try servant._iceD_opOptionalException(incoming: request, current: current)
         case "opRequiredException":
@@ -5601,30 +5305,24 @@ public protocol Initial {
     ///
     /// - parameter b: `Swift.String?`
     ///
-    /// - parameter o: `OneOptional?`
-    ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opOptionalException(a: Swift.Int32?, b: Swift.String?, o: OneOptional?, current: Ice.Current) throws
+    func opOptionalException(a: Swift.Int32?, b: Swift.String?, current: Ice.Current) throws
 
     ///
     /// - parameter a: `Swift.Int32?`
     ///
     /// - parameter b: `Swift.String?`
     ///
-    /// - parameter o: `OneOptional?`
-    ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opDerivedException(a: Swift.Int32?, b: Swift.String?, o: OneOptional?, current: Ice.Current) throws
+    func opDerivedException(a: Swift.Int32?, b: Swift.String?, current: Ice.Current) throws
 
     ///
     /// - parameter a: `Swift.Int32?`
     ///
     /// - parameter b: `Swift.String?`
     ///
-    /// - parameter o: `OneOptional?`
-    ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opRequiredException(a: Swift.Int32?, b: Swift.String?, o: OneOptional?, current: Ice.Current) throws
+    func opRequiredException(a: Swift.Int32?, b: Swift.String?, current: Ice.Current) throws
 
     ///
     /// - parameter p1: `Swift.UInt8?`
@@ -5769,18 +5467,6 @@ public protocol Initial {
     ///
     ///   - p3: `VarStruct?`
     func opVarStruct(p1: VarStruct?, current: Ice.Current) throws -> (returnValue: VarStruct?, p3: VarStruct?)
-
-    ///
-    /// - parameter p1: `OneOptional?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: OneOptional?, p3: OneOptional?)`:
-    ///
-    ///   - returnValue: `OneOptional?`
-    ///
-    ///   - p3: `OneOptional?`
-    func opOneOptional(p1: OneOptional?, current: Ice.Current) throws -> (returnValue: OneOptional?, p3: OneOptional?)
 
     ///
     /// - parameter p1: `MyInterfacePrx?`
@@ -5975,18 +5661,6 @@ public protocol Initial {
     func opStringIntDict(p1: StringIntDict?, current: Ice.Current) throws -> (returnValue: StringIntDict?, p3: StringIntDict?)
 
     ///
-    /// - parameter p1: `IntOneOptionalDict?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: IntOneOptionalDict?, p3: IntOneOptionalDict?)`:
-    ///
-    ///   - returnValue: `IntOneOptionalDict?`
-    ///
-    ///   - p3: `IntOneOptionalDict?`
-    func opIntOneOptionalDict(p1: IntOneOptionalDict?, current: Ice.Current) throws -> (returnValue: IntOneOptionalDict?, p3: IntOneOptionalDict?)
-
-    ///
     /// - parameter p: `A?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -6061,24 +5735,6 @@ public protocol Initial {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `G?`
-    func opMG1(current: Ice.Current) throws -> G?
-
-    ///
-    /// - parameter p1: `G?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: G?, p2: G?)`:
-    ///
-    ///   - returnValue: `G?`
-    ///
-    ///   - p2: `G?`
-    func opMG2(p1: G?, current: Ice.Current) throws -> (returnValue: G?, p2: G?)
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
     /// - returns: `Swift.Bool`
     func supportsRequiredParams(current: Ice.Current) throws -> Swift.Bool
 
@@ -6148,8 +5804,6 @@ public extension MyInterface {
 ///
 ///  - opVarStruct: 
 ///
-///  - opOneOptional: 
-///
 ///  - opMyInterfaceProxy: 
 ///
 ///  - opByteSeq: 
@@ -6182,8 +5836,6 @@ public extension MyInterface {
 ///
 ///  - opStringIntDict: 
 ///
-///  - opIntOneOptionalDict: 
-///
 ///  - opClassAndUnknownOptional: 
 ///
 ///  - opG: 
@@ -6201,10 +5853,6 @@ public extension MyInterface {
 ///  - opMDict1: 
 ///
 ///  - opMDict2: 
-///
-///  - opMG1: 
-///
-///  - opMG2: 
 ///
 ///  - supportsRequiredParams: 
 ///
@@ -6237,43 +5885,37 @@ public extension Initial {
     }
 
     func _iceD_opOptionalException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_b, iceP_o): (Swift.Int32?, Swift.String?, OneOptional?) = try inS.read { istr in
+        let (iceP_a, iceP_b): (Swift.Int32?, Swift.String?) = try inS.read { istr in
             let iceP_a: Swift.Int32? = try istr.read(tag: 1)
             let iceP_b: Swift.String? = try istr.read(tag: 2)
-            var iceP_o: OneOptional?
-            try istr.read(tag: 3, value: OneOptional.self) { iceP_o = $0 }
-            return (iceP_a, iceP_b, iceP_o)
+            return (iceP_a, iceP_b)
         }
 
-        try self.opOptionalException(a: iceP_a, b: iceP_b, o: iceP_o, current: current)
+        try self.opOptionalException(a: iceP_a, b: iceP_b, current: current)
 
         return inS.setResult()
     }
 
     func _iceD_opDerivedException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_b, iceP_o): (Swift.Int32?, Swift.String?, OneOptional?) = try inS.read { istr in
+        let (iceP_a, iceP_b): (Swift.Int32?, Swift.String?) = try inS.read { istr in
             let iceP_a: Swift.Int32? = try istr.read(tag: 1)
             let iceP_b: Swift.String? = try istr.read(tag: 2)
-            var iceP_o: OneOptional?
-            try istr.read(tag: 3, value: OneOptional.self) { iceP_o = $0 }
-            return (iceP_a, iceP_b, iceP_o)
+            return (iceP_a, iceP_b)
         }
 
-        try self.opDerivedException(a: iceP_a, b: iceP_b, o: iceP_o, current: current)
+        try self.opDerivedException(a: iceP_a, b: iceP_b, current: current)
 
         return inS.setResult()
     }
 
     func _iceD_opRequiredException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_a, iceP_b, iceP_o): (Swift.Int32?, Swift.String?, OneOptional?) = try inS.read { istr in
+        let (iceP_a, iceP_b): (Swift.Int32?, Swift.String?) = try inS.read { istr in
             let iceP_a: Swift.Int32? = try istr.read(tag: 1)
             let iceP_b: Swift.String? = try istr.read(tag: 2)
-            var iceP_o: OneOptional?
-            try istr.read(tag: 3, value: OneOptional.self) { iceP_o = $0 }
-            return (iceP_a, iceP_b, iceP_o)
+            return (iceP_a, iceP_b)
         }
 
-        try self.opRequiredException(a: iceP_a, b: iceP_b, o: iceP_o, current: current)
+        try self.opRequiredException(a: iceP_a, b: iceP_b, current: current)
 
         return inS.setResult()
     }
@@ -6439,21 +6081,6 @@ public extension Initial {
         }
 
         let (iceP_returnValue, iceP_p3) = try self.opVarStruct(p1: iceP_p1, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-        }
-    }
-
-    func _iceD_opOneOptional(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: OneOptional? = try inS.read { istr in
-            var iceP_p1: OneOptional?
-            try istr.read(tag: 2, value: OneOptional.self) { iceP_p1 = $0 }
-            return iceP_p1
-        }
-
-        let (iceP_returnValue, iceP_p3) = try self.opOneOptional(p1: iceP_p1, current: current)
 
         return inS.setResult{ ostr in
             ostr.write(tag: 1, value: iceP_returnValue)
@@ -6685,20 +6312,6 @@ public extension Initial {
         }
     }
 
-    func _iceD_opIntOneOptionalDict(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: IntOneOptionalDict? = try inS.read { istr in
-            let iceP_p1: IntOneOptionalDict? = try IntOneOptionalDictHelper.read(from: istr, tag: 2)
-            return iceP_p1
-        }
-
-        let (iceP_returnValue, iceP_p3) = try self.opIntOneOptionalDict(p1: iceP_p1, current: current)
-
-        return inS.setResult{ ostr in
-            IntOneOptionalDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            IntOneOptionalDictHelper.write(to: ostr, tag: 3, value: iceP_p3)
-        }
-    }
-
     func _iceD_opClassAndUnknownOptional(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let iceP_p: A? = try inS.read { istr in
             var iceP_p: A?
@@ -6805,31 +6418,6 @@ public extension Initial {
         return inS.setResult{ ostr in
             StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
             StringIntDictHelper.write(to: ostr, tag: 3, value: iceP_p2)
-        }
-    }
-
-    func _iceD_opMG1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.opMG1(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(tag: 1, value: iceP_returnValue)
-        }
-    }
-
-    func _iceD_opMG2(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: G? = try inS.read { istr in
-            var iceP_p1: G?
-            try istr.read(tag: 2, value: G.self) { iceP_p1 = $0 }
-            return iceP_p1
-        }
-
-        let (iceP_returnValue, iceP_p2) = try self.opMG2(p1: iceP_p1, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p2)
         }
     }
 

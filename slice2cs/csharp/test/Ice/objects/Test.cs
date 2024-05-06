@@ -4444,7 +4444,7 @@ namespace Ice.objects
         {
             public static void write(global::Ice.OutputStream ostr, @Base[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -4478,7 +4478,7 @@ namespace Ice.objects
         {
             public static void write(global::Ice.OutputStream ostr, global::Ice.Value[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }

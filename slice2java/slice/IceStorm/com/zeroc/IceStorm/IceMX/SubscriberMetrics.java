@@ -68,7 +68,7 @@ public class SubscriberMetrics extends com.zeroc.Ice.IceMX.Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -7704622760835628818L;
+    public static final long serialVersionUID = 4267059709835378536L;
 
     /** @hidden */
     @Override

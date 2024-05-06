@@ -1228,7 +1228,7 @@ namespace IceMX
     {
         public static void write(global::Ice.OutputStream ostr, MetricsFailures[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1263,7 +1263,7 @@ namespace IceMX
     {
         public static void write(global::Ice.OutputStream ostr, Metrics[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

@@ -38,25 +38,25 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<string> protocol = new global::Ice.Optional<string>();
+            public string protocol;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool> mx = new global::Ice.Optional<bool>();
+            public bool? mx;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool> serialize = new global::Ice.Optional<bool>();
+            public bool? serialize;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool> compress = new global::Ice.Optional<bool>();
+            public bool? compress;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool> ipv6 = new global::Ice.Optional<bool>();
+            public bool? ipv6;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<string[]> cprops = new global::Ice.Optional<string[]>();
+            public string[] cprops;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<string[]> sprops = new global::Ice.Optional<string[]>();
+            public string[] sprops;
 
             #endregion
 
@@ -71,7 +71,7 @@ namespace Test
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Config(global::Ice.Optional<string> protocol, global::Ice.Optional<bool> mx, global::Ice.Optional<bool> serialize, global::Ice.Optional<bool> compress, global::Ice.Optional<bool> ipv6, global::Ice.Optional<string[]> cprops, global::Ice.Optional<string[]> sprops)
+            public Config(string protocol, bool? mx, bool? serialize, bool? compress, bool? ipv6, string[] cprops, string[] sprops)
             {
                 this.protocol = protocol;
                 this.mx = mx;
@@ -123,27 +123,27 @@ namespace Test
                 serialize = istr_.readBool(3);
                 compress = istr_.readBool(4);
                 ipv6 = istr_.readBool(5);
-                if(istr_.readOptional(6, global::Ice.OptionalFormat.FSize))
+                if (istr_.readOptional(6, global::Ice.OptionalFormat.FSize))
                 {
                     istr_.skip(4);
                     string[] tmpVal;
                     tmpVal = StringSeqHelper.read(istr_);
-                    cprops = new global::Ice.Optional<string[]>(tmpVal);
+                    cprops = tmpVal;
                 }
                 else
                 {
-                    cprops = new global::Ice.Optional<string[]>();
+                    cprops = null;
                 }
-                if(istr_.readOptional(7, global::Ice.OptionalFormat.FSize))
+                if (istr_.readOptional(7, global::Ice.OptionalFormat.FSize))
                 {
                     istr_.skip(4);
                     string[] tmpVal;
                     tmpVal = StringSeqHelper.read(istr_);
-                    sprops = new global::Ice.Optional<string[]>(tmpVal);
+                    sprops = tmpVal;
                 }
                 else
                 {
-                    sprops = new global::Ice.Optional<string[]>();
+                    sprops = null;
                 }
                 istr_.endSlice();
             }
@@ -167,19 +167,19 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<string[]> protocol = new global::Ice.Optional<string[]>();
+            public string[] protocol;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool[]> mx = new global::Ice.Optional<bool[]>();
+            public bool[] mx;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool[]> serialize = new global::Ice.Optional<bool[]>();
+            public bool[] serialize;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool[]> compress = new global::Ice.Optional<bool[]>();
+            public bool[] compress;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool[]> ipv6 = new global::Ice.Optional<bool[]>();
+            public bool[] ipv6;
 
             #endregion
 
@@ -194,7 +194,7 @@ namespace Test
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public OptionOverrides(global::Ice.Optional<string[]> protocol, global::Ice.Optional<bool[]> mx, global::Ice.Optional<bool[]> serialize, global::Ice.Optional<bool[]> compress, global::Ice.Optional<bool[]> ipv6)
+            public OptionOverrides(string[] protocol, bool[] mx, bool[] serialize, bool[] compress, bool[] ipv6)
             {
                 this.protocol = protocol;
                 this.mx = mx;
@@ -237,56 +237,56 @@ namespace Test
             protected override void iceReadImpl(global::Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                if(istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
+                if (istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
                 {
                     istr_.skip(4);
                     string[] tmpVal;
                     tmpVal = StringSeqHelper.read(istr_);
-                    protocol = new global::Ice.Optional<string[]>(tmpVal);
+                    protocol = tmpVal;
                 }
                 else
                 {
-                    protocol = new global::Ice.Optional<string[]>();
+                    protocol = null;
                 }
-                if(istr_.readOptional(2, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(2, global::Ice.OptionalFormat.VSize))
                 {
                     bool[] tmpVal;
                     tmpVal = BoolSeqHelper.read(istr_);
-                    mx = new global::Ice.Optional<bool[]>(tmpVal);
+                    mx = tmpVal;
                 }
                 else
                 {
-                    mx = new global::Ice.Optional<bool[]>();
+                    mx = null;
                 }
-                if(istr_.readOptional(3, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(3, global::Ice.OptionalFormat.VSize))
                 {
                     bool[] tmpVal;
                     tmpVal = BoolSeqHelper.read(istr_);
-                    serialize = new global::Ice.Optional<bool[]>(tmpVal);
+                    serialize = tmpVal;
                 }
                 else
                 {
-                    serialize = new global::Ice.Optional<bool[]>();
+                    serialize = null;
                 }
-                if(istr_.readOptional(4, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(4, global::Ice.OptionalFormat.VSize))
                 {
                     bool[] tmpVal;
                     tmpVal = BoolSeqHelper.read(istr_);
-                    compress = new global::Ice.Optional<bool[]>(tmpVal);
+                    compress = tmpVal;
                 }
                 else
                 {
-                    compress = new global::Ice.Optional<bool[]>();
+                    compress = null;
                 }
-                if(istr_.readOptional(5, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(5, global::Ice.OptionalFormat.VSize))
                 {
                     bool[] tmpVal;
                     tmpVal = BoolSeqHelper.read(istr_);
-                    ipv6 = new global::Ice.Optional<bool[]>(tmpVal);
+                    ipv6 = tmpVal;
                 }
                 else
                 {
-                    ipv6 = new global::Ice.Optional<bool[]>();
+                    ipv6 = null;
                 }
                 istr_.endSlice();
             }

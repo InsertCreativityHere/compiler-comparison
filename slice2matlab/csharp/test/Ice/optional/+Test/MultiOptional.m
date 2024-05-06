@@ -21,12 +21,10 @@
 %   es
 %   fss
 %   vss
-%   oos
 %   mips
 %   ied
 %   ifsd
 %   ivsd
-%   iood
 %   imipd
 %   bos
 
@@ -55,17 +53,15 @@ classdef MultiOptional < Ice.Value
         es
         fss
         vss
-        oos
         mips
         ied
         ifsd
         ivsd
-        iood
         imipd
         bos
     end
     methods
-        function obj = MultiOptional(a, b, c, d, e, f, g, h, i, j, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, mips, ied, ifsd, ivsd, iood, imipd, bos)
+        function obj = MultiOptional(a, b, c, d, e, f, g, h, i, j, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, mips, ied, ifsd, ivsd, imipd, bos)
             if nargin == 0
                 obj.a = IceInternal.UnsetI.Instance;
                 obj.b = IceInternal.UnsetI.Instance;
@@ -87,12 +83,10 @@ classdef MultiOptional < Ice.Value
                 obj.es = IceInternal.UnsetI.Instance;
                 obj.fss = IceInternal.UnsetI.Instance;
                 obj.vss = IceInternal.UnsetI.Instance;
-                obj.oos = IceInternal.UnsetI.Instance;
                 obj.mips = IceInternal.UnsetI.Instance;
                 obj.ied = IceInternal.UnsetI.Instance;
                 obj.ifsd = IceInternal.UnsetI.Instance;
                 obj.ivsd = IceInternal.UnsetI.Instance;
-                obj.iood = IceInternal.UnsetI.Instance;
                 obj.imipd = IceInternal.UnsetI.Instance;
                 obj.bos = IceInternal.UnsetI.Instance;
             elseif ne(a, IceInternal.NoInit.Instance)
@@ -116,31 +110,16 @@ classdef MultiOptional < Ice.Value
                 obj.es = es;
                 obj.fss = fss;
                 obj.vss = vss;
-                obj.oos = oos;
                 obj.mips = mips;
                 obj.ied = ied;
                 obj.ifsd = ifsd;
                 obj.ivsd = ivsd;
-                obj.iood = iood;
                 obj.imipd = imipd;
                 obj.bos = bos;
             end;
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();
-        end
-    end
-    methods(Hidden=true)
-        function r = iceDelayPostUnmarshal(~)
-            r = true;
-        end
-        function icePostUnmarshal(obj)
-            if obj.oos ~= Ice.Unset
-                obj.oos = Test.OneOptionalSeq.convert(obj.oos);
-            end
-            if obj.iood ~= Ice.Unset
-                obj.iood = Test.IntOneOptionalDict.convert(obj.iood);
-            end
         end
     end
     methods(Access=protected)
@@ -166,12 +145,10 @@ classdef MultiOptional < Ice.Value
             Test.MyEnumSeq.writeOpt(os, 19, obj.es);
             Test.FixedStructSeq.writeOpt(os, 20, obj.fss);
             Test.VarStructSeq.writeOpt(os, 21, obj.vss);
-            Test.OneOptionalSeq.writeOpt(os, 22, obj.oos);
             Test.MyInterfacePrxSeq.writeOpt(os, 23, obj.mips);
             Test.IntEnumDict.writeOpt(os, 24, obj.ied);
             Test.IntFixedStructDict.writeOpt(os, 25, obj.ifsd);
             Test.IntVarStructDict.writeOpt(os, 26, obj.ivsd);
-            Test.IntOneOptionalDict.writeOpt(os, 27, obj.iood);
             Test.IntMyInterfacePrxDict.writeOpt(os, 28, obj.imipd);
             os.writeBoolSeqOpt(29, obj.bos);
             os.endSlice();
@@ -201,12 +178,10 @@ classdef MultiOptional < Ice.Value
             obj.es = Test.MyEnumSeq.readOpt(is, 19);
             obj.fss = Test.FixedStructSeq.readOpt(is, 20);
             obj.vss = Test.VarStructSeq.readOpt(is, 21);
-            obj.oos = Test.OneOptionalSeq.readOpt(is, 22);
             obj.mips = Test.MyInterfacePrxSeq.readOpt(is, 23);
             obj.ied = Test.IntEnumDict.readOpt(is, 24);
             obj.ifsd = Test.IntFixedStructDict.readOpt(is, 25);
             obj.ivsd = Test.IntVarStructDict.readOpt(is, 26);
-            obj.iood = Test.IntOneOptionalDict.readOpt(is, 27);
             obj.imipd = Test.IntMyInterfacePrxDict.readOpt(is, 28);
             obj.bos = is.readBoolSeqOpt(29);
             is.endSlice();

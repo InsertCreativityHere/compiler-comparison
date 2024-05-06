@@ -789,7 +789,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, Point[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

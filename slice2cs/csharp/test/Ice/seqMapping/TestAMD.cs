@@ -2776,7 +2776,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::Ice.Value[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -2808,7 +2808,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<global::Ice.Value> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -2840,7 +2840,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::Ice.ObjectPrx[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -2872,7 +2872,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<global::Ice.ObjectPrx> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -2906,7 +2906,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -2941,7 +2941,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -2976,7 +2976,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3011,7 +3011,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, S[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3045,7 +3045,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<S> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3081,7 +3081,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<S> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3118,7 +3118,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<S> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3155,7 +3155,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<S> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3192,7 +3192,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, SD[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3227,7 +3227,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<SD> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3263,7 +3263,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<SD> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3300,7 +3300,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<SD> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3337,7 +3337,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<SD> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3375,7 +3375,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, CV[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3409,7 +3409,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<CV> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3593,7 +3593,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, IPrx[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3627,7 +3627,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<IPrx> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3661,7 +3661,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<IPrx> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3696,7 +3696,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<IPrx> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3731,7 +3731,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<IPrx> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3768,7 +3768,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, CR[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3802,7 +3802,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<CR> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3836,7 +3836,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, En[] v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3870,7 +3870,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<En> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3904,7 +3904,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<En> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3939,7 +3939,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Queue<En> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -3974,7 +3974,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<En> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -4034,7 +4034,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::Ice.seqMapping.Custom<CV> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -4079,7 +4079,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }
@@ -4114,7 +4114,7 @@ namespace Ice.seqMapping.AMD
         {
             public static void write(global::Ice.OutputStream ostr, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> v)
             {
-                if(v == null)
+                if (v is null)
                 {
                     ostr.writeSize(0);
                 }

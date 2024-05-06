@@ -2409,7 +2409,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyEnum[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2443,7 +2443,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyClassPrx[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2477,7 +2477,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, byte[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2511,7 +2511,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, bool[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2545,7 +2545,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, short[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2579,7 +2579,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, int[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2613,7 +2613,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, long[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2647,7 +2647,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, float[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2681,7 +2681,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, double[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2715,7 +2715,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, string[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2749,7 +2749,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyEnum[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2783,7 +2783,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyClassPrx[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2817,7 +2817,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, string[][][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3110,7 +3110,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<byte, bool>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3144,7 +3144,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<short, int>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3178,7 +3178,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<long, float>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3212,7 +3212,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<string, string>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3246,7 +3246,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<string, MyEnum>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3280,7 +3280,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<MyEnum, string>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3314,7 +3314,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -12876,24 +12876,6 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx p1, global::Ice.Current current = null);
 
-        public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::Ice.Current current = null);
@@ -12926,6 +12908,10 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, global::Ice.Current current = null);
 
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, global::Ice.Current current = null);
+
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, global::Ice.Current current = null);
@@ -12937,10 +12923,6 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, global::Ice.Current current = null);
 
@@ -12995,6 +12977,24 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         #endregion
 

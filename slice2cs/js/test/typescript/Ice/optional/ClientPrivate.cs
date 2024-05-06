@@ -50,13 +50,13 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface Initial2Prx : global::Ice.ObjectPrx
     {
-        void opClassAndUnknownOptional(A p, global::Ice.Optional<global::Ice.Value> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void opClassAndUnknownOptional(A p, global::Ice.Value o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task opClassAndUnknownOptionalAsync(A p, global::Ice.Optional<global::Ice.Value> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task opClassAndUnknownOptionalAsync(A p, global::Ice.Value o, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        void opVoid(global::Ice.Optional<int> a, global::Ice.Optional<string> v, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void opVoid(int? a, string v, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task opVoidAsync(global::Ice.Optional<int> a, global::Ice.Optional<string> v, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task opVoidAsync(int? a, string v, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
     }
 }
 
@@ -66,10 +66,10 @@ namespace Test
     public interface Initial2Operations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opClassAndUnknownOptional(A p, global::Ice.Optional<global::Ice.Value> o, global::Ice.Current current = null);
+        void opClassAndUnknownOptional(A p, global::Ice.Value o, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opVoid(global::Ice.Optional<int> a, global::Ice.Optional<string> v, global::Ice.Current current = null);
+        void opVoid(int? a, string v, global::Ice.Current current = null);
     }
 }
 
@@ -85,7 +85,7 @@ namespace Test
 
         #region Synchronous operations
 
-        public void opClassAndUnknownOptional(A p, global::Ice.Optional<global::Ice.Value> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opClassAndUnknownOptional(A p, global::Ice.Value o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -97,7 +97,7 @@ namespace Test
             }
         }
 
-        public void opVoid(global::Ice.Optional<int> a, global::Ice.Optional<string> v, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opVoid(int? a, string v, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -113,12 +113,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task opClassAndUnknownOptionalAsync(A p, global::Ice.Optional<global::Ice.Value> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opClassAndUnknownOptionalAsync(A p, global::Ice.Value o, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opClassAndUnknownOptionalAsync(p, o, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opClassAndUnknownOptionalAsync(A iceP_p, global::Ice.Optional<global::Ice.Value> iceP_o, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opClassAndUnknownOptionalAsync(A iceP_p, global::Ice.Value iceP_o, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opClassAndUnknownOptional(iceP_p, iceP_o, context, synchronous, completed);
@@ -127,7 +127,7 @@ namespace Test
 
         private const string _opClassAndUnknownOptional_name = "opClassAndUnknownOptional";
 
-        private void _iceI_opClassAndUnknownOptional(A iceP_p, global::Ice.Optional<global::Ice.Value> iceP_o, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opClassAndUnknownOptional(A iceP_p, global::Ice.Value iceP_o, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -144,12 +144,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task opVoidAsync(global::Ice.Optional<int> a, global::Ice.Optional<string> v, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opVoidAsync(int? a, string v, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opVoidAsync(a, v, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opVoidAsync(global::Ice.Optional<int> iceP_a, global::Ice.Optional<string> iceP_v, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opVoidAsync(int? iceP_a, string iceP_v, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opVoid(iceP_a, iceP_v, context, synchronous, completed);
@@ -158,7 +158,7 @@ namespace Test
 
         private const string _opVoid_name = "opVoid";
 
-        private void _iceI_opVoid(global::Ice.Optional<int> iceP_a, global::Ice.Optional<string> iceP_v, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opVoid(int? iceP_a, string iceP_v, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -323,9 +323,9 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void opClassAndUnknownOptional(A p, global::Ice.Optional<global::Ice.Value> o, global::Ice.Current current = null);
+        public abstract void opClassAndUnknownOptional(A p, global::Ice.Value o, global::Ice.Current current = null);
 
-        public abstract void opVoid(global::Ice.Optional<int> a, global::Ice.Optional<string> v, global::Ice.Current current = null);
+        public abstract void opVoid(int? a, string v, global::Ice.Current current = null);
 
         #endregion
 
@@ -368,7 +368,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             A iceP_p = default;
-            global::Ice.Optional<global::Ice.Value> iceP_o = global::Ice.Util.None;
+            global::Ice.Value iceP_o = global::Ice.Util.None;
             istr.readValue((A v) => {iceP_p = v; });
             istr.readValue(1, (global::Ice.Value v) => {iceP_o = v; });
             istr.readPendingValues();
@@ -383,8 +383,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Optional<int> iceP_a;
-            global::Ice.Optional<string> iceP_v;
+            int? iceP_a;
+            string iceP_v;
             iceP_a = istr.readInt(1);
             iceP_v = istr.readString(2);
             inS.endReadParams();

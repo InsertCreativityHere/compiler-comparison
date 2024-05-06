@@ -48,13 +48,13 @@ namespace Test
     public delegate void Callback_TestIntf_opStringSpan(string[] ret, string[] dataOut);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptionalByteSpan(global::Ice.Optional<byte[]> ret, global::Ice.Optional<byte[]> dataOut);
+    public delegate void Callback_TestIntf_opOptionalByteSpan(byte[] ret, byte[] dataOut);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptionalShortSpan(global::Ice.Optional<short[]> ret, global::Ice.Optional<short[]> dataOut);
+    public delegate void Callback_TestIntf_opOptionalShortSpan(short[] ret, short[] dataOut);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptionalStringSpan(global::Ice.Optional<string[]> ret, global::Ice.Optional<string[]> dataOut);
+    public delegate void Callback_TestIntf_opOptionalStringSpan(string[] ret, string[] dataOut);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_TestIntf_shutdown();
@@ -100,38 +100,38 @@ namespace Test
 
     public struct TestIntf_OpOptionalByteSpanResult
     {
-        public TestIntf_OpOptionalByteSpanResult(global::Ice.Optional<byte[]> returnValue, global::Ice.Optional<byte[]> dataOut)
+        public TestIntf_OpOptionalByteSpanResult(byte[] returnValue, byte[] dataOut)
         {
             this.returnValue = returnValue;
             this.dataOut = dataOut;
         }
 
-        public global::Ice.Optional<byte[]> returnValue;
-        public global::Ice.Optional<byte[]> dataOut;
+        public byte[] returnValue;
+        public byte[] dataOut;
     }
 
     public struct TestIntf_OpOptionalShortSpanResult
     {
-        public TestIntf_OpOptionalShortSpanResult(global::Ice.Optional<short[]> returnValue, global::Ice.Optional<short[]> dataOut)
+        public TestIntf_OpOptionalShortSpanResult(short[] returnValue, short[] dataOut)
         {
             this.returnValue = returnValue;
             this.dataOut = dataOut;
         }
 
-        public global::Ice.Optional<short[]> returnValue;
-        public global::Ice.Optional<short[]> dataOut;
+        public short[] returnValue;
+        public short[] dataOut;
     }
 
     public struct TestIntf_OpOptionalStringSpanResult
     {
-        public TestIntf_OpOptionalStringSpanResult(global::Ice.Optional<string[]> returnValue, global::Ice.Optional<string[]> dataOut)
+        public TestIntf_OpOptionalStringSpanResult(string[] returnValue, string[] dataOut)
         {
             this.returnValue = returnValue;
             this.dataOut = dataOut;
         }
 
-        public global::Ice.Optional<string[]> returnValue;
-        public global::Ice.Optional<string[]> dataOut;
+        public string[] returnValue;
+        public string[] dataOut;
     }
 }
 
@@ -152,17 +152,17 @@ namespace Test
 
         global::System.Threading.Tasks.Task<TestIntf_OpStringSpanResult> opStringSpanAsync(string[] dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.Optional<byte[]> opOptionalByteSpan(global::Ice.Optional<byte[]> dataIn, out global::Ice.Optional<byte[]> dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte[] opOptionalByteSpan(byte[] dataIn, out byte[] dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptionalByteSpanResult> opOptionalByteSpanAsync(global::Ice.Optional<byte[]> dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptionalByteSpanResult> opOptionalByteSpanAsync(byte[] dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.Optional<short[]> opOptionalShortSpan(global::Ice.Optional<short[]> dataIn, out global::Ice.Optional<short[]> dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        short[] opOptionalShortSpan(short[] dataIn, out short[] dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptionalShortSpanResult> opOptionalShortSpanAsync(global::Ice.Optional<short[]> dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptionalShortSpanResult> opOptionalShortSpanAsync(short[] dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.Optional<string[]> opOptionalStringSpan(global::Ice.Optional<string[]> dataIn, out global::Ice.Optional<string[]> dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[] opOptionalStringSpan(string[] dataIn, out string[] dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptionalStringSpanResult> opOptionalStringSpanAsync(global::Ice.Optional<string[]> dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptionalStringSpanResult> opOptionalStringSpanAsync(string[] dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
@@ -185,13 +185,13 @@ namespace Test
         string[] opStringSpan(string[] dataIn, out string[] dataOut, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Optional<byte[]> opOptionalByteSpan(global::Ice.Optional<byte[]> dataIn, out global::Ice.Optional<byte[]> dataOut, global::Ice.Current current = null);
+        byte[] opOptionalByteSpan(byte[] dataIn, out byte[] dataOut, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Optional<short[]> opOptionalShortSpan(global::Ice.Optional<short[]> dataIn, out global::Ice.Optional<short[]> dataOut, global::Ice.Current current = null);
+        short[] opOptionalShortSpan(short[] dataIn, out short[] dataOut, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Optional<string[]> opOptionalStringSpan(global::Ice.Optional<string[]> dataIn, out global::Ice.Optional<string[]> dataOut, global::Ice.Current current = null);
+        string[] opOptionalStringSpan(string[] dataIn, out string[] dataOut, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void shutdown(global::Ice.Current current = null);
@@ -300,7 +300,7 @@ namespace Test
             }
         }
 
-        public global::Ice.Optional<byte[]> opOptionalByteSpan(global::Ice.Optional<byte[]> dataIn, out global::Ice.Optional<byte[]> dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[] opOptionalByteSpan(byte[] dataIn, out byte[] dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -314,7 +314,7 @@ namespace Test
             }
         }
 
-        public global::Ice.Optional<short[]> opOptionalShortSpan(global::Ice.Optional<short[]> dataIn, out global::Ice.Optional<short[]> dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public short[] opOptionalShortSpan(short[] dataIn, out short[] dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -328,7 +328,7 @@ namespace Test
             }
         }
 
-        public global::Ice.Optional<string[]> opOptionalStringSpan(global::Ice.Optional<string[]> dataIn, out global::Ice.Optional<string[]> dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opOptionalStringSpan(string[] dataIn, out string[] dataOut, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -469,12 +469,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptionalByteSpanResult> opOptionalByteSpanAsync(global::Ice.Optional<byte[]> dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptionalByteSpanResult> opOptionalByteSpanAsync(byte[] dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opOptionalByteSpanAsync(dataIn, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptionalByteSpanResult> _iceI_opOptionalByteSpanAsync(global::Ice.Optional<byte[]> iceP_dataIn, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptionalByteSpanResult> _iceI_opOptionalByteSpanAsync(byte[] iceP_dataIn, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptionalByteSpan_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptionalByteSpanResult>(progress, cancel);
@@ -484,7 +484,7 @@ namespace Test
 
         private const string _opOptionalByteSpan_name = "opOptionalByteSpan";
 
-        private void _iceI_opOptionalByteSpan(global::Ice.Optional<byte[]> iceP_dataIn, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opOptionalByteSpan(byte[] iceP_dataIn, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpOptionalByteSpanResult>(completed);
             outAsync.invoke(
@@ -500,36 +500,36 @@ namespace Test
                 read: (global::Ice.InputStream istr) =>
                 {
                     TestIntf_OpOptionalByteSpanResult ret = new TestIntf_OpOptionalByteSpanResult();
-                    if(istr.readOptional(10, global::Ice.OptionalFormat.VSize))
+                    if (istr.readOptional(10, global::Ice.OptionalFormat.VSize))
                     {
                         byte[] tmpVal;
                         tmpVal = ByteSeqHelper.read(istr);
-                        ret.returnValue = new global::Ice.Optional<byte[]>(tmpVal);
+                        ret.returnValue = tmpVal;
                     }
                     else
                     {
-                        ret.returnValue = new global::Ice.Optional<byte[]>();
+                        ret.returnValue = null;
                     }
-                    if(istr.readOptional(11, global::Ice.OptionalFormat.VSize))
+                    if (istr.readOptional(11, global::Ice.OptionalFormat.VSize))
                     {
                         byte[] tmpVal;
                         tmpVal = ByteSeqHelper.read(istr);
-                        ret.dataOut = new global::Ice.Optional<byte[]>(tmpVal);
+                        ret.dataOut = tmpVal;
                     }
                     else
                     {
-                        ret.dataOut = new global::Ice.Optional<byte[]>();
+                        ret.dataOut = null;
                     }
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptionalShortSpanResult> opOptionalShortSpanAsync(global::Ice.Optional<short[]> dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptionalShortSpanResult> opOptionalShortSpanAsync(short[] dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opOptionalShortSpanAsync(dataIn, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptionalShortSpanResult> _iceI_opOptionalShortSpanAsync(global::Ice.Optional<short[]> iceP_dataIn, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptionalShortSpanResult> _iceI_opOptionalShortSpanAsync(short[] iceP_dataIn, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptionalShortSpan_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptionalShortSpanResult>(progress, cancel);
@@ -539,7 +539,7 @@ namespace Test
 
         private const string _opOptionalShortSpan_name = "opOptionalShortSpan";
 
-        private void _iceI_opOptionalShortSpan(global::Ice.Optional<short[]> iceP_dataIn, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opOptionalShortSpan(short[] iceP_dataIn, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpOptionalShortSpanResult>(completed);
             outAsync.invoke(
@@ -555,38 +555,38 @@ namespace Test
                 read: (global::Ice.InputStream istr) =>
                 {
                     TestIntf_OpOptionalShortSpanResult ret = new TestIntf_OpOptionalShortSpanResult();
-                    if(istr.readOptional(10, global::Ice.OptionalFormat.VSize))
+                    if (istr.readOptional(10, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
                         short[] tmpVal;
                         tmpVal = ShortSeqHelper.read(istr);
-                        ret.returnValue = new global::Ice.Optional<short[]>(tmpVal);
+                        ret.returnValue = tmpVal;
                     }
                     else
                     {
-                        ret.returnValue = new global::Ice.Optional<short[]>();
+                        ret.returnValue = null;
                     }
-                    if(istr.readOptional(11, global::Ice.OptionalFormat.VSize))
+                    if (istr.readOptional(11, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
                         short[] tmpVal;
                         tmpVal = ShortSeqHelper.read(istr);
-                        ret.dataOut = new global::Ice.Optional<short[]>(tmpVal);
+                        ret.dataOut = tmpVal;
                     }
                     else
                     {
-                        ret.dataOut = new global::Ice.Optional<short[]>();
+                        ret.dataOut = null;
                     }
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptionalStringSpanResult> opOptionalStringSpanAsync(global::Ice.Optional<string[]> dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptionalStringSpanResult> opOptionalStringSpanAsync(string[] dataIn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opOptionalStringSpanAsync(dataIn, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptionalStringSpanResult> _iceI_opOptionalStringSpanAsync(global::Ice.Optional<string[]> iceP_dataIn, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptionalStringSpanResult> _iceI_opOptionalStringSpanAsync(string[] iceP_dataIn, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptionalStringSpan_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptionalStringSpanResult>(progress, cancel);
@@ -596,7 +596,7 @@ namespace Test
 
         private const string _opOptionalStringSpan_name = "opOptionalStringSpan";
 
-        private void _iceI_opOptionalStringSpan(global::Ice.Optional<string[]> iceP_dataIn, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opOptionalStringSpan(string[] iceP_dataIn, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpOptionalStringSpanResult>(completed);
             outAsync.invoke(
@@ -612,27 +612,27 @@ namespace Test
                 read: (global::Ice.InputStream istr) =>
                 {
                     TestIntf_OpOptionalStringSpanResult ret = new TestIntf_OpOptionalStringSpanResult();
-                    if(istr.readOptional(10, global::Ice.OptionalFormat.FSize))
+                    if (istr.readOptional(10, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
                         string[] tmpVal;
                         tmpVal = StringSeqHelper.read(istr);
-                        ret.returnValue = new global::Ice.Optional<string[]>(tmpVal);
+                        ret.returnValue = tmpVal;
                     }
                     else
                     {
-                        ret.returnValue = new global::Ice.Optional<string[]>();
+                        ret.returnValue = null;
                     }
-                    if(istr.readOptional(11, global::Ice.OptionalFormat.FSize))
+                    if (istr.readOptional(11, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
                         string[] tmpVal;
                         tmpVal = StringSeqHelper.read(istr);
-                        ret.dataOut = new global::Ice.Optional<string[]>(tmpVal);
+                        ret.dataOut = tmpVal;
                     }
                     else
                     {
-                        ret.dataOut = new global::Ice.Optional<string[]>();
+                        ret.dataOut = null;
                     }
                     return ret;
                 });
@@ -818,11 +818,11 @@ namespace Test
 
         public abstract string[] opStringSpan(string[] dataIn, out string[] dataOut, global::Ice.Current current = null);
 
-        public abstract global::Ice.Optional<byte[]> opOptionalByteSpan(global::Ice.Optional<byte[]> dataIn, out global::Ice.Optional<byte[]> dataOut, global::Ice.Current current = null);
+        public abstract byte[] opOptionalByteSpan(byte[] dataIn, out byte[] dataOut, global::Ice.Current current = null);
 
-        public abstract global::Ice.Optional<short[]> opOptionalShortSpan(global::Ice.Optional<short[]> dataIn, out global::Ice.Optional<short[]> dataOut, global::Ice.Current current = null);
+        public abstract short[] opOptionalShortSpan(short[] dataIn, out short[] dataOut, global::Ice.Current current = null);
 
-        public abstract global::Ice.Optional<string[]> opOptionalStringSpan(global::Ice.Optional<string[]> dataIn, out global::Ice.Optional<string[]> dataOut, global::Ice.Current current = null);
+        public abstract string[] opOptionalStringSpan(string[] dataIn, out string[] dataOut, global::Ice.Current current = null);
 
         public abstract void shutdown(global::Ice.Current current = null);
 
@@ -920,19 +920,19 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Optional<byte[]> iceP_dataIn;
-            if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
+            byte[] iceP_dataIn;
+            if (istr.readOptional(1, global::Ice.OptionalFormat.VSize))
             {
                 byte[] tmpVal;
                 tmpVal = ByteSeqHelper.read(istr);
-                iceP_dataIn = new global::Ice.Optional<byte[]>(tmpVal);
+                iceP_dataIn = tmpVal;
             }
             else
             {
-                iceP_dataIn = new global::Ice.Optional<byte[]>();
+                iceP_dataIn = null;
             }
             inS.endReadParams();
-            global::Ice.Optional<byte[]> iceP_dataOut;
+            byte[] iceP_dataOut;
             var ret = obj.opOptionalByteSpan(iceP_dataIn, out iceP_dataOut, current);
             var ostr = inS.startWriteParams();
             ostr.writeByteSeq(10, ret);
@@ -947,20 +947,20 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Optional<short[]> iceP_dataIn;
-            if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
+            short[] iceP_dataIn;
+            if (istr.readOptional(1, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
                 short[] tmpVal;
                 tmpVal = ShortSeqHelper.read(istr);
-                iceP_dataIn = new global::Ice.Optional<short[]>(tmpVal);
+                iceP_dataIn = tmpVal;
             }
             else
             {
-                iceP_dataIn = new global::Ice.Optional<short[]>();
+                iceP_dataIn = null;
             }
             inS.endReadParams();
-            global::Ice.Optional<short[]> iceP_dataOut;
+            short[] iceP_dataOut;
             var ret = obj.opOptionalShortSpan(iceP_dataIn, out iceP_dataOut, current);
             var ostr = inS.startWriteParams();
             ostr.writeShortSeq(10, ret);
@@ -975,20 +975,20 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Optional<string[]> iceP_dataIn;
-            if(istr.readOptional(1, global::Ice.OptionalFormat.FSize))
+            string[] iceP_dataIn;
+            if (istr.readOptional(1, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
                 string[] tmpVal;
                 tmpVal = StringSeqHelper.read(istr);
-                iceP_dataIn = new global::Ice.Optional<string[]>(tmpVal);
+                iceP_dataIn = tmpVal;
             }
             else
             {
-                iceP_dataIn = new global::Ice.Optional<string[]>();
+                iceP_dataIn = null;
             }
             inS.endReadParams();
-            global::Ice.Optional<string[]> iceP_dataOut;
+            string[] iceP_dataOut;
             var ret = obj.opOptionalStringSpan(iceP_dataIn, out iceP_dataOut, current);
             var ostr = inS.startWriteParams();
             ostr.writeStringSeq(10, ret);

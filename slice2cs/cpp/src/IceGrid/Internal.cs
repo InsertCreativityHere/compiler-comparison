@@ -248,7 +248,7 @@ namespace IceGrid
         public global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> properties;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<string[]> services = new global::Ice.Optional<string[]>();
+        public string[] services;
 
         #endregion
 
@@ -263,7 +263,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InternalServerDescriptor(string id, string application, string uuid, int revision, string sessionId, string exe, string pwd, string user, string activation, string activationTimeout, string deactivationTimeout, bool processRegistered, string[] options, string[] envs, string[] logs, InternalAdapterDescriptor[] adapters, InternalDbEnvDescriptor[] dbEnvs, global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> properties, global::Ice.Optional<string[]> services)
+        public InternalServerDescriptor(string id, string application, string uuid, int revision, string sessionId, string exe, string pwd, string user, string activation, string activationTimeout, string deactivationTimeout, bool processRegistered, string[] options, string[] envs, string[] logs, InternalAdapterDescriptor[] adapters, InternalDbEnvDescriptor[] dbEnvs, global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> properties, string[] services)
         {
             this.id = id;
             this.application = application;
@@ -352,16 +352,16 @@ namespace IceGrid
             adapters = InternalAdapterDescriptorSeqHelper.read(istr_);
             dbEnvs = InternalDbEnvDescriptorSeqHelper.read(istr_);
             properties = PropertyDescriptorSeqDictHelper.read(istr_);
-            if(istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 string[] tmpVal;
                 tmpVal = global::Ice.StringSeqHelper.read(istr_);
-                services = new global::Ice.Optional<string[]>(tmpVal);
+                services = tmpVal;
             }
             else
             {
-                services = new global::Ice.Optional<string[]>();
+                services = null;
             }
             istr_.endSlice();
         }
@@ -2001,7 +2001,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void setDatabaseObserver(DatabaseObserverPrx dbObs, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> serials, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void setDatabaseObserver(DatabaseObserverPrx dbObs, global::System.Collections.Generic.Dictionary<string, long> serials, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Set the database observer.
@@ -2011,7 +2011,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setDatabaseObserverAsync(DatabaseObserverPrx dbObs, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> serials, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task setDatabaseObserverAsync(DatabaseObserverPrx dbObs, global::System.Collections.Generic.Dictionary<string, long> serials, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
         /// This method sets the endpoints of the replica.
@@ -2636,7 +2636,7 @@ namespace IceGrid
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setDatabaseObserver(DatabaseObserverPrx dbObs, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> serials, global::Ice.Current current = null);
+        void setDatabaseObserver(DatabaseObserverPrx dbObs, global::System.Collections.Generic.Dictionary<string, long> serials, global::Ice.Current current = null);
 
         /// <summary>
         /// This method sets the endpoints of the replica.
@@ -2783,7 +2783,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, InternalDbEnvDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2817,7 +2817,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, InternalAdapterDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -4290,7 +4290,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, InternalRegistryPrx[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -5526,7 +5526,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, NodePrx[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -6766,7 +6766,7 @@ namespace IceGrid
             }
         }
 
-        public void setDatabaseObserver(DatabaseObserverPrx dbObs, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> serials, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void setDatabaseObserver(DatabaseObserverPrx dbObs, global::System.Collections.Generic.Dictionary<string, long> serials, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -6899,12 +6899,12 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task setDatabaseObserverAsync(DatabaseObserverPrx dbObs, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> serials, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task setDatabaseObserverAsync(DatabaseObserverPrx dbObs, global::System.Collections.Generic.Dictionary<string, long> serials, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_setDatabaseObserverAsync(dbObs, serials, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_setDatabaseObserverAsync(DatabaseObserverPrx iceP_dbObs, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> iceP_serials, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_setDatabaseObserverAsync(DatabaseObserverPrx iceP_dbObs, global::System.Collections.Generic.Dictionary<string, long> iceP_serials, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setDatabaseObserver_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -6914,7 +6914,7 @@ namespace IceGrid
 
         private const string _setDatabaseObserver_name = "setDatabaseObserver";
 
-        private void _iceI_setDatabaseObserver(DatabaseObserverPrx iceP_dbObs, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> iceP_serials, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setDatabaseObserver(DatabaseObserverPrx iceP_dbObs, global::System.Collections.Generic.Dictionary<string, long> iceP_serials, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -6926,10 +6926,10 @@ namespace IceGrid
                 write: (global::Ice.OutputStream ostr) =>
                 {
                     DatabaseObserverPrxHelper.write(ostr, iceP_dbObs);
-                    if(iceP_serials.HasValue && ostr.writeOptional(1, global::Ice.OptionalFormat.FSize))
+                    if (iceP_serials is not null && ostr.writeOptional(1, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        StringLongDictHelper.write(ostr, iceP_serials.Value);
+                        StringLongDictHelper.write(ostr, iceP_serials);
                         ostr.endSize(pos);
                     }
                 },
@@ -9487,7 +9487,7 @@ namespace IceGrid
 
         public abstract int getTimeout(global::Ice.Current current = null);
 
-        public abstract void setDatabaseObserver(DatabaseObserverPrx dbObs, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> serials, global::Ice.Current current = null);
+        public abstract void setDatabaseObserver(DatabaseObserverPrx dbObs, global::System.Collections.Generic.Dictionary<string, long> serials, global::Ice.Current current = null);
 
         public abstract void setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx> endpoints, global::Ice.Current current = null);
 
@@ -9563,18 +9563,18 @@ namespace IceGrid
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
             DatabaseObserverPrx iceP_dbObs = default;
-            global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>> iceP_serials;
+            global::System.Collections.Generic.Dictionary<string, long> iceP_serials;
             iceP_dbObs = DatabaseObserverPrxHelper.read(istr);
-            if(istr.readOptional(1, global::Ice.OptionalFormat.FSize))
+            if (istr.readOptional(1, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
                 global::System.Collections.Generic.Dictionary<string, long> tmpVal = new global::System.Collections.Generic.Dictionary<string, long>();
                 tmpVal = StringLongDictHelper.read(istr);
-                iceP_serials = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>>(tmpVal);
+                iceP_serials = tmpVal;
             }
             else
             {
-                iceP_serials = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, long>>();
+                iceP_serials = null;
             }
             inS.endReadParams();
             obj.setDatabaseObserver(iceP_dbObs, iceP_serials, current);

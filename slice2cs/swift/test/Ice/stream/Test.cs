@@ -261,10 +261,10 @@ namespace Test
         public byte by;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<short> sh = new global::Ice.Optional<short>();
+        public short? sh;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<int> i = new global::Ice.Optional<int>();
+        public int? i;
 
         #endregion
 
@@ -279,7 +279,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OptionalClass(bool bo, byte by, global::Ice.Optional<short> sh, global::Ice.Optional<int> i)
+        public OptionalClass(bool bo, byte by, short? sh, int? i)
         {
             this.bo = bo;
             this.by = by;
@@ -1198,7 +1198,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyEnum[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1232,7 +1232,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, SmallStruct[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1267,7 +1267,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyClass[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1301,7 +1301,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, bool[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1335,7 +1335,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, byte[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1369,7 +1369,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, short[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1403,7 +1403,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, int[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1437,7 +1437,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, long[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1471,7 +1471,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, float[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1505,7 +1505,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, double[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1539,7 +1539,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, string[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1573,7 +1573,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyEnum[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1607,7 +1607,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, SmallStruct[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1641,7 +1641,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyClass[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

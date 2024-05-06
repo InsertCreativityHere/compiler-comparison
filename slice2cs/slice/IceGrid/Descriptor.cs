@@ -3037,7 +3037,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, PropertyDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3109,7 +3109,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, ObjectDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3144,7 +3144,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, AdapterDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3179,7 +3179,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, ServerDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3213,7 +3213,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, ServiceDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3247,7 +3247,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, ServerInstanceDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3319,7 +3319,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, ServiceInstanceDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3391,7 +3391,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, ReplicaGroupDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3426,7 +3426,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, ApplicationDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3461,7 +3461,7 @@ namespace IceGrid
     {
         public static void write(global::Ice.OutputStream ostr, NodeUpdateDescriptor[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

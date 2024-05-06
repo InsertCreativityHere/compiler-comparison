@@ -1820,7 +1820,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, B[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1889,7 +1889,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, PBase[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

@@ -422,7 +422,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, ByteEnum[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -456,7 +456,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, ShortEnum[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -490,7 +490,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, IntEnum[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -524,7 +524,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, SimpleEnum[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

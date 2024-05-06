@@ -346,46 +346,46 @@ namespace Test
         public byte by;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<short> sh = new global::Ice.Optional<short>();
+        public short? sh;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<int> i = new global::Ice.Optional<int>();
+        public int? i;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<SmallStruct> sm = new global::Ice.Optional<SmallStruct>();
+        public SmallStruct sm;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<MyEnum[]> enumS4 = new global::Ice.Optional<MyEnum[]>();
+        public MyEnum[] enumS4;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<MyClass[]> myClassS5 = new global::Ice.Optional<MyClass[]>();
+        public MyClass[] myClassS5;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<byte, bool>> byteBoolD6 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<byte, bool>>();
+        public global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD6;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<short, int>> shortIntD7 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<short, int>>();
+        public global::System.Collections.Generic.Dictionary<short, int> shortIntD7;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<MyEnum> enum8 = new global::Ice.Optional<MyEnum>();
+        public MyEnum? enum8;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<MyClass> class9 = new global::Ice.Optional<MyClass>();
+        public MyClass class9;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, MyClass>> stringMyClassD10 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, MyClass>>();
+        public global::System.Collections.Generic.Dictionary<string, MyClass> stringMyClassD10;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<int[]> intSeq12 = new global::Ice.Optional<int[]>();
+        public int[] intSeq12;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<byte[]> byteSeq13 = new global::Ice.Optional<byte[]>();
+        public byte[] byteSeq13;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<string[]> stringSeq14 = new global::Ice.Optional<string[]>();
+        public string[] stringSeq14;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<Point> p15 = new global::Ice.Optional<Point>();
+        public Point? p15;
 
         #endregion
 
@@ -396,12 +396,11 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OptionalClass()
         {
-            this.sm = new();
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OptionalClass(bool bo, byte by, global::Ice.Optional<short> sh, global::Ice.Optional<int> i, global::Ice.Optional<SmallStruct> sm, global::Ice.Optional<MyEnum[]> enumS4, global::Ice.Optional<MyClass[]> myClassS5, global::Ice.Optional<global::System.Collections.Generic.Dictionary<byte, bool>> byteBoolD6, global::Ice.Optional<global::System.Collections.Generic.Dictionary<short, int>> shortIntD7, global::Ice.Optional<MyEnum> enum8, global::Ice.Optional<MyClass> class9, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, MyClass>> stringMyClassD10, global::Ice.Optional<int[]> intSeq12, global::Ice.Optional<byte[]> byteSeq13, global::Ice.Optional<string[]> stringSeq14, global::Ice.Optional<Point> p15)
+        public OptionalClass(bool bo, byte by, short? sh, int? i, SmallStruct sm, MyEnum[] enumS4, MyClass[] myClassS5, global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD6, global::System.Collections.Generic.Dictionary<short, int> shortIntD7, MyEnum? enum8, MyClass class9, global::System.Collections.Generic.Dictionary<string, MyClass> stringMyClassD10, int[] intSeq12, byte[] byteSeq13, string[] stringSeq14, Point? p15)
         {
             this.bo = bo;
             this.by = by;
@@ -447,49 +446,49 @@ namespace Test
             ostr_.writeByte(by);
             ostr_.writeShort(1, sh);
             ostr_.writeInt(2, i);
-            if(sm.HasValue && ostr_.writeOptional(3, global::Ice.OptionalFormat.FSize))
+            if (sm is not null && ostr_.writeOptional(3, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                SmallStruct.ice_write(ostr_, sm.Value);
+                SmallStruct.ice_write(ostr_, sm);
                 ostr_.endSize(pos);
             }
-            if(enumS4.HasValue && ostr_.writeOptional(4, global::Ice.OptionalFormat.FSize))
+            if (enumS4 is not null && ostr_.writeOptional(4, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                MyEnumSHelper.write(ostr_, enumS4.Value);
+                MyEnumSHelper.write(ostr_, enumS4);
                 ostr_.endSize(pos);
             }
-            if(myClassS5.HasValue && ostr_.writeOptional(5, global::Ice.OptionalFormat.FSize))
+            if (myClassS5 is not null && ostr_.writeOptional(5, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                MyClassSHelper.write(ostr_, myClassS5.Value);
+                MyClassSHelper.write(ostr_, myClassS5);
                 ostr_.endSize(pos);
             }
-            if(byteBoolD6.HasValue && ostr_.writeOptional(6, global::Ice.OptionalFormat.VSize))
+            if (byteBoolD6 is not null && ostr_.writeOptional(6, global::Ice.OptionalFormat.VSize))
             {
-                ostr_.writeSize(byteBoolD6.Value == null ? 1 : byteBoolD6.Value.Count * 2 + (byteBoolD6.Value.Count > 254 ? 5 : 1));
-                ByteBoolDHelper.write(ostr_, byteBoolD6.Value);
+                ostr_.writeSize(byteBoolD6.Count * 2 + (byteBoolD6.Count > 254 ? 5 : 1));
+                ByteBoolDHelper.write(ostr_, byteBoolD6);
             }
-            if(shortIntD7.HasValue && ostr_.writeOptional(7, global::Ice.OptionalFormat.VSize))
+            if (shortIntD7 is not null && ostr_.writeOptional(7, global::Ice.OptionalFormat.VSize))
             {
-                ostr_.writeSize(shortIntD7.Value == null ? 1 : shortIntD7.Value.Count * 6 + (shortIntD7.Value.Count > 254 ? 5 : 1));
-                ShortIntDHelper.write(ostr_, shortIntD7.Value);
+                ostr_.writeSize(shortIntD7.Count * 6 + (shortIntD7.Count > 254 ? 5 : 1));
+                ShortIntDHelper.write(ostr_, shortIntD7);
             }
-            if(enum8.HasValue)
+            if (enum8 is not null)
             {
                 ostr_.writeEnum(8, (int)enum8.Value, 3);
             }
             ostr_.writeValue(9, class9);
-            if(stringMyClassD10.HasValue && ostr_.writeOptional(10, global::Ice.OptionalFormat.FSize))
+            if (stringMyClassD10 is not null && ostr_.writeOptional(10, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                StringMyClassDHelper.write(ostr_, stringMyClassD10.Value);
+                StringMyClassDHelper.write(ostr_, stringMyClassD10);
                 ostr_.endSize(pos);
             }
             ostr_.writeIntSeq(12, intSeq12);
             ostr_.writeByteSeq(13, byteSeq13);
             ostr_.writeStringSeq(14, stringSeq14);
-            if(p15.HasValue && ostr_.writeOptional(15, global::Ice.OptionalFormat.VSize))
+            if (p15 is not null && ostr_.writeOptional(15, global::Ice.OptionalFormat.VSize))
             {
                 ostr_.writeSize(8);
                 p15.Value.ice_writeMembers(ostr_);
@@ -505,125 +504,125 @@ namespace Test
             by = istr_.readByte();
             sh = istr_.readShort(1);
             i = istr_.readInt(2);
-            if(istr_.readOptional(3, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(3, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 SmallStruct tmpVal = default;
                 tmpVal = SmallStruct.ice_read(istr_);
-                sm = new global::Ice.Optional<SmallStruct>(tmpVal);
+                sm = tmpVal;
             }
             else
             {
-                sm = new global::Ice.Optional<SmallStruct>();
+                sm = null;
             }
-            if(istr_.readOptional(4, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(4, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 MyEnum[] tmpVal;
                 tmpVal = MyEnumSHelper.read(istr_);
-                enumS4 = new global::Ice.Optional<MyEnum[]>(tmpVal);
+                enumS4 = tmpVal;
             }
             else
             {
-                enumS4 = new global::Ice.Optional<MyEnum[]>();
+                enumS4 = null;
             }
-            if(istr_.readOptional(5, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(5, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 MyClass[] tmpVal;
                 tmpVal = MyClassSHelper.read(istr_);
-                myClassS5 = new global::Ice.Optional<MyClass[]>(tmpVal);
+                myClassS5 = tmpVal;
             }
             else
             {
-                myClassS5 = new global::Ice.Optional<MyClass[]>();
+                myClassS5 = null;
             }
-            if(istr_.readOptional(6, global::Ice.OptionalFormat.VSize))
+            if (istr_.readOptional(6, global::Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
                 global::System.Collections.Generic.Dictionary<byte, bool> tmpVal = new global::System.Collections.Generic.Dictionary<byte, bool>();
                 tmpVal = ByteBoolDHelper.read(istr_);
-                byteBoolD6 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<byte, bool>>(tmpVal);
+                byteBoolD6 = tmpVal;
             }
             else
             {
-                byteBoolD6 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<byte, bool>>();
+                byteBoolD6 = null;
             }
-            if(istr_.readOptional(7, global::Ice.OptionalFormat.VSize))
+            if (istr_.readOptional(7, global::Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
                 global::System.Collections.Generic.Dictionary<short, int> tmpVal = new global::System.Collections.Generic.Dictionary<short, int>();
                 tmpVal = ShortIntDHelper.read(istr_);
-                shortIntD7 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<short, int>>(tmpVal);
+                shortIntD7 = tmpVal;
             }
             else
             {
-                shortIntD7 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<short, int>>();
+                shortIntD7 = null;
             }
-            if(istr_.readOptional(8, global::Ice.OptionalFormat.Size))
+            if (istr_.readOptional(8, global::Ice.OptionalFormat.Size))
             {
                 MyEnum tmpVal;
                 tmpVal = (MyEnum)istr_.readEnum(2);
-                enum8 = new global::Ice.Optional<MyEnum>(tmpVal);
+                enum8 = tmpVal;
             }
             else
             {
-                enum8 = new global::Ice.Optional<MyEnum>();
+                enum8 = null;
             }
             istr_.readValue(9, (MyClass v) => { this.class9 = v; });
-            if(istr_.readOptional(10, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(10, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 global::System.Collections.Generic.Dictionary<string, MyClass> tmpVal = new global::System.Collections.Generic.Dictionary<string, MyClass>();
                 tmpVal = StringMyClassDHelper.read(istr_);
-                stringMyClassD10 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, MyClass>>(tmpVal);
+                stringMyClassD10 = tmpVal;
             }
             else
             {
-                stringMyClassD10 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, MyClass>>();
+                stringMyClassD10 = null;
             }
-            if(istr_.readOptional(12, global::Ice.OptionalFormat.VSize))
+            if (istr_.readOptional(12, global::Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
                 int[] tmpVal;
                 tmpVal = global::Ice.IntSeqHelper.read(istr_);
-                intSeq12 = new global::Ice.Optional<int[]>(tmpVal);
+                intSeq12 = tmpVal;
             }
             else
             {
-                intSeq12 = new global::Ice.Optional<int[]>();
+                intSeq12 = null;
             }
-            if(istr_.readOptional(13, global::Ice.OptionalFormat.VSize))
+            if (istr_.readOptional(13, global::Ice.OptionalFormat.VSize))
             {
                 byte[] tmpVal;
                 tmpVal = global::Ice.ByteSeqHelper.read(istr_);
-                byteSeq13 = new global::Ice.Optional<byte[]>(tmpVal);
+                byteSeq13 = tmpVal;
             }
             else
             {
-                byteSeq13 = new global::Ice.Optional<byte[]>();
+                byteSeq13 = null;
             }
-            if(istr_.readOptional(14, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(14, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 string[] tmpVal;
                 tmpVal = global::Ice.StringSeqHelper.read(istr_);
-                stringSeq14 = new global::Ice.Optional<string[]>(tmpVal);
+                stringSeq14 = tmpVal;
             }
             else
             {
-                stringSeq14 = new global::Ice.Optional<string[]>();
+                stringSeq14 = null;
             }
-            if(istr_.readOptional(15, global::Ice.OptionalFormat.VSize))
+            if (istr_.readOptional(15, global::Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
                 Point tmpVal = default;
                 tmpVal.ice_readMembers(istr_);
-                p15 = new global::Ice.Optional<Point>(tmpVal);
+                p15 = tmpVal;
             }
             else
             {
-                p15 = new global::Ice.Optional<Point>();
+                p15 = null;
             }
             istr_.endSlice();
         }
@@ -930,7 +929,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyEnum[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -964,7 +963,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyClass[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1107,7 +1106,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, bool[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1141,7 +1140,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, byte[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1175,7 +1174,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, short[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1209,7 +1208,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, int[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1243,7 +1242,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, long[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1277,7 +1276,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, float[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1311,7 +1310,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, double[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1345,7 +1344,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, string[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1379,7 +1378,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyEnum[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1413,7 +1412,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyClass[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

@@ -1270,7 +1270,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, bool[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1304,7 +1304,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, bool[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1338,7 +1338,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, bool[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1404,7 +1404,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, byte[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1438,7 +1438,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, byte[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1472,7 +1472,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, byte[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1538,7 +1538,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, string[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1572,7 +1572,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, string[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1606,7 +1606,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, string[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1640,7 +1640,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, @Fixed[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1674,7 +1674,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, @Fixed[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1708,7 +1708,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, @Fixed[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1742,7 +1742,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, @Fixed[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1776,7 +1776,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, @Fixed[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1810,7 +1810,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, Variable[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1845,7 +1845,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, Variable[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1880,7 +1880,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, Variable[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1914,7 +1914,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, Variable[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1948,7 +1948,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, Variable[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2019,7 +2019,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<string, string>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2053,7 +2053,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<string, string>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2087,7 +2087,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<string, string>[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2121,7 +2121,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<string, string>[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2155,7 +2155,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<string, string>[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2189,7 +2189,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, E[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2223,7 +2223,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, E[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2257,7 +2257,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, E[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2291,7 +2291,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, E[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2325,7 +2325,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, E[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2359,7 +2359,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, C[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2393,7 +2393,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, C[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2427,7 +2427,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, C[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2461,7 +2461,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, C[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2495,7 +2495,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, C[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2679,7 +2679,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, DPrx[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2713,7 +2713,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, DPrx[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2747,7 +2747,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, DPrx[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2781,7 +2781,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, DPrx[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2815,7 +2815,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, DPrx[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

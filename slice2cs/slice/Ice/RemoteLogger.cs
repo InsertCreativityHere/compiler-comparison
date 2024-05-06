@@ -608,7 +608,7 @@ namespace Ice
     {
         public static void write(OutputStream ostr, LogMessageType[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -642,7 +642,7 @@ namespace Ice
     {
         public static void write(OutputStream ostr, LogMessage[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

@@ -1753,13 +1753,13 @@ namespace LocalTest
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<S1> s1 = new global::Ice.Optional<S1>();
+        public S1 s1;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<C1[]> c1seq = new global::Ice.Optional<C1[]>();
+        public C1[] c1seq;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, S1>> s1dict = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, S1>>();
+        public global::System.Collections.Generic.Dictionary<int, S1> s1dict;
 
         #endregion
 
@@ -1770,12 +1770,11 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Opt()
         {
-            this.s1 = new();
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Opt(global::Ice.Optional<S1> s1, global::Ice.Optional<C1[]> c1seq, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, S1>> s1dict)
+        public Opt(S1 s1, C1[] c1seq, global::System.Collections.Generic.Dictionary<int, S1> s1dict)
         {
             this.s1 = s1;
             this.c1seq = c1seq;
@@ -1804,22 +1803,22 @@ namespace LocalTest
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
-            if(s1.HasValue && ostr_.writeOptional(1, global::Ice.OptionalFormat.FSize))
+            if (s1 is not null && ostr_.writeOptional(1, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                S1.ice_write(ostr_, s1.Value);
+                S1.ice_write(ostr_, s1);
                 ostr_.endSize(pos);
             }
-            if(c1seq.HasValue && ostr_.writeOptional(2, global::Ice.OptionalFormat.FSize))
+            if (c1seq is not null && ostr_.writeOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                C1SeqHelper.write(ostr_, c1seq.Value);
+                C1SeqHelper.write(ostr_, c1seq);
                 ostr_.endSize(pos);
             }
-            if(s1dict.HasValue && ostr_.writeOptional(3, global::Ice.OptionalFormat.FSize))
+            if (s1dict is not null && ostr_.writeOptional(3, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                S1DictHelper.write(ostr_, s1dict.Value);
+                S1DictHelper.write(ostr_, s1dict);
                 ostr_.endSize(pos);
             }
             ostr_.endSlice();
@@ -1829,38 +1828,38 @@ namespace LocalTest
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            if(istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 S1 tmpVal = default;
                 tmpVal = S1.ice_read(istr_);
-                s1 = new global::Ice.Optional<S1>(tmpVal);
+                s1 = tmpVal;
             }
             else
             {
-                s1 = new global::Ice.Optional<S1>();
+                s1 = null;
             }
-            if(istr_.readOptional(2, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 C1[] tmpVal;
                 tmpVal = C1SeqHelper.read(istr_);
-                c1seq = new global::Ice.Optional<C1[]>(tmpVal);
+                c1seq = tmpVal;
             }
             else
             {
-                c1seq = new global::Ice.Optional<C1[]>();
+                c1seq = null;
             }
-            if(istr_.readOptional(3, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(3, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 global::System.Collections.Generic.Dictionary<int, S1> tmpVal = new global::System.Collections.Generic.Dictionary<int, S1>();
                 tmpVal = S1DictHelper.read(istr_);
-                s1dict = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, S1>>(tmpVal);
+                s1dict = tmpVal;
             }
             else
             {
-                s1dict = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, S1>>();
+                s1dict = null;
             }
             istr_.endSlice();
         }
@@ -1876,7 +1875,7 @@ namespace LocalTest
     {
         public static void write(global::Ice.OutputStream ostr, C1[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -1910,7 +1909,7 @@ namespace LocalTest
     {
         public static void write(global::Ice.OutputStream ostr, S1[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2017,7 +2016,7 @@ namespace LocalTest
     {
         public static void write(global::Ice.OutputStream ostr, C1[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2051,7 +2050,7 @@ namespace LocalTest
     {
         public static void write(global::Ice.OutputStream ostr, S1[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

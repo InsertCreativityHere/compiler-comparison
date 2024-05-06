@@ -54,7 +54,7 @@ namespace Ice
 namespace Ice
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Router_getClientProxy(ObjectPrx ret, Optional<bool> hasRoutingTable);
+    public delegate void Callback_Router_getClientProxy(ObjectPrx ret, bool? hasRoutingTable);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Router_getServerProxy(ObjectPrx ret);
@@ -70,14 +70,14 @@ namespace Ice
 {
     public struct Router_GetClientProxyResult
     {
-        public Router_GetClientProxyResult(ObjectPrx returnValue, Optional<bool> hasRoutingTable)
+        public Router_GetClientProxyResult(ObjectPrx returnValue, bool? hasRoutingTable)
         {
             this.returnValue = returnValue;
             this.hasRoutingTable = hasRoutingTable;
         }
 
         public ObjectPrx returnValue;
-        public Optional<bool> hasRoutingTable;
+        public bool? hasRoutingTable;
     }
 }
 
@@ -104,7 +104,7 @@ namespace Ice
         /// <returns>The router's client proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ObjectPrx getClientProxy(out Optional<bool> hasRoutingTable, OptionalContext context = new OptionalContext());
+        ObjectPrx getClientProxy(out bool? hasRoutingTable, OptionalContext context = new OptionalContext());
 
         /// <summary>
         /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -211,7 +211,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx getClientProxy(out Optional<bool> hasRoutingTable, Current current = null);
+        ObjectPrx getClientProxy(out bool? hasRoutingTable, Current current = null);
 
         /// <summary>
         /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
@@ -269,7 +269,7 @@ namespace Ice
 
         #region Synchronous operations
 
-        public ObjectPrx getClientProxy(out Optional<bool> hasRoutingTable, OptionalContext context = new OptionalContext())
+        public ObjectPrx getClientProxy(out bool? hasRoutingTable, OptionalContext context = new OptionalContext())
         {
             try
             {
@@ -762,7 +762,7 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract ObjectPrx getClientProxy(out Optional<bool> hasRoutingTable, Current current = null);
+        public abstract ObjectPrx getClientProxy(out bool? hasRoutingTable, Current current = null);
 
         public abstract ObjectPrx getServerProxy(Current current = null);
 
@@ -808,7 +808,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             inS.readEmptyParams();
-            Optional<bool> iceP_hasRoutingTable;
+            bool? iceP_hasRoutingTable;
             var ret = obj.getClientProxy(out iceP_hasRoutingTable, current);
             var ostr = inS.startWriteParams();
             ostr.writeProxy(ret);

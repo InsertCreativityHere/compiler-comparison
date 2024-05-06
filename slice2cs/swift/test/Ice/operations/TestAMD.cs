@@ -2409,7 +2409,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyEnum[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2443,7 +2443,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyClassPrx[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2477,7 +2477,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, byte[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2511,7 +2511,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, bool[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2545,7 +2545,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, short[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2579,7 +2579,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, int[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2613,7 +2613,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, long[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2647,7 +2647,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, float[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2681,7 +2681,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, double[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2715,7 +2715,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, string[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2749,7 +2749,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyEnum[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2783,7 +2783,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, MyClassPrx[][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2817,7 +2817,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, string[][][] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3110,7 +3110,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<byte, bool>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3144,7 +3144,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<short, int>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3178,7 +3178,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<long, float>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3212,7 +3212,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<string, string>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3246,7 +3246,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<string, MyEnum>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3280,7 +3280,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<MyEnum, string>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -3314,7 +3314,7 @@ namespace Test
     {
         public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

@@ -38,25 +38,25 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<bool[]> boolSeq = new global::Ice.Optional<bool[]>();
+            public bool[] boolSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<byte[]> byteSeq = new global::Ice.Optional<byte[]>();
+            public byte[] byteSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<short[]> shortSeq = new global::Ice.Optional<short[]>();
+            public short[] shortSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<int[]> intSeq = new global::Ice.Optional<int[]>();
+            public int[] intSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<long[]> longSeq = new global::Ice.Optional<long[]>();
+            public long[] longSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<float[]> floatSeq = new global::Ice.Optional<float[]>();
+            public float[] floatSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<double[]> doubleSeq = new global::Ice.Optional<double[]>();
+            public double[] doubleSeq;
 
             #endregion
 
@@ -71,7 +71,7 @@ namespace Test
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D(global::Ice.Optional<bool[]> boolSeq, global::Ice.Optional<byte[]> byteSeq, global::Ice.Optional<short[]> shortSeq, global::Ice.Optional<int[]> intSeq, global::Ice.Optional<long[]> longSeq, global::Ice.Optional<float[]> floatSeq, global::Ice.Optional<double[]> doubleSeq)
+            public D(bool[] boolSeq, byte[] byteSeq, short[] shortSeq, int[] intSeq, long[] longSeq, float[] floatSeq, double[] doubleSeq)
             {
                 this.boolSeq = boolSeq;
                 this.byteSeq = byteSeq;
@@ -118,80 +118,80 @@ namespace Test
             protected override void iceReadImpl(global::Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                if(istr_.readOptional(1, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(1, global::Ice.OptionalFormat.VSize))
                 {
                     bool[] tmpVal;
                     tmpVal = BoolSeq1Helper.read(istr_);
-                    boolSeq = new global::Ice.Optional<bool[]>(tmpVal);
+                    boolSeq = tmpVal;
                 }
                 else
                 {
-                    boolSeq = new global::Ice.Optional<bool[]>();
+                    boolSeq = null;
                 }
-                if(istr_.readOptional(2, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(2, global::Ice.OptionalFormat.VSize))
                 {
                     byte[] tmpVal;
                     tmpVal = ByteSeq1Helper.read(istr_);
-                    byteSeq = new global::Ice.Optional<byte[]>(tmpVal);
+                    byteSeq = tmpVal;
                 }
                 else
                 {
-                    byteSeq = new global::Ice.Optional<byte[]>();
+                    byteSeq = null;
                 }
-                if(istr_.readOptional(3, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(3, global::Ice.OptionalFormat.VSize))
                 {
                     istr_.skipSize();
                     short[] tmpVal;
                     tmpVal = ShortSeq1Helper.read(istr_);
-                    shortSeq = new global::Ice.Optional<short[]>(tmpVal);
+                    shortSeq = tmpVal;
                 }
                 else
                 {
-                    shortSeq = new global::Ice.Optional<short[]>();
+                    shortSeq = null;
                 }
-                if(istr_.readOptional(4, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(4, global::Ice.OptionalFormat.VSize))
                 {
                     istr_.skipSize();
                     int[] tmpVal;
                     tmpVal = IntSeq1Helper.read(istr_);
-                    intSeq = new global::Ice.Optional<int[]>(tmpVal);
+                    intSeq = tmpVal;
                 }
                 else
                 {
-                    intSeq = new global::Ice.Optional<int[]>();
+                    intSeq = null;
                 }
-                if(istr_.readOptional(5, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(5, global::Ice.OptionalFormat.VSize))
                 {
                     istr_.skipSize();
                     long[] tmpVal;
                     tmpVal = LongSeq1Helper.read(istr_);
-                    longSeq = new global::Ice.Optional<long[]>(tmpVal);
+                    longSeq = tmpVal;
                 }
                 else
                 {
-                    longSeq = new global::Ice.Optional<long[]>();
+                    longSeq = null;
                 }
-                if(istr_.readOptional(6, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(6, global::Ice.OptionalFormat.VSize))
                 {
                     istr_.skipSize();
                     float[] tmpVal;
                     tmpVal = FloatSeq1Helper.read(istr_);
-                    floatSeq = new global::Ice.Optional<float[]>(tmpVal);
+                    floatSeq = tmpVal;
                 }
                 else
                 {
-                    floatSeq = new global::Ice.Optional<float[]>();
+                    floatSeq = null;
                 }
-                if(istr_.readOptional(7, global::Ice.OptionalFormat.VSize))
+                if (istr_.readOptional(7, global::Ice.OptionalFormat.VSize))
                 {
                     istr_.skipSize();
                     double[] tmpVal;
                     tmpVal = DoubleSeq1Helper.read(istr_);
-                    doubleSeq = new global::Ice.Optional<double[]>(tmpVal);
+                    doubleSeq = tmpVal;
                 }
                 else
                 {
-                    doubleSeq = new global::Ice.Optional<double[]>();
+                    doubleSeq = null;
                 }
                 istr_.endSlice();
             }

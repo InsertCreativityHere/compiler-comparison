@@ -1429,7 +1429,7 @@ namespace and
     {
         public static void write(global::Ice.OutputStream ostr, array[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

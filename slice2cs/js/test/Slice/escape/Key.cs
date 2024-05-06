@@ -252,22 +252,22 @@ namespace @await
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<@break> @for = new global::Ice.Optional<@break>();
+        public @break? @for;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<var> @goto = new global::Ice.Optional<var>();
+        public var? @goto;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<explicitPrx> @if = new global::Ice.Optional<explicitPrx>();
+        public explicitPrx @if;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>();
+        public global::System.Collections.Generic.Dictionary<string, @break> @internal;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<string> debugger = new global::Ice.Optional<string>();
+        public string debugger;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Optional<explicitPrx> @null = new global::Ice.Optional<explicitPrx>();
+        public explicitPrx @null;
 
         #endregion
 
@@ -282,7 +282,7 @@ namespace @await
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public package(global::Ice.Optional<@break> @for, global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> debugger, global::Ice.Optional<explicitPrx> @null)
+        public package(@break? @for, var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string debugger, explicitPrx @null)
         {
             this.@for = @for;
             this.@goto = @goto;
@@ -314,32 +314,32 @@ namespace @await
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
-            if(@for.HasValue && ostr_.writeOptional(1, global::Ice.OptionalFormat.VSize))
+            if (@for is not null && ostr_.writeOptional(1, global::Ice.OptionalFormat.VSize))
             {
                 ostr_.writeSize(4);
                 @for.Value.ice_writeMembers(ostr_);
             }
-            if(@goto.HasValue)
+            if (@goto is not null)
             {
                 ostr_.writeEnum(2, (int)@goto.Value, 1);
             }
-            if(@if.HasValue && ostr_.writeOptional(3, global::Ice.OptionalFormat.FSize))
+            if (@if is not null && ostr_.writeOptional(3, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                explicitPrxHelper.write(ostr_, @if.Value);
+                explicitPrxHelper.write(ostr_, @if);
                 ostr_.endSize(pos);
             }
-            if(@internal.HasValue && ostr_.writeOptional(5, global::Ice.OptionalFormat.FSize))
+            if (@internal is not null && ostr_.writeOptional(5, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                whileHelper.write(ostr_, @internal.Value);
+                whileHelper.write(ostr_, @internal);
                 ostr_.endSize(pos);
             }
             ostr_.writeString(7, debugger);
-            if(@null.HasValue && ostr_.writeOptional(8, global::Ice.OptionalFormat.FSize))
+            if (@null is not null && ostr_.writeOptional(8, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                explicitPrxHelper.write(ostr_, @null.Value);
+                explicitPrxHelper.write(ostr_, @null);
                 ostr_.endSize(pos);
             }
             ostr_.endSlice();
@@ -349,60 +349,60 @@ namespace @await
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            if(istr_.readOptional(1, global::Ice.OptionalFormat.VSize))
+            if (istr_.readOptional(1, global::Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
                 @break tmpVal = default;
                 tmpVal.ice_readMembers(istr_);
-                @for = new global::Ice.Optional<@break>(tmpVal);
+                @for = tmpVal;
             }
             else
             {
-                @for = new global::Ice.Optional<@break>();
+                @for = null;
             }
-            if(istr_.readOptional(2, global::Ice.OptionalFormat.Size))
+            if (istr_.readOptional(2, global::Ice.OptionalFormat.Size))
             {
                 var tmpVal;
                 tmpVal = (var)istr_.readEnum(0);
-                @goto = new global::Ice.Optional<var>(tmpVal);
+                @goto = tmpVal;
             }
             else
             {
-                @goto = new global::Ice.Optional<var>();
+                @goto = null;
             }
-            if(istr_.readOptional(3, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(3, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 explicitPrx tmpVal;
                 tmpVal = explicitPrxHelper.read(istr_);
-                @if = new global::Ice.Optional<explicitPrx>(tmpVal);
+                @if = tmpVal;
             }
             else
             {
-                @if = new global::Ice.Optional<explicitPrx>();
+                @if = null;
             }
-            if(istr_.readOptional(5, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(5, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
                 tmpVal = whileHelper.read(istr_);
-                @internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>(tmpVal);
+                @internal = tmpVal;
             }
             else
             {
-                @internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>();
+                @internal = null;
             }
             debugger = istr_.readString(7);
-            if(istr_.readOptional(8, global::Ice.OptionalFormat.FSize))
+            if (istr_.readOptional(8, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
                 explicitPrx tmpVal;
                 tmpVal = explicitPrxHelper.read(istr_);
-                @null = new global::Ice.Optional<explicitPrx>(tmpVal);
+                @null = tmpVal;
             }
             else
             {
-                @null = new global::Ice.Optional<explicitPrx>();
+                @null = null;
             }
             istr_.endSlice();
         }
@@ -830,16 +830,16 @@ namespace @await
     public delegate void Callback_typeof_default();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_optionalParams_for(global::Ice.Optional<@break> ret);
+    public delegate void Callback_optionalParams_for(@break? ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_optionalParams_continue(global::Ice.Optional<@break> ret);
+    public delegate void Callback_optionalParams_continue(@break? ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_optionalParams_in(global::Ice.Optional<@break> ret, global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null);
+    public delegate void Callback_optionalParams_in(@break? ret, var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_optionalParams_foreach(global::Ice.Optional<@break> ret, global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null);
+    public delegate void Callback_optionalParams_foreach(@break? ret, var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_implicit_in(var ret);
@@ -861,7 +861,7 @@ namespace @await
 {
     public struct optionalParams_InResult
     {
-        public optionalParams_InResult(global::Ice.Optional<@break> returnValue, global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null)
+        public optionalParams_InResult(@break? returnValue, var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null)
         {
             this.returnValue = returnValue;
             this.@goto = @goto;
@@ -871,17 +871,17 @@ namespace @await
             this.@null = @null;
         }
 
-        public global::Ice.Optional<@break> returnValue;
-        public global::Ice.Optional<var> @goto;
-        public global::Ice.Optional<explicitPrx> @if;
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal;
-        public global::Ice.Optional<string> @namespace;
-        public global::Ice.Optional<explicitPrx> @null;
+        public @break? returnValue;
+        public var? @goto;
+        public explicitPrx @if;
+        public global::System.Collections.Generic.Dictionary<string, @break> @internal;
+        public string @namespace;
+        public explicitPrx @null;
     }
 
     public struct optionalParams_ForeachResult
     {
-        public optionalParams_ForeachResult(global::Ice.Optional<@break> returnValue, global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null)
+        public optionalParams_ForeachResult(@break? returnValue, var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null)
         {
             this.returnValue = returnValue;
             this.@goto = @goto;
@@ -891,12 +891,12 @@ namespace @await
             this.@null = @null;
         }
 
-        public global::Ice.Optional<@break> returnValue;
-        public global::Ice.Optional<var> @goto;
-        public global::Ice.Optional<explicitPrx> @if;
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal;
-        public global::Ice.Optional<string> @namespace;
-        public global::Ice.Optional<explicitPrx> @null;
+        public @break? returnValue;
+        public var? @goto;
+        public explicitPrx @if;
+        public global::System.Collections.Generic.Dictionary<string, @break> @internal;
+        public string @namespace;
+        public explicitPrx @null;
     }
 }
 
@@ -926,19 +926,19 @@ namespace @await
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface optionalParamsPrx : global::Ice.ObjectPrx
     {
-        global::Ice.Optional<@break> @for(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        @break? @for(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<global::Ice.Optional<@break>> forAsync(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<@break?> forAsync(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.Optional<@break> @continue(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        @break? @continue(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<global::Ice.Optional<@break>> continueAsync(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<@break?> continueAsync(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.Optional<@break> @in(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        @break? @in(out var? @goto, out explicitPrx @if, out global::System.Collections.Generic.Dictionary<string, @break> @internal, out string @namespace, out explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<optionalParams_InResult> inAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.Optional<@break> @foreach(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        @break? @foreach(out var? @goto, out explicitPrx @if, out global::System.Collections.Generic.Dictionary<string, @break> @internal, out string @namespace, out explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<optionalParams_ForeachResult> foreachAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
     }
@@ -999,13 +999,13 @@ namespace @await
     public interface optionalParamsOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Optional<@break> @for(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.Current current = null);
+        @break? @for(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<global::Ice.Optional<@break>> continueAsync(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<@break?> continueAsync(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Optional<@break> @in(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.Current current = null);
+        @break? @in(out var? @goto, out explicitPrx @if, out global::System.Collections.Generic.Dictionary<string, @break> @internal, out string @namespace, out explicitPrx @null, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<optionalParams_ForeachResult> foreachAsync(global::Ice.Current current = null);
@@ -1722,7 +1722,7 @@ namespace @await
 
         #region Synchronous operations
 
-        public global::Ice.Optional<@break> @for(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public @break? @for(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -1734,7 +1734,7 @@ namespace @await
             }
         }
 
-        public global::Ice.Optional<@break> @continue(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public @break? @continue(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -1746,7 +1746,7 @@ namespace @await
             }
         }
 
-        public global::Ice.Optional<@break> @in(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public @break? @in(out var? @goto, out explicitPrx @if, out global::System.Collections.Generic.Dictionary<string, @break> @internal, out string @namespace, out explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -1764,7 +1764,7 @@ namespace @await
             }
         }
 
-        public global::Ice.Optional<@break> @foreach(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public @break? @foreach(out var? @goto, out explicitPrx @if, out global::System.Collections.Generic.Dictionary<string, @break> @internal, out string @namespace, out explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -1786,24 +1786,24 @@ namespace @await
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<global::Ice.Optional<@break>> forAsync(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<@break?> forAsync(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_forAsync(@goto, @if, @internal, @namespace, @null, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.Optional<@break>> _iceI_forAsync(global::Ice.Optional<var> iceP_goto, global::Ice.Optional<explicitPrx> iceP_if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> iceP_internal, global::Ice.Optional<string> iceP_namespace, global::Ice.Optional<explicitPrx> iceP_null, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<@break?> _iceI_forAsync(var? iceP_goto, explicitPrx iceP_if, global::System.Collections.Generic.Dictionary<string, @break> iceP_internal, string iceP_namespace, explicitPrx iceP_null, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_for_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.Optional<@break>>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<@break?>(progress, cancel);
             _iceI_for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _for_name = "for";
 
-        private void _iceI_for(global::Ice.Optional<var> iceP_goto, global::Ice.Optional<explicitPrx> iceP_if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> iceP_internal, global::Ice.Optional<string> iceP_namespace, global::Ice.Optional<explicitPrx> iceP_null, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_for(var? iceP_goto, explicitPrx iceP_if, global::System.Collections.Generic.Dictionary<string, @break> iceP_internal, string iceP_namespace, explicitPrx iceP_null, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.Optional<@break>>(completed);
+            var outAsync = getOutgoingAsync<@break?>(completed);
             outAsync.invoke(
                 _for_name,
                 global::Ice.OperationMode.Normal,
@@ -1812,66 +1812,66 @@ namespace @await
                 synchronous,
                 write: (global::Ice.OutputStream ostr) =>
                 {
-                    if(iceP_goto.HasValue)
+                    if (iceP_goto is not null)
                     {
                         ostr.writeEnum(2, (int)iceP_goto.Value, 1);
                     }
-                    if(iceP_if.HasValue && ostr.writeOptional(3, global::Ice.OptionalFormat.FSize))
+                    if (iceP_if is not null && ostr.writeOptional(3, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        explicitPrxHelper.write(ostr, iceP_if.Value);
+                        explicitPrxHelper.write(ostr, iceP_if);
                         ostr.endSize(pos);
                     }
-                    if(iceP_internal.HasValue && ostr.writeOptional(5, global::Ice.OptionalFormat.FSize))
+                    if (iceP_internal is not null && ostr.writeOptional(5, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        whileHelper.write(ostr, iceP_internal.Value);
+                        whileHelper.write(ostr, iceP_internal);
                         ostr.endSize(pos);
                     }
                     ostr.writeString(7, iceP_namespace);
-                    if(iceP_null.HasValue && ostr.writeOptional(8, global::Ice.OptionalFormat.FSize))
+                    if (iceP_null is not null && ostr.writeOptional(8, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        explicitPrxHelper.write(ostr, iceP_null.Value);
+                        explicitPrxHelper.write(ostr, iceP_null);
                         ostr.endSize(pos);
                     }
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Optional<@break> ret = default;
-                    if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
+                    @break? ret = default;
+                    if (istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
                         @break tmpVal = default;
                         tmpVal.ice_readMembers(istr);
-                        ret = new global::Ice.Optional<@break>(tmpVal);
+                        ret = tmpVal;
                     }
                     else
                     {
-                        ret = new global::Ice.Optional<@break>();
+                        ret = null;
                     }
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.Optional<@break>> continueAsync(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<@break?> continueAsync(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_continueAsync(@goto, @if, @internal, @namespace, @null, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.Optional<@break>> _iceI_continueAsync(global::Ice.Optional<var> iceP_goto, global::Ice.Optional<explicitPrx> iceP_if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> iceP_internal, global::Ice.Optional<string> iceP_namespace, global::Ice.Optional<explicitPrx> iceP_null, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<@break?> _iceI_continueAsync(var? iceP_goto, explicitPrx iceP_if, global::System.Collections.Generic.Dictionary<string, @break> iceP_internal, string iceP_namespace, explicitPrx iceP_null, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_continue_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.Optional<@break>>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<@break?>(progress, cancel);
             _iceI_continue(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _continue_name = "continue";
 
-        private void _iceI_continue(global::Ice.Optional<var> iceP_goto, global::Ice.Optional<explicitPrx> iceP_if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> iceP_internal, global::Ice.Optional<string> iceP_namespace, global::Ice.Optional<explicitPrx> iceP_null, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_continue(var? iceP_goto, explicitPrx iceP_if, global::System.Collections.Generic.Dictionary<string, @break> iceP_internal, string iceP_namespace, explicitPrx iceP_null, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.Optional<@break>>(completed);
+            var outAsync = getOutgoingAsync<@break?>(completed);
             outAsync.invoke(
                 _continue_name,
                 global::Ice.OperationMode.Normal,
@@ -1880,43 +1880,43 @@ namespace @await
                 synchronous,
                 write: (global::Ice.OutputStream ostr) =>
                 {
-                    if(iceP_goto.HasValue)
+                    if (iceP_goto is not null)
                     {
                         ostr.writeEnum(2, (int)iceP_goto.Value, 1);
                     }
-                    if(iceP_if.HasValue && ostr.writeOptional(3, global::Ice.OptionalFormat.FSize))
+                    if (iceP_if is not null && ostr.writeOptional(3, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        explicitPrxHelper.write(ostr, iceP_if.Value);
+                        explicitPrxHelper.write(ostr, iceP_if);
                         ostr.endSize(pos);
                     }
-                    if(iceP_internal.HasValue && ostr.writeOptional(5, global::Ice.OptionalFormat.FSize))
+                    if (iceP_internal is not null && ostr.writeOptional(5, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        whileHelper.write(ostr, iceP_internal.Value);
+                        whileHelper.write(ostr, iceP_internal);
                         ostr.endSize(pos);
                     }
                     ostr.writeString(7, iceP_namespace);
-                    if(iceP_null.HasValue && ostr.writeOptional(8, global::Ice.OptionalFormat.FSize))
+                    if (iceP_null is not null && ostr.writeOptional(8, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        explicitPrxHelper.write(ostr, iceP_null.Value);
+                        explicitPrxHelper.write(ostr, iceP_null);
                         ostr.endSize(pos);
                     }
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Optional<@break> ret = default;
-                    if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
+                    @break? ret = default;
+                    if (istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
                         @break tmpVal = default;
                         tmpVal.ice_readMembers(istr);
-                        ret = new global::Ice.Optional<@break>(tmpVal);
+                        ret = tmpVal;
                     }
                     else
                     {
-                        ret = new global::Ice.Optional<@break>();
+                        ret = null;
                     }
                     return ret;
                 });
@@ -1949,60 +1949,60 @@ namespace @await
                 read: (global::Ice.InputStream istr) =>
                 {
                     optionalParams_InResult ret = new optionalParams_InResult();
-                    if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
+                    if (istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
                         @break tmpVal = default;
                         tmpVal.ice_readMembers(istr);
-                        ret.returnValue = new global::Ice.Optional<@break>(tmpVal);
+                        ret.returnValue = tmpVal;
                     }
                     else
                     {
-                        ret.returnValue = new global::Ice.Optional<@break>();
+                        ret.returnValue = null;
                     }
-                    if(istr.readOptional(2, global::Ice.OptionalFormat.Size))
+                    if (istr.readOptional(2, global::Ice.OptionalFormat.Size))
                     {
                         var tmpVal;
                         tmpVal = (var)istr.readEnum(0);
-                        ret.@goto = new global::Ice.Optional<var>(tmpVal);
+                        ret.@goto = tmpVal;
                     }
                     else
                     {
-                        ret.@goto = new global::Ice.Optional<var>();
+                        ret.@goto = null;
                     }
-                    if(istr.readOptional(3, global::Ice.OptionalFormat.FSize))
+                    if (istr.readOptional(3, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
                         explicitPrx tmpVal;
                         tmpVal = explicitPrxHelper.read(istr);
-                        ret.@if = new global::Ice.Optional<explicitPrx>(tmpVal);
+                        ret.@if = tmpVal;
                     }
                     else
                     {
-                        ret.@if = new global::Ice.Optional<explicitPrx>();
+                        ret.@if = null;
                     }
-                    if(istr.readOptional(5, global::Ice.OptionalFormat.FSize))
+                    if (istr.readOptional(5, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
                         global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
                         tmpVal = whileHelper.read(istr);
-                        ret.@internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>(tmpVal);
+                        ret.@internal = tmpVal;
                     }
                     else
                     {
-                        ret.@internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>();
+                        ret.@internal = null;
                     }
                     ret.@namespace = istr.readString(7);
-                    if(istr.readOptional(8, global::Ice.OptionalFormat.FSize))
+                    if (istr.readOptional(8, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
                         explicitPrx tmpVal;
                         tmpVal = explicitPrxHelper.read(istr);
-                        ret.@null = new global::Ice.Optional<explicitPrx>(tmpVal);
+                        ret.@null = tmpVal;
                     }
                     else
                     {
-                        ret.@null = new global::Ice.Optional<explicitPrx>();
+                        ret.@null = null;
                     }
                     return ret;
                 });
@@ -2035,60 +2035,60 @@ namespace @await
                 read: (global::Ice.InputStream istr) =>
                 {
                     optionalParams_ForeachResult ret = new optionalParams_ForeachResult();
-                    if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
+                    if (istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         istr.skipSize();
                         @break tmpVal = default;
                         tmpVal.ice_readMembers(istr);
-                        ret.returnValue = new global::Ice.Optional<@break>(tmpVal);
+                        ret.returnValue = tmpVal;
                     }
                     else
                     {
-                        ret.returnValue = new global::Ice.Optional<@break>();
+                        ret.returnValue = null;
                     }
-                    if(istr.readOptional(2, global::Ice.OptionalFormat.Size))
+                    if (istr.readOptional(2, global::Ice.OptionalFormat.Size))
                     {
                         var tmpVal;
                         tmpVal = (var)istr.readEnum(0);
-                        ret.@goto = new global::Ice.Optional<var>(tmpVal);
+                        ret.@goto = tmpVal;
                     }
                     else
                     {
-                        ret.@goto = new global::Ice.Optional<var>();
+                        ret.@goto = null;
                     }
-                    if(istr.readOptional(3, global::Ice.OptionalFormat.FSize))
+                    if (istr.readOptional(3, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
                         explicitPrx tmpVal;
                         tmpVal = explicitPrxHelper.read(istr);
-                        ret.@if = new global::Ice.Optional<explicitPrx>(tmpVal);
+                        ret.@if = tmpVal;
                     }
                     else
                     {
-                        ret.@if = new global::Ice.Optional<explicitPrx>();
+                        ret.@if = null;
                     }
-                    if(istr.readOptional(5, global::Ice.OptionalFormat.FSize))
+                    if (istr.readOptional(5, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
                         global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
                         tmpVal = whileHelper.read(istr);
-                        ret.@internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>(tmpVal);
+                        ret.@internal = tmpVal;
                     }
                     else
                     {
-                        ret.@internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>();
+                        ret.@internal = null;
                     }
                     ret.@namespace = istr.readString(7);
-                    if(istr.readOptional(8, global::Ice.OptionalFormat.FSize))
+                    if (istr.readOptional(8, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
                         explicitPrx tmpVal;
                         tmpVal = explicitPrxHelper.read(istr);
-                        ret.@null = new global::Ice.Optional<explicitPrx>(tmpVal);
+                        ret.@null = tmpVal;
                     }
                     else
                     {
-                        ret.@null = new global::Ice.Optional<explicitPrx>();
+                        ret.@null = null;
                     }
                     return ret;
                 });
@@ -3165,11 +3165,11 @@ namespace @await
     {
         #region Slice operations
 
-        public abstract global::Ice.Optional<@break> @for(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.Current current = null);
+        public abstract @break? @for(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.Current current = null);
 
-        public abstract global::System.Threading.Tasks.Task<global::Ice.Optional<@break>> continueAsync(global::Ice.Optional<var> @goto, global::Ice.Optional<explicitPrx> @if, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, global::Ice.Optional<string> @namespace, global::Ice.Optional<explicitPrx> @null, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<@break?> continueAsync(var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null, global::Ice.Current current = null);
 
-        public abstract global::Ice.Optional<@break> @in(out global::Ice.Optional<var> @goto, out global::Ice.Optional<explicitPrx> @if, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> @internal, out global::Ice.Optional<string> @namespace, out global::Ice.Optional<explicitPrx> @null, global::Ice.Current current = null);
+        public abstract @break? @in(out var? @goto, out explicitPrx @if, out global::System.Collections.Generic.Dictionary<string, @break> @internal, out string @namespace, out explicitPrx @null, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<optionalParams_ForeachResult> foreachAsync(global::Ice.Current current = null);
 
@@ -3213,59 +3213,59 @@ namespace @await
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Optional<var> iceP_goto;
-            global::Ice.Optional<explicitPrx> iceP_if;
-            global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> iceP_internal;
-            global::Ice.Optional<string> iceP_namespace;
-            global::Ice.Optional<explicitPrx> iceP_null;
-            if(istr.readOptional(2, global::Ice.OptionalFormat.Size))
+            var? iceP_goto;
+            explicitPrx iceP_if;
+            global::System.Collections.Generic.Dictionary<string, @break> iceP_internal;
+            string iceP_namespace;
+            explicitPrx iceP_null;
+            if (istr.readOptional(2, global::Ice.OptionalFormat.Size))
             {
                 var tmpVal;
                 tmpVal = (var)istr.readEnum(0);
-                iceP_goto = new global::Ice.Optional<var>(tmpVal);
+                iceP_goto = tmpVal;
             }
             else
             {
-                iceP_goto = new global::Ice.Optional<var>();
+                iceP_goto = null;
             }
-            if(istr.readOptional(3, global::Ice.OptionalFormat.FSize))
+            if (istr.readOptional(3, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
                 explicitPrx tmpVal;
                 tmpVal = explicitPrxHelper.read(istr);
-                iceP_if = new global::Ice.Optional<explicitPrx>(tmpVal);
+                iceP_if = tmpVal;
             }
             else
             {
-                iceP_if = new global::Ice.Optional<explicitPrx>();
+                iceP_if = null;
             }
-            if(istr.readOptional(5, global::Ice.OptionalFormat.FSize))
+            if (istr.readOptional(5, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
                 global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
                 tmpVal = whileHelper.read(istr);
-                iceP_internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>(tmpVal);
+                iceP_internal = tmpVal;
             }
             else
             {
-                iceP_internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>();
+                iceP_internal = null;
             }
             iceP_namespace = istr.readString(7);
-            if(istr.readOptional(8, global::Ice.OptionalFormat.FSize))
+            if (istr.readOptional(8, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
                 explicitPrx tmpVal;
                 tmpVal = explicitPrxHelper.read(istr);
-                iceP_null = new global::Ice.Optional<explicitPrx>(tmpVal);
+                iceP_null = tmpVal;
             }
             else
             {
-                iceP_null = new global::Ice.Optional<explicitPrx>();
+                iceP_null = null;
             }
             inS.endReadParams();
             var ret = obj.@for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, current);
             var ostr = inS.startWriteParams();
-            if(ret.HasValue && ostr.writeOptional(1, global::Ice.OptionalFormat.VSize))
+            if (ret is not null && ostr.writeOptional(1, global::Ice.OptionalFormat.VSize))
             {
                 ostr.writeSize(4);
                 ret.Value.ice_writeMembers(ostr);
@@ -3280,60 +3280,60 @@ namespace @await
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Optional<var> iceP_goto;
-            global::Ice.Optional<explicitPrx> iceP_if;
-            global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> iceP_internal;
-            global::Ice.Optional<string> iceP_namespace;
-            global::Ice.Optional<explicitPrx> iceP_null;
-            if(istr.readOptional(2, global::Ice.OptionalFormat.Size))
+            var? iceP_goto;
+            explicitPrx iceP_if;
+            global::System.Collections.Generic.Dictionary<string, @break> iceP_internal;
+            string iceP_namespace;
+            explicitPrx iceP_null;
+            if (istr.readOptional(2, global::Ice.OptionalFormat.Size))
             {
                 var tmpVal;
                 tmpVal = (var)istr.readEnum(0);
-                iceP_goto = new global::Ice.Optional<var>(tmpVal);
+                iceP_goto = tmpVal;
             }
             else
             {
-                iceP_goto = new global::Ice.Optional<var>();
+                iceP_goto = null;
             }
-            if(istr.readOptional(3, global::Ice.OptionalFormat.FSize))
+            if (istr.readOptional(3, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
                 explicitPrx tmpVal;
                 tmpVal = explicitPrxHelper.read(istr);
-                iceP_if = new global::Ice.Optional<explicitPrx>(tmpVal);
+                iceP_if = tmpVal;
             }
             else
             {
-                iceP_if = new global::Ice.Optional<explicitPrx>();
+                iceP_if = null;
             }
-            if(istr.readOptional(5, global::Ice.OptionalFormat.FSize))
+            if (istr.readOptional(5, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
                 global::System.Collections.Generic.Dictionary<string, @break> tmpVal = new global::System.Collections.Generic.Dictionary<string, @break>();
                 tmpVal = whileHelper.read(istr);
-                iceP_internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>(tmpVal);
+                iceP_internal = tmpVal;
             }
             else
             {
-                iceP_internal = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>>();
+                iceP_internal = null;
             }
             iceP_namespace = istr.readString(7);
-            if(istr.readOptional(8, global::Ice.OptionalFormat.FSize))
+            if (istr.readOptional(8, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
                 explicitPrx tmpVal;
                 tmpVal = explicitPrxHelper.read(istr);
-                iceP_null = new global::Ice.Optional<explicitPrx>(tmpVal);
+                iceP_null = tmpVal;
             }
             else
             {
-                iceP_null = new global::Ice.Optional<explicitPrx>();
+                iceP_null = null;
             }
             inS.endReadParams();
-            return inS.setResultTask<global::Ice.Optional<@break>>(obj.continueAsync(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, current),
+            return inS.setResultTask<@break?>(obj.continueAsync(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, current),
                 (ostr, ret) =>
                 {
-                    if(ret.HasValue && ostr.writeOptional(1, global::Ice.OptionalFormat.VSize))
+                    if (ret is not null && ostr.writeOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         ostr.writeSize(4);
                         ret.Value.ice_writeMembers(ostr);
@@ -3347,39 +3347,39 @@ namespace @await
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
-            global::Ice.Optional<var> iceP_goto;
-            global::Ice.Optional<explicitPrx> iceP_if;
-            global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, @break>> iceP_internal;
-            global::Ice.Optional<string> iceP_namespace;
-            global::Ice.Optional<explicitPrx> iceP_null;
+            var? iceP_goto;
+            explicitPrx iceP_if;
+            global::System.Collections.Generic.Dictionary<string, @break> iceP_internal;
+            string iceP_namespace;
+            explicitPrx iceP_null;
             var ret = obj.@in(out iceP_goto, out iceP_if, out iceP_internal, out iceP_namespace, out iceP_null, current);
             var ostr = inS.startWriteParams();
-            if(ret.HasValue && ostr.writeOptional(1, global::Ice.OptionalFormat.VSize))
+            if (ret is not null && ostr.writeOptional(1, global::Ice.OptionalFormat.VSize))
             {
                 ostr.writeSize(4);
                 ret.Value.ice_writeMembers(ostr);
             }
-            if(iceP_goto.HasValue)
+            if (iceP_goto is not null)
             {
                 ostr.writeEnum(2, (int)iceP_goto.Value, 1);
             }
-            if(iceP_if.HasValue && ostr.writeOptional(3, global::Ice.OptionalFormat.FSize))
+            if (iceP_if is not null && ostr.writeOptional(3, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
-                explicitPrxHelper.write(ostr, iceP_if.Value);
+                explicitPrxHelper.write(ostr, iceP_if);
                 ostr.endSize(pos);
             }
-            if(iceP_internal.HasValue && ostr.writeOptional(5, global::Ice.OptionalFormat.FSize))
+            if (iceP_internal is not null && ostr.writeOptional(5, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
-                whileHelper.write(ostr, iceP_internal.Value);
+                whileHelper.write(ostr, iceP_internal);
                 ostr.endSize(pos);
             }
             ostr.writeString(7, iceP_namespace);
-            if(iceP_null.HasValue && ostr.writeOptional(8, global::Ice.OptionalFormat.FSize))
+            if (iceP_null is not null && ostr.writeOptional(8, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
-                explicitPrxHelper.write(ostr, iceP_null.Value);
+                explicitPrxHelper.write(ostr, iceP_null);
                 ostr.endSize(pos);
             }
             inS.endWriteParams(ostr);
@@ -3395,32 +3395,32 @@ namespace @await
             return inS.setResultTask<optionalParams_ForeachResult>(obj.foreachAsync(current),
                 (ostr, ret) =>
                 {
-                    if(ret.returnValue.HasValue && ostr.writeOptional(1, global::Ice.OptionalFormat.VSize))
+                    if (ret.returnValue is not null && ostr.writeOptional(1, global::Ice.OptionalFormat.VSize))
                     {
                         ostr.writeSize(4);
                         ret.returnValue.Value.ice_writeMembers(ostr);
                     }
-                    if(ret.@goto.HasValue)
+                    if (ret.@goto is not null)
                     {
                         ostr.writeEnum(2, (int)ret.@goto.Value, 1);
                     }
-                    if(ret.@if.HasValue && ostr.writeOptional(3, global::Ice.OptionalFormat.FSize))
+                    if (ret.@if is not null && ostr.writeOptional(3, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        explicitPrxHelper.write(ostr, ret.@if.Value);
+                        explicitPrxHelper.write(ostr, ret.@if);
                         ostr.endSize(pos);
                     }
-                    if(ret.@internal.HasValue && ostr.writeOptional(5, global::Ice.OptionalFormat.FSize))
+                    if (ret.@internal is not null && ostr.writeOptional(5, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        whileHelper.write(ostr, ret.@internal.Value);
+                        whileHelper.write(ostr, ret.@internal);
                         ostr.endSize(pos);
                     }
                     ostr.writeString(7, ret.@namespace);
-                    if(ret.@null.HasValue && ostr.writeOptional(8, global::Ice.OptionalFormat.FSize))
+                    if (ret.@null is not null && ostr.writeOptional(8, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        explicitPrxHelper.write(ostr, ret.@null.Value);
+                        explicitPrxHelper.write(ostr, ret.@null);
                         ostr.endSize(pos);
                     }
                 });

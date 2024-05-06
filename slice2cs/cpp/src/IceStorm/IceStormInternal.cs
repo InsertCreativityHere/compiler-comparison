@@ -458,7 +458,7 @@ namespace IceStorm
     {
         public static void write(global::Ice.OutputStream ostr, EventData[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -972,11 +972,11 @@ namespace IceStorm
                     {
                         throw ex;
                     }
-                    catch(AlreadySubscribed)
+                    catch(InvalidSubscriber)
                     {
                         throw;
                     }
-                    catch(InvalidSubscriber)
+                    catch(AlreadySubscribed)
                     {
                         throw;
                     }

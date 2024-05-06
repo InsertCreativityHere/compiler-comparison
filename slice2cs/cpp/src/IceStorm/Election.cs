@@ -1338,7 +1338,7 @@ namespace IceStormElection
     {
         public static void write(global::Ice.OutputStream ostr, TopicContent[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2015,7 +2015,7 @@ namespace IceStormElection
     {
         public static void write(global::Ice.OutputStream ostr, NodeInfo[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }
@@ -2050,7 +2050,7 @@ namespace IceStormElection
     {
         public static void write(global::Ice.OutputStream ostr, GroupInfo[] v)
         {
-            if(v == null)
+            if (v is null)
             {
                 ostr.writeSize(0);
             }

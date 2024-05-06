@@ -631,11 +631,10 @@ if 'WD' not in _M_Test.__dict__:
 if 'OptionalException' not in _M_Test.__dict__:
     _M_Test.OptionalException = Ice.createTempClass()
     class OptionalException(Ice.UserException):
-        def __init__(self, req=False, a=5, b=Ice.Unset, o=Ice.Unset):
+        def __init__(self, req=False, a=5, b=Ice.Unset):
             self.req = req
             self.a = a
             self.b = b
-            self.o = o
 
         def __str__(self):
             return IcePy.stringifyException(self)
@@ -647,8 +646,7 @@ if 'OptionalException' not in _M_Test.__dict__:
     _M_Test._t_OptionalException = IcePy.defineException('::Test::OptionalException', OptionalException, (), None, (
         ('req', (), IcePy._t_bool, False, 0),
         ('a', (), IcePy._t_int, True, 1),
-        ('b', (), IcePy._t_string, True, 2),
-        ('o', (), _M_Test._t_OneOptional, True, 50)
+        ('b', (), IcePy._t_string, True, 2)
     ))
     OptionalException._ice_type = _M_Test._t_OptionalException
 
@@ -658,11 +656,10 @@ if 'OptionalException' not in _M_Test.__dict__:
 if 'DerivedException' not in _M_Test.__dict__:
     _M_Test.DerivedException = Ice.createTempClass()
     class DerivedException(_M_Test.OptionalException):
-        def __init__(self, req=False, a=5, b=Ice.Unset, o=Ice.Unset, d1='', ss="test", o2=Ice.Unset, d2=''):
-            _M_Test.OptionalException.__init__(self, req, a, b, o)
+        def __init__(self, req=False, a=5, b=Ice.Unset, d1='', ss="test", d2=''):
+            _M_Test.OptionalException.__init__(self, req, a, b)
             self.d1 = d1
             self.ss = ss
-            self.o2 = o2
             self.d2 = d2
 
         def __str__(self):
@@ -675,7 +672,6 @@ if 'DerivedException' not in _M_Test.__dict__:
     _M_Test._t_DerivedException = IcePy.defineException('::Test::DerivedException', DerivedException, (), _M_Test._t_OptionalException, (
         ('d1', (), IcePy._t_string, False, 0),
         ('ss', (), IcePy._t_string, True, 600),
-        ('o2', (), _M_Test._t_OneOptional, True, 601),
         ('d2', (), IcePy._t_string, False, 0)
     ))
     DerivedException._ice_type = _M_Test._t_DerivedException
@@ -686,10 +682,9 @@ if 'DerivedException' not in _M_Test.__dict__:
 if 'RequiredException' not in _M_Test.__dict__:
     _M_Test.RequiredException = Ice.createTempClass()
     class RequiredException(_M_Test.OptionalException):
-        def __init__(self, req=False, a=5, b=Ice.Unset, o=Ice.Unset, ss="test", o2=None):
-            _M_Test.OptionalException.__init__(self, req, a, b, o)
+        def __init__(self, req=False, a=5, b=Ice.Unset, ss="test"):
+            _M_Test.OptionalException.__init__(self, req, a, b)
             self.ss = ss
-            self.o2 = o2
 
         def __str__(self):
             return IcePy.stringifyException(self)
@@ -698,10 +693,7 @@ if 'RequiredException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::RequiredException'
 
-    _M_Test._t_RequiredException = IcePy.defineException('::Test::RequiredException', RequiredException, (), _M_Test._t_OptionalException, (
-        ('ss', (), IcePy._t_string, False, 0),
-        ('o2', (), _M_Test._t_OneOptional, False, 0)
-    ))
+    _M_Test._t_RequiredException = IcePy.defineException('::Test::RequiredException', RequiredException, (), _M_Test._t_OptionalException, (('ss', (), IcePy._t_string, False, 0),))
     RequiredException._ice_type = _M_Test._t_RequiredException
 
     _M_Test.RequiredException = RequiredException
@@ -1001,23 +993,23 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def pingPongAsync(self, o, context=None):
             return _M_Test.Initial._op_pingPong.invokeAsync(self, ((o, ), context))
 
-        def opOptionalException(self, a=Ice.Unset, b=Ice.Unset, o=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opOptionalException.invoke(self, ((a, b, o), context))
+        def opOptionalException(self, a=Ice.Unset, b=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opOptionalException.invoke(self, ((a, b), context))
 
-        def opOptionalExceptionAsync(self, a, b, o, context=None):
-            return _M_Test.Initial._op_opOptionalException.invokeAsync(self, ((a, b, o), context))
+        def opOptionalExceptionAsync(self, a, b, context=None):
+            return _M_Test.Initial._op_opOptionalException.invokeAsync(self, ((a, b), context))
 
-        def opDerivedException(self, a=Ice.Unset, b=Ice.Unset, o=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opDerivedException.invoke(self, ((a, b, o), context))
+        def opDerivedException(self, a=Ice.Unset, b=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opDerivedException.invoke(self, ((a, b), context))
 
-        def opDerivedExceptionAsync(self, a, b, o, context=None):
-            return _M_Test.Initial._op_opDerivedException.invokeAsync(self, ((a, b, o), context))
+        def opDerivedExceptionAsync(self, a, b, context=None):
+            return _M_Test.Initial._op_opDerivedException.invokeAsync(self, ((a, b), context))
 
-        def opRequiredException(self, a=Ice.Unset, b=Ice.Unset, o=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opRequiredException.invoke(self, ((a, b, o), context))
+        def opRequiredException(self, a=Ice.Unset, b=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opRequiredException.invoke(self, ((a, b), context))
 
-        def opRequiredExceptionAsync(self, a, b, o, context=None):
-            return _M_Test.Initial._op_opRequiredException.invokeAsync(self, ((a, b, o), context))
+        def opRequiredExceptionAsync(self, a, b, context=None):
+            return _M_Test.Initial._op_opRequiredException.invokeAsync(self, ((a, b), context))
 
         def opByte(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opByte.invoke(self, ((p1, ), context))
@@ -1090,12 +1082,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         def opVarStructAsync(self, p1, context=None):
             return _M_Test.Initial._op_opVarStruct.invokeAsync(self, ((p1, ), context))
-
-        def opOneOptional(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opOneOptional.invoke(self, ((p1, ), context))
-
-        def opOneOptionalAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opOneOptional.invokeAsync(self, ((p1, ), context))
 
         def opMyInterfaceProxy(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opMyInterfaceProxy.invoke(self, ((p1, ), context))
@@ -1193,12 +1179,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opStringIntDictAsync(self, p1, context=None):
             return _M_Test.Initial._op_opStringIntDict.invokeAsync(self, ((p1, ), context))
 
-        def opIntOneOptionalDict(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opIntOneOptionalDict.invoke(self, ((p1, ), context))
-
-        def opIntOneOptionalDictAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opIntOneOptionalDict.invokeAsync(self, ((p1, ), context))
-
         def opClassAndUnknownOptional(self, p, context=None):
             return _M_Test.Initial._op_opClassAndUnknownOptional.invoke(self, ((p, ), context))
 
@@ -1253,18 +1233,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opMDict2Async(self, p1, context=None):
             return _M_Test.Initial._op_opMDict2.invokeAsync(self, ((p1, ), context))
 
-        def opMG1(self, context=None):
-            return _M_Test.Initial._op_opMG1.invoke(self, ((), context))
-
-        def opMG1Async(self, context=None):
-            return _M_Test.Initial._op_opMG1.invokeAsync(self, ((), context))
-
-        def opMG2(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opMG2.invoke(self, ((p1, ), context))
-
-        def opMG2Async(self, p1, context=None):
-            return _M_Test.Initial._op_opMG2.invokeAsync(self, ((p1, ), context))
-
         def supportsRequiredParams(self, context=None):
             return _M_Test.Initial._op_supportsRequiredParams.invoke(self, ((), context))
 
@@ -1318,13 +1286,13 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def pingPong(self, o, current=None):
             raise NotImplementedError("servant method 'pingPong' not implemented")
 
-        def opOptionalException(self, a, b, o, current=None):
+        def opOptionalException(self, a, b, current=None):
             raise NotImplementedError("servant method 'opOptionalException' not implemented")
 
-        def opDerivedException(self, a, b, o, current=None):
+        def opDerivedException(self, a, b, current=None):
             raise NotImplementedError("servant method 'opDerivedException' not implemented")
 
-        def opRequiredException(self, a, b, o, current=None):
+        def opRequiredException(self, a, b, current=None):
             raise NotImplementedError("servant method 'opRequiredException' not implemented")
 
         def opByte(self, p1, current=None):
@@ -1362,9 +1330,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         def opVarStruct(self, p1, current=None):
             raise NotImplementedError("servant method 'opVarStruct' not implemented")
-
-        def opOneOptional(self, p1, current=None):
-            raise NotImplementedError("servant method 'opOneOptional' not implemented")
 
         def opMyInterfaceProxy(self, p1, current=None):
             raise NotImplementedError("servant method 'opMyInterfaceProxy' not implemented")
@@ -1413,9 +1378,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         def opStringIntDict(self, p1, current=None):
             raise NotImplementedError("servant method 'opStringIntDict' not implemented")
-
-        def opIntOneOptionalDict(self, p1, current=None):
-            raise NotImplementedError("servant method 'opIntOneOptionalDict' not implemented")
 
         def opClassAndUnknownOptional(self, p, current=None):
             raise NotImplementedError("servant method 'opClassAndUnknownOptional' not implemented")
@@ -1522,38 +1484,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opMDict2(self, p1, current=None):
             raise NotImplementedError("servant method 'opMDict2' not implemented")
 
-        """
-        Immediately marshals the result of an invocation of opMG1
-        and returns an object that the servant implementation must return
-        as its result.
-        Arguments:
-        result -- The result (or result tuple) of the invocation.
-        current -- The Current object passed to the invocation.
-        Returns: An object containing the marshaled result.
-        """
-        @staticmethod
-        def OpMG1MarshaledResult(result, current):
-            return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMG1, current.adapter.getCommunicator().getImpl(), current.encoding)
-
-        def opMG1(self, current=None):
-            raise NotImplementedError("servant method 'opMG1' not implemented")
-
-        """
-        Immediately marshals the result of an invocation of opMG2
-        and returns an object that the servant implementation must return
-        as its result.
-        Arguments:
-        result -- The result (or result tuple) of the invocation.
-        current -- The Current object passed to the invocation.
-        Returns: An object containing the marshaled result.
-        """
-        @staticmethod
-        def OpMG2MarshaledResult(result, current):
-            return IcePy.MarshaledResult(result, _M_Test.Initial._op_opMG2, current.adapter.getCommunicator().getImpl(), current.encoding)
-
-        def opMG2(self, p1, current=None):
-            raise NotImplementedError("servant method 'opMG2' not implemented")
-
         def supportsRequiredParams(self, current=None):
             raise NotImplementedError("servant method 'supportsRequiredParams' not implemented")
 
@@ -1573,9 +1503,9 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
     Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     Initial._op_pingPong = IcePy.Operation('pingPong', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_Value, False, 0),), (), ((), IcePy._t_Value, False, 0), ())
-    Initial._op_opOptionalException = IcePy.Operation('opOptionalException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2), ((), _M_Test._t_OneOptional, True, 3)), (), None, (_M_Test._t_OptionalException,))
-    Initial._op_opDerivedException = IcePy.Operation('opDerivedException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2), ((), _M_Test._t_OneOptional, True, 3)), (), None, (_M_Test._t_OptionalException,))
-    Initial._op_opRequiredException = IcePy.Operation('opRequiredException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2), ((), _M_Test._t_OneOptional, True, 3)), (), None, (_M_Test._t_OptionalException,))
+    Initial._op_opOptionalException = IcePy.Operation('opOptionalException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, (_M_Test._t_OptionalException,))
+    Initial._op_opDerivedException = IcePy.Operation('opDerivedException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, (_M_Test._t_OptionalException,))
+    Initial._op_opRequiredException = IcePy.Operation('opRequiredException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, (_M_Test._t_OptionalException,))
     Initial._op_opByte = IcePy.Operation('opByte', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_byte, True, 2),), (((), IcePy._t_byte, True, 3),), ((), IcePy._t_byte, True, 1), ())
     Initial._op_opBool = IcePy.Operation('opBool', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_bool, True, 2),), (((), IcePy._t_bool, True, 3),), ((), IcePy._t_bool, True, 1), ())
     Initial._op_opShort = IcePy.Operation('opShort', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_short, True, 2),), (((), IcePy._t_short, True, 3),), ((), IcePy._t_short, True, 1), ())
@@ -1588,7 +1518,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opSmallStruct = IcePy.Operation('opSmallStruct', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SmallStruct, True, 2),), (((), _M_Test._t_SmallStruct, True, 3),), ((), _M_Test._t_SmallStruct, True, 1), ())
     Initial._op_opFixedStruct = IcePy.Operation('opFixedStruct', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_FixedStruct, True, 2),), (((), _M_Test._t_FixedStruct, True, 3),), ((), _M_Test._t_FixedStruct, True, 1), ())
     Initial._op_opVarStruct = IcePy.Operation('opVarStruct', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_VarStruct, True, 2),), (((), _M_Test._t_VarStruct, True, 3),), ((), _M_Test._t_VarStruct, True, 1), ())
-    Initial._op_opOneOptional = IcePy.Operation('opOneOptional', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_OneOptional, True, 2),), (((), _M_Test._t_OneOptional, True, 3),), ((), _M_Test._t_OneOptional, True, 1), ())
     Initial._op_opMyInterfaceProxy = IcePy.Operation('opMyInterfaceProxy', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_MyInterfacePrx, True, 2),), (((), _M_Test._t_MyInterfacePrx, True, 3),), ((), _M_Test._t_MyInterfacePrx, True, 1), ())
     Initial._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteSeq, True, 2),), (((), _M_Test._t_ByteSeq, True, 3),), ((), _M_Test._t_ByteSeq, True, 1), ())
     Initial._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_BoolSeq, True, 2),), (((), _M_Test._t_BoolSeq, True, 3),), ((), _M_Test._t_BoolSeq, True, 1), ())
@@ -1605,7 +1534,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opVarStructSeq = IcePy.Operation('opVarStructSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_VarStructSeq, True, 2),), (((), _M_Test._t_VarStructSeq, True, 3),), ((), _M_Test._t_VarStructSeq, True, 1), ())
     Initial._op_opIntIntDict = IcePy.Operation('opIntIntDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_IntIntDict, True, 2),), (((), _M_Test._t_IntIntDict, True, 3),), ((), _M_Test._t_IntIntDict, True, 1), ())
     Initial._op_opStringIntDict = IcePy.Operation('opStringIntDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
-    Initial._op_opIntOneOptionalDict = IcePy.Operation('opIntOneOptionalDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_IntOneOptionalDict, True, 2),), (((), _M_Test._t_IntOneOptionalDict, True, 3),), ((), _M_Test._t_IntOneOptionalDict, True, 1), ())
     Initial._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_A, False, 0),), (), None, ())
     Initial._op_opG = IcePy.Operation('opG', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_G, False, 0),), (), ((), _M_Test._t_G, False, 0), ())
     Initial._op_opVoid = IcePy.Operation('opVoid', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())
@@ -1615,8 +1543,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opMSeq2 = IcePy.Operation('opMSeq2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringSeq, True, 2),), (((), _M_Test._t_StringSeq, True, 3),), ((), _M_Test._t_StringSeq, True, 1), ())
     Initial._op_opMDict1 = IcePy.Operation('opMDict1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), _M_Test._t_StringIntDict, True, 1), ())
     Initial._op_opMDict2 = IcePy.Operation('opMDict2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
-    Initial._op_opMG1 = IcePy.Operation('opMG1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), _M_Test._t_G, True, 1), ())
-    Initial._op_opMG2 = IcePy.Operation('opMG2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_G, True, 2),), (((), _M_Test._t_G, True, 3),), ((), _M_Test._t_G, True, 1), ())
     Initial._op_supportsRequiredParams = IcePy.Operation('supportsRequiredParams', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsJavaSerializable = IcePy.Operation('supportsJavaSerializable', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsNullOptional = IcePy.Operation('supportsNullOptional', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
