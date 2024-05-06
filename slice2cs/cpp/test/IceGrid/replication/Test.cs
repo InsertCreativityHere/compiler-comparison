@@ -68,77 +68,30 @@ namespace Test
 
         #region Checked and unchecked cast operations
 
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b)
+        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            TestIntfPrx r = b as TestIntfPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                TestIntfPrxHelper h = new TestIntfPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            TestIntfPrx r = b as TestIntfPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                TestIntfPrxHelper h = new TestIntfPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    TestIntfPrxHelper h = new TestIntfPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    TestIntfPrxHelper h = new TestIntfPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -146,30 +99,25 @@ namespace Test
 
         public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            TestIntfPrx r = b as TestIntfPrx;
-            if(r == null)
-            {
-                TestIntfPrxHelper h = new TestIntfPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            TestIntfPrxHelper h = new TestIntfPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

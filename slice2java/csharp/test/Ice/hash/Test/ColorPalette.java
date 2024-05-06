@@ -142,5 +142,5 @@ public class ColorPalette implements java.lang.Cloneable,
     private static final ColorPalette _nullMarshalValue = new ColorPalette();
 
     /** @hidden */
-    public static final long serialVersionUID = -2820070728550652558L;
+    public static final long serialVersionUID = -2820066329923241849L;
 }

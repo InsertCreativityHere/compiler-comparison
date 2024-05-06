@@ -333,21 +333,6 @@ namespace Test
 
 namespace Test
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_shutdown();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opSerialSmallJava(byte[] ret, byte[] o);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opSerialLargeJava(byte[] ret, byte[] o);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opSerialStructJava(byte[] ret, byte[] o);
-}
-
-namespace Test
-{
     public struct MyClass_OpSerialSmallJavaResult
     {
         public MyClass_OpSerialSmallJavaResult(byte[] returnValue, byte[] o)
@@ -390,21 +375,21 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface MyClassPrx : global::Ice.ObjectPrx
     {
-        void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] opSerialSmallJava(byte[] i, out byte[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte[] opSerialSmallJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> opSerialSmallJavaAsync(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> opSerialSmallJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] opSerialLargeJava(byte[] i, out byte[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte[] opSerialLargeJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> opSerialLargeJavaAsync(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> opSerialLargeJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] opSerialStructJava(byte[] i, out byte[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte[] opSerialStructJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> opSerialStructJavaAsync(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> opSerialStructJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -487,7 +472,7 @@ namespace Test
 
         #region Synchronous operations
 
-        public void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -499,7 +484,7 @@ namespace Test
             }
         }
 
-        public byte[] opSerialSmallJava(byte[] i, out byte[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[] opSerialSmallJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -513,7 +498,7 @@ namespace Test
             }
         }
 
-        public byte[] opSerialLargeJava(byte[] i, out byte[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[] opSerialLargeJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -527,7 +512,7 @@ namespace Test
             }
         }
 
-        public byte[] opSerialStructJava(byte[] i, out byte[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[] opSerialStructJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -545,12 +530,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -570,12 +555,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> opSerialSmallJavaAsync(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> opSerialSmallJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opSerialSmallJavaAsync(i, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> _iceI_opSerialSmallJavaAsync(byte[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> _iceI_opSerialSmallJavaAsync(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSerialSmallJava_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSerialSmallJavaResult>(progress, cancel);
@@ -607,12 +592,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> opSerialLargeJavaAsync(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> opSerialLargeJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opSerialLargeJavaAsync(i, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> _iceI_opSerialLargeJavaAsync(byte[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> _iceI_opSerialLargeJavaAsync(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSerialLargeJava_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSerialLargeJavaResult>(progress, cancel);
@@ -644,12 +629,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> opSerialStructJavaAsync(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> opSerialStructJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opSerialStructJavaAsync(i, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> _iceI_opSerialStructJavaAsync(byte[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> _iceI_opSerialStructJavaAsync(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSerialStructJava_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSerialStructJavaResult>(progress, cancel);
@@ -685,77 +670,30 @@ namespace Test
 
         #region Checked and unchecked cast operations
 
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b)
+        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            MyClassPrx r = b as MyClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                MyClassPrxHelper h = new MyClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            MyClassPrx r = b as MyClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                MyClassPrxHelper h = new MyClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                MyClassPrxHelper prx = new MyClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    MyClassPrxHelper prx = new MyClassPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -763,30 +701,25 @@ namespace Test
 
         public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                MyClassPrxHelper prx = new MyClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            MyClassPrx r = b as MyClassPrx;
-            if(r == null)
-            {
-                MyClassPrxHelper h = new MyClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                MyClassPrxHelper prx = new MyClassPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            MyClassPrxHelper h = new MyClassPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

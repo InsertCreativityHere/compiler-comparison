@@ -38,24 +38,6 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Session_keepAlive();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Session_allocateObjectById(global::Ice.ObjectPrx ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Session_allocateObjectByType(global::Ice.ObjectPrx ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Session_releaseObject();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Session_setAllocationTimeout();
-}
-
-namespace IceGrid
-{
     /// <summary>
     /// A session object is used by IceGrid clients to allocate and release objects.
     /// Client sessions are created either
@@ -72,7 +54,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void keepAlive(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void keepAlive(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Keep the session alive.
@@ -82,7 +64,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task keepAliveAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task keepAliveAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Allocate an object.
@@ -100,7 +82,7 @@ namespace IceGrid
         ///  </exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        global::Ice.ObjectPrx allocateObjectById(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.ObjectPrx allocateObjectById(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Allocate an object.
@@ -112,7 +94,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> allocateObjectByIdAsync(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> allocateObjectByIdAsync(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Allocate an object with the given type.
@@ -127,7 +109,7 @@ namespace IceGrid
         ///  </exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        global::Ice.ObjectPrx allocateObjectByType(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.ObjectPrx allocateObjectByType(string type, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Allocate an object with the given type.
@@ -139,7 +121,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> allocateObjectByTypeAsync(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> allocateObjectByTypeAsync(string type, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
@@ -154,7 +136,7 @@ namespace IceGrid
         ///  isn't allocatable or isn't allocated by the session.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void releaseObject(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void releaseObject(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
@@ -166,7 +148,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task releaseObjectAsync(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task releaseObjectAsync(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Set the allocation timeout.
@@ -177,7 +159,7 @@ namespace IceGrid
         ///  <param name="timeout">The timeout in milliseconds.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void setAllocationTimeout(int timeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void setAllocationTimeout(int timeout, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Set the allocation timeout.
@@ -188,7 +170,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setAllocationTimeoutAsync(int timeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task setAllocationTimeoutAsync(int timeout, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -277,7 +259,7 @@ namespace IceGrid
 
         #region Synchronous operations
 
-        public void destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void destroy(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -289,7 +271,7 @@ namespace IceGrid
             }
         }
 
-        public void keepAlive(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void keepAlive(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -301,7 +283,7 @@ namespace IceGrid
             }
         }
 
-        public global::Ice.ObjectPrx allocateObjectById(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.ObjectPrx allocateObjectById(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -313,7 +295,7 @@ namespace IceGrid
             }
         }
 
-        public global::Ice.ObjectPrx allocateObjectByType(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.ObjectPrx allocateObjectByType(string type, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -325,7 +307,7 @@ namespace IceGrid
             }
         }
 
-        public void releaseObject(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void releaseObject(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -337,7 +319,7 @@ namespace IceGrid
             }
         }
 
-        public void setAllocationTimeout(int timeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void setAllocationTimeout(int timeout, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -353,12 +335,12 @@ namespace IceGrid
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task destroyAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_destroyAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_destroyAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_destroyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_destroy(context, synchronous, completed);
@@ -378,12 +360,12 @@ namespace IceGrid
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task keepAliveAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task keepAliveAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_keepAliveAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_keepAliveAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_keepAliveAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_keepAlive(context, synchronous, completed);
@@ -403,12 +385,12 @@ namespace IceGrid
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> allocateObjectByIdAsync(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> allocateObjectByIdAsync(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_allocateObjectByIdAsync(id, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_allocateObjectByIdAsync(global::Ice.Identity iceP_id, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_allocateObjectByIdAsync(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_allocateObjectById_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
@@ -457,12 +439,12 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> allocateObjectByTypeAsync(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> allocateObjectByTypeAsync(string type, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_allocateObjectByTypeAsync(type, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_allocateObjectByTypeAsync(string iceP_type, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_allocateObjectByTypeAsync(string iceP_type, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_allocateObjectByType_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
@@ -507,12 +489,12 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task releaseObjectAsync(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task releaseObjectAsync(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_releaseObjectAsync(id, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_releaseObjectAsync(global::Ice.Identity iceP_id, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_releaseObjectAsync(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_releaseObject_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -555,12 +537,12 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task setAllocationTimeoutAsync(int timeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task setAllocationTimeoutAsync(int timeout, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_setAllocationTimeoutAsync(timeout, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_setAllocationTimeoutAsync(int iceP_timeout, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_setAllocationTimeoutAsync(int iceP_timeout, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setAllocationTimeout(iceP_timeout, context, synchronous, completed);
@@ -588,77 +570,30 @@ namespace IceGrid
 
         #region Checked and unchecked cast operations
 
-        public static SessionPrx checkedCast(global::Ice.ObjectPrx b)
+        public static SessionPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            SessionPrx r = b as SessionPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                SessionPrxHelper h = new SessionPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static SessionPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            SessionPrx r = b as SessionPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                SessionPrxHelper h = new SessionPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static SessionPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    SessionPrxHelper h = new SessionPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                SessionPrxHelper prx = new SessionPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static SessionPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static SessionPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    SessionPrxHelper h = new SessionPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    SessionPrxHelper prx = new SessionPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -666,30 +601,25 @@ namespace IceGrid
 
         public static SessionPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                SessionPrxHelper prx = new SessionPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            SessionPrx r = b as SessionPrx;
-            if(r == null)
-            {
-                SessionPrxHelper h = new SessionPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static SessionPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                SessionPrxHelper prx = new SessionPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            SessionPrxHelper h = new SessionPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

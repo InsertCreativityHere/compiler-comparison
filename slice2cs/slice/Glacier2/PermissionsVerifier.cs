@@ -137,15 +137,6 @@ namespace Glacier2
 
 namespace Glacier2
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_PermissionsVerifier_checkPermissions(bool ret, string reason);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_SSLPermissionsVerifier_authorize(bool ret, string reason);
-}
-
-namespace Glacier2
-{
     public struct PermissionsVerifier_CheckPermissionsResult
     {
         public PermissionsVerifier_CheckPermissionsResult(bool returnValue, string reason)
@@ -196,7 +187,7 @@ namespace Glacier2
         ///  returning false with a reason set in the reason out parameter.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        bool checkPermissions(string userId, string password, out string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        bool checkPermissions(string userId, string password, out string reason, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Check whether a user has permission to access the router.
@@ -209,7 +200,7 @@ namespace Glacier2
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<PermissionsVerifier_CheckPermissionsResult> checkPermissionsAsync(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<PermissionsVerifier_CheckPermissionsResult> checkPermissionsAsync(string userId, string password, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -234,7 +225,7 @@ namespace Glacier2
         ///  </exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        bool authorize(SSLInfo info, out string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        bool authorize(SSLInfo info, out string reason, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Check whether a user has permission to access the router.
@@ -245,7 +236,7 @@ namespace Glacier2
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<SSLPermissionsVerifier_AuthorizeResult> authorizeAsync(SSLInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<SSLPermissionsVerifier_AuthorizeResult> authorizeAsync(SSLInfo info, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -317,7 +308,7 @@ namespace Glacier2
 
         #region Synchronous operations
 
-        public bool checkPermissions(string userId, string password, out string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool checkPermissions(string userId, string password, out string reason, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -335,12 +326,12 @@ namespace Glacier2
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<PermissionsVerifier_CheckPermissionsResult> checkPermissionsAsync(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<PermissionsVerifier_CheckPermissionsResult> checkPermissionsAsync(string userId, string password, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_checkPermissionsAsync(userId, password, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<PermissionsVerifier_CheckPermissionsResult> _iceI_checkPermissionsAsync(string iceP_userId, string iceP_password, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<PermissionsVerifier_CheckPermissionsResult> _iceI_checkPermissionsAsync(string iceP_userId, string iceP_password, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_checkPermissions_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<PermissionsVerifier_CheckPermissionsResult>(progress, cancel);
@@ -391,77 +382,30 @@ namespace Glacier2
 
         #region Checked and unchecked cast operations
 
-        public static PermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b)
+        public static PermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            PermissionsVerifierPrx r = b as PermissionsVerifierPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                PermissionsVerifierPrxHelper h = new PermissionsVerifierPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static PermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            PermissionsVerifierPrx r = b as PermissionsVerifierPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                PermissionsVerifierPrxHelper h = new PermissionsVerifierPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static PermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    PermissionsVerifierPrxHelper h = new PermissionsVerifierPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                PermissionsVerifierPrxHelper prx = new PermissionsVerifierPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static PermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static PermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    PermissionsVerifierPrxHelper h = new PermissionsVerifierPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    PermissionsVerifierPrxHelper prx = new PermissionsVerifierPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -469,30 +413,25 @@ namespace Glacier2
 
         public static PermissionsVerifierPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                PermissionsVerifierPrxHelper prx = new PermissionsVerifierPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            PermissionsVerifierPrx r = b as PermissionsVerifierPrx;
-            if(r == null)
-            {
-                PermissionsVerifierPrxHelper h = new PermissionsVerifierPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static PermissionsVerifierPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                PermissionsVerifierPrxHelper prx = new PermissionsVerifierPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            PermissionsVerifierPrxHelper h = new PermissionsVerifierPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -537,7 +476,7 @@ namespace Glacier2
 
         #region Synchronous operations
 
-        public bool authorize(SSLInfo info, out string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool authorize(SSLInfo info, out string reason, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -555,12 +494,12 @@ namespace Glacier2
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<SSLPermissionsVerifier_AuthorizeResult> authorizeAsync(SSLInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<SSLPermissionsVerifier_AuthorizeResult> authorizeAsync(SSLInfo info, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_authorizeAsync(info, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<SSLPermissionsVerifier_AuthorizeResult> _iceI_authorizeAsync(SSLInfo iceP_info, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<SSLPermissionsVerifier_AuthorizeResult> _iceI_authorizeAsync(SSLInfo iceP_info, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_authorize_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SSLPermissionsVerifier_AuthorizeResult>(progress, cancel);
@@ -610,77 +549,30 @@ namespace Glacier2
 
         #region Checked and unchecked cast operations
 
-        public static SSLPermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b)
+        public static SSLPermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            SSLPermissionsVerifierPrx r = b as SSLPermissionsVerifierPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                SSLPermissionsVerifierPrxHelper h = new SSLPermissionsVerifierPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static SSLPermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            SSLPermissionsVerifierPrx r = b as SSLPermissionsVerifierPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                SSLPermissionsVerifierPrxHelper h = new SSLPermissionsVerifierPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static SSLPermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    SSLPermissionsVerifierPrxHelper h = new SSLPermissionsVerifierPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                SSLPermissionsVerifierPrxHelper prx = new SSLPermissionsVerifierPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static SSLPermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static SSLPermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    SSLPermissionsVerifierPrxHelper h = new SSLPermissionsVerifierPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    SSLPermissionsVerifierPrxHelper prx = new SSLPermissionsVerifierPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -688,30 +580,25 @@ namespace Glacier2
 
         public static SSLPermissionsVerifierPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                SSLPermissionsVerifierPrxHelper prx = new SSLPermissionsVerifierPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            SSLPermissionsVerifierPrx r = b as SSLPermissionsVerifierPrx;
-            if(r == null)
-            {
-                SSLPermissionsVerifierPrxHelper h = new SSLPermissionsVerifierPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static SSLPermissionsVerifierPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                SSLPermissionsVerifierPrxHelper prx = new SSLPermissionsVerifierPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            SSLPermissionsVerifierPrxHelper h = new SSLPermissionsVerifierPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

@@ -122,12 +122,6 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_FileParser_parse(ApplicationDescriptor ret);
-}
-
-namespace IceGrid
-{
     /// <summary>
     /// icegridadmin provides a FileParser object to transform XML files into
     ///  ApplicationDescriptor objects.
@@ -148,7 +142,7 @@ namespace IceGrid
         /// <exception name="ParseException">Raised if an error occurred during parsing.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ApplicationDescriptor parse(string xmlFile, AdminPrx adminProxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        ApplicationDescriptor parse(string xmlFile, AdminPrx adminProxy, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Parse a file.
@@ -161,7 +155,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx adminProxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx adminProxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -204,7 +198,7 @@ namespace IceGrid
 
         #region Synchronous operations
 
-        public ApplicationDescriptor parse(string xmlFile, AdminPrx adminProxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public ApplicationDescriptor parse(string xmlFile, AdminPrx adminProxy, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -220,12 +214,12 @@ namespace IceGrid
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx adminProxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx adminProxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_parseAsync(xmlFile, adminProxy, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<ApplicationDescriptor> _iceI_parseAsync(string iceP_xmlFile, AdminPrx iceP_adminProxy, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<ApplicationDescriptor> _iceI_parseAsync(string iceP_xmlFile, AdminPrx iceP_adminProxy, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_parse_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ApplicationDescriptor>(progress, cancel);
@@ -276,77 +270,30 @@ namespace IceGrid
 
         #region Checked and unchecked cast operations
 
-        public static FileParserPrx checkedCast(global::Ice.ObjectPrx b)
+        public static FileParserPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            FileParserPrx r = b as FileParserPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                FileParserPrxHelper h = new FileParserPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static FileParserPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            FileParserPrx r = b as FileParserPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                FileParserPrxHelper h = new FileParserPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static FileParserPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    FileParserPrxHelper h = new FileParserPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                FileParserPrxHelper prx = new FileParserPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static FileParserPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static FileParserPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    FileParserPrxHelper h = new FileParserPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    FileParserPrxHelper prx = new FileParserPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -354,30 +301,25 @@ namespace IceGrid
 
         public static FileParserPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                FileParserPrxHelper prx = new FileParserPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            FileParserPrx r = b as FileParserPrx;
-            if(r == null)
-            {
-                FileParserPrxHelper h = new FileParserPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static FileParserPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                FileParserPrxHelper prx = new FileParserPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            FileParserPrxHelper h = new FileParserPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

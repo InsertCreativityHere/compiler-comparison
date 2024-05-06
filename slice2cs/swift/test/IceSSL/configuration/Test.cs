@@ -54,49 +54,31 @@ namespace Test
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Server_noCert();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Server_checkCert();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_ServerFactory_createServer(ServerPrx ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_ServerFactory_destroyServer();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_ServerFactory_shutdown();
-}
-
-namespace Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface ServerPrx : global::Ice.ObjectPrx
     {
-        void noCert(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void noCert(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task noCertAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task noCertAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void checkCert(string subjectDN, string issuerDN, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void checkCert(string subjectDN, string issuerDN, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task checkCertAsync(string subjectDN, string issuerDN, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task checkCertAsync(string subjectDN, string issuerDN, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface ServerFactoryPrx : global::Ice.ObjectPrx
     {
-        ServerPrx createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        ServerPrx createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<ServerPrx> createServerAsync(global::System.Collections.Generic.Dictionary<string, string> props, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<ServerPrx> createServerAsync(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void destroyServer(ServerPrx srv, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void destroyServer(ServerPrx srv, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task destroyServerAsync(ServerPrx srv, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task destroyServerAsync(ServerPrx srv, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -138,7 +120,7 @@ namespace Test
 
         #region Synchronous operations
 
-        public void noCert(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void noCert(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -150,7 +132,7 @@ namespace Test
             }
         }
 
-        public void checkCert(string subjectDN, string issuerDN, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void checkCert(string subjectDN, string issuerDN, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -166,12 +148,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task noCertAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task noCertAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_noCertAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_noCertAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_noCertAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_noCert(context, synchronous, completed);
@@ -191,12 +173,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task checkCertAsync(string subjectDN, string issuerDN, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task checkCertAsync(string subjectDN, string issuerDN, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_checkCertAsync(subjectDN, issuerDN, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_checkCertAsync(string iceP_subjectDN, string iceP_issuerDN, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_checkCertAsync(string iceP_subjectDN, string iceP_issuerDN, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_checkCert(iceP_subjectDN, iceP_issuerDN, context, synchronous, completed);
@@ -225,77 +207,30 @@ namespace Test
 
         #region Checked and unchecked cast operations
 
-        public static ServerPrx checkedCast(global::Ice.ObjectPrx b)
+        public static ServerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            ServerPrx r = b as ServerPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                ServerPrxHelper h = new ServerPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static ServerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            ServerPrx r = b as ServerPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                ServerPrxHelper h = new ServerPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static ServerPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    ServerPrxHelper h = new ServerPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                ServerPrxHelper prx = new ServerPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static ServerPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static ServerPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    ServerPrxHelper h = new ServerPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    ServerPrxHelper prx = new ServerPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -303,30 +238,25 @@ namespace Test
 
         public static ServerPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                ServerPrxHelper prx = new ServerPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            ServerPrx r = b as ServerPrx;
-            if(r == null)
-            {
-                ServerPrxHelper h = new ServerPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static ServerPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                ServerPrxHelper prx = new ServerPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            ServerPrxHelper h = new ServerPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -408,7 +338,7 @@ namespace Test
 
         #region Synchronous operations
 
-        public ServerPrx createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public ServerPrx createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -420,7 +350,7 @@ namespace Test
             }
         }
 
-        public void destroyServer(ServerPrx srv, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void destroyServer(ServerPrx srv, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -432,7 +362,7 @@ namespace Test
             }
         }
 
-        public void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -448,12 +378,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<ServerPrx> createServerAsync(global::System.Collections.Generic.Dictionary<string, string> props, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<ServerPrx> createServerAsync(global::System.Collections.Generic.Dictionary<string, string> props, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_createServerAsync(props, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<ServerPrx> _iceI_createServerAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_props, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<ServerPrx> _iceI_createServerAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_props, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_createServer_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ServerPrx>(progress, cancel);
@@ -484,12 +414,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task destroyServerAsync(ServerPrx srv, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task destroyServerAsync(ServerPrx srv, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_destroyServerAsync(srv, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_destroyServerAsync(ServerPrx iceP_srv, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_destroyServerAsync(ServerPrx iceP_srv, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_destroyServer(iceP_srv, context, synchronous, completed);
@@ -513,12 +443,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -542,77 +472,30 @@ namespace Test
 
         #region Checked and unchecked cast operations
 
-        public static ServerFactoryPrx checkedCast(global::Ice.ObjectPrx b)
+        public static ServerFactoryPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            ServerFactoryPrx r = b as ServerFactoryPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                ServerFactoryPrxHelper h = new ServerFactoryPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static ServerFactoryPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            ServerFactoryPrx r = b as ServerFactoryPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                ServerFactoryPrxHelper h = new ServerFactoryPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static ServerFactoryPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    ServerFactoryPrxHelper h = new ServerFactoryPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                ServerFactoryPrxHelper prx = new ServerFactoryPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static ServerFactoryPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static ServerFactoryPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    ServerFactoryPrxHelper h = new ServerFactoryPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    ServerFactoryPrxHelper prx = new ServerFactoryPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -620,30 +503,25 @@ namespace Test
 
         public static ServerFactoryPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                ServerFactoryPrxHelper prx = new ServerFactoryPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            ServerFactoryPrx r = b as ServerFactoryPrx;
-            if(r == null)
-            {
-                ServerFactoryPrxHelper h = new ServerFactoryPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static ServerFactoryPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                ServerFactoryPrxHelper prx = new ServerFactoryPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            ServerFactoryPrxHelper h = new ServerFactoryPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

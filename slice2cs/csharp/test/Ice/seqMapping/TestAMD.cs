@@ -429,240 +429,6 @@ namespace Ice.seqMapping.AMD
 {
     namespace Test
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_shutdown();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opAByteS(byte[] ret, byte[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLByteS(global::System.Collections.Generic.List<byte> ret, global::System.Collections.Generic.List<byte> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKByteS(global::System.Collections.Generic.LinkedList<byte> ret, global::System.Collections.Generic.LinkedList<byte> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQByteS(global::System.Collections.Generic.Queue<byte> ret, global::System.Collections.Generic.Queue<byte> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSByteS(global::System.Collections.Generic.Stack<byte> ret, global::System.Collections.Generic.Stack<byte> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opABoolS(bool[] ret, bool[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLBoolS(global::System.Collections.Generic.List<bool> ret, global::System.Collections.Generic.List<bool> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKBoolS(global::System.Collections.Generic.LinkedList<bool> ret, global::System.Collections.Generic.LinkedList<bool> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQBoolS(global::System.Collections.Generic.Queue<bool> ret, global::System.Collections.Generic.Queue<bool> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSBoolS(global::System.Collections.Generic.Stack<bool> ret, global::System.Collections.Generic.Stack<bool> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opAShortS(short[] ret, short[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLShortS(global::System.Collections.Generic.List<short> ret, global::System.Collections.Generic.List<short> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKShortS(global::System.Collections.Generic.LinkedList<short> ret, global::System.Collections.Generic.LinkedList<short> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQShortS(global::System.Collections.Generic.Queue<short> ret, global::System.Collections.Generic.Queue<short> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSShortS(global::System.Collections.Generic.Stack<short> ret, global::System.Collections.Generic.Stack<short> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opAIntS(int[] ret, int[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLIntS(global::System.Collections.Generic.List<int> ret, global::System.Collections.Generic.List<int> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKIntS(global::System.Collections.Generic.LinkedList<int> ret, global::System.Collections.Generic.LinkedList<int> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQIntS(global::System.Collections.Generic.Queue<int> ret, global::System.Collections.Generic.Queue<int> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSIntS(global::System.Collections.Generic.Stack<int> ret, global::System.Collections.Generic.Stack<int> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opALongS(long[] ret, long[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLLongS(global::System.Collections.Generic.List<long> ret, global::System.Collections.Generic.List<long> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKLongS(global::System.Collections.Generic.LinkedList<long> ret, global::System.Collections.Generic.LinkedList<long> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQLongS(global::System.Collections.Generic.Queue<long> ret, global::System.Collections.Generic.Queue<long> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSLongS(global::System.Collections.Generic.Stack<long> ret, global::System.Collections.Generic.Stack<long> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opAFloatS(float[] ret, float[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLFloatS(global::System.Collections.Generic.List<float> ret, global::System.Collections.Generic.List<float> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKFloatS(global::System.Collections.Generic.LinkedList<float> ret, global::System.Collections.Generic.LinkedList<float> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQFloatS(global::System.Collections.Generic.Queue<float> ret, global::System.Collections.Generic.Queue<float> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSFloatS(global::System.Collections.Generic.Stack<float> ret, global::System.Collections.Generic.Stack<float> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opADoubleS(double[] ret, double[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLDoubleS(global::System.Collections.Generic.List<double> ret, global::System.Collections.Generic.List<double> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKDoubleS(global::System.Collections.Generic.LinkedList<double> ret, global::System.Collections.Generic.LinkedList<double> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQDoubleS(global::System.Collections.Generic.Queue<double> ret, global::System.Collections.Generic.Queue<double> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSDoubleS(global::System.Collections.Generic.Stack<double> ret, global::System.Collections.Generic.Stack<double> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opAStringS(string[] ret, string[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLStringS(global::System.Collections.Generic.List<string> ret, global::System.Collections.Generic.List<string> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKStringS(global::System.Collections.Generic.LinkedList<string> ret, global::System.Collections.Generic.LinkedList<string> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQStringS(global::System.Collections.Generic.Queue<string> ret, global::System.Collections.Generic.Queue<string> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSStringS(global::System.Collections.Generic.Stack<string> ret, global::System.Collections.Generic.Stack<string> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opAObjectS(global::Ice.Value[] ret, global::Ice.Value[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLObjectS(global::System.Collections.Generic.List<global::Ice.Value> ret, global::System.Collections.Generic.List<global::Ice.Value> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opAObjectPrxS(global::Ice.ObjectPrx[] ret, global::Ice.ObjectPrx[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx> ret, global::System.Collections.Generic.List<global::Ice.ObjectPrx> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> ret, global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> ret, global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> ret, global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opAStructS(S[] ret, S[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLStructS(global::System.Collections.Generic.List<S> ret, global::System.Collections.Generic.List<S> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKStructS(global::System.Collections.Generic.LinkedList<S> ret, global::System.Collections.Generic.LinkedList<S> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQStructS(global::System.Collections.Generic.Queue<S> ret, global::System.Collections.Generic.Queue<S> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSStructS(global::System.Collections.Generic.Stack<S> ret, global::System.Collections.Generic.Stack<S> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opAStructSD(SD[] ret, SD[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLStructSD(global::System.Collections.Generic.List<SD> ret, global::System.Collections.Generic.List<SD> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKStructSD(global::System.Collections.Generic.LinkedList<SD> ret, global::System.Collections.Generic.LinkedList<SD> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQStructSD(global::System.Collections.Generic.Queue<SD> ret, global::System.Collections.Generic.Queue<SD> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSStructSD(global::System.Collections.Generic.Stack<SD> ret, global::System.Collections.Generic.Stack<SD> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opACVS(CV[] ret, CV[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLCVS(global::System.Collections.Generic.List<CV> ret, global::System.Collections.Generic.List<CV> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opACRS(CR[] ret, CR[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLCRS(global::System.Collections.Generic.List<CR> ret, global::System.Collections.Generic.List<CR> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opAEnS(En[] ret, En[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLEnS(global::System.Collections.Generic.List<En> ret, global::System.Collections.Generic.List<En> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKEnS(global::System.Collections.Generic.LinkedList<En> ret, global::System.Collections.Generic.LinkedList<En> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQEnS(global::System.Collections.Generic.Queue<En> ret, global::System.Collections.Generic.Queue<En> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSEnS(global::System.Collections.Generic.Stack<En> ret, global::System.Collections.Generic.Stack<En> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opAIPrxS(IPrx[] ret, IPrx[] o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opLIPrxS(global::System.Collections.Generic.List<IPrx> ret, global::System.Collections.Generic.List<IPrx> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx> ret, global::System.Collections.Generic.LinkedList<IPrx> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opQIPrxS(global::System.Collections.Generic.Queue<IPrx> ret, global::System.Collections.Generic.Queue<IPrx> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opSIPrxS(global::System.Collections.Generic.Stack<IPrx> ret, global::System.Collections.Generic.Stack<IPrx> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opCustomIntS(global::Ice.seqMapping.Custom<int> ret, global::Ice.seqMapping.Custom<int> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opCustomCVS(global::Ice.seqMapping.Custom<CV> ret, global::Ice.seqMapping.Custom<CV> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> ret, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> ret, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> o);
-    }
-}
-
-namespace Ice.seqMapping.AMD
-{
-    namespace Test
-    {
         public struct MyClass_OpAByteSResult
         {
             public MyClass_OpAByteSResult(byte[] returnValue, byte[] o)
@@ -1577,309 +1343,309 @@ namespace Ice.seqMapping.AMD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface MyClassPrx : global::Ice.ObjectPrx
         {
-            void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            byte[] opAByteS(byte[] i, out byte[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            byte[] opAByteS(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<byte> opLByteS(global::System.Collections.Generic.List<byte> i, out global::System.Collections.Generic.List<byte> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<byte> opLByteS(global::System.Collections.Generic.List<byte> i, out global::System.Collections.Generic.List<byte> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<byte> opKByteS(global::System.Collections.Generic.LinkedList<byte> i, out global::System.Collections.Generic.LinkedList<byte> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<byte> opKByteS(global::System.Collections.Generic.LinkedList<byte> i, out global::System.Collections.Generic.LinkedList<byte> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<byte> opQByteS(global::System.Collections.Generic.Queue<byte> i, out global::System.Collections.Generic.Queue<byte> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<byte> opQByteS(global::System.Collections.Generic.Queue<byte> i, out global::System.Collections.Generic.Queue<byte> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<byte> opSByteS(global::System.Collections.Generic.Stack<byte> i, out global::System.Collections.Generic.Stack<byte> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<byte> opSByteS(global::System.Collections.Generic.Stack<byte> i, out global::System.Collections.Generic.Stack<byte> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            bool[] opABoolS(bool[] i, out bool[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            bool[] opABoolS(bool[] i, out bool[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<bool> opLBoolS(global::System.Collections.Generic.List<bool> i, out global::System.Collections.Generic.List<bool> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<bool> opLBoolS(global::System.Collections.Generic.List<bool> i, out global::System.Collections.Generic.List<bool> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<bool> opKBoolS(global::System.Collections.Generic.LinkedList<bool> i, out global::System.Collections.Generic.LinkedList<bool> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<bool> opKBoolS(global::System.Collections.Generic.LinkedList<bool> i, out global::System.Collections.Generic.LinkedList<bool> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<bool> opQBoolS(global::System.Collections.Generic.Queue<bool> i, out global::System.Collections.Generic.Queue<bool> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<bool> opQBoolS(global::System.Collections.Generic.Queue<bool> i, out global::System.Collections.Generic.Queue<bool> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<bool> opSBoolS(global::System.Collections.Generic.Stack<bool> i, out global::System.Collections.Generic.Stack<bool> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<bool> opSBoolS(global::System.Collections.Generic.Stack<bool> i, out global::System.Collections.Generic.Stack<bool> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            short[] opAShortS(short[] i, out short[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            short[] opAShortS(short[] i, out short[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<short> opLShortS(global::System.Collections.Generic.List<short> i, out global::System.Collections.Generic.List<short> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<short> opLShortS(global::System.Collections.Generic.List<short> i, out global::System.Collections.Generic.List<short> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<short> opKShortS(global::System.Collections.Generic.LinkedList<short> i, out global::System.Collections.Generic.LinkedList<short> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<short> opKShortS(global::System.Collections.Generic.LinkedList<short> i, out global::System.Collections.Generic.LinkedList<short> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<short> opQShortS(global::System.Collections.Generic.Queue<short> i, out global::System.Collections.Generic.Queue<short> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<short> opQShortS(global::System.Collections.Generic.Queue<short> i, out global::System.Collections.Generic.Queue<short> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<short> opSShortS(global::System.Collections.Generic.Stack<short> i, out global::System.Collections.Generic.Stack<short> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<short> opSShortS(global::System.Collections.Generic.Stack<short> i, out global::System.Collections.Generic.Stack<short> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int[] opAIntS(int[] i, out int[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int[] opAIntS(int[] i, out int[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<int> opLIntS(global::System.Collections.Generic.List<int> i, out global::System.Collections.Generic.List<int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<int> opLIntS(global::System.Collections.Generic.List<int> i, out global::System.Collections.Generic.List<int> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<int> opKIntS(global::System.Collections.Generic.LinkedList<int> i, out global::System.Collections.Generic.LinkedList<int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<int> opKIntS(global::System.Collections.Generic.LinkedList<int> i, out global::System.Collections.Generic.LinkedList<int> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<int> opQIntS(global::System.Collections.Generic.Queue<int> i, out global::System.Collections.Generic.Queue<int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<int> opQIntS(global::System.Collections.Generic.Queue<int> i, out global::System.Collections.Generic.Queue<int> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<int> opSIntS(global::System.Collections.Generic.Stack<int> i, out global::System.Collections.Generic.Stack<int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<int> opSIntS(global::System.Collections.Generic.Stack<int> i, out global::System.Collections.Generic.Stack<int> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            long[] opALongS(long[] i, out long[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            long[] opALongS(long[] i, out long[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<long> opLLongS(global::System.Collections.Generic.List<long> i, out global::System.Collections.Generic.List<long> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<long> opLLongS(global::System.Collections.Generic.List<long> i, out global::System.Collections.Generic.List<long> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<long> opKLongS(global::System.Collections.Generic.LinkedList<long> i, out global::System.Collections.Generic.LinkedList<long> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<long> opKLongS(global::System.Collections.Generic.LinkedList<long> i, out global::System.Collections.Generic.LinkedList<long> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<long> opQLongS(global::System.Collections.Generic.Queue<long> i, out global::System.Collections.Generic.Queue<long> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<long> opQLongS(global::System.Collections.Generic.Queue<long> i, out global::System.Collections.Generic.Queue<long> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<long> opSLongS(global::System.Collections.Generic.Stack<long> i, out global::System.Collections.Generic.Stack<long> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<long> opSLongS(global::System.Collections.Generic.Stack<long> i, out global::System.Collections.Generic.Stack<long> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            float[] opAFloatS(float[] i, out float[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            float[] opAFloatS(float[] i, out float[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<float> opLFloatS(global::System.Collections.Generic.List<float> i, out global::System.Collections.Generic.List<float> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<float> opLFloatS(global::System.Collections.Generic.List<float> i, out global::System.Collections.Generic.List<float> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<float> opKFloatS(global::System.Collections.Generic.LinkedList<float> i, out global::System.Collections.Generic.LinkedList<float> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<float> opKFloatS(global::System.Collections.Generic.LinkedList<float> i, out global::System.Collections.Generic.LinkedList<float> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<float> opQFloatS(global::System.Collections.Generic.Queue<float> i, out global::System.Collections.Generic.Queue<float> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<float> opQFloatS(global::System.Collections.Generic.Queue<float> i, out global::System.Collections.Generic.Queue<float> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<float> opSFloatS(global::System.Collections.Generic.Stack<float> i, out global::System.Collections.Generic.Stack<float> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<float> opSFloatS(global::System.Collections.Generic.Stack<float> i, out global::System.Collections.Generic.Stack<float> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            double[] opADoubleS(double[] i, out double[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            double[] opADoubleS(double[] i, out double[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<double> opLDoubleS(global::System.Collections.Generic.List<double> i, out global::System.Collections.Generic.List<double> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<double> opLDoubleS(global::System.Collections.Generic.List<double> i, out global::System.Collections.Generic.List<double> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<double> opKDoubleS(global::System.Collections.Generic.LinkedList<double> i, out global::System.Collections.Generic.LinkedList<double> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<double> opKDoubleS(global::System.Collections.Generic.LinkedList<double> i, out global::System.Collections.Generic.LinkedList<double> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<double> opQDoubleS(global::System.Collections.Generic.Queue<double> i, out global::System.Collections.Generic.Queue<double> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<double> opQDoubleS(global::System.Collections.Generic.Queue<double> i, out global::System.Collections.Generic.Queue<double> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<double> opSDoubleS(global::System.Collections.Generic.Stack<double> i, out global::System.Collections.Generic.Stack<double> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<double> opSDoubleS(global::System.Collections.Generic.Stack<double> i, out global::System.Collections.Generic.Stack<double> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            string[] opAStringS(string[] i, out string[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            string[] opAStringS(string[] i, out string[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<string> opLStringS(global::System.Collections.Generic.List<string> i, out global::System.Collections.Generic.List<string> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<string> opLStringS(global::System.Collections.Generic.List<string> i, out global::System.Collections.Generic.List<string> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<string> opKStringS(global::System.Collections.Generic.LinkedList<string> i, out global::System.Collections.Generic.LinkedList<string> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<string> opKStringS(global::System.Collections.Generic.LinkedList<string> i, out global::System.Collections.Generic.LinkedList<string> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<string> opQStringS(global::System.Collections.Generic.Queue<string> i, out global::System.Collections.Generic.Queue<string> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<string> opQStringS(global::System.Collections.Generic.Queue<string> i, out global::System.Collections.Generic.Queue<string> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<string> opSStringS(global::System.Collections.Generic.Stack<string> i, out global::System.Collections.Generic.Stack<string> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<string> opSStringS(global::System.Collections.Generic.Stack<string> i, out global::System.Collections.Generic.Stack<string> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::Ice.Value[] opAObjectS(global::Ice.Value[] i, out global::Ice.Value[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::Ice.Value[] opAObjectS(global::Ice.Value[] i, out global::Ice.Value[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<global::Ice.Value> opLObjectS(global::System.Collections.Generic.List<global::Ice.Value> i, out global::System.Collections.Generic.List<global::Ice.Value> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<global::Ice.Value> opLObjectS(global::System.Collections.Generic.List<global::Ice.Value> i, out global::System.Collections.Generic.List<global::Ice.Value> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::Ice.ObjectPrx[] opAObjectPrxS(global::Ice.ObjectPrx[] i, out global::Ice.ObjectPrx[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::Ice.ObjectPrx[] opAObjectPrxS(global::Ice.ObjectPrx[] i, out global::Ice.ObjectPrx[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<global::Ice.ObjectPrx> opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.List<global::Ice.ObjectPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<global::Ice.ObjectPrx> opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.List<global::Ice.ObjectPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            S[] opAStructS(S[] i, out S[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            S[] opAStructS(S[] i, out S[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<S> opLStructS(global::System.Collections.Generic.List<S> i, out global::System.Collections.Generic.List<S> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<S> opLStructS(global::System.Collections.Generic.List<S> i, out global::System.Collections.Generic.List<S> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<S> opKStructS(global::System.Collections.Generic.LinkedList<S> i, out global::System.Collections.Generic.LinkedList<S> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<S> opKStructS(global::System.Collections.Generic.LinkedList<S> i, out global::System.Collections.Generic.LinkedList<S> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<S> opQStructS(global::System.Collections.Generic.Queue<S> i, out global::System.Collections.Generic.Queue<S> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<S> opQStructS(global::System.Collections.Generic.Queue<S> i, out global::System.Collections.Generic.Queue<S> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<S> opSStructS(global::System.Collections.Generic.Stack<S> i, out global::System.Collections.Generic.Stack<S> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<S> opSStructS(global::System.Collections.Generic.Stack<S> i, out global::System.Collections.Generic.Stack<S> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            SD[] opAStructSD(SD[] i, out SD[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            SD[] opAStructSD(SD[] i, out SD[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<SD> opLStructSD(global::System.Collections.Generic.List<SD> i, out global::System.Collections.Generic.List<SD> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<SD> opLStructSD(global::System.Collections.Generic.List<SD> i, out global::System.Collections.Generic.List<SD> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<SD> opKStructSD(global::System.Collections.Generic.LinkedList<SD> i, out global::System.Collections.Generic.LinkedList<SD> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<SD> opKStructSD(global::System.Collections.Generic.LinkedList<SD> i, out global::System.Collections.Generic.LinkedList<SD> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<SD> opQStructSD(global::System.Collections.Generic.Queue<SD> i, out global::System.Collections.Generic.Queue<SD> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<SD> opQStructSD(global::System.Collections.Generic.Queue<SD> i, out global::System.Collections.Generic.Queue<SD> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<SD> opSStructSD(global::System.Collections.Generic.Stack<SD> i, out global::System.Collections.Generic.Stack<SD> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<SD> opSStructSD(global::System.Collections.Generic.Stack<SD> i, out global::System.Collections.Generic.Stack<SD> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            CV[] opACVS(CV[] i, out CV[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            CV[] opACVS(CV[] i, out CV[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<CV> opLCVS(global::System.Collections.Generic.List<CV> i, out global::System.Collections.Generic.List<CV> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<CV> opLCVS(global::System.Collections.Generic.List<CV> i, out global::System.Collections.Generic.List<CV> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            CR[] opACRS(CR[] i, out CR[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            CR[] opACRS(CR[] i, out CR[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<CR> opLCRS(global::System.Collections.Generic.List<CR> i, out global::System.Collections.Generic.List<CR> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<CR> opLCRS(global::System.Collections.Generic.List<CR> i, out global::System.Collections.Generic.List<CR> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            En[] opAEnS(En[] i, out En[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            En[] opAEnS(En[] i, out En[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<En> opLEnS(global::System.Collections.Generic.List<En> i, out global::System.Collections.Generic.List<En> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<En> opLEnS(global::System.Collections.Generic.List<En> i, out global::System.Collections.Generic.List<En> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<En> opKEnS(global::System.Collections.Generic.LinkedList<En> i, out global::System.Collections.Generic.LinkedList<En> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<En> opKEnS(global::System.Collections.Generic.LinkedList<En> i, out global::System.Collections.Generic.LinkedList<En> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<En> opQEnS(global::System.Collections.Generic.Queue<En> i, out global::System.Collections.Generic.Queue<En> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<En> opQEnS(global::System.Collections.Generic.Queue<En> i, out global::System.Collections.Generic.Queue<En> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<En> opSEnS(global::System.Collections.Generic.Stack<En> i, out global::System.Collections.Generic.Stack<En> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<En> opSEnS(global::System.Collections.Generic.Stack<En> i, out global::System.Collections.Generic.Stack<En> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            IPrx[] opAIPrxS(IPrx[] i, out IPrx[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            IPrx[] opAIPrxS(IPrx[] i, out IPrx[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.List<IPrx> opLIPrxS(global::System.Collections.Generic.List<IPrx> i, out global::System.Collections.Generic.List<IPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.List<IPrx> opLIPrxS(global::System.Collections.Generic.List<IPrx> i, out global::System.Collections.Generic.List<IPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.LinkedList<IPrx> opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx> i, out global::System.Collections.Generic.LinkedList<IPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.LinkedList<IPrx> opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx> i, out global::System.Collections.Generic.LinkedList<IPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Queue<IPrx> opQIPrxS(global::System.Collections.Generic.Queue<IPrx> i, out global::System.Collections.Generic.Queue<IPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Queue<IPrx> opQIPrxS(global::System.Collections.Generic.Queue<IPrx> i, out global::System.Collections.Generic.Queue<IPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Stack<IPrx> opSIPrxS(global::System.Collections.Generic.Stack<IPrx> i, out global::System.Collections.Generic.Stack<IPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Stack<IPrx> opSIPrxS(global::System.Collections.Generic.Stack<IPrx> i, out global::System.Collections.Generic.Stack<IPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::Ice.seqMapping.Custom<int> opCustomIntS(global::Ice.seqMapping.Custom<int> i, out global::Ice.seqMapping.Custom<int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::Ice.seqMapping.Custom<int> opCustomIntS(global::Ice.seqMapping.Custom<int> i, out global::Ice.seqMapping.Custom<int> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::Ice.seqMapping.Custom<CV> opCustomCVS(global::Ice.seqMapping.Custom<CV> i, out global::Ice.seqMapping.Custom<CV> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::Ice.seqMapping.Custom<CV> opCustomCVS(global::Ice.seqMapping.Custom<CV> i, out global::Ice.seqMapping.Custom<CV> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -3452,77 +3218,30 @@ namespace Ice.seqMapping.AMD
 
             #region Checked and unchecked cast operations
 
-            public static IPrx checkedCast(global::Ice.ObjectPrx b)
+            public static IPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
-                if(b == null)
+                if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
-                    return null;
-                }
-                IPrx r = b as IPrx;
-                if((r == null) && b.ice_isA(ice_staticId()))
-                {
-                    IPrxHelper h = new IPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
-            }
-
-            public static IPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-            {
-                if(b == null)
-                {
-                    return null;
-                }
-                IPrx r = b as IPrx;
-                if((r == null) && b.ice_isA(ice_staticId(), ctx))
-                {
-                    IPrxHelper h = new IPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
-            }
-
-            public static IPrx checkedCast(global::Ice.ObjectPrx b, string f)
-            {
-                if(b == null)
-                {
-                    return null;
-                }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                try
-                {
-                    if(bb.ice_isA(ice_staticId()))
-                    {
-                        IPrxHelper h = new IPrxHelper();
-                        h.iceCopyFrom(bb);
-                        return h;
-                    }
-                }
-                catch(global::Ice.FacetNotExistException)
-                {
+                    IPrxHelper prx = new IPrxHelper();
+                    prx.iceCopyFrom(b);
+                    return prx;
                 }
                 return null;
             }
 
-            public static IPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+            public static IPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
-                if(b == null)
-                {
-                    return null;
-                }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                global::Ice.ObjectPrx bb = b?.ice_facet(f);
                 try
                 {
-                    if(bb.ice_isA(ice_staticId(), ctx))
+                    if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                     {
-                        IPrxHelper h = new IPrxHelper();
-                        h.iceCopyFrom(bb);
-                        return h;
+                        IPrxHelper prx = new IPrxHelper();
+                        prx.iceCopyFrom(bb);
+                        return prx;
                     }
                 }
-                catch(global::Ice.FacetNotExistException)
+                catch (global::Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -3530,30 +3249,25 @@ namespace Ice.seqMapping.AMD
 
             public static IPrx uncheckedCast(global::Ice.ObjectPrx b)
             {
-                if(b == null)
+                if (b is not null)
                 {
-                    return null;
+                    IPrxHelper prx = new IPrxHelper();
+                    prx.iceCopyFrom(b);
+                    return prx;
                 }
-                IPrx r = b as IPrx;
-                if(r == null)
-                {
-                    IPrxHelper h = new IPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
+                return null;
             }
 
             public static IPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
             {
-                if(b == null)
+                if (b is not null)
                 {
-                    return null;
+                    global::Ice.ObjectPrx bb = b.ice_facet(f);
+                    IPrxHelper prx = new IPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                IPrxHelper h = new IPrxHelper();
-                h.iceCopyFrom(bb);
-                return h;
+                return null;
             }
 
             private static readonly string[] _ids =
@@ -4154,7 +3868,7 @@ namespace Ice.seqMapping.AMD
 
             #region Synchronous operations
 
-            public void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4166,7 +3880,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public byte[] opAByteS(byte[] i, out byte[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public byte[] opAByteS(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4180,7 +3894,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<byte> opLByteS(global::System.Collections.Generic.List<byte> i, out global::System.Collections.Generic.List<byte> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<byte> opLByteS(global::System.Collections.Generic.List<byte> i, out global::System.Collections.Generic.List<byte> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4194,7 +3908,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<byte> opKByteS(global::System.Collections.Generic.LinkedList<byte> i, out global::System.Collections.Generic.LinkedList<byte> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<byte> opKByteS(global::System.Collections.Generic.LinkedList<byte> i, out global::System.Collections.Generic.LinkedList<byte> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4208,7 +3922,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<byte> opQByteS(global::System.Collections.Generic.Queue<byte> i, out global::System.Collections.Generic.Queue<byte> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<byte> opQByteS(global::System.Collections.Generic.Queue<byte> i, out global::System.Collections.Generic.Queue<byte> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4222,7 +3936,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<byte> opSByteS(global::System.Collections.Generic.Stack<byte> i, out global::System.Collections.Generic.Stack<byte> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<byte> opSByteS(global::System.Collections.Generic.Stack<byte> i, out global::System.Collections.Generic.Stack<byte> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4236,7 +3950,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public bool[] opABoolS(bool[] i, out bool[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public bool[] opABoolS(bool[] i, out bool[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4250,7 +3964,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<bool> opLBoolS(global::System.Collections.Generic.List<bool> i, out global::System.Collections.Generic.List<bool> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<bool> opLBoolS(global::System.Collections.Generic.List<bool> i, out global::System.Collections.Generic.List<bool> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4264,7 +3978,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<bool> opKBoolS(global::System.Collections.Generic.LinkedList<bool> i, out global::System.Collections.Generic.LinkedList<bool> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<bool> opKBoolS(global::System.Collections.Generic.LinkedList<bool> i, out global::System.Collections.Generic.LinkedList<bool> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4278,7 +3992,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<bool> opQBoolS(global::System.Collections.Generic.Queue<bool> i, out global::System.Collections.Generic.Queue<bool> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<bool> opQBoolS(global::System.Collections.Generic.Queue<bool> i, out global::System.Collections.Generic.Queue<bool> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4292,7 +4006,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<bool> opSBoolS(global::System.Collections.Generic.Stack<bool> i, out global::System.Collections.Generic.Stack<bool> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<bool> opSBoolS(global::System.Collections.Generic.Stack<bool> i, out global::System.Collections.Generic.Stack<bool> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4306,7 +4020,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public short[] opAShortS(short[] i, out short[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public short[] opAShortS(short[] i, out short[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4320,7 +4034,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<short> opLShortS(global::System.Collections.Generic.List<short> i, out global::System.Collections.Generic.List<short> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<short> opLShortS(global::System.Collections.Generic.List<short> i, out global::System.Collections.Generic.List<short> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4334,7 +4048,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<short> opKShortS(global::System.Collections.Generic.LinkedList<short> i, out global::System.Collections.Generic.LinkedList<short> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<short> opKShortS(global::System.Collections.Generic.LinkedList<short> i, out global::System.Collections.Generic.LinkedList<short> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4348,7 +4062,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<short> opQShortS(global::System.Collections.Generic.Queue<short> i, out global::System.Collections.Generic.Queue<short> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<short> opQShortS(global::System.Collections.Generic.Queue<short> i, out global::System.Collections.Generic.Queue<short> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4362,7 +4076,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<short> opSShortS(global::System.Collections.Generic.Stack<short> i, out global::System.Collections.Generic.Stack<short> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<short> opSShortS(global::System.Collections.Generic.Stack<short> i, out global::System.Collections.Generic.Stack<short> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4376,7 +4090,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public int[] opAIntS(int[] i, out int[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int[] opAIntS(int[] i, out int[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4390,7 +4104,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<int> opLIntS(global::System.Collections.Generic.List<int> i, out global::System.Collections.Generic.List<int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<int> opLIntS(global::System.Collections.Generic.List<int> i, out global::System.Collections.Generic.List<int> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4404,7 +4118,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<int> opKIntS(global::System.Collections.Generic.LinkedList<int> i, out global::System.Collections.Generic.LinkedList<int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<int> opKIntS(global::System.Collections.Generic.LinkedList<int> i, out global::System.Collections.Generic.LinkedList<int> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4418,7 +4132,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<int> opQIntS(global::System.Collections.Generic.Queue<int> i, out global::System.Collections.Generic.Queue<int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<int> opQIntS(global::System.Collections.Generic.Queue<int> i, out global::System.Collections.Generic.Queue<int> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4432,7 +4146,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<int> opSIntS(global::System.Collections.Generic.Stack<int> i, out global::System.Collections.Generic.Stack<int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<int> opSIntS(global::System.Collections.Generic.Stack<int> i, out global::System.Collections.Generic.Stack<int> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4446,7 +4160,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public long[] opALongS(long[] i, out long[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public long[] opALongS(long[] i, out long[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4460,7 +4174,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<long> opLLongS(global::System.Collections.Generic.List<long> i, out global::System.Collections.Generic.List<long> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<long> opLLongS(global::System.Collections.Generic.List<long> i, out global::System.Collections.Generic.List<long> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4474,7 +4188,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<long> opKLongS(global::System.Collections.Generic.LinkedList<long> i, out global::System.Collections.Generic.LinkedList<long> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<long> opKLongS(global::System.Collections.Generic.LinkedList<long> i, out global::System.Collections.Generic.LinkedList<long> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4488,7 +4202,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<long> opQLongS(global::System.Collections.Generic.Queue<long> i, out global::System.Collections.Generic.Queue<long> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<long> opQLongS(global::System.Collections.Generic.Queue<long> i, out global::System.Collections.Generic.Queue<long> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4502,7 +4216,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<long> opSLongS(global::System.Collections.Generic.Stack<long> i, out global::System.Collections.Generic.Stack<long> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<long> opSLongS(global::System.Collections.Generic.Stack<long> i, out global::System.Collections.Generic.Stack<long> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4516,7 +4230,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public float[] opAFloatS(float[] i, out float[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public float[] opAFloatS(float[] i, out float[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4530,7 +4244,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<float> opLFloatS(global::System.Collections.Generic.List<float> i, out global::System.Collections.Generic.List<float> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<float> opLFloatS(global::System.Collections.Generic.List<float> i, out global::System.Collections.Generic.List<float> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4544,7 +4258,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<float> opKFloatS(global::System.Collections.Generic.LinkedList<float> i, out global::System.Collections.Generic.LinkedList<float> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<float> opKFloatS(global::System.Collections.Generic.LinkedList<float> i, out global::System.Collections.Generic.LinkedList<float> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4558,7 +4272,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<float> opQFloatS(global::System.Collections.Generic.Queue<float> i, out global::System.Collections.Generic.Queue<float> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<float> opQFloatS(global::System.Collections.Generic.Queue<float> i, out global::System.Collections.Generic.Queue<float> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4572,7 +4286,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<float> opSFloatS(global::System.Collections.Generic.Stack<float> i, out global::System.Collections.Generic.Stack<float> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<float> opSFloatS(global::System.Collections.Generic.Stack<float> i, out global::System.Collections.Generic.Stack<float> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4586,7 +4300,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public double[] opADoubleS(double[] i, out double[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public double[] opADoubleS(double[] i, out double[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4600,7 +4314,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<double> opLDoubleS(global::System.Collections.Generic.List<double> i, out global::System.Collections.Generic.List<double> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<double> opLDoubleS(global::System.Collections.Generic.List<double> i, out global::System.Collections.Generic.List<double> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4614,7 +4328,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<double> opKDoubleS(global::System.Collections.Generic.LinkedList<double> i, out global::System.Collections.Generic.LinkedList<double> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<double> opKDoubleS(global::System.Collections.Generic.LinkedList<double> i, out global::System.Collections.Generic.LinkedList<double> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4628,7 +4342,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<double> opQDoubleS(global::System.Collections.Generic.Queue<double> i, out global::System.Collections.Generic.Queue<double> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<double> opQDoubleS(global::System.Collections.Generic.Queue<double> i, out global::System.Collections.Generic.Queue<double> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4642,7 +4356,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<double> opSDoubleS(global::System.Collections.Generic.Stack<double> i, out global::System.Collections.Generic.Stack<double> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<double> opSDoubleS(global::System.Collections.Generic.Stack<double> i, out global::System.Collections.Generic.Stack<double> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4656,7 +4370,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public string[] opAStringS(string[] i, out string[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public string[] opAStringS(string[] i, out string[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4670,7 +4384,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<string> opLStringS(global::System.Collections.Generic.List<string> i, out global::System.Collections.Generic.List<string> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<string> opLStringS(global::System.Collections.Generic.List<string> i, out global::System.Collections.Generic.List<string> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4684,7 +4398,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<string> opKStringS(global::System.Collections.Generic.LinkedList<string> i, out global::System.Collections.Generic.LinkedList<string> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<string> opKStringS(global::System.Collections.Generic.LinkedList<string> i, out global::System.Collections.Generic.LinkedList<string> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4698,7 +4412,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<string> opQStringS(global::System.Collections.Generic.Queue<string> i, out global::System.Collections.Generic.Queue<string> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<string> opQStringS(global::System.Collections.Generic.Queue<string> i, out global::System.Collections.Generic.Queue<string> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4712,7 +4426,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<string> opSStringS(global::System.Collections.Generic.Stack<string> i, out global::System.Collections.Generic.Stack<string> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<string> opSStringS(global::System.Collections.Generic.Stack<string> i, out global::System.Collections.Generic.Stack<string> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4726,7 +4440,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::Ice.Value[] opAObjectS(global::Ice.Value[] i, out global::Ice.Value[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::Ice.Value[] opAObjectS(global::Ice.Value[] i, out global::Ice.Value[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4740,7 +4454,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<global::Ice.Value> opLObjectS(global::System.Collections.Generic.List<global::Ice.Value> i, out global::System.Collections.Generic.List<global::Ice.Value> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<global::Ice.Value> opLObjectS(global::System.Collections.Generic.List<global::Ice.Value> i, out global::System.Collections.Generic.List<global::Ice.Value> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4754,7 +4468,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::Ice.ObjectPrx[] opAObjectPrxS(global::Ice.ObjectPrx[] i, out global::Ice.ObjectPrx[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::Ice.ObjectPrx[] opAObjectPrxS(global::Ice.ObjectPrx[] i, out global::Ice.ObjectPrx[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4768,7 +4482,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<global::Ice.ObjectPrx> opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.List<global::Ice.ObjectPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<global::Ice.ObjectPrx> opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.List<global::Ice.ObjectPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4782,7 +4496,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4796,7 +4510,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4810,7 +4524,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> i, out global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4824,7 +4538,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public S[] opAStructS(S[] i, out S[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public S[] opAStructS(S[] i, out S[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4838,7 +4552,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<S> opLStructS(global::System.Collections.Generic.List<S> i, out global::System.Collections.Generic.List<S> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<S> opLStructS(global::System.Collections.Generic.List<S> i, out global::System.Collections.Generic.List<S> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4852,7 +4566,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<S> opKStructS(global::System.Collections.Generic.LinkedList<S> i, out global::System.Collections.Generic.LinkedList<S> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<S> opKStructS(global::System.Collections.Generic.LinkedList<S> i, out global::System.Collections.Generic.LinkedList<S> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4866,7 +4580,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<S> opQStructS(global::System.Collections.Generic.Queue<S> i, out global::System.Collections.Generic.Queue<S> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<S> opQStructS(global::System.Collections.Generic.Queue<S> i, out global::System.Collections.Generic.Queue<S> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4880,7 +4594,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<S> opSStructS(global::System.Collections.Generic.Stack<S> i, out global::System.Collections.Generic.Stack<S> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<S> opSStructS(global::System.Collections.Generic.Stack<S> i, out global::System.Collections.Generic.Stack<S> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4894,7 +4608,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public SD[] opAStructSD(SD[] i, out SD[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public SD[] opAStructSD(SD[] i, out SD[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4908,7 +4622,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<SD> opLStructSD(global::System.Collections.Generic.List<SD> i, out global::System.Collections.Generic.List<SD> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<SD> opLStructSD(global::System.Collections.Generic.List<SD> i, out global::System.Collections.Generic.List<SD> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4922,7 +4636,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<SD> opKStructSD(global::System.Collections.Generic.LinkedList<SD> i, out global::System.Collections.Generic.LinkedList<SD> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<SD> opKStructSD(global::System.Collections.Generic.LinkedList<SD> i, out global::System.Collections.Generic.LinkedList<SD> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4936,7 +4650,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<SD> opQStructSD(global::System.Collections.Generic.Queue<SD> i, out global::System.Collections.Generic.Queue<SD> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<SD> opQStructSD(global::System.Collections.Generic.Queue<SD> i, out global::System.Collections.Generic.Queue<SD> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4950,7 +4664,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<SD> opSStructSD(global::System.Collections.Generic.Stack<SD> i, out global::System.Collections.Generic.Stack<SD> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<SD> opSStructSD(global::System.Collections.Generic.Stack<SD> i, out global::System.Collections.Generic.Stack<SD> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4964,7 +4678,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public CV[] opACVS(CV[] i, out CV[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public CV[] opACVS(CV[] i, out CV[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4978,7 +4692,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<CV> opLCVS(global::System.Collections.Generic.List<CV> i, out global::System.Collections.Generic.List<CV> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<CV> opLCVS(global::System.Collections.Generic.List<CV> i, out global::System.Collections.Generic.List<CV> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -4992,7 +4706,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public CR[] opACRS(CR[] i, out CR[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public CR[] opACRS(CR[] i, out CR[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5006,7 +4720,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<CR> opLCRS(global::System.Collections.Generic.List<CR> i, out global::System.Collections.Generic.List<CR> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<CR> opLCRS(global::System.Collections.Generic.List<CR> i, out global::System.Collections.Generic.List<CR> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5020,7 +4734,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public En[] opAEnS(En[] i, out En[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public En[] opAEnS(En[] i, out En[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5034,7 +4748,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<En> opLEnS(global::System.Collections.Generic.List<En> i, out global::System.Collections.Generic.List<En> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<En> opLEnS(global::System.Collections.Generic.List<En> i, out global::System.Collections.Generic.List<En> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5048,7 +4762,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<En> opKEnS(global::System.Collections.Generic.LinkedList<En> i, out global::System.Collections.Generic.LinkedList<En> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<En> opKEnS(global::System.Collections.Generic.LinkedList<En> i, out global::System.Collections.Generic.LinkedList<En> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5062,7 +4776,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<En> opQEnS(global::System.Collections.Generic.Queue<En> i, out global::System.Collections.Generic.Queue<En> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<En> opQEnS(global::System.Collections.Generic.Queue<En> i, out global::System.Collections.Generic.Queue<En> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5076,7 +4790,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<En> opSEnS(global::System.Collections.Generic.Stack<En> i, out global::System.Collections.Generic.Stack<En> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<En> opSEnS(global::System.Collections.Generic.Stack<En> i, out global::System.Collections.Generic.Stack<En> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5090,7 +4804,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public IPrx[] opAIPrxS(IPrx[] i, out IPrx[] o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public IPrx[] opAIPrxS(IPrx[] i, out IPrx[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5104,7 +4818,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.List<IPrx> opLIPrxS(global::System.Collections.Generic.List<IPrx> i, out global::System.Collections.Generic.List<IPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.List<IPrx> opLIPrxS(global::System.Collections.Generic.List<IPrx> i, out global::System.Collections.Generic.List<IPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5118,7 +4832,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.LinkedList<IPrx> opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx> i, out global::System.Collections.Generic.LinkedList<IPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.LinkedList<IPrx> opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx> i, out global::System.Collections.Generic.LinkedList<IPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5132,7 +4846,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Queue<IPrx> opQIPrxS(global::System.Collections.Generic.Queue<IPrx> i, out global::System.Collections.Generic.Queue<IPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Queue<IPrx> opQIPrxS(global::System.Collections.Generic.Queue<IPrx> i, out global::System.Collections.Generic.Queue<IPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5146,7 +4860,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::System.Collections.Generic.Stack<IPrx> opSIPrxS(global::System.Collections.Generic.Stack<IPrx> i, out global::System.Collections.Generic.Stack<IPrx> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Stack<IPrx> opSIPrxS(global::System.Collections.Generic.Stack<IPrx> i, out global::System.Collections.Generic.Stack<IPrx> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5160,7 +4874,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::Ice.seqMapping.Custom<int> opCustomIntS(global::Ice.seqMapping.Custom<int> i, out global::Ice.seqMapping.Custom<int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::Ice.seqMapping.Custom<int> opCustomIntS(global::Ice.seqMapping.Custom<int> i, out global::Ice.seqMapping.Custom<int> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5174,7 +4888,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::Ice.seqMapping.Custom<CV> opCustomCVS(global::Ice.seqMapping.Custom<CV> i, out global::Ice.seqMapping.Custom<CV> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::Ice.seqMapping.Custom<CV> opCustomCVS(global::Ice.seqMapping.Custom<CV> i, out global::Ice.seqMapping.Custom<CV> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5188,7 +4902,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5202,7 +4916,7 @@ namespace Ice.seqMapping.AMD
                 }
             }
 
-            public global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -5220,12 +4934,12 @@ namespace Ice.seqMapping.AMD
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_shutdownAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
@@ -5245,12 +4959,12 @@ namespace Ice.seqMapping.AMD
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAByteSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> _iceI_opAByteSAsync(byte[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> _iceI_opAByteSAsync(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAByteS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAByteSResult>(progress, cancel);
@@ -5282,12 +4996,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLByteSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> _iceI_opLByteSAsync(global::System.Collections.Generic.List<byte> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> _iceI_opLByteSAsync(global::System.Collections.Generic.List<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLByteS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLByteSResult>(progress, cancel);
@@ -5319,12 +5033,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKByteSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> _iceI_opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> _iceI_opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKByteS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKByteSResult>(progress, cancel);
@@ -5356,12 +5070,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQByteSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> _iceI_opQByteSAsync(global::System.Collections.Generic.Queue<byte> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> _iceI_opQByteSAsync(global::System.Collections.Generic.Queue<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQByteS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQByteSResult>(progress, cancel);
@@ -5393,12 +5107,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSByteSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> _iceI_opSByteSAsync(global::System.Collections.Generic.Stack<byte> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> _iceI_opSByteSAsync(global::System.Collections.Generic.Stack<byte> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSByteS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSByteSResult>(progress, cancel);
@@ -5430,12 +5144,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opABoolSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> _iceI_opABoolSAsync(bool[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> _iceI_opABoolSAsync(bool[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opABoolS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpABoolSResult>(progress, cancel);
@@ -5467,12 +5181,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLBoolSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> _iceI_opLBoolSAsync(global::System.Collections.Generic.List<bool> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> _iceI_opLBoolSAsync(global::System.Collections.Generic.List<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLBoolS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLBoolSResult>(progress, cancel);
@@ -5504,12 +5218,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKBoolSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> _iceI_opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> _iceI_opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKBoolS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKBoolSResult>(progress, cancel);
@@ -5541,12 +5255,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQBoolSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> _iceI_opQBoolSAsync(global::System.Collections.Generic.Queue<bool> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> _iceI_opQBoolSAsync(global::System.Collections.Generic.Queue<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQBoolS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQBoolSResult>(progress, cancel);
@@ -5578,12 +5292,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSBoolSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> _iceI_opSBoolSAsync(global::System.Collections.Generic.Stack<bool> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> _iceI_opSBoolSAsync(global::System.Collections.Generic.Stack<bool> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSBoolS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSBoolSResult>(progress, cancel);
@@ -5615,12 +5329,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAShortSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> _iceI_opAShortSAsync(short[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> _iceI_opAShortSAsync(short[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAShortS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAShortSResult>(progress, cancel);
@@ -5652,12 +5366,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLShortSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> _iceI_opLShortSAsync(global::System.Collections.Generic.List<short> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> _iceI_opLShortSAsync(global::System.Collections.Generic.List<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLShortS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLShortSResult>(progress, cancel);
@@ -5689,12 +5403,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKShortSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> _iceI_opKShortSAsync(global::System.Collections.Generic.LinkedList<short> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> _iceI_opKShortSAsync(global::System.Collections.Generic.LinkedList<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKShortS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKShortSResult>(progress, cancel);
@@ -5726,12 +5440,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQShortSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> _iceI_opQShortSAsync(global::System.Collections.Generic.Queue<short> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> _iceI_opQShortSAsync(global::System.Collections.Generic.Queue<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQShortS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQShortSResult>(progress, cancel);
@@ -5763,12 +5477,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSShortSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> _iceI_opSShortSAsync(global::System.Collections.Generic.Stack<short> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> _iceI_opSShortSAsync(global::System.Collections.Generic.Stack<short> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSShortS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSShortSResult>(progress, cancel);
@@ -5800,12 +5514,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAIntSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> _iceI_opAIntSAsync(int[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> _iceI_opAIntSAsync(int[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAIntS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAIntSResult>(progress, cancel);
@@ -5837,12 +5551,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLIntSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> _iceI_opLIntSAsync(global::System.Collections.Generic.List<int> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> _iceI_opLIntSAsync(global::System.Collections.Generic.List<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLIntS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLIntSResult>(progress, cancel);
@@ -5874,12 +5588,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKIntSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> _iceI_opKIntSAsync(global::System.Collections.Generic.LinkedList<int> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> _iceI_opKIntSAsync(global::System.Collections.Generic.LinkedList<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKIntS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKIntSResult>(progress, cancel);
@@ -5911,12 +5625,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQIntSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> _iceI_opQIntSAsync(global::System.Collections.Generic.Queue<int> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> _iceI_opQIntSAsync(global::System.Collections.Generic.Queue<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQIntS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQIntSResult>(progress, cancel);
@@ -5948,12 +5662,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSIntSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> _iceI_opSIntSAsync(global::System.Collections.Generic.Stack<int> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> _iceI_opSIntSAsync(global::System.Collections.Generic.Stack<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSIntS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSIntSResult>(progress, cancel);
@@ -5985,12 +5699,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opALongSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpALongSResult> _iceI_opALongSAsync(long[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpALongSResult> _iceI_opALongSAsync(long[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opALongS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpALongSResult>(progress, cancel);
@@ -6022,12 +5736,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLLongSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> _iceI_opLLongSAsync(global::System.Collections.Generic.List<long> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> _iceI_opLLongSAsync(global::System.Collections.Generic.List<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLLongS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLLongSResult>(progress, cancel);
@@ -6059,12 +5773,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKLongSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> _iceI_opKLongSAsync(global::System.Collections.Generic.LinkedList<long> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> _iceI_opKLongSAsync(global::System.Collections.Generic.LinkedList<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKLongS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKLongSResult>(progress, cancel);
@@ -6096,12 +5810,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQLongSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> _iceI_opQLongSAsync(global::System.Collections.Generic.Queue<long> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> _iceI_opQLongSAsync(global::System.Collections.Generic.Queue<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQLongS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQLongSResult>(progress, cancel);
@@ -6133,12 +5847,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSLongSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> _iceI_opSLongSAsync(global::System.Collections.Generic.Stack<long> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> _iceI_opSLongSAsync(global::System.Collections.Generic.Stack<long> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSLongS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSLongSResult>(progress, cancel);
@@ -6170,12 +5884,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAFloatSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> _iceI_opAFloatSAsync(float[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> _iceI_opAFloatSAsync(float[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAFloatS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAFloatSResult>(progress, cancel);
@@ -6207,12 +5921,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLFloatSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> _iceI_opLFloatSAsync(global::System.Collections.Generic.List<float> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> _iceI_opLFloatSAsync(global::System.Collections.Generic.List<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLFloatS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLFloatSResult>(progress, cancel);
@@ -6244,12 +5958,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKFloatSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> _iceI_opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> _iceI_opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKFloatS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKFloatSResult>(progress, cancel);
@@ -6281,12 +5995,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQFloatSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> _iceI_opQFloatSAsync(global::System.Collections.Generic.Queue<float> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> _iceI_opQFloatSAsync(global::System.Collections.Generic.Queue<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQFloatS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQFloatSResult>(progress, cancel);
@@ -6318,12 +6032,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSFloatSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> _iceI_opSFloatSAsync(global::System.Collections.Generic.Stack<float> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> _iceI_opSFloatSAsync(global::System.Collections.Generic.Stack<float> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSFloatS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSFloatSResult>(progress, cancel);
@@ -6355,12 +6069,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opADoubleSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> _iceI_opADoubleSAsync(double[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> _iceI_opADoubleSAsync(double[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opADoubleS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpADoubleSResult>(progress, cancel);
@@ -6392,12 +6106,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLDoubleSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> _iceI_opLDoubleSAsync(global::System.Collections.Generic.List<double> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> _iceI_opLDoubleSAsync(global::System.Collections.Generic.List<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLDoubleS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLDoubleSResult>(progress, cancel);
@@ -6429,12 +6143,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKDoubleSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> _iceI_opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> _iceI_opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKDoubleS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKDoubleSResult>(progress, cancel);
@@ -6466,12 +6180,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQDoubleSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> _iceI_opQDoubleSAsync(global::System.Collections.Generic.Queue<double> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> _iceI_opQDoubleSAsync(global::System.Collections.Generic.Queue<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQDoubleS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQDoubleSResult>(progress, cancel);
@@ -6503,12 +6217,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSDoubleSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> _iceI_opSDoubleSAsync(global::System.Collections.Generic.Stack<double> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> _iceI_opSDoubleSAsync(global::System.Collections.Generic.Stack<double> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSDoubleS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSDoubleSResult>(progress, cancel);
@@ -6540,12 +6254,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAStringSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> _iceI_opAStringSAsync(string[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> _iceI_opAStringSAsync(string[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAStringS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAStringSResult>(progress, cancel);
@@ -6577,12 +6291,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLStringSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> _iceI_opLStringSAsync(global::System.Collections.Generic.List<string> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> _iceI_opLStringSAsync(global::System.Collections.Generic.List<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLStringS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLStringSResult>(progress, cancel);
@@ -6614,12 +6328,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKStringSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> _iceI_opKStringSAsync(global::System.Collections.Generic.LinkedList<string> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> _iceI_opKStringSAsync(global::System.Collections.Generic.LinkedList<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKStringS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKStringSResult>(progress, cancel);
@@ -6651,12 +6365,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQStringSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> _iceI_opQStringSAsync(global::System.Collections.Generic.Queue<string> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> _iceI_opQStringSAsync(global::System.Collections.Generic.Queue<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQStringS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQStringSResult>(progress, cancel);
@@ -6688,12 +6402,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSStringSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> _iceI_opSStringSAsync(global::System.Collections.Generic.Stack<string> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> _iceI_opSStringSAsync(global::System.Collections.Generic.Stack<string> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSStringS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSStringSResult>(progress, cancel);
@@ -6725,12 +6439,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAObjectSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> _iceI_opAObjectSAsync(global::Ice.Value[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> _iceI_opAObjectSAsync(global::Ice.Value[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAObjectS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAObjectSResult>(progress, cancel);
@@ -6764,12 +6478,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLObjectSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> _iceI_opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> _iceI_opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLObjectS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLObjectSResult>(progress, cancel);
@@ -6803,12 +6517,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAObjectPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> _iceI_opAObjectPrxSAsync(global::Ice.ObjectPrx[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> _iceI_opAObjectPrxSAsync(global::Ice.ObjectPrx[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAObjectPrxS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAObjectPrxSResult>(progress, cancel);
@@ -6840,12 +6554,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLObjectPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> _iceI_opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> _iceI_opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLObjectPrxS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLObjectPrxSResult>(progress, cancel);
@@ -6877,12 +6591,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKObjectPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> _iceI_opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> _iceI_opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKObjectPrxS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKObjectPrxSResult>(progress, cancel);
@@ -6914,12 +6628,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQObjectPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> _iceI_opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> _iceI_opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQObjectPrxS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQObjectPrxSResult>(progress, cancel);
@@ -6951,12 +6665,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSObjectPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> _iceI_opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> _iceI_opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSObjectPrxS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSObjectPrxSResult>(progress, cancel);
@@ -6988,12 +6702,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAStructSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> _iceI_opAStructSAsync(S[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> _iceI_opAStructSAsync(S[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAStructS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAStructSResult>(progress, cancel);
@@ -7025,12 +6739,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLStructSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> _iceI_opLStructSAsync(global::System.Collections.Generic.List<S> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> _iceI_opLStructSAsync(global::System.Collections.Generic.List<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLStructS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLStructSResult>(progress, cancel);
@@ -7062,12 +6776,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKStructSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> _iceI_opKStructSAsync(global::System.Collections.Generic.LinkedList<S> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> _iceI_opKStructSAsync(global::System.Collections.Generic.LinkedList<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKStructS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKStructSResult>(progress, cancel);
@@ -7099,12 +6813,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQStructSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> _iceI_opQStructSAsync(global::System.Collections.Generic.Queue<S> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> _iceI_opQStructSAsync(global::System.Collections.Generic.Queue<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQStructS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQStructSResult>(progress, cancel);
@@ -7136,12 +6850,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSStructSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> _iceI_opSStructSAsync(global::System.Collections.Generic.Stack<S> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> _iceI_opSStructSAsync(global::System.Collections.Generic.Stack<S> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSStructS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSStructSResult>(progress, cancel);
@@ -7173,12 +6887,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAStructSDAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> _iceI_opAStructSDAsync(SD[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> _iceI_opAStructSDAsync(SD[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAStructSD_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAStructSDResult>(progress, cancel);
@@ -7210,12 +6924,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLStructSDAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> _iceI_opLStructSDAsync(global::System.Collections.Generic.List<SD> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> _iceI_opLStructSDAsync(global::System.Collections.Generic.List<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLStructSD_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLStructSDResult>(progress, cancel);
@@ -7247,12 +6961,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKStructSDAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> _iceI_opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> _iceI_opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKStructSD_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKStructSDResult>(progress, cancel);
@@ -7284,12 +6998,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQStructSDAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> _iceI_opQStructSDAsync(global::System.Collections.Generic.Queue<SD> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> _iceI_opQStructSDAsync(global::System.Collections.Generic.Queue<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQStructSD_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQStructSDResult>(progress, cancel);
@@ -7321,12 +7035,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSStructSDAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> _iceI_opSStructSDAsync(global::System.Collections.Generic.Stack<SD> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> _iceI_opSStructSDAsync(global::System.Collections.Generic.Stack<SD> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSStructSD_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSStructSDResult>(progress, cancel);
@@ -7358,12 +7072,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opACVSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpACVSResult> _iceI_opACVSAsync(CV[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpACVSResult> _iceI_opACVSAsync(CV[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opACVS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpACVSResult>(progress, cancel);
@@ -7397,12 +7111,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLCVSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> _iceI_opLCVSAsync(global::System.Collections.Generic.List<CV> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> _iceI_opLCVSAsync(global::System.Collections.Generic.List<CV> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLCVS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLCVSResult>(progress, cancel);
@@ -7436,12 +7150,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opACRSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpACRSResult> _iceI_opACRSAsync(CR[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpACRSResult> _iceI_opACRSAsync(CR[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opACRS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpACRSResult>(progress, cancel);
@@ -7475,12 +7189,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLCRSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> _iceI_opLCRSAsync(global::System.Collections.Generic.List<CR> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> _iceI_opLCRSAsync(global::System.Collections.Generic.List<CR> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLCRS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLCRSResult>(progress, cancel);
@@ -7514,12 +7228,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAEnSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> _iceI_opAEnSAsync(En[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> _iceI_opAEnSAsync(En[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAEnS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAEnSResult>(progress, cancel);
@@ -7551,12 +7265,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLEnSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> _iceI_opLEnSAsync(global::System.Collections.Generic.List<En> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> _iceI_opLEnSAsync(global::System.Collections.Generic.List<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLEnS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLEnSResult>(progress, cancel);
@@ -7588,12 +7302,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKEnSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> _iceI_opKEnSAsync(global::System.Collections.Generic.LinkedList<En> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> _iceI_opKEnSAsync(global::System.Collections.Generic.LinkedList<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKEnS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKEnSResult>(progress, cancel);
@@ -7625,12 +7339,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQEnSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> _iceI_opQEnSAsync(global::System.Collections.Generic.Queue<En> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> _iceI_opQEnSAsync(global::System.Collections.Generic.Queue<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQEnS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQEnSResult>(progress, cancel);
@@ -7662,12 +7376,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSEnSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> _iceI_opSEnSAsync(global::System.Collections.Generic.Stack<En> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> _iceI_opSEnSAsync(global::System.Collections.Generic.Stack<En> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSEnS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSEnSResult>(progress, cancel);
@@ -7699,12 +7413,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx[] i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAIPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> _iceI_opAIPrxSAsync(IPrx[] iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> _iceI_opAIPrxSAsync(IPrx[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opAIPrxS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpAIPrxSResult>(progress, cancel);
@@ -7736,12 +7450,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLIPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> _iceI_opLIPrxSAsync(global::System.Collections.Generic.List<IPrx> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> _iceI_opLIPrxSAsync(global::System.Collections.Generic.List<IPrx> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLIPrxS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLIPrxSResult>(progress, cancel);
@@ -7773,12 +7487,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opKIPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> _iceI_opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> _iceI_opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opKIPrxS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpKIPrxSResult>(progress, cancel);
@@ -7810,12 +7524,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opQIPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> _iceI_opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> _iceI_opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opQIPrxS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpQIPrxSResult>(progress, cancel);
@@ -7847,12 +7561,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opSIPrxSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> _iceI_opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> _iceI_opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opSIPrxS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSIPrxSResult>(progress, cancel);
@@ -7884,12 +7598,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opCustomIntSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> _iceI_opCustomIntSAsync(global::Ice.seqMapping.Custom<int> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> _iceI_opCustomIntSAsync(global::Ice.seqMapping.Custom<int> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opCustomIntS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomIntSResult>(progress, cancel);
@@ -7921,12 +7635,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opCustomCVSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> _iceI_opCustomCVSAsync(global::Ice.seqMapping.Custom<CV> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> _iceI_opCustomCVSAsync(global::Ice.seqMapping.Custom<CV> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opCustomCVS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomCVSResult>(progress, cancel);
@@ -7960,12 +7674,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opCustomIntSSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> _iceI_opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> _iceI_opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opCustomIntSS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomIntSSResult>(progress, cancel);
@@ -7997,12 +7711,12 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opCustomCVSSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> _iceI_opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> _iceI_opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opCustomCVSS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpCustomCVSSResult>(progress, cancel);
@@ -8040,77 +7754,30 @@ namespace Ice.seqMapping.AMD
 
             #region Checked and unchecked cast operations
 
-            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b)
+            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
-                if(b == null)
+                if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
-                    return null;
-                }
-                MyClassPrx r = b as MyClassPrx;
-                if((r == null) && b.ice_isA(ice_staticId()))
-                {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
-            }
-
-            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-            {
-                if(b == null)
-                {
-                    return null;
-                }
-                MyClassPrx r = b as MyClassPrx;
-                if((r == null) && b.ice_isA(ice_staticId(), ctx))
-                {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
-            }
-
-            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f)
-            {
-                if(b == null)
-                {
-                    return null;
-                }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                try
-                {
-                    if(bb.ice_isA(ice_staticId()))
-                    {
-                        MyClassPrxHelper h = new MyClassPrxHelper();
-                        h.iceCopyFrom(bb);
-                        return h;
-                    }
-                }
-                catch(global::Ice.FacetNotExistException)
-                {
+                    MyClassPrxHelper prx = new MyClassPrxHelper();
+                    prx.iceCopyFrom(b);
+                    return prx;
                 }
                 return null;
             }
 
-            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
-                if(b == null)
-                {
-                    return null;
-                }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                global::Ice.ObjectPrx bb = b?.ice_facet(f);
                 try
                 {
-                    if(bb.ice_isA(ice_staticId(), ctx))
+                    if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                     {
-                        MyClassPrxHelper h = new MyClassPrxHelper();
-                        h.iceCopyFrom(bb);
-                        return h;
+                        MyClassPrxHelper prx = new MyClassPrxHelper();
+                        prx.iceCopyFrom(bb);
+                        return prx;
                     }
                 }
-                catch(global::Ice.FacetNotExistException)
+                catch (global::Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -8118,30 +7785,25 @@ namespace Ice.seqMapping.AMD
 
             public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b)
             {
-                if(b == null)
+                if (b is not null)
                 {
-                    return null;
+                    MyClassPrxHelper prx = new MyClassPrxHelper();
+                    prx.iceCopyFrom(b);
+                    return prx;
                 }
-                MyClassPrx r = b as MyClassPrx;
-                if(r == null)
-                {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
+                return null;
             }
 
             public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
             {
-                if(b == null)
+                if (b is not null)
                 {
-                    return null;
+                    global::Ice.ObjectPrx bb = b.ice_facet(f);
+                    MyClassPrxHelper prx = new MyClassPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                MyClassPrxHelper h = new MyClassPrxHelper();
-                h.iceCopyFrom(bb);
-                return h;
+                return null;
             }
 
             private static readonly string[] _ids =

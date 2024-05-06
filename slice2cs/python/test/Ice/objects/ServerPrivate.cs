@@ -735,17 +735,11 @@ namespace Test
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_UnexpectedObjectExceptionTest_op(AlsoEmpty ret);
-}
-
-namespace Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface UnexpectedObjectExceptionTestPrx : global::Ice.ObjectPrx
     {
-        AlsoEmpty op(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        AlsoEmpty op(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<AlsoEmpty> opAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<AlsoEmpty> opAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -771,7 +765,7 @@ namespace Test
 
         #region Synchronous operations
 
-        public AlsoEmpty op(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public AlsoEmpty op(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -787,12 +781,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<AlsoEmpty> opAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<AlsoEmpty> opAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<AlsoEmpty> _iceI_opAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<AlsoEmpty> _iceI_opAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_op_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<AlsoEmpty>(progress, cancel);
@@ -824,77 +818,30 @@ namespace Test
 
         #region Checked and unchecked cast operations
 
-        public static UnexpectedObjectExceptionTestPrx checkedCast(global::Ice.ObjectPrx b)
+        public static UnexpectedObjectExceptionTestPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            UnexpectedObjectExceptionTestPrx r = b as UnexpectedObjectExceptionTestPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                UnexpectedObjectExceptionTestPrxHelper h = new UnexpectedObjectExceptionTestPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static UnexpectedObjectExceptionTestPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            UnexpectedObjectExceptionTestPrx r = b as UnexpectedObjectExceptionTestPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                UnexpectedObjectExceptionTestPrxHelper h = new UnexpectedObjectExceptionTestPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static UnexpectedObjectExceptionTestPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    UnexpectedObjectExceptionTestPrxHelper h = new UnexpectedObjectExceptionTestPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                UnexpectedObjectExceptionTestPrxHelper prx = new UnexpectedObjectExceptionTestPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static UnexpectedObjectExceptionTestPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static UnexpectedObjectExceptionTestPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    UnexpectedObjectExceptionTestPrxHelper h = new UnexpectedObjectExceptionTestPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    UnexpectedObjectExceptionTestPrxHelper prx = new UnexpectedObjectExceptionTestPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -902,30 +849,25 @@ namespace Test
 
         public static UnexpectedObjectExceptionTestPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                UnexpectedObjectExceptionTestPrxHelper prx = new UnexpectedObjectExceptionTestPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            UnexpectedObjectExceptionTestPrx r = b as UnexpectedObjectExceptionTestPrx;
-            if(r == null)
-            {
-                UnexpectedObjectExceptionTestPrxHelper h = new UnexpectedObjectExceptionTestPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static UnexpectedObjectExceptionTestPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                UnexpectedObjectExceptionTestPrxHelper prx = new UnexpectedObjectExceptionTestPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            UnexpectedObjectExceptionTestPrxHelper h = new UnexpectedObjectExceptionTestPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

@@ -460,30 +460,6 @@ namespace Test2
 
 namespace Test1
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_WstringClass_opString(string ret, string s2);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_WstringClass_opStruct(WstringStruct ret, WstringStruct s2);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_WstringClass_throwExcept();
-}
-
-namespace Test2
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_WstringClass_opString(string ret, string s2);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_WstringClass_opStruct(WstringStruct ret, WstringStruct s2);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_WstringClass_throwExcept();
-}
-
-namespace Test1
-{
     public struct WstringClass_OpStringResult
     {
         public WstringClass_OpStringResult(string returnValue, string s2)
@@ -541,17 +517,17 @@ namespace Test1
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface WstringClassPrx : global::Ice.ObjectPrx
     {
-        string opString(string s1, out string s2, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string opString(string s1, out string s2, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void throwExcept(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void throwExcept(string reason, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task throwExceptAsync(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task throwExceptAsync(string reason, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -560,17 +536,17 @@ namespace Test2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface WstringClassPrx : global::Ice.ObjectPrx
     {
-        string opString(string s1, out string s2, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string opString(string s1, out string s2, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void throwExcept(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void throwExcept(string reason, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task throwExceptAsync(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task throwExceptAsync(string reason, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -671,7 +647,7 @@ namespace Test1
 
         #region Synchronous operations
 
-        public string opString(string s1, out string s2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string opString(string s1, out string s2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -685,7 +661,7 @@ namespace Test1
             }
         }
 
-        public WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -699,7 +675,7 @@ namespace Test1
             }
         }
 
-        public void throwExcept(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void throwExcept(string reason, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -715,12 +691,12 @@ namespace Test1
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringAsync(s1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<WstringClass_OpStringResult> _iceI_opStringAsync(string iceP_s1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<WstringClass_OpStringResult> _iceI_opStringAsync(string iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opString_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<WstringClass_OpStringResult>(progress, cancel);
@@ -752,12 +728,12 @@ namespace Test1
                 });
         }
 
-        public global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStructAsync(s1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<WstringClass_OpStructResult> _iceI_opStructAsync(WstringStruct iceP_s1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<WstringClass_OpStructResult> _iceI_opStructAsync(WstringStruct iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStruct_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<WstringClass_OpStructResult>(progress, cancel);
@@ -789,12 +765,12 @@ namespace Test1
                 });
         }
 
-        public global::System.Threading.Tasks.Task throwExceptAsync(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task throwExceptAsync(string reason, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_throwExceptAsync(reason, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_throwExceptAsync(string iceP_reason, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_throwExceptAsync(string iceP_reason, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_throwExcept_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -837,77 +813,30 @@ namespace Test1
 
         #region Checked and unchecked cast operations
 
-        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b)
+        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            WstringClassPrx r = b as WstringClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                WstringClassPrxHelper h = new WstringClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            WstringClassPrx r = b as WstringClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                WstringClassPrxHelper h = new WstringClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    WstringClassPrxHelper h = new WstringClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                WstringClassPrxHelper prx = new WstringClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    WstringClassPrxHelper h = new WstringClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    WstringClassPrxHelper prx = new WstringClassPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -915,30 +844,25 @@ namespace Test1
 
         public static WstringClassPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                WstringClassPrxHelper prx = new WstringClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            WstringClassPrx r = b as WstringClassPrx;
-            if(r == null)
-            {
-                WstringClassPrxHelper h = new WstringClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static WstringClassPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                WstringClassPrxHelper prx = new WstringClassPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            WstringClassPrxHelper h = new WstringClassPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -1039,7 +963,7 @@ namespace Test2
 
         #region Synchronous operations
 
-        public string opString(string s1, out string s2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string opString(string s1, out string s2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1053,7 +977,7 @@ namespace Test2
             }
         }
 
-        public WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1067,7 +991,7 @@ namespace Test2
             }
         }
 
-        public void throwExcept(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void throwExcept(string reason, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1083,12 +1007,12 @@ namespace Test2
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<WstringClass_OpStringResult> opStringAsync(string s1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringAsync(s1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<WstringClass_OpStringResult> _iceI_opStringAsync(string iceP_s1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<WstringClass_OpStringResult> _iceI_opStringAsync(string iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opString_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<WstringClass_OpStringResult>(progress, cancel);
@@ -1120,12 +1044,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<WstringClass_OpStructResult> opStructAsync(WstringStruct s1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStructAsync(s1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<WstringClass_OpStructResult> _iceI_opStructAsync(WstringStruct iceP_s1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<WstringClass_OpStructResult> _iceI_opStructAsync(WstringStruct iceP_s1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStruct_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<WstringClass_OpStructResult>(progress, cancel);
@@ -1157,12 +1081,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task throwExceptAsync(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task throwExceptAsync(string reason, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_throwExceptAsync(reason, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_throwExceptAsync(string iceP_reason, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_throwExceptAsync(string iceP_reason, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_throwExcept_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1205,77 +1129,30 @@ namespace Test2
 
         #region Checked and unchecked cast operations
 
-        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b)
+        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            WstringClassPrx r = b as WstringClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                WstringClassPrxHelper h = new WstringClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            WstringClassPrx r = b as WstringClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                WstringClassPrxHelper h = new WstringClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    WstringClassPrxHelper h = new WstringClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                WstringClassPrxHelper prx = new WstringClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    WstringClassPrxHelper h = new WstringClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    WstringClassPrxHelper prx = new WstringClassPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1283,30 +1160,25 @@ namespace Test2
 
         public static WstringClassPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                WstringClassPrxHelper prx = new WstringClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            WstringClassPrx r = b as WstringClassPrx;
-            if(r == null)
-            {
-                WstringClassPrxHelper h = new WstringClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static WstringClassPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                WstringClassPrxHelper prx = new WstringClassPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            WstringClassPrxHelper h = new WstringClassPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

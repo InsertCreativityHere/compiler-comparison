@@ -54,133 +54,79 @@ namespace Test
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Callback_ping();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Callback_getCount(int ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Callback_datagram();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Callback_getDatagramCount(int ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_callCallback();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_getCallbackCount(int ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_incCounter();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_waitCounter();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_getConnectionCount(int ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_getConnectionInfo(string ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_closeConnection();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_datagram();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_getDatagramCount(int ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_callDatagramCallback();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_getCallbackDatagramCount(int ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_getHeartbeatCount(int ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_shutdown();
-}
-
-namespace Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface CallbackPrx : global::Ice.ObjectPrx
     {
-        void ping(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void ping(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task pingAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task pingAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int getCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int getCount(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<int> getCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> getCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void datagram(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void datagram(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task datagramAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task datagramAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int getDatagramCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int getDatagramCount(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<int> getDatagramCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> getDatagramCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface MyClassPrx : global::Ice.ObjectPrx
     {
-        void callCallback(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void callCallback(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task callCallbackAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task callCallbackAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int getCallbackCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int getCallbackCount(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<int> getCallbackCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> getCallbackCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void incCounter(int expected, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void incCounter(int expected, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task incCounterAsync(int expected, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task incCounterAsync(int expected, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void waitCounter(int value, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void waitCounter(int value, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task waitCounterAsync(int value, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task waitCounterAsync(int value, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int getConnectionCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int getConnectionCount(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<int> getConnectionCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> getConnectionCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string getConnectionInfo(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string getConnectionInfo(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<string> getConnectionInfoAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<string> getConnectionInfoAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void closeConnection(bool force, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void closeConnection(bool force, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task closeConnectionAsync(bool force, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task closeConnectionAsync(bool force, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void datagram(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void datagram(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task datagramAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task datagramAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int getDatagramCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int getDatagramCount(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<int> getDatagramCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> getDatagramCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void callDatagramCallback(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void callDatagramCallback(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task callDatagramCallbackAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task callDatagramCallbackAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int getCallbackDatagramCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int getCallbackDatagramCount(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<int> getCallbackDatagramCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> getCallbackDatagramCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int getHeartbeatCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int getHeartbeatCount(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<int> getHeartbeatCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> getHeartbeatCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -258,7 +204,7 @@ namespace Test
 
         #region Synchronous operations
 
-        public void ping(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void ping(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -270,7 +216,7 @@ namespace Test
             }
         }
 
-        public int getCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int getCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -282,7 +228,7 @@ namespace Test
             }
         }
 
-        public void datagram(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void datagram(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -294,7 +240,7 @@ namespace Test
             }
         }
 
-        public int getDatagramCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int getDatagramCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -310,12 +256,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task pingAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task pingAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_pingAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_pingAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_pingAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_ping(context, synchronous, completed);
@@ -335,12 +281,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<int> getCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> getCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getCountAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_getCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_getCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getCount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -367,12 +313,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task datagramAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task datagramAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_datagramAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_datagramAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_datagramAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_datagram(context, synchronous, completed);
@@ -392,12 +338,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<int> getDatagramCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> getDatagramCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getDatagramCountAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_getDatagramCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_getDatagramCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getDatagramCount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -428,77 +374,30 @@ namespace Test
 
         #region Checked and unchecked cast operations
 
-        public static CallbackPrx checkedCast(global::Ice.ObjectPrx b)
+        public static CallbackPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            CallbackPrx r = b as CallbackPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                CallbackPrxHelper h = new CallbackPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static CallbackPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            CallbackPrx r = b as CallbackPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                CallbackPrxHelper h = new CallbackPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static CallbackPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    CallbackPrxHelper h = new CallbackPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                CallbackPrxHelper prx = new CallbackPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static CallbackPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static CallbackPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    CallbackPrxHelper h = new CallbackPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    CallbackPrxHelper prx = new CallbackPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -506,30 +405,25 @@ namespace Test
 
         public static CallbackPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                CallbackPrxHelper prx = new CallbackPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            CallbackPrx r = b as CallbackPrx;
-            if(r == null)
-            {
-                CallbackPrxHelper h = new CallbackPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static CallbackPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                CallbackPrxHelper prx = new CallbackPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            CallbackPrxHelper h = new CallbackPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -574,7 +468,7 @@ namespace Test
 
         #region Synchronous operations
 
-        public void callCallback(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void callCallback(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -586,7 +480,7 @@ namespace Test
             }
         }
 
-        public int getCallbackCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int getCallbackCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -598,7 +492,7 @@ namespace Test
             }
         }
 
-        public void incCounter(int expected, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void incCounter(int expected, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -610,7 +504,7 @@ namespace Test
             }
         }
 
-        public void waitCounter(int value, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void waitCounter(int value, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -622,7 +516,7 @@ namespace Test
             }
         }
 
-        public int getConnectionCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int getConnectionCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -634,7 +528,7 @@ namespace Test
             }
         }
 
-        public string getConnectionInfo(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string getConnectionInfo(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -646,7 +540,7 @@ namespace Test
             }
         }
 
-        public void closeConnection(bool force, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void closeConnection(bool force, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -658,7 +552,7 @@ namespace Test
             }
         }
 
-        public void datagram(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void datagram(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -670,7 +564,7 @@ namespace Test
             }
         }
 
-        public int getDatagramCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int getDatagramCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -682,7 +576,7 @@ namespace Test
             }
         }
 
-        public void callDatagramCallback(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void callDatagramCallback(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -694,7 +588,7 @@ namespace Test
             }
         }
 
-        public int getCallbackDatagramCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int getCallbackDatagramCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -706,7 +600,7 @@ namespace Test
             }
         }
 
-        public int getHeartbeatCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int getHeartbeatCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -718,7 +612,7 @@ namespace Test
             }
         }
 
-        public void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -734,12 +628,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task callCallbackAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task callCallbackAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_callCallbackAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_callCallbackAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_callCallbackAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_callCallback(context, synchronous, completed);
@@ -759,12 +653,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<int> getCallbackCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> getCallbackCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getCallbackCountAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_getCallbackCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_getCallbackCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getCallbackCount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -791,12 +685,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task incCounterAsync(int expected, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task incCounterAsync(int expected, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_incCounterAsync(expected, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_incCounterAsync(int iceP_expected, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_incCounterAsync(int iceP_expected, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_incCounter(iceP_expected, context, synchronous, completed);
@@ -820,12 +714,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task waitCounterAsync(int value, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task waitCounterAsync(int value, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_waitCounterAsync(value, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_waitCounterAsync(int iceP_value, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_waitCounterAsync(int iceP_value, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_waitCounter(iceP_value, context, synchronous, completed);
@@ -849,12 +743,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int> getConnectionCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> getConnectionCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getConnectionCountAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_getConnectionCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_getConnectionCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getConnectionCount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -881,12 +775,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string> getConnectionInfoAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string> getConnectionInfoAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getConnectionInfoAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string> _iceI_getConnectionInfoAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string> _iceI_getConnectionInfoAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getConnectionInfo_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
@@ -913,12 +807,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task closeConnectionAsync(bool force, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task closeConnectionAsync(bool force, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_closeConnectionAsync(force, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_closeConnectionAsync(bool iceP_force, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_closeConnectionAsync(bool iceP_force, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_closeConnection(iceP_force, context, synchronous, completed);
@@ -942,12 +836,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task datagramAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task datagramAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_datagramAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_datagramAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_datagramAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_datagram(context, synchronous, completed);
@@ -967,12 +861,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<int> getDatagramCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> getDatagramCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getDatagramCountAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_getDatagramCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_getDatagramCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getDatagramCount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -999,12 +893,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task callDatagramCallbackAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task callDatagramCallbackAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_callDatagramCallbackAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_callDatagramCallbackAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_callDatagramCallbackAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_callDatagramCallback(context, synchronous, completed);
@@ -1024,12 +918,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<int> getCallbackDatagramCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> getCallbackDatagramCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getCallbackDatagramCountAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_getCallbackDatagramCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_getCallbackDatagramCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getCallbackDatagramCount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -1056,12 +950,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int> getHeartbeatCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> getHeartbeatCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getHeartbeatCountAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_getHeartbeatCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_getHeartbeatCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getHeartbeatCount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -1088,12 +982,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -1117,77 +1011,30 @@ namespace Test
 
         #region Checked and unchecked cast operations
 
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b)
+        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            MyClassPrx r = b as MyClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                MyClassPrxHelper h = new MyClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            MyClassPrx r = b as MyClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                MyClassPrxHelper h = new MyClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                MyClassPrxHelper prx = new MyClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    MyClassPrxHelper prx = new MyClassPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1195,30 +1042,25 @@ namespace Test
 
         public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                MyClassPrxHelper prx = new MyClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            MyClassPrx r = b as MyClassPrx;
-            if(r == null)
-            {
-                MyClassPrxHelper h = new MyClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                MyClassPrxHelper prx = new MyClassPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            MyClassPrxHelper h = new MyClassPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

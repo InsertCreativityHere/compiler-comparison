@@ -53,21 +53,6 @@ namespace Ice
 
 namespace Ice
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Router_getClientProxy(ObjectPrx ret, bool? hasRoutingTable);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Router_getServerProxy(ObjectPrx ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Router_addProxies(ObjectPrx[] ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_RouterFinder_getRouter(RouterPrx ret);
-}
-
-namespace Ice
-{
     public struct Router_GetClientProxyResult
     {
         public Router_GetClientProxyResult(ObjectPrx returnValue, bool? hasRoutingTable)
@@ -104,7 +89,7 @@ namespace Ice
         /// <returns>The router's client proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ObjectPrx getClientProxy(out bool? hasRoutingTable, OptionalContext context = new OptionalContext());
+        ObjectPrx getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -114,7 +99,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<Router_GetClientProxyResult> getClientProxyAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<Router_GetClientProxyResult> getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
@@ -122,7 +107,7 @@ namespace Ice
         /// <returns>The router's server proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ObjectPrx getServerProxy(OptionalContext context = new OptionalContext());
+        ObjectPrx getServerProxy(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
@@ -131,7 +116,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<ObjectPrx> getServerProxyAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<ObjectPrx> getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Add new proxy information to the router's routing table.
@@ -141,7 +126,7 @@ namespace Ice
         /// <returns>Proxies discarded by the router. These proxies are all non-null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ObjectPrx[] addProxies(ObjectPrx[] proxies, OptionalContext context = new OptionalContext());
+        ObjectPrx[] addProxies(ObjectPrx[] proxies, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Add new proxy information to the router's routing table.
@@ -152,7 +137,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<ObjectPrx[]> addProxiesAsync(ObjectPrx[] proxies, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<ObjectPrx[]> addProxiesAsync(ObjectPrx[] proxies, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -173,7 +158,7 @@ namespace Ice
         ///  <returns>The router proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        RouterPrx getRouter(OptionalContext context = new OptionalContext());
+        RouterPrx getRouter(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Get the router proxy implemented by the process hosting this finder object.
@@ -183,7 +168,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<RouterPrx> getRouterAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<RouterPrx> getRouterAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -269,7 +254,7 @@ namespace Ice
 
         #region Synchronous operations
 
-        public ObjectPrx getClientProxy(out bool? hasRoutingTable, OptionalContext context = new OptionalContext())
+        public ObjectPrx getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -283,7 +268,7 @@ namespace Ice
             }
         }
 
-        public ObjectPrx getServerProxy(OptionalContext context = new OptionalContext())
+        public ObjectPrx getServerProxy(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -295,7 +280,7 @@ namespace Ice
             }
         }
 
-        public ObjectPrx[] addProxies(ObjectPrx[] proxies, OptionalContext context = new OptionalContext())
+        public ObjectPrx[] addProxies(ObjectPrx[] proxies, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -311,12 +296,12 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<Router_GetClientProxyResult> getClientProxyAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<Router_GetClientProxyResult> getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getClientProxyAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Router_GetClientProxyResult> _iceI_getClientProxyAsync(OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Router_GetClientProxyResult> _iceI_getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getClientProxy_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Router_GetClientProxyResult>(progress, cancel);
@@ -347,12 +332,12 @@ namespace Ice
                 });
         }
 
-        public global::System.Threading.Tasks.Task<ObjectPrx> getServerProxyAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<ObjectPrx> getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getServerProxyAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<ObjectPrx> _iceI_getServerProxyAsync(OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<ObjectPrx> _iceI_getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getServerProxy_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx>(progress, cancel);
@@ -379,12 +364,12 @@ namespace Ice
                 });
         }
 
-        public global::System.Threading.Tasks.Task<ObjectPrx[]> addProxiesAsync(ObjectPrx[] proxies, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<ObjectPrx[]> addProxiesAsync(ObjectPrx[] proxies, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_addProxiesAsync(proxies, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<ObjectPrx[]> _iceI_addProxiesAsync(ObjectPrx[] iceP_proxies, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<ObjectPrx[]> _iceI_addProxiesAsync(ObjectPrx[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_addProxies_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx[]>(progress, cancel);
@@ -419,77 +404,30 @@ namespace Ice
 
         #region Checked and unchecked cast operations
 
-        public static RouterPrx checkedCast(ObjectPrx b)
+        public static RouterPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            RouterPrx r = b as RouterPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                RouterPrxHelper h = new RouterPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static RouterPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            RouterPrx r = b as RouterPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                RouterPrxHelper h = new RouterPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static RouterPrx checkedCast(ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    RouterPrxHelper h = new RouterPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(FacetNotExistException)
-            {
+                RouterPrxHelper prx = new RouterPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static RouterPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static RouterPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            ObjectPrx bb = b.ice_facet(f);
+            ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    RouterPrxHelper h = new RouterPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    RouterPrxHelper prx = new RouterPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(FacetNotExistException)
+            catch (FacetNotExistException)
             {
             }
             return null;
@@ -497,30 +435,25 @@ namespace Ice
 
         public static RouterPrx uncheckedCast(ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                RouterPrxHelper prx = new RouterPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            RouterPrx r = b as RouterPrx;
-            if(r == null)
-            {
-                RouterPrxHelper h = new RouterPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static RouterPrx uncheckedCast(ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                ObjectPrx bb = b.ice_facet(f);
+                RouterPrxHelper prx = new RouterPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            ObjectPrx bb = b.ice_facet(f);
-            RouterPrxHelper h = new RouterPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -565,7 +498,7 @@ namespace Ice
 
         #region Synchronous operations
 
-        public RouterPrx getRouter(OptionalContext context = new OptionalContext())
+        public RouterPrx getRouter(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -581,12 +514,12 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<RouterPrx> getRouterAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<RouterPrx> getRouterAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getRouterAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<RouterPrx> _iceI_getRouterAsync(OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<RouterPrx> _iceI_getRouterAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getRouter_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<RouterPrx>(progress, cancel);
@@ -617,77 +550,30 @@ namespace Ice
 
         #region Checked and unchecked cast operations
 
-        public static RouterFinderPrx checkedCast(ObjectPrx b)
+        public static RouterFinderPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            RouterFinderPrx r = b as RouterFinderPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                RouterFinderPrxHelper h = new RouterFinderPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static RouterFinderPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            RouterFinderPrx r = b as RouterFinderPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                RouterFinderPrxHelper h = new RouterFinderPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static RouterFinderPrx checkedCast(ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    RouterFinderPrxHelper h = new RouterFinderPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(FacetNotExistException)
-            {
+                RouterFinderPrxHelper prx = new RouterFinderPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static RouterFinderPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static RouterFinderPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            ObjectPrx bb = b.ice_facet(f);
+            ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    RouterFinderPrxHelper h = new RouterFinderPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    RouterFinderPrxHelper prx = new RouterFinderPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(FacetNotExistException)
+            catch (FacetNotExistException)
             {
             }
             return null;
@@ -695,30 +581,25 @@ namespace Ice
 
         public static RouterFinderPrx uncheckedCast(ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                RouterFinderPrxHelper prx = new RouterFinderPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            RouterFinderPrx r = b as RouterFinderPrx;
-            if(r == null)
-            {
-                RouterFinderPrxHelper h = new RouterFinderPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static RouterFinderPrx uncheckedCast(ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                ObjectPrx bb = b.ice_facet(f);
+                RouterFinderPrxHelper prx = new RouterFinderPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            ObjectPrx bb = b.ice_facet(f);
-            RouterFinderPrxHelper h = new RouterFinderPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

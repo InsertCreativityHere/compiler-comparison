@@ -173,39 +173,6 @@ namespace Ice.dictMapping
 {
     namespace Test
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_shutdown();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opNV(global::System.Collections.Generic.Dictionary<int, int> ret, global::System.Collections.Generic.Dictionary<int, int> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opNR(global::System.Collections.Generic.Dictionary<string, string> ret, global::System.Collections.Generic.Dictionary<string, string> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opNDV(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> ret, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opNDR(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> ret, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opNDAIS(global::System.Collections.Generic.Dictionary<string, int[]> ret, global::System.Collections.Generic.Dictionary<string, int[]> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opNDGIS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> ret, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opNDASS(global::System.Collections.Generic.Dictionary<string, string[]> ret, global::System.Collections.Generic.Dictionary<string, string[]> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opNDGSS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> ret, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o);
-    }
-}
-
-namespace Ice.dictMapping
-{
-    namespace Test
-    {
         public struct MyClass_OpNVResult
         {
             public MyClass_OpNVResult(global::System.Collections.Generic.Dictionary<int, int> returnValue, global::System.Collections.Generic.Dictionary<int, int> o)
@@ -311,41 +278,41 @@ namespace Ice.dictMapping
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface MyClassPrx : global::Ice.ObjectPrx
         {
-            void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Dictionary<int, int> opNV(global::System.Collections.Generic.Dictionary<int, int> i, out global::System.Collections.Generic.Dictionary<int, int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Dictionary<int, int> opNV(global::System.Collections.Generic.Dictionary<int, int> i, out global::System.Collections.Generic.Dictionary<int, int> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Dictionary<string, string> opNR(global::System.Collections.Generic.Dictionary<string, string> i, out global::System.Collections.Generic.Dictionary<string, string> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Dictionary<string, string> opNR(global::System.Collections.Generic.Dictionary<string, string> i, out global::System.Collections.Generic.Dictionary<string, string> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> opNDV(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> opNDV(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> opNDR(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> opNDR(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Dictionary<string, int[]> opNDAIS(global::System.Collections.Generic.Dictionary<string, int[]> i, out global::System.Collections.Generic.Dictionary<string, int[]> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Dictionary<string, int[]> opNDAIS(global::System.Collections.Generic.Dictionary<string, int[]> i, out global::System.Collections.Generic.Dictionary<string, int[]> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> opNDGIS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> opNDGIS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Dictionary<string, string[]> opNDASS(global::System.Collections.Generic.Dictionary<string, string[]> i, out global::System.Collections.Generic.Dictionary<string, string[]> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Dictionary<string, string[]> opNDASS(global::System.Collections.Generic.Dictionary<string, string[]> i, out global::System.Collections.Generic.Dictionary<string, string[]> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> opNDGSS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> opNDGSS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -777,7 +744,7 @@ namespace Ice.dictMapping
 
             #region Synchronous operations
 
-            public void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -789,7 +756,7 @@ namespace Ice.dictMapping
                 }
             }
 
-            public global::System.Collections.Generic.Dictionary<int, int> opNV(global::System.Collections.Generic.Dictionary<int, int> i, out global::System.Collections.Generic.Dictionary<int, int> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Dictionary<int, int> opNV(global::System.Collections.Generic.Dictionary<int, int> i, out global::System.Collections.Generic.Dictionary<int, int> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -803,7 +770,7 @@ namespace Ice.dictMapping
                 }
             }
 
-            public global::System.Collections.Generic.Dictionary<string, string> opNR(global::System.Collections.Generic.Dictionary<string, string> i, out global::System.Collections.Generic.Dictionary<string, string> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Dictionary<string, string> opNR(global::System.Collections.Generic.Dictionary<string, string> i, out global::System.Collections.Generic.Dictionary<string, string> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -817,7 +784,7 @@ namespace Ice.dictMapping
                 }
             }
 
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> opNDV(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> opNDV(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -831,7 +798,7 @@ namespace Ice.dictMapping
                 }
             }
 
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> opNDR(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> opNDR(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -845,7 +812,7 @@ namespace Ice.dictMapping
                 }
             }
 
-            public global::System.Collections.Generic.Dictionary<string, int[]> opNDAIS(global::System.Collections.Generic.Dictionary<string, int[]> i, out global::System.Collections.Generic.Dictionary<string, int[]> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Dictionary<string, int[]> opNDAIS(global::System.Collections.Generic.Dictionary<string, int[]> i, out global::System.Collections.Generic.Dictionary<string, int[]> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -859,7 +826,7 @@ namespace Ice.dictMapping
                 }
             }
 
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> opNDGIS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> opNDGIS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -873,7 +840,7 @@ namespace Ice.dictMapping
                 }
             }
 
-            public global::System.Collections.Generic.Dictionary<string, string[]> opNDASS(global::System.Collections.Generic.Dictionary<string, string[]> i, out global::System.Collections.Generic.Dictionary<string, string[]> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Dictionary<string, string[]> opNDASS(global::System.Collections.Generic.Dictionary<string, string[]> i, out global::System.Collections.Generic.Dictionary<string, string[]> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -887,7 +854,7 @@ namespace Ice.dictMapping
                 }
             }
 
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> opNDGSS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> opNDGSS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -905,12 +872,12 @@ namespace Ice.dictMapping
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_shutdownAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
@@ -930,12 +897,12 @@ namespace Ice.dictMapping
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opNVAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpNVResult> _iceI_opNVAsync(global::System.Collections.Generic.Dictionary<int, int> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpNVResult> _iceI_opNVAsync(global::System.Collections.Generic.Dictionary<int, int> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opNV_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpNVResult>(progress, cancel);
@@ -967,12 +934,12 @@ namespace Ice.dictMapping
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opNRAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpNRResult> _iceI_opNRAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpNRResult> _iceI_opNRAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opNR_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpNRResult>(progress, cancel);
@@ -1004,12 +971,12 @@ namespace Ice.dictMapping
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opNDVAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpNDVResult> _iceI_opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpNDVResult> _iceI_opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opNDV_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpNDVResult>(progress, cancel);
@@ -1041,12 +1008,12 @@ namespace Ice.dictMapping
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opNDRAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpNDRResult> _iceI_opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpNDRResult> _iceI_opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opNDR_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpNDRResult>(progress, cancel);
@@ -1078,12 +1045,12 @@ namespace Ice.dictMapping
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opNDAISAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> _iceI_opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> _iceI_opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opNDAIS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpNDAISResult>(progress, cancel);
@@ -1115,12 +1082,12 @@ namespace Ice.dictMapping
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opNDGISAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> _iceI_opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> _iceI_opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opNDGIS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpNDGISResult>(progress, cancel);
@@ -1152,12 +1119,12 @@ namespace Ice.dictMapping
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opNDASSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> _iceI_opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> _iceI_opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opNDASS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpNDASSResult>(progress, cancel);
@@ -1189,12 +1156,12 @@ namespace Ice.dictMapping
                     });
             }
 
-            public global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opNDGSSAsync(i, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> _iceI_opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> _iceI_opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opNDGSS_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpNDGSSResult>(progress, cancel);
@@ -1230,77 +1197,30 @@ namespace Ice.dictMapping
 
             #region Checked and unchecked cast operations
 
-            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b)
+            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
-                if(b == null)
+                if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
-                    return null;
-                }
-                MyClassPrx r = b as MyClassPrx;
-                if((r == null) && b.ice_isA(ice_staticId()))
-                {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
-            }
-
-            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-            {
-                if(b == null)
-                {
-                    return null;
-                }
-                MyClassPrx r = b as MyClassPrx;
-                if((r == null) && b.ice_isA(ice_staticId(), ctx))
-                {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
-            }
-
-            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f)
-            {
-                if(b == null)
-                {
-                    return null;
-                }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                try
-                {
-                    if(bb.ice_isA(ice_staticId()))
-                    {
-                        MyClassPrxHelper h = new MyClassPrxHelper();
-                        h.iceCopyFrom(bb);
-                        return h;
-                    }
-                }
-                catch(global::Ice.FacetNotExistException)
-                {
+                    MyClassPrxHelper prx = new MyClassPrxHelper();
+                    prx.iceCopyFrom(b);
+                    return prx;
                 }
                 return null;
             }
 
-            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+            public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
-                if(b == null)
-                {
-                    return null;
-                }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                global::Ice.ObjectPrx bb = b?.ice_facet(f);
                 try
                 {
-                    if(bb.ice_isA(ice_staticId(), ctx))
+                    if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                     {
-                        MyClassPrxHelper h = new MyClassPrxHelper();
-                        h.iceCopyFrom(bb);
-                        return h;
+                        MyClassPrxHelper prx = new MyClassPrxHelper();
+                        prx.iceCopyFrom(bb);
+                        return prx;
                     }
                 }
-                catch(global::Ice.FacetNotExistException)
+                catch (global::Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -1308,30 +1228,25 @@ namespace Ice.dictMapping
 
             public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b)
             {
-                if(b == null)
+                if (b is not null)
                 {
-                    return null;
+                    MyClassPrxHelper prx = new MyClassPrxHelper();
+                    prx.iceCopyFrom(b);
+                    return prx;
                 }
-                MyClassPrx r = b as MyClassPrx;
-                if(r == null)
-                {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
+                return null;
             }
 
             public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
             {
-                if(b == null)
+                if (b is not null)
                 {
-                    return null;
+                    global::Ice.ObjectPrx bb = b.ice_facet(f);
+                    MyClassPrxHelper prx = new MyClassPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                MyClassPrxHelper h = new MyClassPrxHelper();
-                h.iceCopyFrom(bb);
-                return h;
+                return null;
             }
 
             private static readonly string[] _ids =

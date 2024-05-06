@@ -38,15 +38,6 @@ namespace Ice
 
 namespace Ice
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Process_shutdown();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Process_writeMessage();
-}
-
-namespace Ice
-{
     /// <summary>
     /// An administrative interface for process management.
     /// Managed servers must implement this interface.
@@ -63,7 +54,7 @@ namespace Ice
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void shutdown(OptionalContext context = new OptionalContext());
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Initiate a graceful shut-down.
@@ -72,7 +63,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task shutdownAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Write a message on the process' stdout or stderr.
@@ -82,7 +73,7 @@ namespace Ice
         /// <param name="fd">1 for stdout, 2 for stderr.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void writeMessage(string message, int fd, OptionalContext context = new OptionalContext());
+        void writeMessage(string message, int fd, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Write a message on the process' stdout or stderr.
@@ -94,7 +85,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -144,7 +135,7 @@ namespace Ice
 
         #region Synchronous operations
 
-        public void shutdown(OptionalContext context = new OptionalContext())
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -156,7 +147,7 @@ namespace Ice
             }
         }
 
-        public void writeMessage(string message, int fd, OptionalContext context = new OptionalContext())
+        public void writeMessage(string message, int fd, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -172,12 +163,12 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task shutdownAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -197,12 +188,12 @@ namespace Ice
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_writeMessageAsync(message, fd, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_writeMessageAsync(string iceP_message, int iceP_fd, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_writeMessageAsync(string iceP_message, int iceP_fd, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_writeMessage(iceP_message, iceP_fd, context, synchronous, completed);
@@ -231,77 +222,30 @@ namespace Ice
 
         #region Checked and unchecked cast operations
 
-        public static ProcessPrx checkedCast(ObjectPrx b)
+        public static ProcessPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            ProcessPrx r = b as ProcessPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                ProcessPrxHelper h = new ProcessPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static ProcessPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            ProcessPrx r = b as ProcessPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                ProcessPrxHelper h = new ProcessPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static ProcessPrx checkedCast(ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    ProcessPrxHelper h = new ProcessPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(FacetNotExistException)
-            {
+                ProcessPrxHelper prx = new ProcessPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static ProcessPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static ProcessPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            ObjectPrx bb = b.ice_facet(f);
+            ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    ProcessPrxHelper h = new ProcessPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    ProcessPrxHelper prx = new ProcessPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(FacetNotExistException)
+            catch (FacetNotExistException)
             {
             }
             return null;
@@ -309,30 +253,25 @@ namespace Ice
 
         public static ProcessPrx uncheckedCast(ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                ProcessPrxHelper prx = new ProcessPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            ProcessPrx r = b as ProcessPrx;
-            if(r == null)
-            {
-                ProcessPrxHelper h = new ProcessPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static ProcessPrx uncheckedCast(ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                ObjectPrx bb = b.ice_facet(f);
+                ProcessPrxHelper prx = new ProcessPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            ObjectPrx bb = b.ice_facet(f);
-            ProcessPrxHelper h = new ProcessPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

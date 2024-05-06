@@ -44,48 +44,27 @@ namespace Ice.hold
     namespace Test
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_Hold_putOnHold();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_Hold_waitForHold();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_Hold_set(int ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_Hold_setOneway();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_Hold_shutdown();
-    }
-}
-
-namespace Ice.hold
-{
-    namespace Test
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface HoldPrx : global::Ice.ObjectPrx
         {
-            void putOnHold(int seconds, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            void putOnHold(int seconds, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task putOnHoldAsync(int seconds, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task putOnHoldAsync(int seconds, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void waitForHold(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            void waitForHold(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task waitForHoldAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task waitForHoldAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int set(int value, int delay, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int set(int value, int delay, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<int> setAsync(int value, int delay, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<int> setAsync(int value, int delay, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void setOneway(int value, int expected, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            void setOneway(int value, int expected, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task setOnewayAsync(int value, int expected, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task setOnewayAsync(int value, int expected, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -129,7 +108,7 @@ namespace Ice.hold
 
             #region Synchronous operations
 
-            public void putOnHold(int seconds, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public void putOnHold(int seconds, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -141,7 +120,7 @@ namespace Ice.hold
                 }
             }
 
-            public void waitForHold(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public void waitForHold(global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -153,7 +132,7 @@ namespace Ice.hold
                 }
             }
 
-            public int set(int value, int delay, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int set(int value, int delay, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -165,7 +144,7 @@ namespace Ice.hold
                 }
             }
 
-            public void setOneway(int value, int expected, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public void setOneway(int value, int expected, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -177,7 +156,7 @@ namespace Ice.hold
                 }
             }
 
-            public void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -193,12 +172,12 @@ namespace Ice.hold
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task putOnHoldAsync(int seconds, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task putOnHoldAsync(int seconds, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_putOnHoldAsync(seconds, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_putOnHoldAsync(int iceP_seconds, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_putOnHoldAsync(int iceP_seconds, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_putOnHold(iceP_seconds, context, synchronous, completed);
@@ -222,12 +201,12 @@ namespace Ice.hold
                     });
             }
 
-            public global::System.Threading.Tasks.Task waitForHoldAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task waitForHoldAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_waitForHoldAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_waitForHoldAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_waitForHoldAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_waitForHold(context, synchronous, completed);
@@ -247,12 +226,12 @@ namespace Ice.hold
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task<int> setAsync(int value, int delay, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<int> setAsync(int value, int delay, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_setAsync(value, delay, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_setAsync(int iceP_value, int iceP_delay, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_setAsync(int iceP_value, int iceP_delay, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_set_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -284,12 +263,12 @@ namespace Ice.hold
                     });
             }
 
-            public global::System.Threading.Tasks.Task setOnewayAsync(int value, int expected, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task setOnewayAsync(int value, int expected, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_setOnewayAsync(value, expected, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_setOnewayAsync(int iceP_value, int iceP_expected, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_setOnewayAsync(int iceP_value, int iceP_expected, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_setOneway(iceP_value, iceP_expected, context, synchronous, completed);
@@ -314,12 +293,12 @@ namespace Ice.hold
                     });
             }
 
-            public global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_shutdownAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
@@ -343,77 +322,30 @@ namespace Ice.hold
 
             #region Checked and unchecked cast operations
 
-            public static HoldPrx checkedCast(global::Ice.ObjectPrx b)
+            public static HoldPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
-                if(b == null)
+                if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
-                    return null;
-                }
-                HoldPrx r = b as HoldPrx;
-                if((r == null) && b.ice_isA(ice_staticId()))
-                {
-                    HoldPrxHelper h = new HoldPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
-            }
-
-            public static HoldPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-            {
-                if(b == null)
-                {
-                    return null;
-                }
-                HoldPrx r = b as HoldPrx;
-                if((r == null) && b.ice_isA(ice_staticId(), ctx))
-                {
-                    HoldPrxHelper h = new HoldPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
-            }
-
-            public static HoldPrx checkedCast(global::Ice.ObjectPrx b, string f)
-            {
-                if(b == null)
-                {
-                    return null;
-                }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                try
-                {
-                    if(bb.ice_isA(ice_staticId()))
-                    {
-                        HoldPrxHelper h = new HoldPrxHelper();
-                        h.iceCopyFrom(bb);
-                        return h;
-                    }
-                }
-                catch(global::Ice.FacetNotExistException)
-                {
+                    HoldPrxHelper prx = new HoldPrxHelper();
+                    prx.iceCopyFrom(b);
+                    return prx;
                 }
                 return null;
             }
 
-            public static HoldPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+            public static HoldPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
-                if(b == null)
-                {
-                    return null;
-                }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                global::Ice.ObjectPrx bb = b?.ice_facet(f);
                 try
                 {
-                    if(bb.ice_isA(ice_staticId(), ctx))
+                    if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                     {
-                        HoldPrxHelper h = new HoldPrxHelper();
-                        h.iceCopyFrom(bb);
-                        return h;
+                        HoldPrxHelper prx = new HoldPrxHelper();
+                        prx.iceCopyFrom(bb);
+                        return prx;
                     }
                 }
-                catch(global::Ice.FacetNotExistException)
+                catch (global::Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -421,30 +353,25 @@ namespace Ice.hold
 
             public static HoldPrx uncheckedCast(global::Ice.ObjectPrx b)
             {
-                if(b == null)
+                if (b is not null)
                 {
-                    return null;
+                    HoldPrxHelper prx = new HoldPrxHelper();
+                    prx.iceCopyFrom(b);
+                    return prx;
                 }
-                HoldPrx r = b as HoldPrx;
-                if(r == null)
-                {
-                    HoldPrxHelper h = new HoldPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
+                return null;
             }
 
             public static HoldPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
             {
-                if(b == null)
+                if (b is not null)
                 {
-                    return null;
+                    global::Ice.ObjectPrx bb = b.ice_facet(f);
+                    HoldPrxHelper prx = new HoldPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                HoldPrxHelper h = new HoldPrxHelper();
-                h.iceCopyFrom(bb);
-                return h;
+                return null;
             }
 
             private static readonly string[] _ids =

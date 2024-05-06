@@ -1867,77 +1867,30 @@ namespace Test
 
         #region Checked and unchecked cast operations
 
-        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b)
+        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            MyInterfacePrx r = b as MyInterfacePrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                MyInterfacePrxHelper h = new MyInterfacePrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            MyInterfacePrx r = b as MyInterfacePrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                MyInterfacePrxHelper h = new MyInterfacePrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    MyInterfacePrxHelper h = new MyInterfacePrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                MyInterfacePrxHelper prx = new MyInterfacePrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    MyInterfacePrxHelper h = new MyInterfacePrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    MyInterfacePrxHelper prx = new MyInterfacePrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1945,30 +1898,25 @@ namespace Test
 
         public static MyInterfacePrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                MyInterfacePrxHelper prx = new MyInterfacePrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            MyInterfacePrx r = b as MyInterfacePrx;
-            if(r == null)
-            {
-                MyInterfacePrxHelper h = new MyInterfacePrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static MyInterfacePrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                MyInterfacePrxHelper prx = new MyInterfacePrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            MyInterfacePrxHelper h = new MyInterfacePrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

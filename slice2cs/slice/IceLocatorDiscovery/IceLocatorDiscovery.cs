@@ -53,15 +53,6 @@ namespace IceLocatorDiscovery
 
 namespace IceLocatorDiscovery
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_LookupReply_foundLocator();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Lookup_findLocator();
-}
-
-namespace IceLocatorDiscovery
-{
     /// <summary>
     /// The Ice lookup reply interface must be implemented by clients which are searching for Ice locators.
     /// Ice locator
@@ -77,7 +68,7 @@ namespace IceLocatorDiscovery
         /// <param name="prx">The proxy of the locator.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void foundLocator(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void foundLocator(global::Ice.LocatorPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
@@ -87,7 +78,7 @@ namespace IceLocatorDiscovery
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task foundLocatorAsync(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task foundLocatorAsync(global::Ice.LocatorPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -109,7 +100,7 @@ namespace IceLocatorDiscovery
         /// <param name="reply">The reply object to use to send the reply.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void findLocator(string instanceName, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void findLocator(string instanceName, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Find a locator proxy with the given instance name.
@@ -122,7 +113,7 @@ namespace IceLocatorDiscovery
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task findLocatorAsync(string instanceName, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task findLocatorAsync(string instanceName, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -183,7 +174,7 @@ namespace IceLocatorDiscovery
 
         #region Synchronous operations
 
-        public void foundLocator(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void foundLocator(global::Ice.LocatorPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -199,12 +190,12 @@ namespace IceLocatorDiscovery
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task foundLocatorAsync(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task foundLocatorAsync(global::Ice.LocatorPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_foundLocatorAsync(prx, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_foundLocatorAsync(global::Ice.LocatorPrx iceP_prx, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_foundLocatorAsync(global::Ice.LocatorPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_foundLocator(iceP_prx, context, synchronous, completed);
@@ -232,77 +223,30 @@ namespace IceLocatorDiscovery
 
         #region Checked and unchecked cast operations
 
-        public static LookupReplyPrx checkedCast(global::Ice.ObjectPrx b)
+        public static LookupReplyPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            LookupReplyPrx r = b as LookupReplyPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                LookupReplyPrxHelper h = new LookupReplyPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static LookupReplyPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            LookupReplyPrx r = b as LookupReplyPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                LookupReplyPrxHelper h = new LookupReplyPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static LookupReplyPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    LookupReplyPrxHelper h = new LookupReplyPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                LookupReplyPrxHelper prx = new LookupReplyPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static LookupReplyPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static LookupReplyPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    LookupReplyPrxHelper h = new LookupReplyPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    LookupReplyPrxHelper prx = new LookupReplyPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -310,30 +254,25 @@ namespace IceLocatorDiscovery
 
         public static LookupReplyPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                LookupReplyPrxHelper prx = new LookupReplyPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            LookupReplyPrx r = b as LookupReplyPrx;
-            if(r == null)
-            {
-                LookupReplyPrxHelper h = new LookupReplyPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static LookupReplyPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                LookupReplyPrxHelper prx = new LookupReplyPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            LookupReplyPrxHelper h = new LookupReplyPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -378,7 +317,7 @@ namespace IceLocatorDiscovery
 
         #region Synchronous operations
 
-        public void findLocator(string instanceName, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void findLocator(string instanceName, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -394,12 +333,12 @@ namespace IceLocatorDiscovery
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task findLocatorAsync(string instanceName, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task findLocatorAsync(string instanceName, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_findLocatorAsync(instanceName, reply, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_findLocatorAsync(string iceP_instanceName, LookupReplyPrx iceP_reply, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_findLocatorAsync(string iceP_instanceName, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_findLocator(iceP_instanceName, iceP_reply, context, synchronous, completed);
@@ -428,77 +367,30 @@ namespace IceLocatorDiscovery
 
         #region Checked and unchecked cast operations
 
-        public static LookupPrx checkedCast(global::Ice.ObjectPrx b)
+        public static LookupPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            LookupPrx r = b as LookupPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                LookupPrxHelper h = new LookupPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static LookupPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            LookupPrx r = b as LookupPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                LookupPrxHelper h = new LookupPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static LookupPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    LookupPrxHelper h = new LookupPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                LookupPrxHelper prx = new LookupPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static LookupPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static LookupPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    LookupPrxHelper h = new LookupPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    LookupPrxHelper prx = new LookupPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -506,30 +398,25 @@ namespace IceLocatorDiscovery
 
         public static LookupPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                LookupPrxHelper prx = new LookupPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            LookupPrx r = b as LookupPrx;
-            if(r == null)
-            {
-                LookupPrxHelper h = new LookupPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static LookupPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                LookupPrxHelper prx = new LookupPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            LookupPrxHelper h = new LookupPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

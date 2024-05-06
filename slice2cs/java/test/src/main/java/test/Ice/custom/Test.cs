@@ -183,138 +183,6 @@ namespace Test
 
 namespace Test
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opCSeq(C[] ret, C[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opCArray(C[] ret, C[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opCList(C[] ret, C[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opBoolSeq(bool[] ret, bool[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opByteSeq(byte[] ret, byte[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opShortSeq(short[] ret, short[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opIntSeq(int[] ret, int[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opLongSeq(long[] ret, long[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opFloatSeq(float[] ret, float[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opDoubleSeq(double[] ret, double[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opStringSeq(string[] ret, string[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opESeq(E[] ret, E[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opSSeq(S[] ret, S[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] ret, global::System.Collections.Generic.Dictionary<int, string>[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opStringSeqSeq(string[][] ret, string[][] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opByteBufferSeq(byte[] ret, byte[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opShortBufferSeq(short[] ret, short[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opIntBufferSeq(int[] ret, int[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opLongBufferSeq(long[] ret, long[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opFloatBufferSeq(float[] ret, float[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opDoubleBufferSeq(double[] ret, double[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptCSeq(C[] ret, C[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptCArray(C[] ret, C[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptCList(C[] ret, C[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptBoolSeq(bool[] ret, bool[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptByteSeq(byte[] ret, byte[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptShortSeq(short[] ret, short[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptIntSeq(int[] ret, int[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptLongSeq(long[] ret, long[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptFloatSeq(float[] ret, float[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptDoubleSeq(double[] ret, double[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptStringSeq(string[] ret, string[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptESeq(E[] ret, E[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptSSeq(S[] ret, S[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[] ret, global::System.Collections.Generic.Dictionary<int, string>[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptStringSeqSeq(string[][] ret, string[][] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptByteBufferSeq(byte[] ret, byte[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptShortBufferSeq(short[] ret, short[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptIntBufferSeq(int[] ret, int[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptLongBufferSeq(long[] ret, long[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptFloatBufferSeq(float[] ret, float[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOptDoubleBufferSeq(double[] ret, double[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_shutdown();
-}
-
-namespace Test
-{
     public struct TestIntf_OpCSeqResult
     {
         public TestIntf_OpCSeqResult(C[] returnValue, C[] outSeq)
@@ -825,177 +693,177 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface TestIntfPrx : global::Ice.ObjectPrx
     {
-        C[] opCSeq(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        C[] opCSeq(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpCSeqResult> opCSeqAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpCSeqResult> opCSeqAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        C[] opCArray(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        C[] opCArray(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpCArrayResult> opCArrayAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpCArrayResult> opCArrayAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        C[] opCList(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        C[] opCList(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpCListResult> opCListAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpCListResult> opCListAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpBoolSeqResult> opBoolSeqAsync(bool[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpBoolSeqResult> opBoolSeqAsync(bool[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpByteSeqResult> opByteSeqAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpByteSeqResult> opByteSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        short[] opShortSeq(short[] inSeq, out short[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        short[] opShortSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpShortSeqResult> opShortSeqAsync(short[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpShortSeqResult> opShortSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int[] opIntSeq(int[] inSeq, out int[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int[] opIntSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpIntSeqResult> opIntSeqAsync(int[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpIntSeqResult> opIntSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        long[] opLongSeq(long[] inSeq, out long[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        long[] opLongSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpLongSeqResult> opLongSeqAsync(long[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpLongSeqResult> opLongSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        float[] opFloatSeq(float[] inSeq, out float[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        float[] opFloatSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpFloatSeqResult> opFloatSeqAsync(float[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpFloatSeqResult> opFloatSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        double[] opDoubleSeq(double[] inSeq, out double[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        double[] opDoubleSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpDoubleSeqResult> opDoubleSeqAsync(double[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpDoubleSeqResult> opDoubleSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[] opStringSeq(string[] inSeq, out string[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[] opStringSeq(string[] inSeq, out string[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpStringSeqResult> opStringSeqAsync(string[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpStringSeqResult> opStringSeqAsync(string[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        E[] opESeq(E[] inSeq, out E[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        E[] opESeq(E[] inSeq, out E[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpESeqResult> opESeqAsync(E[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpESeqResult> opESeqAsync(E[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        S[] opSSeq(S[] inSeq, out S[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        S[] opSSeq(S[] inSeq, out S[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpSSeqResult> opSSeqAsync(S[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpSSeqResult> opSSeqAsync(S[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpDSeqResult> opDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpDSeqResult> opDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpStringSeqSeqResult> opStringSeqSeqAsync(string[][] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpStringSeqSeqResult> opStringSeqSeqAsync(string[][] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpByteBufferSeqResult> opByteBufferSeqAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpByteBufferSeqResult> opByteBufferSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpShortBufferSeqResult> opShortBufferSeqAsync(short[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpShortBufferSeqResult> opShortBufferSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpIntBufferSeqResult> opIntBufferSeqAsync(int[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpIntBufferSeqResult> opIntBufferSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpLongBufferSeqResult> opLongBufferSeqAsync(long[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpLongBufferSeqResult> opLongBufferSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpFloatBufferSeqResult> opFloatBufferSeqAsync(float[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpFloatBufferSeqResult> opFloatBufferSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpDoubleBufferSeqResult> opDoubleBufferSeqAsync(double[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpDoubleBufferSeqResult> opDoubleBufferSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        C[] opOptCSeq(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        C[] opOptCSeq(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptCSeqResult> opOptCSeqAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptCSeqResult> opOptCSeqAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        C[] opOptCArray(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        C[] opOptCArray(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptCArrayResult> opOptCArrayAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptCArrayResult> opOptCArrayAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        C[] opOptCList(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        C[] opOptCList(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptCListResult> opOptCListAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptCListResult> opOptCListAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        bool[] opOptBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        bool[] opOptBoolSeq(bool[] inSeq, out bool[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptBoolSeqResult> opOptBoolSeqAsync(bool[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptBoolSeqResult> opOptBoolSeqAsync(bool[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] opOptByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte[] opOptByteSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptByteSeqResult> opOptByteSeqAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptByteSeqResult> opOptByteSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        short[] opOptShortSeq(short[] inSeq, out short[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        short[] opOptShortSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptShortSeqResult> opOptShortSeqAsync(short[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptShortSeqResult> opOptShortSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int[] opOptIntSeq(int[] inSeq, out int[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int[] opOptIntSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptIntSeqResult> opOptIntSeqAsync(int[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptIntSeqResult> opOptIntSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        long[] opOptLongSeq(long[] inSeq, out long[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        long[] opOptLongSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptLongSeqResult> opOptLongSeqAsync(long[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptLongSeqResult> opOptLongSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        float[] opOptFloatSeq(float[] inSeq, out float[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        float[] opOptFloatSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptFloatSeqResult> opOptFloatSeqAsync(float[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptFloatSeqResult> opOptFloatSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        double[] opOptDoubleSeq(double[] inSeq, out double[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        double[] opOptDoubleSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleSeqResult> opOptDoubleSeqAsync(double[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleSeqResult> opOptDoubleSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[] opOptStringSeq(string[] inSeq, out string[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[] opOptStringSeq(string[] inSeq, out string[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqResult> opOptStringSeqAsync(string[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqResult> opOptStringSeqAsync(string[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        E[] opOptESeq(E[] inSeq, out E[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        E[] opOptESeq(E[] inSeq, out E[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptESeqResult> opOptESeqAsync(E[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptESeqResult> opOptESeqAsync(E[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        S[] opOptSSeq(S[] inSeq, out S[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        S[] opOptSSeq(S[] inSeq, out S[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptSSeqResult> opOptSSeqAsync(S[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptSSeqResult> opOptSSeqAsync(S[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<int, string>[] opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<int, string>[] opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptDSeqResult> opOptDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptDSeqResult> opOptDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[][] opOptStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[][] opOptStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqSeqResult> opOptStringSeqSeqAsync(string[][] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqSeqResult> opOptStringSeqSeqAsync(string[][] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] opOptByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte[] opOptByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptByteBufferSeqResult> opOptByteBufferSeqAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptByteBufferSeqResult> opOptByteBufferSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        short[] opOptShortBufferSeq(short[] inSeq, out short[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        short[] opOptShortBufferSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptShortBufferSeqResult> opOptShortBufferSeqAsync(short[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptShortBufferSeqResult> opOptShortBufferSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int[] opOptIntBufferSeq(int[] inSeq, out int[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int[] opOptIntBufferSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptIntBufferSeqResult> opOptIntBufferSeqAsync(int[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptIntBufferSeqResult> opOptIntBufferSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        long[] opOptLongBufferSeq(long[] inSeq, out long[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        long[] opOptLongBufferSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptLongBufferSeqResult> opOptLongBufferSeqAsync(long[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptLongBufferSeqResult> opOptLongBufferSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        float[] opOptFloatBufferSeq(float[] inSeq, out float[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        float[] opOptFloatBufferSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptFloatBufferSeqResult> opOptFloatBufferSeqAsync(float[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptFloatBufferSeqResult> opOptFloatBufferSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        double[] opOptDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        double[] opOptDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleBufferSeqResult> opOptDoubleBufferSeqAsync(double[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleBufferSeqResult> opOptDoubleBufferSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -1646,7 +1514,7 @@ namespace Test
 
         #region Synchronous operations
 
-        public C[] opCSeq(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public C[] opCSeq(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1660,7 +1528,7 @@ namespace Test
             }
         }
 
-        public C[] opCArray(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public C[] opCArray(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1674,7 +1542,7 @@ namespace Test
             }
         }
 
-        public C[] opCList(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public C[] opCList(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1688,7 +1556,7 @@ namespace Test
             }
         }
 
-        public bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1702,7 +1570,7 @@ namespace Test
             }
         }
 
-        public byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1716,7 +1584,7 @@ namespace Test
             }
         }
 
-        public short[] opShortSeq(short[] inSeq, out short[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public short[] opShortSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1730,7 +1598,7 @@ namespace Test
             }
         }
 
-        public int[] opIntSeq(int[] inSeq, out int[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int[] opIntSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1744,7 +1612,7 @@ namespace Test
             }
         }
 
-        public long[] opLongSeq(long[] inSeq, out long[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long[] opLongSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1758,7 +1626,7 @@ namespace Test
             }
         }
 
-        public float[] opFloatSeq(float[] inSeq, out float[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public float[] opFloatSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1772,7 +1640,7 @@ namespace Test
             }
         }
 
-        public double[] opDoubleSeq(double[] inSeq, out double[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double[] opDoubleSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1786,7 +1654,7 @@ namespace Test
             }
         }
 
-        public string[] opStringSeq(string[] inSeq, out string[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringSeq(string[] inSeq, out string[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1800,7 +1668,7 @@ namespace Test
             }
         }
 
-        public E[] opESeq(E[] inSeq, out E[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public E[] opESeq(E[] inSeq, out E[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1814,7 +1682,7 @@ namespace Test
             }
         }
 
-        public S[] opSSeq(S[] inSeq, out S[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public S[] opSSeq(S[] inSeq, out S[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1828,7 +1696,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1842,7 +1710,7 @@ namespace Test
             }
         }
 
-        public string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1856,7 +1724,7 @@ namespace Test
             }
         }
 
-        public byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1870,7 +1738,7 @@ namespace Test
             }
         }
 
-        public short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1884,7 +1752,7 @@ namespace Test
             }
         }
 
-        public int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1898,7 +1766,7 @@ namespace Test
             }
         }
 
-        public long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1912,7 +1780,7 @@ namespace Test
             }
         }
 
-        public float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1926,7 +1794,7 @@ namespace Test
             }
         }
 
-        public double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1940,7 +1808,7 @@ namespace Test
             }
         }
 
-        public C[] opOptCSeq(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public C[] opOptCSeq(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1954,7 +1822,7 @@ namespace Test
             }
         }
 
-        public C[] opOptCArray(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public C[] opOptCArray(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1968,7 +1836,7 @@ namespace Test
             }
         }
 
-        public C[] opOptCList(C[] inSeq, out C[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public C[] opOptCList(C[] inSeq, out C[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1982,7 +1850,7 @@ namespace Test
             }
         }
 
-        public bool[] opOptBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool[] opOptBoolSeq(bool[] inSeq, out bool[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1996,7 +1864,7 @@ namespace Test
             }
         }
 
-        public byte[] opOptByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[] opOptByteSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2010,7 +1878,7 @@ namespace Test
             }
         }
 
-        public short[] opOptShortSeq(short[] inSeq, out short[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public short[] opOptShortSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2024,7 +1892,7 @@ namespace Test
             }
         }
 
-        public int[] opOptIntSeq(int[] inSeq, out int[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int[] opOptIntSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2038,7 +1906,7 @@ namespace Test
             }
         }
 
-        public long[] opOptLongSeq(long[] inSeq, out long[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long[] opOptLongSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2052,7 +1920,7 @@ namespace Test
             }
         }
 
-        public float[] opOptFloatSeq(float[] inSeq, out float[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public float[] opOptFloatSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2066,7 +1934,7 @@ namespace Test
             }
         }
 
-        public double[] opOptDoubleSeq(double[] inSeq, out double[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double[] opOptDoubleSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2080,7 +1948,7 @@ namespace Test
             }
         }
 
-        public string[] opOptStringSeq(string[] inSeq, out string[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opOptStringSeq(string[] inSeq, out string[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2094,7 +1962,7 @@ namespace Test
             }
         }
 
-        public E[] opOptESeq(E[] inSeq, out E[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public E[] opOptESeq(E[] inSeq, out E[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2108,7 +1976,7 @@ namespace Test
             }
         }
 
-        public S[] opOptSSeq(S[] inSeq, out S[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public S[] opOptSSeq(S[] inSeq, out S[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2122,7 +1990,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<int, string>[] opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<int, string>[] opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2136,7 +2004,7 @@ namespace Test
             }
         }
 
-        public string[][] opOptStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[][] opOptStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2150,7 +2018,7 @@ namespace Test
             }
         }
 
-        public byte[] opOptByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[] opOptByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2164,7 +2032,7 @@ namespace Test
             }
         }
 
-        public short[] opOptShortBufferSeq(short[] inSeq, out short[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public short[] opOptShortBufferSeq(short[] inSeq, out short[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2178,7 +2046,7 @@ namespace Test
             }
         }
 
-        public int[] opOptIntBufferSeq(int[] inSeq, out int[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int[] opOptIntBufferSeq(int[] inSeq, out int[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2192,7 +2060,7 @@ namespace Test
             }
         }
 
-        public long[] opOptLongBufferSeq(long[] inSeq, out long[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long[] opOptLongBufferSeq(long[] inSeq, out long[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2206,7 +2074,7 @@ namespace Test
             }
         }
 
-        public float[] opOptFloatBufferSeq(float[] inSeq, out float[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public float[] opOptFloatBufferSeq(float[] inSeq, out float[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2220,7 +2088,7 @@ namespace Test
             }
         }
 
-        public double[] opOptDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double[] opOptDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2234,7 +2102,7 @@ namespace Test
             }
         }
 
-        public void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -2250,12 +2118,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpCSeqResult> opCSeqAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpCSeqResult> opCSeqAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opCSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpCSeqResult> _iceI_opCSeqAsync(C[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpCSeqResult> _iceI_opCSeqAsync(C[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opCSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpCSeqResult>(progress, cancel);
@@ -2289,12 +2157,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpCArrayResult> opCArrayAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpCArrayResult> opCArrayAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opCArrayAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpCArrayResult> _iceI_opCArrayAsync(C[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpCArrayResult> _iceI_opCArrayAsync(C[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opCArray_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpCArrayResult>(progress, cancel);
@@ -2328,12 +2196,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpCListResult> opCListAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpCListResult> opCListAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opCListAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpCListResult> _iceI_opCListAsync(C[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpCListResult> _iceI_opCListAsync(C[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opCList_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpCListResult>(progress, cancel);
@@ -2367,12 +2235,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpBoolSeqResult> opBoolSeqAsync(bool[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpBoolSeqResult> opBoolSeqAsync(bool[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpBoolSeqResult> _iceI_opBoolSeqAsync(bool[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpBoolSeqResult> _iceI_opBoolSeqAsync(bool[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBoolSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpBoolSeqResult>(progress, cancel);
@@ -2404,12 +2272,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpByteSeqResult> opByteSeqAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpByteSeqResult> opByteSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpByteSeqResult> _iceI_opByteSeqAsync(byte[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpByteSeqResult> _iceI_opByteSeqAsync(byte[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpByteSeqResult>(progress, cancel);
@@ -2441,12 +2309,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpShortSeqResult> opShortSeqAsync(short[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpShortSeqResult> opShortSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpShortSeqResult> _iceI_opShortSeqAsync(short[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpShortSeqResult> _iceI_opShortSeqAsync(short[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpShortSeqResult>(progress, cancel);
@@ -2478,12 +2346,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpIntSeqResult> opIntSeqAsync(int[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpIntSeqResult> opIntSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opIntSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpIntSeqResult> _iceI_opIntSeqAsync(int[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpIntSeqResult> _iceI_opIntSeqAsync(int[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opIntSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpIntSeqResult>(progress, cancel);
@@ -2515,12 +2383,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpLongSeqResult> opLongSeqAsync(long[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpLongSeqResult> opLongSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLongSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpLongSeqResult> _iceI_opLongSeqAsync(long[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpLongSeqResult> _iceI_opLongSeqAsync(long[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpLongSeqResult>(progress, cancel);
@@ -2552,12 +2420,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpFloatSeqResult> opFloatSeqAsync(float[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpFloatSeqResult> opFloatSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloatSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpFloatSeqResult> _iceI_opFloatSeqAsync(float[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpFloatSeqResult> _iceI_opFloatSeqAsync(float[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpFloatSeqResult>(progress, cancel);
@@ -2589,12 +2457,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpDoubleSeqResult> opDoubleSeqAsync(double[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpDoubleSeqResult> opDoubleSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opDoubleSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpDoubleSeqResult> _iceI_opDoubleSeqAsync(double[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpDoubleSeqResult> _iceI_opDoubleSeqAsync(double[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opDoubleSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpDoubleSeqResult>(progress, cancel);
@@ -2626,12 +2494,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpStringSeqResult> opStringSeqAsync(string[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpStringSeqResult> opStringSeqAsync(string[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpStringSeqResult> _iceI_opStringSeqAsync(string[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpStringSeqResult> _iceI_opStringSeqAsync(string[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpStringSeqResult>(progress, cancel);
@@ -2663,12 +2531,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpESeqResult> opESeqAsync(E[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpESeqResult> opESeqAsync(E[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opESeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpESeqResult> _iceI_opESeqAsync(E[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpESeqResult> _iceI_opESeqAsync(E[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opESeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpESeqResult>(progress, cancel);
@@ -2700,12 +2568,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpSSeqResult> opSSeqAsync(S[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpSSeqResult> opSSeqAsync(S[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opSSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpSSeqResult> _iceI_opSSeqAsync(S[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpSSeqResult> _iceI_opSSeqAsync(S[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpSSeqResult>(progress, cancel);
@@ -2737,12 +2605,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpDSeqResult> opDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpDSeqResult> opDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opDSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpDSeqResult> _iceI_opDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpDSeqResult> _iceI_opDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opDSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpDSeqResult>(progress, cancel);
@@ -2774,12 +2642,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpStringSeqSeqResult> opStringSeqSeqAsync(string[][] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpStringSeqSeqResult> opStringSeqSeqAsync(string[][] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringSeqSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpStringSeqSeqResult> _iceI_opStringSeqSeqAsync(string[][] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpStringSeqSeqResult> _iceI_opStringSeqSeqAsync(string[][] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringSeqSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpStringSeqSeqResult>(progress, cancel);
@@ -2811,12 +2679,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpByteBufferSeqResult> opByteBufferSeqAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpByteBufferSeqResult> opByteBufferSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpByteBufferSeqResult> _iceI_opByteBufferSeqAsync(byte[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpByteBufferSeqResult> _iceI_opByteBufferSeqAsync(byte[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpByteBufferSeqResult>(progress, cancel);
@@ -2848,12 +2716,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpShortBufferSeqResult> opShortBufferSeqAsync(short[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpShortBufferSeqResult> opShortBufferSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpShortBufferSeqResult> _iceI_opShortBufferSeqAsync(short[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpShortBufferSeqResult> _iceI_opShortBufferSeqAsync(short[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpShortBufferSeqResult>(progress, cancel);
@@ -2885,12 +2753,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpIntBufferSeqResult> opIntBufferSeqAsync(int[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpIntBufferSeqResult> opIntBufferSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opIntBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpIntBufferSeqResult> _iceI_opIntBufferSeqAsync(int[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpIntBufferSeqResult> _iceI_opIntBufferSeqAsync(int[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opIntBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpIntBufferSeqResult>(progress, cancel);
@@ -2922,12 +2790,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpLongBufferSeqResult> opLongBufferSeqAsync(long[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpLongBufferSeqResult> opLongBufferSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLongBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpLongBufferSeqResult> _iceI_opLongBufferSeqAsync(long[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpLongBufferSeqResult> _iceI_opLongBufferSeqAsync(long[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpLongBufferSeqResult>(progress, cancel);
@@ -2959,12 +2827,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpFloatBufferSeqResult> opFloatBufferSeqAsync(float[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpFloatBufferSeqResult> opFloatBufferSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloatBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpFloatBufferSeqResult> _iceI_opFloatBufferSeqAsync(float[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpFloatBufferSeqResult> _iceI_opFloatBufferSeqAsync(float[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpFloatBufferSeqResult>(progress, cancel);
@@ -2996,12 +2864,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpDoubleBufferSeqResult> opDoubleBufferSeqAsync(double[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpDoubleBufferSeqResult> opDoubleBufferSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opDoubleBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpDoubleBufferSeqResult> _iceI_opDoubleBufferSeqAsync(double[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpDoubleBufferSeqResult> _iceI_opDoubleBufferSeqAsync(double[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opDoubleBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpDoubleBufferSeqResult>(progress, cancel);
@@ -3033,12 +2901,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptCSeqResult> opOptCSeqAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptCSeqResult> opOptCSeqAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptCSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptCSeqResult> _iceI_opOptCSeqAsync(C[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptCSeqResult> _iceI_opOptCSeqAsync(C[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptCSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptCSeqResult>(progress, cancel);
@@ -3095,12 +2963,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptCArrayResult> opOptCArrayAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptCArrayResult> opOptCArrayAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptCArrayAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptCArrayResult> _iceI_opOptCArrayAsync(C[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptCArrayResult> _iceI_opOptCArrayAsync(C[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptCArray_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptCArrayResult>(progress, cancel);
@@ -3157,12 +3025,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptCListResult> opOptCListAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptCListResult> opOptCListAsync(C[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptCListAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptCListResult> _iceI_opOptCListAsync(C[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptCListResult> _iceI_opOptCListAsync(C[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptCList_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptCListResult>(progress, cancel);
@@ -3219,12 +3087,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptBoolSeqResult> opOptBoolSeqAsync(bool[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptBoolSeqResult> opOptBoolSeqAsync(bool[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptBoolSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptBoolSeqResult> _iceI_opOptBoolSeqAsync(bool[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptBoolSeqResult> _iceI_opOptBoolSeqAsync(bool[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptBoolSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptBoolSeqResult>(progress, cancel);
@@ -3274,12 +3142,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptByteSeqResult> opOptByteSeqAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptByteSeqResult> opOptByteSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptByteSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptByteSeqResult> _iceI_opOptByteSeqAsync(byte[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptByteSeqResult> _iceI_opOptByteSeqAsync(byte[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptByteSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptByteSeqResult>(progress, cancel);
@@ -3329,12 +3197,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptShortSeqResult> opOptShortSeqAsync(short[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptShortSeqResult> opOptShortSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptShortSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptShortSeqResult> _iceI_opOptShortSeqAsync(short[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptShortSeqResult> _iceI_opOptShortSeqAsync(short[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptShortSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptShortSeqResult>(progress, cancel);
@@ -3386,12 +3254,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptIntSeqResult> opOptIntSeqAsync(int[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptIntSeqResult> opOptIntSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptIntSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptIntSeqResult> _iceI_opOptIntSeqAsync(int[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptIntSeqResult> _iceI_opOptIntSeqAsync(int[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptIntSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptIntSeqResult>(progress, cancel);
@@ -3443,12 +3311,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptLongSeqResult> opOptLongSeqAsync(long[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptLongSeqResult> opOptLongSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptLongSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptLongSeqResult> _iceI_opOptLongSeqAsync(long[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptLongSeqResult> _iceI_opOptLongSeqAsync(long[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptLongSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptLongSeqResult>(progress, cancel);
@@ -3500,12 +3368,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptFloatSeqResult> opOptFloatSeqAsync(float[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptFloatSeqResult> opOptFloatSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptFloatSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptFloatSeqResult> _iceI_opOptFloatSeqAsync(float[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptFloatSeqResult> _iceI_opOptFloatSeqAsync(float[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptFloatSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptFloatSeqResult>(progress, cancel);
@@ -3557,12 +3425,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleSeqResult> opOptDoubleSeqAsync(double[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleSeqResult> opOptDoubleSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptDoubleSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleSeqResult> _iceI_opOptDoubleSeqAsync(double[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleSeqResult> _iceI_opOptDoubleSeqAsync(double[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptDoubleSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptDoubleSeqResult>(progress, cancel);
@@ -3614,12 +3482,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqResult> opOptStringSeqAsync(string[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqResult> opOptStringSeqAsync(string[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptStringSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqResult> _iceI_opOptStringSeqAsync(string[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqResult> _iceI_opOptStringSeqAsync(string[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptStringSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptStringSeqResult>(progress, cancel);
@@ -3671,12 +3539,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptESeqResult> opOptESeqAsync(E[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptESeqResult> opOptESeqAsync(E[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptESeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptESeqResult> _iceI_opOptESeqAsync(E[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptESeqResult> _iceI_opOptESeqAsync(E[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptESeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptESeqResult>(progress, cancel);
@@ -3733,12 +3601,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptSSeqResult> opOptSSeqAsync(S[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptSSeqResult> opOptSSeqAsync(S[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptSSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptSSeqResult> _iceI_opOptSSeqAsync(S[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptSSeqResult> _iceI_opOptSSeqAsync(S[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptSSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptSSeqResult>(progress, cancel);
@@ -3795,12 +3663,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptDSeqResult> opOptDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptDSeqResult> opOptDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptDSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptDSeqResult> _iceI_opOptDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptDSeqResult> _iceI_opOptDSeqAsync(global::System.Collections.Generic.Dictionary<int, string>[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptDSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptDSeqResult>(progress, cancel);
@@ -3857,12 +3725,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqSeqResult> opOptStringSeqSeqAsync(string[][] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqSeqResult> opOptStringSeqSeqAsync(string[][] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptStringSeqSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqSeqResult> _iceI_opOptStringSeqSeqAsync(string[][] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptStringSeqSeqResult> _iceI_opOptStringSeqSeqAsync(string[][] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptStringSeqSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptStringSeqSeqResult>(progress, cancel);
@@ -3919,12 +3787,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptByteBufferSeqResult> opOptByteBufferSeqAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptByteBufferSeqResult> opOptByteBufferSeqAsync(byte[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptByteBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptByteBufferSeqResult> _iceI_opOptByteBufferSeqAsync(byte[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptByteBufferSeqResult> _iceI_opOptByteBufferSeqAsync(byte[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptByteBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptByteBufferSeqResult>(progress, cancel);
@@ -3974,12 +3842,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptShortBufferSeqResult> opOptShortBufferSeqAsync(short[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptShortBufferSeqResult> opOptShortBufferSeqAsync(short[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptShortBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptShortBufferSeqResult> _iceI_opOptShortBufferSeqAsync(short[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptShortBufferSeqResult> _iceI_opOptShortBufferSeqAsync(short[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptShortBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptShortBufferSeqResult>(progress, cancel);
@@ -4031,12 +3899,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptIntBufferSeqResult> opOptIntBufferSeqAsync(int[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptIntBufferSeqResult> opOptIntBufferSeqAsync(int[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptIntBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptIntBufferSeqResult> _iceI_opOptIntBufferSeqAsync(int[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptIntBufferSeqResult> _iceI_opOptIntBufferSeqAsync(int[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptIntBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptIntBufferSeqResult>(progress, cancel);
@@ -4088,12 +3956,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptLongBufferSeqResult> opOptLongBufferSeqAsync(long[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptLongBufferSeqResult> opOptLongBufferSeqAsync(long[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptLongBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptLongBufferSeqResult> _iceI_opOptLongBufferSeqAsync(long[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptLongBufferSeqResult> _iceI_opOptLongBufferSeqAsync(long[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptLongBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptLongBufferSeqResult>(progress, cancel);
@@ -4145,12 +4013,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptFloatBufferSeqResult> opOptFloatBufferSeqAsync(float[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptFloatBufferSeqResult> opOptFloatBufferSeqAsync(float[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptFloatBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptFloatBufferSeqResult> _iceI_opOptFloatBufferSeqAsync(float[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptFloatBufferSeqResult> _iceI_opOptFloatBufferSeqAsync(float[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptFloatBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptFloatBufferSeqResult>(progress, cancel);
@@ -4202,12 +4070,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleBufferSeqResult> opOptDoubleBufferSeqAsync(double[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleBufferSeqResult> opOptDoubleBufferSeqAsync(double[] inSeq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOptDoubleBufferSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleBufferSeqResult> _iceI_opOptDoubleBufferSeqAsync(double[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpOptDoubleBufferSeqResult> _iceI_opOptDoubleBufferSeqAsync(double[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOptDoubleBufferSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpOptDoubleBufferSeqResult>(progress, cancel);
@@ -4259,12 +4127,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -4288,77 +4156,30 @@ namespace Test
 
         #region Checked and unchecked cast operations
 
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b)
+        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            TestIntfPrx r = b as TestIntfPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                TestIntfPrxHelper h = new TestIntfPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            TestIntfPrx r = b as TestIntfPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                TestIntfPrxHelper h = new TestIntfPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    TestIntfPrxHelper h = new TestIntfPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    TestIntfPrxHelper h = new TestIntfPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -4366,30 +4187,25 @@ namespace Test
 
         public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            TestIntfPrx r = b as TestIntfPrx;
-            if(r == null)
-            {
-                TestIntfPrxHelper h = new TestIntfPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            TestIntfPrxHelper h = new TestIntfPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

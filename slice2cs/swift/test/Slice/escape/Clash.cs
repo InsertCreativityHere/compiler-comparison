@@ -427,45 +427,6 @@ namespace Clash
 
 namespace Clash
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_context();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_current();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_response();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_upCast();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_typeId();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_del();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_cookie();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_sync();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_inS();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_istr();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_op();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Intf_opOut(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy);
-}
-
-namespace Clash
-{
     public struct Intf_OpOutResult
     {
         public Intf_OpOutResult(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy)
@@ -502,53 +463,53 @@ namespace Clash
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface IntfPrx : global::Ice.ObjectPrx
     {
-        void context(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void context(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task contextAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task contextAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void current(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void current(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task currentAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task currentAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void response(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void response(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task responseAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task responseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void upCast(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void upCast(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task upCastAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task upCastAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void typeId(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void typeId(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task typeIdAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task typeIdAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void del(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void del(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task delAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task delAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void cookie(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void cookie(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task cookieAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task cookieAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void sync(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void sync(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task syncAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task syncAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void inS(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void inS(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task inSAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task inSAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void istr(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void istr(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task istrAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task istrAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext());
+        void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::System.Collections.Generic.Dictionary<string, string> context_ = null);
 
-        global::System.Threading.Tasks.Task opAsync(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task opAsync(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::System.Collections.Generic.Dictionary<string, string> context_ = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext());
+        void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string proxy, global::System.Collections.Generic.Dictionary<string, string> context_ = null);
 
-        global::System.Threading.Tasks.Task<Intf_OpOutResult> opOutAsync(global::Ice.OptionalContext context_ = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<Intf_OpOutResult> opOutAsync(global::System.Collections.Generic.Dictionary<string, string> context_ = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -607,7 +568,7 @@ namespace Clash
 
         #region Synchronous operations
 
-        public void context(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void context(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -619,7 +580,7 @@ namespace Clash
             }
         }
 
-        public void current(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void current(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -631,7 +592,7 @@ namespace Clash
             }
         }
 
-        public void response(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void response(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -643,7 +604,7 @@ namespace Clash
             }
         }
 
-        public void upCast(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void upCast(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -655,7 +616,7 @@ namespace Clash
             }
         }
 
-        public void typeId(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void typeId(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -667,7 +628,7 @@ namespace Clash
             }
         }
 
-        public void del(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void del(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -679,7 +640,7 @@ namespace Clash
             }
         }
 
-        public void cookie(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void cookie(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -691,7 +652,7 @@ namespace Clash
             }
         }
 
-        public void sync(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void sync(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -703,7 +664,7 @@ namespace Clash
             }
         }
 
-        public void inS(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void inS(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -715,7 +676,7 @@ namespace Clash
             }
         }
 
-        public void istr(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void istr(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -727,7 +688,7 @@ namespace Clash
             }
         }
 
-        public void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext())
+        public void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::System.Collections.Generic.Dictionary<string, string> context_ = null)
         {
             try
             {
@@ -739,7 +700,7 @@ namespace Clash
             }
         }
 
-        public void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext())
+        public void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string proxy, global::System.Collections.Generic.Dictionary<string, string> context_ = null)
         {
             try
             {
@@ -766,12 +727,12 @@ namespace Clash
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task contextAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task contextAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_contextAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_contextAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_contextAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_context(context, synchronous, completed);
@@ -791,12 +752,12 @@ namespace Clash
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task currentAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task currentAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_currentAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_currentAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_currentAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_current(context, synchronous, completed);
@@ -816,12 +777,12 @@ namespace Clash
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task responseAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task responseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_responseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_responseAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_responseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_response(context, synchronous, completed);
@@ -841,12 +802,12 @@ namespace Clash
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task upCastAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task upCastAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_upCastAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_upCastAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_upCastAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_upCast(context, synchronous, completed);
@@ -866,12 +827,12 @@ namespace Clash
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task typeIdAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task typeIdAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_typeIdAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_typeIdAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_typeIdAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_typeId(context, synchronous, completed);
@@ -891,12 +852,12 @@ namespace Clash
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task delAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task delAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_delAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_delAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_delAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_del(context, synchronous, completed);
@@ -916,12 +877,12 @@ namespace Clash
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task cookieAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task cookieAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_cookieAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_cookieAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_cookieAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_cookie(context, synchronous, completed);
@@ -941,12 +902,12 @@ namespace Clash
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task syncAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task syncAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_syncAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_syncAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_syncAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_sync(context, synchronous, completed);
@@ -966,12 +927,12 @@ namespace Clash
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task inSAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task inSAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_inSAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_inSAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_inSAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_inS(context, synchronous, completed);
@@ -991,12 +952,12 @@ namespace Clash
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task istrAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task istrAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_istrAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_istrAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_istrAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_istr(context, synchronous, completed);
@@ -1016,12 +977,12 @@ namespace Clash
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task opAsync(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::Ice.OptionalContext context_ = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opAsync(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy, global::System.Collections.Generic.Dictionary<string, string> context_ = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opAsync(context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, context_, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opAsync(string iceP_context, string iceP_current, string iceP_response, string iceP_ex, string iceP_sent, string iceP_cookie, string iceP_sync, string iceP_result, string iceP_istr, string iceP_ostr, string iceP_proxy, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opAsync(string iceP_context, string iceP_current, string iceP_response, string iceP_ex, string iceP_sent, string iceP_cookie, string iceP_sync, string iceP_result, string iceP_istr, string iceP_ostr, string iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_op(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, context, synchronous, completed);
@@ -1055,12 +1016,12 @@ namespace Clash
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Intf_OpOutResult> opOutAsync(global::Ice.OptionalContext context_ = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<Intf_OpOutResult> opOutAsync(global::System.Collections.Generic.Dictionary<string, string> context_ = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opOutAsync(context_, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Intf_OpOutResult> _iceI_opOutAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Intf_OpOutResult> _iceI_opOutAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opOut_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Intf_OpOutResult>(progress, cancel);
@@ -1101,77 +1062,30 @@ namespace Clash
 
         #region Checked and unchecked cast operations
 
-        public static IntfPrx checkedCast(global::Ice.ObjectPrx b)
+        public static IntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            IntfPrx r = b as IntfPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                IntfPrxHelper h = new IntfPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static IntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            IntfPrx r = b as IntfPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                IntfPrxHelper h = new IntfPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static IntfPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    IntfPrxHelper h = new IntfPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                IntfPrxHelper prx = new IntfPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static IntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static IntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    IntfPrxHelper h = new IntfPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    IntfPrxHelper prx = new IntfPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1179,30 +1093,25 @@ namespace Clash
 
         public static IntfPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                IntfPrxHelper prx = new IntfPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            IntfPrx r = b as IntfPrx;
-            if(r == null)
-            {
-                IntfPrxHelper h = new IntfPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static IntfPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                IntfPrxHelper prx = new IntfPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            IntfPrxHelper h = new IntfPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

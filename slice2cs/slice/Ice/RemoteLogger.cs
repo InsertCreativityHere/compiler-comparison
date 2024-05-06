@@ -302,24 +302,6 @@ namespace Ice
 
 namespace Ice
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_RemoteLogger_init();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_RemoteLogger_log();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_LoggerAdmin_attachRemoteLogger();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_LoggerAdmin_detachRemoteLogger(bool ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_LoggerAdmin_getLog(LogMessage[] ret, string prefix);
-}
-
-namespace Ice
-{
     public struct LoggerAdmin_GetLogResult
     {
         public LoggerAdmin_GetLogResult(LogMessage[] returnValue, string prefix)
@@ -352,7 +334,7 @@ namespace Ice
         /// <param name="logMessages">Old log messages generated before "now".</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void init(string prefix, LogMessage[] logMessages, OptionalContext context = new OptionalContext());
+        void init(string prefix, LogMessage[] logMessages, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
@@ -364,7 +346,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task initAsync(string prefix, LogMessage[] logMessages, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task initAsync(string prefix, LogMessage[] logMessages, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Log a LogMessage.
@@ -373,7 +355,7 @@ namespace Ice
         ///  <param name="message">The message to log.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void log(LogMessage message, OptionalContext context = new OptionalContext());
+        void log(LogMessage message, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Log a LogMessage.
@@ -384,7 +366,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task logAsync(LogMessage message, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task logAsync(LogMessage message, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -416,7 +398,7 @@ namespace Ice
         ///  object.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext());
+        void attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Attaches a RemoteLogger object to the local logger.
@@ -438,7 +420,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task attachRemoteLoggerAsync(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task attachRemoteLoggerAsync(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Detaches a RemoteLogger object from the local logger.
@@ -448,7 +430,7 @@ namespace Ice
         /// <returns>True if the provided remote logger proxy was detached, and false otherwise.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        bool detachRemoteLogger(RemoteLoggerPrx prx, OptionalContext context = new OptionalContext());
+        bool detachRemoteLogger(RemoteLoggerPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Detaches a RemoteLogger object from the local logger.
@@ -459,7 +441,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<bool> detachRemoteLoggerAsync(RemoteLoggerPrx prx, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<bool> detachRemoteLoggerAsync(RemoteLoggerPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Retrieves log messages recently logged.
@@ -479,7 +461,7 @@ namespace Ice
         /// <returns>The Log messages.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, OptionalContext context = new OptionalContext());
+        LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Retrieves log messages recently logged.
@@ -498,7 +480,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<LoggerAdmin_GetLogResult> getLogAsync(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<LoggerAdmin_GetLogResult> getLogAsync(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -682,7 +664,7 @@ namespace Ice
 
         #region Synchronous operations
 
-        public void init(string prefix, LogMessage[] logMessages, OptionalContext context = new OptionalContext())
+        public void init(string prefix, LogMessage[] logMessages, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -694,7 +676,7 @@ namespace Ice
             }
         }
 
-        public void log(LogMessage message, OptionalContext context = new OptionalContext())
+        public void log(LogMessage message, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -710,12 +692,12 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task initAsync(string prefix, LogMessage[] logMessages, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task initAsync(string prefix, LogMessage[] logMessages, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_initAsync(prefix, logMessages, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_initAsync(string iceP_prefix, LogMessage[] iceP_logMessages, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_initAsync(string iceP_prefix, LogMessage[] iceP_logMessages, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_init(iceP_prefix, iceP_logMessages, context, synchronous, completed);
@@ -740,12 +722,12 @@ namespace Ice
                 });
         }
 
-        public global::System.Threading.Tasks.Task logAsync(LogMessage message, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task logAsync(LogMessage message, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_logAsync(message, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_logAsync(LogMessage iceP_message, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_logAsync(LogMessage iceP_message, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_log(iceP_message, context, synchronous, completed);
@@ -773,77 +755,30 @@ namespace Ice
 
         #region Checked and unchecked cast operations
 
-        public static RemoteLoggerPrx checkedCast(ObjectPrx b)
+        public static RemoteLoggerPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            RemoteLoggerPrx r = b as RemoteLoggerPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                RemoteLoggerPrxHelper h = new RemoteLoggerPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static RemoteLoggerPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            RemoteLoggerPrx r = b as RemoteLoggerPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                RemoteLoggerPrxHelper h = new RemoteLoggerPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static RemoteLoggerPrx checkedCast(ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    RemoteLoggerPrxHelper h = new RemoteLoggerPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(FacetNotExistException)
-            {
+                RemoteLoggerPrxHelper prx = new RemoteLoggerPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static RemoteLoggerPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static RemoteLoggerPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            ObjectPrx bb = b.ice_facet(f);
+            ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    RemoteLoggerPrxHelper h = new RemoteLoggerPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    RemoteLoggerPrxHelper prx = new RemoteLoggerPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(FacetNotExistException)
+            catch (FacetNotExistException)
             {
             }
             return null;
@@ -851,30 +786,25 @@ namespace Ice
 
         public static RemoteLoggerPrx uncheckedCast(ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                RemoteLoggerPrxHelper prx = new RemoteLoggerPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            RemoteLoggerPrx r = b as RemoteLoggerPrx;
-            if(r == null)
-            {
-                RemoteLoggerPrxHelper h = new RemoteLoggerPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static RemoteLoggerPrx uncheckedCast(ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                ObjectPrx bb = b.ice_facet(f);
+                RemoteLoggerPrxHelper prx = new RemoteLoggerPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            ObjectPrx bb = b.ice_facet(f);
-            RemoteLoggerPrxHelper h = new RemoteLoggerPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -919,7 +849,7 @@ namespace Ice
 
         #region Synchronous operations
 
-        public void attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext())
+        public void attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -931,7 +861,7 @@ namespace Ice
             }
         }
 
-        public bool detachRemoteLogger(RemoteLoggerPrx prx, OptionalContext context = new OptionalContext())
+        public bool detachRemoteLogger(RemoteLoggerPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -943,7 +873,7 @@ namespace Ice
             }
         }
 
-        public LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, OptionalContext context = new OptionalContext())
+        public LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -961,12 +891,12 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task attachRemoteLoggerAsync(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task attachRemoteLoggerAsync(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_attachRemoteLoggerAsync(prx, messageTypes, traceCategories, messageMax, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_attachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_attachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_attachRemoteLogger_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1008,12 +938,12 @@ namespace Ice
                 });
         }
 
-        public global::System.Threading.Tasks.Task<bool> detachRemoteLoggerAsync(RemoteLoggerPrx prx, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<bool> detachRemoteLoggerAsync(RemoteLoggerPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_detachRemoteLoggerAsync(prx, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<bool> _iceI_detachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<bool> _iceI_detachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_detachRemoteLogger_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
@@ -1044,12 +974,12 @@ namespace Ice
                 });
         }
 
-        public global::System.Threading.Tasks.Task<LoggerAdmin_GetLogResult> getLogAsync(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<LoggerAdmin_GetLogResult> getLogAsync(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getLogAsync(messageTypes, traceCategories, messageMax, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<LoggerAdmin_GetLogResult> _iceI_getLogAsync(LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<LoggerAdmin_GetLogResult> _iceI_getLogAsync(LogMessageType[] iceP_messageTypes, string[] iceP_traceCategories, int iceP_messageMax, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getLog_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LoggerAdmin_GetLogResult>(progress, cancel);
@@ -1087,77 +1017,30 @@ namespace Ice
 
         #region Checked and unchecked cast operations
 
-        public static LoggerAdminPrx checkedCast(ObjectPrx b)
+        public static LoggerAdminPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            LoggerAdminPrx r = b as LoggerAdminPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                LoggerAdminPrxHelper h = new LoggerAdminPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static LoggerAdminPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            LoggerAdminPrx r = b as LoggerAdminPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                LoggerAdminPrxHelper h = new LoggerAdminPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static LoggerAdminPrx checkedCast(ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    LoggerAdminPrxHelper h = new LoggerAdminPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(FacetNotExistException)
-            {
+                LoggerAdminPrxHelper prx = new LoggerAdminPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static LoggerAdminPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static LoggerAdminPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            ObjectPrx bb = b.ice_facet(f);
+            ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    LoggerAdminPrxHelper h = new LoggerAdminPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    LoggerAdminPrxHelper prx = new LoggerAdminPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(FacetNotExistException)
+            catch (FacetNotExistException)
             {
             }
             return null;
@@ -1165,30 +1048,25 @@ namespace Ice
 
         public static LoggerAdminPrx uncheckedCast(ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                LoggerAdminPrxHelper prx = new LoggerAdminPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            LoggerAdminPrx r = b as LoggerAdminPrx;
-            if(r == null)
-            {
-                LoggerAdminPrxHelper h = new LoggerAdminPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static LoggerAdminPrx uncheckedCast(ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                ObjectPrx bb = b.ice_facet(f);
+                LoggerAdminPrxHelper prx = new LoggerAdminPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            ObjectPrx bb = b.ice_facet(f);
-            LoggerAdminPrxHelper h = new LoggerAdminPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

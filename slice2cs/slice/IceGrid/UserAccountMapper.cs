@@ -95,12 +95,6 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_UserAccountMapper_getUserAccount(string ret);
-}
-
-namespace IceGrid
-{
     /// <summary>
     /// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
     /// </summary>
@@ -122,7 +116,7 @@ namespace IceGrid
         /// <exception name="UserAccountNotFoundException">Raised if no user account is found for the given user.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        string getUserAccount(string user, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string getUserAccount(string user, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Get the name of the user account for the given user.
@@ -136,7 +130,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -180,7 +174,7 @@ namespace IceGrid
 
         #region Synchronous operations
 
-        public string getUserAccount(string user, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string getUserAccount(string user, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -196,12 +190,12 @@ namespace IceGrid
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getUserAccountAsync(user, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string> _iceI_getUserAccountAsync(string iceP_user, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string> _iceI_getUserAccountAsync(string iceP_user, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getUserAccount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
@@ -250,77 +244,30 @@ namespace IceGrid
 
         #region Checked and unchecked cast operations
 
-        public static UserAccountMapperPrx checkedCast(global::Ice.ObjectPrx b)
+        public static UserAccountMapperPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            UserAccountMapperPrx r = b as UserAccountMapperPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                UserAccountMapperPrxHelper h = new UserAccountMapperPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static UserAccountMapperPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            UserAccountMapperPrx r = b as UserAccountMapperPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                UserAccountMapperPrxHelper h = new UserAccountMapperPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static UserAccountMapperPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    UserAccountMapperPrxHelper h = new UserAccountMapperPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                UserAccountMapperPrxHelper prx = new UserAccountMapperPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static UserAccountMapperPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static UserAccountMapperPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    UserAccountMapperPrxHelper h = new UserAccountMapperPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    UserAccountMapperPrxHelper prx = new UserAccountMapperPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -328,30 +275,25 @@ namespace IceGrid
 
         public static UserAccountMapperPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                UserAccountMapperPrxHelper prx = new UserAccountMapperPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            UserAccountMapperPrx r = b as UserAccountMapperPrx;
-            if(r == null)
-            {
-                UserAccountMapperPrxHelper h = new UserAccountMapperPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static UserAccountMapperPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                UserAccountMapperPrxHelper prx = new UserAccountMapperPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            UserAccountMapperPrxHelper h = new UserAccountMapperPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =

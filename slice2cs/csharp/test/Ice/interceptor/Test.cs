@@ -133,83 +133,47 @@ namespace Ice.interceptor
     namespace Test
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyObject_add(int ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyObject_addWithRetry(int ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyObject_badAdd(int ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyObject_notExistAdd(int ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyObject_badSystemAdd(int ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyObject_amdAdd(int ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyObject_amdAddWithRetry(int ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyObject_amdBadAdd(int ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyObject_amdNotExistAdd(int ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyObject_amdBadSystemAdd(int ret);
-    }
-}
-
-namespace Ice.interceptor
-{
-    namespace Test
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface MyObjectPrx : global::Ice.ObjectPrx
         {
-            int add(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int add(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<int> addAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<int> addAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int addWithRetry(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int addWithRetry(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<int> addWithRetryAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<int> addWithRetryAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int badAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int badAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<int> badAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<int> badAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int notExistAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int notExistAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<int> notExistAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<int> notExistAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int badSystemAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int badSystemAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<int> badSystemAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<int> badSystemAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int amdAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int amdAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<int> amdAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<int> amdAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int amdAddWithRetry(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int amdAddWithRetry(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<int> amdAddWithRetryAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<int> amdAddWithRetryAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int amdBadAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int amdBadAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<int> amdBadAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<int> amdBadAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int amdNotExistAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int amdNotExistAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<int> amdNotExistAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<int> amdNotExistAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int amdBadSystemAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+            int amdBadSystemAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-            global::System.Threading.Tasks.Task<int> amdBadSystemAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+            global::System.Threading.Tasks.Task<int> amdBadSystemAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -268,7 +232,7 @@ namespace Ice.interceptor
 
             #region Synchronous operations
 
-            public int add(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int add(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -280,7 +244,7 @@ namespace Ice.interceptor
                 }
             }
 
-            public int addWithRetry(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int addWithRetry(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -292,7 +256,7 @@ namespace Ice.interceptor
                 }
             }
 
-            public int badAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int badAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -304,7 +268,7 @@ namespace Ice.interceptor
                 }
             }
 
-            public int notExistAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int notExistAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -316,7 +280,7 @@ namespace Ice.interceptor
                 }
             }
 
-            public int badSystemAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int badSystemAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -328,7 +292,7 @@ namespace Ice.interceptor
                 }
             }
 
-            public int amdAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int amdAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -340,7 +304,7 @@ namespace Ice.interceptor
                 }
             }
 
-            public int amdAddWithRetry(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int amdAddWithRetry(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -352,7 +316,7 @@ namespace Ice.interceptor
                 }
             }
 
-            public int amdBadAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int amdBadAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -364,7 +328,7 @@ namespace Ice.interceptor
                 }
             }
 
-            public int amdNotExistAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int amdNotExistAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -376,7 +340,7 @@ namespace Ice.interceptor
                 }
             }
 
-            public int amdBadSystemAdd(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public int amdBadSystemAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
                 {
@@ -392,12 +356,12 @@ namespace Ice.interceptor
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task<int> addAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<int> addAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_addAsync(x, y, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_addAsync(int iceP_x, int iceP_y, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_addAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_add_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -429,12 +393,12 @@ namespace Ice.interceptor
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int> addWithRetryAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<int> addWithRetryAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_addWithRetryAsync(x, y, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_addWithRetryAsync(int iceP_x, int iceP_y, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_addWithRetryAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_addWithRetry_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -466,12 +430,12 @@ namespace Ice.interceptor
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int> badAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<int> badAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_badAddAsync(x, y, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_badAddAsync(int iceP_x, int iceP_y, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_badAddAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_badAdd_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -517,12 +481,12 @@ namespace Ice.interceptor
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int> notExistAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<int> notExistAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_notExistAddAsync(x, y, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_notExistAddAsync(int iceP_x, int iceP_y, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_notExistAddAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_notExistAdd_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -554,12 +518,12 @@ namespace Ice.interceptor
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int> badSystemAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<int> badSystemAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_badSystemAddAsync(x, y, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_badSystemAddAsync(int iceP_x, int iceP_y, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_badSystemAddAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_badSystemAdd_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -591,12 +555,12 @@ namespace Ice.interceptor
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int> amdAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<int> amdAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_amdAddAsync(x, y, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_amdAddAsync(int iceP_x, int iceP_y, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_amdAddAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_amdAdd_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -628,12 +592,12 @@ namespace Ice.interceptor
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int> amdAddWithRetryAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<int> amdAddWithRetryAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_amdAddWithRetryAsync(x, y, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_amdAddWithRetryAsync(int iceP_x, int iceP_y, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_amdAddWithRetryAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_amdAddWithRetry_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -665,12 +629,12 @@ namespace Ice.interceptor
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int> amdBadAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<int> amdBadAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_amdBadAddAsync(x, y, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_amdBadAddAsync(int iceP_x, int iceP_y, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_amdBadAddAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_amdBadAdd_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -716,12 +680,12 @@ namespace Ice.interceptor
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int> amdNotExistAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<int> amdNotExistAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_amdNotExistAddAsync(x, y, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_amdNotExistAddAsync(int iceP_x, int iceP_y, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_amdNotExistAddAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_amdNotExistAdd_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -753,12 +717,12 @@ namespace Ice.interceptor
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int> amdBadSystemAddAsync(int x, int y, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task<int> amdBadSystemAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_amdBadSystemAddAsync(x, y, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_amdBadSystemAddAsync(int iceP_x, int iceP_y, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_amdBadSystemAddAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_amdBadSystemAdd_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -794,77 +758,30 @@ namespace Ice.interceptor
 
             #region Checked and unchecked cast operations
 
-            public static MyObjectPrx checkedCast(global::Ice.ObjectPrx b)
+            public static MyObjectPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
-                if(b == null)
+                if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
-                    return null;
-                }
-                MyObjectPrx r = b as MyObjectPrx;
-                if((r == null) && b.ice_isA(ice_staticId()))
-                {
-                    MyObjectPrxHelper h = new MyObjectPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
-            }
-
-            public static MyObjectPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-            {
-                if(b == null)
-                {
-                    return null;
-                }
-                MyObjectPrx r = b as MyObjectPrx;
-                if((r == null) && b.ice_isA(ice_staticId(), ctx))
-                {
-                    MyObjectPrxHelper h = new MyObjectPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
-            }
-
-            public static MyObjectPrx checkedCast(global::Ice.ObjectPrx b, string f)
-            {
-                if(b == null)
-                {
-                    return null;
-                }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                try
-                {
-                    if(bb.ice_isA(ice_staticId()))
-                    {
-                        MyObjectPrxHelper h = new MyObjectPrxHelper();
-                        h.iceCopyFrom(bb);
-                        return h;
-                    }
-                }
-                catch(global::Ice.FacetNotExistException)
-                {
+                    MyObjectPrxHelper prx = new MyObjectPrxHelper();
+                    prx.iceCopyFrom(b);
+                    return prx;
                 }
                 return null;
             }
 
-            public static MyObjectPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+            public static MyObjectPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
-                if(b == null)
-                {
-                    return null;
-                }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                global::Ice.ObjectPrx bb = b?.ice_facet(f);
                 try
                 {
-                    if(bb.ice_isA(ice_staticId(), ctx))
+                    if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                     {
-                        MyObjectPrxHelper h = new MyObjectPrxHelper();
-                        h.iceCopyFrom(bb);
-                        return h;
+                        MyObjectPrxHelper prx = new MyObjectPrxHelper();
+                        prx.iceCopyFrom(bb);
+                        return prx;
                     }
                 }
-                catch(global::Ice.FacetNotExistException)
+                catch (global::Ice.FacetNotExistException)
                 {
                 }
                 return null;
@@ -872,30 +789,25 @@ namespace Ice.interceptor
 
             public static MyObjectPrx uncheckedCast(global::Ice.ObjectPrx b)
             {
-                if(b == null)
+                if (b is not null)
                 {
-                    return null;
+                    MyObjectPrxHelper prx = new MyObjectPrxHelper();
+                    prx.iceCopyFrom(b);
+                    return prx;
                 }
-                MyObjectPrx r = b as MyObjectPrx;
-                if(r == null)
-                {
-                    MyObjectPrxHelper h = new MyObjectPrxHelper();
-                    h.iceCopyFrom(b);
-                    r = h;
-                }
-                return r;
+                return null;
             }
 
             public static MyObjectPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
             {
-                if(b == null)
+                if (b is not null)
                 {
-                    return null;
+                    global::Ice.ObjectPrx bb = b.ice_facet(f);
+                    MyObjectPrxHelper prx = new MyObjectPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                MyObjectPrxHelper h = new MyObjectPrxHelper();
-                h.iceCopyFrom(bb);
-                return h;
+                return null;
             }
 
             private static readonly string[] _ids =

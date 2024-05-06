@@ -1086,228 +1086,6 @@ namespace Test2
 
 namespace Test
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_shutdown();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_supportsCompress(bool ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opVoid();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opByte(byte ret, byte p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opBool(bool ret, bool p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opShortIntLong(long ret, short p4, int p5, long p6);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opFloatDouble(double ret, float p3, double p4);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opString(string ret, string p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMyEnum(MyEnum ret, MyEnum p2);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMyClass(MyClassPrx ret, MyClassPrx p2, MyClassPrx p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStruct(Structure ret, Structure p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opByteS(byte[] ret, byte[] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opBoolS(bool[] ret, bool[] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opShortIntLongS(long[] ret, short[] p4, int[] p5, long[] p6);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opFloatDoubleS(double[] ret, float[] p3, double[] p4);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringS(string[] ret, string[] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opByteSS(byte[][] ret, byte[][] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opBoolSS(bool[][] ret, bool[][] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opShortIntLongSS(long[][] ret, short[][] p4, int[][] p5, long[][] p6);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opFloatDoubleSS(double[][] ret, float[][] p3, double[][] p4);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringSS(string[][] ret, string[][] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringSSS(string[][][] ret, string[][][] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> ret, global::System.Collections.Generic.Dictionary<byte, bool> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opShortIntD(global::System.Collections.Generic.Dictionary<short, int> ret, global::System.Collections.Generic.Dictionary<short, int> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> ret, global::System.Collections.Generic.Dictionary<long, float> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringStringD(global::System.Collections.Generic.Dictionary<string, string> ret, global::System.Collections.Generic.Dictionary<string, string> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> ret, global::System.Collections.Generic.Dictionary<string, MyEnum> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> ret, global::System.Collections.Generic.Dictionary<MyEnum, string> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> ret, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] ret, global::System.Collections.Generic.Dictionary<byte, bool>[] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] ret, global::System.Collections.Generic.Dictionary<short, int>[] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] ret, global::System.Collections.Generic.Dictionary<long, float>[] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] ret, global::System.Collections.Generic.Dictionary<string, string>[] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] ret, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] ret, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] ret, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> ret, global::System.Collections.Generic.Dictionary<byte, byte[]> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> ret, global::System.Collections.Generic.Dictionary<bool, bool[]> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> ret, global::System.Collections.Generic.Dictionary<short, short[]> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> ret, global::System.Collections.Generic.Dictionary<int, int[]> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> ret, global::System.Collections.Generic.Dictionary<long, long[]> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> ret, global::System.Collections.Generic.Dictionary<string, float[]> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> ret, global::System.Collections.Generic.Dictionary<string, double[]> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> ret, global::System.Collections.Generic.Dictionary<string, string[]> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> ret, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opIntS(int[] ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opByteSOneway();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opByteSOnewayCallCount(int ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opContext(global::System.Collections.Generic.Dictionary<string, string> ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opDoubleMarshaling();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opIdempotent();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opByte1(byte ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opShort1(short ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opInt1(int ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opLong1(long ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opFloat1(float ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opDouble1(double ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opString1(string ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringS1(string[] ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringS2(string[] ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opStringLiterals(string[] ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opWStringLiterals(string[] ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMStruct1(Structure ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMStruct2(Structure ret, Structure p2);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMSeq1(string[] ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMSeq2(string[] ret, string[] p2);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMDict1(global::System.Collections.Generic.Dictionary<string, string> ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opMDict2(global::System.Collections.Generic.Dictionary<string, string> ret, global::System.Collections.Generic.Dictionary<string, string> p2);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyDerivedClass_opDerived();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyDerivedClass_opMyClass1(MyClass1 ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyDerivedClass_opMyStruct1(MyStruct1 ret);
-}
-
-namespace Test
-{
     public struct MyClass_OpByteResult
     {
         public MyClass_OpByteResult(byte returnValue, byte p3)
@@ -2015,301 +1793,301 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface MyClassPrx : global::Ice.ObjectPrx
     {
-        void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        bool supportsCompress(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        bool supportsCompress(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void opVoid(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void opVoid(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task opVoidAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task opVoidAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte opByte(byte p1, byte p2, out byte p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte opByte(byte p1, byte p2, out byte p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        bool opBool(bool p1, bool p2, out bool p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        bool opBool(bool p1, bool p2, out bool p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        double opFloatDouble(float p1, double p2, out float p3, out double p4, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string opString(string p1, string p2, out string p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string opString(string p1, string p2, out string p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        Structure opStruct(Structure p1, Structure p2, out Structure p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        Structure opStruct(Structure p1, Structure p2, out Structure p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[] opStringS(string[] p1, string[] p2, out string[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<string, MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, MyEnum> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<string, MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int[] opIntS(int[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int[] opIntS(int[] s, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void opByteSOneway(byte[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void opByteSOneway(byte[] s, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int opByteSOnewayCallCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int opByteSOnewayCallCount(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<string, string> opContext(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void opDoubleMarshaling(double p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void opDoubleMarshaling(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void opIdempotent(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void opIdempotent(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task opIdempotentAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task opIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte opByte1(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        byte opByte1(byte opByte1, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        short opShort1(short opShort1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        short opShort1(short opShort1, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int opInt1(int opInt1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int opInt1(int opInt1, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        long opLong1(long opLong1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        long opLong1(long opLong1, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        float opFloat1(float opFloat1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        float opFloat1(float opFloat1, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        double opDouble1(double opDouble1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        double opDouble1(double opDouble1, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string opString1(string opString1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string opString1(string opString1, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[] opStringS1(string[] opStringS1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[] opStringS1(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[] opStringS2(string[] stringS, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[] opStringS2(string[] stringS, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[] opStringLiterals(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[] opStringLiterals(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[] opWStringLiterals(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[] opWStringLiterals(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        Structure opMStruct1(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        Structure opMStruct1(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<Structure> opMStruct1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<Structure> opMStruct1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        Structure opMStruct2(Structure p1, out Structure p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        Structure opMStruct2(Structure p1, out Structure p2, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> opMStruct2Async(Structure p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> opMStruct2Async(Structure p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[] opMSeq1(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[] opMSeq1(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<string[]> opMSeq1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<string[]> opMSeq1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        string[] opMSeq2(string[] p1, out string[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        string[] opMSeq2(string[] p1, out string[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> opMSeq2Async(string[] p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> opMSeq2Async(string[] p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<string, string> opMDict1(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<string, string> opMDict1(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opMDict1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opMDict1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<string, string> opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, out global::System.Collections.Generic.Dictionary<string, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::System.Collections.Generic.Dictionary<string, string> opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, out global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface MyDerivedClassPrx : MyClassPrx
     {
-        void opDerived(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void opDerived(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task opDerivedAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task opDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        MyClass1 opMyClass1(MyClass1 opMyClass1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        MyClass1 opMyClass1(MyClass1 opMyClass1, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyClass1> opMyClass1Async(MyClass1 opMyClass1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyClass1> opMyClass1Async(MyClass1 opMyClass1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
-        global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -3997,7 +3775,7 @@ namespace Test
 
         #region Synchronous operations
 
-        public void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4009,7 +3787,7 @@ namespace Test
             }
         }
 
-        public bool supportsCompress(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool supportsCompress(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4021,7 +3799,7 @@ namespace Test
             }
         }
 
-        public void opVoid(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opVoid(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4033,7 +3811,7 @@ namespace Test
             }
         }
 
-        public byte opByte(byte p1, byte p2, out byte p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte opByte(byte p1, byte p2, out byte p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4047,7 +3825,7 @@ namespace Test
             }
         }
 
-        public bool opBool(bool p1, bool p2, out bool p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool opBool(bool p1, bool p2, out bool p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4061,7 +3839,7 @@ namespace Test
             }
         }
 
-        public long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4077,7 +3855,7 @@ namespace Test
             }
         }
 
-        public double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double opFloatDouble(float p1, double p2, out float p3, out double p4, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4092,7 +3870,7 @@ namespace Test
             }
         }
 
-        public string opString(string p1, string p2, out string p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string opString(string p1, string p2, out string p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4106,7 +3884,7 @@ namespace Test
             }
         }
 
-        public MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4120,7 +3898,7 @@ namespace Test
             }
         }
 
-        public MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4135,7 +3913,7 @@ namespace Test
             }
         }
 
-        public Structure opStruct(Structure p1, Structure p2, out Structure p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public Structure opStruct(Structure p1, Structure p2, out Structure p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4149,7 +3927,7 @@ namespace Test
             }
         }
 
-        public byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4163,7 +3941,7 @@ namespace Test
             }
         }
 
-        public bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4177,7 +3955,7 @@ namespace Test
             }
         }
 
-        public long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4193,7 +3971,7 @@ namespace Test
             }
         }
 
-        public double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4208,7 +3986,7 @@ namespace Test
             }
         }
 
-        public string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringS(string[] p1, string[] p2, out string[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4222,7 +4000,7 @@ namespace Test
             }
         }
 
-        public byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4236,7 +4014,7 @@ namespace Test
             }
         }
 
-        public bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4250,7 +4028,7 @@ namespace Test
             }
         }
 
-        public long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4266,7 +4044,7 @@ namespace Test
             }
         }
 
-        public double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4281,7 +4059,7 @@ namespace Test
             }
         }
 
-        public string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4295,7 +4073,7 @@ namespace Test
             }
         }
 
-        public string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4309,7 +4087,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4323,7 +4101,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4337,7 +4115,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4351,7 +4129,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4365,7 +4143,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, MyEnum> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4379,7 +4157,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4393,7 +4171,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4407,7 +4185,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4421,7 +4199,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4435,7 +4213,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4449,7 +4227,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4463,7 +4241,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4477,7 +4255,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4491,7 +4269,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4505,7 +4283,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4519,7 +4297,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4533,7 +4311,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4547,7 +4325,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4561,7 +4339,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4575,7 +4353,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4589,7 +4367,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4603,7 +4381,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4617,7 +4395,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4631,7 +4409,7 @@ namespace Test
             }
         }
 
-        public int[] opIntS(int[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int[] opIntS(int[] s, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4643,7 +4421,7 @@ namespace Test
             }
         }
 
-        public void opByteSOneway(byte[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opByteSOneway(byte[] s, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4655,7 +4433,7 @@ namespace Test
             }
         }
 
-        public int opByteSOnewayCallCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int opByteSOnewayCallCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4667,7 +4445,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opContext(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4679,7 +4457,7 @@ namespace Test
             }
         }
 
-        public void opDoubleMarshaling(double p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opDoubleMarshaling(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4691,7 +4469,7 @@ namespace Test
             }
         }
 
-        public void opIdempotent(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opIdempotent(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4703,7 +4481,7 @@ namespace Test
             }
         }
 
-        public byte opByte1(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte opByte1(byte opByte1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4715,7 +4493,7 @@ namespace Test
             }
         }
 
-        public short opShort1(short opShort1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public short opShort1(short opShort1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4727,7 +4505,7 @@ namespace Test
             }
         }
 
-        public int opInt1(int opInt1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int opInt1(int opInt1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4739,7 +4517,7 @@ namespace Test
             }
         }
 
-        public long opLong1(long opLong1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long opLong1(long opLong1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4751,7 +4529,7 @@ namespace Test
             }
         }
 
-        public float opFloat1(float opFloat1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public float opFloat1(float opFloat1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4763,7 +4541,7 @@ namespace Test
             }
         }
 
-        public double opDouble1(double opDouble1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double opDouble1(double opDouble1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4775,7 +4553,7 @@ namespace Test
             }
         }
 
-        public string opString1(string opString1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string opString1(string opString1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4787,7 +4565,7 @@ namespace Test
             }
         }
 
-        public string[] opStringS1(string[] opStringS1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringS1(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4799,7 +4577,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4811,7 +4589,7 @@ namespace Test
             }
         }
 
-        public string[] opStringS2(string[] stringS, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringS2(string[] stringS, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4823,7 +4601,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4835,7 +4613,7 @@ namespace Test
             }
         }
 
-        public string[] opStringLiterals(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringLiterals(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4847,7 +4625,7 @@ namespace Test
             }
         }
 
-        public string[] opWStringLiterals(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opWStringLiterals(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4859,7 +4637,7 @@ namespace Test
             }
         }
 
-        public Structure opMStruct1(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public Structure opMStruct1(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4871,7 +4649,7 @@ namespace Test
             }
         }
 
-        public Structure opMStruct2(Structure p1, out Structure p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public Structure opMStruct2(Structure p1, out Structure p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4885,7 +4663,7 @@ namespace Test
             }
         }
 
-        public string[] opMSeq1(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opMSeq1(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4897,7 +4675,7 @@ namespace Test
             }
         }
 
-        public string[] opMSeq2(string[] p1, out string[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opMSeq2(string[] p1, out string[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4911,7 +4689,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opMDict1(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opMDict1(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4923,7 +4701,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, out global::System.Collections.Generic.Dictionary<string, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, out global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -4941,12 +4719,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -4966,12 +4744,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_supportsCompressAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<bool> _iceI_supportsCompressAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<bool> _iceI_supportsCompressAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_supportsCompress_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
@@ -4998,12 +4776,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task opVoidAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opVoidAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opVoidAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opVoidAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opVoidAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opVoid(context, synchronous, completed);
@@ -5023,12 +4801,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteResult> _iceI_opByteAsync(byte iceP_p1, byte iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteResult> _iceI_opByteAsync(byte iceP_p1, byte iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByte_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteResult>(progress, cancel);
@@ -5061,12 +4839,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpBoolResult> _iceI_opBoolAsync(bool iceP_p1, bool iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpBoolResult> _iceI_opBoolAsync(bool iceP_p1, bool iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBool_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpBoolResult>(progress, cancel);
@@ -5099,12 +4877,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntLongAsync(p1, p2, p3, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> _iceI_opShortIntLongAsync(short iceP_p1, int iceP_p2, long iceP_p3, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> _iceI_opShortIntLongAsync(short iceP_p1, int iceP_p2, long iceP_p3, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntLong_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortIntLongResult>(progress, cancel);
@@ -5140,12 +4918,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloatDoubleAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> _iceI_opFloatDoubleAsync(float iceP_p1, double iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> _iceI_opFloatDoubleAsync(float iceP_p1, double iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatDouble_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpFloatDoubleResult>(progress, cancel);
@@ -5179,12 +4957,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringResult> _iceI_opStringAsync(string iceP_p1, string iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringResult> _iceI_opStringAsync(string iceP_p1, string iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opString_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringResult>(progress, cancel);
@@ -5217,12 +4995,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumAsync(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> _iceI_opMyEnumAsync(MyEnum iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> _iceI_opMyEnumAsync(MyEnum iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnum_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyEnumResult>(progress, cancel);
@@ -5254,12 +5032,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyClassAsync(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> _iceI_opMyClassAsync(MyClassPrx iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> _iceI_opMyClassAsync(MyClassPrx iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyClass_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyClassResult>(progress, cancel);
@@ -5292,12 +5070,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStructAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStructResult> _iceI_opStructAsync(Structure iceP_p1, Structure iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStructResult> _iceI_opStructAsync(Structure iceP_p1, Structure iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStruct_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStructResult>(progress, cancel);
@@ -5330,12 +5108,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteSResult> _iceI_opByteSAsync(byte[] iceP_p1, byte[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteSResult> _iceI_opByteSAsync(byte[] iceP_p1, byte[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteSResult>(progress, cancel);
@@ -5368,12 +5146,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> _iceI_opBoolSAsync(bool[] iceP_p1, bool[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> _iceI_opBoolSAsync(bool[] iceP_p1, bool[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBoolS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpBoolSResult>(progress, cancel);
@@ -5406,12 +5184,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntLongSAsync(p1, p2, p3, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> _iceI_opShortIntLongSAsync(short[] iceP_p1, int[] iceP_p2, long[] iceP_p3, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> _iceI_opShortIntLongSAsync(short[] iceP_p1, int[] iceP_p2, long[] iceP_p3, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntLongS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortIntLongSResult>(progress, cancel);
@@ -5447,12 +5225,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloatDoubleSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> _iceI_opFloatDoubleSAsync(float[] iceP_p1, double[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> _iceI_opFloatDoubleSAsync(float[] iceP_p1, double[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatDoubleS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpFloatDoubleSResult>(progress, cancel);
@@ -5486,12 +5264,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringSResult> _iceI_opStringSAsync(string[] iceP_p1, string[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringSResult> _iceI_opStringSAsync(string[] iceP_p1, string[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringSResult>(progress, cancel);
@@ -5524,12 +5302,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> _iceI_opByteSSAsync(byte[][] iceP_p1, byte[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> _iceI_opByteSSAsync(byte[][] iceP_p1, byte[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteSSResult>(progress, cancel);
@@ -5562,12 +5340,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> _iceI_opBoolSSAsync(bool[][] iceP_p1, bool[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> _iceI_opBoolSSAsync(bool[][] iceP_p1, bool[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBoolSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpBoolSSResult>(progress, cancel);
@@ -5600,12 +5378,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntLongSSAsync(p1, p2, p3, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> _iceI_opShortIntLongSSAsync(short[][] iceP_p1, int[][] iceP_p2, long[][] iceP_p3, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> _iceI_opShortIntLongSSAsync(short[][] iceP_p1, int[][] iceP_p2, long[][] iceP_p3, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntLongSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortIntLongSSResult>(progress, cancel);
@@ -5641,12 +5419,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloatDoubleSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> _iceI_opFloatDoubleSSAsync(float[][] iceP_p1, double[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> _iceI_opFloatDoubleSSAsync(float[][] iceP_p1, double[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatDoubleSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpFloatDoubleSSResult>(progress, cancel);
@@ -5680,12 +5458,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> _iceI_opStringSSAsync(string[][] iceP_p1, string[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> _iceI_opStringSSAsync(string[][] iceP_p1, string[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringSSResult>(progress, cancel);
@@ -5718,12 +5496,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringSSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> _iceI_opStringSSSAsync(string[][][] iceP_p1, string[][][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> _iceI_opStringSSSAsync(string[][][] iceP_p1, string[][][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringSSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringSSSResult>(progress, cancel);
@@ -5756,12 +5534,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> _iceI_opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> _iceI_opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteBoolDResult>(progress, cancel);
@@ -5794,12 +5572,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> _iceI_opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> iceP_p1, global::System.Collections.Generic.Dictionary<short, int> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> _iceI_opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> iceP_p1, global::System.Collections.Generic.Dictionary<short, int> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortIntDResult>(progress, cancel);
@@ -5832,12 +5610,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLongFloatDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> _iceI_opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> iceP_p1, global::System.Collections.Generic.Dictionary<long, float> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> _iceI_opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> iceP_p1, global::System.Collections.Generic.Dictionary<long, float> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongFloatD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLongFloatDResult>(progress, cancel);
@@ -5870,12 +5648,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringStringDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> _iceI_opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> _iceI_opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringStringD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringStringDResult>(progress, cancel);
@@ -5908,12 +5686,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringMyEnumDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> _iceI_opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> _iceI_opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringMyEnumD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringMyEnumDResult>(progress, cancel);
@@ -5946,12 +5724,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumStringDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> _iceI_opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> _iceI_opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnumStringD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyEnumStringDResult>(progress, cancel);
@@ -5984,12 +5762,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyStructMyEnumDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> _iceI_opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> _iceI_opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyStructMyEnumD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyStructMyEnumDResult>(progress, cancel);
@@ -6022,12 +5800,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> _iceI_opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> _iceI_opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteBoolDSResult>(progress, cancel);
@@ -6060,12 +5838,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> _iceI_opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] iceP_p1, global::System.Collections.Generic.Dictionary<short, int>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> _iceI_opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] iceP_p1, global::System.Collections.Generic.Dictionary<short, int>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortIntDSResult>(progress, cancel);
@@ -6098,12 +5876,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLongFloatDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> _iceI_opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] iceP_p1, global::System.Collections.Generic.Dictionary<long, float>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> _iceI_opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] iceP_p1, global::System.Collections.Generic.Dictionary<long, float>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongFloatDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLongFloatDSResult>(progress, cancel);
@@ -6136,12 +5914,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringStringDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> _iceI_opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, string>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> _iceI_opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, string>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringStringDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringStringDSResult>(progress, cancel);
@@ -6174,12 +5952,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringMyEnumDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> _iceI_opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> _iceI_opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringMyEnumDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringMyEnumDSResult>(progress, cancel);
@@ -6212,12 +5990,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumStringDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> _iceI_opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> _iceI_opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnumStringDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyEnumStringDSResult>(progress, cancel);
@@ -6250,12 +6028,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyStructMyEnumDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> _iceI_opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> _iceI_opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyStructMyEnumDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyStructMyEnumDSResult>(progress, cancel);
@@ -6288,12 +6066,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteByteSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> _iceI_opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p1, global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> _iceI_opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p1, global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteByteSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteByteSDResult>(progress, cancel);
@@ -6326,12 +6104,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolBoolSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> _iceI_opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p1, global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> _iceI_opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p1, global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBoolBoolSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpBoolBoolSDResult>(progress, cancel);
@@ -6364,12 +6142,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortShortSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> _iceI_opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> iceP_p1, global::System.Collections.Generic.Dictionary<short, short[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> _iceI_opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> iceP_p1, global::System.Collections.Generic.Dictionary<short, short[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortShortSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortShortSDResult>(progress, cancel);
@@ -6402,12 +6180,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opIntIntSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> _iceI_opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> iceP_p1, global::System.Collections.Generic.Dictionary<int, int[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> _iceI_opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> iceP_p1, global::System.Collections.Generic.Dictionary<int, int[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opIntIntSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpIntIntSDResult>(progress, cancel);
@@ -6440,12 +6218,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLongLongSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> _iceI_opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> iceP_p1, global::System.Collections.Generic.Dictionary<long, long[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> _iceI_opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> iceP_p1, global::System.Collections.Generic.Dictionary<long, long[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongLongSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLongLongSDResult>(progress, cancel);
@@ -6478,12 +6256,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringFloatSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> _iceI_opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, float[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> _iceI_opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, float[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringFloatSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringFloatSDResult>(progress, cancel);
@@ -6516,12 +6294,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringDoubleSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> _iceI_opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, double[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> _iceI_opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, double[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringDoubleSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringDoubleSDResult>(progress, cancel);
@@ -6554,12 +6332,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringStringSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> _iceI_opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, string[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> _iceI_opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, string[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringStringSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringStringSDResult>(progress, cancel);
@@ -6592,12 +6370,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumMyEnumSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> _iceI_opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> _iceI_opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnumMyEnumSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyEnumMyEnumSDResult>(progress, cancel);
@@ -6630,12 +6408,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opIntSAsync(s, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int[]> _iceI_opIntSAsync(int[] iceP_s, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int[]> _iceI_opIntSAsync(int[] iceP_s, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opIntS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int[]>(progress, cancel);
@@ -6666,12 +6444,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSOnewayAsync(s, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opByteSOnewayAsync(byte[] iceP_s, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opByteSOnewayAsync(byte[] iceP_s, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opByteSOneway(iceP_s, context, synchronous, completed);
@@ -6695,12 +6473,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSOnewayCallCountAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_opByteSOnewayCallCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_opByteSOnewayCallCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteSOnewayCallCount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -6727,12 +6505,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opContextAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opContextAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opContextAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opContext_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
@@ -6759,12 +6537,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opDoubleMarshalingAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opDoubleMarshalingAsync(double iceP_p1, double[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opDoubleMarshalingAsync(double iceP_p1, double[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opDoubleMarshaling(iceP_p1, iceP_p2, context, synchronous, completed);
@@ -6789,12 +6567,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task opIdempotentAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opIdempotentAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opIdempotentAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opIdempotent(context, synchronous, completed);
@@ -6814,12 +6592,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByte1Async(opByte1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<byte> _iceI_opByte1Async(byte iceP_opByte1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<byte> _iceI_opByte1Async(byte iceP_opByte1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByte1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<byte>(progress, cancel);
@@ -6850,12 +6628,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShort1Async(opShort1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<short> _iceI_opShort1Async(short iceP_opShort1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<short> _iceI_opShort1Async(short iceP_opShort1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShort1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<short>(progress, cancel);
@@ -6886,12 +6664,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opInt1Async(opInt1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_opInt1Async(int iceP_opInt1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_opInt1Async(int iceP_opInt1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opInt1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -6922,12 +6700,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLong1Async(opLong1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<long> _iceI_opLong1Async(long iceP_opLong1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<long> _iceI_opLong1Async(long iceP_opLong1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLong1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<long>(progress, cancel);
@@ -6958,12 +6736,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloat1Async(opFloat1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<float> _iceI_opFloat1Async(float iceP_opFloat1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<float> _iceI_opFloat1Async(float iceP_opFloat1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloat1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<float>(progress, cancel);
@@ -6994,12 +6772,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opDouble1Async(opDouble1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<double> _iceI_opDouble1Async(double iceP_opDouble1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<double> _iceI_opDouble1Async(double iceP_opDouble1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opDouble1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<double>(progress, cancel);
@@ -7030,12 +6808,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opString1Async(opString1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string> _iceI_opString1Async(string iceP_opString1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string> _iceI_opString1Async(string iceP_opString1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opString1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
@@ -7066,12 +6844,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringS1Async(opStringS1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS1Async(string[] iceP_opStringS1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS1Async(string[] iceP_opStringS1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringS1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -7102,12 +6880,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolD1Async(opByteBoolD1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_opByteBoolD1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolD1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<byte, bool>>(progress, cancel);
@@ -7138,12 +6916,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringS2Async(stringS, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS2Async(string[] iceP_stringS, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS2Async(string[] iceP_stringS, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringS2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -7174,12 +6952,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolD2Async(byteBoolD, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_byteBoolD, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_byteBoolD, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolD2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<byte, bool>>(progress, cancel);
@@ -7210,12 +6988,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringLiteralsAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringLiteralsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringLiterals_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -7242,12 +7020,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opWStringLiteralsAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opWStringLiteralsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opWStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opWStringLiterals_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -7274,12 +7052,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Structure> opMStruct1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<Structure> opMStruct1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMStruct1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Structure> _iceI_opMStruct1Async(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Structure> _iceI_opMStruct1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMStruct1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Structure>(progress, cancel);
@@ -7306,12 +7084,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> opMStruct2Async(Structure p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> opMStruct2Async(Structure p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMStruct2Async(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> _iceI_opMStruct2Async(Structure iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> _iceI_opMStruct2Async(Structure iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMStruct2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMStruct2Result>(progress, cancel);
@@ -7343,12 +7121,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opMSeq1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opMSeq1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMSeq1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opMSeq1Async(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opMSeq1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMSeq1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -7375,12 +7153,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> opMSeq2Async(string[] p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> opMSeq2Async(string[] p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMSeq2Async(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> _iceI_opMSeq2Async(string[] iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> _iceI_opMSeq2Async(string[] iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMSeq2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMSeq2Result>(progress, cancel);
@@ -7412,12 +7190,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opMDict1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opMDict1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMDict1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opMDict1Async(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opMDict1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMDict1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
@@ -7444,12 +7222,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMDict2Async(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> _iceI_opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> _iceI_opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMDict2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMDict2Result>(progress, cancel);
@@ -7485,77 +7263,30 @@ namespace Test
 
         #region Checked and unchecked cast operations
 
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b)
+        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            MyClassPrx r = b as MyClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                MyClassPrxHelper h = new MyClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            MyClassPrx r = b as MyClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                MyClassPrxHelper h = new MyClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                MyClassPrxHelper prx = new MyClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    MyClassPrxHelper h = new MyClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    MyClassPrxHelper prx = new MyClassPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -7563,30 +7294,25 @@ namespace Test
 
         public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                MyClassPrxHelper prx = new MyClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            MyClassPrx r = b as MyClassPrx;
-            if(r == null)
-            {
-                MyClassPrxHelper h = new MyClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                MyClassPrxHelper prx = new MyClassPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            MyClassPrxHelper h = new MyClassPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -7631,7 +7357,7 @@ namespace Test
 
         #region Synchronous operations
 
-        public void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7643,7 +7369,7 @@ namespace Test
             }
         }
 
-        public bool supportsCompress(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool supportsCompress(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7655,7 +7381,7 @@ namespace Test
             }
         }
 
-        public void opVoid(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opVoid(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7667,7 +7393,7 @@ namespace Test
             }
         }
 
-        public byte opByte(byte p1, byte p2, out byte p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte opByte(byte p1, byte p2, out byte p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7681,7 +7407,7 @@ namespace Test
             }
         }
 
-        public bool opBool(bool p1, bool p2, out bool p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool opBool(bool p1, bool p2, out bool p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7695,7 +7421,7 @@ namespace Test
             }
         }
 
-        public long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7711,7 +7437,7 @@ namespace Test
             }
         }
 
-        public double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double opFloatDouble(float p1, double p2, out float p3, out double p4, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7726,7 +7452,7 @@ namespace Test
             }
         }
 
-        public string opString(string p1, string p2, out string p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string opString(string p1, string p2, out string p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7740,7 +7466,7 @@ namespace Test
             }
         }
 
-        public MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7754,7 +7480,7 @@ namespace Test
             }
         }
 
-        public MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7769,7 +7495,7 @@ namespace Test
             }
         }
 
-        public Structure opStruct(Structure p1, Structure p2, out Structure p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public Structure opStruct(Structure p1, Structure p2, out Structure p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7783,7 +7509,7 @@ namespace Test
             }
         }
 
-        public byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7797,7 +7523,7 @@ namespace Test
             }
         }
 
-        public bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7811,7 +7537,7 @@ namespace Test
             }
         }
 
-        public long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7827,7 +7553,7 @@ namespace Test
             }
         }
 
-        public double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7842,7 +7568,7 @@ namespace Test
             }
         }
 
-        public string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringS(string[] p1, string[] p2, out string[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7856,7 +7582,7 @@ namespace Test
             }
         }
 
-        public byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7870,7 +7596,7 @@ namespace Test
             }
         }
 
-        public bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7884,7 +7610,7 @@ namespace Test
             }
         }
 
-        public long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7900,7 +7626,7 @@ namespace Test
             }
         }
 
-        public double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7915,7 +7641,7 @@ namespace Test
             }
         }
 
-        public string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7929,7 +7655,7 @@ namespace Test
             }
         }
 
-        public string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7943,7 +7669,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7957,7 +7683,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7971,7 +7697,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7985,7 +7711,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -7999,7 +7725,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, MyEnum> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8013,7 +7739,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8027,7 +7753,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8041,7 +7767,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8055,7 +7781,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8069,7 +7795,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8083,7 +7809,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8097,7 +7823,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8111,7 +7837,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8125,7 +7851,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8139,7 +7865,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8153,7 +7879,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8167,7 +7893,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8181,7 +7907,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8195,7 +7921,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8209,7 +7935,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8223,7 +7949,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8237,7 +7963,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8251,7 +7977,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8265,7 +7991,7 @@ namespace Test
             }
         }
 
-        public int[] opIntS(int[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int[] opIntS(int[] s, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8277,7 +8003,7 @@ namespace Test
             }
         }
 
-        public void opByteSOneway(byte[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opByteSOneway(byte[] s, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8289,7 +8015,7 @@ namespace Test
             }
         }
 
-        public int opByteSOnewayCallCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int opByteSOnewayCallCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8301,7 +8027,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opContext(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8313,7 +8039,7 @@ namespace Test
             }
         }
 
-        public void opDoubleMarshaling(double p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opDoubleMarshaling(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8325,7 +8051,7 @@ namespace Test
             }
         }
 
-        public void opIdempotent(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opIdempotent(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8337,7 +8063,7 @@ namespace Test
             }
         }
 
-        public byte opByte1(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte opByte1(byte opByte1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8349,7 +8075,7 @@ namespace Test
             }
         }
 
-        public short opShort1(short opShort1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public short opShort1(short opShort1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8361,7 +8087,7 @@ namespace Test
             }
         }
 
-        public int opInt1(int opInt1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int opInt1(int opInt1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8373,7 +8099,7 @@ namespace Test
             }
         }
 
-        public long opLong1(long opLong1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long opLong1(long opLong1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8385,7 +8111,7 @@ namespace Test
             }
         }
 
-        public float opFloat1(float opFloat1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public float opFloat1(float opFloat1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8397,7 +8123,7 @@ namespace Test
             }
         }
 
-        public double opDouble1(double opDouble1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double opDouble1(double opDouble1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8409,7 +8135,7 @@ namespace Test
             }
         }
 
-        public string opString1(string opString1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string opString1(string opString1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8421,7 +8147,7 @@ namespace Test
             }
         }
 
-        public string[] opStringS1(string[] opStringS1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringS1(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8433,7 +8159,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8445,7 +8171,7 @@ namespace Test
             }
         }
 
-        public string[] opStringS2(string[] stringS, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringS2(string[] stringS, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8457,7 +8183,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8469,7 +8195,7 @@ namespace Test
             }
         }
 
-        public string[] opStringLiterals(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringLiterals(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8481,7 +8207,7 @@ namespace Test
             }
         }
 
-        public string[] opWStringLiterals(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opWStringLiterals(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8493,7 +8219,7 @@ namespace Test
             }
         }
 
-        public Structure opMStruct1(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public Structure opMStruct1(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8505,7 +8231,7 @@ namespace Test
             }
         }
 
-        public Structure opMStruct2(Structure p1, out Structure p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public Structure opMStruct2(Structure p1, out Structure p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8519,7 +8245,7 @@ namespace Test
             }
         }
 
-        public string[] opMSeq1(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opMSeq1(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8531,7 +8257,7 @@ namespace Test
             }
         }
 
-        public string[] opMSeq2(string[] p1, out string[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opMSeq2(string[] p1, out string[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8545,7 +8271,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opMDict1(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opMDict1(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8557,7 +8283,7 @@ namespace Test
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, out global::System.Collections.Generic.Dictionary<string, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, out global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8571,7 +8297,7 @@ namespace Test
             }
         }
 
-        public void opDerived(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opDerived(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8583,7 +8309,7 @@ namespace Test
             }
         }
 
-        public MyClass1 opMyClass1(MyClass1 opMyClass1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public MyClass1 opMyClass1(MyClass1 opMyClass1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8595,7 +8321,7 @@ namespace Test
             }
         }
 
-        public MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -8611,12 +8337,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -8636,12 +8362,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_supportsCompressAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<bool> _iceI_supportsCompressAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<bool> _iceI_supportsCompressAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_supportsCompress_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
@@ -8668,12 +8394,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task opVoidAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opVoidAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opVoidAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opVoidAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opVoidAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opVoid(context, synchronous, completed);
@@ -8693,12 +8419,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteResult> _iceI_opByteAsync(byte iceP_p1, byte iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteResult> _iceI_opByteAsync(byte iceP_p1, byte iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByte_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteResult>(progress, cancel);
@@ -8731,12 +8457,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpBoolResult> _iceI_opBoolAsync(bool iceP_p1, bool iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpBoolResult> _iceI_opBoolAsync(bool iceP_p1, bool iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBool_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpBoolResult>(progress, cancel);
@@ -8769,12 +8495,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntLongAsync(p1, p2, p3, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> _iceI_opShortIntLongAsync(short iceP_p1, int iceP_p2, long iceP_p3, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> _iceI_opShortIntLongAsync(short iceP_p1, int iceP_p2, long iceP_p3, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntLong_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortIntLongResult>(progress, cancel);
@@ -8810,12 +8536,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloatDoubleAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> _iceI_opFloatDoubleAsync(float iceP_p1, double iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleResult> _iceI_opFloatDoubleAsync(float iceP_p1, double iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatDouble_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpFloatDoubleResult>(progress, cancel);
@@ -8849,12 +8575,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringResult> opStringAsync(string p1, string p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringResult> _iceI_opStringAsync(string iceP_p1, string iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringResult> _iceI_opStringAsync(string iceP_p1, string iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opString_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringResult>(progress, cancel);
@@ -8887,12 +8613,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> opMyEnumAsync(MyEnum p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumAsync(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> _iceI_opMyEnumAsync(MyEnum iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumResult> _iceI_opMyEnumAsync(MyEnum iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnum_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyEnumResult>(progress, cancel);
@@ -8924,12 +8650,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> opMyClassAsync(MyClassPrx p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyClassAsync(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> _iceI_opMyClassAsync(MyClassPrx iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyClassResult> _iceI_opMyClassAsync(MyClassPrx iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyClass_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyClassResult>(progress, cancel);
@@ -8962,12 +8688,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStructAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStructResult> _iceI_opStructAsync(Structure iceP_p1, Structure iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStructResult> _iceI_opStructAsync(Structure iceP_p1, Structure iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStruct_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStructResult>(progress, cancel);
@@ -9000,12 +8726,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteSResult> _iceI_opByteSAsync(byte[] iceP_p1, byte[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteSResult> _iceI_opByteSAsync(byte[] iceP_p1, byte[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteSResult>(progress, cancel);
@@ -9038,12 +8764,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> _iceI_opBoolSAsync(bool[] iceP_p1, bool[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> _iceI_opBoolSAsync(bool[] iceP_p1, bool[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBoolS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpBoolSResult>(progress, cancel);
@@ -9076,12 +8802,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntLongSAsync(p1, p2, p3, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> _iceI_opShortIntLongSAsync(short[] iceP_p1, int[] iceP_p2, long[] iceP_p3, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> _iceI_opShortIntLongSAsync(short[] iceP_p1, int[] iceP_p2, long[] iceP_p3, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntLongS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortIntLongSResult>(progress, cancel);
@@ -9117,12 +8843,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloatDoubleSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> _iceI_opFloatDoubleSAsync(float[] iceP_p1, double[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> _iceI_opFloatDoubleSAsync(float[] iceP_p1, double[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatDoubleS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpFloatDoubleSResult>(progress, cancel);
@@ -9156,12 +8882,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringSResult> _iceI_opStringSAsync(string[] iceP_p1, string[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringSResult> _iceI_opStringSAsync(string[] iceP_p1, string[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringSResult>(progress, cancel);
@@ -9194,12 +8920,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> _iceI_opByteSSAsync(byte[][] iceP_p1, byte[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> _iceI_opByteSSAsync(byte[][] iceP_p1, byte[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteSSResult>(progress, cancel);
@@ -9232,12 +8958,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> _iceI_opBoolSSAsync(bool[][] iceP_p1, bool[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> _iceI_opBoolSSAsync(bool[][] iceP_p1, bool[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBoolSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpBoolSSResult>(progress, cancel);
@@ -9270,12 +8996,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntLongSSAsync(p1, p2, p3, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> _iceI_opShortIntLongSSAsync(short[][] iceP_p1, int[][] iceP_p2, long[][] iceP_p3, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> _iceI_opShortIntLongSSAsync(short[][] iceP_p1, int[][] iceP_p2, long[][] iceP_p3, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntLongSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortIntLongSSResult>(progress, cancel);
@@ -9311,12 +9037,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloatDoubleSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> _iceI_opFloatDoubleSSAsync(float[][] iceP_p1, double[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> _iceI_opFloatDoubleSSAsync(float[][] iceP_p1, double[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatDoubleSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpFloatDoubleSSResult>(progress, cancel);
@@ -9350,12 +9076,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> _iceI_opStringSSAsync(string[][] iceP_p1, string[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> _iceI_opStringSSAsync(string[][] iceP_p1, string[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringSSResult>(progress, cancel);
@@ -9388,12 +9114,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringSSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> _iceI_opStringSSSAsync(string[][][] iceP_p1, string[][][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> _iceI_opStringSSSAsync(string[][][] iceP_p1, string[][][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringSSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringSSSResult>(progress, cancel);
@@ -9426,12 +9152,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> _iceI_opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> _iceI_opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteBoolDResult>(progress, cancel);
@@ -9464,12 +9190,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> _iceI_opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> iceP_p1, global::System.Collections.Generic.Dictionary<short, int> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> _iceI_opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> iceP_p1, global::System.Collections.Generic.Dictionary<short, int> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortIntDResult>(progress, cancel);
@@ -9502,12 +9228,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLongFloatDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> _iceI_opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> iceP_p1, global::System.Collections.Generic.Dictionary<long, float> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> _iceI_opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> iceP_p1, global::System.Collections.Generic.Dictionary<long, float> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongFloatD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLongFloatDResult>(progress, cancel);
@@ -9540,12 +9266,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringStringDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> _iceI_opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringStringDResult> _iceI_opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringStringD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringStringDResult>(progress, cancel);
@@ -9578,12 +9304,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringMyEnumDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> _iceI_opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> _iceI_opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<string, MyEnum> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringMyEnumD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringMyEnumDResult>(progress, cancel);
@@ -9616,12 +9342,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumStringDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> _iceI_opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> _iceI_opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, string> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnumStringD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyEnumStringDResult>(progress, cancel);
@@ -9654,12 +9380,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyStructMyEnumDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> _iceI_opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> _iceI_opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyStructMyEnumD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyStructMyEnumDResult>(progress, cancel);
@@ -9692,12 +9418,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> _iceI_opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteBoolDSResult> _iceI_opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteBoolDSResult>(progress, cancel);
@@ -9730,12 +9456,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> _iceI_opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] iceP_p1, global::System.Collections.Generic.Dictionary<short, int>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortIntDSResult> _iceI_opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] iceP_p1, global::System.Collections.Generic.Dictionary<short, int>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortIntDSResult>(progress, cancel);
@@ -9768,12 +9494,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLongFloatDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> _iceI_opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] iceP_p1, global::System.Collections.Generic.Dictionary<long, float>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpLongFloatDSResult> _iceI_opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] iceP_p1, global::System.Collections.Generic.Dictionary<long, float>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongFloatDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLongFloatDSResult>(progress, cancel);
@@ -9806,12 +9532,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringStringDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> _iceI_opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, string>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringStringDSResult> _iceI_opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, string>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringStringDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringStringDSResult>(progress, cancel);
@@ -9844,12 +9570,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringMyEnumDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> _iceI_opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> _iceI_opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringMyEnumDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringMyEnumDSResult>(progress, cancel);
@@ -9882,12 +9608,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumStringDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> _iceI_opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> _iceI_opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnumStringDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyEnumStringDSResult>(progress, cancel);
@@ -9920,12 +9646,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyStructMyEnumDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> _iceI_opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> _iceI_opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyStructMyEnumDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyStructMyEnumDSResult>(progress, cancel);
@@ -9958,12 +9684,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteByteSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> _iceI_opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p1, global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpByteByteSDResult> _iceI_opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p1, global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteByteSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpByteByteSDResult>(progress, cancel);
@@ -9996,12 +9722,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolBoolSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> _iceI_opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p1, global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpBoolBoolSDResult> _iceI_opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p1, global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBoolBoolSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpBoolBoolSDResult>(progress, cancel);
@@ -10034,12 +9760,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortShortSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> _iceI_opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> iceP_p1, global::System.Collections.Generic.Dictionary<short, short[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpShortShortSDResult> _iceI_opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> iceP_p1, global::System.Collections.Generic.Dictionary<short, short[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortShortSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpShortShortSDResult>(progress, cancel);
@@ -10072,12 +9798,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opIntIntSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> _iceI_opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> iceP_p1, global::System.Collections.Generic.Dictionary<int, int[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> _iceI_opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> iceP_p1, global::System.Collections.Generic.Dictionary<int, int[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opIntIntSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpIntIntSDResult>(progress, cancel);
@@ -10110,12 +9836,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLongLongSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> _iceI_opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> iceP_p1, global::System.Collections.Generic.Dictionary<long, long[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> _iceI_opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> iceP_p1, global::System.Collections.Generic.Dictionary<long, long[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongLongSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpLongLongSDResult>(progress, cancel);
@@ -10148,12 +9874,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringFloatSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> _iceI_opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, float[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> _iceI_opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, float[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringFloatSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringFloatSDResult>(progress, cancel);
@@ -10186,12 +9912,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringDoubleSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> _iceI_opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, double[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> _iceI_opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, double[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringDoubleSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringDoubleSDResult>(progress, cancel);
@@ -10224,12 +9950,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringStringSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> _iceI_opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, string[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> _iceI_opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, string[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringStringSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpStringStringSDResult>(progress, cancel);
@@ -10262,12 +9988,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumMyEnumSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> _iceI_opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> _iceI_opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnumMyEnumSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMyEnumMyEnumSDResult>(progress, cancel);
@@ -10300,12 +10026,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opIntSAsync(s, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int[]> _iceI_opIntSAsync(int[] iceP_s, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int[]> _iceI_opIntSAsync(int[] iceP_s, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opIntS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int[]>(progress, cancel);
@@ -10336,12 +10062,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSOnewayAsync(s, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opByteSOnewayAsync(byte[] iceP_s, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opByteSOnewayAsync(byte[] iceP_s, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opByteSOneway(iceP_s, context, synchronous, completed);
@@ -10365,12 +10091,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSOnewayCallCountAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_opByteSOnewayCallCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_opByteSOnewayCallCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteSOnewayCallCount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -10397,12 +10123,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opContextAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opContextAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opContextAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opContext_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
@@ -10429,12 +10155,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opDoubleMarshalingAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opDoubleMarshalingAsync(double iceP_p1, double[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opDoubleMarshalingAsync(double iceP_p1, double[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opDoubleMarshaling(iceP_p1, iceP_p2, context, synchronous, completed);
@@ -10459,12 +10185,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task opIdempotentAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opIdempotentAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opIdempotentAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opIdempotent(context, synchronous, completed);
@@ -10484,12 +10210,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByte1Async(opByte1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<byte> _iceI_opByte1Async(byte iceP_opByte1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<byte> _iceI_opByte1Async(byte iceP_opByte1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByte1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<byte>(progress, cancel);
@@ -10520,12 +10246,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShort1Async(opShort1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<short> _iceI_opShort1Async(short iceP_opShort1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<short> _iceI_opShort1Async(short iceP_opShort1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShort1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<short>(progress, cancel);
@@ -10556,12 +10282,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opInt1Async(opInt1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_opInt1Async(int iceP_opInt1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_opInt1Async(int iceP_opInt1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opInt1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -10592,12 +10318,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLong1Async(opLong1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<long> _iceI_opLong1Async(long iceP_opLong1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<long> _iceI_opLong1Async(long iceP_opLong1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLong1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<long>(progress, cancel);
@@ -10628,12 +10354,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloat1Async(opFloat1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<float> _iceI_opFloat1Async(float iceP_opFloat1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<float> _iceI_opFloat1Async(float iceP_opFloat1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloat1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<float>(progress, cancel);
@@ -10664,12 +10390,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opDouble1Async(opDouble1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<double> _iceI_opDouble1Async(double iceP_opDouble1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<double> _iceI_opDouble1Async(double iceP_opDouble1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opDouble1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<double>(progress, cancel);
@@ -10700,12 +10426,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opString1Async(opString1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string> _iceI_opString1Async(string iceP_opString1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string> _iceI_opString1Async(string iceP_opString1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opString1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
@@ -10736,12 +10462,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringS1Async(opStringS1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS1Async(string[] iceP_opStringS1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS1Async(string[] iceP_opStringS1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringS1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -10772,12 +10498,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolD1Async(opByteBoolD1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_opByteBoolD1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolD1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<byte, bool>>(progress, cancel);
@@ -10808,12 +10534,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringS2Async(stringS, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS2Async(string[] iceP_stringS, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS2Async(string[] iceP_stringS, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringS2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -10844,12 +10570,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolD2Async(byteBoolD, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_byteBoolD, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_byteBoolD, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolD2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<byte, bool>>(progress, cancel);
@@ -10880,12 +10606,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringLiteralsAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringLiteralsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringLiterals_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -10912,12 +10638,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opWStringLiteralsAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opWStringLiteralsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opWStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opWStringLiterals_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -10944,12 +10670,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Structure> opMStruct1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<Structure> opMStruct1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMStruct1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Structure> _iceI_opMStruct1Async(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Structure> _iceI_opMStruct1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMStruct1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Structure>(progress, cancel);
@@ -10976,12 +10702,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> opMStruct2Async(Structure p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> opMStruct2Async(Structure p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMStruct2Async(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> _iceI_opMStruct2Async(Structure iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMStruct2Result> _iceI_opMStruct2Async(Structure iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMStruct2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMStruct2Result>(progress, cancel);
@@ -11013,12 +10739,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opMSeq1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opMSeq1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMSeq1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opMSeq1Async(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opMSeq1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMSeq1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -11045,12 +10771,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> opMSeq2Async(string[] p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> opMSeq2Async(string[] p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMSeq2Async(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> _iceI_opMSeq2Async(string[] iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMSeq2Result> _iceI_opMSeq2Async(string[] iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMSeq2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMSeq2Result>(progress, cancel);
@@ -11082,12 +10808,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opMDict1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opMDict1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMDict1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opMDict1Async(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opMDict1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMDict1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
@@ -11114,12 +10840,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMDict2Async(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> _iceI_opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpMDict2Result> _iceI_opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMDict2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpMDict2Result>(progress, cancel);
@@ -11151,12 +10877,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task opDerivedAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opDerivedAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opDerivedAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opDerived(context, synchronous, completed);
@@ -11176,12 +10902,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<MyClass1> opMyClass1Async(MyClass1 opMyClass1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyClass1> opMyClass1Async(MyClass1 opMyClass1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyClass1Async(opMyClass1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass1> _iceI_opMyClass1Async(MyClass1 iceP_opMyClass1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass1> _iceI_opMyClass1Async(MyClass1 iceP_opMyClass1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyClass1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass1>(progress, cancel);
@@ -11214,12 +10940,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyStruct1Async(opMyStruct1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyStruct1> _iceI_opMyStruct1Async(MyStruct1 iceP_opMyStruct1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyStruct1> _iceI_opMyStruct1Async(MyStruct1 iceP_opMyStruct1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyStruct1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyStruct1>(progress, cancel);
@@ -11254,77 +10980,30 @@ namespace Test
 
         #region Checked and unchecked cast operations
 
-        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b)
+        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            MyDerivedClassPrx r = b as MyDerivedClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            MyDerivedClassPrx r = b as MyDerivedClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -11332,30 +11011,25 @@ namespace Test
 
         public static MyDerivedClassPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            MyDerivedClassPrx r = b as MyDerivedClassPrx;
-            if(r == null)
-            {
-                MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static MyDerivedClassPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -11404,7 +11078,7 @@ namespace Test2
 
         #region Synchronous operations
 
-        public void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11416,7 +11090,7 @@ namespace Test2
             }
         }
 
-        public bool supportsCompress(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool supportsCompress(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11428,7 +11102,7 @@ namespace Test2
             }
         }
 
-        public void opVoid(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opVoid(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11440,7 +11114,7 @@ namespace Test2
             }
         }
 
-        public byte opByte(byte p1, byte p2, out byte p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte opByte(byte p1, byte p2, out byte p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11454,7 +11128,7 @@ namespace Test2
             }
         }
 
-        public bool opBool(bool p1, bool p2, out bool p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool opBool(bool p1, bool p2, out bool p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11468,7 +11142,7 @@ namespace Test2
             }
         }
 
-        public long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11484,7 +11158,7 @@ namespace Test2
             }
         }
 
-        public double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double opFloatDouble(float p1, double p2, out float p3, out double p4, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11499,7 +11173,7 @@ namespace Test2
             }
         }
 
-        public string opString(string p1, string p2, out string p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string opString(string p1, string p2, out string p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11513,7 +11187,7 @@ namespace Test2
             }
         }
 
-        public global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11527,7 +11201,7 @@ namespace Test2
             }
         }
 
-        public global::Test.MyClassPrx opMyClass(global::Test.MyClassPrx p1, out global::Test.MyClassPrx p2, out global::Test.MyClassPrx p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Test.MyClassPrx opMyClass(global::Test.MyClassPrx p1, out global::Test.MyClassPrx p2, out global::Test.MyClassPrx p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11542,7 +11216,7 @@ namespace Test2
             }
         }
 
-        public global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11556,7 +11230,7 @@ namespace Test2
             }
         }
 
-        public byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11570,7 +11244,7 @@ namespace Test2
             }
         }
 
-        public bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11584,7 +11258,7 @@ namespace Test2
             }
         }
 
-        public long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11600,7 +11274,7 @@ namespace Test2
             }
         }
 
-        public double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11615,7 +11289,7 @@ namespace Test2
             }
         }
 
-        public string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringS(string[] p1, string[] p2, out string[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11629,7 +11303,7 @@ namespace Test2
             }
         }
 
-        public byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11643,7 +11317,7 @@ namespace Test2
             }
         }
 
-        public bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11657,7 +11331,7 @@ namespace Test2
             }
         }
 
-        public long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11673,7 +11347,7 @@ namespace Test2
             }
         }
 
-        public double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11688,7 +11362,7 @@ namespace Test2
             }
         }
 
-        public string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11702,7 +11376,7 @@ namespace Test2
             }
         }
 
-        public string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11716,7 +11390,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11730,7 +11404,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11744,7 +11418,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11758,7 +11432,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11772,7 +11446,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11786,7 +11460,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11800,7 +11474,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11814,7 +11488,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11828,7 +11502,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11842,7 +11516,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11856,7 +11530,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11870,7 +11544,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11884,7 +11558,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11898,7 +11572,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11912,7 +11586,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11926,7 +11600,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11940,7 +11614,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11954,7 +11628,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11968,7 +11642,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11982,7 +11656,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -11996,7 +11670,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12010,7 +11684,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12024,7 +11698,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12038,7 +11712,7 @@ namespace Test2
             }
         }
 
-        public int[] opIntS(int[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int[] opIntS(int[] s, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12050,7 +11724,7 @@ namespace Test2
             }
         }
 
-        public void opByteSOneway(byte[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opByteSOneway(byte[] s, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12062,7 +11736,7 @@ namespace Test2
             }
         }
 
-        public int opByteSOnewayCallCount(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int opByteSOnewayCallCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12074,7 +11748,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opContext(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12086,7 +11760,7 @@ namespace Test2
             }
         }
 
-        public void opDoubleMarshaling(double p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opDoubleMarshaling(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12098,7 +11772,7 @@ namespace Test2
             }
         }
 
-        public void opIdempotent(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void opIdempotent(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12110,7 +11784,7 @@ namespace Test2
             }
         }
 
-        public byte opByte1(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public byte opByte1(byte opByte1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12122,7 +11796,7 @@ namespace Test2
             }
         }
 
-        public short opShort1(short opShort1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public short opShort1(short opShort1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12134,7 +11808,7 @@ namespace Test2
             }
         }
 
-        public int opInt1(int opInt1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int opInt1(int opInt1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12146,7 +11820,7 @@ namespace Test2
             }
         }
 
-        public long opLong1(long opLong1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public long opLong1(long opLong1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12158,7 +11832,7 @@ namespace Test2
             }
         }
 
-        public float opFloat1(float opFloat1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public float opFloat1(float opFloat1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12170,7 +11844,7 @@ namespace Test2
             }
         }
 
-        public double opDouble1(double opDouble1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public double opDouble1(double opDouble1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12182,7 +11856,7 @@ namespace Test2
             }
         }
 
-        public string opString1(string opString1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string opString1(string opString1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12194,7 +11868,7 @@ namespace Test2
             }
         }
 
-        public string[] opStringS1(string[] opStringS1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringS1(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12206,7 +11880,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12218,7 +11892,7 @@ namespace Test2
             }
         }
 
-        public string[] opStringS2(string[] stringS, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringS2(string[] stringS, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12230,7 +11904,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12242,7 +11916,7 @@ namespace Test2
             }
         }
 
-        public string[] opStringLiterals(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opStringLiterals(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12254,7 +11928,7 @@ namespace Test2
             }
         }
 
-        public string[] opWStringLiterals(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opWStringLiterals(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12266,7 +11940,7 @@ namespace Test2
             }
         }
 
-        public global::Test.Structure opMStruct1(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Test.Structure opMStruct1(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12278,7 +11952,7 @@ namespace Test2
             }
         }
 
-        public global::Test.Structure opMStruct2(global::Test.Structure p1, out global::Test.Structure p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Test.Structure opMStruct2(global::Test.Structure p1, out global::Test.Structure p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12292,7 +11966,7 @@ namespace Test2
             }
         }
 
-        public string[] opMSeq1(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opMSeq1(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12304,7 +11978,7 @@ namespace Test2
             }
         }
 
-        public string[] opMSeq2(string[] p1, out string[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string[] opMSeq2(string[] p1, out string[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12318,7 +11992,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opMDict1(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opMDict1(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12330,7 +12004,7 @@ namespace Test2
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, out global::System.Collections.Generic.Dictionary<string, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, string> opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, out global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -12348,12 +12022,12 @@ namespace Test2
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -12373,12 +12047,12 @@ namespace Test2
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_supportsCompressAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<bool> _iceI_supportsCompressAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<bool> _iceI_supportsCompressAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_supportsCompress_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
@@ -12405,12 +12079,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task opVoidAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opVoidAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opVoidAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opVoidAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opVoidAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opVoid(context, synchronous, completed);
@@ -12430,12 +12104,12 @@ namespace Test2
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteResult> _iceI_opByteAsync(byte iceP_p1, byte iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteResult> _iceI_opByteAsync(byte iceP_p1, byte iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByte_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpByteResult>(progress, cancel);
@@ -12468,12 +12142,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolResult> _iceI_opBoolAsync(bool iceP_p1, bool iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolResult> _iceI_opBoolAsync(bool iceP_p1, bool iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBool_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpBoolResult>(progress, cancel);
@@ -12506,12 +12180,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntLongAsync(p1, p2, p3, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongResult> _iceI_opShortIntLongAsync(short iceP_p1, int iceP_p2, long iceP_p3, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongResult> _iceI_opShortIntLongAsync(short iceP_p1, int iceP_p2, long iceP_p3, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntLong_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpShortIntLongResult>(progress, cancel);
@@ -12547,12 +12221,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleResult> opFloatDoubleAsync(float p1, double p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloatDoubleAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleResult> _iceI_opFloatDoubleAsync(float iceP_p1, double iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleResult> _iceI_opFloatDoubleAsync(float iceP_p1, double iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatDouble_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpFloatDoubleResult>(progress, cancel);
@@ -12586,12 +12260,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringResult> opStringAsync(string p1, string p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringResult> opStringAsync(string p1, string p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringResult> _iceI_opStringAsync(string iceP_p1, string iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringResult> _iceI_opStringAsync(string iceP_p1, string iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opString_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStringResult>(progress, cancel);
@@ -12624,12 +12298,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumResult> opMyEnumAsync(global::Test.MyEnum p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumResult> opMyEnumAsync(global::Test.MyEnum p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumAsync(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumResult> _iceI_opMyEnumAsync(global::Test.MyEnum iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumResult> _iceI_opMyEnumAsync(global::Test.MyEnum iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnum_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpMyEnumResult>(progress, cancel);
@@ -12661,12 +12335,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyClassResult> opMyClassAsync(global::Test.MyClassPrx p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyClassResult> opMyClassAsync(global::Test.MyClassPrx p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyClassAsync(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyClassResult> _iceI_opMyClassAsync(global::Test.MyClassPrx iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyClassResult> _iceI_opMyClassAsync(global::Test.MyClassPrx iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyClass_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpMyClassResult>(progress, cancel);
@@ -12699,12 +12373,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStructResult> opStructAsync(global::Test.Structure p1, global::Test.Structure p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStructResult> opStructAsync(global::Test.Structure p1, global::Test.Structure p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStructAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStructResult> _iceI_opStructAsync(global::Test.Structure iceP_p1, global::Test.Structure iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStructResult> _iceI_opStructAsync(global::Test.Structure iceP_p1, global::Test.Structure iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStruct_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStructResult>(progress, cancel);
@@ -12737,12 +12411,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteSResult> _iceI_opByteSAsync(byte[] iceP_p1, byte[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteSResult> _iceI_opByteSAsync(byte[] iceP_p1, byte[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpByteSResult>(progress, cancel);
@@ -12775,12 +12449,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolSResult> _iceI_opBoolSAsync(bool[] iceP_p1, bool[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolSResult> _iceI_opBoolSAsync(bool[] iceP_p1, bool[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBoolS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpBoolSResult>(progress, cancel);
@@ -12813,12 +12487,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntLongSAsync(p1, p2, p3, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongSResult> _iceI_opShortIntLongSAsync(short[] iceP_p1, int[] iceP_p2, long[] iceP_p3, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongSResult> _iceI_opShortIntLongSAsync(short[] iceP_p1, int[] iceP_p2, long[] iceP_p3, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntLongS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpShortIntLongSResult>(progress, cancel);
@@ -12854,12 +12528,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloatDoubleSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleSResult> _iceI_opFloatDoubleSAsync(float[] iceP_p1, double[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleSResult> _iceI_opFloatDoubleSAsync(float[] iceP_p1, double[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatDoubleS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpFloatDoubleSResult>(progress, cancel);
@@ -12893,12 +12567,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSResult> _iceI_opStringSAsync(string[] iceP_p1, string[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSResult> _iceI_opStringSAsync(string[] iceP_p1, string[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStringSResult>(progress, cancel);
@@ -12931,12 +12605,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteSSResult> _iceI_opByteSSAsync(byte[][] iceP_p1, byte[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteSSResult> _iceI_opByteSSAsync(byte[][] iceP_p1, byte[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpByteSSResult>(progress, cancel);
@@ -12969,12 +12643,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolSSResult> _iceI_opBoolSSAsync(bool[][] iceP_p1, bool[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolSSResult> _iceI_opBoolSSAsync(bool[][] iceP_p1, bool[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBoolSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpBoolSSResult>(progress, cancel);
@@ -13007,12 +12681,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntLongSSAsync(p1, p2, p3, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongSSResult> _iceI_opShortIntLongSSAsync(short[][] iceP_p1, int[][] iceP_p2, long[][] iceP_p3, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntLongSSResult> _iceI_opShortIntLongSSAsync(short[][] iceP_p1, int[][] iceP_p2, long[][] iceP_p3, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntLongSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpShortIntLongSSResult>(progress, cancel);
@@ -13048,12 +12722,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloatDoubleSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleSSResult> _iceI_opFloatDoubleSSAsync(float[][] iceP_p1, double[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpFloatDoubleSSResult> _iceI_opFloatDoubleSSAsync(float[][] iceP_p1, double[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloatDoubleSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpFloatDoubleSSResult>(progress, cancel);
@@ -13087,12 +12761,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSSResult> _iceI_opStringSSAsync(string[][] iceP_p1, string[][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSSResult> _iceI_opStringSSAsync(string[][] iceP_p1, string[][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStringSSResult>(progress, cancel);
@@ -13125,12 +12799,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringSSSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSSSResult> _iceI_opStringSSSAsync(string[][][] iceP_p1, string[][][] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringSSSResult> _iceI_opStringSSSAsync(string[][][] iceP_p1, string[][][] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringSSS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStringSSSResult>(progress, cancel);
@@ -13163,12 +12837,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteBoolDResult> _iceI_opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteBoolDResult> _iceI_opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpByteBoolDResult>(progress, cancel);
@@ -13201,12 +12875,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntDResult> _iceI_opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> iceP_p1, global::System.Collections.Generic.Dictionary<short, int> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntDResult> _iceI_opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> iceP_p1, global::System.Collections.Generic.Dictionary<short, int> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpShortIntDResult>(progress, cancel);
@@ -13239,12 +12913,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLongFloatDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongFloatDResult> _iceI_opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> iceP_p1, global::System.Collections.Generic.Dictionary<long, float> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongFloatDResult> _iceI_opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> iceP_p1, global::System.Collections.Generic.Dictionary<long, float> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongFloatD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpLongFloatDResult>(progress, cancel);
@@ -13277,12 +12951,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringDResult> opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringStringDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringDResult> _iceI_opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringDResult> _iceI_opStringStringDAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringStringD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStringStringDResult>(progress, cancel);
@@ -13315,12 +12989,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringMyEnumDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringMyEnumDResult> _iceI_opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringMyEnumDResult> _iceI_opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringMyEnumD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStringMyEnumDResult>(progress, cancel);
@@ -13353,12 +13027,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumStringDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumStringDResult> _iceI_opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> iceP_p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumStringDResult> _iceI_opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> iceP_p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnumStringD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpMyEnumStringDResult>(progress, cancel);
@@ -13391,12 +13065,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyStructMyEnumDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyStructMyEnumDResult> _iceI_opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyStructMyEnumDResult> _iceI_opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> iceP_p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyStructMyEnumD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpMyStructMyEnumDResult>(progress, cancel);
@@ -13429,12 +13103,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteBoolDSResult> opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteBoolDSResult> _iceI_opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteBoolDSResult> _iceI_opByteBoolDSAsync(global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p1, global::System.Collections.Generic.Dictionary<byte, bool>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpByteBoolDSResult>(progress, cancel);
@@ -13467,12 +13141,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntDSResult> opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortIntDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntDSResult> _iceI_opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] iceP_p1, global::System.Collections.Generic.Dictionary<short, int>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortIntDSResult> _iceI_opShortIntDSAsync(global::System.Collections.Generic.Dictionary<short, int>[] iceP_p1, global::System.Collections.Generic.Dictionary<short, int>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortIntDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpShortIntDSResult>(progress, cancel);
@@ -13505,12 +13179,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongFloatDSResult> opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLongFloatDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongFloatDSResult> _iceI_opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] iceP_p1, global::System.Collections.Generic.Dictionary<long, float>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongFloatDSResult> _iceI_opLongFloatDSAsync(global::System.Collections.Generic.Dictionary<long, float>[] iceP_p1, global::System.Collections.Generic.Dictionary<long, float>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongFloatDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpLongFloatDSResult>(progress, cancel);
@@ -13543,12 +13217,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringDSResult> opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringStringDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringDSResult> _iceI_opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, string>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringDSResult> _iceI_opStringStringDSAsync(global::System.Collections.Generic.Dictionary<string, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, string>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringStringDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStringStringDSResult>(progress, cancel);
@@ -13581,12 +13255,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringMyEnumDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringMyEnumDSResult> _iceI_opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringMyEnumDSResult> _iceI_opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringMyEnumDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStringMyEnumDSResult>(progress, cancel);
@@ -13619,12 +13293,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumStringDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumStringDSResult> _iceI_opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumStringDSResult> _iceI_opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] iceP_p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnumStringDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpMyEnumStringDSResult>(progress, cancel);
@@ -13657,12 +13331,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyStructMyEnumDSAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyStructMyEnumDSResult> _iceI_opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyStructMyEnumDSResult> _iceI_opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] iceP_p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyStructMyEnumDS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpMyStructMyEnumDSResult>(progress, cancel);
@@ -13695,12 +13369,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteByteSDResult> opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteByteSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteByteSDResult> _iceI_opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p1, global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpByteByteSDResult> _iceI_opByteByteSDAsync(global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p1, global::System.Collections.Generic.Dictionary<byte, byte[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteByteSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpByteByteSDResult>(progress, cancel);
@@ -13733,12 +13407,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolBoolSDResult> opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBoolBoolSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolBoolSDResult> _iceI_opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p1, global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpBoolBoolSDResult> _iceI_opBoolBoolSDAsync(global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p1, global::System.Collections.Generic.Dictionary<bool, bool[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBoolBoolSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpBoolBoolSDResult>(progress, cancel);
@@ -13771,12 +13445,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortShortSDResult> opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShortShortSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortShortSDResult> _iceI_opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> iceP_p1, global::System.Collections.Generic.Dictionary<short, short[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpShortShortSDResult> _iceI_opShortShortSDAsync(global::System.Collections.Generic.Dictionary<short, short[]> iceP_p1, global::System.Collections.Generic.Dictionary<short, short[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShortShortSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpShortShortSDResult>(progress, cancel);
@@ -13809,12 +13483,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opIntIntSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpIntIntSDResult> _iceI_opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> iceP_p1, global::System.Collections.Generic.Dictionary<int, int[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpIntIntSDResult> _iceI_opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> iceP_p1, global::System.Collections.Generic.Dictionary<int, int[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opIntIntSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpIntIntSDResult>(progress, cancel);
@@ -13847,12 +13521,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLongLongSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongLongSDResult> _iceI_opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> iceP_p1, global::System.Collections.Generic.Dictionary<long, long[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpLongLongSDResult> _iceI_opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> iceP_p1, global::System.Collections.Generic.Dictionary<long, long[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLongLongSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpLongLongSDResult>(progress, cancel);
@@ -13885,12 +13559,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringFloatSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringFloatSDResult> _iceI_opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, float[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringFloatSDResult> _iceI_opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, float[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringFloatSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStringFloatSDResult>(progress, cancel);
@@ -13923,12 +13597,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringDoubleSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringDoubleSDResult> _iceI_opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, double[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringDoubleSDResult> _iceI_opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, double[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringDoubleSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStringDoubleSDResult>(progress, cancel);
@@ -13961,12 +13635,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringStringSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringSDResult> _iceI_opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, string[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpStringStringSDResult> _iceI_opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, string[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringStringSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpStringStringSDResult>(progress, cancel);
@@ -13999,12 +13673,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMyEnumMyEnumSDAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumMyEnumSDResult> _iceI_opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> iceP_p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMyEnumMyEnumSDResult> _iceI_opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> iceP_p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMyEnumMyEnumSD_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpMyEnumMyEnumSDResult>(progress, cancel);
@@ -14037,12 +13711,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opIntSAsync(s, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int[]> _iceI_opIntSAsync(int[] iceP_s, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int[]> _iceI_opIntSAsync(int[] iceP_s, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opIntS_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int[]>(progress, cancel);
@@ -14073,12 +13747,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSOnewayAsync(s, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opByteSOnewayAsync(byte[] iceP_s, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opByteSOnewayAsync(byte[] iceP_s, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opByteSOneway(iceP_s, context, synchronous, completed);
@@ -14102,12 +13776,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteSOnewayCallCountAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_opByteSOnewayCallCountAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_opByteSOnewayCallCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteSOnewayCallCount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -14134,12 +13808,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opContextAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opContextAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opContextAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opContext_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
@@ -14166,12 +13840,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opDoubleMarshalingAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opDoubleMarshalingAsync(double iceP_p1, double[] iceP_p2, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opDoubleMarshalingAsync(double iceP_p1, double[] iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opDoubleMarshaling(iceP_p1, iceP_p2, context, synchronous, completed);
@@ -14196,12 +13870,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task opIdempotentAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task opIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opIdempotentAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_opIdempotentAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_opIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_opIdempotent(context, synchronous, completed);
@@ -14221,12 +13895,12 @@ namespace Test2
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByte1Async(opByte1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<byte> _iceI_opByte1Async(byte iceP_opByte1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<byte> _iceI_opByte1Async(byte iceP_opByte1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByte1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<byte>(progress, cancel);
@@ -14257,12 +13931,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opShort1Async(opShort1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<short> _iceI_opShort1Async(short iceP_opShort1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<short> _iceI_opShort1Async(short iceP_opShort1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opShort1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<short>(progress, cancel);
@@ -14293,12 +13967,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opInt1Async(opInt1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_opInt1Async(int iceP_opInt1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_opInt1Async(int iceP_opInt1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opInt1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -14329,12 +14003,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opLong1Async(opLong1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<long> _iceI_opLong1Async(long iceP_opLong1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<long> _iceI_opLong1Async(long iceP_opLong1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opLong1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<long>(progress, cancel);
@@ -14365,12 +14039,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFloat1Async(opFloat1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<float> _iceI_opFloat1Async(float iceP_opFloat1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<float> _iceI_opFloat1Async(float iceP_opFloat1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFloat1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<float>(progress, cancel);
@@ -14401,12 +14075,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opDouble1Async(opDouble1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<double> _iceI_opDouble1Async(double iceP_opDouble1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<double> _iceI_opDouble1Async(double iceP_opDouble1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opDouble1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<double>(progress, cancel);
@@ -14437,12 +14111,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opString1Async(opString1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string> _iceI_opString1Async(string iceP_opString1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string> _iceI_opString1Async(string iceP_opString1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opString1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
@@ -14473,12 +14147,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringS1Async(opStringS1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS1Async(string[] iceP_opStringS1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS1Async(string[] iceP_opStringS1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringS1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -14509,12 +14183,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolD1Async(opByteBoolD1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_opByteBoolD1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_opByteBoolD1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolD1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<byte, bool>>(progress, cancel);
@@ -14545,12 +14219,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringS2Async(stringS, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS2Async(string[] iceP_stringS, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringS2Async(string[] iceP_stringS, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringS2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -14581,12 +14255,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opByteBoolD2Async(byteBoolD, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_byteBoolD, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> _iceI_opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> iceP_byteBoolD, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opByteBoolD2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<byte, bool>>(progress, cancel);
@@ -14617,12 +14291,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opStringLiteralsAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringLiteralsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opStringLiterals_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -14649,12 +14323,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opWStringLiteralsAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opWStringLiteralsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opWStringLiteralsAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opWStringLiterals_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -14681,12 +14355,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.Structure> opMStruct1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.Structure> opMStruct1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMStruct1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.Structure> _iceI_opMStruct1Async(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.Structure> _iceI_opMStruct1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMStruct1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.Structure>(progress, cancel);
@@ -14713,12 +14387,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMStruct2Result> opMStruct2Async(global::Test.Structure p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMStruct2Result> opMStruct2Async(global::Test.Structure p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMStruct2Async(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMStruct2Result> _iceI_opMStruct2Async(global::Test.Structure iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMStruct2Result> _iceI_opMStruct2Async(global::Test.Structure iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMStruct2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpMStruct2Result>(progress, cancel);
@@ -14750,12 +14424,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string[]> opMSeq1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string[]> opMSeq1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMSeq1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string[]> _iceI_opMSeq1Async(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string[]> _iceI_opMSeq1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMSeq1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string[]>(progress, cancel);
@@ -14782,12 +14456,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMSeq2Result> opMSeq2Async(string[] p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMSeq2Result> opMSeq2Async(string[] p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMSeq2Async(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMSeq2Result> _iceI_opMSeq2Async(string[] iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMSeq2Result> _iceI_opMSeq2Async(string[] iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMSeq2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpMSeq2Result>(progress, cancel);
@@ -14819,12 +14493,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opMDict1Async(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opMDict1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMDict1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opMDict1Async(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_opMDict1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMDict1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
@@ -14851,12 +14525,12 @@ namespace Test2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMDict2Result> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Test.MyClass_OpMDict2Result> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opMDict2Async(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMDict2Result> _iceI_opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Test.MyClass_OpMDict2Result> _iceI_opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opMDict2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Test.MyClass_OpMDict2Result>(progress, cancel);
@@ -14892,77 +14566,30 @@ namespace Test2
 
         #region Checked and unchecked cast operations
 
-        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b)
+        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            MyDerivedClassPrx r = b as MyDerivedClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            MyDerivedClassPrx r = b as MyDerivedClassPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static MyDerivedClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -14970,30 +14597,25 @@ namespace Test2
 
         public static MyDerivedClassPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            MyDerivedClassPrx r = b as MyDerivedClassPrx;
-            if(r == null)
-            {
-                MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static MyDerivedClassPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                MyDerivedClassPrxHelper prx = new MyDerivedClassPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            MyDerivedClassPrxHelper h = new MyDerivedClassPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -16862,8 +16484,6 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current = null);
-
         public abstract bool supportsCompress(global::Ice.Current current = null);
 
         public abstract void opVoid(global::Ice.Current current = null);
@@ -16883,28 +16503,6 @@ namespace Test
         public abstract MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::Ice.Current current = null);
 
         public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, global::Ice.Current current = null);
-
-        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current = null);
-
-        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
-
-        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
-
-        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
-
-        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
-
-        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current = null);
-
-        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.Current current = null);
-
-        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.Current current = null);
-
-        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
-
-        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
-
-        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.Current current = null);
 
@@ -16945,6 +16543,34 @@ namespace Test
         public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.Current current = null);
+
+        public abstract void shutdown(global::Ice.Current current = null);
+
+        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current = null);
+
+        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
+
+        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
+
+        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
+
+        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
+
+        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current = null);
+
+        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.Current current = null);
+
+        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.Current current = null);
+
+        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
+
+        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
+
+        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
+
+        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
 
@@ -16997,10 +16623,6 @@ namespace Test
         public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
 
         public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
-
-        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         #endregion
 
@@ -17499,8 +17121,6 @@ namespace Test2
     {
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current = null);
-
         public abstract bool supportsCompress(global::Ice.Current current = null);
 
         public abstract void opVoid(global::Ice.Current current = null);
@@ -17520,28 +17140,6 @@ namespace Test2
         public abstract global::Test.MyClassPrx opMyClass(global::Test.MyClassPrx p1, out global::Test.MyClassPrx p2, out global::Test.MyClassPrx p3, global::Ice.Current current = null);
 
         public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, global::Ice.Current current = null);
-
-        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current = null);
-
-        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
-
-        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
-
-        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
-
-        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
-
-        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current = null);
-
-        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.Current current = null);
-
-        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.Current current = null);
-
-        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
-
-        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
-
-        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.Current current = null);
 
@@ -17582,6 +17180,34 @@ namespace Test2
         public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.Current current = null);
+
+        public abstract void shutdown(global::Ice.Current current = null);
+
+        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current = null);
+
+        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
+
+        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
+
+        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
+
+        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
+
+        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current = null);
+
+        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.Current current = null);
+
+        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.Current current = null);
+
+        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
+
+        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
+
+        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
 
@@ -17634,10 +17260,6 @@ namespace Test2
         public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
 
         public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         #endregion
 

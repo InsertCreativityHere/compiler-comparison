@@ -271,21 +271,6 @@ namespace IceStorm
 
 namespace IceStorm
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TopicLink_forward();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TopicInternal_getLinkProxy(TopicLinkPrx ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TopicInternal_reap();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TopicManagerInternal_getReplicaNode(global::IceStormElection.NodePrx ret);
-}
-
-namespace IceStorm
-{
     /// <summary>
     /// The TopicLink interface.
     /// This is used to forward events between federated Topic instances.
@@ -300,7 +285,7 @@ namespace IceStorm
         /// <param name="events">The events to forward.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void forward(EventData[] events, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void forward(EventData[] events, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Forward a sequence of events.
@@ -310,7 +295,7 @@ namespace IceStorm
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task forwardAsync(EventData[] events, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task forwardAsync(EventData[] events, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -326,7 +311,7 @@ namespace IceStorm
         /// <returns>The TopicLink for the Topic.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        TopicLinkPrx getLinkProxy(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        TopicLinkPrx getLinkProxy(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Retrieve a proxy to the TopicLink interface.
@@ -335,7 +320,7 @@ namespace IceStorm
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<TopicLinkPrx> getLinkProxyAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<TopicLinkPrx> getLinkProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Reap the given identities.
@@ -345,7 +330,7 @@ namespace IceStorm
         /// <exception name="ReapWouldBlock">Raised if the reap call would block.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void reap(global::Ice.Identity[] id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        void reap(global::Ice.Identity[] id, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Reap the given identities.
@@ -356,7 +341,7 @@ namespace IceStorm
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task reapAsync(global::Ice.Identity[] id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task reapAsync(global::Ice.Identity[] id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -372,7 +357,7 @@ namespace IceStorm
         /// <returns>The replica proxy, or null if this instance is not replicated.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        global::IceStormElection.NodePrx getReplicaNode(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::IceStormElection.NodePrx getReplicaNode(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
         /// <summary>
         /// Return the replica node proxy for this topic manager.
@@ -381,7 +366,7 @@ namespace IceStorm
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::IceStormElection.NodePrx> getReplicaNodeAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<global::IceStormElection.NodePrx> getReplicaNodeAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -498,7 +483,7 @@ namespace IceStorm
 
         #region Synchronous operations
 
-        public void forward(EventData[] events, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void forward(EventData[] events, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -514,12 +499,12 @@ namespace IceStorm
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task forwardAsync(EventData[] events, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task forwardAsync(EventData[] events, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_forwardAsync(events, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_forwardAsync(EventData[] iceP_events, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_forwardAsync(EventData[] iceP_events, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_forward(iceP_events, context, synchronous, completed);
@@ -547,77 +532,30 @@ namespace IceStorm
 
         #region Checked and unchecked cast operations
 
-        public static TopicLinkPrx checkedCast(global::Ice.ObjectPrx b)
+        public static TopicLinkPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            TopicLinkPrx r = b as TopicLinkPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                TopicLinkPrxHelper h = new TopicLinkPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static TopicLinkPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            TopicLinkPrx r = b as TopicLinkPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                TopicLinkPrxHelper h = new TopicLinkPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static TopicLinkPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    TopicLinkPrxHelper h = new TopicLinkPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                TopicLinkPrxHelper prx = new TopicLinkPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static TopicLinkPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static TopicLinkPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    TopicLinkPrxHelper h = new TopicLinkPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    TopicLinkPrxHelper prx = new TopicLinkPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -625,30 +563,25 @@ namespace IceStorm
 
         public static TopicLinkPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                TopicLinkPrxHelper prx = new TopicLinkPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            TopicLinkPrx r = b as TopicLinkPrx;
-            if(r == null)
-            {
-                TopicLinkPrxHelper h = new TopicLinkPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static TopicLinkPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                TopicLinkPrxHelper prx = new TopicLinkPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            TopicLinkPrxHelper h = new TopicLinkPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -693,7 +626,7 @@ namespace IceStorm
 
         #region Synchronous operations
 
-        public string getName(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public string getName(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -705,7 +638,7 @@ namespace IceStorm
             }
         }
 
-        public global::Ice.ObjectPrx getPublisher(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.ObjectPrx getPublisher(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -717,7 +650,7 @@ namespace IceStorm
             }
         }
 
-        public global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.ObjectPrx getNonReplicatedPublisher(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -729,7 +662,7 @@ namespace IceStorm
             }
         }
 
-        public global::Ice.ObjectPrx subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.ObjectPrx subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -741,7 +674,7 @@ namespace IceStorm
             }
         }
 
-        public void unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void unsubscribe(global::Ice.ObjectPrx subscriber, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -753,7 +686,7 @@ namespace IceStorm
             }
         }
 
-        public void link(TopicPrx linkTo, int cost, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void link(TopicPrx linkTo, int cost, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -765,7 +698,7 @@ namespace IceStorm
             }
         }
 
-        public void unlink(TopicPrx linkTo, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void unlink(TopicPrx linkTo, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -777,7 +710,7 @@ namespace IceStorm
             }
         }
 
-        public LinkInfo[] getLinkInfoSeq(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public LinkInfo[] getLinkInfoSeq(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -789,7 +722,7 @@ namespace IceStorm
             }
         }
 
-        public global::Ice.Identity[] getSubscribers(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.Identity[] getSubscribers(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -801,7 +734,7 @@ namespace IceStorm
             }
         }
 
-        public void destroy(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void destroy(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -813,7 +746,7 @@ namespace IceStorm
             }
         }
 
-        public TopicLinkPrx getLinkProxy(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public TopicLinkPrx getLinkProxy(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -825,7 +758,7 @@ namespace IceStorm
             }
         }
 
-        public void reap(global::Ice.Identity[] id, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public void reap(global::Ice.Identity[] id, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -841,12 +774,12 @@ namespace IceStorm
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<string> getNameAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<string> getNameAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getNameAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string> _iceI_getNameAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string> _iceI_getNameAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getName_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
@@ -873,12 +806,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getPublisherAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getPublisherAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_getPublisherAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_getPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getPublisher_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
@@ -905,12 +838,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getNonReplicatedPublisherAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getNonReplicatedPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getNonReplicatedPublisherAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_getNonReplicatedPublisherAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_getNonReplicatedPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getNonReplicatedPublisher_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
@@ -937,12 +870,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> subscribeAndGetPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> subscribeAndGetPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_subscribeAndGetPublisherAsync(theQoS, subscriber, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_subscribeAndGetPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_theQoS, global::Ice.ObjectPrx iceP_subscriber, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_subscribeAndGetPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_theQoS, global::Ice.ObjectPrx iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_subscribeAndGetPublisher_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
@@ -972,11 +905,11 @@ namespace IceStorm
                     {
                         throw ex;
                     }
-                    catch(InvalidSubscriber)
+                    catch(AlreadySubscribed)
                     {
                         throw;
                     }
-                    catch(AlreadySubscribed)
+                    catch(InvalidSubscriber)
                     {
                         throw;
                     }
@@ -996,12 +929,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task unsubscribeAsync(global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task unsubscribeAsync(global::Ice.ObjectPrx subscriber, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_unsubscribeAsync(subscriber, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_unsubscribeAsync(global::Ice.ObjectPrx iceP_subscriber, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_unsubscribeAsync(global::Ice.ObjectPrx iceP_subscriber, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_unsubscribe(iceP_subscriber, context, synchronous, completed);
@@ -1025,12 +958,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task linkAsync(TopicPrx linkTo, int cost, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task linkAsync(TopicPrx linkTo, int cost, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_linkAsync(linkTo, cost, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_linkAsync(TopicPrx iceP_linkTo, int iceP_cost, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_linkAsync(TopicPrx iceP_linkTo, int iceP_cost, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_link_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1070,12 +1003,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task unlinkAsync(TopicPrx linkTo, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task unlinkAsync(TopicPrx linkTo, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_unlinkAsync(linkTo, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_unlinkAsync(TopicPrx iceP_linkTo, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_unlinkAsync(TopicPrx iceP_linkTo, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_unlink_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1114,12 +1047,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task<LinkInfo[]> getLinkInfoSeqAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<LinkInfo[]> getLinkInfoSeqAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getLinkInfoSeqAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<LinkInfo[]> _iceI_getLinkInfoSeqAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<LinkInfo[]> _iceI_getLinkInfoSeqAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getLinkInfoSeq_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LinkInfo[]>(progress, cancel);
@@ -1146,12 +1079,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.Identity[]> getSubscribersAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::Ice.Identity[]> getSubscribersAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getSubscribersAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.Identity[]> _iceI_getSubscribersAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.Identity[]> _iceI_getSubscribersAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getSubscribers_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.Identity[]>(progress, cancel);
@@ -1178,12 +1111,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task destroyAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_destroyAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_destroyAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_destroyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_destroy(context, synchronous, completed);
@@ -1203,12 +1136,12 @@ namespace IceStorm
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<TopicLinkPrx> getLinkProxyAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TopicLinkPrx> getLinkProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getLinkProxyAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TopicLinkPrx> _iceI_getLinkProxyAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TopicLinkPrx> _iceI_getLinkProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getLinkProxy_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TopicLinkPrx>(progress, cancel);
@@ -1235,12 +1168,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task reapAsync(global::Ice.Identity[] id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task reapAsync(global::Ice.Identity[] id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_reapAsync(id, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_reapAsync(global::Ice.Identity[] iceP_id, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_reapAsync(global::Ice.Identity[] iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_reap_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1283,77 +1216,30 @@ namespace IceStorm
 
         #region Checked and unchecked cast operations
 
-        public static TopicInternalPrx checkedCast(global::Ice.ObjectPrx b)
+        public static TopicInternalPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            TopicInternalPrx r = b as TopicInternalPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                TopicInternalPrxHelper h = new TopicInternalPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static TopicInternalPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            TopicInternalPrx r = b as TopicInternalPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                TopicInternalPrxHelper h = new TopicInternalPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static TopicInternalPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    TopicInternalPrxHelper h = new TopicInternalPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                TopicInternalPrxHelper prx = new TopicInternalPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static TopicInternalPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static TopicInternalPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    TopicInternalPrxHelper h = new TopicInternalPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    TopicInternalPrxHelper prx = new TopicInternalPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1361,30 +1247,25 @@ namespace IceStorm
 
         public static TopicInternalPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                TopicInternalPrxHelper prx = new TopicInternalPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            TopicInternalPrx r = b as TopicInternalPrx;
-            if(r == null)
-            {
-                TopicInternalPrxHelper h = new TopicInternalPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static TopicInternalPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                TopicInternalPrxHelper prx = new TopicInternalPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            TopicInternalPrxHelper h = new TopicInternalPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -1430,7 +1311,7 @@ namespace IceStorm
 
         #region Synchronous operations
 
-        public TopicPrx create(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public TopicPrx create(string name, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1442,7 +1323,7 @@ namespace IceStorm
             }
         }
 
-        public TopicPrx retrieve(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public TopicPrx retrieve(string name, global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1454,7 +1335,7 @@ namespace IceStorm
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, TopicPrx> retrieveAll(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::System.Collections.Generic.Dictionary<string, TopicPrx> retrieveAll(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1466,7 +1347,7 @@ namespace IceStorm
             }
         }
 
-        public global::IceStormElection.NodePrx getReplicaNode(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::IceStormElection.NodePrx getReplicaNode(global::System.Collections.Generic.Dictionary<string, string> context = null)
         {
             try
             {
@@ -1482,12 +1363,12 @@ namespace IceStorm
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<TopicPrx> createAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TopicPrx> createAsync(string name, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_createAsync(name, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TopicPrx> _iceI_createAsync(string iceP_name, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TopicPrx> _iceI_createAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_create_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TopicPrx>(progress, cancel);
@@ -1532,12 +1413,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TopicPrx> retrieveAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<TopicPrx> retrieveAsync(string name, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_retrieveAsync(name, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TopicPrx> _iceI_retrieveAsync(string iceP_name, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TopicPrx> _iceI_retrieveAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_retrieve_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TopicPrx>(progress, cancel);
@@ -1582,12 +1463,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, TopicPrx>> retrieveAllAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, TopicPrx>> retrieveAllAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_retrieveAllAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, TopicPrx>> _iceI_retrieveAllAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, TopicPrx>> _iceI_retrieveAllAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_retrieveAll_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, TopicPrx>>(progress, cancel);
@@ -1614,12 +1495,12 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::IceStormElection.NodePrx> getReplicaNodeAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<global::IceStormElection.NodePrx> getReplicaNodeAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getReplicaNodeAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::IceStormElection.NodePrx> _iceI_getReplicaNodeAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::IceStormElection.NodePrx> _iceI_getReplicaNodeAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getReplicaNode_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::IceStormElection.NodePrx>(progress, cancel);
@@ -1650,77 +1531,30 @@ namespace IceStorm
 
         #region Checked and unchecked cast operations
 
-        public static TopicManagerInternalPrx checkedCast(global::Ice.ObjectPrx b)
+        public static TopicManagerInternalPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
+            if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
-                return null;
-            }
-            TopicManagerInternalPrx r = b as TopicManagerInternalPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                TopicManagerInternalPrxHelper h = new TopicManagerInternalPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static TopicManagerInternalPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            TopicManagerInternalPrx r = b as TopicManagerInternalPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                TopicManagerInternalPrxHelper h = new TopicManagerInternalPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static TopicManagerInternalPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    TopicManagerInternalPrxHelper h = new TopicManagerInternalPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
+                TopicManagerInternalPrxHelper prx = new TopicManagerInternalPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
             return null;
         }
 
-        public static TopicManagerInternalPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        public static TopicManagerInternalPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            global::Ice.ObjectPrx bb = b?.ice_facet(f);
             try
             {
-                if(bb.ice_isA(ice_staticId(), ctx))
+                if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
                 {
-                    TopicManagerInternalPrxHelper h = new TopicManagerInternalPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
+                    TopicManagerInternalPrxHelper prx = new TopicManagerInternalPrxHelper();
+                    prx.iceCopyFrom(bb);
+                    return prx;
                 }
             }
-            catch(global::Ice.FacetNotExistException)
+            catch (global::Ice.FacetNotExistException)
             {
             }
             return null;
@@ -1728,30 +1562,25 @@ namespace IceStorm
 
         public static TopicManagerInternalPrx uncheckedCast(global::Ice.ObjectPrx b)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                TopicManagerInternalPrxHelper prx = new TopicManagerInternalPrxHelper();
+                prx.iceCopyFrom(b);
+                return prx;
             }
-            TopicManagerInternalPrx r = b as TopicManagerInternalPrx;
-            if(r == null)
-            {
-                TopicManagerInternalPrxHelper h = new TopicManagerInternalPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
+            return null;
         }
 
         public static TopicManagerInternalPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
         {
-            if(b == null)
+            if (b is not null)
             {
-                return null;
+                global::Ice.ObjectPrx bb = b.ice_facet(f);
+                TopicManagerInternalPrxHelper prx = new TopicManagerInternalPrxHelper();
+                prx.iceCopyFrom(bb);
+                return prx;
             }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            TopicManagerInternalPrxHelper h = new TopicManagerInternalPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
+            return null;
         }
 
         private static readonly string[] _ids =
@@ -1908,12 +1737,6 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
-        public abstract string getName(global::Ice.Current current = null);
-
-        public abstract global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
-
-        public abstract global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.Current current = null);
-
         public abstract global::Ice.ObjectPrx subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
 
         public abstract void unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
@@ -1927,6 +1750,12 @@ namespace IceStorm
         public abstract global::Ice.Identity[] getSubscribers(global::Ice.Current current = null);
 
         public abstract void destroy(global::Ice.Current current = null);
+
+        public abstract string getName(global::Ice.Current current = null);
+
+        public abstract global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
+
+        public abstract global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.Current current = null);
 
         #endregion
 
