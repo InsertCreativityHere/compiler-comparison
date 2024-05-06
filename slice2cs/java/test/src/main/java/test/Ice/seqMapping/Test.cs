@@ -102,43 +102,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(Foo other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.SLmem is null)
-            {
-                if (other.SLmem is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.SLmem, other.SLmem))
-                {
-                    return false;
-                }
-            }
-            if (this.SLSmem is null)
-            {
-                if (other.SLSmem is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.SLSmem, other.SLSmem))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.SLmem, other.SLmem) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.SLSmem, other.SLSmem);
         }
 
         #endregion
@@ -146,16 +116,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(Foo lhs, Foo rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(Foo lhs, Foo rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(Foo lhs, Foo rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(Foo lhs, Foo rhs) => !(lhs == rhs);
 
         #endregion
 

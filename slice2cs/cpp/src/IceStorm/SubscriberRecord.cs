@@ -89,43 +89,13 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(SubscriberRecordKey other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.topic is null)
-            {
-                if (other.topic is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.topic.Equals(other.topic))
-                {
-                    return false;
-                }
-            }
-            if (this.id is null)
-            {
-                if (other.id is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.id.Equals(other.id))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.topic == other.topic && 
+                this.id == other.id;
         }
 
         #endregion
@@ -133,16 +103,10 @@ namespace IceStorm
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(SubscriberRecordKey lhs, SubscriberRecordKey rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(SubscriberRecordKey lhs, SubscriberRecordKey rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(SubscriberRecordKey lhs, SubscriberRecordKey rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(SubscriberRecordKey lhs, SubscriberRecordKey rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -281,93 +245,18 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(SubscriberRecord other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.topicName is null)
-            {
-                if (other.topicName is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.topicName.Equals(other.topicName))
-                {
-                    return false;
-                }
-            }
-            if (this.id is null)
-            {
-                if (other.id is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.id.Equals(other.id))
-                {
-                    return false;
-                }
-            }
-            if (!this.link.Equals(other.link))
-            {
-                return false;
-            }
-            if (this.obj is null)
-            {
-                if (other.obj is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.obj.Equals(other.obj))
-                {
-                    return false;
-                }
-            }
-            if (this.theQoS is null)
-            {
-                if (other.theQoS is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.theQoS, other.theQoS))
-                {
-                    return false;
-                }
-            }
-            if (!this.cost.Equals(other.cost))
-            {
-                return false;
-            }
-            if (this.theTopic is null)
-            {
-                if (other.theTopic is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.theTopic.Equals(other.theTopic))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.topicName == other.topicName && 
+                this.id == other.id && 
+                this.link == other.link && 
+                (Ice.ObjectPrxHelperBase)this.obj == (Ice.ObjectPrxHelperBase)other.obj && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.theQoS, other.theQoS) && 
+                this.cost == other.cost && 
+                (Ice.ObjectPrxHelperBase)this.theTopic == (Ice.ObjectPrxHelperBase)other.theTopic;
         }
 
         #endregion
@@ -375,16 +264,10 @@ namespace IceStorm
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(SubscriberRecord lhs, SubscriberRecord rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(SubscriberRecord lhs, SubscriberRecord rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(SubscriberRecord lhs, SubscriberRecord rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(SubscriberRecord lhs, SubscriberRecord rhs) => !(lhs == rhs);
 
         #endregion
 

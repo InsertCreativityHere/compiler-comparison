@@ -169,29 +169,12 @@ namespace and
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(defer other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.@else is null)
-            {
-                if (other.@else is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.@else.Equals(other.@else))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.@else == other.@else;
         }
 
         #endregion
@@ -199,16 +182,10 @@ namespace and
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(defer lhs, defer rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(defer lhs, defer rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(defer lhs, defer rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(defer lhs, defer rhs) => !(lhs == rhs);
 
         #endregion
 

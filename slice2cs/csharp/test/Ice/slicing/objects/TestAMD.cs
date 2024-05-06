@@ -541,43 +541,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(SS3 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.c1 is null)
-            {
-                if (other.c1 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.c1.Equals(other.c1))
-                {
-                    return false;
-                }
-            }
-            if (this.c2 is null)
-            {
-                if (other.c2 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.c2.Equals(other.c2))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.c1 == other.c1 && 
+                this.c2 == other.c2;
         }
 
         #endregion
@@ -585,16 +555,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(SS3 lhs, SS3 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(SS3 lhs, SS3 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(SS3 lhs, SS3 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(SS3 lhs, SS3 rhs) => !(lhs == rhs);
 
         #endregion
 

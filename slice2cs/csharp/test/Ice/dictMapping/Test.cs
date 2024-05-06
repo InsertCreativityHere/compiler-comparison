@@ -89,43 +89,13 @@ namespace Ice.dictMapping
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(TEstNv other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (this.d is null)
-                {
-                    if (other.d is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.d, other.d))
-                    {
-                        return false;
-                    }
-                }
-                if (this.s is null)
-                {
-                    if (other.s is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!Ice.UtilInternal.Arrays.Equals(this.s, other.s))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    Ice.UtilInternal.Collections.DictionaryEquals(this.d, other.d) && 
+                    Ice.UtilInternal.Collections.NullableSequenceEqual(this.s, other.s);
             }
 
             #endregion
@@ -133,16 +103,10 @@ namespace Ice.dictMapping
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(TEstNv lhs, TEstNv rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(TEstNv lhs, TEstNv rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(TEstNv lhs, TEstNv rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(TEstNv lhs, TEstNv rhs) => !(lhs == rhs);
 
             #endregion
 

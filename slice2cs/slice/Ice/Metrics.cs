@@ -184,43 +184,13 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(MetricsFailures other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.id is null)
-            {
-                if (other.id is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.id.Equals(other.id))
-                {
-                    return false;
-                }
-            }
-            if (this.failures is null)
-            {
-                if (other.failures is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.failures, other.failures))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.id == other.id && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.failures, other.failures);
         }
 
         #endregion
@@ -228,16 +198,10 @@ namespace IceMX
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(MetricsFailures lhs, MetricsFailures rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(MetricsFailures lhs, MetricsFailures rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(MetricsFailures lhs, MetricsFailures rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(MetricsFailures lhs, MetricsFailures rhs) => !(lhs == rhs);
 
         #endregion
 

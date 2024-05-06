@@ -87,43 +87,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(PropertyDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.name is null)
-            {
-                if (other.name is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.name.Equals(other.name))
-                {
-                    return false;
-                }
-            }
-            if (this.value is null)
-            {
-                if (other.value is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.value.Equals(other.value))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.name == other.name && 
+                this.value == other.value;
         }
 
         #endregion
@@ -131,16 +101,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(PropertyDescriptor lhs, PropertyDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(PropertyDescriptor lhs, PropertyDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(PropertyDescriptor lhs, PropertyDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(PropertyDescriptor lhs, PropertyDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -253,43 +217,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(PropertySetDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.references is null)
-            {
-                if (other.references is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.references, other.references))
-                {
-                    return false;
-                }
-            }
-            if (this.properties is null)
-            {
-                if (other.properties is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.properties, other.properties))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.references, other.references) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.properties, other.properties);
         }
 
         #endregion
@@ -297,16 +231,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(PropertySetDescriptor lhs, PropertySetDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(PropertySetDescriptor lhs, PropertySetDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(PropertySetDescriptor lhs, PropertySetDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(PropertySetDescriptor lhs, PropertySetDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -425,57 +353,14 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(ObjectDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.id is null)
-            {
-                if (other.id is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.id.Equals(other.id))
-                {
-                    return false;
-                }
-            }
-            if (this.type is null)
-            {
-                if (other.type is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.type.Equals(other.type))
-                {
-                    return false;
-                }
-            }
-            if (this.proxyOptions is null)
-            {
-                if (other.proxyOptions is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.proxyOptions.Equals(other.proxyOptions))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.id == other.id && 
+                this.type == other.type && 
+                this.proxyOptions == other.proxyOptions;
         }
 
         #endregion
@@ -483,16 +368,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(ObjectDescriptor lhs, ObjectDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(ObjectDescriptor lhs, ObjectDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(ObjectDescriptor lhs, ObjectDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(ObjectDescriptor lhs, ObjectDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -642,121 +521,20 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(AdapterDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.name is null)
-            {
-                if (other.name is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.name.Equals(other.name))
-                {
-                    return false;
-                }
-            }
-            if (this.description is null)
-            {
-                if (other.description is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.description.Equals(other.description))
-                {
-                    return false;
-                }
-            }
-            if (this.id is null)
-            {
-                if (other.id is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.id.Equals(other.id))
-                {
-                    return false;
-                }
-            }
-            if (this.replicaGroupId is null)
-            {
-                if (other.replicaGroupId is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.replicaGroupId.Equals(other.replicaGroupId))
-                {
-                    return false;
-                }
-            }
-            if (this.priority is null)
-            {
-                if (other.priority is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.priority.Equals(other.priority))
-                {
-                    return false;
-                }
-            }
-            if (!this.registerProcess.Equals(other.registerProcess))
-            {
-                return false;
-            }
-            if (!this.serverLifetime.Equals(other.serverLifetime))
-            {
-                return false;
-            }
-            if (this.objects is null)
-            {
-                if (other.objects is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.objects, other.objects))
-                {
-                    return false;
-                }
-            }
-            if (this.allocatables is null)
-            {
-                if (other.allocatables is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.allocatables, other.allocatables))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.name == other.name && 
+                this.description == other.description && 
+                this.id == other.id && 
+                this.replicaGroupId == other.replicaGroupId && 
+                this.priority == other.priority && 
+                this.registerProcess == other.registerProcess && 
+                this.serverLifetime == other.serverLifetime && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.objects, other.objects) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.allocatables, other.allocatables);
         }
 
         #endregion
@@ -764,16 +542,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(AdapterDescriptor lhs, AdapterDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(AdapterDescriptor lhs, AdapterDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(AdapterDescriptor lhs, AdapterDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(AdapterDescriptor lhs, AdapterDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -992,43 +764,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(DistributionDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.icepatch is null)
-            {
-                if (other.icepatch is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.icepatch.Equals(other.icepatch))
-                {
-                    return false;
-                }
-            }
-            if (this.directories is null)
-            {
-                if (other.directories is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.directories, other.directories))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.icepatch == other.icepatch && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.directories, other.directories);
         }
 
         #endregion
@@ -1036,16 +778,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(DistributionDescriptor lhs, DistributionDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(DistributionDescriptor lhs, DistributionDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(DistributionDescriptor lhs, DistributionDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(DistributionDescriptor lhs, DistributionDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -1398,71 +1134,15 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(ServerInstanceDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.template is null)
-            {
-                if (other.template is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.template.Equals(other.template))
-                {
-                    return false;
-                }
-            }
-            if (this.parameterValues is null)
-            {
-                if (other.parameterValues is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, other.parameterValues))
-                {
-                    return false;
-                }
-            }
-            if (this.propertySet is null)
-            {
-                if (other.propertySet is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.propertySet.Equals(other.propertySet))
-                {
-                    return false;
-                }
-            }
-            if (this.servicePropertySets is null)
-            {
-                if (other.servicePropertySets is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.servicePropertySets, other.servicePropertySets))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.template == other.template && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, other.parameterValues) && 
+                this.propertySet == other.propertySet && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.servicePropertySets, other.servicePropertySets);
         }
 
         #endregion
@@ -1470,16 +1150,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(ServerInstanceDescriptor lhs, ServerInstanceDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(ServerInstanceDescriptor lhs, ServerInstanceDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(ServerInstanceDescriptor lhs, ServerInstanceDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(ServerInstanceDescriptor lhs, ServerInstanceDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -1601,57 +1275,14 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(TemplateDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.descriptor is null)
-            {
-                if (other.descriptor is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.descriptor.Equals(other.descriptor))
-                {
-                    return false;
-                }
-            }
-            if (this.parameters is null)
-            {
-                if (other.parameters is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.parameters, other.parameters))
-                {
-                    return false;
-                }
-            }
-            if (this.parameterDefaults is null)
-            {
-                if (other.parameterDefaults is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterDefaults, other.parameterDefaults))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.descriptor == other.descriptor && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.parameters, other.parameters) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.parameterDefaults, other.parameterDefaults);
         }
 
         #endregion
@@ -1659,16 +1290,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(TemplateDescriptor lhs, TemplateDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(TemplateDescriptor lhs, TemplateDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(TemplateDescriptor lhs, TemplateDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(TemplateDescriptor lhs, TemplateDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -1794,71 +1419,15 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(ServiceInstanceDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.template is null)
-            {
-                if (other.template is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.template.Equals(other.template))
-                {
-                    return false;
-                }
-            }
-            if (this.parameterValues is null)
-            {
-                if (other.parameterValues is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, other.parameterValues))
-                {
-                    return false;
-                }
-            }
-            if (this.descriptor is null)
-            {
-                if (other.descriptor is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.descriptor.Equals(other.descriptor))
-                {
-                    return false;
-                }
-            }
-            if (this.propertySet is null)
-            {
-                if (other.propertySet is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.propertySet.Equals(other.propertySet))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.template == other.template && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.parameterValues, other.parameterValues) && 
+                this.descriptor == other.descriptor && 
+                this.propertySet == other.propertySet;
         }
 
         #endregion
@@ -1866,16 +1435,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(ServiceInstanceDescriptor lhs, ServiceInstanceDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(ServiceInstanceDescriptor lhs, ServiceInstanceDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(ServiceInstanceDescriptor lhs, ServiceInstanceDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(ServiceInstanceDescriptor lhs, ServiceInstanceDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -2087,99 +1650,17 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(NodeDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.variables is null)
-            {
-                if (other.variables is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables))
-                {
-                    return false;
-                }
-            }
-            if (this.serverInstances is null)
-            {
-                if (other.serverInstances is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.serverInstances, other.serverInstances))
-                {
-                    return false;
-                }
-            }
-            if (this.servers is null)
-            {
-                if (other.servers is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.servers, other.servers))
-                {
-                    return false;
-                }
-            }
-            if (this.loadFactor is null)
-            {
-                if (other.loadFactor is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.loadFactor.Equals(other.loadFactor))
-                {
-                    return false;
-                }
-            }
-            if (this.description is null)
-            {
-                if (other.description is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.description.Equals(other.description))
-                {
-                    return false;
-                }
-            }
-            if (this.propertySets is null)
-            {
-                if (other.propertySets is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.serverInstances, other.serverInstances) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.servers, other.servers) && 
+                this.loadFactor == other.loadFactor && 
+                this.description == other.description && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets);
         }
 
         #endregion
@@ -2187,16 +1668,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(NodeDescriptor lhs, NodeDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(NodeDescriptor lhs, NodeDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(NodeDescriptor lhs, NodeDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(NodeDescriptor lhs, NodeDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -2680,99 +2155,17 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(ReplicaGroupDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.id is null)
-            {
-                if (other.id is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.id.Equals(other.id))
-                {
-                    return false;
-                }
-            }
-            if (this.loadBalancing is null)
-            {
-                if (other.loadBalancing is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.loadBalancing.Equals(other.loadBalancing))
-                {
-                    return false;
-                }
-            }
-            if (this.proxyOptions is null)
-            {
-                if (other.proxyOptions is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.proxyOptions.Equals(other.proxyOptions))
-                {
-                    return false;
-                }
-            }
-            if (this.objects is null)
-            {
-                if (other.objects is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.objects, other.objects))
-                {
-                    return false;
-                }
-            }
-            if (this.description is null)
-            {
-                if (other.description is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.description.Equals(other.description))
-                {
-                    return false;
-                }
-            }
-            if (this.filter is null)
-            {
-                if (other.filter is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.filter.Equals(other.filter))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.id == other.id && 
+                this.loadBalancing == other.loadBalancing && 
+                this.proxyOptions == other.proxyOptions && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.objects, other.objects) && 
+                this.description == other.description && 
+                this.filter == other.filter;
         }
 
         #endregion
@@ -2780,16 +2173,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(ReplicaGroupDescriptor lhs, ReplicaGroupDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(ReplicaGroupDescriptor lhs, ReplicaGroupDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(ReplicaGroupDescriptor lhs, ReplicaGroupDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(ReplicaGroupDescriptor lhs, ReplicaGroupDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -2946,141 +2333,20 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(ApplicationDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.name is null)
-            {
-                if (other.name is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.name.Equals(other.name))
-                {
-                    return false;
-                }
-            }
-            if (this.variables is null)
-            {
-                if (other.variables is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables))
-                {
-                    return false;
-                }
-            }
-            if (this.replicaGroups is null)
-            {
-                if (other.replicaGroups is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.replicaGroups, other.replicaGroups))
-                {
-                    return false;
-                }
-            }
-            if (this.serverTemplates is null)
-            {
-                if (other.serverTemplates is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, other.serverTemplates))
-                {
-                    return false;
-                }
-            }
-            if (this.serviceTemplates is null)
-            {
-                if (other.serviceTemplates is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, other.serviceTemplates))
-                {
-                    return false;
-                }
-            }
-            if (this.nodes is null)
-            {
-                if (other.nodes is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.nodes, other.nodes))
-                {
-                    return false;
-                }
-            }
-            if (this.distrib is null)
-            {
-                if (other.distrib is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.distrib.Equals(other.distrib))
-                {
-                    return false;
-                }
-            }
-            if (this.description is null)
-            {
-                if (other.description is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.description.Equals(other.description))
-                {
-                    return false;
-                }
-            }
-            if (this.propertySets is null)
-            {
-                if (other.propertySets is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.name == other.name && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.replicaGroups, other.replicaGroups) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, other.serverTemplates) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, other.serviceTemplates) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.nodes, other.nodes) && 
+                this.distrib == other.distrib && 
+                this.description == other.description && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets);
         }
 
         #endregion
@@ -3088,16 +2354,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(ApplicationDescriptor lhs, ApplicationDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(ApplicationDescriptor lhs, ApplicationDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(ApplicationDescriptor lhs, ApplicationDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(ApplicationDescriptor lhs, ApplicationDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -3337,155 +2597,21 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(NodeUpdateDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.name is null)
-            {
-                if (other.name is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.name.Equals(other.name))
-                {
-                    return false;
-                }
-            }
-            if (this.description is null)
-            {
-                if (other.description is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.description.Equals(other.description))
-                {
-                    return false;
-                }
-            }
-            if (this.variables is null)
-            {
-                if (other.variables is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables))
-                {
-                    return false;
-                }
-            }
-            if (this.removeVariables is null)
-            {
-                if (other.removeVariables is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.removeVariables, other.removeVariables))
-                {
-                    return false;
-                }
-            }
-            if (this.propertySets is null)
-            {
-                if (other.propertySets is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets))
-                {
-                    return false;
-                }
-            }
-            if (this.removePropertySets is null)
-            {
-                if (other.removePropertySets is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.removePropertySets, other.removePropertySets))
-                {
-                    return false;
-                }
-            }
-            if (this.serverInstances is null)
-            {
-                if (other.serverInstances is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.serverInstances, other.serverInstances))
-                {
-                    return false;
-                }
-            }
-            if (this.servers is null)
-            {
-                if (other.servers is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.servers, other.servers))
-                {
-                    return false;
-                }
-            }
-            if (this.removeServers is null)
-            {
-                if (other.removeServers is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.removeServers, other.removeServers))
-                {
-                    return false;
-                }
-            }
-            if (this.loadFactor is null)
-            {
-                if (other.loadFactor is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.loadFactor.Equals(other.loadFactor))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.name == other.name && 
+                this.description == other.description && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeVariables, other.removeVariables) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removePropertySets, other.removePropertySets) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.serverInstances, other.serverInstances) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.servers, other.servers) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeServers, other.removeServers) && 
+                this.loadFactor == other.loadFactor;
         }
 
         #endregion
@@ -3493,16 +2619,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(NodeUpdateDescriptor lhs, NodeUpdateDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(NodeUpdateDescriptor lhs, NodeUpdateDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(NodeUpdateDescriptor lhs, NodeUpdateDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(NodeUpdateDescriptor lhs, NodeUpdateDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -3770,225 +2890,26 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(ApplicationUpdateDescriptor other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.name is null)
-            {
-                if (other.name is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.name.Equals(other.name))
-                {
-                    return false;
-                }
-            }
-            if (this.description is null)
-            {
-                if (other.description is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.description.Equals(other.description))
-                {
-                    return false;
-                }
-            }
-            if (this.distrib is null)
-            {
-                if (other.distrib is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.distrib.Equals(other.distrib))
-                {
-                    return false;
-                }
-            }
-            if (this.variables is null)
-            {
-                if (other.variables is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables))
-                {
-                    return false;
-                }
-            }
-            if (this.removeVariables is null)
-            {
-                if (other.removeVariables is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.removeVariables, other.removeVariables))
-                {
-                    return false;
-                }
-            }
-            if (this.propertySets is null)
-            {
-                if (other.propertySets is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets))
-                {
-                    return false;
-                }
-            }
-            if (this.removePropertySets is null)
-            {
-                if (other.removePropertySets is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.removePropertySets, other.removePropertySets))
-                {
-                    return false;
-                }
-            }
-            if (this.replicaGroups is null)
-            {
-                if (other.replicaGroups is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.replicaGroups, other.replicaGroups))
-                {
-                    return false;
-                }
-            }
-            if (this.removeReplicaGroups is null)
-            {
-                if (other.removeReplicaGroups is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.removeReplicaGroups, other.removeReplicaGroups))
-                {
-                    return false;
-                }
-            }
-            if (this.serverTemplates is null)
-            {
-                if (other.serverTemplates is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, other.serverTemplates))
-                {
-                    return false;
-                }
-            }
-            if (this.removeServerTemplates is null)
-            {
-                if (other.removeServerTemplates is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.removeServerTemplates, other.removeServerTemplates))
-                {
-                    return false;
-                }
-            }
-            if (this.serviceTemplates is null)
-            {
-                if (other.serviceTemplates is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, other.serviceTemplates))
-                {
-                    return false;
-                }
-            }
-            if (this.removeServiceTemplates is null)
-            {
-                if (other.removeServiceTemplates is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.removeServiceTemplates, other.removeServiceTemplates))
-                {
-                    return false;
-                }
-            }
-            if (this.nodes is null)
-            {
-                if (other.nodes is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.nodes, other.nodes))
-                {
-                    return false;
-                }
-            }
-            if (this.removeNodes is null)
-            {
-                if (other.removeNodes is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.removeNodes, other.removeNodes))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.name == other.name && 
+                this.description == other.description && 
+                this.distrib == other.distrib && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.variables, other.variables) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeVariables, other.removeVariables) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.propertySets, other.propertySets) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removePropertySets, other.removePropertySets) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.replicaGroups, other.replicaGroups) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeReplicaGroups, other.removeReplicaGroups) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.serverTemplates, other.serverTemplates) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeServerTemplates, other.removeServerTemplates) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.serviceTemplates, other.serviceTemplates) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeServiceTemplates, other.removeServiceTemplates) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.nodes, other.nodes) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.removeNodes, other.removeNodes);
         }
 
         #endregion
@@ -3996,16 +2917,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(ApplicationUpdateDescriptor lhs, ApplicationUpdateDescriptor rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(ApplicationUpdateDescriptor lhs, ApplicationUpdateDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(ApplicationUpdateDescriptor lhs, ApplicationUpdateDescriptor rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(ApplicationUpdateDescriptor lhs, ApplicationUpdateDescriptor rhs) => !(lhs == rhs);
 
         #endregion
 

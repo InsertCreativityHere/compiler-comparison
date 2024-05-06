@@ -155,29 +155,12 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S1 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.name is null)
-            {
-                if (other.name is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.name.Equals(other.name))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.name == other.name;
         }
 
         #endregion
@@ -185,16 +168,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S1 lhs, S1 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S1 lhs, S1 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S1 lhs, S1 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S1 lhs, S1 rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -280,7 +257,7 @@ namespace Test
         public string[] ss;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int[] il;
+        public global::System.Collections.Generic.List<int> il;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, string> sd;
@@ -308,7 +285,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S2(bool bo, byte by, short sh, int i, long l, float f, double d, string str, string[] ss, int[] il, global::System.Collections.Generic.Dictionary<string, string> sd, S1 s, C cls, global::Ice.ObjectPrx prx)
+        public S2(bool bo, byte by, short sh, int i, long l, float f, double d, string str, string[] ss, global::System.Collections.Generic.List<int> il, global::System.Collections.Generic.Dictionary<string, string> sd, S1 s, C cls, global::Ice.ObjectPrx prx)
         {
             this.bo = bo;
             this.by = by;
@@ -366,141 +343,25 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S2 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (!this.bo.Equals(other.bo))
-            {
-                return false;
-            }
-            if (!this.by.Equals(other.by))
-            {
-                return false;
-            }
-            if (!this.sh.Equals(other.sh))
-            {
-                return false;
-            }
-            if (!this.i.Equals(other.i))
-            {
-                return false;
-            }
-            if (!this.l.Equals(other.l))
-            {
-                return false;
-            }
-            if (!this.f.Equals(other.f))
-            {
-                return false;
-            }
-            if (!this.d.Equals(other.d))
-            {
-                return false;
-            }
-            if (this.str is null)
-            {
-                if (other.str is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.str.Equals(other.str))
-                {
-                    return false;
-                }
-            }
-            if (this.ss is null)
-            {
-                if (other.ss is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.ss, other.ss))
-                {
-                    return false;
-                }
-            }
-            if (this.il is null)
-            {
-                if (other.il is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.il, other.il))
-                {
-                    return false;
-                }
-            }
-            if (this.sd is null)
-            {
-                if (other.sd is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.sd, other.sd))
-                {
-                    return false;
-                }
-            }
-            if (this.s is null)
-            {
-                if (other.s is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.s.Equals(other.s))
-                {
-                    return false;
-                }
-            }
-            if (this.cls is null)
-            {
-                if (other.cls is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.cls.Equals(other.cls))
-                {
-                    return false;
-                }
-            }
-            if (this.prx is null)
-            {
-                if (other.prx is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.prx.Equals(other.prx))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.bo == other.bo && 
+                this.by == other.by && 
+                this.sh == other.sh && 
+                this.i == other.i && 
+                this.l == other.l && 
+                this.f == other.f && 
+                this.d == other.d && 
+                this.str == other.str && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.ss, other.ss) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.il, other.il) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.sd, other.sd) && 
+                this.s == other.s && 
+                this.cls == other.cls && 
+                (Ice.ObjectPrxHelperBase)this.prx == (Ice.ObjectPrxHelperBase)other.prx;
         }
 
         #endregion
@@ -508,16 +369,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S2 lhs, S2 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S2 lhs, S2 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S2 lhs, S2 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S2 lhs, S2 rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -609,15 +464,15 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class IntListHelper
     {
-        public static void write(global::Ice.OutputStream ostr, int[] v)
+        public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<int> v)
         {
-            ostr.writeIntSeq(v);
+            ostr.writeIntSeq(v == null ? 0 : v.Count, v);
         }
 
-        public static int[] read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.List<int> read(global::Ice.InputStream istr)
         {
-            int[] v;
-            v = istr.readIntSeq();
+            global::System.Collections.Generic.List<int> v;
+            istr.readIntSeq(out v);
             return v;
         }
     }

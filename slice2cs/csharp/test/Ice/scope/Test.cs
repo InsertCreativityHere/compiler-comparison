@@ -245,29 +245,12 @@ namespace Ice.scope
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(S1 other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (this.s is null)
-                {
-                    if (other.s is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.s.Equals(other.s))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    this.s == other.s;
             }
 
             #endregion
@@ -275,16 +258,10 @@ namespace Ice.scope
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(S1 lhs, S1 rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(S1 lhs, S1 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(S1 lhs, S1 rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(S1 lhs, S1 rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -474,47 +451,14 @@ namespace Ice.scope
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(S2 other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (!this.E1.Equals(other.E1))
-                {
-                    return false;
-                }
-                if (this.S1 is null)
-                {
-                    if (other.S1 is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.S1.Equals(other.S1))
-                    {
-                        return false;
-                    }
-                }
-                if (this.C1 is null)
-                {
-                    if (other.C1 is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.C1.Equals(other.C1))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    this.E1 == other.E1 && 
+                    this.S1 == other.S1 && 
+                    this.C1 == other.C1;
             }
 
             #endregion
@@ -522,16 +466,10 @@ namespace Ice.scope
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(S2 lhs, S2 rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(S2 lhs, S2 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(S2 lhs, S2 rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(S2 lhs, S2 rhs) => !(lhs == rhs);
 
             #endregion
 

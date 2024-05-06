@@ -155,57 +155,14 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(Variable other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.s is null)
-            {
-                if (other.s is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.s.Equals(other.s))
-                {
-                    return false;
-                }
-            }
-            if (this.bl is null)
-            {
-                if (other.bl is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.bl, other.bl))
-                {
-                    return false;
-                }
-            }
-            if (this.ss is null)
-            {
-                if (other.ss is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.ss, other.ss))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.s == other.s && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.bl, other.bl) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.ss, other.ss);
         }
 
         #endregion
@@ -213,16 +170,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(Variable lhs, Variable rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(Variable lhs, Variable rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(Variable lhs, Variable rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(Variable lhs, Variable rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -532,113 +483,18 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(BufferStruct other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.byteBuf is null)
-            {
-                if (other.byteBuf is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.byteBuf, other.byteBuf))
-                {
-                    return false;
-                }
-            }
-            if (this.boolBuf is null)
-            {
-                if (other.boolBuf is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.boolBuf, other.boolBuf))
-                {
-                    return false;
-                }
-            }
-            if (this.shortBuf is null)
-            {
-                if (other.shortBuf is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.shortBuf, other.shortBuf))
-                {
-                    return false;
-                }
-            }
-            if (this.intBuf is null)
-            {
-                if (other.intBuf is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.intBuf, other.intBuf))
-                {
-                    return false;
-                }
-            }
-            if (this.longBuf is null)
-            {
-                if (other.longBuf is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.longBuf, other.longBuf))
-                {
-                    return false;
-                }
-            }
-            if (this.floatBuf is null)
-            {
-                if (other.floatBuf is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.floatBuf, other.floatBuf))
-                {
-                    return false;
-                }
-            }
-            if (this.doubleBuf is null)
-            {
-                if (other.doubleBuf is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.doubleBuf, other.doubleBuf))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.byteBuf, other.byteBuf) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.boolBuf, other.boolBuf) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.shortBuf, other.shortBuf) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.intBuf, other.intBuf) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.longBuf, other.longBuf) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.floatBuf, other.floatBuf) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.doubleBuf, other.doubleBuf);
         }
 
         #endregion
@@ -646,16 +502,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(BufferStruct lhs, BufferStruct rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(BufferStruct lhs, BufferStruct rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(BufferStruct lhs, BufferStruct rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(BufferStruct lhs, BufferStruct rhs) => !(lhs == rhs);
 
         #endregion
 

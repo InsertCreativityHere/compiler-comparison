@@ -155,29 +155,12 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S1 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.c1 is null)
-            {
-                if (other.c1 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.c1.Equals(other.c1))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.c1 == other.c1;
         }
 
         #endregion
@@ -185,16 +168,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S1 lhs, S1 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S1 lhs, S1 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S1 lhs, S1 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S1 lhs, S1 rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -301,29 +278,12 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S2 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.s1 is null)
-            {
-                if (other.s1 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.s1.Equals(other.s1))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.s1 == other.s1;
         }
 
         #endregion
@@ -331,16 +291,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S2 lhs, S2 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S2 lhs, S2 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S2 lhs, S2 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S2 lhs, S2 rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -446,29 +400,12 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S3 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.c1seq is null)
-            {
-                if (other.c1seq is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.c1seq, other.c1seq))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.c1seq, other.c1seq);
         }
 
         #endregion
@@ -476,16 +413,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S3 lhs, S3 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S3 lhs, S3 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S3 lhs, S3 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S3 lhs, S3 rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -591,29 +522,12 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S4 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.s1seq is null)
-            {
-                if (other.s1seq is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.s1seq, other.s1seq))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.s1seq, other.s1seq);
         }
 
         #endregion
@@ -621,16 +535,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S4 lhs, S4 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S4 lhs, S4 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S4 lhs, S4 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S4 lhs, S4 rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -736,29 +644,12 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S5 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.c1dict is null)
-            {
-                if (other.c1dict is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.c1dict, other.c1dict))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.c1dict, other.c1dict);
         }
 
         #endregion
@@ -766,16 +657,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S5 lhs, S5 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S5 lhs, S5 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S5 lhs, S5 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S5 lhs, S5 rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -881,29 +766,12 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S6 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.s1dict is null)
-            {
-                if (other.s1dict is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.s1dict, other.s1dict))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.s1dict, other.s1dict);
         }
 
         #endregion
@@ -911,16 +779,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S6 lhs, S6 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S6 lhs, S6 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S6 lhs, S6 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S6 lhs, S6 rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -1026,29 +888,12 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S7 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.c1seqseq is null)
-            {
-                if (other.c1seqseq is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.c1seqseq, other.c1seqseq))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.c1seqseq, other.c1seqseq);
         }
 
         #endregion
@@ -1056,16 +901,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S7 lhs, S7 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S7 lhs, S7 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S7 lhs, S7 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S7 lhs, S7 rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -1171,29 +1010,12 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S8 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.s1seqseq is null)
-            {
-                if (other.s1seqseq is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.s1seqseq, other.s1seqseq))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.s1seqseq, other.s1seqseq);
         }
 
         #endregion
@@ -1201,16 +1023,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S8 lhs, S8 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S8 lhs, S8 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S8 lhs, S8 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S8 lhs, S8 rhs) => !(lhs == rhs);
 
         #endregion
 

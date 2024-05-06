@@ -99,29 +99,12 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(S other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (this.str is null)
-                {
-                    if (other.str is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.str.Equals(other.str))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    this.str == other.str;
             }
 
             #endregion
@@ -129,16 +112,10 @@ namespace Ice.objects
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(S lhs, S rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(S lhs, S rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(S lhs, S rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(S lhs, S rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -1996,33 +1973,13 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(StructKey other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (!this.i.Equals(other.i))
-                {
-                    return false;
-                }
-                if (this.s is null)
-                {
-                    if (other.s is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.s.Equals(other.s))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    this.i == other.i && 
+                    this.s == other.s;
             }
 
             #endregion
@@ -2030,16 +1987,10 @@ namespace Ice.objects
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(StructKey lhs, StructKey rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(StructKey lhs, StructKey rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(StructKey lhs, StructKey rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(StructKey lhs, StructKey rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -2776,29 +2727,12 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(SC1 other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (this.id is null)
-                {
-                    if (other.id is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.id.Equals(other.id))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    this.id == other.id;
             }
 
             #endregion
@@ -2806,16 +2740,10 @@ namespace Ice.objects
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(SC1 lhs, SC1 rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(SC1 lhs, SC1 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(SC1 lhs, SC1 rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(SC1 lhs, SC1 rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -3251,29 +3179,12 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(SOneMember other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (this.e is null)
-                {
-                    if (other.e is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.e.Equals(other.e))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    this.e == other.e;
             }
 
             #endregion
@@ -3281,16 +3192,10 @@ namespace Ice.objects
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(SOneMember lhs, SOneMember rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(SOneMember lhs, SOneMember rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(SOneMember lhs, SOneMember rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(SOneMember lhs, SOneMember rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -3401,43 +3306,13 @@ namespace Ice.objects
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(STwoMembers other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (this.e1 is null)
-                {
-                    if (other.e1 is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.e1.Equals(other.e1))
-                    {
-                        return false;
-                    }
-                }
-                if (this.e2 is null)
-                {
-                    if (other.e2 is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.e2.Equals(other.e2))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    this.e1 == other.e1 && 
+                    this.e2 == other.e2;
             }
 
             #endregion
@@ -3445,16 +3320,10 @@ namespace Ice.objects
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(STwoMembers lhs, STwoMembers rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(STwoMembers lhs, STwoMembers rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(STwoMembers lhs, STwoMembers rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(STwoMembers lhs, STwoMembers rhs) => !(lhs == rhs);
 
             #endregion
 

@@ -616,29 +616,12 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(Polyline other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.vertices is null)
-            {
-                if (other.vertices is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.vertices, other.vertices))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.vertices, other.vertices);
         }
 
         #endregion
@@ -646,16 +629,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(Polyline lhs, Polyline rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(Polyline lhs, Polyline rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(Polyline lhs, Polyline rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(Polyline lhs, Polyline rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -842,29 +819,12 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(ColorPalette other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.colors is null)
-            {
-                if (other.colors is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.colors, other.colors))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.colors, other.colors);
         }
 
         #endregion
@@ -872,16 +832,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(ColorPalette lhs, ColorPalette rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(ColorPalette lhs, ColorPalette rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(ColorPalette lhs, ColorPalette rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(ColorPalette lhs, ColorPalette rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -1076,37 +1030,14 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(Draw other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (!this.backgroundColor.Equals(other.backgroundColor))
-            {
-                return false;
-            }
-            if (this.pen is null)
-            {
-                if (other.pen is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.pen.Equals(other.pen))
-                {
-                    return false;
-                }
-            }
-            if (!this.shared.Equals(other.shared))
-            {
-                return false;
-            }
-            return true;
+            return other is not null && 
+                this.backgroundColor == other.backgroundColor && 
+                this.pen == other.pen && 
+                this.shared == other.shared;
         }
 
         #endregion
@@ -1114,16 +1045,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(Draw lhs, Draw rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(Draw lhs, Draw rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(Draw lhs, Draw rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(Draw lhs, Draw rhs) => !(lhs == rhs);
 
         #endregion
 

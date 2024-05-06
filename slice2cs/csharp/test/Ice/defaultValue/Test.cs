@@ -242,123 +242,33 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(Struct1 other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (!this.boolFalse.Equals(other.boolFalse))
-                {
-                    return false;
-                }
-                if (!this.boolTrue.Equals(other.boolTrue))
-                {
-                    return false;
-                }
-                if (!this.b.Equals(other.b))
-                {
-                    return false;
-                }
-                if (!this.s.Equals(other.s))
-                {
-                    return false;
-                }
-                if (!this.i.Equals(other.i))
-                {
-                    return false;
-                }
-                if (!this.l.Equals(other.l))
-                {
-                    return false;
-                }
-                if (!this.f.Equals(other.f))
-                {
-                    return false;
-                }
-                if (!this.d.Equals(other.d))
-                {
-                    return false;
-                }
-                if (this.str is null)
-                {
-                    if (other.str is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.str.Equals(other.str))
-                    {
-                        return false;
-                    }
-                }
-                if (!this.c1.Equals(other.c1))
-                {
-                    return false;
-                }
-                if (!this.c2.Equals(other.c2))
-                {
-                    return false;
-                }
-                if (!this.c3.Equals(other.c3))
-                {
-                    return false;
-                }
-                if (!this.nc1.Equals(other.nc1))
-                {
-                    return false;
-                }
-                if (!this.nc2.Equals(other.nc2))
-                {
-                    return false;
-                }
-                if (!this.nc3.Equals(other.nc3))
-                {
-                    return false;
-                }
-                if (this.noDefault is null)
-                {
-                    if (other.noDefault is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.noDefault.Equals(other.noDefault))
-                    {
-                        return false;
-                    }
-                }
-                if (!this.zeroI.Equals(other.zeroI))
-                {
-                    return false;
-                }
-                if (!this.zeroL.Equals(other.zeroL))
-                {
-                    return false;
-                }
-                if (!this.zeroF.Equals(other.zeroF))
-                {
-                    return false;
-                }
-                if (!this.zeroDotF.Equals(other.zeroDotF))
-                {
-                    return false;
-                }
-                if (!this.zeroD.Equals(other.zeroD))
-                {
-                    return false;
-                }
-                if (!this.zeroDotD.Equals(other.zeroDotD))
-                {
-                    return false;
-                }
-                return true;
+                return other is not null && 
+                    this.boolFalse == other.boolFalse && 
+                    this.boolTrue == other.boolTrue && 
+                    this.b == other.b && 
+                    this.s == other.s && 
+                    this.i == other.i && 
+                    this.l == other.l && 
+                    this.f == other.f && 
+                    this.d == other.d && 
+                    this.str == other.str && 
+                    this.c1 == other.c1 && 
+                    this.c2 == other.c2 && 
+                    this.c3 == other.c3 && 
+                    this.nc1 == other.nc1 && 
+                    this.nc2 == other.nc2 && 
+                    this.nc3 == other.nc3 && 
+                    this.noDefault == other.noDefault && 
+                    this.zeroI == other.zeroI && 
+                    this.zeroL == other.zeroL && 
+                    this.zeroF == other.zeroF && 
+                    this.zeroDotF == other.zeroDotF && 
+                    this.zeroD == other.zeroD && 
+                    this.zeroDotD == other.zeroDotD;
             }
 
             #endregion
@@ -366,16 +276,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(Struct1 lhs, Struct1 rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(Struct1 lhs, Struct1 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(Struct1 lhs, Struct1 rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(Struct1 lhs, Struct1 rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -738,105 +642,31 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(Struct2 other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (!this.boolTrue.Equals(other.boolTrue))
-                {
-                    return false;
-                }
-                if (!this.b.Equals(other.b))
-                {
-                    return false;
-                }
-                if (!this.s.Equals(other.s))
-                {
-                    return false;
-                }
-                if (!this.i.Equals(other.i))
-                {
-                    return false;
-                }
-                if (!this.l.Equals(other.l))
-                {
-                    return false;
-                }
-                if (!this.f.Equals(other.f))
-                {
-                    return false;
-                }
-                if (!this.d.Equals(other.d))
-                {
-                    return false;
-                }
-                if (this.str is null)
-                {
-                    if (other.str is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.str.Equals(other.str))
-                    {
-                        return false;
-                    }
-                }
-                if (!this.c1.Equals(other.c1))
-                {
-                    return false;
-                }
-                if (!this.c2.Equals(other.c2))
-                {
-                    return false;
-                }
-                if (!this.c3.Equals(other.c3))
-                {
-                    return false;
-                }
-                if (!this.nc1.Equals(other.nc1))
-                {
-                    return false;
-                }
-                if (!this.nc2.Equals(other.nc2))
-                {
-                    return false;
-                }
-                if (!this.nc3.Equals(other.nc3))
-                {
-                    return false;
-                }
-                if (!this.zeroI.Equals(other.zeroI))
-                {
-                    return false;
-                }
-                if (!this.zeroL.Equals(other.zeroL))
-                {
-                    return false;
-                }
-                if (!this.zeroF.Equals(other.zeroF))
-                {
-                    return false;
-                }
-                if (!this.zeroDotF.Equals(other.zeroDotF))
-                {
-                    return false;
-                }
-                if (!this.zeroD.Equals(other.zeroD))
-                {
-                    return false;
-                }
-                if (!this.zeroDotD.Equals(other.zeroDotD))
-                {
-                    return false;
-                }
-                return true;
+                return other is not null && 
+                    this.boolTrue == other.boolTrue && 
+                    this.b == other.b && 
+                    this.s == other.s && 
+                    this.i == other.i && 
+                    this.l == other.l && 
+                    this.f == other.f && 
+                    this.d == other.d && 
+                    this.str == other.str && 
+                    this.c1 == other.c1 && 
+                    this.c2 == other.c2 && 
+                    this.c3 == other.c3 && 
+                    this.nc1 == other.nc1 && 
+                    this.nc2 == other.nc2 && 
+                    this.nc3 == other.nc3 && 
+                    this.zeroI == other.zeroI && 
+                    this.zeroL == other.zeroL && 
+                    this.zeroF == other.zeroF && 
+                    this.zeroDotF == other.zeroDotF && 
+                    this.zeroD == other.zeroD && 
+                    this.zeroDotD == other.zeroDotD;
             }
 
             #endregion
@@ -844,16 +674,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(Struct2 lhs, Struct2 rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(Struct2 lhs, Struct2 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(Struct2 lhs, Struct2 rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(Struct2 lhs, Struct2 rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -1092,95 +916,31 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(Struct3 other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (!this.boolFalse.Equals(other.boolFalse))
-                {
-                    return false;
-                }
-                if (!this.boolTrue.Equals(other.boolTrue))
-                {
-                    return false;
-                }
-                if (!this.b.Equals(other.b))
-                {
-                    return false;
-                }
-                if (!this.s.Equals(other.s))
-                {
-                    return false;
-                }
-                if (!this.i.Equals(other.i))
-                {
-                    return false;
-                }
-                if (!this.l.Equals(other.l))
-                {
-                    return false;
-                }
-                if (!this.f.Equals(other.f))
-                {
-                    return false;
-                }
-                if (!this.d.Equals(other.d))
-                {
-                    return false;
-                }
-                if (!this.c1.Equals(other.c1))
-                {
-                    return false;
-                }
-                if (!this.c2.Equals(other.c2))
-                {
-                    return false;
-                }
-                if (!this.c3.Equals(other.c3))
-                {
-                    return false;
-                }
-                if (!this.nc1.Equals(other.nc1))
-                {
-                    return false;
-                }
-                if (!this.nc2.Equals(other.nc2))
-                {
-                    return false;
-                }
-                if (!this.nc3.Equals(other.nc3))
-                {
-                    return false;
-                }
-                if (!this.zeroI.Equals(other.zeroI))
-                {
-                    return false;
-                }
-                if (!this.zeroL.Equals(other.zeroL))
-                {
-                    return false;
-                }
-                if (!this.zeroF.Equals(other.zeroF))
-                {
-                    return false;
-                }
-                if (!this.zeroDotF.Equals(other.zeroDotF))
-                {
-                    return false;
-                }
-                if (!this.zeroD.Equals(other.zeroD))
-                {
-                    return false;
-                }
-                if (!this.zeroDotD.Equals(other.zeroDotD))
-                {
-                    return false;
-                }
-                return true;
+                return other is not null && 
+                    this.boolFalse == other.boolFalse && 
+                    this.boolTrue == other.boolTrue && 
+                    this.b == other.b && 
+                    this.s == other.s && 
+                    this.i == other.i && 
+                    this.l == other.l && 
+                    this.f == other.f && 
+                    this.d == other.d && 
+                    this.c1 == other.c1 && 
+                    this.c2 == other.c2 && 
+                    this.c3 == other.c3 && 
+                    this.nc1 == other.nc1 && 
+                    this.nc2 == other.nc2 && 
+                    this.nc3 == other.nc3 && 
+                    this.zeroI == other.zeroI && 
+                    this.zeroL == other.zeroL && 
+                    this.zeroF == other.zeroF && 
+                    this.zeroDotF == other.zeroDotF && 
+                    this.zeroD == other.zeroD && 
+                    this.zeroDotD == other.zeroDotD;
             }
 
             #endregion
@@ -1188,16 +948,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(Struct3 lhs, Struct3 rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(Struct3 lhs, Struct3 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(Struct3 lhs, Struct3 rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(Struct3 lhs, Struct3 rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -1436,95 +1190,31 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(Struct4 other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (!this.boolFalse.Equals(other.boolFalse))
-                {
-                    return false;
-                }
-                if (!this.boolTrue.Equals(other.boolTrue))
-                {
-                    return false;
-                }
-                if (!this.b.Equals(other.b))
-                {
-                    return false;
-                }
-                if (!this.s.Equals(other.s))
-                {
-                    return false;
-                }
-                if (!this.i.Equals(other.i))
-                {
-                    return false;
-                }
-                if (!this.l.Equals(other.l))
-                {
-                    return false;
-                }
-                if (!this.f.Equals(other.f))
-                {
-                    return false;
-                }
-                if (!this.d.Equals(other.d))
-                {
-                    return false;
-                }
-                if (!this.c1.Equals(other.c1))
-                {
-                    return false;
-                }
-                if (!this.c2.Equals(other.c2))
-                {
-                    return false;
-                }
-                if (!this.c3.Equals(other.c3))
-                {
-                    return false;
-                }
-                if (!this.nc1.Equals(other.nc1))
-                {
-                    return false;
-                }
-                if (!this.nc2.Equals(other.nc2))
-                {
-                    return false;
-                }
-                if (!this.nc3.Equals(other.nc3))
-                {
-                    return false;
-                }
-                if (!this.zeroI.Equals(other.zeroI))
-                {
-                    return false;
-                }
-                if (!this.zeroL.Equals(other.zeroL))
-                {
-                    return false;
-                }
-                if (!this.zeroF.Equals(other.zeroF))
-                {
-                    return false;
-                }
-                if (!this.zeroDotF.Equals(other.zeroDotF))
-                {
-                    return false;
-                }
-                if (!this.zeroD.Equals(other.zeroD))
-                {
-                    return false;
-                }
-                if (!this.zeroDotD.Equals(other.zeroDotD))
-                {
-                    return false;
-                }
-                return true;
+                return other is not null && 
+                    this.boolFalse == other.boolFalse && 
+                    this.boolTrue == other.boolTrue && 
+                    this.b == other.b && 
+                    this.s == other.s && 
+                    this.i == other.i && 
+                    this.l == other.l && 
+                    this.f == other.f && 
+                    this.d == other.d && 
+                    this.c1 == other.c1 && 
+                    this.c2 == other.c2 && 
+                    this.c3 == other.c3 && 
+                    this.nc1 == other.nc1 && 
+                    this.nc2 == other.nc2 && 
+                    this.nc3 == other.nc3 && 
+                    this.zeroI == other.zeroI && 
+                    this.zeroL == other.zeroL && 
+                    this.zeroF == other.zeroF && 
+                    this.zeroDotF == other.zeroDotF && 
+                    this.zeroD == other.zeroD && 
+                    this.zeroDotD == other.zeroDotD;
             }
 
             #endregion
@@ -1532,16 +1222,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(Struct4 lhs, Struct4 rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(Struct4 lhs, Struct4 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(Struct4 lhs, Struct4 rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(Struct4 lhs, Struct4 rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -2473,99 +2157,27 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(StructProperty other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (!this.boolFalse.Equals(other.boolFalse))
-                {
-                    return false;
-                }
-                if (!this.boolTrue.Equals(other.boolTrue))
-                {
-                    return false;
-                }
-                if (!this.b.Equals(other.b))
-                {
-                    return false;
-                }
-                if (!this.s.Equals(other.s))
-                {
-                    return false;
-                }
-                if (!this.i.Equals(other.i))
-                {
-                    return false;
-                }
-                if (!this.l.Equals(other.l))
-                {
-                    return false;
-                }
-                if (!this.f.Equals(other.f))
-                {
-                    return false;
-                }
-                if (!this.d.Equals(other.d))
-                {
-                    return false;
-                }
-                if (this.str is null)
-                {
-                    if (other.str is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.str.Equals(other.str))
-                    {
-                        return false;
-                    }
-                }
-                if (this.noDefault is null)
-                {
-                    if (other.noDefault is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.noDefault.Equals(other.noDefault))
-                    {
-                        return false;
-                    }
-                }
-                if (!this.zeroI.Equals(other.zeroI))
-                {
-                    return false;
-                }
-                if (!this.zeroL.Equals(other.zeroL))
-                {
-                    return false;
-                }
-                if (!this.zeroF.Equals(other.zeroF))
-                {
-                    return false;
-                }
-                if (!this.zeroDotF.Equals(other.zeroDotF))
-                {
-                    return false;
-                }
-                if (!this.zeroD.Equals(other.zeroD))
-                {
-                    return false;
-                }
-                if (!this.zeroDotD.Equals(other.zeroDotD))
-                {
-                    return false;
-                }
-                return true;
+                return other is not null && 
+                    this.boolFalse == other.boolFalse && 
+                    this.boolTrue == other.boolTrue && 
+                    this.b == other.b && 
+                    this.s == other.s && 
+                    this.i == other.i && 
+                    this.l == other.l && 
+                    this.f == other.f && 
+                    this.d == other.d && 
+                    this.str == other.str && 
+                    this.noDefault == other.noDefault && 
+                    this.zeroI == other.zeroI && 
+                    this.zeroL == other.zeroL && 
+                    this.zeroF == other.zeroF && 
+                    this.zeroDotF == other.zeroDotF && 
+                    this.zeroD == other.zeroD && 
+                    this.zeroDotD == other.zeroDotD;
             }
 
             #endregion
@@ -2573,16 +2185,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(StructProperty lhs, StructProperty rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(StructProperty lhs, StructProperty rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(StructProperty lhs, StructProperty rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(StructProperty lhs, StructProperty rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -2951,29 +2557,12 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(InnerStruct2 other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (this.a is null)
-                {
-                    if (other.a is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.a.Equals(other.a))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    this.a == other.a;
             }
 
             #endregion
@@ -2981,16 +2570,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(InnerStruct2 lhs, InnerStruct2 rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(InnerStruct2 lhs, InnerStruct2 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(InnerStruct2 lhs, InnerStruct2 rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(InnerStruct2 lhs, InnerStruct2 rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -3162,121 +2745,25 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(StructNoDefaults other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (!this.bo.Equals(other.bo))
-                {
-                    return false;
-                }
-                if (!this.b.Equals(other.b))
-                {
-                    return false;
-                }
-                if (!this.s.Equals(other.s))
-                {
-                    return false;
-                }
-                if (!this.i.Equals(other.i))
-                {
-                    return false;
-                }
-                if (!this.l.Equals(other.l))
-                {
-                    return false;
-                }
-                if (!this.f.Equals(other.f))
-                {
-                    return false;
-                }
-                if (!this.d.Equals(other.d))
-                {
-                    return false;
-                }
-                if (this.str is null)
-                {
-                    if (other.str is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.str.Equals(other.str))
-                    {
-                        return false;
-                    }
-                }
-                if (!this.c1.Equals(other.c1))
-                {
-                    return false;
-                }
-                if (this.bs is null)
-                {
-                    if (other.bs is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!Ice.UtilInternal.Arrays.Equals(this.bs, other.bs))
-                    {
-                        return false;
-                    }
-                }
-                if (this.iseq is null)
-                {
-                    if (other.iseq is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!Ice.UtilInternal.Arrays.Equals(this.iseq, other.iseq))
-                    {
-                        return false;
-                    }
-                }
-                if (!this.st.Equals(other.st))
-                {
-                    return false;
-                }
-                if (this.st2 is null)
-                {
-                    if (other.st2 is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.st2.Equals(other.st2))
-                    {
-                        return false;
-                    }
-                }
-                if (this.dict is null)
-                {
-                    if (other.dict is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.dict, other.dict))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    this.bo == other.bo && 
+                    this.b == other.b && 
+                    this.s == other.s && 
+                    this.i == other.i && 
+                    this.l == other.l && 
+                    this.f == other.f && 
+                    this.d == other.d && 
+                    this.str == other.str && 
+                    this.c1 == other.c1 && 
+                    Ice.UtilInternal.Collections.NullableSequenceEqual(this.bs, other.bs) && 
+                    Ice.UtilInternal.Collections.NullableSequenceEqual(this.iseq, other.iseq) && 
+                    this.st == other.st && 
+                    this.st2 == other.st2 && 
+                    Ice.UtilInternal.Collections.DictionaryEquals(this.dict, other.dict);
             }
 
             #endregion
@@ -3284,16 +2771,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(StructNoDefaults lhs, StructNoDefaults rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(StructNoDefaults lhs, StructNoDefaults rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(StructNoDefaults lhs, StructNoDefaults rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(StructNoDefaults lhs, StructNoDefaults rhs) => !(lhs == rhs);
 
             #endregion
 

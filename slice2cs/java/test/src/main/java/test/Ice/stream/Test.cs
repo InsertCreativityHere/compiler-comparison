@@ -162,103 +162,23 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(SmallStruct other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (!this.bo.Equals(other.bo))
-            {
-                return false;
-            }
-            if (!this.by.Equals(other.by))
-            {
-                return false;
-            }
-            if (!this.sh.Equals(other.sh))
-            {
-                return false;
-            }
-            if (!this.i.Equals(other.i))
-            {
-                return false;
-            }
-            if (!this.l.Equals(other.l))
-            {
-                return false;
-            }
-            if (!this.f.Equals(other.f))
-            {
-                return false;
-            }
-            if (!this.d.Equals(other.d))
-            {
-                return false;
-            }
-            if (this.str is null)
-            {
-                if (other.str is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.str.Equals(other.str))
-                {
-                    return false;
-                }
-            }
-            if (!this.e.Equals(other.e))
-            {
-                return false;
-            }
-            if (this.c is null)
-            {
-                if (other.c is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.c.Equals(other.c))
-                {
-                    return false;
-                }
-            }
-            if (this.p is null)
-            {
-                if (other.p is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.p.Equals(other.p))
-                {
-                    return false;
-                }
-            }
-            if (this.ss is null)
-            {
-                if (other.ss is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.ss, other.ss))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.bo == other.bo && 
+                this.by == other.by && 
+                this.sh == other.sh && 
+                this.i == other.i && 
+                this.l == other.l && 
+                this.f == other.f && 
+                this.d == other.d && 
+                this.str == other.str && 
+                this.e == other.e && 
+                this.c == other.c && 
+                (Ice.ObjectPrxHelperBase)this.p == (Ice.ObjectPrxHelperBase)other.p && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.ss, other.ss);
         }
 
         #endregion
@@ -266,16 +186,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(SmallStruct lhs, SmallStruct rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(SmallStruct lhs, SmallStruct rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(SmallStruct lhs, SmallStruct rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(SmallStruct lhs, SmallStruct rhs) => !(lhs == rhs);
 
         #endregion
 

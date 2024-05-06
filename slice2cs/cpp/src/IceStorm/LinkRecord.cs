@@ -92,47 +92,14 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(LinkRecord other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.obj is null)
-            {
-                if (other.obj is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.obj.Equals(other.obj))
-                {
-                    return false;
-                }
-            }
-            if (!this.cost.Equals(other.cost))
-            {
-                return false;
-            }
-            if (this.theTopic is null)
-            {
-                if (other.theTopic is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.theTopic.Equals(other.theTopic))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                (Ice.ObjectPrxHelperBase)this.obj == (Ice.ObjectPrxHelperBase)other.obj && 
+                this.cost == other.cost && 
+                (Ice.ObjectPrxHelperBase)this.theTopic == (Ice.ObjectPrxHelperBase)other.theTopic;
         }
 
         #endregion
@@ -140,16 +107,10 @@ namespace IceStorm
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(LinkRecord lhs, LinkRecord rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(LinkRecord lhs, LinkRecord rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(LinkRecord lhs, LinkRecord rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(LinkRecord lhs, LinkRecord rhs) => !(lhs == rhs);
 
         #endregion
 

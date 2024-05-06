@@ -107,29 +107,12 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(AnotherStruct other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.s is null)
-            {
-                if (other.s is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.s.Equals(other.s))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.s == other.s;
         }
 
         #endregion
@@ -137,16 +120,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(AnotherStruct lhs, AnotherStruct rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(AnotherStruct lhs, AnotherStruct rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(AnotherStruct lhs, AnotherStruct rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(AnotherStruct lhs, AnotherStruct rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -263,47 +240,14 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(Structure other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.p is null)
-            {
-                if (other.p is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.p.Equals(other.p))
-                {
-                    return false;
-                }
-            }
-            if (!this.e.Equals(other.e))
-            {
-                return false;
-            }
-            if (this.s is null)
-            {
-                if (other.s is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.s.Equals(other.s))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                (Ice.ObjectPrxHelperBase)this.p == (Ice.ObjectPrxHelperBase)other.p && 
+                this.e == other.e && 
+                this.s == other.s;
         }
 
         #endregion
@@ -311,16 +255,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(Structure lhs, Structure rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(Structure lhs, Structure rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(Structure lhs, Structure rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(Structure lhs, Structure rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -524,57 +462,14 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(MyStruct1 other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.tesT is null)
-            {
-                if (other.tesT is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.tesT.Equals(other.tesT))
-                {
-                    return false;
-                }
-            }
-            if (this.myClass is null)
-            {
-                if (other.myClass is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.myClass.Equals(other.myClass))
-                {
-                    return false;
-                }
-            }
-            if (this.myStruct1 is null)
-            {
-                if (other.myStruct1 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.myStruct1.Equals(other.myStruct1))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.tesT == other.tesT && 
+                (Ice.ObjectPrxHelperBase)this.myClass == (Ice.ObjectPrxHelperBase)other.myClass && 
+                this.myStruct1 == other.myStruct1;
         }
 
         #endregion
@@ -582,16 +477,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(MyStruct1 lhs, MyStruct1 rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(MyStruct1 lhs, MyStruct1 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(MyStruct1 lhs, MyStruct1 rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(MyStruct1 lhs, MyStruct1 rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -17155,6 +17044,10 @@ namespace Test
 
         public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
 
+        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
+
+        public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.Current current = null);
+
         public abstract MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::Ice.Current current = null);
 
         public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, global::Ice.Current current = null);
@@ -17276,10 +17169,6 @@ namespace Test
         public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
         public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
-        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
-
-        public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.Current current = null);
 
         #endregion
 
@@ -17964,6 +17853,10 @@ namespace Test2
 
         public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
 
+        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
+
+        public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, global::Ice.Current current = null);
+
         public abstract global::Test.MyClassPrx opMyClass(global::Test.MyClassPrx p1, out global::Test.MyClassPrx p2, out global::Test.MyClassPrx p3, global::Ice.Current current = null);
 
         public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, global::Ice.Current current = null);
@@ -18085,10 +17978,6 @@ namespace Test2
         public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
         public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
-        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
-
-        public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, global::Ice.Current current = null);
 
         #endregion
 

@@ -117,127 +117,19 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.b1 is null)
-            {
-                if (other.b1 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.b1, other.b1))
-                {
-                    return false;
-                }
-            }
-            if (this.b2 is null)
-            {
-                if (other.b2 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.b2, other.b2))
-                {
-                    return false;
-                }
-            }
-            if (this.b3 is null)
-            {
-                if (other.b3 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.b3, other.b3))
-                {
-                    return false;
-                }
-            }
-            if (this.b4 is null)
-            {
-                if (other.b4 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.b4, other.b4))
-                {
-                    return false;
-                }
-            }
-            if (this.s1 is null)
-            {
-                if (other.s1 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.s1, other.s1))
-                {
-                    return false;
-                }
-            }
-            if (this.s2 is null)
-            {
-                if (other.s2 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.s2, other.s2))
-                {
-                    return false;
-                }
-            }
-            if (this.s3 is null)
-            {
-                if (other.s3 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.s3, other.s3))
-                {
-                    return false;
-                }
-            }
-            if (this.s4 is null)
-            {
-                if (other.s4 is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.s4, other.s4))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.b1, other.b1) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.b2, other.b2) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.b3, other.b3) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.b4, other.b4) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.s1, other.s1) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.s2, other.s2) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.s3, other.s3) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.s4, other.s4);
         }
 
         #endregion
@@ -245,16 +137,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S lhs, S rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S lhs, S rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S lhs, S rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S lhs, S rhs) => !(lhs == rhs);
 
         #endregion
 

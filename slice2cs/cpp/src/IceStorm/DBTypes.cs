@@ -91,43 +91,13 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(AllData other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.llus is null)
-            {
-                if (other.llus is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.llus, other.llus))
-                {
-                    return false;
-                }
-            }
-            if (this.subscribers is null)
-            {
-                if (other.subscribers is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.subscribers, other.subscribers))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.llus, other.llus) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.subscribers, other.subscribers);
         }
 
         #endregion
@@ -135,16 +105,10 @@ namespace IceStorm
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(AllData lhs, AllData rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(AllData lhs, AllData rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(AllData lhs, AllData rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(AllData lhs, AllData rhs) => !(lhs == rhs);
 
         #endregion
 

@@ -147,59 +147,17 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(TestToken other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (!this.expectedResult.Equals(other.expectedResult))
-            {
-                return false;
-            }
-            if (this.description is null)
-            {
-                if (other.description is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.description.Equals(other.description))
-                {
-                    return false;
-                }
-            }
-            if (!this.code.Equals(other.code))
-            {
-                return false;
-            }
-            if (!this.config.Equals(other.config))
-            {
-                return false;
-            }
-            if (!this.caseIndex.Equals(other.caseIndex))
-            {
-                return false;
-            }
-            if (this.testReference is null)
-            {
-                if (other.testReference is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.testReference.Equals(other.testReference))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.expectedResult == other.expectedResult && 
+                this.description == other.description && 
+                this.code == other.code && 
+                this.config == other.config && 
+                this.caseIndex == other.caseIndex && 
+                this.testReference == other.testReference;
         }
 
         #endregion
@@ -207,16 +165,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(TestToken lhs, TestToken rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(TestToken lhs, TestToken rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(TestToken lhs, TestToken rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(TestToken lhs, TestToken rhs) => !(lhs == rhs);
 
         #endregion
 

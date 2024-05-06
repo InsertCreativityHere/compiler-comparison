@@ -269,41 +269,15 @@ namespace Clash
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(St other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.v is null)
-            {
-                if (other.v is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.v.Equals(other.v))
-                {
-                    return false;
-                }
-            }
-            if (!this.istr.Equals(other.istr))
-            {
-                return false;
-            }
-            if (!this.ostr.Equals(other.ostr))
-            {
-                return false;
-            }
-            if (!this.rhs.Equals(other.rhs))
-            {
-                return false;
-            }
-            return true;
+            return other is not null && 
+                this.v == other.v && 
+                this.istr == other.istr && 
+                this.ostr == other.ostr && 
+                this.rhs == other.rhs;
         }
 
         #endregion
@@ -311,16 +285,10 @@ namespace Clash
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(St lhs, St rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(St lhs, St rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(St lhs, St rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(St lhs, St rhs) => !(lhs == rhs);
 
         #endregion
 

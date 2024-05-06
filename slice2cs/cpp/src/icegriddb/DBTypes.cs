@@ -102,85 +102,16 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(AllData other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.applications is null)
-            {
-                if (other.applications is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.applications, other.applications))
-                {
-                    return false;
-                }
-            }
-            if (this.adapters is null)
-            {
-                if (other.adapters is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.adapters, other.adapters))
-                {
-                    return false;
-                }
-            }
-            if (this.objects is null)
-            {
-                if (other.objects is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.objects, other.objects))
-                {
-                    return false;
-                }
-            }
-            if (this.internalObjects is null)
-            {
-                if (other.internalObjects is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.internalObjects, other.internalObjects))
-                {
-                    return false;
-                }
-            }
-            if (this.serials is null)
-            {
-                if (other.serials is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.serials, other.serials))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.applications, other.applications) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.adapters, other.adapters) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.objects, other.objects) && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.internalObjects, other.internalObjects) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.serials, other.serials);
         }
 
         #endregion
@@ -188,16 +119,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(AllData lhs, AllData rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(AllData lhs, AllData rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(AllData lhs, AllData rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(AllData lhs, AllData rhs) => !(lhs == rhs);
 
         #endregion
 

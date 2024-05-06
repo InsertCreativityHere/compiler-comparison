@@ -3007,9 +3007,9 @@ namespace @abstract
     {
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.Current current = null);
-
         public abstract void @default(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.Current current = null);
 
         #endregion
 

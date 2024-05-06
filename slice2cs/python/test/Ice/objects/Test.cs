@@ -97,29 +97,12 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(S other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.str is null)
-            {
-                if (other.str is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.str.Equals(other.str))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.str == other.str;
         }
 
         #endregion
@@ -127,16 +110,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(S lhs, S rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(S lhs, S rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(S lhs, S rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(S lhs, S rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -1994,33 +1971,13 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(StructKey other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (!this.i.Equals(other.i))
-            {
-                return false;
-            }
-            if (this.s is null)
-            {
-                if (other.s is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.s.Equals(other.s))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.i == other.i && 
+                this.s == other.s;
         }
 
         #endregion
@@ -2028,16 +1985,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(StructKey lhs, StructKey rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(StructKey lhs, StructKey rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(StructKey lhs, StructKey rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(StructKey lhs, StructKey rhs) => !(lhs == rhs);
 
         #endregion
 

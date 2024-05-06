@@ -107,79 +107,17 @@ namespace Glacier2
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(SSLInfo other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.remoteHost is null)
-            {
-                if (other.remoteHost is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.remoteHost.Equals(other.remoteHost))
-                {
-                    return false;
-                }
-            }
-            if (!this.remotePort.Equals(other.remotePort))
-            {
-                return false;
-            }
-            if (this.localHost is null)
-            {
-                if (other.localHost is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.localHost.Equals(other.localHost))
-                {
-                    return false;
-                }
-            }
-            if (!this.localPort.Equals(other.localPort))
-            {
-                return false;
-            }
-            if (this.cipher is null)
-            {
-                if (other.cipher is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.cipher.Equals(other.cipher))
-                {
-                    return false;
-                }
-            }
-            if (this.certs is null)
-            {
-                if (other.certs is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.certs, other.certs))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.remoteHost == other.remoteHost && 
+                this.remotePort == other.remotePort && 
+                this.localHost == other.localHost && 
+                this.localPort == other.localPort && 
+                this.cipher == other.cipher && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.certs, other.certs);
         }
 
         #endregion
@@ -187,16 +125,10 @@ namespace Glacier2
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(SSLInfo lhs, SSLInfo rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(SSLInfo lhs, SSLInfo rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(SSLInfo lhs, SSLInfo rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(SSLInfo lhs, SSLInfo rhs) => !(lhs == rhs);
 
         #endregion
 

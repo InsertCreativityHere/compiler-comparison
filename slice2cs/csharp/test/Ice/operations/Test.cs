@@ -109,29 +109,12 @@ namespace Ice.operations
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(AnotherStruct other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (this.s is null)
-                {
-                    if (other.s is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.s.Equals(other.s))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    this.s == other.s;
             }
 
             #endregion
@@ -139,16 +122,10 @@ namespace Ice.operations
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(AnotherStruct lhs, AnotherStruct rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(AnotherStruct lhs, AnotherStruct rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(AnotherStruct lhs, AnotherStruct rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(AnotherStruct lhs, AnotherStruct rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -265,47 +242,14 @@ namespace Ice.operations
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(Structure other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (this.p is null)
-                {
-                    if (other.p is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.p.Equals(other.p))
-                    {
-                        return false;
-                    }
-                }
-                if (!this.e.Equals(other.e))
-                {
-                    return false;
-                }
-                if (this.s is null)
-                {
-                    if (other.s is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.s.Equals(other.s))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    (Ice.ObjectPrxHelperBase)this.p == (Ice.ObjectPrxHelperBase)other.p && 
+                    this.e == other.e && 
+                    this.s == other.s;
             }
 
             #endregion
@@ -313,16 +257,10 @@ namespace Ice.operations
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(Structure lhs, Structure rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(Structure lhs, Structure rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(Structure lhs, Structure rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(Structure lhs, Structure rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -579,57 +517,14 @@ namespace Ice.operations
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(MyStruct1 other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (this.tesT is null)
-                {
-                    if (other.tesT is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.tesT.Equals(other.tesT))
-                    {
-                        return false;
-                    }
-                }
-                if (this.myClass is null)
-                {
-                    if (other.myClass is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.myClass.Equals(other.myClass))
-                    {
-                        return false;
-                    }
-                }
-                if (this.myStruct1 is null)
-                {
-                    if (other.myStruct1 is not null)
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (!this.myStruct1.Equals(other.myStruct1))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return other is not null && 
+                    this.tesT == other.tesT && 
+                    (Ice.ObjectPrxHelperBase)this.myClass == (Ice.ObjectPrxHelperBase)other.myClass && 
+                    this.myStruct1 == other.myStruct1;
             }
 
             #endregion
@@ -637,16 +532,10 @@ namespace Ice.operations
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(MyStruct1 lhs, MyStruct1 rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(MyStruct1 lhs, MyStruct1 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(MyStruct1 lhs, MyStruct1 rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(MyStruct1 lhs, MyStruct1 rhs) => !(lhs == rhs);
 
             #endregion
 

@@ -143,51 +143,15 @@ namespace Ice
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(LogMessage other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (!this.type.Equals(other.type))
-            {
-                return false;
-            }
-            if (!this.timestamp.Equals(other.timestamp))
-            {
-                return false;
-            }
-            if (this.traceCategory is null)
-            {
-                if (other.traceCategory is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.traceCategory.Equals(other.traceCategory))
-                {
-                    return false;
-                }
-            }
-            if (this.message is null)
-            {
-                if (other.message is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.message.Equals(other.message))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.type == other.type && 
+                this.timestamp == other.timestamp && 
+                this.traceCategory == other.traceCategory && 
+                this.message == other.message;
         }
 
         #endregion
@@ -195,16 +159,10 @@ namespace Ice
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(LogMessage lhs, LogMessage rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(LogMessage lhs, LogMessage rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(LogMessage lhs, LogMessage rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(LogMessage lhs, LogMessage rhs) => !(lhs == rhs);
 
         #endregion
 

@@ -153,31 +153,15 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(bitor other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (!this.@case.Equals(other.@case))
-                {
-                    return false;
-                }
-                if (!this.@continue.Equals(other.@continue))
-                {
-                    return false;
-                }
-                if (!this.eq.Equals(other.eq))
-                {
-                    return false;
-                }
-                if (!this.ne.Equals(other.ne))
-                {
-                    return false;
-                }
-                return true;
+                return other is not null && 
+                    this.@case == other.@case && 
+                    this.@continue == other.@continue && 
+                    this.eq == other.eq && 
+                    this.ne == other.ne;
             }
 
             #endregion
@@ -185,16 +169,10 @@ namespace classdef
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(bitor lhs, bitor rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(bitor lhs, bitor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(bitor lhs, bitor rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(bitor lhs, bitor rhs) => !(lhs == rhs);
 
             #endregion
 

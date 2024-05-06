@@ -97,61 +97,15 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(EventData other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.op is null)
-            {
-                if (other.op is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.op.Equals(other.op))
-                {
-                    return false;
-                }
-            }
-            if (!this.mode.Equals(other.mode))
-            {
-                return false;
-            }
-            if (this.data is null)
-            {
-                if (other.data is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.data, other.data))
-                {
-                    return false;
-                }
-            }
-            if (this.context is null)
-            {
-                if (other.context is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!global::Ice.UtilInternal.Collections.DictionaryEquals(this.context, other.context))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.op == other.op && 
+                this.mode == other.mode && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.data, other.data) && 
+                Ice.UtilInternal.Collections.DictionaryEquals(this.context, other.context);
         }
 
         #endregion
@@ -159,16 +113,10 @@ namespace IceStorm
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(EventData lhs, EventData rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(EventData lhs, EventData rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(EventData lhs, EventData rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(EventData lhs, EventData rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -1964,6 +1912,8 @@ namespace IceStorm
 
         public abstract global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
 
+        public abstract global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.Current current = null);
+
         public abstract global::Ice.ObjectPrx subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
 
         public abstract void unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
@@ -1977,8 +1927,6 @@ namespace IceStorm
         public abstract global::Ice.Identity[] getSubscribers(global::Ice.Current current = null);
 
         public abstract void destroy(global::Ice.Current current = null);
-
-        public abstract global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.Current current = null);
 
         #endregion
 

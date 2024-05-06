@@ -147,19 +147,12 @@ namespace Ice.seqMapping.AMD
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool Equals(SD other)
             {
-                if (object.ReferenceEquals(this, other))
+                if (ReferenceEquals(this, other))
                 {
                     return true;
                 }
-                if (other is null)
-                {
-                    return false;
-                }
-                if (!this.i.Equals(other.i))
-                {
-                    return false;
-                }
-                return true;
+                return other is not null && 
+                    this.i == other.i;
             }
 
             #endregion
@@ -167,16 +160,10 @@ namespace Ice.seqMapping.AMD
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator==(SD lhs, SD rhs)
-            {
-                return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-            }
+            public static bool operator ==(SD lhs, SD rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator!=(SD lhs, SD rhs)
-            {
-                return !(lhs == rhs);
-            }
+            public static bool operator !=(SD lhs, SD rhs) => !(lhs == rhs);
 
             #endregion
 

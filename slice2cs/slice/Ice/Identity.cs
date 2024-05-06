@@ -87,43 +87,13 @@ namespace Ice
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(Identity other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.name is null)
-            {
-                if (other.name is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.name.Equals(other.name))
-                {
-                    return false;
-                }
-            }
-            if (this.category is null)
-            {
-                if (other.category is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.category.Equals(other.category))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.name == other.name && 
+                this.category == other.category;
         }
 
         #endregion
@@ -131,16 +101,10 @@ namespace Ice
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(Identity lhs, Identity rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(Identity lhs, Identity rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(Identity lhs, Identity rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(Identity lhs, Identity rhs) => !(lhs == rhs);
 
         #endregion
 

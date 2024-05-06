@@ -88,43 +88,13 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(TopicContent other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (this.id is null)
-            {
-                if (other.id is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.id.Equals(other.id))
-                {
-                    return false;
-                }
-            }
-            if (this.records is null)
-            {
-                if (other.records is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.records, other.records))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.id == other.id && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.records, other.records);
         }
 
         #endregion
@@ -132,16 +102,10 @@ namespace IceStormElection
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(TopicContent lhs, TopicContent rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(TopicContent lhs, TopicContent rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(TopicContent lhs, TopicContent rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(TopicContent lhs, TopicContent rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -414,33 +378,13 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(NodeInfo other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (!this.id.Equals(other.id))
-            {
-                return false;
-            }
-            if (this.n is null)
-            {
-                if (other.n is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.n.Equals(other.n))
-                {
-                    return false;
-                }
-            }
-            return true;
+            return other is not null && 
+                this.id == other.id && 
+                (Ice.ObjectPrxHelperBase)this.n == (Ice.ObjectPrxHelperBase)other.n;
         }
 
         #endregion
@@ -448,16 +392,10 @@ namespace IceStormElection
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(NodeInfo lhs, NodeInfo rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(NodeInfo lhs, NodeInfo rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(NodeInfo lhs, NodeInfo rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(NodeInfo lhs, NodeInfo rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -664,73 +602,18 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool Equals(QueryInfo other)
         {
-            if (object.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
-            if (other is null)
-            {
-                return false;
-            }
-            if (!this.id.Equals(other.id))
-            {
-                return false;
-            }
-            if (!this.coord.Equals(other.coord))
-            {
-                return false;
-            }
-            if (this.group is null)
-            {
-                if (other.group is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.group.Equals(other.group))
-                {
-                    return false;
-                }
-            }
-            if (this.replica is null)
-            {
-                if (other.replica is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!this.replica.Equals(other.replica))
-                {
-                    return false;
-                }
-            }
-            if (!this.state.Equals(other.state))
-            {
-                return false;
-            }
-            if (this.up is null)
-            {
-                if (other.up is not null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if (!Ice.UtilInternal.Arrays.Equals(this.up, other.up))
-                {
-                    return false;
-                }
-            }
-            if (!this.max.Equals(other.max))
-            {
-                return false;
-            }
-            return true;
+            return other is not null && 
+                this.id == other.id && 
+                this.coord == other.coord && 
+                this.group == other.group && 
+                (Ice.ObjectPrxHelperBase)this.replica == (Ice.ObjectPrxHelperBase)other.replica && 
+                this.state == other.state && 
+                Ice.UtilInternal.Collections.NullableSequenceEqual(this.up, other.up) && 
+                this.max == other.max;
         }
 
         #endregion
@@ -738,16 +621,10 @@ namespace IceStormElection
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(QueryInfo lhs, QueryInfo rhs)
-        {
-            return (object)lhs == rhs || (lhs is not null && lhs.Equals(rhs));
-        }
+        public static bool operator ==(QueryInfo lhs, QueryInfo rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(QueryInfo lhs, QueryInfo rhs)
-        {
-            return !(lhs == rhs);
-        }
+        public static bool operator !=(QueryInfo lhs, QueryInfo rhs) => !(lhs == rhs);
 
         #endregion
 
