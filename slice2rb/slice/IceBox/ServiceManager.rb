@@ -85,8 +85,8 @@ module ::IceBox
 
         T_ServiceObserverPrx.defineProxy(ServiceObserverPrx, nil, [])
 
-        ServiceObserverPrx_mixin::OP_servicesStarted = ::Ice::__defineOperation('servicesStarted', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
-        ServiceObserverPrx_mixin::OP_servicesStopped = ::Ice::__defineOperation('servicesStopped', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
+        ServiceObserverPrx_mixin::OP_servicesStarted = ::Ice::__defineOperation('servicesStarted', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
+        ServiceObserverPrx_mixin::OP_servicesStopped = ::Ice::__defineOperation('servicesStopped', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
     end
 
     if not defined?(::IceBox::ServiceManager_Mixin)
@@ -124,9 +124,9 @@ module ::IceBox
 
         T_ServiceManagerPrx.defineProxy(ServiceManagerPrx, nil, [])
 
-        ServiceManagerPrx_mixin::OP_startService = ::Ice::__defineOperation('startService', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceBox::T_AlreadyStartedException, ::IceBox::T_NoSuchServiceException])
-        ServiceManagerPrx_mixin::OP_stopService = ::Ice::__defineOperation('stopService', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceBox::T_AlreadyStoppedException, ::IceBox::T_NoSuchServiceException])
-        ServiceManagerPrx_mixin::OP_addObserver = ::Ice::__defineOperation('addObserver', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceBox::T_ServiceObserverPrx, false, 0]], [], nil, [])
-        ServiceManagerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        ServiceManagerPrx_mixin::OP_startService = ::Ice::__defineOperation('startService', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceBox::T_AlreadyStartedException, ::IceBox::T_NoSuchServiceException])
+        ServiceManagerPrx_mixin::OP_stopService = ::Ice::__defineOperation('stopService', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceBox::T_AlreadyStoppedException, ::IceBox::T_NoSuchServiceException])
+        ServiceManagerPrx_mixin::OP_addObserver = ::Ice::__defineOperation('addObserver', ::Ice::OperationMode::Normal, false, nil, [[::IceBox::T_ServiceObserverPrx, false, 0]], [], nil, [])
+        ServiceManagerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

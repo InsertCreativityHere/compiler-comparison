@@ -45,13 +45,13 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "opByteSpan": [, , , , ["Test.ByteSeqHelper"], [["Test.ByteSeqHelper"]], [["Test.ByteSeqHelper"]], , , ],
-        "opShortSpan": [, , , , ["Test.ShortSeqHelper"], [["Test.ShortSeqHelper"]], [["Test.ShortSeqHelper"]], , , ],
-        "opStringSpan": [, , , , ["Test.StringSeqHelper"], [["Test.StringSeqHelper"]], [["Test.StringSeqHelper"]], , , ],
-        "opOptionalByteSpan": [, , , , ["Test.ByteSeqHelper", , 10], [["Test.ByteSeqHelper", , 1]], [["Test.ByteSeqHelper", , 11]], , , ],
-        "opOptionalShortSpan": [, , , , ["Test.ShortSeqHelper", , 10], [["Test.ShortSeqHelper", , 1]], [["Test.ShortSeqHelper", , 11]], , , ],
-        "opOptionalStringSpan": [, , , , ["Test.StringSeqHelper", , 10], [["Test.StringSeqHelper", , 1]], [["Test.StringSeqHelper", , 11]], , , ],
-        "shutdown": [, , , , , , , , , ]
+        "opByteSpan": [, , , ["Test.ByteSeqHelper"], [["Test.ByteSeqHelper"]], [["Test.ByteSeqHelper"]], , , ],
+        "opShortSpan": [, , , ["Test.ShortSeqHelper"], [["Test.ShortSeqHelper"]], [["Test.ShortSeqHelper"]], , , ],
+        "opStringSpan": [, , , ["Test.StringSeqHelper"], [["Test.StringSeqHelper"]], [["Test.StringSeqHelper"]], , , ],
+        "opOptionalByteSpan": [, , , ["Test.ByteSeqHelper", , 10], [["Test.ByteSeqHelper", , 1]], [["Test.ByteSeqHelper", , 11]], , , ],
+        "opOptionalShortSpan": [, , , ["Test.ShortSeqHelper", , 10], [["Test.ShortSeqHelper", , 1]], [["Test.ShortSeqHelper", , 11]], , , ],
+        "opOptionalStringSpan": [, , , ["Test.StringSeqHelper", , 10], [["Test.StringSeqHelper", , 1]], [["Test.StringSeqHelper", , 11]], , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

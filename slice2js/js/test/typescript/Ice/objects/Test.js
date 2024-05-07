@@ -255,7 +255,7 @@ Test.IPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.I, Test.IPrx, iceC_Test_I_ids, "::Test::I",
 {
-    "doI": [, , , , , , , , , ]
+    "doI": [, , , , , , , , ]
 });
 
 const iceC_Test_J_ids = [
@@ -285,7 +285,7 @@ Test.JPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.J, Test.JPrx, iceC_Test_J_ids, "::Test::J",
 {
-    "doJ": [, , , , , , , , , ]
+    "doJ": [, , , , , , , , ]
 });
 
 Slice.defineSequence(Test, "BaseSeqHelper", "Ice.ObjectHelper", false, "Test.Base");
@@ -725,45 +725,45 @@ Test.InitialPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
 {
-    "shutdown": [, , , , , , , , , ],
-    "getB1": [, , , , ["Test.B", true], , , , , true],
-    "getB2": [, , , , ["Test.B", true], , , , , true],
-    "getC": [, , , , ["Test.C", true], , , , , true],
-    "getD": [, , , , ["Test.D", true], , , , , true],
-    "getE": [, , , , ["Test.E", true], , , , , true],
-    "getF": [, , , , ["Test.F", true], , , , , true],
-    "setRecursive": [, , , , , [["Test.Recursive", true]], , , true, ],
-    "supportsClassGraphDepthMax": [, , , , [1], , , , , ],
-    "getMB": [, , , , ["Test.B", true], , , , , true],
-    "getAMDMB": [, , , , ["Test.B", true], , , , , true],
-    "getAll": [, , , , , , [["Test.B", true], ["Test.B", true], ["Test.C", true], ["Test.D", true]], , , true],
-    "getK": [, , , , ["Test.K", true], , , , , true],
-    "opValue": [, , , , [10, true], [[10, true]], [[10, true]], , true, true],
-    "opValueSeq": [, , , , ["Test.ValueSeqHelper"], [["Test.ValueSeqHelper"]], [["Test.ValueSeqHelper"]], , true, true],
-    "opValueMap": [, , , , ["Test.ValueMapHelper"], [["Test.ValueMapHelper"]], [["Test.ValueMapHelper"]], , true, true],
-    "getD1": [, , , , ["Test.D1", true], [["Test.D1", true]], , , true, true],
-    "throwEDerived": [, , , , , , ,
+    "shutdown": [, , , , , , , , ],
+    "getB1": [, , , ["Test.B", true], , , , , true],
+    "getB2": [, , , ["Test.B", true], , , , , true],
+    "getC": [, , , ["Test.C", true], , , , , true],
+    "getD": [, , , ["Test.D", true], , , , , true],
+    "getE": [, , , ["Test.E", true], , , , , true],
+    "getF": [, , , ["Test.F", true], , , , , true],
+    "setRecursive": [, , , , [["Test.Recursive", true]], , , true, ],
+    "supportsClassGraphDepthMax": [, , , [1], , , , , ],
+    "getMB": [, , , ["Test.B", true], , , , , true],
+    "getAMDMB": [, , , ["Test.B", true], , , , , true],
+    "getAll": [, , , , , [["Test.B", true], ["Test.B", true], ["Test.C", true], ["Test.D", true]], , , true],
+    "getK": [, , , ["Test.K", true], , , , , true],
+    "opValue": [, , , [10, true], [[10, true]], [[10, true]], , true, true],
+    "opValueSeq": [, , , ["Test.ValueSeqHelper"], [["Test.ValueSeqHelper"]], [["Test.ValueSeqHelper"]], , true, true],
+    "opValueMap": [, , , ["Test.ValueMapHelper"], [["Test.ValueMapHelper"]], [["Test.ValueMapHelper"]], , true, true],
+    "getD1": [, , , ["Test.D1", true], [["Test.D1", true]], , , true, true],
+    "throwEDerived": [, , , , , ,
     [
         Test.EDerived
     ], , ],
-    "setG": [, , , , , [["Test.G", true]], , , true, ],
-    "opBaseSeq": [, , , , ["Test.BaseSeqHelper"], [["Test.BaseSeqHelper"]], [["Test.BaseSeqHelper"]], , true, true],
-    "getCompact": [, , , , ["Test.Compact", true], , , , , true],
-    "getInnerA": [, , , , ["Test.Inner.A", true], , , , , true],
-    "getInnerSubA": [, , , , ["Test.Inner.Sub.A", true], , , , , true],
-    "throwInnerEx": [, , , , , , ,
+    "setG": [, , , , [["Test.G", true]], , , true, ],
+    "opBaseSeq": [, , , ["Test.BaseSeqHelper"], [["Test.BaseSeqHelper"]], [["Test.BaseSeqHelper"]], , true, true],
+    "getCompact": [, , , ["Test.Compact", true], , , , , true],
+    "getInnerA": [, , , ["Test.Inner.A", true], , , , , true],
+    "getInnerSubA": [, , , ["Test.Inner.Sub.A", true], , , , , true],
+    "throwInnerEx": [, , , , , ,
     [
         Test.Inner.Ex
     ], , ],
-    "throwInnerSubEx": [, , , , , , ,
+    "throwInnerSubEx": [, , , , , ,
     [
         Test.Inner.Sub.Ex
     ], , ],
-    "opM": [, , , , ["Test.M", true], [["Test.M", true]], [["Test.M", true]], , true, true],
-    "opF1": [, , , , ["Test.F1", true], [["Test.F1", true]], [["Test.F1", true]], , true, true],
-    "opF2": [, , , , ["Test.F2Prx"], [["Test.F2Prx"]], [["Test.F2Prx"]], , , ],
-    "opF3": [, , , , ["Test.F3", true], [["Test.F3", true]], [["Test.F3", true]], , true, true],
-    "hasF3": [, , , , [1], , , , , ]
+    "opM": [, , , ["Test.M", true], [["Test.M", true]], [["Test.M", true]], , true, true],
+    "opF1": [, , , ["Test.F1", true], [["Test.F1", true]], [["Test.F1", true]], , true, true],
+    "opF2": [, , , ["Test.F2Prx"], [["Test.F2Prx"]], [["Test.F2Prx"]], , , ],
+    "opF3": [, , , ["Test.F3", true], [["Test.F3", true]], [["Test.F3", true]], , true, true],
+    "hasF3": [, , , [1], , , , , ]
 });
 
 Test.Empty = class extends Ice.Value
@@ -793,7 +793,7 @@ Test.UnexpectedObjectExceptionTestPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.UnexpectedObjectExceptionTest, Test.UnexpectedObjectExceptionTestPrx, iceC_Test_UnexpectedObjectExceptionTest_ids, "::Test::UnexpectedObjectExceptionTest",
 {
-    "op": [, , , , ["Test.Empty", true], , , , , true]
+    "op": [, , , ["Test.Empty", true], , , , , true]
 });
 
 Test.COneMember = class extends Ice.Value
@@ -994,7 +994,7 @@ Test.EchoPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
 {
-    "setConnection": [, , , , , , , , , ],
-    "shutdown": [, , , , , , , , , ]
+    "setConnection": [, , , , , , , , ],
+    "shutdown": [, , , , , , , , ]
 });
 export { Test };

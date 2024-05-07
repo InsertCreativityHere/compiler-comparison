@@ -260,16 +260,16 @@ namespace IceStorm
     global $IcePHP__t_int;
     global $IceStorm__t_LinkInfoSeq;
     global $Ice__t_IdentitySeq;
-    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'getName', 2, 2, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'getPublisher', 2, 2, 0, null, null, array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'getNonReplicatedPublisher', 2, 2, 0, null, null, array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'subscribeAndGetPublisher', 0, 0, 0, array(array($IceStorm__t_QoS), array($Ice__t_ObjectPrx)), null, array($Ice__t_ObjectPrx), array($IceStorm__t_AlreadySubscribed, $IceStorm__t_InvalidSubscriber, $IceStorm__t_BadQoS));
-    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'unsubscribe', 2, 2, 0, array(array($Ice__t_ObjectPrx)), null, null, null);
-    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'link', 0, 0, 0, array(array($IceStorm__t_TopicPrx), array($IcePHP__t_int)), null, null, array($IceStorm__t_LinkExists));
-    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'unlink', 0, 0, 0, array(array($IceStorm__t_TopicPrx)), null, null, array($IceStorm__t_NoSuchLink));
-    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'getLinkInfoSeq', 2, 2, 0, null, null, array($IceStorm__t_LinkInfoSeq), null);
-    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'getSubscribers', 0, 0, 0, null, null, array($Ice__t_IdentitySeq), null);
-    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'destroy', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'getName', 2, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'getPublisher', 2, 0, null, null, array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'getNonReplicatedPublisher', 2, 0, null, null, array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'subscribeAndGetPublisher', 0, 0, array(array($IceStorm__t_QoS), array($Ice__t_ObjectPrx)), null, array($Ice__t_ObjectPrx), array($IceStorm__t_AlreadySubscribed, $IceStorm__t_InvalidSubscriber, $IceStorm__t_BadQoS));
+    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'unsubscribe', 2, 0, array(array($Ice__t_ObjectPrx)), null, null, null);
+    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'link', 0, 0, array(array($IceStorm__t_TopicPrx), array($IcePHP__t_int)), null, null, array($IceStorm__t_LinkExists));
+    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'unlink', 0, 0, array(array($IceStorm__t_TopicPrx)), null, null, array($IceStorm__t_NoSuchLink));
+    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'getLinkInfoSeq', 2, 0, null, null, array($IceStorm__t_LinkInfoSeq), null);
+    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'getSubscribers', 0, 0, null, null, array($Ice__t_IdentitySeq), null);
+    IcePHP_defineOperation($IceStorm__t_TopicPrx, 'destroy', 0, 0, null, null, null, null);
 }
 
 namespace IceStorm
@@ -371,9 +371,9 @@ namespace IceStorm
     global $IcePHP__t_string;
     global $IceStorm__t_TopicPrx;
     global $IceStorm__t_TopicDict;
-    IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'create', 0, 0, 0, array(array($IcePHP__t_string)), null, array($IceStorm__t_TopicPrx), array($IceStorm__t_TopicExists));
-    IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'retrieve', 2, 2, 0, array(array($IcePHP__t_string)), null, array($IceStorm__t_TopicPrx), array($IceStorm__t_NoSuchTopic));
-    IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'retrieveAll', 2, 2, 0, null, null, array($IceStorm__t_TopicDict), null);
+    IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'create', 0, 0, array(array($IcePHP__t_string)), null, array($IceStorm__t_TopicPrx), array($IceStorm__t_TopicExists));
+    IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'retrieve', 2, 0, array(array($IcePHP__t_string)), null, array($IceStorm__t_TopicPrx), array($IceStorm__t_NoSuchTopic));
+    IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'retrieveAll', 2, 0, null, null, array($IceStorm__t_TopicDict), null);
 }
 
 namespace IceStorm
@@ -403,6 +403,6 @@ namespace IceStorm
     $IceStorm__t_FinderPrx = IcePHP_defineProxy('::IceStorm::Finder', $Ice__t_ObjectPrx, null);
 
     global $IceStorm__t_TopicManagerPrx;
-    IcePHP_defineOperation($IceStorm__t_FinderPrx, 'getTopicManager', 0, 0, 0, null, null, array($IceStorm__t_TopicManagerPrx), null);
+    IcePHP_defineOperation($IceStorm__t_FinderPrx, 'getTopicManager', 0, 0, null, null, array($IceStorm__t_TopicManagerPrx), null);
 }
 ?>

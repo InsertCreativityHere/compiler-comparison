@@ -121,8 +121,8 @@ if 'ProcessPrx' not in _M_Ice.__dict__:
     _M_Ice._t_ProcessDisp = IcePy.defineClass('::Ice::Process', Process, (), None, ())
     Process._ice_type = _M_Ice._t_ProcessDisp
 
-    Process._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Process._op_writeMessage = IcePy.Operation('writeMessage', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    Process._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Process._op_writeMessage = IcePy.Operation('writeMessage', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
 
     _M_Ice.Process = Process
     del Process

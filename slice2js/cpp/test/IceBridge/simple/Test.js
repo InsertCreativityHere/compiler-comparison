@@ -39,10 +39,10 @@
 
     Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, "::Test::Callback",
     {
-        "ping": [, , , , , , , , , ],
-        "getCount": [, , , , [3], , , , , ],
-        "datagram": [, , , , , , , , , ],
-        "getDatagramCount": [, , , , [3], , , , , ]
+        "ping": [, , , , , , , , ],
+        "getCount": [, , , [3], , , , , ],
+        "datagram": [, , , , , , , , ],
+        "getDatagramCount": [, , , [3], , , , , ]
     });
 
     const iceC_Test_MyClass_ids = [
@@ -60,19 +60,19 @@
 
     Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
     {
-        "callCallback": [, , , , , , , , , ],
-        "getCallbackCount": [, , , , [3], , , , , ],
-        "incCounter": [, , , , , [[3]], , , , ],
-        "waitCounter": [, , , , , [[3]], , , , ],
-        "getConnectionCount": [, , , , [3], , , , , ],
-        "getConnectionInfo": [, , , , [7], , , , , ],
-        "closeConnection": [, , , , , [[1]], , , , ],
-        "datagram": [, , , , , , , , , ],
-        "getDatagramCount": [, , , , [3], , , , , ],
-        "callDatagramCallback": [, , , , , , , , , ],
-        "getCallbackDatagramCount": [, , , , [3], , , , , ],
-        "getHeartbeatCount": [, , , , [3], , , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "callCallback": [, , , , , , , , ],
+        "getCallbackCount": [, , , [3], , , , , ],
+        "incCounter": [, , , , [[3]], , , , ],
+        "waitCounter": [, , , , [[3]], , , , ],
+        "getConnectionCount": [, , , [3], , , , , ],
+        "getConnectionInfo": [, , , [7], , , , , ],
+        "closeConnection": [, , , , [[1]], , , , ],
+        "datagram": [, , , , , , , , ],
+        "getDatagramCount": [, , , [3], , , , , ],
+        "callDatagramCallback": [, , , , , , , , ],
+        "getCallbackDatagramCount": [, , , [3], , , , , ],
+        "getHeartbeatCount": [, , , [3], , , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

@@ -37,7 +37,7 @@ Test.TestIntfPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
 {
-    "transient": [, , , , , , , , , ],
-    "deactivate": [, , , , , , , , , ]
+    "transient": [, , , , , , , , ],
+    "deactivate": [, , , , , , , , ]
 });
 export { Test };

@@ -216,18 +216,18 @@
 
     Slice.defineOperations(Test.I, Test.IPrx, iceC_Test_I_ids, "::Test::I",
     {
-        "opS": [, , , , [Test.S], [[Test.S]], [[Test.S]], , , ],
-        "opSSeq": [, , , , ["Test.SSeqHelper"], [["Test.SSeqHelper"]], [["Test.SSeqHelper"]], , , ],
-        "opSMap": [, , , , ["Test.SMapHelper"], [["Test.SMapHelper"]], [["Test.SMapHelper"]], , , ],
-        "opC": [, , , , ["Test.C", true], [["Test.C", true]], [["Test.C", true]], , true, true],
-        "opCSeq": [, , , , ["Test.CSeqHelper"], [["Test.CSeqHelper"]], [["Test.CSeqHelper"]], , true, true],
-        "opCMap": [, , , , ["Test.CMapHelper"], [["Test.CMapHelper"]], [["Test.CMapHelper"]], , true, true],
-        "opE1": [, , , , [Test.E1._helper], [[Test.E1._helper]], , , , ],
-        "opS1": [, , , , [Test.S1], [[Test.S1]], , , , ],
-        "opC1": [, , , , ["Test.C1", true], [["Test.C1", true]], , , true, true],
-        "opS1Seq": [, , , , ["Test.S1SeqHelper"], [["Test.S1SeqHelper"]], , , , ],
-        "opS1Map": [, , , , ["Test.S1MapHelper"], [["Test.S1MapHelper"]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "opS": [, , , [Test.S], [[Test.S]], [[Test.S]], , , ],
+        "opSSeq": [, , , ["Test.SSeqHelper"], [["Test.SSeqHelper"]], [["Test.SSeqHelper"]], , , ],
+        "opSMap": [, , , ["Test.SMapHelper"], [["Test.SMapHelper"]], [["Test.SMapHelper"]], , , ],
+        "opC": [, , , ["Test.C", true], [["Test.C", true]], [["Test.C", true]], , true, true],
+        "opCSeq": [, , , ["Test.CSeqHelper"], [["Test.CSeqHelper"]], [["Test.CSeqHelper"]], , true, true],
+        "opCMap": [, , , ["Test.CMapHelper"], [["Test.CMapHelper"]], [["Test.CMapHelper"]], , true, true],
+        "opE1": [, , , [Test.E1._helper], [[Test.E1._helper]], , , , ],
+        "opS1": [, , , [Test.S1], [[Test.S1]], , , , ],
+        "opC1": [, , , ["Test.C1", true], [["Test.C1", true]], , , true, true],
+        "opS1Seq": [, , , ["Test.S1SeqHelper"], [["Test.S1SeqHelper"]], , , , ],
+        "opS1Map": [, , , ["Test.S1MapHelper"], [["Test.S1MapHelper"]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
 
     Slice.defineDictionary(Test, "IMap", "IMapHelper", "Ice.StringHelper", "Test.IPrx", false, undefined, undefined);
@@ -332,13 +332,13 @@
 
     Slice.defineOperations(Test.Inner.Inner2.I, Test.Inner.Inner2.IPrx, iceC_Test_Inner_Inner2_I_ids, "::Test::Inner::Inner2::I",
     {
-        "opS": [, , , , [Test.Inner.Inner2.S], [[Test.Inner.Inner2.S]], [[Test.Inner.Inner2.S]], , , ],
-        "opSSeq": [, , , , ["Test.Inner.Inner2.SSeqHelper"], [["Test.Inner.Inner2.SSeqHelper"]], [["Test.Inner.Inner2.SSeqHelper"]], , , ],
-        "opSMap": [, , , , ["Test.Inner.Inner2.SMapHelper"], [["Test.Inner.Inner2.SMapHelper"]], [["Test.Inner.Inner2.SMapHelper"]], , , ],
-        "opC": [, , , , ["Test.Inner.Inner2.C", true], [["Test.Inner.Inner2.C", true]], [["Test.Inner.Inner2.C", true]], , true, true],
-        "opCSeq": [, , , , ["Test.Inner.Inner2.CSeqHelper"], [["Test.Inner.Inner2.CSeqHelper"]], [["Test.Inner.Inner2.CSeqHelper"]], , true, true],
-        "opCMap": [, , , , ["Test.Inner.Inner2.CMapHelper"], [["Test.Inner.Inner2.CMapHelper"]], [["Test.Inner.Inner2.CMapHelper"]], , true, true],
-        "shutdown": [, , , , , , , , , ]
+        "opS": [, , , [Test.Inner.Inner2.S], [[Test.Inner.Inner2.S]], [[Test.Inner.Inner2.S]], , , ],
+        "opSSeq": [, , , ["Test.Inner.Inner2.SSeqHelper"], [["Test.Inner.Inner2.SSeqHelper"]], [["Test.Inner.Inner2.SSeqHelper"]], , , ],
+        "opSMap": [, , , ["Test.Inner.Inner2.SMapHelper"], [["Test.Inner.Inner2.SMapHelper"]], [["Test.Inner.Inner2.SMapHelper"]], , , ],
+        "opC": [, , , ["Test.Inner.Inner2.C", true], [["Test.Inner.Inner2.C", true]], [["Test.Inner.Inner2.C", true]], , true, true],
+        "opCSeq": [, , , ["Test.Inner.Inner2.CSeqHelper"], [["Test.Inner.Inner2.CSeqHelper"]], [["Test.Inner.Inner2.CSeqHelper"]], , true, true],
+        "opCMap": [, , , ["Test.Inner.Inner2.CMapHelper"], [["Test.Inner.Inner2.CMapHelper"]], [["Test.Inner.Inner2.CMapHelper"]], , true, true],
+        "shutdown": [, , , , , , , , ]
     });
 
     Slice.defineDictionary(Test.Inner.Inner2, "IMap", "IMapHelper", "Ice.StringHelper", "Test.Inner.Inner2.IPrx", false, undefined, undefined);
@@ -389,13 +389,13 @@
 
     Slice.defineOperations(Test.Inner.I, Test.Inner.IPrx, iceC_Test_Inner_I_ids, "::Test::Inner::I",
     {
-        "opS": [, , , , [Test.Inner.Inner2.S], [[Test.Inner.Inner2.S]], [[Test.Inner.Inner2.S]], , , ],
-        "opSSeq": [, , , , ["Test.Inner.Inner2.SSeqHelper"], [["Test.Inner.Inner2.SSeqHelper"]], [["Test.Inner.Inner2.SSeqHelper"]], , , ],
-        "opSMap": [, , , , ["Test.Inner.Inner2.SMapHelper"], [["Test.Inner.Inner2.SMapHelper"]], [["Test.Inner.Inner2.SMapHelper"]], , , ],
-        "opC": [, , , , ["Test.Inner.Inner2.C", true], [["Test.Inner.Inner2.C", true]], [["Test.Inner.Inner2.C", true]], , true, true],
-        "opCSeq": [, , , , ["Test.Inner.Inner2.CSeqHelper"], [["Test.Inner.Inner2.CSeqHelper"]], [["Test.Inner.Inner2.CSeqHelper"]], , true, true],
-        "opCMap": [, , , , ["Test.Inner.Inner2.CMapHelper"], [["Test.Inner.Inner2.CMapHelper"]], [["Test.Inner.Inner2.CMapHelper"]], , true, true],
-        "shutdown": [, , , , , , , , , ]
+        "opS": [, , , [Test.Inner.Inner2.S], [[Test.Inner.Inner2.S]], [[Test.Inner.Inner2.S]], , , ],
+        "opSSeq": [, , , ["Test.Inner.Inner2.SSeqHelper"], [["Test.Inner.Inner2.SSeqHelper"]], [["Test.Inner.Inner2.SSeqHelper"]], , , ],
+        "opSMap": [, , , ["Test.Inner.Inner2.SMapHelper"], [["Test.Inner.Inner2.SMapHelper"]], [["Test.Inner.Inner2.SMapHelper"]], , , ],
+        "opC": [, , , ["Test.Inner.Inner2.C", true], [["Test.Inner.Inner2.C", true]], [["Test.Inner.Inner2.C", true]], , true, true],
+        "opCSeq": [, , , ["Test.Inner.Inner2.CSeqHelper"], [["Test.Inner.Inner2.CSeqHelper"]], [["Test.Inner.Inner2.CSeqHelper"]], , true, true],
+        "opCMap": [, , , ["Test.Inner.Inner2.CMapHelper"], [["Test.Inner.Inner2.CMapHelper"]], [["Test.Inner.Inner2.CMapHelper"]], , true, true],
+        "shutdown": [, , , , , , , , ]
     });
 
     Slice.defineDictionary(Test.Inner, "IMap", "IMapHelper", "Ice.StringHelper", "Test.Inner.IPrx", false, undefined, undefined);
@@ -423,13 +423,13 @@
 
     Slice.defineOperations(Inner.Test.Inner2.I, Inner.Test.Inner2.IPrx, iceC_Inner_Test_Inner2_I_ids, "::Inner::Test::Inner2::I",
     {
-        "opS": [, , , , [Test.S], [[Test.S]], [[Test.S]], , , ],
-        "opSSeq": [, , , , ["Test.SSeqHelper"], [["Test.SSeqHelper"]], [["Test.SSeqHelper"]], , , ],
-        "opSMap": [, , , , ["Test.SMapHelper"], [["Test.SMapHelper"]], [["Test.SMapHelper"]], , , ],
-        "opC": [, , , , ["Test.C", true], [["Test.C", true]], [["Test.C", true]], , true, true],
-        "opCSeq": [, , , , ["Test.CSeqHelper"], [["Test.CSeqHelper"]], [["Test.CSeqHelper"]], , true, true],
-        "opCMap": [, , , , ["Test.CMapHelper"], [["Test.CMapHelper"]], [["Test.CMapHelper"]], , true, true],
-        "shutdown": [, , , , , , , , , ]
+        "opS": [, , , [Test.S], [[Test.S]], [[Test.S]], , , ],
+        "opSSeq": [, , , ["Test.SSeqHelper"], [["Test.SSeqHelper"]], [["Test.SSeqHelper"]], , , ],
+        "opSMap": [, , , ["Test.SMapHelper"], [["Test.SMapHelper"]], [["Test.SMapHelper"]], , , ],
+        "opC": [, , , ["Test.C", true], [["Test.C", true]], [["Test.C", true]], , true, true],
+        "opCSeq": [, , , ["Test.CSeqHelper"], [["Test.CSeqHelper"]], [["Test.CSeqHelper"]], , true, true],
+        "opCMap": [, , , ["Test.CMapHelper"], [["Test.CMapHelper"]], [["Test.CMapHelper"]], , true, true],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
     exports.Inner = Inner;

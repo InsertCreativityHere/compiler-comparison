@@ -67,7 +67,7 @@
 
     Slice.defineOperations(_await.case, _await.casePrx, iceC__await__case_ids, "::await::case",
     {
-        "catch": ["_catch", , , , , [[3]], [[3]], , , ]
+        "catch": ["_catch", , , , [[3]], [[3]], , , ]
     });
 
     const iceC__await__typeof_ids = [
@@ -85,7 +85,7 @@
 
     Slice.defineOperations(_await.typeof, _await.typeofPrx, iceC__await__typeof_ids, "::await::typeof",
     {
-        "default": ["_default", , , , , , , , , ]
+        "default": ["_default", , , , , , , , ]
     });
 
     _await._delete = class extends Ice.Value
@@ -198,10 +198,10 @@
 
     Slice.defineOperations(_await.optionalParams, _await.optionalParamsPrx, iceC__await_optionalParams_ids, "::await::optionalParams",
     {
-        "for": ["_for", , , , [_await._break, , 1], [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , , ],
-        "continue": ["_continue", , , , [_await._break, , 1], [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , , ],
-        "in": ["_in", , , , [_await._break, , 1], , [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , ],
-        "foreach": [, , , , [_await._break, , 1], , [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , ]
+        "for": ["_for", , , [_await._break, , 1], [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , , ],
+        "continue": ["_continue", , , [_await._break, , 1], [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , , ],
+        "in": ["_in", , , [_await._break, , 1], , [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , ],
+        "foreach": [, , , [_await._break, , 1], , [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , ]
     });
 
     _await.fixed = class extends Ice.UserException
@@ -366,7 +366,7 @@
 
     Slice.defineOperations(_await.implicit, _await.implicitPrx, iceC__await_implicit_ids, "::await::implicit",
     {
-        "in": ["_in", , , , [_await._var._helper], [[_await._break], ["_await._delete", true], ["_await.explicitPrx"], ["_await.casePrx"], ["_await.typeofPrx"], ["_await._delete", true], ["_await.explicitPrx"], [3], [3], [3]], ,
+        "in": ["_in", , , [_await._var._helper], [[_await._break], ["_await._delete", true], ["_await.explicitPrx"], ["_await.casePrx"], ["_await.typeofPrx"], ["_await._delete", true], ["_await.explicitPrx"], [3], [3], [3]], ,
         [
             _await.foreach,
             _await.fixed
@@ -398,7 +398,7 @@
 
     Slice.defineOperations(_await.System.Test, _await.System.TestPrx, iceC__await_System_Test_ids, "::await::System::Test",
     {
-        "op": [, , , , , , , , , ]
+        "op": [, , , , , , , , ]
     });
 
     let System = _ModuleRegistry.module("System");
@@ -418,7 +418,7 @@
 
     Slice.defineOperations(System.Test, System.TestPrx, iceC_System_Test_ids, "::System::Test",
     {
-        "op": [, , , , , , , , , ]
+        "op": [, , , , , , , , ]
     });
     exports._await = _await;
     exports.System = System;

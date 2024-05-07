@@ -87,10 +87,10 @@ Test.TestIntfPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
 {
-    "opByte": [, , , , [Test.ByteEnum._helper], [[Test.ByteEnum._helper]], [[Test.ByteEnum._helper]], , , ],
-    "opShort": [, , , , [Test.ShortEnum._helper], [[Test.ShortEnum._helper]], [[Test.ShortEnum._helper]], , , ],
-    "opInt": [, , , , [Test.IntEnum._helper], [[Test.IntEnum._helper]], [[Test.IntEnum._helper]], , , ],
-    "opSimple": [, , , , [Test.SimpleEnum._helper], [[Test.SimpleEnum._helper]], [[Test.SimpleEnum._helper]], , , ],
-    "shutdown": [, , , , , , , , , ]
+    "opByte": [, , , [Test.ByteEnum._helper], [[Test.ByteEnum._helper]], [[Test.ByteEnum._helper]], , , ],
+    "opShort": [, , , [Test.ShortEnum._helper], [[Test.ShortEnum._helper]], [[Test.ShortEnum._helper]], , , ],
+    "opInt": [, , , [Test.IntEnum._helper], [[Test.IntEnum._helper]], [[Test.IntEnum._helper]], , , ],
+    "opSimple": [, , , [Test.SimpleEnum._helper], [[Test.SimpleEnum._helper]], [[Test.SimpleEnum._helper]], , , ],
+    "shutdown": [, , , , , , , , ]
 });
 export { Test };

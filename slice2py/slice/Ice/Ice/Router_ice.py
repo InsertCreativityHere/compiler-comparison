@@ -155,9 +155,9 @@ if 'RouterPrx' not in _M_Ice.__dict__:
     _M_Ice._t_RouterDisp = IcePy.defineClass('::Ice::Router', Router, (), None, ())
     Router._ice_type = _M_Ice._t_RouterDisp
 
-    Router._op_getClientProxy = IcePy.Operation('getClientProxy', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (((), IcePy._t_bool, True, 1),), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Router._op_getServerProxy = IcePy.Operation('getServerProxy', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Router._op_addProxies = IcePy.Operation('addProxies', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_ObjectProxySeq, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
+    Router._op_getClientProxy = IcePy.Operation('getClientProxy', Ice.OperationMode.Idempotent, False, None, (), (), (((), IcePy._t_bool, True, 1),), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Router._op_getServerProxy = IcePy.Operation('getServerProxy', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Router._op_addProxies = IcePy.Operation('addProxies', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_ObjectProxySeq, False, 0),), (), ((), _M_Ice._t_ObjectProxySeq, False, 0), ())
 
     _M_Ice.Router = Router
     del Router
@@ -235,7 +235,7 @@ if 'RouterFinderPrx' not in _M_Ice.__dict__:
     _M_Ice._t_RouterFinderDisp = IcePy.defineClass('::Ice::RouterFinder', RouterFinder, (), None, ())
     RouterFinder._ice_type = _M_Ice._t_RouterFinderDisp
 
-    RouterFinder._op_getRouter = IcePy.Operation('getRouter', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_RouterPrx, False, 0), ())
+    RouterFinder._op_getRouter = IcePy.Operation('getRouter', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_RouterPrx, False, 0), ())
 
     _M_Ice.RouterFinder = RouterFinder
     del RouterFinder

@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.TestFacet, Test.TestFacetPrx, iceC_Test_TestFacet_ids, "::Test::TestFacet",
     {
-        "getChanges": [, , , , ["Ice.PropertyDictHelper"], , , , , ]
+        "getChanges": [, , , ["Ice.PropertyDictHelper"], , , , , ]
     });
     exports.Test = Test;
 }

@@ -53,19 +53,19 @@ namespace Test
     global $Test2__t_C2;
     global $Test3__t_C1;
     global $Test3__t_C2;
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest1C2AsC1', 0, 0, 0, null, null, array($Test1__t_C1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest1C2AsC2', 0, 0, 0, null, null, array($Test1__t_C2), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest1E2AsE1', 0, 0, 0, null, null, null, array($Test1__t_E1));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest1E2AsE2', 0, 0, 0, null, null, null, array($Test1__t_E2));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest1Def', 0, 0, 0, null, null, null, array($Test1__t_def));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest2C2AsC1', 0, 0, 0, null, null, array($Test2__t_C1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest2C2AsC2', 0, 0, 0, null, null, array($Test2__t_C2), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest2E2AsE1', 0, 0, 0, null, null, null, array($Test2__t_E1));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest2E2AsE2', 0, 0, 0, null, null, null, array($Test2__t_E2));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest3C2AsC1', 0, 0, 0, null, null, array($Test3__t_C1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest3C2AsC2', 0, 0, 0, null, null, array($Test3__t_C2), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest3E2AsE1', 0, 0, 0, null, null, null, array($Test3__t_E1));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest3E2AsE2', 0, 0, 0, null, null, null, array($Test3__t_E2));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest1C2AsC1', 0, 0, null, null, array($Test1__t_C1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest1C2AsC2', 0, 0, null, null, array($Test1__t_C2), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest1E2AsE1', 0, 0, null, null, null, array($Test1__t_E1));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest1E2AsE2', 0, 0, null, null, null, array($Test1__t_E2));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest1Def', 0, 0, null, null, null, array($Test1__t_def));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest2C2AsC1', 0, 0, null, null, array($Test2__t_C1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest2C2AsC2', 0, 0, null, null, array($Test2__t_C2), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest2E2AsE1', 0, 0, null, null, null, array($Test2__t_E1));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest2E2AsE2', 0, 0, null, null, null, array($Test2__t_E2));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest3C2AsC1', 0, 0, null, null, array($Test3__t_C1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getTest3C2AsC2', 0, 0, null, null, array($Test3__t_C2), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest3E2AsE1', 0, 0, null, null, null, array($Test3__t_E1));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwTest3E2AsE2', 0, 0, null, null, null, array($Test3__t_E2));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 ?>

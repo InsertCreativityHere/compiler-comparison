@@ -172,7 +172,7 @@ if 'delPrx' not in _M__and.__dict__:
     _M__and._t_delDisp = IcePy.defineClass('::and::del', _del, (), None, ())
     _del._ice_type = _M__and._t_delDisp
 
-    _del._op_elif = IcePy.Operation('elif', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
+    _del._op_elif = IcePy.Operation('elif', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
 
     _M__and._del = _del
     del _del
@@ -229,7 +229,7 @@ if 'execPrx' not in _M__and.__dict__:
     _M__and._t_execDisp = IcePy.defineClass('::and::exec', _exec, (), None, ())
     _exec._ice_type = _M__and._t_execDisp
 
-    _exec._op_finally = IcePy.Operation('finally', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _exec._op_finally = IcePy.Operation('finally', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M__and._exec = _exec
     del _exec
@@ -411,7 +411,7 @@ if 'printPrx' not in _M__and.__dict__:
     _M__and._t_printDisp = IcePy.defineClass('::and::print', _print, (), None, ())
     _print._ice_type = _M__and._t_printDisp
 
-    _print._op_raise = IcePy.Operation('raise', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__and._t__continue, False, 0), ((), _M__and._t__for, False, 0), ((), _M__and._t_delPrx, False, 0), ((), _M__and._t_execPrx, False, 0), ((), _M__and._t_ifPrx, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t__assert, False, 0), (_M__and._t__is,))
+    _print._op_raise = IcePy.Operation('raise', Ice.OperationMode.Normal, False, None, (), (((), _M__and._t__continue, False, 0), ((), _M__and._t__for, False, 0), ((), _M__and._t_delPrx, False, 0), ((), _M__and._t_execPrx, False, 0), ((), _M__and._t_ifPrx, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t__assert, False, 0), (_M__and._t__is,))
 
     _M__and._print = _print
     del _print

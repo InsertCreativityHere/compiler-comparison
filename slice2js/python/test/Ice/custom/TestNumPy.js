@@ -110,24 +110,24 @@
 
     Slice.defineOperations(Test.NumPy.Custom, Test.NumPy.CustomPrx, iceC_Test_NumPy_Custom_ids, "::Test::NumPy::Custom",
     {
-        "opBoolSeq": [, , , , ["Test.NumPy.BoolSeq1Helper"], [["Test.NumPy.BoolSeq1Helper"]], [["Test.NumPy.BoolSeq2Helper"]], , , ],
-        "opByteSeq": [, , , , ["Test.NumPy.ByteSeq1Helper"], [["Test.NumPy.ByteSeq1Helper"]], [["Test.NumPy.ByteSeq2Helper"]], , , ],
-        "opShortSeq": [, , , , ["Test.NumPy.ShortSeq1Helper"], [["Test.NumPy.ShortSeq1Helper"]], [["Test.NumPy.ShortSeq2Helper"]], , , ],
-        "opIntSeq": [, , , , ["Test.NumPy.IntSeq1Helper"], [["Test.NumPy.IntSeq1Helper"]], [["Test.NumPy.IntSeq2Helper"]], , , ],
-        "opLongSeq": [, , , , ["Test.NumPy.LongSeq1Helper"], [["Test.NumPy.LongSeq1Helper"]], [["Test.NumPy.LongSeq2Helper"]], , , ],
-        "opFloatSeq": [, , , , ["Test.NumPy.FloatSeq1Helper"], [["Test.NumPy.FloatSeq1Helper"]], [["Test.NumPy.FloatSeq2Helper"]], , , ],
-        "opDoubleSeq": [, , , , ["Test.NumPy.DoubleSeq1Helper"], [["Test.NumPy.DoubleSeq1Helper"]], [["Test.NumPy.DoubleSeq2Helper"]], , , ],
-        "opComplex128Seq": [, , , , ["Test.NumPy.Complex128SeqHelper"], [["Test.NumPy.Complex128SeqHelper"]], , , , ],
-        "opBoolMatrix": [, , , , ["Test.NumPy.BoolSeq1Helper"], , , , , ],
-        "opByteMatrix": [, , , , ["Test.NumPy.ByteSeq1Helper"], , , , , ],
-        "opShortMatrix": [, , , , ["Test.NumPy.ShortSeq1Helper"], , , , , ],
-        "opIntMatrix": [, , , , ["Test.NumPy.IntSeq1Helper"], , , , , ],
-        "opLongMatrix": [, , , , ["Test.NumPy.LongSeq1Helper"], , , , , ],
-        "opFloatMatrix": [, , , , ["Test.NumPy.FloatSeq1Helper"], , , , , ],
-        "opDoubleMatrix": [, , , , ["Test.NumPy.DoubleSeq1Helper"], , , , , ],
-        "opBogusNumpyArrayType": [, , , , ["Test.NumPy.BoolSeq1Helper"], , , , , ],
-        "opD": [, , , , ["Test.NumPy.D", true], [["Test.NumPy.D", true]], , , true, true],
-        "shutdown": [, , , , , , , , , ]
+        "opBoolSeq": [, , , ["Test.NumPy.BoolSeq1Helper"], [["Test.NumPy.BoolSeq1Helper"]], [["Test.NumPy.BoolSeq2Helper"]], , , ],
+        "opByteSeq": [, , , ["Test.NumPy.ByteSeq1Helper"], [["Test.NumPy.ByteSeq1Helper"]], [["Test.NumPy.ByteSeq2Helper"]], , , ],
+        "opShortSeq": [, , , ["Test.NumPy.ShortSeq1Helper"], [["Test.NumPy.ShortSeq1Helper"]], [["Test.NumPy.ShortSeq2Helper"]], , , ],
+        "opIntSeq": [, , , ["Test.NumPy.IntSeq1Helper"], [["Test.NumPy.IntSeq1Helper"]], [["Test.NumPy.IntSeq2Helper"]], , , ],
+        "opLongSeq": [, , , ["Test.NumPy.LongSeq1Helper"], [["Test.NumPy.LongSeq1Helper"]], [["Test.NumPy.LongSeq2Helper"]], , , ],
+        "opFloatSeq": [, , , ["Test.NumPy.FloatSeq1Helper"], [["Test.NumPy.FloatSeq1Helper"]], [["Test.NumPy.FloatSeq2Helper"]], , , ],
+        "opDoubleSeq": [, , , ["Test.NumPy.DoubleSeq1Helper"], [["Test.NumPy.DoubleSeq1Helper"]], [["Test.NumPy.DoubleSeq2Helper"]], , , ],
+        "opComplex128Seq": [, , , ["Test.NumPy.Complex128SeqHelper"], [["Test.NumPy.Complex128SeqHelper"]], , , , ],
+        "opBoolMatrix": [, , , ["Test.NumPy.BoolSeq1Helper"], , , , , ],
+        "opByteMatrix": [, , , ["Test.NumPy.ByteSeq1Helper"], , , , , ],
+        "opShortMatrix": [, , , ["Test.NumPy.ShortSeq1Helper"], , , , , ],
+        "opIntMatrix": [, , , ["Test.NumPy.IntSeq1Helper"], , , , , ],
+        "opLongMatrix": [, , , ["Test.NumPy.LongSeq1Helper"], , , , , ],
+        "opFloatMatrix": [, , , ["Test.NumPy.FloatSeq1Helper"], , , , , ],
+        "opDoubleMatrix": [, , , ["Test.NumPy.DoubleSeq1Helper"], , , , , ],
+        "opBogusNumpyArrayType": [, , , ["Test.NumPy.BoolSeq1Helper"], , , , , ],
+        "opD": [, , , ["Test.NumPy.D", true], [["Test.NumPy.D", true]], , , true, true],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

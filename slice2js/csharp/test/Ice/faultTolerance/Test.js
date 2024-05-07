@@ -39,10 +39,10 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "shutdown": [, , , , , , , , , ],
-        "abort": [, , , , , , , , , ],
-        "idempotentAbort": [, 2, 2, , , , , , , ],
-        "pid": [, 2, 2, , [3], , , , , ]
+        "shutdown": [, , , , , , , , ],
+        "abort": [, , , , , , , , ],
+        "idempotentAbort": [, 2, , , , , , , ],
+        "pid": [, 2, , [3], , , , , ]
     });
 
     const iceC_Test_Cleaner_ids = [
@@ -60,7 +60,7 @@
 
     Slice.defineOperations(Test.Cleaner, Test.CleanerPrx, iceC_Test_Cleaner_ids, "::Test::Cleaner",
     {
-        "cleanup": [, , , , , , , , , ]
+        "cleanup": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

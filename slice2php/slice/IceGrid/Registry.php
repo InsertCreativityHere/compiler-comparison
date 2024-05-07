@@ -67,11 +67,11 @@ namespace IceGrid
     global $IcePHP__t_string;
     global $IceGrid__t_LoadSample;
     global $Ice__t_ObjectProxySeq;
-    IcePHP_defineOperation($IceGrid__t_QueryPrx, 'findObjectById', 2, 2, 0, array(array($Ice__t_Identity)), null, array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($IceGrid__t_QueryPrx, 'findObjectByType', 2, 2, 0, array(array($IcePHP__t_string)), null, array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($IceGrid__t_QueryPrx, 'findObjectByTypeOnLeastLoadedNode', 2, 2, 0, array(array($IcePHP__t_string), array($IceGrid__t_LoadSample)), null, array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($IceGrid__t_QueryPrx, 'findAllObjectsByType', 2, 2, 0, array(array($IcePHP__t_string)), null, array($Ice__t_ObjectProxySeq), null);
-    IcePHP_defineOperation($IceGrid__t_QueryPrx, 'findAllReplicas', 2, 2, 0, array(array($Ice__t_ObjectPrx)), null, array($Ice__t_ObjectProxySeq), null);
+    IcePHP_defineOperation($IceGrid__t_QueryPrx, 'findObjectById', 2, 0, array(array($Ice__t_Identity)), null, array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($IceGrid__t_QueryPrx, 'findObjectByType', 2, 0, array(array($IcePHP__t_string)), null, array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($IceGrid__t_QueryPrx, 'findObjectByTypeOnLeastLoadedNode', 2, 0, array(array($IcePHP__t_string), array($IceGrid__t_LoadSample)), null, array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($IceGrid__t_QueryPrx, 'findAllObjectsByType', 2, 0, array(array($IcePHP__t_string)), null, array($Ice__t_ObjectProxySeq), null);
+    IcePHP_defineOperation($IceGrid__t_QueryPrx, 'findAllReplicas', 2, 0, array(array($Ice__t_ObjectPrx)), null, array($Ice__t_ObjectProxySeq), null);
 }
 
 namespace IceGrid
@@ -104,12 +104,12 @@ namespace IceGrid
     global $IceGrid__t_SessionPrx;
     global $IceGrid__t_AdminSessionPrx;
     global $IcePHP__t_int;
-    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createSession', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, array($IceGrid__t_SessionPrx), array($IceGrid__t_PermissionDeniedException));
-    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createAdminSession', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, array($IceGrid__t_AdminSessionPrx), array($IceGrid__t_PermissionDeniedException));
-    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createSessionFromSecureConnection', 0, 0, 0, null, null, array($IceGrid__t_SessionPrx), array($IceGrid__t_PermissionDeniedException));
-    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createAdminSessionFromSecureConnection', 0, 0, 0, null, null, array($IceGrid__t_AdminSessionPrx), array($IceGrid__t_PermissionDeniedException));
-    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'getSessionTimeout', 2, 2, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'getACMTimeout', 2, 2, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createSession', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, array($IceGrid__t_SessionPrx), array($IceGrid__t_PermissionDeniedException));
+    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createAdminSession', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, array($IceGrid__t_AdminSessionPrx), array($IceGrid__t_PermissionDeniedException));
+    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createSessionFromSecureConnection', 0, 0, null, null, array($IceGrid__t_SessionPrx), array($IceGrid__t_PermissionDeniedException));
+    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createAdminSessionFromSecureConnection', 0, 0, null, null, array($IceGrid__t_AdminSessionPrx), array($IceGrid__t_PermissionDeniedException));
+    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'getSessionTimeout', 2, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'getACMTimeout', 2, 0, null, null, array($IcePHP__t_int), null);
 }
 
 namespace IceGrid
@@ -140,7 +140,7 @@ namespace IceGrid
 
     global $IceGrid__t_RegistryPrx;
     global $IceGrid__t_QueryPrx;
-    IcePHP_defineOperation($IceGrid__t_LocatorPrx, 'getLocalRegistry', 2, 2, 0, null, null, array($IceGrid__t_RegistryPrx), null);
-    IcePHP_defineOperation($IceGrid__t_LocatorPrx, 'getLocalQuery', 2, 2, 0, null, null, array($IceGrid__t_QueryPrx), null);
+    IcePHP_defineOperation($IceGrid__t_LocatorPrx, 'getLocalRegistry', 2, 0, null, null, array($IceGrid__t_RegistryPrx), null);
+    IcePHP_defineOperation($IceGrid__t_LocatorPrx, 'getLocalQuery', 2, 0, null, null, array($IceGrid__t_QueryPrx), null);
 }
 ?>

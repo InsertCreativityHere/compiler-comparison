@@ -67,7 +67,7 @@
 
     Slice.defineOperations(abstract.catch, abstract.catchPrx, iceC_abstract__catch_ids, "::abstract::catch",
     {
-        "checkedCast": [, , , , , [[3]], [[3]], , , ]
+        "checkedCast": [, , , , [[3]], [[3]], , , ]
     });
 
     const iceC_abstract__default_ids = [
@@ -85,7 +85,7 @@
 
     Slice.defineOperations(abstract.default, abstract.defaultPrx, iceC_abstract__default_ids, "::abstract::default",
     {
-        "do": ["_do", , , , , , , , , ]
+        "do": ["_do", , , , , , , , ]
     });
 
     abstract._else = class extends Ice.Value
@@ -235,7 +235,7 @@
 
     Slice.defineOperations(abstract.new, abstract.newPrx, iceC_abstract__new_ids, "::abstract::new",
     {
-        "notify": [, , , , [abstract.assert._helper], [[abstract._break], ["abstract._else", true], ["abstract.finalizePrx"], ["abstract.catchPrx"], ["abstract.defaultPrx"], [3], [3], [3]], ,
+        "notify": [, , , [abstract.assert._helper], [[abstract._break], ["abstract._else", true], ["abstract.finalizePrx"], ["abstract.catchPrx"], ["abstract.defaultPrx"], [3], [3], [3]], ,
         [
             abstract._import,
             abstract.hashCode

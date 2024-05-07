@@ -130,10 +130,10 @@ module ::BEGIN_
 
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
-        BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
-        BreakPrx_mixin::OP_to_a = ::Ice::__defineOperation('to_a', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        BreakPrx_mixin::OP_instance_variable_set = ::Ice::__defineOperation('instance_variable_set', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        BreakPrx_mixin::OP_instance_variables = ::Ice::__defineOperation('instance_variables', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
+        BreakPrx_mixin::OP_to_a = ::Ice::__defineOperation('to_a', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        BreakPrx_mixin::OP_instance_variable_set = ::Ice::__defineOperation('instance_variable_set', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        BreakPrx_mixin::OP_instance_variables = ::Ice::__defineOperation('instance_variables', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
     if not defined?(::BEGIN_::Display_Mixin)
@@ -253,7 +253,7 @@ module ::BEGIN_
 
         T_ExtendPrx.defineProxy(ExtendPrx, nil, [])
 
-        ExtendPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::BEGIN_::T_Display, false, 0], [::BEGIN_::T_ElsifPrx, false, 0], [::BEGIN_::T_BreakPrx, false, 0], [::BEGIN_::T_Display, false, 0], [::BEGIN_::T_ElsifPrx, false, 0], [::Ice::T_int, false, 0]], [], [::BEGIN_::T_END_, false, 0], [::BEGIN_::T_Nil])
+        ExtendPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, false, nil, [[::BEGIN_::T_Display, false, 0], [::BEGIN_::T_ElsifPrx, false, 0], [::BEGIN_::T_BreakPrx, false, 0], [::BEGIN_::T_Display, false, 0], [::BEGIN_::T_ElsifPrx, false, 0], [::Ice::T_int, false, 0]], [], [::BEGIN_::T_END_, false, 0], [::BEGIN_::T_Nil])
     end
 
     Redo = 1

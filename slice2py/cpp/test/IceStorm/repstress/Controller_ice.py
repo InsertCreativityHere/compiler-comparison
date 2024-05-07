@@ -72,7 +72,7 @@ if 'ControllerPrx' not in _M_Test.__dict__:
     _M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
     Controller._ice_type = _M_Test._t_ControllerDisp
 
-    Controller._op_stop = IcePy.Operation('stop', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Controller._op_stop = IcePy.Operation('stop', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Controller = Controller
     del Controller

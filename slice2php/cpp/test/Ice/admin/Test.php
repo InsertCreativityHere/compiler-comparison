@@ -49,17 +49,17 @@ namespace Test
     global $Ice__t_ObjectPrx;
     global $Ice__t_PropertyDict;
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'getAdmin', 0, 0, 0, null, null, array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'getChanges', 0, 0, 0, null, null, array($Ice__t_PropertyDict), null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'addUpdateCallback', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'removeUpdateCallback', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'print', 0, 0, 0, array(array($IcePHP__t_string)), null, null, null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'trace', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'warning', 0, 0, 0, array(array($IcePHP__t_string)), null, null, null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'error', 0, 0, 0, array(array($IcePHP__t_string)), null, null, null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'shutdown', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'waitForShutdown', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'destroy', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'getAdmin', 0, 0, null, null, array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'getChanges', 0, 0, null, null, array($Ice__t_PropertyDict), null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'addUpdateCallback', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'removeUpdateCallback', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'print', 0, 0, array(array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'trace', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'warning', 0, 0, array(array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'error', 0, 0, array(array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'waitForShutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'destroy', 0, 0, null, null, null, null);
 }
 
 namespace Test
@@ -90,8 +90,8 @@ namespace Test
 
     global $Ice__t_PropertyDict;
     global $Test__t_RemoteCommunicatorPrx;
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorFactoryPrx, 'createCommunicator', 0, 0, 0, array(array($Ice__t_PropertyDict)), null, array($Test__t_RemoteCommunicatorPrx), null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorFactoryPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorFactoryPrx, 'createCommunicator', 0, 0, array(array($Ice__t_PropertyDict)), null, array($Test__t_RemoteCommunicatorPrx), null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorFactoryPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 
 namespace Test
@@ -120,6 +120,6 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_TestFacetPrx = IcePHP_defineProxy('::Test::TestFacet', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_TestFacetPrx, 'op', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestFacetPrx, 'op', 0, 0, null, null, null, null);
 }
 ?>

@@ -65,7 +65,7 @@
 
     Slice.defineOperations(Test.PingReply, Test.PingReplyPrx, iceC_Test_PingReply_ids, "::Test::PingReply",
     {
-        "reply": [, , , , , , , , , ]
+        "reply": [, , , , , , , , ]
     });
 
     const iceC_Test_TestIntf_ids = [
@@ -83,29 +83,29 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "op": [, , , , , , , , , ],
-        "opWithPayload": [, , , , , [["Ice.ByteSeqHelper"]], , , , ],
-        "opWithResult": [, , , , [3], , , , , ],
-        "opWithUE": [, , , , , , ,
+        "op": [, , , , , , , , ],
+        "opWithPayload": [, , , , [["Ice.ByteSeqHelper"]], , , , ],
+        "opWithResult": [, , , [3], , , , , ],
+        "opWithUE": [, , , , , ,
         [
             Test.TestIntfException
         ], , ],
-        "opWithResultAndUE": [, , , , [3], , ,
+        "opWithResultAndUE": [, , , [3], , ,
         [
             Test.TestIntfException
         ], , ],
-        "opBatch": [, , , , , , , , , ],
-        "opWithArgs": [, , , , , , [[3], [3], [3], [3], [3], [3], [3], [3], [3], [3], [3]], , , ],
-        "opBatchCount": [, , , , [3], , , , , ],
-        "waitForBatch": [, , , , [1], [[3]], , , , ],
-        "close": [, , , , , [[Test.CloseMode._helper]], , , , ],
-        "sleep": [, , , , , [[3]], , , , ],
-        "startDispatch": [, , , , , , , , , ],
-        "finishDispatch": [, , , , , , , , , ],
-        "shutdown": [, , , , , , , , , ],
-        "supportsAMD": [, , , , [1], , , , , ],
-        "supportsFunctionalTests": [, , , , [1], , , , , ],
-        "pingBiDir": [, , , , , [["Test.PingReplyPrx"]], , , , ]
+        "opBatch": [, , , , , , , , ],
+        "opWithArgs": [, , , , , [[3], [3], [3], [3], [3], [3], [3], [3], [3], [3], [3]], , , ],
+        "opBatchCount": [, , , [3], , , , , ],
+        "waitForBatch": [, , , [1], [[3]], , , , ],
+        "close": [, , , , [[Test.CloseMode._helper]], , , , ],
+        "sleep": [, , , , [[3]], , , , ],
+        "startDispatch": [, , , , , , , , ],
+        "finishDispatch": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ],
+        "supportsAMD": [, , , [1], , , , , ],
+        "supportsFunctionalTests": [, , , [1], , , , , ],
+        "pingBiDir": [, , , , [["Test.PingReplyPrx"]], , , , ]
     });
 
     const iceC_Test_TestIntfController_ids = [
@@ -123,8 +123,8 @@
 
     Slice.defineOperations(Test.TestIntfController, Test.TestIntfControllerPrx, iceC_Test_TestIntfController_ids, "::Test::TestIntfController",
     {
-        "holdAdapter": [, , , , , , , , , ],
-        "resumeAdapter": [, , , , , , , , , ]
+        "holdAdapter": [, , , , , , , , ],
+        "resumeAdapter": [, , , , , , , , ]
     });
 
     Test.Outer = _ModuleRegistry.module("Test.Outer");
@@ -146,7 +146,7 @@
 
     Slice.defineOperations(Test.Outer.Inner.TestIntf, Test.Outer.Inner.TestIntfPrx, iceC_Test_Outer_Inner_TestIntf_ids, "::Test::Outer::Inner::TestIntf",
     {
-        "op": [, , , , [3], [[3]], [[3]], , , ]
+        "op": [, , , [3], [[3]], [[3]], , , ]
     });
     exports.Test = Test;
 }

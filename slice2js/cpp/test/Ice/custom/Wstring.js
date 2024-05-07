@@ -102,9 +102,9 @@
 
     Slice.defineOperations(Test1.WstringClass, Test1.WstringClassPrx, iceC_Test1_WstringClass_ids, "::Test1::WstringClass",
     {
-        "opString": [, , , , [7], [[7]], [[7]], , , ],
-        "opStruct": [, , , , [Test1.WstringStruct], [[Test1.WstringStruct]], [[Test1.WstringStruct]], , , ],
-        "throwExcept": [, , , , , [[7]], ,
+        "opString": [, , , [7], [[7]], [[7]], , , ],
+        "opStruct": [, , , [Test1.WstringStruct], [[Test1.WstringStruct]], [[Test1.WstringStruct]], , , ],
+        "throwExcept": [, , , , [[7]], ,
         [
             Test1.WstringException
         ], , ]
@@ -190,9 +190,9 @@
 
     Slice.defineOperations(Test2.WstringClass, Test2.WstringClassPrx, iceC_Test2_WstringClass_ids, "::Test2::WstringClass",
     {
-        "opString": [, , , , [7], [[7]], [[7]], , , ],
-        "opStruct": [, , , , [Test2.WstringStruct], [[Test2.WstringStruct]], [[Test2.WstringStruct]], , , ],
-        "throwExcept": [, , , , , [[7]], ,
+        "opString": [, , , [7], [[7]], [[7]], , , ],
+        "opStruct": [, , , [Test2.WstringStruct], [[Test2.WstringStruct]], [[Test2.WstringStruct]], , , ],
+        "throwExcept": [, , , , [[7]], ,
         [
             Test2.WstringException
         ], , ]

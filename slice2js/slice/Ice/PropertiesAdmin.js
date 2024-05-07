@@ -51,9 +51,9 @@ Ice.PropertiesAdminPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Ice.PropertiesAdmin, Ice.PropertiesAdminPrx, iceC_Ice_PropertiesAdmin_ids, "::Ice::PropertiesAdmin",
 {
-    "getProperty": [, , , , [7], [[7]], , , , ],
-    "getPropertiesForPrefix": [, , , , ["Ice.PropertyDictHelper"], [[7]], , , , ],
-    "setProperties": [, , , , , [["Ice.PropertyDictHelper"]], , , , ]
+    "getProperty": [, , , [7], [[7]], , , , ],
+    "getPropertiesForPrefix": [, , , ["Ice.PropertyDictHelper"], [[7]], , , , ],
+    "setProperties": [, , , , [["Ice.PropertyDictHelper"]], , , , ]
 });
 /* slice2js browser-bundle-skip */
 exports.Ice = Ice;

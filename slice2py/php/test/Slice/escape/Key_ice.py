@@ -262,7 +262,7 @@ if 'breakPrx' not in _M__and.__dict__:
     _M__and._t_breakDisp = IcePy.defineClass('::and::break', _break, (), None, ())
     _break._ice_type = _M__and._t_breakDisp
 
-    _break._op_case = IcePy.Operation('case', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
+    _break._op_case = IcePy.Operation('case', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
 
     _M__and._break = _break
     del _break
@@ -319,7 +319,7 @@ if 'functionPrx' not in _M__and.__dict__:
     _M__and._t_functionDisp = IcePy.defineClass('::and::function', function, (), None, ())
     function._ice_type = _M__and._t_functionDisp
 
-    function._op_continue = IcePy.Operation('continue', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    function._op_continue = IcePy.Operation('continue', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
 
     _M__and.function = function
     del function
@@ -376,7 +376,7 @@ if 'diePrx' not in _M__and.__dict__:
     _M__and._t_dieDisp = IcePy.defineClass('::and::die', die, (), None, ())
     die._ice_type = _M__and._t_dieDisp
 
-    die._op_do = IcePy.Operation('do', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    die._op_do = IcePy.Operation('do', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M__and.die = die
     del die
@@ -560,7 +560,7 @@ if 'forPrx' not in _M__and.__dict__:
     _M__and._t_forDisp = IcePy.defineClass('::and::for', _for, (), None, ())
     _for._ice_type = _M__and._t_forDisp
 
-    _for._op_foreach = IcePy.Operation('foreach', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__and._t_breakPrx, False, 0), ((), _M__and._t_echo, False, 0), ((), _M__and._t_functionPrx, False, 0), ((), _M__and._t_diePrx, False, 0), ((), _M__and._t_enddeclarePrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t_array, False, 0), (_M__and._t_endif, _M__and._t_endwhile))
+    _for._op_foreach = IcePy.Operation('foreach', Ice.OperationMode.Normal, False, None, (), (((), _M__and._t_breakPrx, False, 0), ((), _M__and._t_echo, False, 0), ((), _M__and._t_functionPrx, False, 0), ((), _M__and._t_diePrx, False, 0), ((), _M__and._t_enddeclarePrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t_array, False, 0), (_M__and._t_endif, _M__and._t_endwhile))
 
     _M__and._for = _for
     del _for

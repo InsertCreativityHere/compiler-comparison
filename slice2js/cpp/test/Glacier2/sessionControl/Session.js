@@ -52,8 +52,8 @@
 
     Slice.defineOperations(Test.Session, Test.SessionPrx, iceC_Test_Session_ids, "::Test::Session",
     {
-        "destroyFromClient": [, , , , , , , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "destroyFromClient": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

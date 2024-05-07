@@ -42,7 +42,7 @@ namespace Test
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getReplicaId', 0, 0, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getReplicaIdAndShutdown', 0, 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getReplicaId', 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getReplicaIdAndShutdown', 0, 0, null, null, array($IcePHP__t_string), null);
 }
 ?>

@@ -209,18 +209,18 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_requestFailedException = IcePy.Operation('requestFailedException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_unknownUserException = IcePy.Operation('unknownUserException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_unknownLocalException = IcePy.Operation('unknownLocalException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_unknownException = IcePy.Operation('unknownException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_localException = IcePy.Operation('localException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_userException = IcePy.Operation('userException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_unknownExceptionWithServantException = IcePy.Operation('unknownExceptionWithServantException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_impossibleException = IcePy.Operation('impossibleException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test._t_TestImpossibleException,))
-    TestIntf._op_intfUserException = IcePy.Operation('intfUserException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test._t_TestIntfUserException, _M_Test._t_TestImpossibleException))
-    TestIntf._op_asyncResponse = IcePy.Operation('asyncResponse', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_TestIntfUserException, _M_Test._t_TestImpossibleException))
-    TestIntf._op_asyncException = IcePy.Operation('asyncException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_TestIntfUserException, _M_Test._t_TestImpossibleException))
-    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_requestFailedException = IcePy.Operation('requestFailedException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_unknownUserException = IcePy.Operation('unknownUserException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_unknownLocalException = IcePy.Operation('unknownLocalException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_unknownException = IcePy.Operation('unknownException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_localException = IcePy.Operation('localException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_userException = IcePy.Operation('userException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_unknownExceptionWithServantException = IcePy.Operation('unknownExceptionWithServantException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_impossibleException = IcePy.Operation('impossibleException', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test._t_TestImpossibleException,))
+    TestIntf._op_intfUserException = IcePy.Operation('intfUserException', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test._t_TestIntfUserException, _M_Test._t_TestImpossibleException))
+    TestIntf._op_asyncResponse = IcePy.Operation('asyncResponse', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_TestIntfUserException, _M_Test._t_TestImpossibleException))
+    TestIntf._op_asyncException = IcePy.Operation('asyncException', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_TestIntfUserException, _M_Test._t_TestImpossibleException))
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf
@@ -277,7 +277,7 @@ if 'TestActivationPrx' not in _M_Test.__dict__:
     _M_Test._t_TestActivationDisp = IcePy.defineClass('::Test::TestActivation', TestActivation, (), None, ())
     TestActivation._ice_type = _M_Test._t_TestActivationDisp
 
-    TestActivation._op_activateServantLocator = IcePy.Operation('activateServantLocator', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
+    TestActivation._op_activateServantLocator = IcePy.Operation('activateServantLocator', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
 
     _M_Test.TestActivation = TestActivation
     del TestActivation

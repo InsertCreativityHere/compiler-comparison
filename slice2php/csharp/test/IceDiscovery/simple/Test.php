@@ -42,7 +42,7 @@ namespace Test
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getAdapterId', 0, 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getAdapterId', 0, 0, null, null, array($IcePHP__t_string), null);
 }
 
 namespace Test
@@ -72,10 +72,10 @@ namespace Test
     $Test__t_ControllerPrx = IcePHP_defineProxy('::Test::Controller', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_ControllerPrx, 'activateObjectAdapter', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
-    IcePHP_defineOperation($Test__t_ControllerPrx, 'deactivateObjectAdapter', 0, 0, 0, array(array($IcePHP__t_string)), null, null, null);
-    IcePHP_defineOperation($Test__t_ControllerPrx, 'addObject', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
-    IcePHP_defineOperation($Test__t_ControllerPrx, 'removeObject', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
-    IcePHP_defineOperation($Test__t_ControllerPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ControllerPrx, 'activateObjectAdapter', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($Test__t_ControllerPrx, 'deactivateObjectAdapter', 0, 0, array(array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($Test__t_ControllerPrx, 'addObject', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($Test__t_ControllerPrx, 'removeObject', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($Test__t_ControllerPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 ?>

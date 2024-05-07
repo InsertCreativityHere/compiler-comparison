@@ -39,9 +39,9 @@ Test.TimeoutPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.Timeout, Test.TimeoutPrx, iceC_Test_Timeout_ids, "::Test::Timeout",
 {
-    "op": [, , , , , , , , , ],
-    "sendData": [, , , , , [["Test.ByteSeqHelper"]], , , , ],
-    "sleep": [, , , , , [[3]], , , , ]
+    "op": [, , , , , , , , ],
+    "sendData": [, , , , [["Test.ByteSeqHelper"]], , , , ],
+    "sleep": [, , , , [[3]], , , , ]
 });
 
 const iceC_Test_Controller_ids = [
@@ -59,8 +59,8 @@ Test.ControllerPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, "::Test::Controller",
 {
-    "holdAdapter": [, , , , , [[3]], , , , ],
-    "resumeAdapter": [, , , , , , , , , ],
-    "shutdown": [, , , , , , , , , ]
+    "holdAdapter": [, , , , [[3]], , , , ],
+    "resumeAdapter": [, , , , , , , , ],
+    "shutdown": [, , , , , , , , ]
 });
 export { Test };

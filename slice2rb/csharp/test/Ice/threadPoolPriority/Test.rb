@@ -45,7 +45,7 @@ module ::Test
 
         T_PriorityPrx.defineProxy(PriorityPrx, nil, [])
 
-        PriorityPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        PriorityPrx_mixin::OP_getPriority = ::Ice::__defineOperation('getPriority', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        PriorityPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        PriorityPrx_mixin::OP_getPriority = ::Ice::__defineOperation('getPriority', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 end

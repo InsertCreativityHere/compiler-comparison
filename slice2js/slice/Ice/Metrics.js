@@ -160,24 +160,24 @@ IceMX.MetricsAdminPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceMX.MetricsAdmin, IceMX.MetricsAdminPrx, iceC_IceMX_MetricsAdmin_ids, "::IceMX::MetricsAdmin",
 {
-    "getMetricsViewNames": [, , , 2, ["Ice.StringSeqHelper"], , [["Ice.StringSeqHelper"]], , , ],
-    "enableMetricsView": [, , , 2, , [[7]], ,
+    "getMetricsViewNames": [, , 2, ["Ice.StringSeqHelper"], , [["Ice.StringSeqHelper"]], , , ],
+    "enableMetricsView": [, , 2, , [[7]], ,
     [
         IceMX.UnknownMetricsView
     ], , ],
-    "disableMetricsView": [, , , 2, , [[7]], ,
+    "disableMetricsView": [, , 2, , [[7]], ,
     [
         IceMX.UnknownMetricsView
     ], , ],
-    "getMetricsView": [, , , 2, ["IceMX.MetricsViewHelper"], [[7]], [[4]],
+    "getMetricsView": [, , 2, ["IceMX.MetricsViewHelper"], [[7]], [[4]],
     [
         IceMX.UnknownMetricsView
     ], , true],
-    "getMapMetricsFailures": [, , , 2, ["IceMX.MetricsFailuresSeqHelper"], [[7], [7]], ,
+    "getMapMetricsFailures": [, , 2, ["IceMX.MetricsFailuresSeqHelper"], [[7], [7]], ,
     [
         IceMX.UnknownMetricsView
     ], , ],
-    "getMetricsFailures": [, , , 2, [IceMX.MetricsFailures], [[7], [7], [7]], ,
+    "getMetricsFailures": [, , 2, [IceMX.MetricsFailures], [[7], [7], [7]], ,
     [
         IceMX.UnknownMetricsView
     ], , ]

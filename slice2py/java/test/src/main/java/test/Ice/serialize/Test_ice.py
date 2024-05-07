@@ -322,10 +322,10 @@ if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
     Initial._ice_type = _M_Test._t_InitialDisp
 
-    Initial._op_getStruct1 = IcePy.Operation('getStruct1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
-    Initial._op_getBase = IcePy.Operation('getBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
-    Initial._op_getEx = IcePy.Operation('getEx', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
-    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Initial._op_getStruct1 = IcePy.Operation('getStruct1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
+    Initial._op_getBase = IcePy.Operation('getBase', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
+    Initial._op_getEx = IcePy.Operation('getEx', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
+    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Initial = Initial
     del Initial

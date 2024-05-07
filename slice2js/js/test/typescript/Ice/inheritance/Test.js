@@ -41,7 +41,7 @@
 
     Slice.defineOperations(Test.MA.IA, Test.MA.IAPrx, iceC_Test_MA_IA_ids, "::Test::MA::IA",
     {
-        "iaop": [, , , , ["Test.MA.IAPrx"], [["Test.MA.IAPrx"]], , , , ]
+        "iaop": [, , , ["Test.MA.IAPrx"], [["Test.MA.IAPrx"]], , , , ]
     });
 
     Test.MB = _ModuleRegistry.module("Test.MB");
@@ -73,7 +73,7 @@
 
     Slice.defineOperations(Test.MB.IB1, Test.MB.IB1Prx, iceC_Test_MB_IB1_ids, "::Test::MB::IB1",
     {
-        "ib1op": [, , , , ["Test.MB.IB1Prx"], [["Test.MB.IB1Prx"]], , , , ]
+        "ib1op": [, , , ["Test.MB.IB1Prx"], [["Test.MB.IB1Prx"]], , , , ]
     });
 
     const iceC_Test_MB_IB2_ids = [
@@ -103,7 +103,7 @@
 
     Slice.defineOperations(Test.MB.IB2, Test.MB.IB2Prx, iceC_Test_MB_IB2_ids, "::Test::MB::IB2",
     {
-        "ib2op": [, , , , ["Test.MB.IB2Prx"], [["Test.MB.IB2Prx"]], , , , ]
+        "ib2op": [, , , ["Test.MB.IB2Prx"], [["Test.MB.IB2Prx"]], , , , ]
     });
 
     const iceC_Test_MA_IC_ids = [
@@ -137,7 +137,7 @@
 
     Slice.defineOperations(Test.MA.IC, Test.MA.ICPrx, iceC_Test_MA_IC_ids, "::Test::MA::IC",
     {
-        "icop": [, , , , ["Test.MA.ICPrx"], [["Test.MA.ICPrx"]], , , , ]
+        "icop": [, , , ["Test.MA.ICPrx"], [["Test.MA.ICPrx"]], , , , ]
     });
 
     const iceC_Test_Initial_ids = [
@@ -155,11 +155,11 @@
 
     Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
     {
-        "shutdown": [, , , , , , , , , ],
-        "iaop": [, , , , ["Test.MA.IAPrx"], , , , , ],
-        "ib1op": [, , , , ["Test.MB.IB1Prx"], , , , , ],
-        "ib2op": [, , , , ["Test.MB.IB2Prx"], , , , , ],
-        "icop": [, , , , ["Test.MA.ICPrx"], , , , , ]
+        "shutdown": [, , , , , , , , ],
+        "iaop": [, , , ["Test.MA.IAPrx"], , , , , ],
+        "ib1op": [, , , ["Test.MB.IB1Prx"], , , , , ],
+        "ib2op": [, , , ["Test.MB.IB2Prx"], , , , , ],
+        "icop": [, , , ["Test.MA.ICPrx"], , , , , ]
     });
 
     Test.MC = _ModuleRegistry.module("Test.MC");
@@ -693,10 +693,10 @@
 
     Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
     {
-        "setConnection": [, , , , , , , , , ],
-        "startBatch": [, , , , , , , , , ],
-        "flushBatch": [, , , , , , , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "setConnection": [, , , , , , , , ],
+        "startBatch": [, , , , , , , , ],
+        "flushBatch": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

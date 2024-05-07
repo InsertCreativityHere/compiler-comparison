@@ -82,7 +82,7 @@
 
     Slice.defineOperations(IceStorm.TopicLink, IceStorm.TopicLinkPrx, iceC_IceStorm_TopicLink_ids, "::IceStorm::TopicLink",
     {
-        "forward": [, , , , , [["IceStorm.EventDataSeqHelper"]], , , , ]
+        "forward": [, , , , [["IceStorm.EventDataSeqHelper"]], , , , ]
     });
 
     /**
@@ -142,8 +142,8 @@
 
     Slice.defineOperations(IceStorm.TopicInternal, IceStorm.TopicInternalPrx, iceC_IceStorm_TopicInternal_ids, "::IceStorm::TopicInternal",
     {
-        "getLinkProxy": [, 2, 2, , ["IceStorm.TopicLinkPrx"], , , , , ],
-        "reap": [, , , , , [["Ice.IdentitySeqHelper"]], ,
+        "getLinkProxy": [, 2, , ["IceStorm.TopicLinkPrx"], , , , , ],
+        "reap": [, , , , [["Ice.IdentitySeqHelper"]], ,
         [
             IceStorm.ReapWouldBlock
         ], , ]
@@ -180,7 +180,7 @@
 
     Slice.defineOperations(IceStorm.TopicManagerInternal, IceStorm.TopicManagerInternalPrx, iceC_IceStorm_TopicManagerInternal_ids, "::IceStorm::TopicManagerInternal",
     {
-        "getReplicaNode": [, 2, 2, , ["IceStormElection.NodePrx"], , , , , ]
+        "getReplicaNode": [, 2, , ["IceStormElection.NodePrx"], , , , , ]
     });
     exports.IceStorm = IceStorm;
 }

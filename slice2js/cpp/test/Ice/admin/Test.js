@@ -39,17 +39,17 @@
 
     Slice.defineOperations(Test.RemoteCommunicator, Test.RemoteCommunicatorPrx, iceC_Test_RemoteCommunicator_ids, "::Test::RemoteCommunicator",
     {
-        "getAdmin": [, , , , [9], , , , , ],
-        "getChanges": [, , , , ["Ice.PropertyDictHelper"], , , , , ],
-        "addUpdateCallback": [, , , , , , , , , ],
-        "removeUpdateCallback": [, , , , , , , , , ],
-        "print": [, , , , , [[7]], , , , ],
-        "trace": [, , , , , [[7], [7]], , , , ],
-        "warning": [, , , , , [[7]], , , , ],
-        "error": [, , , , , [[7]], , , , ],
-        "shutdown": [, , , , , , , , , ],
-        "waitForShutdown": [, , , , , , , , , ],
-        "destroy": [, , , , , , , , , ]
+        "getAdmin": [, , , [9], , , , , ],
+        "getChanges": [, , , ["Ice.PropertyDictHelper"], , , , , ],
+        "addUpdateCallback": [, , , , , , , , ],
+        "removeUpdateCallback": [, , , , , , , , ],
+        "print": [, , , , [[7]], , , , ],
+        "trace": [, , , , [[7], [7]], , , , ],
+        "warning": [, , , , [[7]], , , , ],
+        "error": [, , , , [[7]], , , , ],
+        "shutdown": [, , , , , , , , ],
+        "waitForShutdown": [, , , , , , , , ],
+        "destroy": [, , , , , , , , ]
     });
 
     const iceC_Test_RemoteCommunicatorFactory_ids = [
@@ -67,8 +67,8 @@
 
     Slice.defineOperations(Test.RemoteCommunicatorFactory, Test.RemoteCommunicatorFactoryPrx, iceC_Test_RemoteCommunicatorFactory_ids, "::Test::RemoteCommunicatorFactory",
     {
-        "createCommunicator": [, , , , ["Test.RemoteCommunicatorPrx"], [["Ice.PropertyDictHelper"]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "createCommunicator": [, , , ["Test.RemoteCommunicatorPrx"], [["Ice.PropertyDictHelper"]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
 
     const iceC_Test_TestFacet_ids = [
@@ -86,7 +86,7 @@
 
     Slice.defineOperations(Test.TestFacet, Test.TestFacetPrx, iceC_Test_TestFacet_ids, "::Test::TestFacet",
     {
-        "op": [, , , , , , , , , ]
+        "op": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

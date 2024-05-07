@@ -41,31 +41,31 @@
 
     Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
     {
-        "getNoNamespaceC2AsC1": [, , , , ["NoNamespace.C1", true], , , , , true],
-        "getNoNamespaceC2AsC2": [, , , , ["NoNamespace.C2", true], , , , , true],
-        "throwNoNamespaceE2AsE1": [, , , , , , ,
+        "getNoNamespaceC2AsC1": [, , , ["NoNamespace.C1", true], , , , , true],
+        "getNoNamespaceC2AsC2": [, , , ["NoNamespace.C2", true], , , , , true],
+        "throwNoNamespaceE2AsE1": [, , , , , ,
         [
             NoNamespace.E1
         ], , ],
-        "throwNoNamespaceE2AsE2": [, , , , , , ,
+        "throwNoNamespaceE2AsE2": [, , , , , ,
         [
             NoNamespace.E2
         ], , ],
-        "throwNoNamespaceNotify": [, , , , , , ,
+        "throwNoNamespaceNotify": [, , , , , ,
         [
             NoNamespace.notify
         ], , ],
-        "getWithNamespaceC2AsC1": [, , , , ["WithNamespace.C1", true], , , , , true],
-        "getWithNamespaceC2AsC2": [, , , , ["WithNamespace.C2", true], , , , , true],
-        "throwWithNamespaceE2AsE1": [, , , , , , ,
+        "getWithNamespaceC2AsC1": [, , , ["WithNamespace.C1", true], , , , , true],
+        "getWithNamespaceC2AsC2": [, , , ["WithNamespace.C2", true], , , , , true],
+        "throwWithNamespaceE2AsE1": [, , , , , ,
         [
             WithNamespace.E1
         ], , ],
-        "throwWithNamespaceE2AsE2": [, , , , , , ,
+        "throwWithNamespaceE2AsE2": [, , , , , ,
         [
             WithNamespace.E2
         ], , ],
-        "shutdown": [, , , , , , , , , ]
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

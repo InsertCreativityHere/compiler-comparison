@@ -67,10 +67,10 @@
 
     Slice.defineOperations(BEGIN.break, BEGIN.breakPrx, iceC_BEGIN__break_ids, "::BEGIN::break",
     {
-        "case": ["_case", , , , , [[3], [3]], , , , ],
-        "to_a": [, , , , , , , , , ],
-        "instance_variable_set": [, , , , , , , , , ],
-        "instance_variables": [, , , , , , , , , ]
+        "case": ["_case", , , , [[3], [3]], , , , ],
+        "to_a": [, , , , , , , , ],
+        "instance_variable_set": [, , , , , , , , ],
+        "instance_variables": [, , , , , , , , ]
     });
 
     BEGIN.display = class extends Ice.Value
@@ -220,7 +220,7 @@
 
     Slice.defineOperations(BEGIN.extend, BEGIN.extendPrx, iceC_BEGIN_extend_ids, "::BEGIN::extend",
     {
-        "for": ["_for", , , , [BEGIN.END._helper], [["BEGIN.display", true], ["BEGIN.elsifPrx"], ["BEGIN.breakPrx"], ["BEGIN.display", true], ["BEGIN.elsifPrx"], [3]], ,
+        "for": ["_for", , , [BEGIN.END._helper], [["BEGIN.display", true], ["BEGIN.elsifPrx"], ["BEGIN.breakPrx"], ["BEGIN.display", true], ["BEGIN.elsifPrx"], [3]], ,
         [
             BEGIN.nil
         ], true, ]

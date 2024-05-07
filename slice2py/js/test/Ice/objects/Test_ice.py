@@ -395,7 +395,7 @@ if 'IPrx' not in _M_Test.__dict__:
     _M_Test._t_IDisp = IcePy.defineClass('::Test::I', I, (), None, ())
     I._ice_type = _M_Test._t_IDisp
 
-    I._op_doI = IcePy.Operation('doI', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    I._op_doI = IcePy.Operation('doI', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.I = I
     del I
@@ -452,7 +452,7 @@ if 'JPrx' not in _M_Test.__dict__:
     _M_Test._t_JDisp = IcePy.defineClass('::Test::J', J, (), None, (_M_Test._t_IDisp,))
     J._ice_type = _M_Test._t_JDisp
 
-    J._op_doJ = IcePy.Operation('doJ', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    J._op_doJ = IcePy.Operation('doJ', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.J = J
     del J
@@ -1348,38 +1348,38 @@ if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
     Initial._ice_type = _M_Test._t_InitialDisp
 
-    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Initial._op_getB1 = IcePy.Operation('getB1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
-    Initial._op_getB2 = IcePy.Operation('getB2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
-    Initial._op_getC = IcePy.Operation('getC', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_C, False, 0), ())
-    Initial._op_getD = IcePy.Operation('getD', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_D, False, 0), ())
-    Initial._op_getE = IcePy.Operation('getE', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_E, False, 0), ())
-    Initial._op_getF = IcePy.Operation('getF', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_F, False, 0), ())
-    Initial._op_setRecursive = IcePy.Operation('setRecursive', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
-    Initial._op_supportsClassGraphDepthMax = IcePy.Operation('supportsClassGraphDepthMax', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    Initial._op_setCycle = IcePy.Operation('setCycle', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
-    Initial._op_acceptsClassCycles = IcePy.Operation('acceptsClassCycles', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    Initial._op_getMB = IcePy.Operation('getMB', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
-    Initial._op_getAMDMB = IcePy.Operation('getAMDMB', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
-    Initial._op_getAll = IcePy.Operation('getAll', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), _M_Test._t_B, False, 0), ((), _M_Test._t_B, False, 0), ((), _M_Test._t_C, False, 0), ((), _M_Test._t_D, False, 0)), None, ())
-    Initial._op_getK = IcePy.Operation('getK', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_K, False, 0), ())
-    Initial._op_opValue = IcePy.Operation('opValue', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_Value, False, 0),), (((), IcePy._t_Value, False, 0),), ((), IcePy._t_Value, False, 0), ())
-    Initial._op_opValueSeq = IcePy.Operation('opValueSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ValueSeq, False, 0),), (((), _M_Test._t_ValueSeq, False, 0),), ((), _M_Test._t_ValueSeq, False, 0), ())
-    Initial._op_opValueMap = IcePy.Operation('opValueMap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ValueMap, False, 0),), (((), _M_Test._t_ValueMap, False, 0),), ((), _M_Test._t_ValueMap, False, 0), ())
-    Initial._op_getD1 = IcePy.Operation('getD1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_D1, False, 0),), (), ((), _M_Test._t_D1, False, 0), ())
-    Initial._op_throwEDerived = IcePy.Operation('throwEDerived', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_EDerived,))
-    Initial._op_setG = IcePy.Operation('setG', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_G, False, 0),), (), None, ())
-    Initial._op_opBaseSeq = IcePy.Operation('opBaseSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BaseSeq, False, 0),), (((), _M_Test._t_BaseSeq, False, 0),), ((), _M_Test._t_BaseSeq, False, 0), ())
-    Initial._op_getCompact = IcePy.Operation('getCompact', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_Compact, False, 0), ())
-    Initial._op_getInnerA = IcePy.Operation('getInnerA', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Inner._t_A, False, 0), ())
-    Initial._op_getInnerSubA = IcePy.Operation('getInnerSubA', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Inner.Sub._t_A, False, 0), ())
-    Initial._op_throwInnerEx = IcePy.Operation('throwInnerEx', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test.Inner._t_Ex,))
-    Initial._op_throwInnerSubEx = IcePy.Operation('throwInnerSubEx', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test.Inner.Sub._t_Ex,))
-    Initial._op_opM = IcePy.Operation('opM', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_M, False, 0),), (((), _M_Test._t_M, False, 0),), ((), _M_Test._t_M, False, 0), ())
-    Initial._op_opF1 = IcePy.Operation('opF1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F1, False, 0),), (((), _M_Test._t_F1, False, 0),), ((), _M_Test._t_F1, False, 0), ())
-    Initial._op_opF2 = IcePy.Operation('opF2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F2Prx, False, 0),), (((), _M_Test._t_F2Prx, False, 0),), ((), _M_Test._t_F2Prx, False, 0), ())
-    Initial._op_opF3 = IcePy.Operation('opF3', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F3, False, 0),), (((), _M_Test._t_F3, False, 0),), ((), _M_Test._t_F3, False, 0), ())
-    Initial._op_hasF3 = IcePy.Operation('hasF3', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Initial._op_getB1 = IcePy.Operation('getB1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
+    Initial._op_getB2 = IcePy.Operation('getB2', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
+    Initial._op_getC = IcePy.Operation('getC', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_C, False, 0), ())
+    Initial._op_getD = IcePy.Operation('getD', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_D, False, 0), ())
+    Initial._op_getE = IcePy.Operation('getE', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_E, False, 0), ())
+    Initial._op_getF = IcePy.Operation('getF', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_F, False, 0), ())
+    Initial._op_setRecursive = IcePy.Operation('setRecursive', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
+    Initial._op_supportsClassGraphDepthMax = IcePy.Operation('supportsClassGraphDepthMax', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Initial._op_setCycle = IcePy.Operation('setCycle', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
+    Initial._op_acceptsClassCycles = IcePy.Operation('acceptsClassCycles', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Initial._op_getMB = IcePy.Operation('getMB', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
+    Initial._op_getAMDMB = IcePy.Operation('getAMDMB', Ice.OperationMode.Normal, True, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
+    Initial._op_getAll = IcePy.Operation('getAll', Ice.OperationMode.Normal, False, None, (), (), (((), _M_Test._t_B, False, 0), ((), _M_Test._t_B, False, 0), ((), _M_Test._t_C, False, 0), ((), _M_Test._t_D, False, 0)), None, ())
+    Initial._op_getK = IcePy.Operation('getK', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_K, False, 0), ())
+    Initial._op_opValue = IcePy.Operation('opValue', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_Value, False, 0),), (((), IcePy._t_Value, False, 0),), ((), IcePy._t_Value, False, 0), ())
+    Initial._op_opValueSeq = IcePy.Operation('opValueSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ValueSeq, False, 0),), (((), _M_Test._t_ValueSeq, False, 0),), ((), _M_Test._t_ValueSeq, False, 0), ())
+    Initial._op_opValueMap = IcePy.Operation('opValueMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ValueMap, False, 0),), (((), _M_Test._t_ValueMap, False, 0),), ((), _M_Test._t_ValueMap, False, 0), ())
+    Initial._op_getD1 = IcePy.Operation('getD1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_D1, False, 0),), (), ((), _M_Test._t_D1, False, 0), ())
+    Initial._op_throwEDerived = IcePy.Operation('throwEDerived', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_EDerived,))
+    Initial._op_setG = IcePy.Operation('setG', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_G, False, 0),), (), None, ())
+    Initial._op_opBaseSeq = IcePy.Operation('opBaseSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BaseSeq, False, 0),), (((), _M_Test._t_BaseSeq, False, 0),), ((), _M_Test._t_BaseSeq, False, 0), ())
+    Initial._op_getCompact = IcePy.Operation('getCompact', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_Compact, False, 0), ())
+    Initial._op_getInnerA = IcePy.Operation('getInnerA', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Inner._t_A, False, 0), ())
+    Initial._op_getInnerSubA = IcePy.Operation('getInnerSubA', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Inner.Sub._t_A, False, 0), ())
+    Initial._op_throwInnerEx = IcePy.Operation('throwInnerEx', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test.Inner._t_Ex,))
+    Initial._op_throwInnerSubEx = IcePy.Operation('throwInnerSubEx', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test.Inner.Sub._t_Ex,))
+    Initial._op_opM = IcePy.Operation('opM', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_M, False, 0),), (((), _M_Test._t_M, False, 0),), ((), _M_Test._t_M, False, 0), ())
+    Initial._op_opF1 = IcePy.Operation('opF1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F1, False, 0),), (((), _M_Test._t_F1, False, 0),), ((), _M_Test._t_F1, False, 0), ())
+    Initial._op_opF2 = IcePy.Operation('opF2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F2Prx, False, 0),), (((), _M_Test._t_F2Prx, False, 0),), ((), _M_Test._t_F2Prx, False, 0), ())
+    Initial._op_opF3 = IcePy.Operation('opF3', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F3, False, 0),), (((), _M_Test._t_F3, False, 0),), ((), _M_Test._t_F3, False, 0), ())
+    Initial._op_hasF3 = IcePy.Operation('hasF3', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
 
     _M_Test.Initial = Initial
     del Initial
@@ -1484,7 +1484,7 @@ if 'UnexpectedObjectExceptionTestPrx' not in _M_Test.__dict__:
     _M_Test._t_UnexpectedObjectExceptionTestDisp = IcePy.defineClass('::Test::UnexpectedObjectExceptionTest', UnexpectedObjectExceptionTest, (), None, ())
     UnexpectedObjectExceptionTest._ice_type = _M_Test._t_UnexpectedObjectExceptionTestDisp
 
-    UnexpectedObjectExceptionTest._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_Empty, False, 0), ())
+    UnexpectedObjectExceptionTest._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_Empty, False, 0), ())
 
     _M_Test.UnexpectedObjectExceptionTest = UnexpectedObjectExceptionTest
     del UnexpectedObjectExceptionTest
@@ -1718,8 +1718,8 @@ if 'EchoPrx' not in _M_Test.__dict__:
     _M_Test._t_EchoDisp = IcePy.defineClass('::Test::Echo', Echo, (), None, ())
     Echo._ice_type = _M_Test._t_EchoDisp
 
-    Echo._op_setConnection = IcePy.Operation('setConnection', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Echo._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Echo._op_setConnection = IcePy.Operation('setConnection', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Echo._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Echo = Echo
     del Echo

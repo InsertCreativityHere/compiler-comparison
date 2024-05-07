@@ -39,10 +39,10 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "shutdown": [, , , , , , , , , ],
-        "abort": [, , , , , , , , , ],
-        "idempotentAbort": [, 2, 2, , , , , , , ],
-        "pid": [, 2, 2, , [3], , , , , ]
+        "shutdown": [, , , , , , , , ],
+        "abort": [, , , , , , , , ],
+        "idempotentAbort": [, 2, , , , , , , ],
+        "pid": [, 2, , [3], , , , , ]
     });
     exports.Test = Test;
 }

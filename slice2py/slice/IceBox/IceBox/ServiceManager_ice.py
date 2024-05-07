@@ -195,8 +195,8 @@ if 'ServiceObserverPrx' not in _M_IceBox.__dict__:
     _M_IceBox._t_ServiceObserverDisp = IcePy.defineClass('::IceBox::ServiceObserver', ServiceObserver, (), None, ())
     ServiceObserver._ice_type = _M_IceBox._t_ServiceObserverDisp
 
-    ServiceObserver._op_servicesStarted = IcePy.Operation('servicesStarted', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
-    ServiceObserver._op_servicesStopped = IcePy.Operation('servicesStopped', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
+    ServiceObserver._op_servicesStarted = IcePy.Operation('servicesStarted', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
+    ServiceObserver._op_servicesStopped = IcePy.Operation('servicesStopped', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
 
     _M_IceBox.ServiceObserver = ServiceObserver
     del ServiceObserver
@@ -369,10 +369,10 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
     _M_IceBox._t_ServiceManagerDisp = IcePy.defineClass('::IceBox::ServiceManager', ServiceManager, (), None, ())
     ServiceManager._ice_type = _M_IceBox._t_ServiceManagerDisp
 
-    ServiceManager._op_startService = IcePy.Operation('startService', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceBox._t_AlreadyStartedException, _M_IceBox._t_NoSuchServiceException))
-    ServiceManager._op_stopService = IcePy.Operation('stopService', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceBox._t_AlreadyStoppedException, _M_IceBox._t_NoSuchServiceException))
-    ServiceManager._op_addObserver = IcePy.Operation('addObserver', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceBox._t_ServiceObserverPrx, False, 0),), (), None, ())
-    ServiceManager._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    ServiceManager._op_startService = IcePy.Operation('startService', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceBox._t_AlreadyStartedException, _M_IceBox._t_NoSuchServiceException))
+    ServiceManager._op_stopService = IcePy.Operation('stopService', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceBox._t_AlreadyStoppedException, _M_IceBox._t_NoSuchServiceException))
+    ServiceManager._op_addObserver = IcePy.Operation('addObserver', Ice.OperationMode.Normal, False, None, (), (((), _M_IceBox._t_ServiceObserverPrx, False, 0),), (), None, ())
+    ServiceManager._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_IceBox.ServiceManager = ServiceManager
     del ServiceManager

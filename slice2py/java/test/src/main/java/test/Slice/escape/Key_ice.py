@@ -172,7 +172,7 @@ if 'catchPrx' not in _M_abstract.__dict__:
     _M_abstract._t_catchDisp = IcePy.defineClass('::abstract::catch', catch, (), None, ())
     catch._ice_type = _M_abstract._t_catchDisp
 
-    catch._op_checkedCast = IcePy.Operation('checkedCast', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
+    catch._op_checkedCast = IcePy.Operation('checkedCast', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
 
     _M_abstract.catch = catch
     del catch
@@ -229,7 +229,7 @@ if 'defaultPrx' not in _M_abstract.__dict__:
     _M_abstract._t_defaultDisp = IcePy.defineClass('::abstract::default', default, (), None, ())
     default._ice_type = _M_abstract._t_defaultDisp
 
-    default._op_do = IcePy.Operation('do', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    default._op_do = IcePy.Operation('do', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_abstract.default = default
     del default
@@ -411,7 +411,7 @@ if 'newPrx' not in _M_abstract.__dict__:
     _M_abstract._t_newDisp = IcePy.defineClass('::abstract::new', new, (), None, ())
     new._ice_type = _M_abstract._t_newDisp
 
-    new._op_notify = IcePy.Operation('notify', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_abstract._t__break, False, 0), ((), _M_abstract._t__else, False, 0), ((), _M_abstract._t_finalizePrx, False, 0), ((), _M_abstract._t_catchPrx, False, 0), ((), _M_abstract._t_defaultPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_abstract._t__assert, False, 0), (_M_abstract._t_hashCode, _M_abstract._t__import))
+    new._op_notify = IcePy.Operation('notify', Ice.OperationMode.Normal, False, None, (), (((), _M_abstract._t__break, False, 0), ((), _M_abstract._t__else, False, 0), ((), _M_abstract._t_finalizePrx, False, 0), ((), _M_abstract._t_catchPrx, False, 0), ((), _M_abstract._t_defaultPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_abstract._t__assert, False, 0), (_M_abstract._t_hashCode, _M_abstract._t__import))
 
     _M_abstract.new = new
     del new

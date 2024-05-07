@@ -76,14 +76,14 @@
 
     Slice.defineOperations(Test.CallbackReceiver, Test.CallbackReceiverPrx, iceC_Test_CallbackReceiver_ids, "::Test::CallbackReceiver",
     {
-        "callback": [, , , , , , , , , ],
-        "callbackEx": [, , , , , , ,
+        "callback": [, , , , , , , , ],
+        "callbackEx": [, , , , , ,
         [
             Test.CallbackException
         ], , ],
-        "concurrentCallback": [, , , , [3], [[3]], , , , ],
-        "waitCallback": [, , , , , , , , , ],
-        "callbackWithPayload": [, , , , , [["Ice.ByteSeqHelper"]], , , , ]
+        "concurrentCallback": [, , , [3], [[3]], , , , ],
+        "waitCallback": [, , , , , , , , ],
+        "callbackWithPayload": [, , , , [["Ice.ByteSeqHelper"]], , , , ]
     });
 
     const iceC_Test_Callback_ids = [
@@ -101,15 +101,15 @@
 
     Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, "::Test::Callback",
     {
-        "initiateCallback": [, , , , , [["Test.CallbackReceiverPrx"]], , , , ],
-        "initiateCallbackEx": [, , , , , [["Test.CallbackReceiverPrx"]], ,
+        "initiateCallback": [, , , , [["Test.CallbackReceiverPrx"]], , , , ],
+        "initiateCallbackEx": [, , , , [["Test.CallbackReceiverPrx"]], ,
         [
             Test.CallbackException
         ], , ],
-        "initiateConcurrentCallback": [, , , , [3], [[3], ["Test.CallbackReceiverPrx"]], , , , ],
-        "initiateWaitCallback": [, , , , , [["Test.CallbackReceiverPrx"]], , , , ],
-        "initiateCallbackWithPayload": [, , , , , [["Test.CallbackReceiverPrx"]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "initiateConcurrentCallback": [, , , [3], [[3], ["Test.CallbackReceiverPrx"]], , , , ],
+        "initiateWaitCallback": [, , , , [["Test.CallbackReceiverPrx"]], , , , ],
+        "initiateCallbackWithPayload": [, , , , [["Test.CallbackReceiverPrx"]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

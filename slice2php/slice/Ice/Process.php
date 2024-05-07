@@ -43,7 +43,7 @@ namespace Ice
 
     global $IcePHP__t_string;
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Ice__t_ProcessPrx, 'shutdown', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Ice__t_ProcessPrx, 'writeMessage', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Ice__t_ProcessPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Ice__t_ProcessPrx, 'writeMessage', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_int)), null, null, null);
 }
 ?>

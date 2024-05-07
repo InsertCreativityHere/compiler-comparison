@@ -49,9 +49,9 @@ module ::Test
 
         T_ServerPrx.defineProxy(ServerPrx, nil, [])
 
-        ServerPrx_mixin::OP_noCert = ::Ice::__defineOperation('noCert', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        ServerPrx_mixin::OP_checkCert = ::Ice::__defineOperation('checkCert', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
-        ServerPrx_mixin::OP_checkCipher = ::Ice::__defineOperation('checkCipher', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
+        ServerPrx_mixin::OP_noCert = ::Ice::__defineOperation('noCert', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        ServerPrx_mixin::OP_checkCert = ::Ice::__defineOperation('checkCert', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
+        ServerPrx_mixin::OP_checkCipher = ::Ice::__defineOperation('checkCipher', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
     end
 
     if not defined?(::Test::T_Properties)
@@ -89,9 +89,9 @@ module ::Test
 
         T_ServerFactoryPrx.defineProxy(ServerFactoryPrx, nil, [])
 
-        ServerFactoryPrx_mixin::OP_createServer = ::Ice::__defineOperation('createServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_Properties, false, 0]], [], [::Test::T_ServerPrx, false, 0], [])
-        ServerFactoryPrx_mixin::OP_destroyServer = ::Ice::__defineOperation('destroyServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ServerPrx, false, 0]], [], nil, [])
-        ServerFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        ServerFactoryPrx_mixin::OP_createServer = ::Ice::__defineOperation('createServer', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_Properties, false, 0]], [], [::Test::T_ServerPrx, false, 0], [])
+        ServerFactoryPrx_mixin::OP_destroyServer = ::Ice::__defineOperation('destroyServer', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ServerPrx, false, 0]], [], nil, [])
+        ServerFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::Pingable_Mixin)
@@ -117,6 +117,6 @@ module ::Test
 
         T_PingablePrx.defineProxy(PingablePrx, nil, [])
 
-        PingablePrx_mixin::OP_ping = ::Ice::__defineOperation('ping', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        PingablePrx_mixin::OP_ping = ::Ice::__defineOperation('ping', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

@@ -53,10 +53,10 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_abort = ::Ice::__defineOperation('abort', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_idempotentAbort = ::Ice::__defineOperation('idempotentAbort', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_pid = ::Ice::__defineOperation('pid', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_abort = ::Ice::__defineOperation('abort', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_idempotentAbort = ::Ice::__defineOperation('idempotentAbort', ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_pid = ::Ice::__defineOperation('pid', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
     end
 
     if not defined?(::Test::Cleaner_Mixin)
@@ -82,6 +82,6 @@ module ::Test
 
         T_CleanerPrx.defineProxy(CleanerPrx, nil, [])
 
-        CleanerPrx_mixin::OP_cleanup = ::Ice::__defineOperation('cleanup', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        CleanerPrx_mixin::OP_cleanup = ::Ice::__defineOperation('cleanup', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

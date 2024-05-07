@@ -219,10 +219,10 @@ if 'TestCasePrx' not in _M_Test.Common.__dict__:
     _M_Test.Common._t_TestCaseDisp = IcePy.defineClass('::Test::Common::TestCase', TestCase, (), None, ())
     TestCase._ice_type = _M_Test.Common._t_TestCaseDisp
 
-    TestCase._op_startServerSide = IcePy.Operation('startServerSide', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Common._t_Config, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
-    TestCase._op_stopServerSide = IcePy.Operation('stopServerSide', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
-    TestCase._op_runClientSide = IcePy.Operation('runClientSide', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_Test.Common._t_Config, False, 0)), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
-    TestCase._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestCase._op_startServerSide = IcePy.Operation('startServerSide', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Common._t_Config, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
+    TestCase._op_stopServerSide = IcePy.Operation('stopServerSide', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
+    TestCase._op_runClientSide = IcePy.Operation('runClientSide', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_Test.Common._t_Config, False, 0)), (), ((), IcePy._t_string, False, 0), (_M_Test.Common._t_TestCaseFailedException,))
+    TestCase._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Common.TestCase = TestCase
     del TestCase
@@ -306,10 +306,10 @@ if 'ControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common._t_ControllerDisp = IcePy.defineClass('::Test::Common::Controller', Controller, (), None, ())
     Controller._ice_type = _M_Test.Common._t_ControllerDisp
 
-    Controller._op_runTestCase = IcePy.Operation('runTestCase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_Test.Common._t_TestCasePrx, False, 0), (_M_Test.Common._t_TestCaseNotExistException,))
-    Controller._op_getOptionOverrides = IcePy.Operation('getOptionOverrides', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Common._t_OptionOverrides, False, 0), ())
-    Controller._op_getTestSuites = IcePy.Operation('getTestSuites', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_Test.Common._t_StringSeq, False, 0), ())
-    Controller._op_getHost = IcePy.Operation('getHost', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_bool, False, 0)), (), ((), IcePy._t_string, False, 0), ())
+    Controller._op_runTestCase = IcePy.Operation('runTestCase', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_Test.Common._t_TestCasePrx, False, 0), (_M_Test.Common._t_TestCaseNotExistException,))
+    Controller._op_getOptionOverrides = IcePy.Operation('getOptionOverrides', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Common._t_OptionOverrides, False, 0), ())
+    Controller._op_getTestSuites = IcePy.Operation('getTestSuites', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_Test.Common._t_StringSeq, False, 0), ())
+    Controller._op_getHost = IcePy.Operation('getHost', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_bool, False, 0)), (), ((), IcePy._t_string, False, 0), ())
 
     _M_Test.Common.Controller = Controller
     del Controller
@@ -403,9 +403,9 @@ if 'ProcessPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common._t_ProcessDisp = IcePy.defineClass('::Test::Common::Process', Process, (), None, ())
     Process._ice_type = _M_Test.Common._t_ProcessDisp
 
-    Process._op_waitReady = IcePy.Operation('waitReady', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, (_M_Test.Common._t_ProcessFailedException,))
-    Process._op_waitSuccess = IcePy.Operation('waitSuccess', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), (_M_Test.Common._t_ProcessFailedException,))
-    Process._op_terminate = IcePy.Operation('terminate', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    Process._op_waitReady = IcePy.Operation('waitReady', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, (_M_Test.Common._t_ProcessFailedException,))
+    Process._op_waitSuccess = IcePy.Operation('waitSuccess', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), (_M_Test.Common._t_ProcessFailedException,))
+    Process._op_terminate = IcePy.Operation('terminate', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
     _M_Test.Common.Process = Process
     del Process
@@ -471,8 +471,8 @@ if 'ProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common._t_ProcessControllerDisp = IcePy.defineClass('::Test::Common::ProcessController', ProcessController, (), None, ())
     ProcessController._ice_type = _M_Test.Common._t_ProcessControllerDisp
 
-    ProcessController._op_start = IcePy.Operation('start', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), _M_Test.Common._t_StringSeq, False, 0)), (), ((), _M_Test.Common._t_ProcessPrx, False, 0), (_M_Test.Common._t_ProcessFailedException,))
-    ProcessController._op_getHost = IcePy.Operation('getHost', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_bool, False, 0)), (), ((), IcePy._t_string, False, 0), ())
+    ProcessController._op_start = IcePy.Operation('start', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), _M_Test.Common._t_StringSeq, False, 0)), (), ((), _M_Test.Common._t_ProcessPrx, False, 0), (_M_Test.Common._t_ProcessFailedException,))
+    ProcessController._op_getHost = IcePy.Operation('getHost', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_bool, False, 0)), (), ((), IcePy._t_string, False, 0), ())
 
     _M_Test.Common.ProcessController = ProcessController
     del ProcessController
@@ -529,7 +529,7 @@ if 'BrowserProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common._t_BrowserProcessControllerDisp = IcePy.defineClass('::Test::Common::BrowserProcessController', BrowserProcessController, (), None, (_M_Test.Common._t_ProcessControllerDisp,))
     BrowserProcessController._ice_type = _M_Test.Common._t_BrowserProcessControllerDisp
 
-    BrowserProcessController._op_redirect = IcePy.Operation('redirect', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+    BrowserProcessController._op_redirect = IcePy.Operation('redirect', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
 
     _M_Test.Common.BrowserProcessController = BrowserProcessController
     del BrowserProcessController
@@ -586,7 +586,7 @@ if 'ProcessControllerRegistryPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common._t_ProcessControllerRegistryDisp = IcePy.defineClass('::Test::Common::ProcessControllerRegistry', ProcessControllerRegistry, (), None, ())
     ProcessControllerRegistry._ice_type = _M_Test.Common._t_ProcessControllerRegistryDisp
 
-    ProcessControllerRegistry._op_setProcessController = IcePy.Operation('setProcessController', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Common._t_ProcessControllerPrx, False, 0),), (), None, ())
+    ProcessControllerRegistry._op_setProcessController = IcePy.Operation('setProcessController', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Common._t_ProcessControllerPrx, False, 0),), (), None, ())
 
     _M_Test.Common.ProcessControllerRegistry = ProcessControllerRegistry
     del ProcessControllerRegistry

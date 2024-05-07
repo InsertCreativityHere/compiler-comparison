@@ -120,8 +120,8 @@ namespace Ice
     global $IcePHP__t_string;
     global $Ice__t_LogMessageSeq;
     global $Ice__t_LogMessage;
-    IcePHP_defineOperation($Ice__t_RemoteLoggerPrx, 'init', 0, 0, 0, array(array($IcePHP__t_string), array($Ice__t_LogMessageSeq)), null, null, null);
-    IcePHP_defineOperation($Ice__t_RemoteLoggerPrx, 'log', 0, 0, 0, array(array($Ice__t_LogMessage)), null, null, null);
+    IcePHP_defineOperation($Ice__t_RemoteLoggerPrx, 'init', 0, 0, array(array($IcePHP__t_string), array($Ice__t_LogMessageSeq)), null, null, null);
+    IcePHP_defineOperation($Ice__t_RemoteLoggerPrx, 'log', 0, 0, array(array($Ice__t_LogMessage)), null, null, null);
 }
 
 namespace Ice
@@ -181,8 +181,8 @@ namespace Ice
     global $IcePHP__t_bool;
     global $IcePHP__t_string;
     global $Ice__t_LogMessageSeq;
-    IcePHP_defineOperation($Ice__t_LoggerAdminPrx, 'attachRemoteLogger', 0, 0, 0, array(array($Ice__t_RemoteLoggerPrx), array($Ice__t_LogMessageTypeSeq), array($Ice__t_StringSeq), array($IcePHP__t_int)), null, null, array($Ice__t_RemoteLoggerAlreadyAttachedException));
-    IcePHP_defineOperation($Ice__t_LoggerAdminPrx, 'detachRemoteLogger', 0, 0, 0, array(array($Ice__t_RemoteLoggerPrx)), null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Ice__t_LoggerAdminPrx, 'getLog', 0, 0, 0, array(array($Ice__t_LogMessageTypeSeq), array($Ice__t_StringSeq), array($IcePHP__t_int)), array(array($IcePHP__t_string)), array($Ice__t_LogMessageSeq), null);
+    IcePHP_defineOperation($Ice__t_LoggerAdminPrx, 'attachRemoteLogger', 0, 0, array(array($Ice__t_RemoteLoggerPrx), array($Ice__t_LogMessageTypeSeq), array($Ice__t_StringSeq), array($IcePHP__t_int)), null, null, array($Ice__t_RemoteLoggerAlreadyAttachedException));
+    IcePHP_defineOperation($Ice__t_LoggerAdminPrx, 'detachRemoteLogger', 0, 0, array(array($Ice__t_RemoteLoggerPrx)), null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($Ice__t_LoggerAdminPrx, 'getLog', 0, 0, array(array($Ice__t_LogMessageTypeSeq), array($Ice__t_StringSeq), array($IcePHP__t_int)), array(array($IcePHP__t_string)), array($Ice__t_LogMessageSeq), null);
 }
 ?>

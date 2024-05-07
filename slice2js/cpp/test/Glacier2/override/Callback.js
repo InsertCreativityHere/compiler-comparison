@@ -39,8 +39,8 @@
 
     Slice.defineOperations(Test.CallbackReceiver, Test.CallbackReceiverPrx, iceC_Test_CallbackReceiver_ids, "::Test::CallbackReceiver",
     {
-        "callback": [, , , , , [[3]], , , , ],
-        "callbackWithPayload": [, , , , , [["Ice.ByteSeqHelper"]], , , , ]
+        "callback": [, , , , [[3]], , , , ],
+        "callbackWithPayload": [, , , , [["Ice.ByteSeqHelper"]], , , , ]
     });
 
     const iceC_Test_Callback_ids = [
@@ -58,9 +58,9 @@
 
     Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, "::Test::Callback",
     {
-        "initiateCallback": [, , , , , [["Test.CallbackReceiverPrx"], [3]], , , , ],
-        "initiateCallbackWithPayload": [, , , , , [["Test.CallbackReceiverPrx"]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "initiateCallback": [, , , , [["Test.CallbackReceiverPrx"], [3]], , , , ],
+        "initiateCallbackWithPayload": [, , , , [["Test.CallbackReceiverPrx"]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

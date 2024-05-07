@@ -42,10 +42,10 @@ namespace Test
     $Test__t_CallbackPrx = IcePHP_defineProxy('::Test::Callback', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'ping', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'getCount', 0, 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'datagram', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'getDatagramCount', 0, 0, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'ping', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'getCount', 0, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'datagram', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'getDatagramCount', 0, 0, null, null, array($IcePHP__t_int), null);
 }
 
 namespace Test
@@ -77,18 +77,18 @@ namespace Test
     global $IcePHP__t_int;
     global $IcePHP__t_string;
     global $IcePHP__t_bool;
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'callCallback', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'getCallbackCount', 0, 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'incCounter', 0, 0, 0, array(array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'waitCounter', 0, 0, 0, array(array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'getConnectionCount', 0, 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'getConnectionInfo', 0, 0, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'closeConnection', 0, 0, 0, array(array($IcePHP__t_bool)), null, null, null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'datagram', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'getDatagramCount', 0, 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'callDatagramCallback', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'getCallbackDatagramCount', 0, 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'getHeartbeatCount', 0, 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'callCallback', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'getCallbackCount', 0, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'incCounter', 0, 0, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'waitCounter', 0, 0, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'getConnectionCount', 0, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'getConnectionInfo', 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'closeConnection', 0, 0, array(array($IcePHP__t_bool)), null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'datagram', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'getDatagramCount', 0, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'callDatagramCallback', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'getCallbackDatagramCount', 0, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'getHeartbeatCount', 0, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 ?>

@@ -50,8 +50,8 @@ namespace IceDiscovery
     global $Ice__t_ObjectPrx;
     global $IcePHP__t_string;
     global $IcePHP__t_bool;
-    IcePHP_defineOperation($IceDiscovery__t_LookupReplyPrx, 'foundObjectById', 0, 0, 0, array(array($Ice__t_Identity), array($Ice__t_ObjectPrx)), null, null, null);
-    IcePHP_defineOperation($IceDiscovery__t_LookupReplyPrx, 'foundAdapterById', 0, 0, 0, array(array($IcePHP__t_string), array($Ice__t_ObjectPrx), array($IcePHP__t_bool)), null, null, null);
+    IcePHP_defineOperation($IceDiscovery__t_LookupReplyPrx, 'foundObjectById', 0, 0, array(array($Ice__t_Identity), array($Ice__t_ObjectPrx)), null, null, null);
+    IcePHP_defineOperation($IceDiscovery__t_LookupReplyPrx, 'foundAdapterById', 0, 0, array(array($IcePHP__t_string), array($Ice__t_ObjectPrx), array($IcePHP__t_bool)), null, null, null);
 }
 
 namespace IceDiscovery
@@ -83,7 +83,7 @@ namespace IceDiscovery
     global $IcePHP__t_string;
     global $Ice__t_Identity;
     global $IceDiscovery__t_LookupReplyPrx;
-    IcePHP_defineOperation($IceDiscovery__t_LookupPrx, 'findObjectById', 2, 2, 0, array(array($IcePHP__t_string), array($Ice__t_Identity), array($IceDiscovery__t_LookupReplyPrx)), null, null, null);
-    IcePHP_defineOperation($IceDiscovery__t_LookupPrx, 'findAdapterById', 2, 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IceDiscovery__t_LookupReplyPrx)), null, null, null);
+    IcePHP_defineOperation($IceDiscovery__t_LookupPrx, 'findObjectById', 2, 0, array(array($IcePHP__t_string), array($Ice__t_Identity), array($IceDiscovery__t_LookupReplyPrx)), null, null, null);
+    IcePHP_defineOperation($IceDiscovery__t_LookupPrx, 'findAdapterById', 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IceDiscovery__t_LookupReplyPrx)), null, null, null);
 }
 ?>

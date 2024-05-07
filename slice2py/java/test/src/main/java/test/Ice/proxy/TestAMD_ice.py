@@ -85,8 +85,8 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
     MyClass._ice_type = _M_Test._t_MyClassDisp
 
-    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())
-    MyClass._op_getContext = IcePy.Operation('getContext', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())
+    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
+    MyClass._op_getContext = IcePy.Operation('getContext', Ice.OperationMode.Normal, True, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())
 
     _M_Test.MyClass = MyClass
     del MyClass
@@ -143,7 +143,7 @@ if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test._t_MyDerivedClassDisp = IcePy.defineClass('::Test::MyDerivedClass', MyDerivedClass, (), None, (_M_Test._t_MyClassDisp,))
     MyDerivedClass._ice_type = _M_Test._t_MyDerivedClassDisp
 
-    MyDerivedClass._op_echo = IcePy.Operation('echo', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    MyDerivedClass._op_echo = IcePy.Operation('echo', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
 
     _M_Test.MyDerivedClass = MyDerivedClass
     del MyDerivedClass

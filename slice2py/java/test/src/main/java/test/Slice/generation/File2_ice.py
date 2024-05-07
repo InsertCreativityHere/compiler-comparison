@@ -72,7 +72,7 @@ if 'Interface2Prx' not in _M_Test.__dict__:
     _M_Test._t_Interface2Disp = IcePy.defineClass('::Test::Interface2', Interface2, (), None, ())
     Interface2._ice_type = _M_Test._t_Interface2Disp
 
-    Interface2._op_method = IcePy.Operation('method', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Interface2._op_method = IcePy.Operation('method', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Interface2 = Interface2
     del Interface2

@@ -50,8 +50,8 @@ namespace Demo\gx
 
     global $Demo_gx__t_Square;
     global $Demo_gx__t_Circle;
-    IcePHP_defineOperation($Demo_gx__t_CanvasPrx, 'paintSquare', 0, 0, 0, array(array($Demo_gx__t_Square)), null, null, null);
-    IcePHP_defineOperation($Demo_gx__t_CanvasPrx, 'paintCircle', 0, 0, 0, array(array($Demo_gx__t_Circle)), null, null, null);
+    IcePHP_defineOperation($Demo_gx__t_CanvasPrx, 'paintSquare', 0, 0, array(array($Demo_gx__t_Square)), null, null, null);
+    IcePHP_defineOperation($Demo_gx__t_CanvasPrx, 'paintCircle', 0, 0, array(array($Demo_gx__t_Circle)), null, null, null);
 }
 
 namespace Demo\gx
@@ -80,6 +80,6 @@ namespace Demo\gx
     global $Ice__t_ObjectPrx;
     $Demo_gx__t_SessionPrx = IcePHP_defineProxy('::Demo::gx::Session', $Ice__t_ObjectPrx, array($Glacier2__t_SessionPrx));
 
-    IcePHP_defineOperation($Demo_gx__t_SessionPrx, 'destroySession', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Demo_gx__t_SessionPrx, 'destroySession', 0, 0, null, null, null, null);
 }
 ?>

@@ -81,7 +81,7 @@ IceGrid.UserAccountMapperPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceGrid.UserAccountMapper, IceGrid.UserAccountMapperPrx, iceC_IceGrid_UserAccountMapper_ids, "::IceGrid::UserAccountMapper",
 {
-    "getUserAccount": [, , , , [7], [[7]], ,
+    "getUserAccount": [, , , [7], [[7]], ,
     [
         IceGrid.UserAccountNotFoundException
     ], , ]

@@ -39,8 +39,8 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "getProperty": [, , , , [7], [[7]], , , , ],
-        "getArgs": [, , , , ["Ice.StringSeqHelper"], , , , , ]
+        "getProperty": [, , , [7], [[7]], , , , ],
+        "getArgs": [, , , ["Ice.StringSeqHelper"], , , , , ]
     });
     exports.Test = Test;
 }

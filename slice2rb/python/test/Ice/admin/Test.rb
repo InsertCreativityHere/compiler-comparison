@@ -58,11 +58,11 @@ module ::Test
 
         T_RemoteCommunicatorPrx.defineProxy(RemoteCommunicatorPrx, nil, [])
 
-        RemoteCommunicatorPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        RemoteCommunicatorPrx_mixin::OP_getChanges = ::Ice::__defineOperation('getChanges', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_PropertyDict, false, 0], [])
-        RemoteCommunicatorPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_waitForShutdown = ::Ice::__defineOperation('waitForShutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
+        RemoteCommunicatorPrx_mixin::OP_getChanges = ::Ice::__defineOperation('getChanges', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_PropertyDict, false, 0], [])
+        RemoteCommunicatorPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_waitForShutdown = ::Ice::__defineOperation('waitForShutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::RemoteCommunicatorFactory_Mixin)
@@ -92,8 +92,8 @@ module ::Test
 
         T_RemoteCommunicatorFactoryPrx.defineProxy(RemoteCommunicatorFactoryPrx, nil, [])
 
-        RemoteCommunicatorFactoryPrx_mixin::OP_createCommunicator = ::Ice::__defineOperation('createCommunicator', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_PropertyDict, false, 0]], [], [::Test::T_RemoteCommunicatorPrx, false, 0], [])
-        RemoteCommunicatorFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteCommunicatorFactoryPrx_mixin::OP_createCommunicator = ::Ice::__defineOperation('createCommunicator', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_PropertyDict, false, 0]], [], [::Test::T_RemoteCommunicatorPrx, false, 0], [])
+        RemoteCommunicatorFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::TestFacet_Mixin)
@@ -119,6 +119,6 @@ module ::Test
 
         T_TestFacetPrx.defineProxy(TestFacetPrx, nil, [])
 
-        TestFacetPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestFacetPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

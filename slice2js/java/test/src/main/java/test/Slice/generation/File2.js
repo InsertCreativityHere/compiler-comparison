@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.Interface2, Test.Interface2Prx, iceC_Test_Interface2_ids, "::Test::Interface2",
     {
-        "method": [, , , , , , , , , ]
+        "method": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

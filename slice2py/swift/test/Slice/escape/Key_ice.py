@@ -252,7 +252,7 @@ if 'breakPrx' not in _M__and.__dict__:
     _M__and._t_breakDisp = IcePy.defineClass('::and::break', _break, (), None, ())
     _break._ice_type = _M__and._t_breakDisp
 
-    _break._op_case = IcePy.Operation('case', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
+    _break._op_case = IcePy.Operation('case', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
 
     _M__and._break = _break
     del _break
@@ -309,7 +309,7 @@ if 'funcPrx' not in _M__and.__dict__:
     _M__and._t_funcDisp = IcePy.defineClass('::and::func', func, (), None, ())
     func._ice_type = _M__and._t_funcDisp
 
-    func._op_public = IcePy.Operation('public', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    func._op_public = IcePy.Operation('public', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M__and.func = func
     del func

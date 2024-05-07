@@ -335,11 +335,11 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection._t_ReplicaObserverDisp = IcePy.defineClass('::IceStormElection::ReplicaObserver', ReplicaObserver, (), None, ())
     ReplicaObserver._ice_type = _M_IceStormElection._t_ReplicaObserverDisp
 
-    ReplicaObserver._op_init = IcePy.Operation('init', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), _M_IceStormElection._t_TopicContentSeq, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
-    ReplicaObserver._op_createTopic = IcePy.Operation('createTopic', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
-    ReplicaObserver._op_destroyTopic = IcePy.Operation('destroyTopic', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
-    ReplicaObserver._op_addSubscriber = IcePy.Operation('addSubscriber', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0), ((), _M_IceStorm._t_SubscriberRecord, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
-    ReplicaObserver._op_removeSubscriber = IcePy.Operation('removeSubscriber', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0), ((), _M_Ice._t_IdentitySeq, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
+    ReplicaObserver._op_init = IcePy.Operation('init', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), _M_IceStormElection._t_TopicContentSeq, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
+    ReplicaObserver._op_createTopic = IcePy.Operation('createTopic', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
+    ReplicaObserver._op_destroyTopic = IcePy.Operation('destroyTopic', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
+    ReplicaObserver._op_addSubscriber = IcePy.Operation('addSubscriber', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0), ((), _M_IceStorm._t_SubscriberRecord, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
+    ReplicaObserver._op_removeSubscriber = IcePy.Operation('removeSubscriber', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0), ((), _M_Ice._t_IdentitySeq, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
 
     _M_IceStormElection.ReplicaObserver = ReplicaObserver
     del ReplicaObserver
@@ -416,7 +416,7 @@ if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection._t_TopicManagerSyncDisp = IcePy.defineClass('::IceStormElection::TopicManagerSync', TopicManagerSync, (), None, ())
     TopicManagerSync._ice_type = _M_IceStormElection._t_TopicManagerSyncDisp
 
-    TopicManagerSync._op_getContent = IcePy.Operation('getContent', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), _M_IceStormElection._t_TopicContentSeq, False, 0)), None, ())
+    TopicManagerSync._op_getContent = IcePy.Operation('getContent', Ice.OperationMode.Normal, False, None, (), (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), _M_IceStormElection._t_TopicContentSeq, False, 0)), None, ())
 
     _M_IceStormElection.TopicManagerSync = TopicManagerSync
     del TopicManagerSync
@@ -961,14 +961,14 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection._t_NodeDisp = IcePy.defineClass('::IceStormElection::Node', Node, (), None, ())
     Node._ice_type = _M_IceStormElection._t_NodeDisp
 
-    Node._op_invitation = IcePy.Operation('invitation', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
-    Node._op_ready = IcePy.Operation('ready', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_long, False, 0)), (), None, ())
-    Node._op_accept = IcePy.Operation('accept', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0), ((), _M_Ice._t_IntSeq, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
-    Node._op_areYouCoordinator = IcePy.Operation('areYouCoordinator', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    Node._op_areYouThere = IcePy.Operation('areYouThere', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_bool, False, 0), ())
-    Node._op_sync = IcePy.Operation('sync', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Node._op_nodes = IcePy.Operation('nodes', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStormElection._t_NodeInfoSeq, False, 0), ())
-    Node._op_query = IcePy.Operation('query', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStormElection._t_QueryInfo, False, 0), ())
+    Node._op_invitation = IcePy.Operation('invitation', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
+    Node._op_ready = IcePy.Operation('ready', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_long, False, 0)), (), None, ())
+    Node._op_accept = IcePy.Operation('accept', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0), ((), _M_Ice._t_IntSeq, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    Node._op_areYouCoordinator = IcePy.Operation('areYouCoordinator', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Node._op_areYouThere = IcePy.Operation('areYouThere', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_bool, False, 0), ())
+    Node._op_sync = IcePy.Operation('sync', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Node._op_nodes = IcePy.Operation('nodes', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStormElection._t_NodeInfoSeq, False, 0), ())
+    Node._op_query = IcePy.Operation('query', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStormElection._t_QueryInfo, False, 0), ())
 
     _M_IceStormElection.Node = Node
     del Node

@@ -76,6 +76,6 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_F2Prx = IcePHP_defineProxy('::Test::F2', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_F2Prx, 'op', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_F2Prx, 'op', 0, 0, null, null, null, null);
 }
 ?>

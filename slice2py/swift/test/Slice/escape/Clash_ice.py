@@ -171,18 +171,18 @@ if 'IntfPrx' not in _M_Clash.__dict__:
     _M_Clash._t_IntfDisp = IcePy.defineClass('::Clash::Intf', Intf, (), None, ())
     Intf._ice_type = _M_Clash._t_IntfDisp
 
-    Intf._op_context = IcePy.Operation('context', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Intf._op_current = IcePy.Operation('current', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Intf._op_response = IcePy.Operation('response', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Intf._op_upCast = IcePy.Operation('upCast', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Intf._op_typeId = IcePy.Operation('typeId', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Intf._op_del = IcePy.Operation('del', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Intf._op_cookie = IcePy.Operation('cookie', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Intf._op_sync = IcePy.Operation('sync', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Intf._op_inS = IcePy.Operation('inS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Intf._op_istr = IcePy.Operation('istr', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Intf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, True, 1)), (), None, ())
-    Intf._op_opOut = IcePy.Operation('opOut', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, True, 1)), None, ())
+    Intf._op_context = IcePy.Operation('context', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_current = IcePy.Operation('current', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_response = IcePy.Operation('response', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_upCast = IcePy.Operation('upCast', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_typeId = IcePy.Operation('typeId', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_del = IcePy.Operation('del', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_cookie = IcePy.Operation('cookie', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_sync = IcePy.Operation('sync', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_inS = IcePy.Operation('inS', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_istr = IcePy.Operation('istr', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Intf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, True, 1)), (), None, ())
+    Intf._op_opOut = IcePy.Operation('opOut', Ice.OperationMode.Normal, False, None, (), (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, True, 1)), None, ())
 
     _M_Clash.Intf = Intf
     del Intf

@@ -77,10 +77,10 @@ namespace BEGIN
     $BEGIN__t_breakPrx = IcePHP_defineProxy('::BEGIN::break', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($BEGIN__t_breakPrx, 'case', 0, 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($BEGIN__t_breakPrx, 'to_a', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($BEGIN__t_breakPrx, 'instance_variable_set', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($BEGIN__t_breakPrx, 'instance_variables', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($BEGIN__t_breakPrx, 'case', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($BEGIN__t_breakPrx, 'to_a', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($BEGIN__t_breakPrx, 'instance_variable_set', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($BEGIN__t_breakPrx, 'instance_variables', 0, 0, null, null, null, null);
 }
 
 namespace BEGIN
@@ -271,7 +271,7 @@ namespace BEGIN
     global $BEGIN__t_breakPrx;
     global $IcePHP__t_int;
     global $BEGIN__t_END;
-    IcePHP_defineOperation($BEGIN__t_extendPrx, 'for', 0, 0, 0, array(array($BEGIN__t_display), array($BEGIN__t_elsifPrx), array($BEGIN__t_breakPrx), array($BEGIN__t_display), array($BEGIN__t_elsifPrx), array($IcePHP__t_int)), null, array($BEGIN__t_END), array($BEGIN__t_nil));
+    IcePHP_defineOperation($BEGIN__t_extendPrx, 'for', 0, 0, array(array($BEGIN__t_display), array($BEGIN__t_elsifPrx), array($BEGIN__t_breakPrx), array($BEGIN__t_display), array($BEGIN__t_elsifPrx), array($IcePHP__t_int)), null, array($BEGIN__t_END), array($BEGIN__t_nil));
 }
 
 namespace BEGIN

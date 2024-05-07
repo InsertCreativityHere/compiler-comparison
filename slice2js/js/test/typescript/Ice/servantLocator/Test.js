@@ -83,34 +83,34 @@ Test.TestIntfPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
 {
-    "requestFailedException": [, , , , , , , , , ],
-    "unknownUserException": [, , , , , , , , , ],
-    "unknownLocalException": [, , , , , , , , , ],
-    "unknownException": [, , , , , , , , , ],
-    "localException": [, , , , , , , , , ],
-    "userException": [, , , , , , , , , ],
-    "jsException": [, , , , , , , , , ],
-    "unknownExceptionWithServantException": [, , , , , , , , , ],
-    "impossibleException": [, , , , [7], [[1]], ,
+    "requestFailedException": [, , , , , , , , ],
+    "unknownUserException": [, , , , , , , , ],
+    "unknownLocalException": [, , , , , , , , ],
+    "unknownException": [, , , , , , , , ],
+    "localException": [, , , , , , , , ],
+    "userException": [, , , , , , , , ],
+    "jsException": [, , , , , , , , ],
+    "unknownExceptionWithServantException": [, , , , , , , , ],
+    "impossibleException": [, , , [7], [[1]], ,
     [
         Test.TestImpossibleException
     ], , ],
-    "intfUserException": [, , , , [7], [[1]], ,
-    [
-        Test.TestIntfUserException,
-        Test.TestImpossibleException
-    ], , ],
-    "asyncResponse": [, , , , , , ,
+    "intfUserException": [, , , [7], [[1]], ,
     [
         Test.TestIntfUserException,
         Test.TestImpossibleException
     ], , ],
-    "asyncException": [, , , , , , ,
+    "asyncResponse": [, , , , , ,
     [
         Test.TestIntfUserException,
         Test.TestImpossibleException
     ], , ],
-    "shutdown": [, , , , , , , , , ]
+    "asyncException": [, , , , , ,
+    [
+        Test.TestIntfUserException,
+        Test.TestImpossibleException
+    ], , ],
+    "shutdown": [, , , , , , , , ]
 });
 
 const iceC_Test_TestActivation_ids = [
@@ -128,7 +128,7 @@ Test.TestActivationPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.TestActivation, Test.TestActivationPrx, iceC_Test_TestActivation_ids, "::Test::TestActivation",
 {
-    "activateServantLocator": [, , , , , [[1]], , , , ]
+    "activateServantLocator": [, , , , [[1]], , , , ]
 });
 
 const iceC_Test_Echo_ids = [
@@ -146,9 +146,9 @@ Test.EchoPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
 {
-    "setConnection": [, , , , , , , , , ],
-    "startBatch": [, , , , , , , , , ],
-    "flushBatch": [, , , , , , , , , ],
-    "shutdown": [, , , , , , , , , ]
+    "setConnection": [, , , , , , , , ],
+    "startBatch": [, , , , , , , , ],
+    "flushBatch": [, , , , , , , , ],
+    "shutdown": [, , , , , , , , ]
 });
 export { Test };

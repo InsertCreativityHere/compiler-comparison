@@ -53,8 +53,8 @@ Ice.ProcessPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Ice.Process, Ice.ProcessPrx, iceC_Ice_Process_ids, "::Ice::Process",
 {
-    "shutdown": [, , , , , , , , , ],
-    "writeMessage": [, , , , , [[7], [3]], , , , ]
+    "shutdown": [, , , , , , , , ],
+    "writeMessage": [, , , , [[7], [3]], , , , ]
 });
 /* slice2js browser-bundle-skip */
 exports.Ice = Ice;

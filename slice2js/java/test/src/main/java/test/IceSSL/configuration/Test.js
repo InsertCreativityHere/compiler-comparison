@@ -39,9 +39,9 @@
 
     Slice.defineOperations(Test.Server, Test.ServerPrx, iceC_Test_Server_ids, "::Test::Server",
     {
-        "noCert": [, , , , , , , , , ],
-        "checkCert": [, , , , , [[7], [7]], , , , ],
-        "checkCipher": [, , , , , [[7]], , , , ]
+        "noCert": [, , , , , , , , ],
+        "checkCert": [, , , , [[7], [7]], , , , ],
+        "checkCipher": [, , , , [[7]], , , , ]
     });
 
     Slice.defineDictionary(Test, "Properties", "PropertiesHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
@@ -61,9 +61,9 @@
 
     Slice.defineOperations(Test.ServerFactory, Test.ServerFactoryPrx, iceC_Test_ServerFactory_ids, "::Test::ServerFactory",
     {
-        "createServer": [, , , , ["Test.ServerPrx"], [["Test.PropertiesHelper"]], , , , ],
-        "destroyServer": [, , , , , [["Test.ServerPrx"]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "createServer": [, , , ["Test.ServerPrx"], [["Test.PropertiesHelper"]], , , , ],
+        "destroyServer": [, , , , [["Test.ServerPrx"]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

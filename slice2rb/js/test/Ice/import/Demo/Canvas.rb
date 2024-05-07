@@ -50,8 +50,8 @@ module ::Demo
 
             T_CanvasPrx.defineProxy(CanvasPrx, nil, [])
 
-            CanvasPrx_mixin::OP_paintSquare = ::Ice::__defineOperation('paintSquare', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Demo::Gx::T_Square, false, 0]], [], nil, [])
-            CanvasPrx_mixin::OP_paintCircle = ::Ice::__defineOperation('paintCircle', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Demo::Gx::T_Circle, false, 0]], [], nil, [])
+            CanvasPrx_mixin::OP_paintSquare = ::Ice::__defineOperation('paintSquare', ::Ice::OperationMode::Normal, false, nil, [[::Demo::Gx::T_Square, false, 0]], [], nil, [])
+            CanvasPrx_mixin::OP_paintCircle = ::Ice::__defineOperation('paintCircle', ::Ice::OperationMode::Normal, false, nil, [[::Demo::Gx::T_Circle, false, 0]], [], nil, [])
         end
 
         if not defined?(::Demo::Gx::Session_Mixin)
@@ -78,7 +78,7 @@ module ::Demo
 
             T_SessionPrx.defineProxy(SessionPrx, nil, [::Glacier2::T_SessionPrx])
 
-            SessionPrx_mixin::OP_destroySession = ::Ice::__defineOperation('destroySession', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+            SessionPrx_mixin::OP_destroySession = ::Ice::__defineOperation('destroySession', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         end
     end
 end

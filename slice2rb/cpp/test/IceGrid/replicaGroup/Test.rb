@@ -45,7 +45,7 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_getReplicaId = ::Ice::__defineOperation('getReplicaId', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getReplicaIdAndShutdown = ::Ice::__defineOperation('getReplicaIdAndShutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getReplicaId = ::Ice::__defineOperation('getReplicaId', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getReplicaIdAndShutdown = ::Ice::__defineOperation('getReplicaIdAndShutdown', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 end

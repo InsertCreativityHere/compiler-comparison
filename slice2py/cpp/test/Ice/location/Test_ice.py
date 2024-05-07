@@ -76,7 +76,7 @@ if 'TestLocatorRegistryPrx' not in _M_Test.__dict__:
     _M_Test._t_TestLocatorRegistryDisp = IcePy.defineClass('::Test::TestLocatorRegistry', TestLocatorRegistry, (), None, (_M_Ice._t_LocatorRegistryDisp,))
     TestLocatorRegistry._ice_type = _M_Test._t_TestLocatorRegistryDisp
 
-    TestLocatorRegistry._op_addObject = IcePy.Operation('addObject', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), None, ())
+    TestLocatorRegistry._op_addObject = IcePy.Operation('addObject', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), None, ())
 
     _M_Test.TestLocatorRegistry = TestLocatorRegistry
     del TestLocatorRegistry
@@ -133,7 +133,7 @@ if 'TestLocatorPrx' not in _M_Test.__dict__:
     _M_Test._t_TestLocatorDisp = IcePy.defineClass('::Test::TestLocator', TestLocator, (), None, (_M_Ice._t_LocatorDisp,))
     TestLocator._ice_type = _M_Test._t_TestLocatorDisp
 
-    TestLocator._op_getRequestCount = IcePy.Operation('getRequestCount', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    TestLocator._op_getRequestCount = IcePy.Operation('getRequestCount', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 
     _M_Test.TestLocator = TestLocator
     del TestLocator
@@ -199,8 +199,8 @@ if 'ServerManagerPrx' not in _M_Test.__dict__:
     _M_Test._t_ServerManagerDisp = IcePy.defineClass('::Test::ServerManager', ServerManager, (), None, ())
     ServerManager._ice_type = _M_Test._t_ServerManagerDisp
 
-    ServerManager._op_startServer = IcePy.Operation('startServer', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    ServerManager._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    ServerManager._op_startServer = IcePy.Operation('startServer', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    ServerManager._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.ServerManager = ServerManager
     del ServerManager
@@ -257,7 +257,7 @@ if 'HelloPrx' not in _M_Test.__dict__:
     _M_Test._t_HelloDisp = IcePy.defineClass('::Test::Hello', Hello, (), None, ())
     Hello._ice_type = _M_Test._t_HelloDisp
 
-    Hello._op_sayHello = IcePy.Operation('sayHello', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Hello._op_sayHello = IcePy.Operation('sayHello', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Hello = Hello
     del Hello
@@ -341,10 +341,10 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_getHello = IcePy.Operation('getHello', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_HelloPrx, False, 0), ())
-    TestIntf._op_getReplicatedHello = IcePy.Operation('getReplicatedHello', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_HelloPrx, False, 0), ())
-    TestIntf._op_migrateHello = IcePy.Operation('migrateHello', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_getHello = IcePy.Operation('getHello', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_HelloPrx, False, 0), ())
+    TestIntf._op_getReplicatedHello = IcePy.Operation('getReplicatedHello', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_HelloPrx, False, 0), ())
+    TestIntf._op_migrateHello = IcePy.Operation('migrateHello', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf

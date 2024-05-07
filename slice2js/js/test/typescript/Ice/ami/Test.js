@@ -63,7 +63,7 @@ Test.PingReplyPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.PingReply, Test.PingReplyPrx, iceC_Test_PingReply_ids, "::Test::PingReply",
 {
-    "reply": [, , , , , , , , , ]
+    "reply": [, , , , , , , , ]
 });
 
 const iceC_Test_TestIntf_ids = [
@@ -81,24 +81,24 @@ Test.TestIntfPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
 {
-    "op": [, , , , , , , , , ],
-    "opWithPayload": [, , , , , [["Ice.ByteSeqHelper"]], , , , ],
-    "opWithResult": [, , , , [3], , , , , ],
-    "opWithUE": [, , , , , , ,
+    "op": [, , , , , , , , ],
+    "opWithPayload": [, , , , [["Ice.ByteSeqHelper"]], , , , ],
+    "opWithResult": [, , , [3], , , , , ],
+    "opWithUE": [, , , , , ,
     [
         Test.TestIntfException
     ], , ],
-    "opBatch": [, , , , , , , , , ],
-    "opBatchCount": [, , , , [3], , , , , ],
-    "waitForBatch": [, , , , [1], [[3]], , , , ],
-    "close": [, , , , , [[Test.CloseMode._helper]], , , , ],
-    "sleep": [, , , , , [[3]], , , , ],
-    "startDispatch": [, , , , , , , , , ],
-    "finishDispatch": [, , , , , , , , , ],
-    "shutdown": [, , , , , , , , , ],
-    "supportsAMD": [, , , , [1], , , , , ],
-    "supportsFunctionalTests": [, , , , [1], , , , , ],
-    "pingBidDir": [, , , , , [[Ice.Identity]], , , , ]
+    "opBatch": [, , , , , , , , ],
+    "opBatchCount": [, , , [3], , , , , ],
+    "waitForBatch": [, , , [1], [[3]], , , , ],
+    "close": [, , , , [[Test.CloseMode._helper]], , , , ],
+    "sleep": [, , , , [[3]], , , , ],
+    "startDispatch": [, , , , , , , , ],
+    "finishDispatch": [, , , , , , , , ],
+    "shutdown": [, , , , , , , , ],
+    "supportsAMD": [, , , [1], , , , , ],
+    "supportsFunctionalTests": [, , , [1], , , , , ],
+    "pingBidDir": [, , , , [[Ice.Identity]], , , , ]
 });
 
 const iceC_Test_TestIntfController_ids = [
@@ -116,7 +116,7 @@ Test.TestIntfControllerPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.TestIntfController, Test.TestIntfControllerPrx, iceC_Test_TestIntfController_ids, "::Test::TestIntfController",
 {
-    "holdAdapter": [, , , , , , , , , ],
-    "resumeAdapter": [, , , , , , , , , ]
+    "holdAdapter": [, , , , , , , , ],
+    "resumeAdapter": [, , , , , , , , ]
 });
 export { Test };

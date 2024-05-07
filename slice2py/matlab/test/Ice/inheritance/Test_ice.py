@@ -76,7 +76,7 @@ if 'IAPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA._t_IADisp = IcePy.defineClass('::Test::MA::IA', IA, (), None, ())
     IA._ice_type = _M_Test.MA._t_IADisp
 
-    IA._op_iaop = IcePy.Operation('iaop', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MA._t_IAPrx, False, 0),), (), ((), _M_Test.MA._t_IAPrx, False, 0), ())
+    IA._op_iaop = IcePy.Operation('iaop', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MA._t_IAPrx, False, 0),), (), ((), _M_Test.MA._t_IAPrx, False, 0), ())
 
     _M_Test.MA.IA = IA
     del IA
@@ -141,7 +141,7 @@ if 'IB1Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB._t_IB1Disp = IcePy.defineClass('::Test::MB::IB1', IB1, (), None, (_M_Test.MA._t_IADisp,))
     IB1._ice_type = _M_Test.MB._t_IB1Disp
 
-    IB1._op_ib1op = IcePy.Operation('ib1op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MB._t_IB1Prx, False, 0),), (), ((), _M_Test.MB._t_IB1Prx, False, 0), ())
+    IB1._op_ib1op = IcePy.Operation('ib1op', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MB._t_IB1Prx, False, 0),), (), ((), _M_Test.MB._t_IB1Prx, False, 0), ())
 
     _M_Test.MB.IB1 = IB1
     del IB1
@@ -198,7 +198,7 @@ if 'IB2Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB._t_IB2Disp = IcePy.defineClass('::Test::MB::IB2', IB2, (), None, (_M_Test.MA._t_IADisp,))
     IB2._ice_type = _M_Test.MB._t_IB2Disp
 
-    IB2._op_ib2op = IcePy.Operation('ib2op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MB._t_IB2Prx, False, 0),), (), ((), _M_Test.MB._t_IB2Prx, False, 0), ())
+    IB2._op_ib2op = IcePy.Operation('ib2op', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MB._t_IB2Prx, False, 0),), (), ((), _M_Test.MB._t_IB2Prx, False, 0), ())
 
     _M_Test.MB.IB2 = IB2
     del IB2
@@ -262,7 +262,7 @@ if 'ICPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA._t_ICDisp = IcePy.defineClass('::Test::MA::IC', IC, (), None, (_M_Test.MB._t_IB1Disp, _M_Test.MB._t_IB2Disp))
     IC._ice_type = _M_Test.MA._t_ICDisp
 
-    IC._op_icop = IcePy.Operation('icop', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MA._t_ICPrx, False, 0),), (), ((), _M_Test.MA._t_ICPrx, False, 0), ())
+    IC._op_icop = IcePy.Operation('icop', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.MA._t_ICPrx, False, 0),), (), ((), _M_Test.MA._t_ICPrx, False, 0), ())
 
     _M_Test.MA.IC = IC
     del IC
@@ -359,11 +359,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
     Initial._ice_type = _M_Test._t_InitialDisp
 
-    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Initial._op_iaop = IcePy.Operation('iaop', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MA._t_IAPrx, False, 0), ())
-    Initial._op_ib1op = IcePy.Operation('ib1op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MB._t_IB1Prx, False, 0), ())
-    Initial._op_ib2op = IcePy.Operation('ib2op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MB._t_IB2Prx, False, 0), ())
-    Initial._op_icop = IcePy.Operation('icop', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MA._t_ICPrx, False, 0), ())
+    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Initial._op_iaop = IcePy.Operation('iaop', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MA._t_IAPrx, False, 0), ())
+    Initial._op_ib1op = IcePy.Operation('ib1op', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MB._t_IB1Prx, False, 0), ())
+    Initial._op_ib2op = IcePy.Operation('ib2op', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MB._t_IB2Prx, False, 0), ())
+    Initial._op_icop = IcePy.Operation('icop', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.MA._t_ICPrx, False, 0), ())
 
     _M_Test.Initial = Initial
     del Initial

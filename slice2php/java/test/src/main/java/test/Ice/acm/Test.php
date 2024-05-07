@@ -42,11 +42,11 @@ namespace Test
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleep', 0, 0, 0, array(array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleepAndHold', 0, 0, 0, array(array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'interruptSleep', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'startHeartbeatCount', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'waitForHeartbeatCount', 0, 0, 0, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleep', 0, 0, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleepAndHold', 0, 0, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'interruptSleep', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'startHeartbeatCount', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'waitForHeartbeatCount', 0, 0, array(array($IcePHP__t_int)), null, null, null);
 }
 
 namespace Test
@@ -76,10 +76,10 @@ namespace Test
     $Test__t_RemoteObjectAdapterPrx = IcePHP_defineProxy('::Test::RemoteObjectAdapter', $Ice__t_ObjectPrx, null);
 
     global $Test__t_TestIntfPrx;
-    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'getTestIntf', 0, 0, 0, null, null, array($Test__t_TestIntfPrx), null);
-    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'activate', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'hold', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'deactivate', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'getTestIntf', 0, 0, null, null, array($Test__t_TestIntfPrx), null);
+    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'activate', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'hold', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'deactivate', 0, 0, null, null, null, null);
 }
 
 namespace Test
@@ -110,7 +110,7 @@ namespace Test
 
     global $IcePHP__t_int;
     global $Test__t_RemoteObjectAdapterPrx;
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'createObjectAdapter', 0, 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($Test__t_RemoteObjectAdapterPrx), null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'createObjectAdapter', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($Test__t_RemoteObjectAdapterPrx), null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 ?>

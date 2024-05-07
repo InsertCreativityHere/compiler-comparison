@@ -54,7 +54,7 @@
 
     Slice.defineOperations(Test.A, Test.APrx, iceC_Test_A_ids, "::Test::A",
     {
-        "callA": [, , , , [7], , , , , ]
+        "callA": [, , , [7], , , , , ]
     });
 
     const iceC_Test_B_ids = [
@@ -84,7 +84,7 @@
 
     Slice.defineOperations(Test.B, Test.BPrx, iceC_Test_B_ids, "::Test::B",
     {
-        "callB": [, , , , [7], , , , , ]
+        "callB": [, , , [7], , , , , ]
     });
 
     const iceC_Test_C_ids = [
@@ -114,7 +114,7 @@
 
     Slice.defineOperations(Test.C, Test.CPrx, iceC_Test_C_ids, "::Test::C",
     {
-        "callC": [, , , , [7], , , , , ]
+        "callC": [, , , [7], , , , , ]
     });
 
     const iceC_Test_D_ids = [
@@ -148,7 +148,7 @@
 
     Slice.defineOperations(Test.D, Test.DPrx, iceC_Test_D_ids, "::Test::D",
     {
-        "callD": [, , , , [7], , , , , ]
+        "callD": [, , , [7], , , , , ]
     });
 
     const iceC_Test_E_ids = [
@@ -166,7 +166,7 @@
 
     Slice.defineOperations(Test.E, Test.EPrx, iceC_Test_E_ids, "::Test::E",
     {
-        "callE": [, , , , [7], , , , , ]
+        "callE": [, , , [7], , , , , ]
     });
 
     const iceC_Test_F_ids = [
@@ -196,7 +196,7 @@
 
     Slice.defineOperations(Test.F, Test.FPrx, iceC_Test_F_ids, "::Test::F",
     {
-        "callF": [, , , , [7], , , , , ]
+        "callF": [, , , [7], , , , , ]
     });
 
     const iceC_Test_G_ids = [
@@ -214,8 +214,8 @@
 
     Slice.defineOperations(Test.G, Test.GPrx, iceC_Test_G_ids, "::Test::G",
     {
-        "shutdown": [, , , , , , , , , ],
-        "callG": [, , , , [7], , , , , ]
+        "shutdown": [, , , , , , , , ],
+        "callG": [, , , [7], , , , , ]
     });
 
     const iceC_Test_H_ids = [
@@ -245,7 +245,7 @@
 
     Slice.defineOperations(Test.H, Test.HPrx, iceC_Test_H_ids, "::Test::H",
     {
-        "callH": [, , , , [7], , , , , ]
+        "callH": [, , , [7], , , , , ]
     });
     exports.Test = Test;
 }

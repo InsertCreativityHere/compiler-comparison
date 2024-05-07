@@ -118,10 +118,10 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
     MyClass._ice_type = _M_Test._t_MyClassDisp
 
-    MyClass._op_opOneway = IcePy.Operation('opOneway', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    MyClass._op_opString = IcePy.Operation('opString', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (((), IcePy._t_string, False, 0),), ((), IcePy._t_string, False, 0), ())
-    MyClass._op_opException = IcePy.Operation('opException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_MyException,))
-    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    MyClass._op_opOneway = IcePy.Operation('opOneway', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    MyClass._op_opString = IcePy.Operation('opString', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (((), IcePy._t_string, False, 0),), ((), IcePy._t_string, False, 0), ())
+    MyClass._op_opException = IcePy.Operation('opException', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_MyException,))
+    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.MyClass = MyClass
     del MyClass

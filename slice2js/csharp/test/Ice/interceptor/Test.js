@@ -73,22 +73,22 @@
 
     Slice.defineOperations(Test.MyObject, Test.MyObjectPrx, iceC_Test_MyObject_ids, "::Test::MyObject",
     {
-        "add": [, , , , [3], [[3], [3]], , , , ],
-        "addWithRetry": [, , , , [3], [[3], [3]], , , , ],
-        "badAdd": [, , , , [3], [[3], [3]], ,
+        "add": [, , , [3], [[3], [3]], , , , ],
+        "addWithRetry": [, , , [3], [[3], [3]], , , , ],
+        "badAdd": [, , , [3], [[3], [3]], ,
         [
             Test.InvalidInputException
         ], , ],
-        "notExistAdd": [, , , , [3], [[3], [3]], , , , ],
-        "badSystemAdd": [, , , , [3], [[3], [3]], , , , ],
-        "amdAdd": [, , , , [3], [[3], [3]], , , , ],
-        "amdAddWithRetry": [, , , , [3], [[3], [3]], , , , ],
-        "amdBadAdd": [, , , , [3], [[3], [3]], ,
+        "notExistAdd": [, , , [3], [[3], [3]], , , , ],
+        "badSystemAdd": [, , , [3], [[3], [3]], , , , ],
+        "amdAdd": [, , , [3], [[3], [3]], , , , ],
+        "amdAddWithRetry": [, , , [3], [[3], [3]], , , , ],
+        "amdBadAdd": [, , , [3], [[3], [3]], ,
         [
             Test.InvalidInputException
         ], , ],
-        "amdNotExistAdd": [, , , , [3], [[3], [3]], , , , ],
-        "amdBadSystemAdd": [, , , , [3], [[3], [3]], , , , ]
+        "amdNotExistAdd": [, , , [3], [[3], [3]], , , , ],
+        "amdBadSystemAdd": [, , , [3], [[3], [3]], , , , ]
     });
     exports.Test = Test;
 }

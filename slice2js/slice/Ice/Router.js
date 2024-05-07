@@ -52,9 +52,9 @@ Ice.RouterPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Ice.Router, Ice.RouterPrx, iceC_Ice_Router_ids, "::Ice::Router",
 {
-    "getClientProxy": [, 2, 2, , [9], , [[1, , 1]], , , ],
-    "getServerProxy": [, 2, 2, , [9], , , , , ],
-    "addProxies": [, 2, 2, , ["Ice.ObjectProxySeqHelper"], [["Ice.ObjectProxySeqHelper"]], , , , ]
+    "getClientProxy": [, 2, , [9], , [[1, , 1]], , , ],
+    "getServerProxy": [, 2, , [9], , , , , ],
+    "addProxies": [, 2, , ["Ice.ObjectProxySeqHelper"], [["Ice.ObjectProxySeqHelper"]], , , , ]
 });
 
 const iceC_Ice_RouterFinder_ids = [
@@ -77,7 +77,7 @@ Ice.RouterFinderPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Ice.RouterFinder, Ice.RouterFinderPrx, iceC_Ice_RouterFinder_ids, "::Ice::RouterFinder",
 {
-    "getRouter": [, , , , ["Ice.RouterPrx"], , , , , ]
+    "getRouter": [, , , ["Ice.RouterPrx"], , , , , ]
 });
 /* slice2js browser-bundle-skip */
 exports.Ice = Ice;

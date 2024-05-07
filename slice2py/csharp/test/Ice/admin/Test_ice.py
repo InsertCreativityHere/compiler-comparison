@@ -148,15 +148,15 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
     _M_Test._t_RemoteCommunicatorDisp = IcePy.defineClass('::Test::RemoteCommunicator', RemoteCommunicator, (), None, ())
     RemoteCommunicator._ice_type = _M_Test._t_RemoteCommunicatorDisp
 
-    RemoteCommunicator._op_getAdmin = IcePy.Operation('getAdmin', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-    RemoteCommunicator._op_getChanges = IcePy.Operation('getChanges', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_PropertyDict, False, 0), ())
-    RemoteCommunicator._op_print = IcePy.Operation('print', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
-    RemoteCommunicator._op_trace = IcePy.Operation('trace', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
-    RemoteCommunicator._op_warning = IcePy.Operation('warning', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
-    RemoteCommunicator._op_error = IcePy.Operation('error', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
-    RemoteCommunicator._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    RemoteCommunicator._op_waitForShutdown = IcePy.Operation('waitForShutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    RemoteCommunicator._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    RemoteCommunicator._op_getAdmin = IcePy.Operation('getAdmin', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    RemoteCommunicator._op_getChanges = IcePy.Operation('getChanges', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_PropertyDict, False, 0), ())
+    RemoteCommunicator._op_print = IcePy.Operation('print', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+    RemoteCommunicator._op_trace = IcePy.Operation('trace', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
+    RemoteCommunicator._op_warning = IcePy.Operation('warning', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+    RemoteCommunicator._op_error = IcePy.Operation('error', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+    RemoteCommunicator._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    RemoteCommunicator._op_waitForShutdown = IcePy.Operation('waitForShutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    RemoteCommunicator._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.RemoteCommunicator = RemoteCommunicator
     del RemoteCommunicator
@@ -222,8 +222,8 @@ if 'RemoteCommunicatorFactoryPrx' not in _M_Test.__dict__:
     _M_Test._t_RemoteCommunicatorFactoryDisp = IcePy.defineClass('::Test::RemoteCommunicatorFactory', RemoteCommunicatorFactory, (), None, ())
     RemoteCommunicatorFactory._ice_type = _M_Test._t_RemoteCommunicatorFactoryDisp
 
-    RemoteCommunicatorFactory._op_createCommunicator = IcePy.Operation('createCommunicator', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_PropertyDict, False, 0),), (), ((), _M_Test._t_RemoteCommunicatorPrx, False, 0), ())
-    RemoteCommunicatorFactory._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    RemoteCommunicatorFactory._op_createCommunicator = IcePy.Operation('createCommunicator', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_PropertyDict, False, 0),), (), ((), _M_Test._t_RemoteCommunicatorPrx, False, 0), ())
+    RemoteCommunicatorFactory._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.RemoteCommunicatorFactory = RemoteCommunicatorFactory
     del RemoteCommunicatorFactory
@@ -280,7 +280,7 @@ if 'TestFacetPrx' not in _M_Test.__dict__:
     _M_Test._t_TestFacetDisp = IcePy.defineClass('::Test::TestFacet', TestFacet, (), None, ())
     TestFacet._ice_type = _M_Test._t_TestFacetDisp
 
-    TestFacet._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestFacet._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.TestFacet = TestFacet
     del TestFacet

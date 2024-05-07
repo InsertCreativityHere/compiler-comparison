@@ -66,6 +66,6 @@ namespace IceGrid
     $IceGrid__t_UserAccountMapperPrx = IcePHP_defineProxy('::IceGrid::UserAccountMapper', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($IceGrid__t_UserAccountMapperPrx, 'getUserAccount', 0, 0, 0, array(array($IcePHP__t_string)), null, array($IcePHP__t_string), array($IceGrid__t_UserAccountNotFoundException));
+    IcePHP_defineOperation($IceGrid__t_UserAccountMapperPrx, 'getUserAccount', 0, 0, array(array($IcePHP__t_string)), null, array($IcePHP__t_string), array($IceGrid__t_UserAccountNotFoundException));
 }
 ?>

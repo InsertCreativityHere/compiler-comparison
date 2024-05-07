@@ -56,6 +56,6 @@ module ::User
 
         T_RegistryPrx.defineProxy(RegistryPrx, nil, [])
 
-        RegistryPrx_mixin::OP_getUserInfo = ::Ice::__defineOperation('getUserInfo', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::User::T_UserInfo, false, 0], [::Core::T_ArgumentException])
+        RegistryPrx_mixin::OP_getUserInfo = ::Ice::__defineOperation('getUserInfo', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::User::T_UserInfo, false, 0], [::Core::T_ArgumentException])
     end
 end

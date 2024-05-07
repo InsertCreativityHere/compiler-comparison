@@ -101,8 +101,8 @@ namespace Test
     $Test__t_InitialPrx = IcePHP_defineProxy('::Test::Initial', $Ice__t_ObjectPrx, null);
 
     global $Test__t_ConcreteClass;
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getConcreteClass', 0, 0, 0, null, null, array($Test__t_ConcreteClass), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwException', 0, 0, 0, null, null, null, array($Test__t_E));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getConcreteClass', 0, 0, null, null, array($Test__t_ConcreteClass), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwException', 0, 0, null, null, null, array($Test__t_E));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 ?>

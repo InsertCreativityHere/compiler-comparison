@@ -118,7 +118,7 @@ module ::Await
 
         T_CasePrx.defineProxy(CasePrx, nil, [])
 
-        CasePrx_mixin::OP_catch = ::Ice::__defineOperation('catch', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        CasePrx_mixin::OP_catch = ::Ice::__defineOperation('catch', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
     if not defined?(::Await::Typeof_Mixin)
@@ -144,7 +144,7 @@ module ::Await
 
         T_TypeofPrx.defineProxy(TypeofPrx, nil, [])
 
-        TypeofPrx_mixin::OP_default = ::Ice::__defineOperation('default', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TypeofPrx_mixin::OP_default = ::Ice::__defineOperation('default', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
     if not defined?(::Await::Delete_Mixin)
@@ -266,10 +266,10 @@ module ::Await
 
         T_OptionalParamsPrx.defineProxy(OptionalParamsPrx, nil, [])
 
-        OptionalParamsPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, false, nil, [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, true, nil, [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, false, nil, [], [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, true, nil, [], [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
     end
 
     if not defined?(::Await::Fixed)
@@ -378,7 +378,7 @@ module ::Await
 
         T_ImplicitPrx.defineProxy(ImplicitPrx, nil, [])
 
-        ImplicitPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Await::T_Break, false, 0], [::Await::T_Delete, false, 0], [::Await::T_ExplicitPrx, false, 0], [::Await::T_CasePrx, false, 0], [::Await::T_TypeofPrx, false, 0], [::Await::T_Delete, false, 0], [::Await::T_ExplicitPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Await::T_Var, false, 0], [::Await::T_Fixed, ::Await::T_Foreach])
+        ImplicitPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, false, nil, [[::Await::T_Break, false, 0], [::Await::T_Delete, false, 0], [::Await::T_ExplicitPrx, false, 0], [::Await::T_CasePrx, false, 0], [::Await::T_TypeofPrx, false, 0], [::Await::T_Delete, false, 0], [::Await::T_ExplicitPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Await::T_Var, false, 0], [::Await::T_Fixed, ::Await::T_Foreach])
     end
 
     Protected = 0
@@ -410,7 +410,7 @@ module ::Await
 
             T_TestPrx.defineProxy(TestPrx, nil, [])
 
-            TestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+            TestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         end
     end
 end
@@ -440,6 +440,6 @@ module ::System
 
         T_TestPrx.defineProxy(TestPrx, nil, [])
 
-        TestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

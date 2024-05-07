@@ -41,6 +41,6 @@ module ::Test
 
         T_ClockPrx.defineProxy(ClockPrx, nil, [])
 
-        ClockPrx_mixin::OP_tick = ::Ice::__defineOperation('tick', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
+        ClockPrx_mixin::OP_tick = ::Ice::__defineOperation('tick', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
     end
 end

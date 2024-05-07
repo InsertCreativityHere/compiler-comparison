@@ -447,10 +447,10 @@ if 'elseifPrx' not in _M_classdef._break.__dict__:
     _M_classdef._break._t_elseifDisp = IcePy.defineClass('::classdef::break::elseif', elseif, (), None, ())
     elseif._ice_type = _M_classdef._break._t_elseifDisp
 
-    elseif._op_events = IcePy.Operation('events', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    elseif._op_function = IcePy.Operation('function', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    elseif._op_delete = IcePy.Operation('delete', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    elseif._op_checkedCast = IcePy.Operation('checkedCast', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    elseif._op_events = IcePy.Operation('events', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    elseif._op_function = IcePy.Operation('function', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    elseif._op_delete = IcePy.Operation('delete', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    elseif._op_checkedCast = IcePy.Operation('checkedCast', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_classdef._break.elseif = elseif
     del elseif

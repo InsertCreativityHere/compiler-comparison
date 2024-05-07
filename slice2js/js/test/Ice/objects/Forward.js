@@ -60,7 +60,7 @@
 
     Slice.defineOperations(Test.F2, Test.F2Prx, iceC_Test_F2_ids, "::Test::F2",
     {
-        "op": [, , , , , , , , , ]
+        "op": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

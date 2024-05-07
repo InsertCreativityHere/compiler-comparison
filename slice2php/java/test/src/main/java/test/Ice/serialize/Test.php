@@ -372,9 +372,9 @@ namespace Test
     $Test__t_InitialPrx = IcePHP_defineProxy('::Test::Initial', $Ice__t_ObjectPrx, null);
 
     global $Test__t_ByteS;
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getStruct1', 0, 0, 0, null, null, array($Test__t_ByteS), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getBase', 0, 0, 0, null, null, array($Test__t_ByteS), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getEx', 0, 0, 0, null, null, array($Test__t_ByteS), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getStruct1', 0, 0, null, null, array($Test__t_ByteS), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getBase', 0, 0, null, null, array($Test__t_ByteS), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getEx', 0, 0, null, null, array($Test__t_ByteS), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 ?>

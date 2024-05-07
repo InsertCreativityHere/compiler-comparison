@@ -39,8 +39,8 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "getReplicaId": [, , , , [7], , , , , ],
-        "getReplicaIdAndShutdown": [, , , , [7], , , , , ]
+        "getReplicaId": [, , , [7], , , , , ],
+        "getReplicaIdAndShutdown": [, , , [7], , , , , ]
     });
     exports.Test = Test;
 }

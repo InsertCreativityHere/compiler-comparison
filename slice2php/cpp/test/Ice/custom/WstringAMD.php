@@ -119,9 +119,9 @@ namespace Test1
 
     global $IcePHP__t_string;
     global $Test1__t_WstringStruct;
-    IcePHP_defineOperation($Test1__t_WstringClassPrx, 'opString', 0, 0, 0, array(array($IcePHP__t_string)), array(array($IcePHP__t_string)), array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test1__t_WstringClassPrx, 'opStruct', 0, 0, 0, array(array($Test1__t_WstringStruct)), array(array($Test1__t_WstringStruct)), array($Test1__t_WstringStruct), null);
-    IcePHP_defineOperation($Test1__t_WstringClassPrx, 'throwExcept', 0, 0, 0, array(array($IcePHP__t_string)), null, null, array($Test1__t_WstringException));
+    IcePHP_defineOperation($Test1__t_WstringClassPrx, 'opString', 0, 0, array(array($IcePHP__t_string)), array(array($IcePHP__t_string)), array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test1__t_WstringClassPrx, 'opStruct', 0, 0, array(array($Test1__t_WstringStruct)), array(array($Test1__t_WstringStruct)), array($Test1__t_WstringStruct), null);
+    IcePHP_defineOperation($Test1__t_WstringClassPrx, 'throwExcept', 0, 0, array(array($IcePHP__t_string)), null, null, array($Test1__t_WstringException));
 }
 
 namespace Test2
@@ -228,8 +228,8 @@ namespace Test2
 
     global $IcePHP__t_string;
     global $Test2__t_WstringStruct;
-    IcePHP_defineOperation($Test2__t_WstringClassPrx, 'opString', 0, 0, 0, array(array($IcePHP__t_string)), array(array($IcePHP__t_string)), array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test2__t_WstringClassPrx, 'opStruct', 0, 0, 0, array(array($Test2__t_WstringStruct)), array(array($Test2__t_WstringStruct)), array($Test2__t_WstringStruct), null);
-    IcePHP_defineOperation($Test2__t_WstringClassPrx, 'throwExcept', 0, 0, 0, array(array($IcePHP__t_string)), null, null, array($Test2__t_WstringException));
+    IcePHP_defineOperation($Test2__t_WstringClassPrx, 'opString', 0, 0, array(array($IcePHP__t_string)), array(array($IcePHP__t_string)), array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test2__t_WstringClassPrx, 'opStruct', 0, 0, array(array($Test2__t_WstringStruct)), array(array($Test2__t_WstringStruct)), array($Test2__t_WstringStruct), null);
+    IcePHP_defineOperation($Test2__t_WstringClassPrx, 'throwExcept', 0, 0, array(array($IcePHP__t_string)), null, null, array($Test2__t_WstringException));
 }
 ?>

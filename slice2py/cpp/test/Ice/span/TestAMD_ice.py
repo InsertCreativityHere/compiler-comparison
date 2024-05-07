@@ -135,13 +135,13 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_opByteSpan = IcePy.Operation('opByteSpan', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), ((), _M_Test._t_ByteSeq, False, 0), ())
-    TestIntf._op_opShortSpan = IcePy.Operation('opShortSpan', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ShortSeq, False, 0),), (((), _M_Test._t_ShortSeq, False, 0),), ((), _M_Test._t_ShortSeq, False, 0), ())
-    TestIntf._op_opStringSpan = IcePy.Operation('opStringSpan', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringSeq, False, 0),), (((), _M_Test._t_StringSeq, False, 0),), ((), _M_Test._t_StringSeq, False, 0), ())
-    TestIntf._op_opOptionalByteSpan = IcePy.Operation('opOptionalByteSpan', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteSeq, True, 1),), (((), _M_Test._t_ByteSeq, True, 11),), ((), _M_Test._t_ByteSeq, True, 10), ())
-    TestIntf._op_opOptionalShortSpan = IcePy.Operation('opOptionalShortSpan', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ShortSeq, True, 1),), (((), _M_Test._t_ShortSeq, True, 11),), ((), _M_Test._t_ShortSeq, True, 10), ())
-    TestIntf._op_opOptionalStringSpan = IcePy.Operation('opOptionalStringSpan', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringSeq, True, 1),), (((), _M_Test._t_StringSeq, True, 11),), ((), _M_Test._t_StringSeq, True, 10), ())
-    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())
+    TestIntf._op_opByteSpan = IcePy.Operation('opByteSpan', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), ((), _M_Test._t_ByteSeq, False, 0), ())
+    TestIntf._op_opShortSpan = IcePy.Operation('opShortSpan', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ShortSeq, False, 0),), (((), _M_Test._t_ShortSeq, False, 0),), ((), _M_Test._t_ShortSeq, False, 0), ())
+    TestIntf._op_opStringSpan = IcePy.Operation('opStringSpan', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringSeq, False, 0),), (((), _M_Test._t_StringSeq, False, 0),), ((), _M_Test._t_StringSeq, False, 0), ())
+    TestIntf._op_opOptionalByteSpan = IcePy.Operation('opOptionalByteSpan', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteSeq, True, 1),), (((), _M_Test._t_ByteSeq, True, 11),), ((), _M_Test._t_ByteSeq, True, 10), ())
+    TestIntf._op_opOptionalShortSpan = IcePy.Operation('opOptionalShortSpan', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ShortSeq, True, 1),), (((), _M_Test._t_ShortSeq, True, 11),), ((), _M_Test._t_ShortSeq, True, 10), ())
+    TestIntf._op_opOptionalStringSpan = IcePy.Operation('opOptionalStringSpan', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringSeq, True, 1),), (((), _M_Test._t_StringSeq, True, 11),), ((), _M_Test._t_StringSeq, True, 10), ())
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf

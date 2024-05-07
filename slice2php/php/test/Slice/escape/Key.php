@@ -101,7 +101,7 @@ namespace _and
     $and__t_breakPrx = IcePHP_defineProxy('::and::break', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($and__t_breakPrx, 'case', 0, 0, 0, array(array($IcePHP__t_int)), array(array($IcePHP__t_int)), null, null);
+    IcePHP_defineOperation($and__t_breakPrx, 'case', 0, 0, array(array($IcePHP__t_int)), array(array($IcePHP__t_int)), null, null);
 }
 
 namespace _and
@@ -131,7 +131,7 @@ namespace _and
     $and__t_functionPrx = IcePHP_defineProxy('::and::function', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($and__t_functionPrx, 'continue', 0, 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($and__t_functionPrx, 'continue', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, null);
 }
 
 namespace _and
@@ -160,7 +160,7 @@ namespace _and
     global $Ice__t_ObjectPrx;
     $and__t_diePrx = IcePHP_defineProxy('::and::die', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($and__t_diePrx, 'do', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($and__t_diePrx, 'do', 0, 0, null, null, null, null);
 }
 
 namespace _and
@@ -353,7 +353,7 @@ namespace _and
     global $and__t_enddeclarePrx;
     global $IcePHP__t_int;
     global $and__t_array;
-    IcePHP_defineOperation($and__t_forPrx, 'foreach', 0, 0, 0, array(array($and__t_breakPrx), array($and__t_echo), array($and__t_functionPrx), array($and__t_diePrx), array($and__t_enddeclarePrx), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($and__t_array), array($and__t_endif, $and__t_endwhile));
+    IcePHP_defineOperation($and__t_forPrx, 'foreach', 0, 0, array(array($and__t_breakPrx), array($and__t_echo), array($and__t_functionPrx), array($and__t_diePrx), array($and__t_enddeclarePrx), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($and__t_array), array($and__t_endif, $and__t_endwhile));
 }
 
 namespace _and

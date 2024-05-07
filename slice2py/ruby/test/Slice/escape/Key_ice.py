@@ -199,10 +199,10 @@ if 'breakPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN._t_breakDisp = IcePy.defineClass('::BEGIN::break', _break, (), None, ())
     _break._ice_type = _M_BEGIN._t_breakDisp
 
-    _break._op_case = IcePy.Operation('case', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
-    _break._op_to_a = IcePy.Operation('to_a', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    _break._op_instance_variable_set = IcePy.Operation('instance_variable_set', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    _break._op_instance_variables = IcePy.Operation('instance_variables', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _break._op_case = IcePy.Operation('case', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    _break._op_to_a = IcePy.Operation('to_a', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _break._op_instance_variable_set = IcePy.Operation('instance_variable_set', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    _break._op_instance_variables = IcePy.Operation('instance_variables', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_BEGIN._break = _break
     del _break
@@ -386,7 +386,7 @@ if 'extendPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN._t_extendDisp = IcePy.defineClass('::BEGIN::extend', extend, (), None, ())
     extend._ice_type = _M_BEGIN._t_extendDisp
 
-    extend._op_for = IcePy.Operation('for', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_BEGIN._t_display, False, 0), ((), _M_BEGIN._t_elsifPrx, False, 0), ((), _M_BEGIN._t_breakPrx, False, 0), ((), _M_BEGIN._t_display, False, 0), ((), _M_BEGIN._t_elsifPrx, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_BEGIN._t_END, False, 0), (_M_BEGIN._t_nil,))
+    extend._op_for = IcePy.Operation('for', Ice.OperationMode.Normal, False, None, (), (((), _M_BEGIN._t_display, False, 0), ((), _M_BEGIN._t_elsifPrx, False, 0), ((), _M_BEGIN._t_breakPrx, False, 0), ((), _M_BEGIN._t_display, False, 0), ((), _M_BEGIN._t_elsifPrx, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_BEGIN._t_END, False, 0), (_M_BEGIN._t_nil,))
 
     _M_BEGIN.extend = extend
     del extend

@@ -47,7 +47,7 @@ namespace Test
     $Test__t_TestLocatorRegistryPrx = IcePHP_defineProxy('::Test::TestLocatorRegistry', $Ice__t_ObjectPrx, array($Ice__t_LocatorRegistryPrx));
 
     global $Ice__t_ObjectPrx;
-    IcePHP_defineOperation($Test__t_TestLocatorRegistryPrx, 'addObject', 0, 0, 0, array(array($Ice__t_ObjectPrx)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestLocatorRegistryPrx, 'addObject', 0, 0, array(array($Ice__t_ObjectPrx)), null, null, null);
 }
 
 namespace Test
@@ -76,8 +76,8 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_ServerManagerPrx = IcePHP_defineProxy('::Test::ServerManager', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_ServerManagerPrx, 'startServer', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_ServerManagerPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ServerManagerPrx, 'startServer', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ServerManagerPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 
 namespace Test
@@ -106,7 +106,7 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_HelloPrx = IcePHP_defineProxy('::Test::Hello', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_HelloPrx, 'sayHello', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_HelloPrx, 'sayHello', 0, 0, null, null, null, null);
 }
 
 namespace Test
@@ -136,8 +136,8 @@ namespace Test
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
     global $Test__t_HelloPrx;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getHello', 0, 0, 0, null, null, array($Test__t_HelloPrx), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'migrateHello', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getHello', 0, 0, null, null, array($Test__t_HelloPrx), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'migrateHello', 0, 0, null, null, null, null);
 }
 ?>

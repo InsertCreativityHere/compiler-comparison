@@ -66,9 +66,9 @@ module ::Test
 
         T_HelloPrx.defineProxy(HelloPrx, nil, [])
 
-        HelloPrx_mixin::OP_sayHello = ::Ice::__defineOperation('sayHello', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        HelloPrx_mixin::OP_add = ::Ice::__defineOperation('add', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
-        HelloPrx_mixin::OP_raiseUE = ::Ice::__defineOperation('raiseUE', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_UE])
-        HelloPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        HelloPrx_mixin::OP_sayHello = ::Ice::__defineOperation('sayHello', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        HelloPrx_mixin::OP_add = ::Ice::__defineOperation('add', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
+        HelloPrx_mixin::OP_raiseUE = ::Ice::__defineOperation('raiseUE', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_UE])
+        HelloPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

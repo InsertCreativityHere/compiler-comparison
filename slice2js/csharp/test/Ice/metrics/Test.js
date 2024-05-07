@@ -64,18 +64,18 @@
 
     Slice.defineOperations(Test.Metrics, Test.MetricsPrx, iceC_Test_Metrics_ids, "::Test::Metrics",
     {
-        "op": [, , , , , , , , , ],
-        "fail": [, 2, 2, , , , , , , ],
-        "opWithUserException": [, , , , , , ,
+        "op": [, , , , , , , , ],
+        "fail": [, 2, , , , , , , ],
+        "opWithUserException": [, , , , , ,
         [
             Test.UserEx
         ], , ],
-        "opWithRequestFailedException": [, , , , , , , , , ],
-        "opWithLocalException": [, , , , , , , , , ],
-        "opWithUnknownException": [, , , , , , , , , ],
-        "opByteS": [, , , , , [["Test.ByteSeqHelper"]], , , , ],
-        "getAdmin": [, , , , [9], , , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "opWithRequestFailedException": [, , , , , , , , ],
+        "opWithLocalException": [, , , , , , , , ],
+        "opWithUnknownException": [, , , , , , , , ],
+        "opByteS": [, , , , [["Test.ByteSeqHelper"]], , , , ],
+        "getAdmin": [, , , [9], , , , , ],
+        "shutdown": [, , , , , , , , ]
     });
 
     const iceC_Test_Controller_ids = [
@@ -93,8 +93,8 @@
 
     Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, "::Test::Controller",
     {
-        "hold": [, , , , , , , , , ],
-        "resume": [, , , , , , , , , ]
+        "hold": [, , , , , , , , ],
+        "resume": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

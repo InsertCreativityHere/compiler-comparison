@@ -421,28 +421,28 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
     _M_Test._t_ThrowerDisp = IcePy.defineClass('::Test::Thrower', Thrower, (), None, ())
     Thrower._ice_type = _M_Test._t_ThrowerDisp
 
-    Thrower._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Thrower._op_supportsUndeclaredExceptions = IcePy.Operation('supportsUndeclaredExceptions', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    Thrower._op_supportsAssertException = IcePy.Operation('supportsAssertException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    Thrower._op_throwAasA = IcePy.Operation('throwAasA', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, (_M_Test._t_A,))
-    Thrower._op_throwAorDasAorD = IcePy.Operation('throwAorDasAorD', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, (_M_Test._t_A, _M_Test._t_D))
-    Thrower._op_throwBasA = IcePy.Operation('throwBasA', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test._t_A,))
-    Thrower._op_throwCasA = IcePy.Operation('throwCasA', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test._t_A,))
-    Thrower._op_throwBasB = IcePy.Operation('throwBasB', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test._t_B,))
-    Thrower._op_throwCasB = IcePy.Operation('throwCasB', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test._t_B,))
-    Thrower._op_throwCasC = IcePy.Operation('throwCasC', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test._t_C,))
-    Thrower._op_throwModA = IcePy.Operation('throwModA', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test.Mod._t_A,))
-    Thrower._op_throwUndeclaredA = IcePy.Operation('throwUndeclaredA', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-    Thrower._op_throwUndeclaredB = IcePy.Operation('throwUndeclaredB', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
-    Thrower._op_throwUndeclaredC = IcePy.Operation('throwUndeclaredC', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
-    Thrower._op_throwLocalException = IcePy.Operation('throwLocalException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Thrower._op_throwNonIceException = IcePy.Operation('throwNonIceException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Thrower._op_throwAssertException = IcePy.Operation('throwAssertException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Thrower._op_throwMemoryLimitException = IcePy.Operation('throwMemoryLimitException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), ((), _M_Ice._t_ByteSeq, False, 0), ())
-    Thrower._op_throwLocalExceptionIdempotent = IcePy.Operation('throwLocalExceptionIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
-    Thrower._op_throwAfterResponse = IcePy.Operation('throwAfterResponse', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Thrower._op_throwAfterException = IcePy.Operation('throwAfterException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_A,))
-    Thrower._op_throwMarshalException = IcePy.Operation('throwMarshalException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), IcePy._t_int, False, 0),), ((), IcePy._t_int, False, 0), ())
+    Thrower._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Thrower._op_supportsUndeclaredExceptions = IcePy.Operation('supportsUndeclaredExceptions', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Thrower._op_supportsAssertException = IcePy.Operation('supportsAssertException', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Thrower._op_throwAasA = IcePy.Operation('throwAasA', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, (_M_Test._t_A,))
+    Thrower._op_throwAorDasAorD = IcePy.Operation('throwAorDasAorD', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, (_M_Test._t_A, _M_Test._t_D))
+    Thrower._op_throwBasA = IcePy.Operation('throwBasA', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test._t_A,))
+    Thrower._op_throwCasA = IcePy.Operation('throwCasA', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test._t_A,))
+    Thrower._op_throwBasB = IcePy.Operation('throwBasB', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test._t_B,))
+    Thrower._op_throwCasB = IcePy.Operation('throwCasB', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test._t_B,))
+    Thrower._op_throwCasC = IcePy.Operation('throwCasC', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test._t_C,))
+    Thrower._op_throwModA = IcePy.Operation('throwModA', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Test.Mod._t_A,))
+    Thrower._op_throwUndeclaredA = IcePy.Operation('throwUndeclaredA', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    Thrower._op_throwUndeclaredB = IcePy.Operation('throwUndeclaredB', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    Thrower._op_throwUndeclaredC = IcePy.Operation('throwUndeclaredC', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    Thrower._op_throwLocalException = IcePy.Operation('throwLocalException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Thrower._op_throwNonIceException = IcePy.Operation('throwNonIceException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Thrower._op_throwAssertException = IcePy.Operation('throwAssertException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Thrower._op_throwMemoryLimitException = IcePy.Operation('throwMemoryLimitException', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), ((), _M_Ice._t_ByteSeq, False, 0), ())
+    Thrower._op_throwLocalExceptionIdempotent = IcePy.Operation('throwLocalExceptionIdempotent', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    Thrower._op_throwAfterResponse = IcePy.Operation('throwAfterResponse', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Thrower._op_throwAfterException = IcePy.Operation('throwAfterException', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_A,))
+    Thrower._op_throwMarshalException = IcePy.Operation('throwMarshalException', Ice.OperationMode.Normal, False, None, (), (), (((), IcePy._t_int, False, 0),), ((), IcePy._t_int, False, 0), ())
 
     _M_Test.Thrower = Thrower
     del Thrower
@@ -499,7 +499,7 @@ if 'WrongOperationPrx' not in _M_Test.__dict__:
     _M_Test._t_WrongOperationDisp = IcePy.defineClass('::Test::WrongOperation', WrongOperation, (), None, ())
     WrongOperation._ice_type = _M_Test._t_WrongOperationDisp
 
-    WrongOperation._op_noSuchOperation = IcePy.Operation('noSuchOperation', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    WrongOperation._op_noSuchOperation = IcePy.Operation('noSuchOperation', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.WrongOperation = WrongOperation
     del WrongOperation

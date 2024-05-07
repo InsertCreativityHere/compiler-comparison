@@ -74,8 +74,8 @@ Test.CallbackReceiverPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.CallbackReceiver, Test.CallbackReceiverPrx, iceC_Test_CallbackReceiver_ids, "::Test::CallbackReceiver",
 {
-    "callback": [, , , , , , , , , ],
-    "callbackEx": [, , , , , , ,
+    "callback": [, , , , , , , , ],
+    "callbackEx": [, , , , , ,
     [
         Test.CallbackException
     ], , ]
@@ -96,11 +96,11 @@ Test.CallbackPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Test.Callback, Test.CallbackPrx, iceC_Test_Callback_ids, "::Test::Callback",
 {
-    "initiateCallback": [, , , , , [["Test.CallbackReceiverPrx"]], , , , ],
-    "initiateCallbackEx": [, , , , , [["Test.CallbackReceiverPrx"]], ,
+    "initiateCallback": [, , , , [["Test.CallbackReceiverPrx"]], , , , ],
+    "initiateCallbackEx": [, , , , [["Test.CallbackReceiverPrx"]], ,
     [
         Test.CallbackException
     ], , ],
-    "shutdown": [, , , , , , , , , ]
+    "shutdown": [, , , , , , , , ]
 });
 export { Test };

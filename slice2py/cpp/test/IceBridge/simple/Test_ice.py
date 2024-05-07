@@ -99,10 +99,10 @@ if 'CallbackPrx' not in _M_Test.__dict__:
     _M_Test._t_CallbackDisp = IcePy.defineClass('::Test::Callback', Callback, (), None, ())
     Callback._ice_type = _M_Test._t_CallbackDisp
 
-    Callback._op_ping = IcePy.Operation('ping', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Callback._op_getCount = IcePy.Operation('getCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    Callback._op_datagram = IcePy.Operation('datagram', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Callback._op_getDatagramCount = IcePy.Operation('getDatagramCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    Callback._op_ping = IcePy.Operation('ping', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Callback._op_getCount = IcePy.Operation('getCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    Callback._op_datagram = IcePy.Operation('datagram', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Callback._op_getDatagramCount = IcePy.Operation('getDatagramCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 
     _M_Test.Callback = Callback
     del Callback
@@ -267,19 +267,19 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
     MyClass._ice_type = _M_Test._t_MyClassDisp
 
-    MyClass._op_callCallback = IcePy.Operation('callCallback', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())
-    MyClass._op_getCallbackCount = IcePy.Operation('getCallbackCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    MyClass._op_incCounter = IcePy.Operation('incCounter', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-    MyClass._op_waitCounter = IcePy.Operation('waitCounter', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-    MyClass._op_getConnectionCount = IcePy.Operation('getConnectionCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    MyClass._op_getConnectionInfo = IcePy.Operation('getConnectionInfo', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
-    MyClass._op_closeConnection = IcePy.Operation('closeConnection', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
-    MyClass._op_datagram = IcePy.Operation('datagram', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    MyClass._op_getDatagramCount = IcePy.Operation('getDatagramCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    MyClass._op_callDatagramCallback = IcePy.Operation('callDatagramCallback', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    MyClass._op_getCallbackDatagramCount = IcePy.Operation('getCallbackDatagramCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    MyClass._op_getHeartbeatCount = IcePy.Operation('getHeartbeatCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    MyClass._op_callCallback = IcePy.Operation('callCallback', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
+    MyClass._op_getCallbackCount = IcePy.Operation('getCallbackCount', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    MyClass._op_incCounter = IcePy.Operation('incCounter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    MyClass._op_waitCounter = IcePy.Operation('waitCounter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    MyClass._op_getConnectionCount = IcePy.Operation('getConnectionCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    MyClass._op_getConnectionInfo = IcePy.Operation('getConnectionInfo', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    MyClass._op_closeConnection = IcePy.Operation('closeConnection', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
+    MyClass._op_datagram = IcePy.Operation('datagram', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    MyClass._op_getDatagramCount = IcePy.Operation('getDatagramCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    MyClass._op_callDatagramCallback = IcePy.Operation('callDatagramCallback', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    MyClass._op_getCallbackDatagramCount = IcePy.Operation('getCallbackDatagramCount', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    MyClass._op_getHeartbeatCount = IcePy.Operation('getHeartbeatCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.MyClass = MyClass
     del MyClass

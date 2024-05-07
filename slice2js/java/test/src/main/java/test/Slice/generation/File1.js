@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.Interface1, Test.Interface1Prx, iceC_Test_Interface1_ids, "::Test::Interface1",
     {
-        "method": [, , , , , , , , , ]
+        "method": [, , , , , , , , ]
     });
 
     let Test2 = _ModuleRegistry.module("Test2");

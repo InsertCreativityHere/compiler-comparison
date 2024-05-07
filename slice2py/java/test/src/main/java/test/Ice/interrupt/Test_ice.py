@@ -131,11 +131,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
-    TestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, (_M_Test._t_InterruptedException,))
-    TestIntf._op_opWithPayload = IcePy.Operation('opWithPayload', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), None, ())
-    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    TestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, (_M_Test._t_InterruptedException,))
+    TestIntf._op_opWithPayload = IcePy.Operation('opWithPayload', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), None, ())
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf
@@ -229,9 +229,9 @@ if 'TestIntfControllerPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfControllerDisp = IcePy.defineClass('::Test::TestIntfController', TestIntfController, (), None, ())
     TestIntfController._ice_type = _M_Test._t_TestIntfControllerDisp
 
-    TestIntfController._op_holdAdapter = IcePy.Operation('holdAdapter', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntfController._op_resumeAdapter = IcePy.Operation('resumeAdapter', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntfController._op_interrupt = IcePy.Operation('interrupt', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_CannotInterruptException,))
+    TestIntfController._op_holdAdapter = IcePy.Operation('holdAdapter', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntfController._op_resumeAdapter = IcePy.Operation('resumeAdapter', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntfController._op_interrupt = IcePy.Operation('interrupt', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_CannotInterruptException,))
 
     _M_Test.TestIntfController = TestIntfController
     del TestIntfController

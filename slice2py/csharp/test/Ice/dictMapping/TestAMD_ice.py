@@ -180,15 +180,15 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
     MyClass._ice_type = _M_Test._t_MyClassDisp
 
-    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())
-    MyClass._op_opNV = IcePy.Operation('opNV', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NV, False, 0),), (((), _M_Test._t_NV, False, 0),), ((), _M_Test._t_NV, False, 0), ())
-    MyClass._op_opNR = IcePy.Operation('opNR', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NR, False, 0),), (((), _M_Test._t_NR, False, 0),), ((), _M_Test._t_NR, False, 0), ())
-    MyClass._op_opNDV = IcePy.Operation('opNDV', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDV, False, 0),), (((), _M_Test._t_NDV, False, 0),), ((), _M_Test._t_NDV, False, 0), ())
-    MyClass._op_opNDR = IcePy.Operation('opNDR', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDR, False, 0),), (((), _M_Test._t_NDR, False, 0),), ((), _M_Test._t_NDR, False, 0), ())
-    MyClass._op_opNDAIS = IcePy.Operation('opNDAIS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDAIS, False, 0),), (((), _M_Test._t_NDAIS, False, 0),), ((), _M_Test._t_NDAIS, False, 0), ())
-    MyClass._op_opNDGIS = IcePy.Operation('opNDGIS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDGIS, False, 0),), (((), _M_Test._t_NDGIS, False, 0),), ((), _M_Test._t_NDGIS, False, 0), ())
-    MyClass._op_opNDASS = IcePy.Operation('opNDASS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDASS, False, 0),), (((), _M_Test._t_NDASS, False, 0),), ((), _M_Test._t_NDASS, False, 0), ())
-    MyClass._op_opNDGSS = IcePy.Operation('opNDGSS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDGSS, False, 0),), (((), _M_Test._t_NDGSS, False, 0),), ((), _M_Test._t_NDGSS, False, 0), ())
+    MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
+    MyClass._op_opNV = IcePy.Operation('opNV', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NV, False, 0),), (((), _M_Test._t_NV, False, 0),), ((), _M_Test._t_NV, False, 0), ())
+    MyClass._op_opNR = IcePy.Operation('opNR', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NR, False, 0),), (((), _M_Test._t_NR, False, 0),), ((), _M_Test._t_NR, False, 0), ())
+    MyClass._op_opNDV = IcePy.Operation('opNDV', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDV, False, 0),), (((), _M_Test._t_NDV, False, 0),), ((), _M_Test._t_NDV, False, 0), ())
+    MyClass._op_opNDR = IcePy.Operation('opNDR', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDR, False, 0),), (((), _M_Test._t_NDR, False, 0),), ((), _M_Test._t_NDR, False, 0), ())
+    MyClass._op_opNDAIS = IcePy.Operation('opNDAIS', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDAIS, False, 0),), (((), _M_Test._t_NDAIS, False, 0),), ((), _M_Test._t_NDAIS, False, 0), ())
+    MyClass._op_opNDGIS = IcePy.Operation('opNDGIS', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDGIS, False, 0),), (((), _M_Test._t_NDGIS, False, 0),), ((), _M_Test._t_NDGIS, False, 0), ())
+    MyClass._op_opNDASS = IcePy.Operation('opNDASS', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDASS, False, 0),), (((), _M_Test._t_NDASS, False, 0),), ((), _M_Test._t_NDASS, False, 0), ())
+    MyClass._op_opNDGSS = IcePy.Operation('opNDGSS', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_NDGSS, False, 0),), (((), _M_Test._t_NDGSS, False, 0),), ((), _M_Test._t_NDGSS, False, 0), ())
 
     _M_Test.MyClass = MyClass
     del MyClass

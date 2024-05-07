@@ -50,7 +50,7 @@ namespace Test
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_Initial2Prx, 'opClassAndUnknownOptional', 0, 0, 0, array(array($Test__t_A), array($Ice__t_Value, 1)), null, null, null);
-    IcePHP_defineOperation($Test__t_Initial2Prx, 'opVoid', 0, 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, null);
+    IcePHP_defineOperation($Test__t_Initial2Prx, 'opClassAndUnknownOptional', 0, 0, array(array($Test__t_A), array($Ice__t_Value, 1)), null, null, null);
+    IcePHP_defineOperation($Test__t_Initial2Prx, 'opVoid', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, null);
 }
 ?>

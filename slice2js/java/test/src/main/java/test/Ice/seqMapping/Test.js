@@ -45,10 +45,10 @@
 
     Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
     {
-        "shutdown": [, , , , , , , , , ],
-        "opSerialSmallJava": [, , , , ["Test.SerialSmallHelper"], [["Test.SerialSmallHelper"]], [["Test.SerialSmallHelper"]], , , ],
-        "opSerialLargeJava": [, , , , ["Test.SerialLargeHelper"], [["Test.SerialLargeHelper"]], [["Test.SerialLargeHelper"]], , , ],
-        "opSerialStructJava": [, , , , ["Test.SerialStructHelper"], [["Test.SerialStructHelper"]], [["Test.SerialStructHelper"]], , , ]
+        "shutdown": [, , , , , , , , ],
+        "opSerialSmallJava": [, , , ["Test.SerialSmallHelper"], [["Test.SerialSmallHelper"]], [["Test.SerialSmallHelper"]], , , ],
+        "opSerialLargeJava": [, , , ["Test.SerialLargeHelper"], [["Test.SerialLargeHelper"]], [["Test.SerialLargeHelper"]], , , ],
+        "opSerialStructJava": [, , , ["Test.SerialStructHelper"], [["Test.SerialStructHelper"]], [["Test.SerialStructHelper"]], , , ]
     });
 
     Slice.defineSequence(Test, "SLSHelper", "Test.SerialLargeHelper", false);

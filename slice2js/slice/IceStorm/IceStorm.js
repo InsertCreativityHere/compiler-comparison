@@ -271,27 +271,27 @@ IceStorm.TopicPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceStorm.Topic, IceStorm.TopicPrx, iceC_IceStorm_Topic_ids, "::IceStorm::Topic",
 {
-    "getName": [, 2, 2, , [7], , , , , ],
-    "getPublisher": [, 2, 2, , [9], , , , , ],
-    "getNonReplicatedPublisher": [, 2, 2, , [9], , , , , ],
-    "subscribeAndGetPublisher": [, , , , [9], [["IceStorm.QoSHelper"], [9]], ,
+    "getName": [, 2, , [7], , , , , ],
+    "getPublisher": [, 2, , [9], , , , , ],
+    "getNonReplicatedPublisher": [, 2, , [9], , , , , ],
+    "subscribeAndGetPublisher": [, , , [9], [["IceStorm.QoSHelper"], [9]], ,
     [
         IceStorm.AlreadySubscribed,
         IceStorm.InvalidSubscriber,
         IceStorm.BadQoS
     ], , ],
-    "unsubscribe": [, 2, 2, , , [[9]], , , , ],
-    "link": [, , , , , [["IceStorm.TopicPrx"], [3]], ,
+    "unsubscribe": [, 2, , , [[9]], , , , ],
+    "link": [, , , , [["IceStorm.TopicPrx"], [3]], ,
     [
         IceStorm.LinkExists
     ], , ],
-    "unlink": [, , , , , [["IceStorm.TopicPrx"]], ,
+    "unlink": [, , , , [["IceStorm.TopicPrx"]], ,
     [
         IceStorm.NoSuchLink
     ], , ],
-    "getLinkInfoSeq": [, 2, 2, , ["IceStorm.LinkInfoSeqHelper"], , , , , ],
-    "getSubscribers": [, , , , ["Ice.IdentitySeqHelper"], , , , , ],
-    "destroy": [, , , , , , , , , ]
+    "getLinkInfoSeq": [, 2, , ["IceStorm.LinkInfoSeqHelper"], , , , , ],
+    "getSubscribers": [, , , ["Ice.IdentitySeqHelper"], , , , , ],
+    "destroy": [, , , , , , , , ]
 });
 
 Slice.defineDictionary(IceStorm, "TopicDict", "TopicDictHelper", "Ice.StringHelper", "IceStorm.TopicPrx", false, undefined, undefined);
@@ -389,15 +389,15 @@ IceStorm.TopicManagerPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceStorm.TopicManager, IceStorm.TopicManagerPrx, iceC_IceStorm_TopicManager_ids, "::IceStorm::TopicManager",
 {
-    "create": [, , , , ["IceStorm.TopicPrx"], [[7]], ,
+    "create": [, , , ["IceStorm.TopicPrx"], [[7]], ,
     [
         IceStorm.TopicExists
     ], , ],
-    "retrieve": [, 2, 2, , ["IceStorm.TopicPrx"], [[7]], ,
+    "retrieve": [, 2, , ["IceStorm.TopicPrx"], [[7]], ,
     [
         IceStorm.NoSuchTopic
     ], , ],
-    "retrieveAll": [, 2, 2, , ["IceStorm.TopicDictHelper"], , , , , ]
+    "retrieveAll": [, 2, , ["IceStorm.TopicDictHelper"], , , , , ]
 });
 
 const iceC_IceStorm_Finder_ids = [
@@ -419,7 +419,7 @@ IceStorm.FinderPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceStorm.Finder, IceStorm.FinderPrx, iceC_IceStorm_Finder_ids, "::IceStorm::Finder",
 {
-    "getTopicManager": [, , , , ["IceStorm.TopicManagerPrx"], , , , , ]
+    "getTopicManager": [, , , ["IceStorm.TopicManagerPrx"], , , , , ]
 });
 /* slice2js browser-bundle-skip */
 exports.IceStorm = IceStorm;

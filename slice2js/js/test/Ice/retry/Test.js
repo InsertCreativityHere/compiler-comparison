@@ -39,11 +39,11 @@
 
     Slice.defineOperations(Test.Retry, Test.RetryPrx, iceC_Test_Retry_ids, "::Test::Retry",
     {
-        "op": [, , , , , [[1]], , , , ],
-        "opIdempotent": [, 2, 2, , [3], [[3]], , , , ],
-        "opNotIdempotent": [, , , , , , , , , ],
-        "opSystemException": [, , , , , , , , , ],
-        "shutdown": [, 2, 2, , , , , , , ]
+        "op": [, , , , [[1]], , , , ],
+        "opIdempotent": [, 2, , [3], [[3]], , , , ],
+        "opNotIdempotent": [, , , , , , , , ],
+        "opSystemException": [, , , , , , , , ],
+        "shutdown": [, 2, , , , , , , ]
     });
     exports.Test = Test;
 }

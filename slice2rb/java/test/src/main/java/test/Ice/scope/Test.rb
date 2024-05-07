@@ -306,16 +306,16 @@ module ::Test
 
         T_IPrx.defineProxy(IPrx, nil, [])
 
-        IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S, false, 0]], [[::Test::T_S, false, 0]], [::Test::T_S, false, 0], [])
-        IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SSeq, false, 0]], [[::Test::T_SSeq, false, 0]], [::Test::T_SSeq, false, 0], [])
-        IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SMap, false, 0]], [[::Test::T_SMap, false, 0]], [::Test::T_SMap, false, 0], [])
-        IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_C, false, 0]], [[::Test::T_C, false, 0]], [::Test::T_C, false, 0], [])
-        IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CSeq, false, 0]], [[::Test::T_CSeq, false, 0]], [::Test::T_CSeq, false, 0], [])
-        IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CMap, false, 0]], [[::Test::T_CMap, false, 0]], [::Test::T_CMap, false, 0], [])
-        IPrx_mixin::OP_opE1 = ::Ice::__defineOperation('opE1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_E1, false, 0]], [], [::Test::T_E1, false, 0], [])
-        IPrx_mixin::OP_opS1 = ::Ice::__defineOperation('opS1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S1, false, 0]], [], [::Test::T_S1, false, 0], [])
-        IPrx_mixin::OP_opC1 = ::Ice::__defineOperation('opC1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_C1, false, 0]], [], [::Test::T_C1, false, 0], [])
-        IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S, false, 0]], [[::Test::T_S, false, 0]], [::Test::T_S, false, 0], [])
+        IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SSeq, false, 0]], [[::Test::T_SSeq, false, 0]], [::Test::T_SSeq, false, 0], [])
+        IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SMap, false, 0]], [[::Test::T_SMap, false, 0]], [::Test::T_SMap, false, 0], [])
+        IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_C, false, 0]], [[::Test::T_C, false, 0]], [::Test::T_C, false, 0], [])
+        IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CSeq, false, 0]], [[::Test::T_CSeq, false, 0]], [::Test::T_CSeq, false, 0], [])
+        IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CMap, false, 0]], [[::Test::T_CMap, false, 0]], [::Test::T_CMap, false, 0], [])
+        IPrx_mixin::OP_opE1 = ::Ice::__defineOperation('opE1', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_E1, false, 0]], [], [::Test::T_E1, false, 0], [])
+        IPrx_mixin::OP_opS1 = ::Ice::__defineOperation('opS1', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S1, false, 0]], [], [::Test::T_S1, false, 0], [])
+        IPrx_mixin::OP_opC1 = ::Ice::__defineOperation('opC1', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_C1, false, 0]], [], [::Test::T_C1, false, 0], [])
+        IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::T_IMap)
@@ -471,13 +471,13 @@ module ::Test
 
                 T_IPrx.defineProxy(IPrx, nil, [])
 
-                IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_S, false, 0]], [[::Test::Inner::Inner2::T_S, false, 0]], [::Test::Inner::Inner2::T_S, false, 0], [])
-                IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SSeq, false, 0]], [[::Test::Inner::Inner2::T_SSeq, false, 0]], [::Test::Inner::Inner2::T_SSeq, false, 0], [])
-                IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SMap, false, 0]], [[::Test::Inner::Inner2::T_SMap, false, 0]], [::Test::Inner::Inner2::T_SMap, false, 0], [])
-                IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_C, false, 0]], [[::Test::Inner::Inner2::T_C, false, 0]], [::Test::Inner::Inner2::T_C, false, 0], [])
-                IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CSeq, false, 0]], [[::Test::Inner::Inner2::T_CSeq, false, 0]], [::Test::Inner::Inner2::T_CSeq, false, 0], [])
-                IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CMap, false, 0]], [[::Test::Inner::Inner2::T_CMap, false, 0]], [::Test::Inner::Inner2::T_CMap, false, 0], [])
-                IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+                IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_S, false, 0]], [[::Test::Inner::Inner2::T_S, false, 0]], [::Test::Inner::Inner2::T_S, false, 0], [])
+                IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SSeq, false, 0]], [[::Test::Inner::Inner2::T_SSeq, false, 0]], [::Test::Inner::Inner2::T_SSeq, false, 0], [])
+                IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SMap, false, 0]], [[::Test::Inner::Inner2::T_SMap, false, 0]], [::Test::Inner::Inner2::T_SMap, false, 0], [])
+                IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_C, false, 0]], [[::Test::Inner::Inner2::T_C, false, 0]], [::Test::Inner::Inner2::T_C, false, 0], [])
+                IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CSeq, false, 0]], [[::Test::Inner::Inner2::T_CSeq, false, 0]], [::Test::Inner::Inner2::T_CSeq, false, 0], [])
+                IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CMap, false, 0]], [[::Test::Inner::Inner2::T_CMap, false, 0]], [::Test::Inner::Inner2::T_CMap, false, 0], [])
+                IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
             end
 
             if not defined?(::Test::Inner::Inner2::T_IMap)
@@ -572,13 +572,13 @@ module ::Test
 
             T_IPrx.defineProxy(IPrx, nil, [])
 
-            IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_S, false, 0]], [[::Test::Inner::Inner2::T_S, false, 0]], [::Test::Inner::Inner2::T_S, false, 0], [])
-            IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SSeq, false, 0]], [[::Test::Inner::Inner2::T_SSeq, false, 0]], [::Test::Inner::Inner2::T_SSeq, false, 0], [])
-            IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SMap, false, 0]], [[::Test::Inner::Inner2::T_SMap, false, 0]], [::Test::Inner::Inner2::T_SMap, false, 0], [])
-            IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_C, false, 0]], [[::Test::Inner::Inner2::T_C, false, 0]], [::Test::Inner::Inner2::T_C, false, 0], [])
-            IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CSeq, false, 0]], [[::Test::Inner::Inner2::T_CSeq, false, 0]], [::Test::Inner::Inner2::T_CSeq, false, 0], [])
-            IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CMap, false, 0]], [[::Test::Inner::Inner2::T_CMap, false, 0]], [::Test::Inner::Inner2::T_CMap, false, 0], [])
-            IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+            IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_S, false, 0]], [[::Test::Inner::Inner2::T_S, false, 0]], [::Test::Inner::Inner2::T_S, false, 0], [])
+            IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SSeq, false, 0]], [[::Test::Inner::Inner2::T_SSeq, false, 0]], [::Test::Inner::Inner2::T_SSeq, false, 0], [])
+            IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SMap, false, 0]], [[::Test::Inner::Inner2::T_SMap, false, 0]], [::Test::Inner::Inner2::T_SMap, false, 0], [])
+            IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_C, false, 0]], [[::Test::Inner::Inner2::T_C, false, 0]], [::Test::Inner::Inner2::T_C, false, 0], [])
+            IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CSeq, false, 0]], [[::Test::Inner::Inner2::T_CSeq, false, 0]], [::Test::Inner::Inner2::T_CSeq, false, 0], [])
+            IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CMap, false, 0]], [[::Test::Inner::Inner2::T_CMap, false, 0]], [::Test::Inner::Inner2::T_CMap, false, 0], [])
+            IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         end
 
         if not defined?(::Test::Inner::T_IMap)
@@ -644,13 +644,13 @@ module ::Inner
 
                 T_IPrx.defineProxy(IPrx, nil, [])
 
-                IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S, false, 0]], [[::Test::T_S, false, 0]], [::Test::T_S, false, 0], [])
-                IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SSeq, false, 0]], [[::Test::T_SSeq, false, 0]], [::Test::T_SSeq, false, 0], [])
-                IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SMap, false, 0]], [[::Test::T_SMap, false, 0]], [::Test::T_SMap, false, 0], [])
-                IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_C, false, 0]], [[::Test::T_C, false, 0]], [::Test::T_C, false, 0], [])
-                IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CSeq, false, 0]], [[::Test::T_CSeq, false, 0]], [::Test::T_CSeq, false, 0], [])
-                IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CMap, false, 0]], [[::Test::T_CMap, false, 0]], [::Test::T_CMap, false, 0], [])
-                IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+                IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S, false, 0]], [[::Test::T_S, false, 0]], [::Test::T_S, false, 0], [])
+                IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SSeq, false, 0]], [[::Test::T_SSeq, false, 0]], [::Test::T_SSeq, false, 0], [])
+                IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SMap, false, 0]], [[::Test::T_SMap, false, 0]], [::Test::T_SMap, false, 0], [])
+                IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_C, false, 0]], [[::Test::T_C, false, 0]], [::Test::T_C, false, 0], [])
+                IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CSeq, false, 0]], [[::Test::T_CSeq, false, 0]], [::Test::T_CSeq, false, 0], [])
+                IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CMap, false, 0]], [[::Test::T_CMap, false, 0]], [::Test::T_CMap, false, 0], [])
+                IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
             end
         end
     end

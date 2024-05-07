@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.Backend, Test.BackendPrx, iceC_Test_Backend_ids, "::Test::Backend",
     {
-        "shutdown": [, , , , , , , , , ]
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

@@ -190,44 +190,44 @@
 
     Slice.defineOperations(Test.Thrower, Test.ThrowerPrx, iceC_Test_Thrower_ids, "::Test::Thrower",
     {
-        "shutdown": [, , , , , , , , , ],
-        "supportsUndeclaredExceptions": [, , , , [1], , , , , ],
-        "throwAasA": [, , , , , [[3]], ,
+        "shutdown": [, , , , , , , , ],
+        "supportsUndeclaredExceptions": [, , , [1], , , , , ],
+        "throwAasA": [, , , , [[3]], ,
         [
             Test.A
         ], , ],
-        "throwAorDasAorD": [, , , , , [[3]], ,
+        "throwAorDasAorD": [, , , , [[3]], ,
         [
             Test.A,
             Test.D
         ], , ],
-        "throwBasA": [, , , , , [[3], [3]], ,
+        "throwBasA": [, , , , [[3], [3]], ,
         [
             Test.A
         ], , ],
-        "throwCasA": [, , , , , [[3], [3], [3]], ,
+        "throwCasA": [, , , , [[3], [3], [3]], ,
         [
             Test.A
         ], , ],
-        "throwBasB": [, , , , , [[3], [3]], ,
+        "throwBasB": [, , , , [[3], [3]], ,
         [
             Test.B
         ], , ],
-        "throwCasB": [, , , , , [[3], [3], [3]], ,
+        "throwCasB": [, , , , [[3], [3], [3]], ,
         [
             Test.B
         ], , ],
-        "throwCasC": [, , , , , [[3], [3], [3]], ,
+        "throwCasC": [, , , , [[3], [3], [3]], ,
         [
             Test.C
         ], , ],
-        "throwUndeclaredA": [, , , , , [[3]], , , , ],
-        "throwUndeclaredB": [, , , , , [[3], [3]], , , , ],
-        "throwUndeclaredC": [, , , , , [[3], [3], [3]], , , , ],
-        "throwLocalException": [, , , , , , , , , ],
-        "throwNonIceException": [, , , , , , , , , ],
-        "throwMemoryLimitException": [, , , , ["Ice.ByteSeqHelper"], [["Ice.ByteSeqHelper"]], , , , ],
-        "throwLocalExceptionIdempotent": [, 2, 2, , , , , , , ]
+        "throwUndeclaredA": [, , , , [[3]], , , , ],
+        "throwUndeclaredB": [, , , , [[3], [3]], , , , ],
+        "throwUndeclaredC": [, , , , [[3], [3], [3]], , , , ],
+        "throwLocalException": [, , , , , , , , ],
+        "throwNonIceException": [, , , , , , , , ],
+        "throwMemoryLimitException": [, , , ["Ice.ByteSeqHelper"], [["Ice.ByteSeqHelper"]], , , , ],
+        "throwLocalExceptionIdempotent": [, 2, , , , , , , ]
     });
 
     const iceC_Test_WrongOperation_ids = [
@@ -245,7 +245,7 @@
 
     Slice.defineOperations(Test.WrongOperation, Test.WrongOperationPrx, iceC_Test_WrongOperation_ids, "::Test::WrongOperation",
     {
-        "noSuchOperation": [, , , , , , , , , ]
+        "noSuchOperation": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

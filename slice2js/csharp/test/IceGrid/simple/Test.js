@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "shutdown": [, , , , , , , , , ]
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

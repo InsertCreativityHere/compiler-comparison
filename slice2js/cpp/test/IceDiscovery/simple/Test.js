@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "getAdapterId": [, , , , [7], , , , , ]
+        "getAdapterId": [, , , [7], , , , , ]
     });
 
     const iceC_Test_Controller_ids = [
@@ -57,11 +57,11 @@
 
     Slice.defineOperations(Test.Controller, Test.ControllerPrx, iceC_Test_Controller_ids, "::Test::Controller",
     {
-        "activateObjectAdapter": [, , , , , [[7], [7], [7]], , , , ],
-        "deactivateObjectAdapter": [, , , , , [[7]], , , , ],
-        "addObject": [, , , , , [[7], [7]], , , , ],
-        "removeObject": [, , , , , [[7], [7]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "activateObjectAdapter": [, , , , [[7], [7], [7]], , , , ],
+        "deactivateObjectAdapter": [, , , , [[7]], , , , ],
+        "addObject": [, , , , [[7], [7]], , , , ],
+        "removeObject": [, , , , [[7], [7]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

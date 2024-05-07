@@ -39,9 +39,9 @@
 
     Slice.defineOperations(Test.Background, Test.BackgroundPrx, iceC_Test_Background_ids, "::Test::Background",
     {
-        "op": [, , , , , , , , , ],
-        "opWithPayload": [, , , , , [["Ice.ByteSeqHelper"]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "op": [, , , , , , , , ],
+        "opWithPayload": [, , , , [["Ice.ByteSeqHelper"]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
 
     const iceC_Test_BackgroundController_ids = [
@@ -59,16 +59,16 @@
 
     Slice.defineOperations(Test.BackgroundController, Test.BackgroundControllerPrx, iceC_Test_BackgroundController_ids, "::Test::BackgroundController",
     {
-        "pauseCall": [, , , , , [[7]], , , , ],
-        "resumeCall": [, , , , , [[7]], , , , ],
-        "holdAdapter": [, , , , , , , , , ],
-        "resumeAdapter": [, , , , , , , , , ],
-        "initializeException": [, , , , , [[1]], , , , ],
-        "readReady": [, , , , , [[1]], , , , ],
-        "readException": [, , , , , [[1]], , , , ],
-        "writeReady": [, , , , , [[1]], , , , ],
-        "writeException": [, , , , , [[1]], , , , ],
-        "buffered": [, , , , , [[1]], , , , ]
+        "pauseCall": [, , , , [[7]], , , , ],
+        "resumeCall": [, , , , [[7]], , , , ],
+        "holdAdapter": [, , , , , , , , ],
+        "resumeAdapter": [, , , , , , , , ],
+        "initializeException": [, , , , [[1]], , , , ],
+        "readReady": [, , , , [[1]], , , , ],
+        "readException": [, , , , [[1]], , , , ],
+        "writeReady": [, , , , [[1]], , , , ],
+        "writeException": [, , , , [[1]], , , , ],
+        "buffered": [, , , , [[1]], , , , ]
     });
     exports.Test = Test;
 }

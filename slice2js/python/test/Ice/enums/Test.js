@@ -97,15 +97,15 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "opByte": [, , , , [Test.ByteEnum._helper], [[Test.ByteEnum._helper]], [[Test.ByteEnum._helper]], , , ],
-        "opShort": [, , , , [Test.ShortEnum._helper], [[Test.ShortEnum._helper]], [[Test.ShortEnum._helper]], , , ],
-        "opInt": [, , , , [Test.IntEnum._helper], [[Test.IntEnum._helper]], [[Test.IntEnum._helper]], , , ],
-        "opSimple": [, , , , [Test.SimpleEnum._helper], [[Test.SimpleEnum._helper]], [[Test.SimpleEnum._helper]], , , ],
-        "opByteSeq": [, , , , ["Test.ByteEnumSeqHelper"], [["Test.ByteEnumSeqHelper"]], [["Test.ByteEnumSeqHelper"]], , , ],
-        "opShortSeq": [, , , , ["Test.ShortEnumSeqHelper"], [["Test.ShortEnumSeqHelper"]], [["Test.ShortEnumSeqHelper"]], , , ],
-        "opIntSeq": [, , , , ["Test.IntEnumSeqHelper"], [["Test.IntEnumSeqHelper"]], [["Test.IntEnumSeqHelper"]], , , ],
-        "opSimpleSeq": [, , , , ["Test.SimpleEnumSeqHelper"], [["Test.SimpleEnumSeqHelper"]], [["Test.SimpleEnumSeqHelper"]], , , ],
-        "shutdown": [, , , , , , , , , ]
+        "opByte": [, , , [Test.ByteEnum._helper], [[Test.ByteEnum._helper]], [[Test.ByteEnum._helper]], , , ],
+        "opShort": [, , , [Test.ShortEnum._helper], [[Test.ShortEnum._helper]], [[Test.ShortEnum._helper]], , , ],
+        "opInt": [, , , [Test.IntEnum._helper], [[Test.IntEnum._helper]], [[Test.IntEnum._helper]], , , ],
+        "opSimple": [, , , [Test.SimpleEnum._helper], [[Test.SimpleEnum._helper]], [[Test.SimpleEnum._helper]], , , ],
+        "opByteSeq": [, , , ["Test.ByteEnumSeqHelper"], [["Test.ByteEnumSeqHelper"]], [["Test.ByteEnumSeqHelper"]], , , ],
+        "opShortSeq": [, , , ["Test.ShortEnumSeqHelper"], [["Test.ShortEnumSeqHelper"]], [["Test.ShortEnumSeqHelper"]], , , ],
+        "opIntSeq": [, , , ["Test.IntEnumSeqHelper"], [["Test.IntEnumSeqHelper"]], [["Test.IntEnumSeqHelper"]], , , ],
+        "opSimpleSeq": [, , , ["Test.SimpleEnumSeqHelper"], [["Test.SimpleEnumSeqHelper"]], [["Test.SimpleEnumSeqHelper"]], , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

@@ -57,10 +57,10 @@ module ::Test
 
         T_HoldPrx.defineProxy(HoldPrx, nil, [])
 
-        HoldPrx_mixin::OP_putOnHold = ::Ice::__defineOperation('putOnHold', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        HoldPrx_mixin::OP_waitForHold = ::Ice::__defineOperation('waitForHold', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        HoldPrx_mixin::OP_setOneway = ::Ice::__defineOperation('setOneway', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
-        HoldPrx_mixin::OP_set = ::Ice::__defineOperation('set', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
-        HoldPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        HoldPrx_mixin::OP_putOnHold = ::Ice::__defineOperation('putOnHold', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        HoldPrx_mixin::OP_waitForHold = ::Ice::__defineOperation('waitForHold', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        HoldPrx_mixin::OP_setOneway = ::Ice::__defineOperation('setOneway', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
+        HoldPrx_mixin::OP_set = ::Ice::__defineOperation('set', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
+        HoldPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

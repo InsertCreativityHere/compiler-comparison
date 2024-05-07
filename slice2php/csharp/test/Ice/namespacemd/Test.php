@@ -51,15 +51,15 @@ namespace Test
     global $NoNamespace__t_C2;
     global $WithNamespace__t_C1;
     global $WithNamespace__t_C2;
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getNoNamespaceC2AsC1', 0, 0, 0, null, null, array($NoNamespace__t_C1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getNoNamespaceC2AsC2', 0, 0, 0, null, null, array($NoNamespace__t_C2), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwNoNamespaceE2AsE1', 0, 0, 0, null, null, null, array($NoNamespace__t_E1));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwNoNamespaceE2AsE2', 0, 0, 0, null, null, null, array($NoNamespace__t_E2));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwNoNamespaceNotify', 0, 0, 0, null, null, null, array($NoNamespace__t_notify));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getWithNamespaceC2AsC1', 0, 0, 0, null, null, array($WithNamespace__t_C1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getWithNamespaceC2AsC2', 0, 0, 0, null, null, array($WithNamespace__t_C2), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwWithNamespaceE2AsE1', 0, 0, 0, null, null, null, array($WithNamespace__t_E1));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwWithNamespaceE2AsE2', 0, 0, 0, null, null, null, array($WithNamespace__t_E2));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getNoNamespaceC2AsC1', 0, 0, null, null, array($NoNamespace__t_C1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getNoNamespaceC2AsC2', 0, 0, null, null, array($NoNamespace__t_C2), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwNoNamespaceE2AsE1', 0, 0, null, null, null, array($NoNamespace__t_E1));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwNoNamespaceE2AsE2', 0, 0, null, null, null, array($NoNamespace__t_E2));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwNoNamespaceNotify', 0, 0, null, null, null, array($NoNamespace__t_notify));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getWithNamespaceC2AsC1', 0, 0, null, null, array($WithNamespace__t_C1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getWithNamespaceC2AsC2', 0, 0, null, null, array($WithNamespace__t_C2), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwWithNamespaceE2AsE1', 0, 0, null, null, null, array($WithNamespace__t_E1));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwWithNamespaceE2AsE2', 0, 0, null, null, null, array($WithNamespace__t_E2));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 ?>

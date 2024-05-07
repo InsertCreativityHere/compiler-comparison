@@ -76,7 +76,7 @@ if 'PingReplyPrx' not in _M_Test.__dict__:
     _M_Test._t_PingReplyDisp = IcePy.defineClass('::Test::PingReply', PingReply, (), None, ())
     PingReply._ice_type = _M_Test._t_PingReplyDisp
 
-    PingReply._op_reply = IcePy.Operation('reply', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    PingReply._op_reply = IcePy.Operation('reply', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.PingReply = PingReply
     del PingReply
@@ -163,10 +163,10 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_ping = IcePy.Operation('ping', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
-    TestIntf._op_sendByteSeq = IcePy.Operation('sendByteSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0), ((), _M_Test._t_PingReplyPrx, False, 0)), (), None, ())
-    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), None, ())
-    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_ping = IcePy.Operation('ping', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
+    TestIntf._op_sendByteSeq = IcePy.Operation('sendByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0), ((), _M_Test._t_PingReplyPrx, False, 0)), (), None, ())
+    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), None, ())
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf

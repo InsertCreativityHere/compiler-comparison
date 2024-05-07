@@ -81,8 +81,8 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_getReplicaId = IcePy.Operation('getReplicaId', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
-    TestIntf._op_getReplicaIdAndShutdown = IcePy.Operation('getReplicaIdAndShutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    TestIntf._op_getReplicaId = IcePy.Operation('getReplicaId', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    TestIntf._op_getReplicaIdAndShutdown = IcePy.Operation('getReplicaIdAndShutdown', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf

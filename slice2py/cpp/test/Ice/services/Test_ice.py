@@ -72,7 +72,7 @@ if 'ClockPrx' not in _M_Test.__dict__:
     _M_Test._t_ClockDisp = IcePy.defineClass('::Test::Clock', Clock, (), None, ())
     Clock._ice_type = _M_Test._t_ClockDisp
 
-    Clock._op_tick = IcePy.Operation('tick', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+    Clock._op_tick = IcePy.Operation('tick', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
 
     _M_Test.Clock = Clock
     del Clock

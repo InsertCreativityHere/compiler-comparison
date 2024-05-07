@@ -71,6 +71,6 @@ namespace Test
     $Test__t_MyInterfacePrx = IcePHP_defineProxy('::Test::MyInterface', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_bool;
-    IcePHP_defineOperation($Test__t_MyInterfacePrx, 'op', 0, 0, 0, array(array($IcePHP__t_bool)), null, null, array($Test__t_UserError));
+    IcePHP_defineOperation($Test__t_MyInterfacePrx, 'op', 0, 0, array(array($IcePHP__t_bool)), null, null, array($Test__t_UserError));
 }
 ?>

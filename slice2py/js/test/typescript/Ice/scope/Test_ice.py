@@ -474,16 +474,16 @@ if 'IPrx' not in _M_Test.__dict__:
     _M_Test._t_IDisp = IcePy.defineClass('::Test::I', I, (), None, ())
     I._ice_type = _M_Test._t_IDisp
 
-    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (((), _M_Test._t_S, False, 0),), ((), _M_Test._t_S, False, 0), ())
-    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())
-    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SMap, False, 0),), (((), _M_Test._t_SMap, False, 0),), ((), _M_Test._t_SMap, False, 0), ())
-    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C, False, 0),), (((), _M_Test._t_C, False, 0),), ((), _M_Test._t_C, False, 0), ())
-    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, False, 0),), (((), _M_Test._t_CSeq, False, 0),), ((), _M_Test._t_CSeq, False, 0), ())
-    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CMap, False, 0),), (((), _M_Test._t_CMap, False, 0),), ((), _M_Test._t_CMap, False, 0), ())
-    I._op_opE1 = IcePy.Operation('opE1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_E1, False, 0),), (), ((), _M_Test._t_E1, False, 0), ())
-    I._op_opS1 = IcePy.Operation('opS1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S1, False, 0),), (), ((), _M_Test._t_S1, False, 0), ())
-    I._op_opC1 = IcePy.Operation('opC1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C1, False, 0),), (), ((), _M_Test._t_C1, False, 0), ())
-    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (((), _M_Test._t_S, False, 0),), ((), _M_Test._t_S, False, 0), ())
+    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())
+    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SMap, False, 0),), (((), _M_Test._t_SMap, False, 0),), ((), _M_Test._t_SMap, False, 0), ())
+    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C, False, 0),), (((), _M_Test._t_C, False, 0),), ((), _M_Test._t_C, False, 0), ())
+    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, False, 0),), (((), _M_Test._t_CSeq, False, 0),), ((), _M_Test._t_CSeq, False, 0), ())
+    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CMap, False, 0),), (((), _M_Test._t_CMap, False, 0),), ((), _M_Test._t_CMap, False, 0), ())
+    I._op_opE1 = IcePy.Operation('opE1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_E1, False, 0),), (), ((), _M_Test._t_E1, False, 0), ())
+    I._op_opS1 = IcePy.Operation('opS1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S1, False, 0),), (), ((), _M_Test._t_S1, False, 0), ())
+    I._op_opC1 = IcePy.Operation('opC1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C1, False, 0),), (), ((), _M_Test._t_C1, False, 0), ())
+    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.I = I
     del I
@@ -805,13 +805,13 @@ if 'IPrx' not in _M_Test.Inner.Inner2.__dict__:
     _M_Test.Inner.Inner2._t_IDisp = IcePy.defineClass('::Test::Inner::Inner2::I', I, (), None, ())
     I._ice_type = _M_Test.Inner.Inner2._t_IDisp
 
-    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_S, False, 0),), (((), _M_Test.Inner.Inner2._t_S, False, 0),), ((), _M_Test.Inner.Inner2._t_S, False, 0), ())
-    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_SSeq, False, 0), ())
-    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), ((), _M_Test.Inner.Inner2._t_SMap, False, 0), ())
-    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_C, False, 0),), (((), _M_Test.Inner.Inner2._t_C, False, 0),), ((), _M_Test.Inner.Inner2._t_C, False, 0), ())
-    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_CSeq, False, 0), ())
-    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), ((), _M_Test.Inner.Inner2._t_CMap, False, 0), ())
-    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_S, False, 0),), (((), _M_Test.Inner.Inner2._t_S, False, 0),), ((), _M_Test.Inner.Inner2._t_S, False, 0), ())
+    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_SSeq, False, 0), ())
+    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), ((), _M_Test.Inner.Inner2._t_SMap, False, 0), ())
+    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_C, False, 0),), (((), _M_Test.Inner.Inner2._t_C, False, 0),), ((), _M_Test.Inner.Inner2._t_C, False, 0), ())
+    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_CSeq, False, 0), ())
+    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), ((), _M_Test.Inner.Inner2._t_CMap, False, 0), ())
+    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Inner.Inner2.I = I
     del I
@@ -971,13 +971,13 @@ if 'IPrx' not in _M_Test.Inner.__dict__:
     _M_Test.Inner._t_IDisp = IcePy.defineClass('::Test::Inner::I', I, (), None, ())
     I._ice_type = _M_Test.Inner._t_IDisp
 
-    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_S, False, 0),), (((), _M_Test.Inner.Inner2._t_S, False, 0),), ((), _M_Test.Inner.Inner2._t_S, False, 0), ())
-    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_SSeq, False, 0), ())
-    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), ((), _M_Test.Inner.Inner2._t_SMap, False, 0), ())
-    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_C, False, 0),), (((), _M_Test.Inner.Inner2._t_C, False, 0),), ((), _M_Test.Inner.Inner2._t_C, False, 0), ())
-    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_CSeq, False, 0), ())
-    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), ((), _M_Test.Inner.Inner2._t_CMap, False, 0), ())
-    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_S, False, 0),), (((), _M_Test.Inner.Inner2._t_S, False, 0),), ((), _M_Test.Inner.Inner2._t_S, False, 0), ())
+    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_SSeq, False, 0), ())
+    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), ((), _M_Test.Inner.Inner2._t_SMap, False, 0), ())
+    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_C, False, 0),), (((), _M_Test.Inner.Inner2._t_C, False, 0),), ((), _M_Test.Inner.Inner2._t_C, False, 0), ())
+    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_CSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_CSeq, False, 0), ())
+    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), (((), _M_Test.Inner.Inner2._t_CMap, False, 0),), ((), _M_Test.Inner.Inner2._t_CMap, False, 0), ())
+    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Inner.I = I
     del I
@@ -1112,13 +1112,13 @@ if 'IPrx' not in _M_Inner.Test.Inner2.__dict__:
     _M_Inner.Test.Inner2._t_IDisp = IcePy.defineClass('::Inner::Test::Inner2::I', I, (), None, ())
     I._ice_type = _M_Inner.Test.Inner2._t_IDisp
 
-    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (((), _M_Test._t_S, False, 0),), ((), _M_Test._t_S, False, 0), ())
-    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())
-    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SMap, False, 0),), (((), _M_Test._t_SMap, False, 0),), ((), _M_Test._t_SMap, False, 0), ())
-    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C, False, 0),), (((), _M_Test._t_C, False, 0),), ((), _M_Test._t_C, False, 0), ())
-    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, False, 0),), (((), _M_Test._t_CSeq, False, 0),), ((), _M_Test._t_CSeq, False, 0), ())
-    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CMap, False, 0),), (((), _M_Test._t_CMap, False, 0),), ((), _M_Test._t_CMap, False, 0), ())
-    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (((), _M_Test._t_S, False, 0),), ((), _M_Test._t_S, False, 0), ())
+    I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())
+    I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SMap, False, 0),), (((), _M_Test._t_SMap, False, 0),), ((), _M_Test._t_SMap, False, 0), ())
+    I._op_opC = IcePy.Operation('opC', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_C, False, 0),), (((), _M_Test._t_C, False, 0),), ((), _M_Test._t_C, False, 0), ())
+    I._op_opCSeq = IcePy.Operation('opCSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CSeq, False, 0),), (((), _M_Test._t_CSeq, False, 0),), ((), _M_Test._t_CSeq, False, 0), ())
+    I._op_opCMap = IcePy.Operation('opCMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CMap, False, 0),), (((), _M_Test._t_CMap, False, 0),), ((), _M_Test._t_CMap, False, 0), ())
+    I._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Inner.Test.Inner2.I = I
     del I

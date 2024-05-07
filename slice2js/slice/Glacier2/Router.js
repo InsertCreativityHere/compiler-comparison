@@ -96,27 +96,27 @@ Glacier2.RouterPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Glacier2.Router, Glacier2.RouterPrx, iceC_Glacier2_Router_ids, "::Glacier2::Router",
 {
-    "getCategoryForClient": [, 2, 2, , [7], , , , , ],
-    "createSession": [, , , 2, ["Glacier2.SessionPrx"], [[7], [7]], ,
+    "getCategoryForClient": [, 2, , [7], , , , , ],
+    "createSession": [, , 2, ["Glacier2.SessionPrx"], [[7], [7]], ,
     [
-        Glacier2.CannotCreateSessionException,
-        Glacier2.PermissionDeniedException
+        Glacier2.PermissionDeniedException,
+        Glacier2.CannotCreateSessionException
     ], , ],
-    "createSessionFromSecureConnection": [, , , 2, ["Glacier2.SessionPrx"], , ,
+    "createSessionFromSecureConnection": [, , 2, ["Glacier2.SessionPrx"], , ,
     [
-        Glacier2.CannotCreateSessionException,
-        Glacier2.PermissionDeniedException
+        Glacier2.PermissionDeniedException,
+        Glacier2.CannotCreateSessionException
     ], , ],
-    "refreshSession": [, , , , , , ,
-    [
-        Glacier2.SessionNotExistException
-    ], , ],
-    "destroySession": [, , , , , , ,
+    "refreshSession": [, , , , , ,
     [
         Glacier2.SessionNotExistException
     ], , ],
-    "getSessionTimeout": [, 2, 2, , [4], , , , , ],
-    "getACMTimeout": [, 2, 2, , [3], , , , , ]
+    "destroySession": [, , , , , ,
+    [
+        Glacier2.SessionNotExistException
+    ], , ],
+    "getSessionTimeout": [, 2, , [4], , , , , ],
+    "getACMTimeout": [, 2, , [3], , , , , ]
 });
 /* slice2js browser-bundle-skip */
 exports.Glacier2 = Glacier2;

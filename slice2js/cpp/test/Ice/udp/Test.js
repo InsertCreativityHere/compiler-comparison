@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.PingReply, Test.PingReplyPrx, iceC_Test_PingReply_ids, "::Test::PingReply",
     {
-        "reply": [, , , , , , , , , ]
+        "reply": [, , , , , , , , ]
     });
 
     Slice.defineSequence(Test, "ByteSeqHelper", "Ice.ByteHelper", true);
@@ -59,10 +59,10 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "ping": [, , , , , [["Test.PingReplyPrx"]], , , , ],
-        "sendByteSeq": [, , , , , [["Test.ByteSeqHelper"], ["Test.PingReplyPrx"]], , , , ],
-        "pingBiDir": [, , , , , [[Ice.Identity]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "ping": [, , , , [["Test.PingReplyPrx"]], , , , ],
+        "sendByteSeq": [, , , , [["Test.ByteSeqHelper"], ["Test.PingReplyPrx"]], , , , ],
+        "pingBiDir": [, , , , [[Ice.Identity]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

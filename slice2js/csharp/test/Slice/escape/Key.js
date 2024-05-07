@@ -67,7 +67,7 @@
 
     Slice.defineOperations(abstract.case, abstract.casePrx, iceC_abstract__case_ids, "::abstract::case",
     {
-        "catch": ["_catch", , , , , [[3]], [[3]], , , ]
+        "catch": ["_catch", , , , [[3]], [[3]], , , ]
     });
 
     const iceC_abstract_decimal_ids = [
@@ -85,7 +85,7 @@
 
     Slice.defineOperations(abstract.decimal, abstract.decimalPrx, iceC_abstract_decimal_ids, "::abstract::decimal",
     {
-        "default": ["_default", , , , , , , , , ]
+        "default": ["_default", , , , , , , , ]
     });
 
     abstract.delegate = class extends Ice.Value
@@ -195,10 +195,10 @@
 
     Slice.defineOperations(abstract.optionalParams, abstract.optionalParamsPrx, iceC_abstract_optionalParams_ids, "::abstract::optionalParams",
     {
-        "for": ["_for", , , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , , ],
-        "continue": ["_continue", , , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , , ],
-        "in": ["_in", , , , [abstract._break, , 1], , [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , ],
-        "foreach": [, , , , [abstract._break, , 1], , [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , ]
+        "for": ["_for", , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , , ],
+        "continue": ["_continue", , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , , ],
+        "in": ["_in", , , [abstract._break, , 1], , [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , ],
+        "foreach": [, , , [abstract._break, , 1], , [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , ]
     });
 
     abstract.fixed = class extends Ice.UserException
@@ -363,7 +363,7 @@
 
     Slice.defineOperations(abstract.implicit, abstract.implicitPrx, iceC_abstract_implicit_ids, "::abstract::implicit",
     {
-        "in": ["_in", , , , [abstract.as._helper], [[abstract._break], ["abstract.delegate", true], ["abstract.explicitPrx"], ["abstract.casePrx"], ["abstract.decimalPrx"], ["abstract.delegate", true], [3], [3], [3]], ,
+        "in": ["_in", , , [abstract.as._helper], [[abstract._break], ["abstract.delegate", true], ["abstract.explicitPrx"], ["abstract.casePrx"], ["abstract.decimalPrx"], ["abstract.delegate", true], [3], [3], [3]], ,
         [
             abstract.foreach,
             abstract.fixed
@@ -395,7 +395,7 @@
 
     Slice.defineOperations(abstract.System.Test, abstract.System.TestPrx, iceC_abstract_System_Test_ids, "::abstract::System::Test",
     {
-        "op": [, , , , , , , , , ]
+        "op": [, , , , , , , , ]
     });
 
     let System = _ModuleRegistry.module("System");
@@ -415,7 +415,7 @@
 
     Slice.defineOperations(System.Test, System.TestPrx, iceC_System_Test_ids, "::System::Test",
     {
-        "op": [, , , , , , , , , ]
+        "op": [, , , , , , , , ]
     });
     exports.abstract = abstract;
     exports.System = System;

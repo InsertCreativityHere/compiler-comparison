@@ -51,7 +51,7 @@
 
     Slice.defineOperations(Test.TestLocatorRegistry, Test.TestLocatorRegistryPrx, iceC_Test_TestLocatorRegistry_ids, "::Test::TestLocatorRegistry",
     {
-        "addObject": [, , , , , [[9]], , , , ]
+        "addObject": [, , , , [[9]], , , , ]
     });
 
     const iceC_Test_TestLocator_ids = [
@@ -81,7 +81,7 @@
 
     Slice.defineOperations(Test.TestLocator, Test.TestLocatorPrx, iceC_Test_TestLocator_ids, "::Test::TestLocator",
     {
-        "getRequestCount": [, 2, 2, , [3], , , , , ]
+        "getRequestCount": [, 2, , [3], , , , , ]
     });
 
     const iceC_Test_ServerManager_ids = [
@@ -99,8 +99,8 @@
 
     Slice.defineOperations(Test.ServerManager, Test.ServerManagerPrx, iceC_Test_ServerManager_ids, "::Test::ServerManager",
     {
-        "startServer": [, , , , , , , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "startServer": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ]
     });
 
     const iceC_Test_Hello_ids = [
@@ -118,7 +118,7 @@
 
     Slice.defineOperations(Test.Hello, Test.HelloPrx, iceC_Test_Hello_ids, "::Test::Hello",
     {
-        "sayHello": [, , , , , , , , , ]
+        "sayHello": [, , , , , , , , ]
     });
 
     const iceC_Test_TestIntf_ids = [
@@ -136,10 +136,10 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "shutdown": [, , , , , , , , , ],
-        "getHello": [, , , , ["Test.HelloPrx"], , , , , ],
-        "getReplicatedHello": [, , , , ["Test.HelloPrx"], , , , , ],
-        "migrateHello": [, , , , , , , , , ]
+        "shutdown": [, , , , , , , , ],
+        "getHello": [, , , ["Test.HelloPrx"], , , , , ],
+        "getReplicatedHello": [, , , ["Test.HelloPrx"], , , , , ],
+        "migrateHello": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

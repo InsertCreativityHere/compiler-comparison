@@ -39,9 +39,9 @@
 
     Slice.defineOperations(Test.Echo, Test.EchoPrx, iceC_Test_Echo_ids, "::Test::Echo",
     {
-        "startBatch": [, , , , , , , , , ],
-        "flushBatch": [, , , , , , , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "startBatch": [, , , , , , , , ],
+        "flushBatch": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

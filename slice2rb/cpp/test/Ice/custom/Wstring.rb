@@ -102,9 +102,9 @@ module ::Test1
 
         T_WstringClassPrx.defineProxy(WstringClassPrx, nil, [])
 
-        WstringClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
-        WstringClassPrx_mixin::OP_opStruct = ::Ice::__defineOperation('opStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test1::T_WstringStruct, false, 0]], [[::Test1::T_WstringStruct, false, 0]], [::Test1::T_WstringStruct, false, 0], [])
-        WstringClassPrx_mixin::OP_throwExcept = ::Ice::__defineOperation('throwExcept', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::Test1::T_WstringException])
+        WstringClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
+        WstringClassPrx_mixin::OP_opStruct = ::Ice::__defineOperation('opStruct', ::Ice::OperationMode::Normal, false, nil, [[::Test1::T_WstringStruct, false, 0]], [[::Test1::T_WstringStruct, false, 0]], [::Test1::T_WstringStruct, false, 0], [])
+        WstringClassPrx_mixin::OP_throwExcept = ::Ice::__defineOperation('throwExcept', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::Test1::T_WstringException])
     end
 end
 
@@ -194,8 +194,8 @@ module ::Test2
 
         T_WstringClassPrx.defineProxy(WstringClassPrx, nil, [])
 
-        WstringClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
-        WstringClassPrx_mixin::OP_opStruct = ::Ice::__defineOperation('opStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test2::T_WstringStruct, false, 0]], [[::Test2::T_WstringStruct, false, 0]], [::Test2::T_WstringStruct, false, 0], [])
-        WstringClassPrx_mixin::OP_throwExcept = ::Ice::__defineOperation('throwExcept', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::Test2::T_WstringException])
+        WstringClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
+        WstringClassPrx_mixin::OP_opStruct = ::Ice::__defineOperation('opStruct', ::Ice::OperationMode::Normal, false, nil, [[::Test2::T_WstringStruct, false, 0]], [[::Test2::T_WstringStruct, false, 0]], [::Test2::T_WstringStruct, false, 0], [])
+        WstringClassPrx_mixin::OP_throwExcept = ::Ice::__defineOperation('throwExcept', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::Test2::T_WstringException])
     end
 end

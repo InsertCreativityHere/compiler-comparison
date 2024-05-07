@@ -42,10 +42,10 @@ namespace Test
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'abort', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'idempotentAbort', 2, 2, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'pid', 2, 2, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'abort', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'idempotentAbort', 2, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'pid', 2, 0, null, null, array($IcePHP__t_int), null);
 }
 
 namespace Test
@@ -74,6 +74,6 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_CleanerPrx = IcePHP_defineProxy('::Test::Cleaner', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_CleanerPrx, 'cleanup', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_CleanerPrx, 'cleanup', 0, 0, null, null, null, null);
 }
 ?>

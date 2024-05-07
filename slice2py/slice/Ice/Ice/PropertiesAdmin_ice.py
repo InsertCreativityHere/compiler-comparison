@@ -167,9 +167,9 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
     _M_Ice._t_PropertiesAdminDisp = IcePy.defineClass('::Ice::PropertiesAdmin', PropertiesAdmin, (), None, ())
     PropertiesAdmin._ice_type = _M_Ice._t_PropertiesAdminDisp
 
-    PropertiesAdmin._op_getProperty = IcePy.Operation('getProperty', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
-    PropertiesAdmin._op_getPropertiesForPrefix = IcePy.Operation('getPropertiesForPrefix', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_Ice._t_PropertyDict, False, 0), ())
-    PropertiesAdmin._op_setProperties = IcePy.Operation('setProperties', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_PropertyDict, False, 0),), (), None, ())
+    PropertiesAdmin._op_getProperty = IcePy.Operation('getProperty', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
+    PropertiesAdmin._op_getPropertiesForPrefix = IcePy.Operation('getPropertiesForPrefix', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_Ice._t_PropertyDict, False, 0), ())
+    PropertiesAdmin._op_setProperties = IcePy.Operation('setProperties', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_PropertyDict, False, 0),), (), None, ())
 
     _M_Ice.PropertiesAdmin = PropertiesAdmin
     del PropertiesAdmin

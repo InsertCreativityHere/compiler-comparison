@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.MyObject, Test.MyObjectPrx, iceC_Test_MyObject_ids, "::Test::MyObject",
     {
-        "getName": [, , , , [7], , , , , ]
+        "getName": [, , , [7], , , , , ]
     });
     exports.Test = Test;
 }

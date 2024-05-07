@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.Event, Test.EventPrx, iceC_Test_Event_ids, "::Test::Event",
     {
-        "pub": [, , , , , [[3]], , , , ]
+        "pub": [, , , , [[3]], , , , ]
     });
     exports.Test = Test;
 }

@@ -41,6 +41,6 @@ module ::Test
 
         T_MyObjectPrx.defineProxy(MyObjectPrx, nil, [])
 
-        MyObjectPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        MyObjectPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 end

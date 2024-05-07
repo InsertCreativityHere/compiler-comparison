@@ -66,9 +66,9 @@ namespace Test
     $Test__t_HelloPrx = IcePHP_defineProxy('::Test::Hello', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Test__t_HelloPrx, 'sayHello', 0, 0, 0, array(array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_HelloPrx, 'add', 0, 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_HelloPrx, 'raiseUE', 0, 0, 0, null, null, null, array($Test__t_UE));
-    IcePHP_defineOperation($Test__t_HelloPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_HelloPrx, 'sayHello', 0, 0, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_HelloPrx, 'add', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_HelloPrx, 'raiseUE', 0, 0, null, null, null, array($Test__t_UE));
+    IcePHP_defineOperation($Test__t_HelloPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 ?>

@@ -48,8 +48,8 @@ namespace Ice
 
     global $IcePHP__t_string;
     global $Ice__t_PropertyDict;
-    IcePHP_defineOperation($Ice__t_PropertiesAdminPrx, 'getProperty', 0, 0, 0, array(array($IcePHP__t_string)), null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Ice__t_PropertiesAdminPrx, 'getPropertiesForPrefix', 0, 0, 0, array(array($IcePHP__t_string)), null, array($Ice__t_PropertyDict), null);
-    IcePHP_defineOperation($Ice__t_PropertiesAdminPrx, 'setProperties', 0, 0, 0, array(array($Ice__t_PropertyDict)), null, null, null);
+    IcePHP_defineOperation($Ice__t_PropertiesAdminPrx, 'getProperty', 0, 0, array(array($IcePHP__t_string)), null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Ice__t_PropertiesAdminPrx, 'getPropertiesForPrefix', 0, 0, array(array($IcePHP__t_string)), null, array($Ice__t_PropertyDict), null);
+    IcePHP_defineOperation($Ice__t_PropertiesAdminPrx, 'setProperties', 0, 0, array(array($Ice__t_PropertyDict)), null, null, null);
 }
 ?>

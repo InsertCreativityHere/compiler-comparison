@@ -161,16 +161,16 @@ if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
     Initial._ice_type = _M_Test._t_InitialDisp
 
-    Initial._op_getNoNamespaceC2AsC1 = IcePy.Operation('getNoNamespaceC2AsC1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_NoNamespace._t_C1, False, 0), ())
-    Initial._op_getNoNamespaceC2AsC2 = IcePy.Operation('getNoNamespaceC2AsC2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_NoNamespace._t_C2, False, 0), ())
-    Initial._op_throwNoNamespaceE2AsE1 = IcePy.Operation('throwNoNamespaceE2AsE1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_NoNamespace._t_E1,))
-    Initial._op_throwNoNamespaceE2AsE2 = IcePy.Operation('throwNoNamespaceE2AsE2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_NoNamespace._t_E2,))
-    Initial._op_throwNoNamespaceNotify = IcePy.Operation('throwNoNamespaceNotify', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_NoNamespace._t_notify,))
-    Initial._op_getWithNamespaceC2AsC1 = IcePy.Operation('getWithNamespaceC2AsC1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_WithNamespace._t_C1, False, 0), ())
-    Initial._op_getWithNamespaceC2AsC2 = IcePy.Operation('getWithNamespaceC2AsC2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_WithNamespace._t_C2, False, 0), ())
-    Initial._op_throwWithNamespaceE2AsE1 = IcePy.Operation('throwWithNamespaceE2AsE1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_WithNamespace._t_E1,))
-    Initial._op_throwWithNamespaceE2AsE2 = IcePy.Operation('throwWithNamespaceE2AsE2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_WithNamespace._t_E2,))
-    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Initial._op_getNoNamespaceC2AsC1 = IcePy.Operation('getNoNamespaceC2AsC1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_NoNamespace._t_C1, False, 0), ())
+    Initial._op_getNoNamespaceC2AsC2 = IcePy.Operation('getNoNamespaceC2AsC2', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_NoNamespace._t_C2, False, 0), ())
+    Initial._op_throwNoNamespaceE2AsE1 = IcePy.Operation('throwNoNamespaceE2AsE1', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_NoNamespace._t_E1,))
+    Initial._op_throwNoNamespaceE2AsE2 = IcePy.Operation('throwNoNamespaceE2AsE2', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_NoNamespace._t_E2,))
+    Initial._op_throwNoNamespaceNotify = IcePy.Operation('throwNoNamespaceNotify', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_NoNamespace._t_notify,))
+    Initial._op_getWithNamespaceC2AsC1 = IcePy.Operation('getWithNamespaceC2AsC1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_WithNamespace._t_C1, False, 0), ())
+    Initial._op_getWithNamespaceC2AsC2 = IcePy.Operation('getWithNamespaceC2AsC2', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_WithNamespace._t_C2, False, 0), ())
+    Initial._op_throwWithNamespaceE2AsE1 = IcePy.Operation('throwWithNamespaceE2AsE1', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_WithNamespace._t_E1,))
+    Initial._op_throwWithNamespaceE2AsE2 = IcePy.Operation('throwWithNamespaceE2AsE2', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_WithNamespace._t_E2,))
+    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Initial = Initial
     del Initial

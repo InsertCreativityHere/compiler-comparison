@@ -77,10 +77,10 @@ namespace Test
     global $Test__t_SerialSmall;
     global $Test__t_SerialLarge;
     global $Test__t_SerialStruct;
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opSerialSmallJava', 0, 0, 0, array(array($Test__t_SerialSmall)), array(array($Test__t_SerialSmall)), array($Test__t_SerialSmall), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opSerialLargeJava', 0, 0, 0, array(array($Test__t_SerialLarge)), array(array($Test__t_SerialLarge)), array($Test__t_SerialLarge), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opSerialStructJava', 0, 0, 0, array(array($Test__t_SerialStruct)), array(array($Test__t_SerialStruct)), array($Test__t_SerialStruct), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opSerialSmallJava', 0, 0, array(array($Test__t_SerialSmall)), array(array($Test__t_SerialSmall)), array($Test__t_SerialSmall), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opSerialLargeJava', 0, 0, array(array($Test__t_SerialLarge)), array(array($Test__t_SerialLarge)), array($Test__t_SerialLarge), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opSerialStructJava', 0, 0, array(array($Test__t_SerialStruct)), array(array($Test__t_SerialStruct)), array($Test__t_SerialStruct), null);
 }
 
 namespace Test

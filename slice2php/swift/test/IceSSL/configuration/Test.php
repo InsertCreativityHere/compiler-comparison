@@ -42,8 +42,8 @@ namespace Test
     $Test__t_ServerPrx = IcePHP_defineProxy('::Test::Server', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_ServerPrx, 'noCert', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_ServerPrx, 'checkCert', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($Test__t_ServerPrx, 'noCert', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ServerPrx, 'checkCert', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
 }
 
 namespace Test
@@ -86,8 +86,8 @@ namespace Test
 
     global $Test__t_Properties;
     global $Test__t_ServerPrx;
-    IcePHP_defineOperation($Test__t_ServerFactoryPrx, 'createServer', 0, 0, 0, array(array($Test__t_Properties)), null, array($Test__t_ServerPrx), null);
-    IcePHP_defineOperation($Test__t_ServerFactoryPrx, 'destroyServer', 0, 0, 0, array(array($Test__t_ServerPrx)), null, null, null);
-    IcePHP_defineOperation($Test__t_ServerFactoryPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ServerFactoryPrx, 'createServer', 0, 0, array(array($Test__t_Properties)), null, array($Test__t_ServerPrx), null);
+    IcePHP_defineOperation($Test__t_ServerFactoryPrx, 'destroyServer', 0, 0, array(array($Test__t_ServerPrx)), null, null, null);
+    IcePHP_defineOperation($Test__t_ServerFactoryPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 ?>

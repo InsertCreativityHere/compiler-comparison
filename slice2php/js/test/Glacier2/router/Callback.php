@@ -74,8 +74,8 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_CallbackReceiverPrx = IcePHP_defineProxy('::Test::CallbackReceiver', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'callback', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'callbackEx', 0, 0, 0, null, null, null, array($Test__t_CallbackException));
+    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'callback', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'callbackEx', 0, 0, null, null, null, array($Test__t_CallbackException));
 }
 
 namespace Test
@@ -105,8 +105,8 @@ namespace Test
     $Test__t_CallbackPrx = IcePHP_defineProxy('::Test::Callback', $Ice__t_ObjectPrx, null);
 
     global $Test__t_CallbackReceiverPrx;
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateCallback', 0, 0, 0, array(array($Test__t_CallbackReceiverPrx)), null, null, null);
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateCallbackEx', 0, 0, 0, array(array($Test__t_CallbackReceiverPrx)), null, null, array($Test__t_CallbackException));
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateCallback', 0, 0, array(array($Test__t_CallbackReceiverPrx)), null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateCallbackEx', 0, 0, array(array($Test__t_CallbackReceiverPrx)), null, null, array($Test__t_CallbackException));
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 ?>

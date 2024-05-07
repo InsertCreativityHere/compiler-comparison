@@ -185,19 +185,19 @@
 
     Slice.defineOperations(Test.Common.TestCase, Test.Common.TestCasePrx, iceC_Test_Common_TestCase_ids, "::Test::Common::TestCase",
     {
-        "startServerSide": [, , , , [7], [["Test.Common.Config", true]], ,
+        "startServerSide": [, , , [7], [["Test.Common.Config", true]], ,
         [
             Test.Common.TestCaseFailedException
         ], true, ],
-        "stopServerSide": [, , , , [7], [[1]], ,
+        "stopServerSide": [, , , [7], [[1]], ,
         [
             Test.Common.TestCaseFailedException
         ], , ],
-        "runClientSide": [, , , , [7], [[7], ["Test.Common.Config", true]], ,
+        "runClientSide": [, , , [7], [[7], ["Test.Common.Config", true]], ,
         [
             Test.Common.TestCaseFailedException
         ], true, ],
-        "destroy": [, , , , , , , , , ]
+        "destroy": [, , , , , , , , ]
     });
 
     const iceC_Test_Common_Controller_ids = [
@@ -215,13 +215,13 @@
 
     Slice.defineOperations(Test.Common.Controller, Test.Common.ControllerPrx, iceC_Test_Common_Controller_ids, "::Test::Common::Controller",
     {
-        "runTestCase": [, , , , ["Test.Common.TestCasePrx"], [[7], [7], [7], [7]], ,
+        "runTestCase": [, , , ["Test.Common.TestCasePrx"], [[7], [7], [7], [7]], ,
         [
             Test.Common.TestCaseNotExistException
         ], , ],
-        "getOptionOverrides": [, , , , ["Test.Common.OptionOverrides", true], , , , , true],
-        "getTestSuites": [, , , , ["Test.Common.StringSeqHelper"], [[7]], , , , ],
-        "getHost": [, , , , [7], [[7], [1]], , , , ]
+        "getOptionOverrides": [, , , ["Test.Common.OptionOverrides", true], , , , , true],
+        "getTestSuites": [, , , ["Test.Common.StringSeqHelper"], [[7]], , , , ],
+        "getHost": [, , , [7], [[7], [1]], , , , ]
     });
 
     Test.Common.ProcessFailedException = class extends Ice.UserException
@@ -273,15 +273,15 @@
 
     Slice.defineOperations(Test.Common.Process, Test.Common.ProcessPrx, iceC_Test_Common_Process_ids, "::Test::Common::Process",
     {
-        "waitReady": [, , , , , [[3]], ,
+        "waitReady": [, , , , [[3]], ,
         [
             Test.Common.ProcessFailedException
         ], , ],
-        "waitSuccess": [, , , , [3], [[3]], ,
+        "waitSuccess": [, , , [3], [[3]], ,
         [
             Test.Common.ProcessFailedException
         ], , ],
-        "terminate": [, , , , [7], , , , , ]
+        "terminate": [, , , [7], , , , , ]
     });
 
     const iceC_Test_Common_ProcessController_ids = [
@@ -299,11 +299,11 @@
 
     Slice.defineOperations(Test.Common.ProcessController, Test.Common.ProcessControllerPrx, iceC_Test_Common_ProcessController_ids, "::Test::Common::ProcessController",
     {
-        "start": [, , , , ["Test.Common.ProcessPrx"], [[7], [7], ["Test.Common.StringSeqHelper"]], ,
+        "start": [, , , ["Test.Common.ProcessPrx"], [[7], [7], ["Test.Common.StringSeqHelper"]], ,
         [
             Test.Common.ProcessFailedException
         ], , ],
-        "getHost": [, , , , [7], [[7], [1]], , , , ]
+        "getHost": [, , , [7], [[7], [1]], , , , ]
     });
 
     const iceC_Test_Common_BrowserProcessController_ids = [
@@ -333,7 +333,7 @@
 
     Slice.defineOperations(Test.Common.BrowserProcessController, Test.Common.BrowserProcessControllerPrx, iceC_Test_Common_BrowserProcessController_ids, "::Test::Common::BrowserProcessController",
     {
-        "redirect": [, , , , , [[7]], , , , ]
+        "redirect": [, , , , [[7]], , , , ]
     });
 
     const iceC_Test_Common_ProcessControllerRegistry_ids = [
@@ -351,7 +351,7 @@
 
     Slice.defineOperations(Test.Common.ProcessControllerRegistry, Test.Common.ProcessControllerRegistryPrx, iceC_Test_Common_ProcessControllerRegistry_ids, "::Test::Common::ProcessControllerRegistry",
     {
-        "setProcessController": [, , , , , [["Test.Common.ProcessControllerPrx"]], , , , ]
+        "setProcessController": [, , , , [["Test.Common.ProcessControllerPrx"]], , , , ]
     });
     exports.Test = Test;
 }

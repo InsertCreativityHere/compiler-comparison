@@ -39,8 +39,8 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "transient": [, , , , , , , , , ],
-        "deactivate": [, , , , , , , , , ]
+        "transient": [, , , , , , , , ],
+        "deactivate": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

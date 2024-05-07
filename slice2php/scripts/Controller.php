@@ -227,10 +227,10 @@ namespace Test\Common
     global $Test_Common__t_Config;
     global $IcePHP__t_string;
     global $IcePHP__t_bool;
-    IcePHP_defineOperation($Test_Common__t_TestCasePrx, 'startServerSide', 0, 0, 0, array(array($Test_Common__t_Config)), null, array($IcePHP__t_string), array($Test_Common__t_TestCaseFailedException));
-    IcePHP_defineOperation($Test_Common__t_TestCasePrx, 'stopServerSide', 0, 0, 0, array(array($IcePHP__t_bool)), null, array($IcePHP__t_string), array($Test_Common__t_TestCaseFailedException));
-    IcePHP_defineOperation($Test_Common__t_TestCasePrx, 'runClientSide', 0, 0, 0, array(array($IcePHP__t_string), array($Test_Common__t_Config)), null, array($IcePHP__t_string), array($Test_Common__t_TestCaseFailedException));
-    IcePHP_defineOperation($Test_Common__t_TestCasePrx, 'destroy', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test_Common__t_TestCasePrx, 'startServerSide', 0, 0, array(array($Test_Common__t_Config)), null, array($IcePHP__t_string), array($Test_Common__t_TestCaseFailedException));
+    IcePHP_defineOperation($Test_Common__t_TestCasePrx, 'stopServerSide', 0, 0, array(array($IcePHP__t_bool)), null, array($IcePHP__t_string), array($Test_Common__t_TestCaseFailedException));
+    IcePHP_defineOperation($Test_Common__t_TestCasePrx, 'runClientSide', 0, 0, array(array($IcePHP__t_string), array($Test_Common__t_Config)), null, array($IcePHP__t_string), array($Test_Common__t_TestCaseFailedException));
+    IcePHP_defineOperation($Test_Common__t_TestCasePrx, 'destroy', 0, 0, null, null, null, null);
 }
 
 namespace Test\Common
@@ -264,10 +264,10 @@ namespace Test\Common
     global $Test_Common__t_OptionOverrides;
     global $Test_Common__t_StringSeq;
     global $IcePHP__t_bool;
-    IcePHP_defineOperation($Test_Common__t_ControllerPrx, 'runTestCase', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string)), null, array($Test_Common__t_TestCasePrx), array($Test_Common__t_TestCaseNotExistException));
-    IcePHP_defineOperation($Test_Common__t_ControllerPrx, 'getOptionOverrides', 0, 0, 0, null, null, array($Test_Common__t_OptionOverrides), null);
-    IcePHP_defineOperation($Test_Common__t_ControllerPrx, 'getTestSuites', 0, 0, 0, array(array($IcePHP__t_string)), null, array($Test_Common__t_StringSeq), null);
-    IcePHP_defineOperation($Test_Common__t_ControllerPrx, 'getHost', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_bool)), null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test_Common__t_ControllerPrx, 'runTestCase', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string)), null, array($Test_Common__t_TestCasePrx), array($Test_Common__t_TestCaseNotExistException));
+    IcePHP_defineOperation($Test_Common__t_ControllerPrx, 'getOptionOverrides', 0, 0, null, null, array($Test_Common__t_OptionOverrides), null);
+    IcePHP_defineOperation($Test_Common__t_ControllerPrx, 'getTestSuites', 0, 0, array(array($IcePHP__t_string)), null, array($Test_Common__t_StringSeq), null);
+    IcePHP_defineOperation($Test_Common__t_ControllerPrx, 'getHost', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_bool)), null, array($IcePHP__t_string), null);
 }
 
 namespace Test\Common
@@ -327,9 +327,9 @@ namespace Test\Common
 
     global $IcePHP__t_int;
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test_Common__t_ProcessPrx, 'waitReady', 0, 0, 0, array(array($IcePHP__t_int)), null, null, array($Test_Common__t_ProcessFailedException));
-    IcePHP_defineOperation($Test_Common__t_ProcessPrx, 'waitSuccess', 0, 0, 0, array(array($IcePHP__t_int)), null, array($IcePHP__t_int), array($Test_Common__t_ProcessFailedException));
-    IcePHP_defineOperation($Test_Common__t_ProcessPrx, 'terminate', 0, 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test_Common__t_ProcessPrx, 'waitReady', 0, 0, array(array($IcePHP__t_int)), null, null, array($Test_Common__t_ProcessFailedException));
+    IcePHP_defineOperation($Test_Common__t_ProcessPrx, 'waitSuccess', 0, 0, array(array($IcePHP__t_int)), null, array($IcePHP__t_int), array($Test_Common__t_ProcessFailedException));
+    IcePHP_defineOperation($Test_Common__t_ProcessPrx, 'terminate', 0, 0, null, null, array($IcePHP__t_string), null);
 }
 
 namespace Test\Common
@@ -362,8 +362,8 @@ namespace Test\Common
     global $Test_Common__t_StringSeq;
     global $Test_Common__t_ProcessPrx;
     global $IcePHP__t_bool;
-    IcePHP_defineOperation($Test_Common__t_ProcessControllerPrx, 'start', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($Test_Common__t_StringSeq)), null, array($Test_Common__t_ProcessPrx), array($Test_Common__t_ProcessFailedException));
-    IcePHP_defineOperation($Test_Common__t_ProcessControllerPrx, 'getHost', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_bool)), null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test_Common__t_ProcessControllerPrx, 'start', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($Test_Common__t_StringSeq)), null, array($Test_Common__t_ProcessPrx), array($Test_Common__t_ProcessFailedException));
+    IcePHP_defineOperation($Test_Common__t_ProcessControllerPrx, 'getHost', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_bool)), null, array($IcePHP__t_string), null);
 }
 
 namespace Test\Common
@@ -393,7 +393,7 @@ namespace Test\Common
     $Test_Common__t_BrowserProcessControllerPrx = IcePHP_defineProxy('::Test::Common::BrowserProcessController', $Ice__t_ObjectPrx, array($Test_Common__t_ProcessControllerPrx));
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test_Common__t_BrowserProcessControllerPrx, 'redirect', 0, 0, 0, array(array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($Test_Common__t_BrowserProcessControllerPrx, 'redirect', 0, 0, array(array($IcePHP__t_string)), null, null, null);
 }
 
 namespace Test\Common
@@ -423,6 +423,6 @@ namespace Test\Common
     $Test_Common__t_ProcessControllerRegistryPrx = IcePHP_defineProxy('::Test::Common::ProcessControllerRegistry', $Ice__t_ObjectPrx, null);
 
     global $Test_Common__t_ProcessControllerPrx;
-    IcePHP_defineOperation($Test_Common__t_ProcessControllerRegistryPrx, 'setProcessController', 0, 0, 0, array(array($Test_Common__t_ProcessControllerPrx)), null, null, null);
+    IcePHP_defineOperation($Test_Common__t_ProcessControllerRegistryPrx, 'setProcessController', 0, 0, array(array($Test_Common__t_ProcessControllerPrx)), null, null, null);
 }
 ?>

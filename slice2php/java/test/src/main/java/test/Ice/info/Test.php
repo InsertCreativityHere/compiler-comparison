@@ -47,8 +47,8 @@ namespace Test
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
     global $Ice__t_Context;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getEndpointInfoAsContext', 0, 0, 0, null, null, array($Ice__t_Context), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getConnectionInfoAsContext', 0, 0, 0, null, null, array($Ice__t_Context), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getEndpointInfoAsContext', 0, 0, null, null, array($Ice__t_Context), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getConnectionInfoAsContext', 0, 0, null, null, array($Ice__t_Context), null);
 }
 ?>

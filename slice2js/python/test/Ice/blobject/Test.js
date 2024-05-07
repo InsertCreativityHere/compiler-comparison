@@ -62,13 +62,13 @@
 
     Slice.defineOperations(Test.Hello, Test.HelloPrx, iceC_Test_Hello_ids, "::Test::Hello",
     {
-        "sayHello": [, , , , , [[3]], , , , ],
-        "add": [, , , , [3], [[3], [3]], , , , ],
-        "raiseUE": [, , , , , , ,
+        "sayHello": [, , , , [[3]], , , , ],
+        "add": [, , , [3], [[3], [3]], , , , ],
+        "raiseUE": [, , , , , ,
         [
             Test.UE
         ], , ],
-        "shutdown": [, , , , , , , , , ]
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

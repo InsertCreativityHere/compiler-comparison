@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.Single, Test.SinglePrx, iceC_Test_Single_ids, "::Test::Single",
     {
-        "event": [, , , , , [[3]], , , , ]
+        "event": [, , , , [[3]], , , , ]
     });
     exports.Test = Test;
 }

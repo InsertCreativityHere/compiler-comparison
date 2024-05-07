@@ -67,7 +67,7 @@
 
     Slice.defineOperations(and.del, and.delPrx, iceC_and_del_ids, "::and::del",
     {
-        "elif": [, , , , , [[3]], [[3]], , , ]
+        "elif": [, , , , [[3]], [[3]], , , ]
     });
 
     const iceC_and_exec_ids = [
@@ -85,7 +85,7 @@
 
     Slice.defineOperations(and.exec, and.execPrx, iceC_and_exec_ids, "::and::exec",
     {
-        "finally": ["_finally", , , , , , , , , ]
+        "finally": ["_finally", , , , , , , , ]
     });
 
     and._for = class extends Ice.Value
@@ -235,7 +235,7 @@
 
     Slice.defineOperations(and.print, and.printPrx, iceC_and_print_ids, "::and::print",
     {
-        "raise": [, , , , [and.assert._helper], [[and._continue], ["and._for", true], ["and.delPrx"], ["and.execPrx"], ["and.ifPrx"], [3]], ,
+        "raise": [, , , [and.assert._helper], [[and._continue], ["and._for", true], ["and.delPrx"], ["and.execPrx"], ["and.ifPrx"], [3]], ,
         [
             and.is
         ], true, ]

@@ -118,7 +118,7 @@ module ::And
 
         T_DelPrx.defineProxy(DelPrx, nil, [])
 
-        DelPrx_mixin::OP_elif = ::Ice::__defineOperation('elif', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        DelPrx_mixin::OP_elif = ::Ice::__defineOperation('elif', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
     if not defined?(::And::Exec_Mixin)
@@ -144,7 +144,7 @@ module ::And
 
         T_ExecPrx.defineProxy(ExecPrx, nil, [])
 
-        ExecPrx_mixin::OP_finally = ::Ice::__defineOperation('finally', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        ExecPrx_mixin::OP_finally = ::Ice::__defineOperation('finally', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
     if not defined?(::And::For_Mixin)
@@ -263,7 +263,7 @@ module ::And
 
         T_PrintPrx.defineProxy(PrintPrx, nil, [])
 
-        PrintPrx_mixin::OP_raise = ::Ice::__defineOperation('raise', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_Continue, false, 0], [::And::T_For, false, 0], [::And::T_DelPrx, false, 0], [::And::T_ExecPrx, false, 0], [::And::T_IfPrx, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Assert, false, 0], [::And::T_Is])
+        PrintPrx_mixin::OP_raise = ::Ice::__defineOperation('raise', ::Ice::OperationMode::Normal, false, nil, [[::And::T_Continue, false, 0], [::And::T_For, false, 0], [::And::T_DelPrx, false, 0], [::And::T_ExecPrx, false, 0], [::And::T_IfPrx, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Assert, false, 0], [::And::T_Is])
     end
 
     Lambda = 0

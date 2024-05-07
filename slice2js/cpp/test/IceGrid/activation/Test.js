@@ -39,8 +39,8 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "fail": [, , , , , , , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "fail": [, , , , , , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

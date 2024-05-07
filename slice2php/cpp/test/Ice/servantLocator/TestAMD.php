@@ -91,20 +91,20 @@ namespace Test
 
     global $IcePHP__t_bool;
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'requestFailedException', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownUserException', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownLocalException', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownException', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'localException', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'userException', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'stdException', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'cppException', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownExceptionWithServantException', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'impossibleException', 0, 0, 0, array(array($IcePHP__t_bool)), null, array($IcePHP__t_string), array($Test__t_TestImpossibleException));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'intfUserException', 0, 0, 0, array(array($IcePHP__t_bool)), null, array($IcePHP__t_string), array($Test__t_TestIntfUserException, $Test__t_TestImpossibleException));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'asyncResponse', 0, 0, 0, null, null, null, array($Test__t_TestIntfUserException, $Test__t_TestImpossibleException));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'asyncException', 0, 0, 0, null, null, null, array($Test__t_TestIntfUserException, $Test__t_TestImpossibleException));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'requestFailedException', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownUserException', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownLocalException', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownException', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'localException', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'userException', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'stdException', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'cppException', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownExceptionWithServantException', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'impossibleException', 0, 0, array(array($IcePHP__t_bool)), null, array($IcePHP__t_string), array($Test__t_TestImpossibleException));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'intfUserException', 0, 0, array(array($IcePHP__t_bool)), null, array($IcePHP__t_string), array($Test__t_TestIntfUserException, $Test__t_TestImpossibleException));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'asyncResponse', 0, 0, null, null, null, array($Test__t_TestIntfUserException, $Test__t_TestImpossibleException));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'asyncException', 0, 0, null, null, null, array($Test__t_TestIntfUserException, $Test__t_TestImpossibleException));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
 }
 
 namespace Test
@@ -134,6 +134,6 @@ namespace Test
     $Test__t_TestActivationPrx = IcePHP_defineProxy('::Test::TestActivation', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_bool;
-    IcePHP_defineOperation($Test__t_TestActivationPrx, 'activateServantLocator', 0, 0, 0, array(array($IcePHP__t_bool)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestActivationPrx, 'activateServantLocator', 0, 0, array(array($IcePHP__t_bool)), null, null, null);
 }
 ?>

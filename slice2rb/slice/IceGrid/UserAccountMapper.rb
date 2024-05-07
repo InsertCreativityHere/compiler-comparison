@@ -54,6 +54,6 @@ module ::IceGrid
 
         T_UserAccountMapperPrx.defineProxy(UserAccountMapperPrx, nil, [])
 
-        UserAccountMapperPrx_mixin::OP_getUserAccount = ::Ice::__defineOperation('getUserAccount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [::IceGrid::T_UserAccountNotFoundException])
+        UserAccountMapperPrx_mixin::OP_getUserAccount = ::Ice::__defineOperation('getUserAccount', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [::IceGrid::T_UserAccountNotFoundException])
     end
 end

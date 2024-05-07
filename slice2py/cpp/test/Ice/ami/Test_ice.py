@@ -119,7 +119,7 @@ if 'PingReplyPrx' not in _M_Test.__dict__:
     _M_Test._t_PingReplyDisp = IcePy.defineClass('::Test::PingReply', PingReply, (), None, ())
     PingReply._ice_type = _M_Test._t_PingReplyDisp
 
-    PingReply._op_reply = IcePy.Operation('reply', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    PingReply._op_reply = IcePy.Operation('reply', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.PingReply = PingReply
     del PingReply
@@ -320,23 +320,23 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_opWithPayload = IcePy.Operation('opWithPayload', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), None, ())
-    TestIntf._op_opWithResult = IcePy.Operation('opWithResult', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    TestIntf._op_opWithUE = IcePy.Operation('opWithUE', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_TestIntfException,))
-    TestIntf._op_opWithResultAndUE = IcePy.Operation('opWithResultAndUE', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), (_M_Test._t_TestIntfException,))
-    TestIntf._op_opBatch = IcePy.Operation('opBatch', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_opWithArgs = IcePy.Operation('opWithArgs', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), None, ())
-    TestIntf._op_opBatchCount = IcePy.Operation('opBatchCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    TestIntf._op_waitForBatch = IcePy.Operation('waitForBatch', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_bool, False, 0), ())
-    TestIntf._op_close = IcePy.Operation('close', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CloseMode, False, 0),), (), None, ())
-    TestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-    TestIntf._op_startDispatch = IcePy.Operation('startDispatch', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())
-    TestIntf._op_finishDispatch = IcePy.Operation('finishDispatch', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_supportsAMD = IcePy.Operation('supportsAMD', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    TestIntf._op_supportsFunctionalTests = IcePy.Operation('supportsFunctionalTests', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
+    TestIntf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_opWithPayload = IcePy.Operation('opWithPayload', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), None, ())
+    TestIntf._op_opWithResult = IcePy.Operation('opWithResult', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    TestIntf._op_opWithUE = IcePy.Operation('opWithUE', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_TestIntfException,))
+    TestIntf._op_opWithResultAndUE = IcePy.Operation('opWithResultAndUE', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), (_M_Test._t_TestIntfException,))
+    TestIntf._op_opBatch = IcePy.Operation('opBatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_opWithArgs = IcePy.Operation('opWithArgs', Ice.OperationMode.Normal, False, None, (), (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), None, ())
+    TestIntf._op_opBatchCount = IcePy.Operation('opBatchCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    TestIntf._op_waitForBatch = IcePy.Operation('waitForBatch', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_bool, False, 0), ())
+    TestIntf._op_close = IcePy.Operation('close', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CloseMode, False, 0),), (), None, ())
+    TestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    TestIntf._op_startDispatch = IcePy.Operation('startDispatch', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
+    TestIntf._op_finishDispatch = IcePy.Operation('finishDispatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_supportsAMD = IcePy.Operation('supportsAMD', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    TestIntf._op_supportsFunctionalTests = IcePy.Operation('supportsFunctionalTests', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf
@@ -402,8 +402,8 @@ if 'TestIntfControllerPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfControllerDisp = IcePy.defineClass('::Test::TestIntfController', TestIntfController, (), None, ())
     TestIntfController._ice_type = _M_Test._t_TestIntfControllerDisp
 
-    TestIntfController._op_holdAdapter = IcePy.Operation('holdAdapter', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntfController._op_resumeAdapter = IcePy.Operation('resumeAdapter', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntfController._op_holdAdapter = IcePy.Operation('holdAdapter', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntfController._op_resumeAdapter = IcePy.Operation('resumeAdapter', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.TestIntfController = TestIntfController
     del TestIntfController
@@ -468,7 +468,7 @@ if 'TestIntfPrx' not in _M_Test.Outer.Inner.__dict__:
     _M_Test.Outer.Inner._t_TestIntfDisp = IcePy.defineClass('::Test::Outer::Inner::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test.Outer.Inner._t_TestIntfDisp
 
-    TestIntf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), ((), IcePy._t_int, False, 0), ())
+    TestIntf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), ((), IcePy._t_int, False, 0), ())
 
     _M_Test.Outer.Inner.TestIntf = TestIntf
     del TestIntf

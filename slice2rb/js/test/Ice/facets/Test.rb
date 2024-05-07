@@ -61,7 +61,7 @@ module ::Test
 
         T_APrx.defineProxy(APrx, nil, [])
 
-        APrx_mixin::OP_callA = ::Ice::__defineOperation('callA', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        APrx_mixin::OP_callA = ::Ice::__defineOperation('callA', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::B_Mixin)
@@ -88,7 +88,7 @@ module ::Test
 
         T_BPrx.defineProxy(BPrx, nil, [::Test::T_APrx])
 
-        BPrx_mixin::OP_callB = ::Ice::__defineOperation('callB', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        BPrx_mixin::OP_callB = ::Ice::__defineOperation('callB', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::C_Mixin)
@@ -115,7 +115,7 @@ module ::Test
 
         T_CPrx.defineProxy(CPrx, nil, [::Test::T_APrx])
 
-        CPrx_mixin::OP_callC = ::Ice::__defineOperation('callC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        CPrx_mixin::OP_callC = ::Ice::__defineOperation('callC', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::D_Mixin)
@@ -143,7 +143,7 @@ module ::Test
 
         T_DPrx.defineProxy(DPrx, nil, [::Test::T_BPrx, ::Test::T_CPrx])
 
-        DPrx_mixin::OP_callD = ::Ice::__defineOperation('callD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        DPrx_mixin::OP_callD = ::Ice::__defineOperation('callD', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::E_Mixin)
@@ -169,7 +169,7 @@ module ::Test
 
         T_EPrx.defineProxy(EPrx, nil, [])
 
-        EPrx_mixin::OP_callE = ::Ice::__defineOperation('callE', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        EPrx_mixin::OP_callE = ::Ice::__defineOperation('callE', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::F_Mixin)
@@ -196,7 +196,7 @@ module ::Test
 
         T_FPrx.defineProxy(FPrx, nil, [::Test::T_EPrx])
 
-        FPrx_mixin::OP_callF = ::Ice::__defineOperation('callF', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        FPrx_mixin::OP_callF = ::Ice::__defineOperation('callF', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::G_Mixin)
@@ -226,8 +226,8 @@ module ::Test
 
         T_GPrx.defineProxy(GPrx, nil, [])
 
-        GPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        GPrx_mixin::OP_callG = ::Ice::__defineOperation('callG', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        GPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        GPrx_mixin::OP_callG = ::Ice::__defineOperation('callG', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::H_Mixin)
@@ -254,7 +254,7 @@ module ::Test
 
         T_HPrx.defineProxy(HPrx, nil, [::Test::T_GPrx])
 
-        HPrx_mixin::OP_callH = ::Ice::__defineOperation('callH', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        HPrx_mixin::OP_callH = ::Ice::__defineOperation('callH', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::Echo_Mixin)
@@ -292,9 +292,9 @@ module ::Test
 
         T_EchoPrx.defineProxy(EchoPrx, nil, [])
 
-        EchoPrx_mixin::OP_setConnection = ::Ice::__defineOperation('setConnection', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_startBatch = ::Ice::__defineOperation('startBatch', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_flushBatch = ::Ice::__defineOperation('flushBatch', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_setConnection = ::Ice::__defineOperation('setConnection', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_startBatch = ::Ice::__defineOperation('startBatch', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_flushBatch = ::Ice::__defineOperation('flushBatch', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

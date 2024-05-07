@@ -39,8 +39,8 @@
 
     Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
     {
-        "shutdown": [, , , , , , , , , ],
-        "getContext": [, , , , ["Ice.ContextHelper"], , , , , ]
+        "shutdown": [, , , , , , , , ],
+        "getContext": [, , , ["Ice.ContextHelper"], , , , , ]
     });
 
     const iceC_Test_MyDerivedClass_ids = [
@@ -70,7 +70,7 @@
 
     Slice.defineOperations(Test.MyDerivedClass, Test.MyDerivedClassPrx, iceC_Test_MyDerivedClass_ids, "::Test::MyDerivedClass",
     {
-        "echo": [, , , , [9], [[9]], , , , ]
+        "echo": [, , , [9], [[9]], , , , ]
     });
     exports.Test = Test;
 }

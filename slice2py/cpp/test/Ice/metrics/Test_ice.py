@@ -166,15 +166,15 @@ if 'MetricsPrx' not in _M_Test.__dict__:
     _M_Test._t_MetricsDisp = IcePy.defineClass('::Test::Metrics', Metrics, (), None, ())
     Metrics._ice_type = _M_Test._t_MetricsDisp
 
-    Metrics._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Metrics._op_fail = IcePy.Operation('fail', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
-    Metrics._op_opWithUserException = IcePy.Operation('opWithUserException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_UserEx,))
-    Metrics._op_opWithRequestFailedException = IcePy.Operation('opWithRequestFailedException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Metrics._op_opWithLocalException = IcePy.Operation('opWithLocalException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Metrics._op_opWithUnknownException = IcePy.Operation('opWithUnknownException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Metrics._op_opByteS = IcePy.Operation('opByteS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (), None, ())
-    Metrics._op_getAdmin = IcePy.Operation('getAdmin', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
-    Metrics._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Metrics._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Metrics._op_fail = IcePy.Operation('fail', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    Metrics._op_opWithUserException = IcePy.Operation('opWithUserException', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_UserEx,))
+    Metrics._op_opWithRequestFailedException = IcePy.Operation('opWithRequestFailedException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Metrics._op_opWithLocalException = IcePy.Operation('opWithLocalException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Metrics._op_opWithUnknownException = IcePy.Operation('opWithUnknownException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Metrics._op_opByteS = IcePy.Operation('opByteS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (), None, ())
+    Metrics._op_getAdmin = IcePy.Operation('getAdmin', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Metrics._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Metrics = Metrics
     del Metrics
@@ -240,8 +240,8 @@ if 'ControllerPrx' not in _M_Test.__dict__:
     _M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
     Controller._ice_type = _M_Test._t_ControllerDisp
 
-    Controller._op_hold = IcePy.Operation('hold', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Controller._op_resume = IcePy.Operation('resume', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Controller._op_hold = IcePy.Operation('hold', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Controller._op_resume = IcePy.Operation('resume', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Controller = Controller
     del Controller

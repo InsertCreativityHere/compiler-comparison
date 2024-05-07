@@ -62,20 +62,20 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "op": [, , , , [3], , , , , ],
-        "callOpOn": [, , , , [3], [["Test.TestIntfPrx"]], , , , ],
-        "throwUserException1": [, , , , , , ,
+        "op": [, , , [3], , , , , ],
+        "callOpOn": [, , , [3], [["Test.TestIntfPrx"]], , , , ],
+        "throwUserException1": [, , , , , ,
         [
             Test.TestException
         ], , ],
-        "throwUserException2": [, , , , , , ,
+        "throwUserException2": [, , , , , ,
         [
             Test.TestException
         ], , ],
-        "throwUnhandledException1": [, , , , , , , , , ],
-        "throwUnhandledException2": [, , , , , , , , , ],
-        "sleep": [, , , , , [[3]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "throwUnhandledException1": [, , , , , , , , ],
+        "throwUnhandledException2": [, , , , , , , , ],
+        "sleep": [, , , , [[3]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

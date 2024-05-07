@@ -148,7 +148,7 @@ module ::And
 
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
-        BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
     if not defined?(::And::Func_Mixin)
@@ -174,7 +174,7 @@ module ::And
 
         T_FuncPrx.defineProxy(FuncPrx, nil, [])
 
-        FuncPrx_mixin::OP_public = ::Ice::__defineOperation('public', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        FuncPrx_mixin::OP_public = ::Ice::__defineOperation('public', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
     if not defined?(::And::Switch_Mixin)

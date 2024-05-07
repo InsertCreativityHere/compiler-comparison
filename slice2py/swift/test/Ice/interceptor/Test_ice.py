@@ -154,14 +154,14 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
     _M_Test._t_MyObjectDisp = IcePy.defineClass('::Test::MyObject', MyObject, (), None, ())
     MyObject._ice_type = _M_Test._t_MyObjectDisp
 
-    MyObject._op_add = IcePy.Operation('add', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
-    MyObject._op_addWithRetry = IcePy.Operation('addWithRetry', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
-    MyObject._op_badAdd = IcePy.Operation('badAdd', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), (_M_Test._t_InvalidInputException,))
-    MyObject._op_notExistAdd = IcePy.Operation('notExistAdd', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
-    MyObject._op_amdAdd = IcePy.Operation('amdAdd', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
-    MyObject._op_amdAddWithRetry = IcePy.Operation('amdAddWithRetry', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
-    MyObject._op_amdBadAdd = IcePy.Operation('amdBadAdd', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), (_M_Test._t_InvalidInputException,))
-    MyObject._op_amdNotExistAdd = IcePy.Operation('amdNotExistAdd', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
+    MyObject._op_add = IcePy.Operation('add', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
+    MyObject._op_addWithRetry = IcePy.Operation('addWithRetry', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
+    MyObject._op_badAdd = IcePy.Operation('badAdd', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), (_M_Test._t_InvalidInputException,))
+    MyObject._op_notExistAdd = IcePy.Operation('notExistAdd', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
+    MyObject._op_amdAdd = IcePy.Operation('amdAdd', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
+    MyObject._op_amdAddWithRetry = IcePy.Operation('amdAddWithRetry', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
+    MyObject._op_amdBadAdd = IcePy.Operation('amdBadAdd', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), (_M_Test._t_InvalidInputException,))
+    MyObject._op_amdNotExistAdd = IcePy.Operation('amdNotExistAdd', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
 
     _M_Test.MyObject = MyObject
     del MyObject

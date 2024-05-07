@@ -39,8 +39,8 @@
 
     Slice.defineOperations(Test.Priority, Test.PriorityPrx, iceC_Test_Priority_ids, "::Test::Priority",
     {
-        "shutdown": [, , , , , , , , , ],
-        "getPriority": [, , , , [3], , , , , ]
+        "shutdown": [, , , , , , , , ],
+        "getPriority": [, , , [3], , , , , ]
     });
     exports.Test = Test;
 }

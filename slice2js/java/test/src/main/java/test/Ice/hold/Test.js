@@ -39,11 +39,11 @@
 
     Slice.defineOperations(Test.Hold, Test.HoldPrx, iceC_Test_Hold_ids, "::Test::Hold",
     {
-        "putOnHold": [, , , , , [[3]], , , , ],
-        "waitForHold": [, , , , , , , , , ],
-        "set": [, , , , [3], [[3], [3]], , , , ],
-        "setOneway": [, , , , , [[3], [3]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "putOnHold": [, , , , [[3]], , , , ],
+        "waitForHold": [, , , , , , , , ],
+        "set": [, , , [3], [[3], [3]], , , , ],
+        "setOneway": [, , , , [[3], [3]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

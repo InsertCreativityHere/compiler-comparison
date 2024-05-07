@@ -278,10 +278,10 @@
 
     Slice.defineOperations(classdef._break.elseif, classdef._break.elseifPrx, iceC_classdef__break_elseif_ids, "::classdef::break::elseif",
     {
-        "events": [, , , , , , , , , ],
-        "function": ["_function", , , , , , , , , ],
-        "delete": ["_delete", , , , , , , , , ],
-        "checkedCast": [, , , , , , , , , ]
+        "events": [, , , , , , , , ],
+        "function": ["_function", , , , , , , , ],
+        "delete": ["_delete", , , , , , , , ],
+        "checkedCast": [, , , , , , , , ]
     });
 
     Object.defineProperty(classdef._break, 'methods', {

@@ -97,7 +97,7 @@ namespace IceStorm
     $IceStorm__t_TopicLinkPrx = IcePHP_defineProxy('::IceStorm::TopicLink', $Ice__t_ObjectPrx, null);
 
     global $IceStorm__t_EventDataSeq;
-    IcePHP_defineOperation($IceStorm__t_TopicLinkPrx, 'forward', 0, 0, 0, array(array($IceStorm__t_EventDataSeq)), null, null, null);
+    IcePHP_defineOperation($IceStorm__t_TopicLinkPrx, 'forward', 0, 0, array(array($IceStorm__t_EventDataSeq)), null, null, null);
 }
 
 namespace IceStorm
@@ -152,8 +152,8 @@ namespace IceStorm
 
     global $IceStorm__t_TopicLinkPrx;
     global $Ice__t_IdentitySeq;
-    IcePHP_defineOperation($IceStorm__t_TopicInternalPrx, 'getLinkProxy', 2, 2, 0, null, null, array($IceStorm__t_TopicLinkPrx), null);
-    IcePHP_defineOperation($IceStorm__t_TopicInternalPrx, 'reap', 0, 0, 0, array(array($Ice__t_IdentitySeq)), null, null, array($IceStorm__t_ReapWouldBlock));
+    IcePHP_defineOperation($IceStorm__t_TopicInternalPrx, 'getLinkProxy', 2, 0, null, null, array($IceStorm__t_TopicLinkPrx), null);
+    IcePHP_defineOperation($IceStorm__t_TopicInternalPrx, 'reap', 0, 0, array(array($Ice__t_IdentitySeq)), null, null, array($IceStorm__t_ReapWouldBlock));
 }
 
 namespace IceStorm
@@ -183,6 +183,6 @@ namespace IceStorm
     $IceStorm__t_TopicManagerInternalPrx = IcePHP_defineProxy('::IceStorm::TopicManagerInternal', $Ice__t_ObjectPrx, array($IceStorm__t_TopicManagerPrx));
 
     global $IceStormElection__t_NodePrx;
-    IcePHP_defineOperation($IceStorm__t_TopicManagerInternalPrx, 'getReplicaNode', 2, 2, 0, null, null, array($IceStormElection__t_NodePrx), null);
+    IcePHP_defineOperation($IceStorm__t_TopicManagerInternalPrx, 'getReplicaNode', 2, 0, null, null, array($IceStormElection__t_NodePrx), null);
 }
 ?>

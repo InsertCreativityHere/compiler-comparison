@@ -92,7 +92,7 @@
 
     Slice.defineOperations(and.break, and.breakPrx, iceC_and__break_ids, "::and::break",
     {
-        "case": ["_case", , , , , [[3]], [[3]], , , ]
+        "case": ["_case", , , , [[3]], [[3]], , , ]
     });
 
     const iceC_and_func_ids = [
@@ -110,7 +110,7 @@
 
     Slice.defineOperations(and.func, and.funcPrx, iceC_and_func_ids, "::and::func",
     {
-        "public": ["_public", , , , , , , , , ]
+        "public": ["_public", , , , , , , , ]
     });
 
     and._switch = class extends Ice.Value

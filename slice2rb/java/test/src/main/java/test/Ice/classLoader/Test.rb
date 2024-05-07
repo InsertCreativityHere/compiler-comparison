@@ -82,8 +82,8 @@ module ::Test
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
-        InitialPrx_mixin::OP_getConcreteClass = ::Ice::__defineOperation('getConcreteClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_ConcreteClass, false, 0], [])
-        InitialPrx_mixin::OP_throwException = ::Ice::__defineOperation('throwException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_E])
-        InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        InitialPrx_mixin::OP_getConcreteClass = ::Ice::__defineOperation('getConcreteClass', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_ConcreteClass, false, 0], [])
+        InitialPrx_mixin::OP_throwException = ::Ice::__defineOperation('throwException', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_E])
+        InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

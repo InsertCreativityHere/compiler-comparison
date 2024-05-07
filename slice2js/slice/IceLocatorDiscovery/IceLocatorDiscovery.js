@@ -57,7 +57,7 @@ IceLocatorDiscovery.LookupReplyPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceLocatorDiscovery.LookupReply, IceLocatorDiscovery.LookupReplyPrx, iceC_IceLocatorDiscovery_LookupReply_ids, "::IceLocatorDiscovery::LookupReply",
 {
-    "foundLocator": [, , , , , [["Ice.LocatorPrx"]], , , , ]
+    "foundLocator": [, , , , [["Ice.LocatorPrx"]], , , , ]
 });
 
 const iceC_IceLocatorDiscovery_Lookup_ids = [
@@ -82,7 +82,7 @@ IceLocatorDiscovery.LookupPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceLocatorDiscovery.Lookup, IceLocatorDiscovery.LookupPrx, iceC_IceLocatorDiscovery_Lookup_ids, "::IceLocatorDiscovery::Lookup",
 {
-    "findLocator": [, 2, 2, , , [[7], ["IceLocatorDiscovery.LookupReplyPrx"]], , , , ]
+    "findLocator": [, 2, , , [[7], ["IceLocatorDiscovery.LookupReplyPrx"]], , , , ]
 });
 /* slice2js browser-bundle-skip */
 exports.IceLocatorDiscovery = IceLocatorDiscovery;

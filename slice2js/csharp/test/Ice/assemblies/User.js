@@ -46,7 +46,7 @@
 
     Slice.defineOperations(User.Registry, User.RegistryPrx, iceC_User_Registry_ids, "::User::Registry",
     {
-        "getUserInfo": [, , , , ["User.UserInfo", true], [[7]], ,
+        "getUserInfo": [, , , ["User.UserInfo", true], [[7]], ,
         [
             Core.ArgumentException
         ], , true]

@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "getAdapterName": [, , , , [7], , , , , ]
+        "getAdapterName": [, , , [7], , , , , ]
     });
 
     const iceC_Test_RemoteObjectAdapter_ids = [
@@ -57,8 +57,8 @@
 
     Slice.defineOperations(Test.RemoteObjectAdapter, Test.RemoteObjectAdapterPrx, iceC_Test_RemoteObjectAdapter_ids, "::Test::RemoteObjectAdapter",
     {
-        "getTestIntf": [, , , , ["Test.TestIntfPrx"], , , , , ],
-        "deactivate": [, , , , , , , , , ]
+        "getTestIntf": [, , , ["Test.TestIntfPrx"], , , , , ],
+        "deactivate": [, , , , , , , , ]
     });
 
     const iceC_Test_RemoteCommunicator_ids = [
@@ -76,9 +76,9 @@
 
     Slice.defineOperations(Test.RemoteCommunicator, Test.RemoteCommunicatorPrx, iceC_Test_RemoteCommunicator_ids, "::Test::RemoteCommunicator",
     {
-        "createObjectAdapter": [, , , , ["Test.RemoteObjectAdapterPrx"], [[7], [7]], , , , ],
-        "deactivateObjectAdapter": [, , , , , [["Test.RemoteObjectAdapterPrx"]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "createObjectAdapter": [, , , ["Test.RemoteObjectAdapterPrx"], [[7], [7]], , , , ],
+        "deactivateObjectAdapter": [, , , , [["Test.RemoteObjectAdapterPrx"]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

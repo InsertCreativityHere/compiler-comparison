@@ -69,7 +69,7 @@ module ::Test
 
         T_UnexpectedObjectExceptionTestPrx.defineProxy(UnexpectedObjectExceptionTestPrx, nil, [])
 
-        UnexpectedObjectExceptionTestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_AlsoEmpty, false, 0], [])
+        UnexpectedObjectExceptionTestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_AlsoEmpty, false, 0], [])
     end
 
     if not defined?(::Test::COneMember_Mixin)

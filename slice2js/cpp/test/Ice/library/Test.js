@@ -73,7 +73,7 @@
 
     Slice.defineOperations(Test.MyInterface, Test.MyInterfacePrx, iceC_Test_MyInterface_ids, "::Test::MyInterface",
     {
-        "op": [, , , , , [[1]], ,
+        "op": [, , , , [[1]], ,
         [
             Test.UserError
         ], , ]

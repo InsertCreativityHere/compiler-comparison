@@ -98,8 +98,8 @@ if 'CanvasPrx' not in _M_Demo.gx.__dict__:
     _M_Demo.gx._t_CanvasDisp = IcePy.defineClass('::Demo::gx::Canvas', Canvas, (), None, ())
     Canvas._ice_type = _M_Demo.gx._t_CanvasDisp
 
-    Canvas._op_paintSquare = IcePy.Operation('paintSquare', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Demo.gx._t_Square, False, 0),), (), None, ())
-    Canvas._op_paintCircle = IcePy.Operation('paintCircle', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Demo.gx._t_Circle, False, 0),), (), None, ())
+    Canvas._op_paintSquare = IcePy.Operation('paintSquare', Ice.OperationMode.Normal, False, None, (), (((), _M_Demo.gx._t_Square, False, 0),), (), None, ())
+    Canvas._op_paintCircle = IcePy.Operation('paintCircle', Ice.OperationMode.Normal, False, None, (), (((), _M_Demo.gx._t_Circle, False, 0),), (), None, ())
 
     _M_Demo.gx.Canvas = Canvas
     del Canvas
@@ -156,7 +156,7 @@ if 'SessionPrx' not in _M_Demo.gx.__dict__:
     _M_Demo.gx._t_SessionDisp = IcePy.defineClass('::Demo::gx::Session', Session, (), None, (_M_Glacier2._t_SessionDisp,))
     Session._ice_type = _M_Demo.gx._t_SessionDisp
 
-    Session._op_destroySession = IcePy.Operation('destroySession', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Session._op_destroySession = IcePy.Operation('destroySession', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Demo.gx.Session = Session
     del Session

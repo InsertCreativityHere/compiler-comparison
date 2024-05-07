@@ -62,14 +62,14 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "op": [, , , , , , , , , ],
-        "opIdempotent": [, 2, 2, , , , , , , ],
-        "sleep": [, , , , , [[3]], ,
+        "op": [, , , , , , , , ],
+        "opIdempotent": [, 2, , , , , , , ],
+        "sleep": [, , , , [[3]], ,
         [
             Test.InterruptedException
         ], , ],
-        "opWithPayload": [, , , , , [["Ice.ByteSeqHelper"]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "opWithPayload": [, , , , [["Ice.ByteSeqHelper"]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
 
     Test.CannotInterruptException = class extends Ice.UserException
@@ -110,9 +110,9 @@
 
     Slice.defineOperations(Test.TestIntfController, Test.TestIntfControllerPrx, iceC_Test_TestIntfController_ids, "::Test::TestIntfController",
     {
-        "holdAdapter": [, , , , , , , , , ],
-        "resumeAdapter": [, , , , , , , , , ],
-        "interrupt": [, , , , , , ,
+        "holdAdapter": [, , , , , , , , ],
+        "resumeAdapter": [, , , , , , , , ],
+        "interrupt": [, , , , , ,
         [
             Test.CannotInterruptException
         ], , ]

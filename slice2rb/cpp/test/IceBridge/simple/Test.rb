@@ -53,10 +53,10 @@ module ::Test
 
         T_CallbackPrx.defineProxy(CallbackPrx, nil, [])
 
-        CallbackPrx_mixin::OP_ping = ::Ice::__defineOperation('ping', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        CallbackPrx_mixin::OP_getCount = ::Ice::__defineOperation('getCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        CallbackPrx_mixin::OP_datagram = ::Ice::__defineOperation('datagram', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        CallbackPrx_mixin::OP_getDatagramCount = ::Ice::__defineOperation('getDatagramCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        CallbackPrx_mixin::OP_ping = ::Ice::__defineOperation('ping', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        CallbackPrx_mixin::OP_getCount = ::Ice::__defineOperation('getCount', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        CallbackPrx_mixin::OP_datagram = ::Ice::__defineOperation('datagram', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        CallbackPrx_mixin::OP_getDatagramCount = ::Ice::__defineOperation('getDatagramCount', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
     end
 
     if not defined?(::Test::MyClass_Mixin)
@@ -130,18 +130,18 @@ module ::Test
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
-        MyClassPrx_mixin::OP_callCallback = ::Ice::__defineOperation('callCallback', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
-        MyClassPrx_mixin::OP_getCallbackCount = ::Ice::__defineOperation('getCallbackCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_int, false, 0], [])
-        MyClassPrx_mixin::OP_incCounter = ::Ice::__defineOperation('incCounter', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        MyClassPrx_mixin::OP_waitCounter = ::Ice::__defineOperation('waitCounter', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        MyClassPrx_mixin::OP_getConnectionCount = ::Ice::__defineOperation('getConnectionCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        MyClassPrx_mixin::OP_getConnectionInfo = ::Ice::__defineOperation('getConnectionInfo', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        MyClassPrx_mixin::OP_closeConnection = ::Ice::__defineOperation('closeConnection', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
-        MyClassPrx_mixin::OP_datagram = ::Ice::__defineOperation('datagram', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        MyClassPrx_mixin::OP_getDatagramCount = ::Ice::__defineOperation('getDatagramCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        MyClassPrx_mixin::OP_callDatagramCallback = ::Ice::__defineOperation('callDatagramCallback', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        MyClassPrx_mixin::OP_getCallbackDatagramCount = ::Ice::__defineOperation('getCallbackDatagramCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_int, false, 0], [])
-        MyClassPrx_mixin::OP_getHeartbeatCount = ::Ice::__defineOperation('getHeartbeatCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_callCallback = ::Ice::__defineOperation('callCallback', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_getCallbackCount = ::Ice::__defineOperation('getCallbackCount', ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_int, false, 0], [])
+        MyClassPrx_mixin::OP_incCounter = ::Ice::__defineOperation('incCounter', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        MyClassPrx_mixin::OP_waitCounter = ::Ice::__defineOperation('waitCounter', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        MyClassPrx_mixin::OP_getConnectionCount = ::Ice::__defineOperation('getConnectionCount', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        MyClassPrx_mixin::OP_getConnectionInfo = ::Ice::__defineOperation('getConnectionInfo', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        MyClassPrx_mixin::OP_closeConnection = ::Ice::__defineOperation('closeConnection', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
+        MyClassPrx_mixin::OP_datagram = ::Ice::__defineOperation('datagram', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_getDatagramCount = ::Ice::__defineOperation('getDatagramCount', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        MyClassPrx_mixin::OP_callDatagramCallback = ::Ice::__defineOperation('callDatagramCallback', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_getCallbackDatagramCount = ::Ice::__defineOperation('getCallbackDatagramCount', ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_int, false, 0], [])
+        MyClassPrx_mixin::OP_getHeartbeatCount = ::Ice::__defineOperation('getHeartbeatCount', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

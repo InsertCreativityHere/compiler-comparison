@@ -83,12 +83,12 @@
 
     Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
     {
-        "getConcreteClass": [, , , , ["Test.ConcreteClass", true], , , , , true],
-        "throwException": [, , , , , , ,
+        "getConcreteClass": [, , , ["Test.ConcreteClass", true], , , , , true],
+        "throwException": [, , , , , ,
         [
             Test.E
         ], , ],
-        "shutdown": [, , , , , , , , , ]
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

@@ -104,8 +104,8 @@ if 'CallbackReceiverPrx' not in _M_Test.__dict__:
     _M_Test._t_CallbackReceiverDisp = IcePy.defineClass('::Test::CallbackReceiver', CallbackReceiver, (), None, ())
     CallbackReceiver._ice_type = _M_Test._t_CallbackReceiverDisp
 
-    CallbackReceiver._op_callback = IcePy.Operation('callback', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    CallbackReceiver._op_callbackEx = IcePy.Operation('callbackEx', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_CallbackException,))
+    CallbackReceiver._op_callback = IcePy.Operation('callback', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    CallbackReceiver._op_callbackEx = IcePy.Operation('callbackEx', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_CallbackException,))
 
     _M_Test.CallbackReceiver = CallbackReceiver
     del CallbackReceiver
@@ -180,9 +180,9 @@ if 'CallbackPrx' not in _M_Test.__dict__:
     _M_Test._t_CallbackDisp = IcePy.defineClass('::Test::Callback', Callback, (), None, ())
     Callback._ice_type = _M_Test._t_CallbackDisp
 
-    Callback._op_initiateCallback = IcePy.Operation('initiateCallback', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, ())
-    Callback._op_initiateCallbackEx = IcePy.Operation('initiateCallbackEx', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, (_M_Test._t_CallbackException,))
-    Callback._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Callback._op_initiateCallback = IcePy.Operation('initiateCallback', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, ())
+    Callback._op_initiateCallbackEx = IcePy.Operation('initiateCallbackEx', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, (_M_Test._t_CallbackException,))
+    Callback._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Callback = Callback
     del Callback

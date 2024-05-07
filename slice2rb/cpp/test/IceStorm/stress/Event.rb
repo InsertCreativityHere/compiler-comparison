@@ -41,6 +41,6 @@ module ::Test
 
         T_EventPrx.defineProxy(EventPrx, nil, [])
 
-        EventPrx_mixin::OP_pub = ::Ice::__defineOperation('pub', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        EventPrx_mixin::OP_pub = ::Ice::__defineOperation('pub', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
     end
 end

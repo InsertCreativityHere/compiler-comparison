@@ -121,14 +121,14 @@ module ::Test
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
-        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
-        MyClassPrx_mixin::OP_opNV = ::Ice::__defineOperation('opNV', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NV, false, 0]], [[::Test::T_NV, false, 0]], [::Test::T_NV, false, 0], [])
-        MyClassPrx_mixin::OP_opNR = ::Ice::__defineOperation('opNR', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NR, false, 0]], [[::Test::T_NR, false, 0]], [::Test::T_NR, false, 0], [])
-        MyClassPrx_mixin::OP_opNDV = ::Ice::__defineOperation('opNDV', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDV, false, 0]], [[::Test::T_NDV, false, 0]], [::Test::T_NDV, false, 0], [])
-        MyClassPrx_mixin::OP_opNDR = ::Ice::__defineOperation('opNDR', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDR, false, 0]], [[::Test::T_NDR, false, 0]], [::Test::T_NDR, false, 0], [])
-        MyClassPrx_mixin::OP_opNDAIS = ::Ice::__defineOperation('opNDAIS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDAIS, false, 0]], [[::Test::T_NDAIS, false, 0]], [::Test::T_NDAIS, false, 0], [])
-        MyClassPrx_mixin::OP_opNDGIS = ::Ice::__defineOperation('opNDGIS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDGIS, false, 0]], [[::Test::T_NDGIS, false, 0]], [::Test::T_NDGIS, false, 0], [])
-        MyClassPrx_mixin::OP_opNDASS = ::Ice::__defineOperation('opNDASS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDASS, false, 0]], [[::Test::T_NDASS, false, 0]], [::Test::T_NDASS, false, 0], [])
-        MyClassPrx_mixin::OP_opNDGSS = ::Ice::__defineOperation('opNDGSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDGSS, false, 0]], [[::Test::T_NDGSS, false, 0]], [::Test::T_NDGSS, false, 0], [])
+        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_opNV = ::Ice::__defineOperation('opNV', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NV, false, 0]], [[::Test::T_NV, false, 0]], [::Test::T_NV, false, 0], [])
+        MyClassPrx_mixin::OP_opNR = ::Ice::__defineOperation('opNR', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NR, false, 0]], [[::Test::T_NR, false, 0]], [::Test::T_NR, false, 0], [])
+        MyClassPrx_mixin::OP_opNDV = ::Ice::__defineOperation('opNDV', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDV, false, 0]], [[::Test::T_NDV, false, 0]], [::Test::T_NDV, false, 0], [])
+        MyClassPrx_mixin::OP_opNDR = ::Ice::__defineOperation('opNDR', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDR, false, 0]], [[::Test::T_NDR, false, 0]], [::Test::T_NDR, false, 0], [])
+        MyClassPrx_mixin::OP_opNDAIS = ::Ice::__defineOperation('opNDAIS', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDAIS, false, 0]], [[::Test::T_NDAIS, false, 0]], [::Test::T_NDAIS, false, 0], [])
+        MyClassPrx_mixin::OP_opNDGIS = ::Ice::__defineOperation('opNDGIS', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDGIS, false, 0]], [[::Test::T_NDGIS, false, 0]], [::Test::T_NDGIS, false, 0], [])
+        MyClassPrx_mixin::OP_opNDASS = ::Ice::__defineOperation('opNDASS', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDASS, false, 0]], [[::Test::T_NDASS, false, 0]], [::Test::T_NDASS, false, 0], [])
+        MyClassPrx_mixin::OP_opNDGSS = ::Ice::__defineOperation('opNDGSS', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_NDGSS, false, 0]], [[::Test::T_NDGSS, false, 0]], [::Test::T_NDGSS, false, 0], [])
     end
 end

@@ -99,10 +99,10 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_abort = IcePy.Operation('abort', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_idempotentAbort = IcePy.Operation('idempotentAbort', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
-    TestIntf._op_pid = IcePy.Operation('pid', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_abort = IcePy.Operation('abort', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_idempotentAbort = IcePy.Operation('idempotentAbort', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    TestIntf._op_pid = IcePy.Operation('pid', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf
@@ -159,7 +159,7 @@ if 'CleanerPrx' not in _M_Test.__dict__:
     _M_Test._t_CleanerDisp = IcePy.defineClass('::Test::Cleaner', Cleaner, (), None, ())
     Cleaner._ice_type = _M_Test._t_CleanerDisp
 
-    Cleaner._op_cleanup = IcePy.Operation('cleanup', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Cleaner._op_cleanup = IcePy.Operation('cleanup', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Cleaner = Cleaner
     del Cleaner

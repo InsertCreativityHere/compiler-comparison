@@ -228,12 +228,12 @@
 
     Slice.defineOperations(IceGrid.Adapter, IceGrid.AdapterPrx, iceC_IceGrid_Adapter_ids, "::IceGrid::Adapter",
     {
-        "activate": [, , , , [9], , , , , ],
-        "getDirectProxy": [, 2, 2, , [9], , ,
+        "activate": [, , , [9], , , , , ],
+        "getDirectProxy": [, 2, , [9], , ,
         [
             IceGrid.AdapterNotActiveException
         ], , ],
-        "setDirectProxy": [, , , , , [[9]], ,
+        "setDirectProxy": [, , , , [[9]], ,
         [
             IceGrid.AdapterActiveException
         ], , ]
@@ -293,11 +293,11 @@
 
     Slice.defineOperations(IceGrid.FileReader, IceGrid.FileReaderPrx, iceC_IceGrid_FileReader_ids, "::IceGrid::FileReader",
     {
-        "getOffsetFromEnd": [, 2, 2, , [4], [[7], [3]], ,
+        "getOffsetFromEnd": [, 2, , [4], [[7], [3]], ,
         [
             IceGrid.FileNotAvailableException
         ], , ],
-        "read": [, 2, 2, , [1], [[7], [4], [3]], [[4], ["Ice.StringSeqHelper"]],
+        "read": [, 2, , [1], [[7], [4], [3]], [[4], ["Ice.StringSeqHelper"]],
         [
             IceGrid.FileNotAvailableException
         ], , ]
@@ -330,28 +330,28 @@
 
     Slice.defineOperations(IceGrid.Server, IceGrid.ServerPrx, iceC_IceGrid_Server_ids, "::IceGrid::Server",
     {
-        "start": [, , , , , , ,
+        "start": [, , , , , ,
         [
             IceGrid.ServerStartException
         ], , ],
-        "stop": [, , , , , , ,
+        "stop": [, , , , , ,
         [
             IceGrid.ServerStopException
         ], , ],
-        "checkUpdate": [, , , , [1], [["IceGrid.InternalServerDescriptor", true], [1]], ,
+        "checkUpdate": [, , , [1], [["IceGrid.InternalServerDescriptor", true], [1]], ,
         [
             IceGrid.DeploymentException
         ], true, ],
-        "setEnabled": [, , , , , [[1]], , , , ],
-        "isEnabled": [, 2, 2, , [1], , , , , ],
-        "sendSignal": [, , , , , [[7]], ,
+        "setEnabled": [, , , , [[1]], , , , ],
+        "isEnabled": [, 2, , [1], , , , , ],
+        "sendSignal": [, , , , [[7]], ,
         [
             IceGrid.BadSignalException
         ], , ],
-        "writeMessage": [, , , , , [[7], [3]], , , , ],
-        "getState": [, 2, 2, , [IceGrid.ServerState._helper], , , , , ],
-        "getPid": [, 2, 2, , [3], , , , , ],
-        "setProcess": [, , , , , [["Ice.ProcessPrx"]], , , , ]
+        "writeMessage": [, , , , [[7], [3]], , , , ],
+        "getState": [, 2, , [IceGrid.ServerState._helper], , , , , ],
+        "getPid": [, 2, , [3], , , , , ],
+        "setProcess": [, , , , [["Ice.ProcessPrx"]], , , , ]
     });
 
     Slice.defineSequence(IceGrid, "InternalRegistryPrxSeqHelper", "IceGrid.InternalRegistryPrx", false);
@@ -371,9 +371,9 @@
 
     Slice.defineOperations(IceGrid.ReplicaObserver, IceGrid.ReplicaObserverPrx, iceC_IceGrid_ReplicaObserver_ids, "::IceGrid::ReplicaObserver",
     {
-        "replicaInit": [, , , , , [["IceGrid.InternalRegistryPrxSeqHelper"]], , , , ],
-        "replicaAdded": [, , , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
-        "replicaRemoved": [, , , , , [["IceGrid.InternalRegistryPrx"]], , , , ]
+        "replicaInit": [, , , , [["IceGrid.InternalRegistryPrxSeqHelper"]], , , , ],
+        "replicaAdded": [, , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
+        "replicaRemoved": [, , , , [["IceGrid.InternalRegistryPrx"]], , , , ]
     });
 
     const iceC_IceGrid_Node_ids = [
@@ -406,28 +406,28 @@
 
     Slice.defineOperations(IceGrid.Node, IceGrid.NodePrx, iceC_IceGrid_Node_ids, "::IceGrid::Node",
     {
-        "loadServer": [, 2, 2, , ["IceGrid.ServerPrx"], [["IceGrid.InternalServerDescriptor", true], [7]], [["IceGrid.AdapterPrxDictHelper"], [3], [3]],
+        "loadServer": [, 2, , ["IceGrid.ServerPrx"], [["IceGrid.InternalServerDescriptor", true], [7]], [["IceGrid.AdapterPrxDictHelper"], [3], [3]],
         [
             IceGrid.DeploymentException
         ], true, ],
-        "loadServerWithoutRestart": [, 2, 2, , ["IceGrid.ServerPrx"], [["IceGrid.InternalServerDescriptor", true], [7]], [["IceGrid.AdapterPrxDictHelper"], [3], [3]],
+        "loadServerWithoutRestart": [, 2, , ["IceGrid.ServerPrx"], [["IceGrid.InternalServerDescriptor", true], [7]], [["IceGrid.AdapterPrxDictHelper"], [3], [3]],
         [
             IceGrid.DeploymentException
         ], true, ],
-        "destroyServer": [, 2, 2, , , [[7], [7], [3], [7]], ,
+        "destroyServer": [, 2, , , [[7], [7], [3], [7]], ,
         [
             IceGrid.DeploymentException
         ], , ],
-        "destroyServerWithoutRestart": [, 2, 2, , , [[7], [7], [3], [7]], ,
+        "destroyServerWithoutRestart": [, 2, , , [[7], [7], [3], [7]], ,
         [
             IceGrid.DeploymentException
         ], , ],
-        "registerWithReplica": [, , , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
-        "getName": [, 2, 2, , [7], , , , , ],
-        "getHostname": [, 2, 2, , [7], , , , , ],
-        "getLoad": [, 2, 2, , [IceGrid.LoadInfo], , , , , ],
-        "getProcessorSocketCount": [, 2, 2, , [3], , , , , ],
-        "shutdown": [, 2, 2, , , , , , , ]
+        "registerWithReplica": [, , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
+        "getName": [, 2, , [7], , , , , ],
+        "getHostname": [, 2, , [7], , , , , ],
+        "getLoad": [, 2, , [IceGrid.LoadInfo], , , , , ],
+        "getProcessorSocketCount": [, 2, , [3], , , , , ],
+        "shutdown": [, 2, , , , , , , ]
     });
 
     Slice.defineSequence(IceGrid, "NodePrxSeqHelper", "IceGrid.NodePrx", false);
@@ -473,14 +473,14 @@
 
     Slice.defineOperations(IceGrid.NodeSession, IceGrid.NodeSessionPrx, iceC_IceGrid_NodeSession_ids, "::IceGrid::NodeSession",
     {
-        "keepAlive": [, , , , , [[IceGrid.LoadInfo]], , , , ],
-        "setReplicaObserver": [, , , , , [["IceGrid.ReplicaObserverPrx"]], , , , ],
-        "getTimeout": [, 2, 2, , [3], , , , , ],
-        "getObserver": [, 2, 2, , ["IceGrid.NodeObserverPrx"], , , , , ],
-        "loadServers": [, 2, 2, , , , , , , ],
-        "getServers": [, 2, 2, , ["Ice.StringSeqHelper"], , , , , ],
-        "waitForApplicationUpdate": [, , , , , [[7], [3]], , , , ],
-        "destroy": [, , , , , , , , , ]
+        "keepAlive": [, , , , [[IceGrid.LoadInfo]], , , , ],
+        "setReplicaObserver": [, , , , [["IceGrid.ReplicaObserverPrx"]], , , , ],
+        "getTimeout": [, 2, , [3], , , , , ],
+        "getObserver": [, 2, , ["IceGrid.NodeObserverPrx"], , , , , ],
+        "loadServers": [, 2, , , , , , , ],
+        "getServers": [, 2, , ["Ice.StringSeqHelper"], , , , , ],
+        "waitForApplicationUpdate": [, , , , [[7], [3]], , , , ],
+        "destroy": [, , , , , , , , ]
     });
 
     /**
@@ -562,22 +562,22 @@
 
     Slice.defineOperations(IceGrid.ReplicaSession, IceGrid.ReplicaSessionPrx, iceC_IceGrid_ReplicaSession_ids, "::IceGrid::ReplicaSession",
     {
-        "keepAlive": [, , , , , , , , , ],
-        "getTimeout": [, 2, 2, , [3], , , , , ],
-        "setDatabaseObserver": [, 2, 2, , , [["IceGrid.DatabaseObserverPrx"], ["IceGrid.StringLongDictHelper", , 1]], ,
+        "keepAlive": [, , , , , , , , ],
+        "getTimeout": [, 2, , [3], , , , , ],
+        "setDatabaseObserver": [, 2, , , [["IceGrid.DatabaseObserverPrx"], ["IceGrid.StringLongDictHelper", , 1]], ,
         [
             IceGrid.DeploymentException,
             IceGrid.ObserverAlreadyRegisteredException
         ], , ],
-        "setEndpoints": [, 2, 2, , , [["IceGrid.StringObjectProxyDictHelper"]], , , , ],
-        "registerWellKnownObjects": [, 2, 2, , , [["IceGrid.ObjectInfoSeqHelper"]], , , , ],
-        "setAdapterDirectProxy": [, 2, 2, , , [[7], [7], [9]], ,
+        "setEndpoints": [, 2, , , [["IceGrid.StringObjectProxyDictHelper"]], , , , ],
+        "registerWellKnownObjects": [, 2, , , [["IceGrid.ObjectInfoSeqHelper"]], , , , ],
+        "setAdapterDirectProxy": [, 2, , , [[7], [7], [9]], ,
         [
             IceGrid.AdapterExistsException,
             IceGrid.AdapterNotExistException
         ], , ],
-        "receivedUpdate": [, , , , , [[IceGrid.TopicName._helper], [3], [7]], , , , ],
-        "destroy": [, , , , , , , , , ]
+        "receivedUpdate": [, , , , [[IceGrid.TopicName._helper], [3], [7]], , , , ],
+        "destroy": [, , , , , , , , ]
     });
 
     /**
@@ -679,23 +679,23 @@
 
     Slice.defineOperations(IceGrid.InternalRegistry, IceGrid.InternalRegistryPrx, iceC_IceGrid_InternalRegistry_ids, "::IceGrid::InternalRegistry",
     {
-        "registerNode": [, , , , ["IceGrid.NodeSessionPrx"], [["IceGrid.InternalNodeInfo", true], ["IceGrid.NodePrx"], [IceGrid.LoadInfo]], ,
+        "registerNode": [, , , ["IceGrid.NodeSessionPrx"], [["IceGrid.InternalNodeInfo", true], ["IceGrid.NodePrx"], [IceGrid.LoadInfo]], ,
         [
             IceGrid.NodeActiveException,
             IceGrid.PermissionDeniedException
         ], true, ],
-        "registerReplica": [, , , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
+        "registerReplica": [, , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
         [
             IceGrid.ReplicaActiveException,
             IceGrid.PermissionDeniedException
         ], true, ],
-        "registerWithReplica": [, , , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
-        "getNodes": [, 2, 2, , ["IceGrid.NodePrxSeqHelper"], , , , , ],
-        "getReplicas": [, 2, 2, , ["IceGrid.InternalRegistryPrxSeqHelper"], , , , , ],
-        "getApplications": [, 2, 2, , ["IceGrid.ApplicationInfoSeqHelper"], , [[4]], , , true],
-        "getAdapters": [, 2, 2, , ["IceGrid.AdapterInfoSeqHelper"], , [[4]], , , ],
-        "getObjects": [, 2, 2, , ["IceGrid.ObjectInfoSeqHelper"], , [[4]], , , ],
-        "shutdown": [, 2, 2, , , , , , , ]
+        "registerWithReplica": [, , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
+        "getNodes": [, 2, , ["IceGrid.NodePrxSeqHelper"], , , , , ],
+        "getReplicas": [, 2, , ["IceGrid.InternalRegistryPrxSeqHelper"], , , , , ],
+        "getApplications": [, 2, , ["IceGrid.ApplicationInfoSeqHelper"], , [[4]], , , true],
+        "getAdapters": [, 2, , ["IceGrid.AdapterInfoSeqHelper"], , [[4]], , , ],
+        "getObjects": [, 2, , ["IceGrid.ObjectInfoSeqHelper"], , [[4]], , , ],
+        "shutdown": [, 2, , , , , , , ]
     });
     exports.IceGrid = IceGrid;
 }

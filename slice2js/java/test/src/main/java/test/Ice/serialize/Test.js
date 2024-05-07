@@ -224,10 +224,10 @@
 
     Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::Test::Initial",
     {
-        "getStruct1": [, , , , ["Test.ByteSHelper"], , , , , ],
-        "getBase": [, , , , ["Test.ByteSHelper"], , , , , ],
-        "getEx": [, , , , ["Test.ByteSHelper"], , , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "getStruct1": [, , , ["Test.ByteSHelper"], , , , , ],
+        "getBase": [, , , ["Test.ByteSHelper"], , , , , ],
+        "getEx": [, , , ["Test.ByteSHelper"], , , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

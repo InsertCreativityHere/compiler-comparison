@@ -154,14 +154,14 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    TestIntf._op_callOpOn = IcePy.Operation('callOpOn', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_TestIntfPrx, False, 0),), (), ((), IcePy._t_int, False, 0), ())
-    TestIntf._op_throwUserException1 = IcePy.Operation('throwUserException1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_TestException,))
-    TestIntf._op_throwUserException2 = IcePy.Operation('throwUserException2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_TestException,))
-    TestIntf._op_throwUnhandledException1 = IcePy.Operation('throwUnhandledException1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_throwUnhandledException2 = IcePy.Operation('throwUnhandledException2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    TestIntf._op_callOpOn = IcePy.Operation('callOpOn', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_TestIntfPrx, False, 0),), (), ((), IcePy._t_int, False, 0), ())
+    TestIntf._op_throwUserException1 = IcePy.Operation('throwUserException1', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_TestException,))
+    TestIntf._op_throwUserException2 = IcePy.Operation('throwUserException2', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_TestException,))
+    TestIntf._op_throwUnhandledException1 = IcePy.Operation('throwUnhandledException1', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_throwUnhandledException2 = IcePy.Operation('throwUnhandledException2', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf

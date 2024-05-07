@@ -39,9 +39,9 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "shutdown": [, , , , , , , , , ],
-        "getEndpointInfoAsContext": [, , , , ["Ice.ContextHelper"], , , , , ],
-        "getConnectionInfoAsContext": [, , , , ["Ice.ContextHelper"], , , , , ]
+        "shutdown": [, , , , , , , , ],
+        "getEndpointInfoAsContext": [, , , ["Ice.ContextHelper"], , , , , ],
+        "getConnectionInfoAsContext": [, , , ["Ice.ContextHelper"], , , , , ]
     });
     exports.Test = Test;
 }

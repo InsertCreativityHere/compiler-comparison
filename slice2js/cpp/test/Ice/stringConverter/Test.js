@@ -62,12 +62,12 @@
 
     Slice.defineOperations(Test.MyObject, Test.MyObjectPrx, iceC_Test_MyObject_ids, "::Test::MyObject",
     {
-        "widen": [, , , , [7], [[7]], ,
+        "widen": [, , , [7], [[7]], ,
         [
             Test.BadEncodingException
         ], , ],
-        "narrow": [, , , , [7], [[7]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "narrow": [, , , [7], [[7]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

@@ -118,10 +118,10 @@ if 'HelloPrx' not in _M_Test.__dict__:
     _M_Test._t_HelloDisp = IcePy.defineClass('::Test::Hello', Hello, (), None, ())
     Hello._ice_type = _M_Test._t_HelloDisp
 
-    Hello._op_sayHello = IcePy.Operation('sayHello', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-    Hello._op_add = IcePy.Operation('add', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
-    Hello._op_raiseUE = IcePy.Operation('raiseUE', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_UE,))
-    Hello._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Hello._op_sayHello = IcePy.Operation('sayHello', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    Hello._op_add = IcePy.Operation('add', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
+    Hello._op_raiseUE = IcePy.Operation('raiseUE', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_UE,))
+    Hello._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Hello = Hello
     del Hello

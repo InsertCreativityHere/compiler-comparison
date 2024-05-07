@@ -48,7 +48,7 @@ namespace Test
 
     global $IcePHP__t_string;
     global $Ice__t_StringSeq;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getProperty', 0, 0, 0, array(array($IcePHP__t_string)), null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getArgs', 0, 0, 0, null, null, array($Ice__t_StringSeq), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getProperty', 0, 0, array(array($IcePHP__t_string)), null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getArgs', 0, 0, null, null, array($Ice__t_StringSeq), null);
 }
 ?>

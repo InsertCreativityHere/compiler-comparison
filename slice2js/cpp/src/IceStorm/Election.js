@@ -112,23 +112,23 @@
 
     Slice.defineOperations(IceStormElection.ReplicaObserver, IceStormElection.ReplicaObserverPrx, iceC_IceStormElection_ReplicaObserver_ids, "::IceStormElection::ReplicaObserver",
     {
-        "init": [, , , , , [[IceStormElection.LogUpdate], ["IceStormElection.TopicContentSeqHelper"]], ,
+        "init": [, , , , [[IceStormElection.LogUpdate], ["IceStormElection.TopicContentSeqHelper"]], ,
         [
             IceStormElection.ObserverInconsistencyException
         ], , ],
-        "createTopic": [, , , , , [[IceStormElection.LogUpdate], [7]], ,
+        "createTopic": [, , , , [[IceStormElection.LogUpdate], [7]], ,
         [
             IceStormElection.ObserverInconsistencyException
         ], , ],
-        "destroyTopic": [, , , , , [[IceStormElection.LogUpdate], [7]], ,
+        "destroyTopic": [, , , , [[IceStormElection.LogUpdate], [7]], ,
         [
             IceStormElection.ObserverInconsistencyException
         ], , ],
-        "addSubscriber": [, , , , , [[IceStormElection.LogUpdate], [7], [IceStorm.SubscriberRecord]], ,
+        "addSubscriber": [, , , , [[IceStormElection.LogUpdate], [7], [IceStorm.SubscriberRecord]], ,
         [
             IceStormElection.ObserverInconsistencyException
         ], , ],
-        "removeSubscriber": [, , , , , [[IceStormElection.LogUpdate], [7], ["Ice.IdentitySeqHelper"]], ,
+        "removeSubscriber": [, , , , [[IceStormElection.LogUpdate], [7], ["Ice.IdentitySeqHelper"]], ,
         [
             IceStormElection.ObserverInconsistencyException
         ], , ]
@@ -152,7 +152,7 @@
 
     Slice.defineOperations(IceStormElection.TopicManagerSync, IceStormElection.TopicManagerSyncPrx, iceC_IceStormElection_TopicManagerSync_ids, "::IceStormElection::TopicManagerSync",
     {
-        "getContent": [, , , , , , [[IceStormElection.LogUpdate], ["IceStormElection.TopicContentSeqHelper"]], , , ]
+        "getContent": [, , , , , [[IceStormElection.LogUpdate], ["IceStormElection.TopicContentSeqHelper"]], , , ]
     });
 
     /**
@@ -288,14 +288,14 @@
 
     Slice.defineOperations(IceStormElection.Node, IceStormElection.NodePrx, iceC_IceStormElection_Node_ids, "::IceStormElection::Node",
     {
-        "invitation": [, , , , , [[3], [7]], , , , ],
-        "ready": [, , , , , [[3], [7], [9], [3], [4]], , , , ],
-        "accept": [, , , , , [[3], [7], ["Ice.IntSeqHelper"], [9], [IceStormElection.LogUpdate], [3]], , , , ],
-        "areYouCoordinator": [, 2, 2, , [1], , , , , ],
-        "areYouThere": [, 2, 2, , [1], [[7], [3]], , , , ],
-        "sync": [, 2, 2, , [9], , , , , ],
-        "nodes": [, 2, 2, , ["IceStormElection.NodeInfoSeqHelper"], , , , , ],
-        "query": [, 2, 2, , [IceStormElection.QueryInfo], , , , , ]
+        "invitation": [, , , , [[3], [7]], , , , ],
+        "ready": [, , , , [[3], [7], [9], [3], [4]], , , , ],
+        "accept": [, , , , [[3], [7], ["Ice.IntSeqHelper"], [9], [IceStormElection.LogUpdate], [3]], , , , ],
+        "areYouCoordinator": [, 2, , [1], , , , , ],
+        "areYouThere": [, 2, , [1], [[7], [3]], , , , ],
+        "sync": [, 2, , [9], , , , , ],
+        "nodes": [, 2, , ["IceStormElection.NodeInfoSeqHelper"], , , , , ],
+        "query": [, 2, , [IceStormElection.QueryInfo], , , , , ]
     });
     exports.IceStormElection = IceStormElection;
 }

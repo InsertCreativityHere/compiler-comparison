@@ -255,10 +255,10 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_RelayPrx = IcePHP_defineProxy('::Test::Relay', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_RelayPrx, 'knownPreservedAsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_RelayPrx, 'knownPreservedAsKnownPreserved', 0, 0, 2, null, null, null, array($Test__t_KnownPreserved));
-    IcePHP_defineOperation($Test__t_RelayPrx, 'unknownPreservedAsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_RelayPrx, 'unknownPreservedAsKnownPreserved', 0, 0, 2, null, null, null, array($Test__t_KnownPreserved));
+    IcePHP_defineOperation($Test__t_RelayPrx, 'knownPreservedAsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_RelayPrx, 'knownPreservedAsKnownPreserved', 0, 2, null, null, null, array($Test__t_KnownPreserved));
+    IcePHP_defineOperation($Test__t_RelayPrx, 'unknownPreservedAsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_RelayPrx, 'unknownPreservedAsKnownPreserved', 0, 2, null, null, null, array($Test__t_KnownPreserved));
 }
 
 namespace Test
@@ -288,29 +288,29 @@ namespace Test
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
     global $Test__t_RelayPrx;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'baseAsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownDerivedAsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownDerivedAsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownDerivedAsKnownDerived', 0, 0, 2, null, null, null, array($Test__t_KnownDerived));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownIntermediateAsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownIntermediateAsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownMostDerivedAsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownIntermediateAsKnownIntermediate', 0, 0, 2, null, null, null, array($Test__t_KnownIntermediate));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownMostDerivedAsKnownIntermediate', 0, 0, 2, null, null, null, array($Test__t_KnownIntermediate));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownMostDerivedAsKnownMostDerived', 0, 0, 2, null, null, null, array($Test__t_KnownMostDerived));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownMostDerived1AsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownMostDerived1AsKnownIntermediate', 0, 0, 2, null, null, null, array($Test__t_KnownIntermediate));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownMostDerived2AsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownMostDerived2AsBaseCompact', 0, 0, 1, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownPreservedAsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownPreservedAsKnownPreserved', 0, 0, 2, null, null, null, array($Test__t_KnownPreserved));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'relayKnownPreservedAsBase', 0, 0, 2, array(array($Test__t_RelayPrx)), null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'relayKnownPreservedAsKnownPreserved', 0, 0, 2, array(array($Test__t_RelayPrx)), null, null, array($Test__t_KnownPreserved));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownPreservedAsBase', 0, 0, 2, null, null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownPreservedAsKnownPreserved', 0, 0, 2, null, null, null, array($Test__t_KnownPreserved));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'relayUnknownPreservedAsBase', 0, 0, 2, array(array($Test__t_RelayPrx)), null, null, array($Test__t_Base));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'relayUnknownPreservedAsKnownPreserved', 0, 0, 2, array(array($Test__t_RelayPrx)), null, null, array($Test__t_KnownPreserved));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, 2, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'baseAsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownDerivedAsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownDerivedAsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownDerivedAsKnownDerived', 0, 2, null, null, null, array($Test__t_KnownDerived));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownIntermediateAsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownIntermediateAsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownMostDerivedAsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownIntermediateAsKnownIntermediate', 0, 2, null, null, null, array($Test__t_KnownIntermediate));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownMostDerivedAsKnownIntermediate', 0, 2, null, null, null, array($Test__t_KnownIntermediate));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownMostDerivedAsKnownMostDerived', 0, 2, null, null, null, array($Test__t_KnownMostDerived));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownMostDerived1AsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownMostDerived1AsKnownIntermediate', 0, 2, null, null, null, array($Test__t_KnownIntermediate));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownMostDerived2AsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownMostDerived2AsBaseCompact', 0, 1, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownPreservedAsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'knownPreservedAsKnownPreserved', 0, 2, null, null, null, array($Test__t_KnownPreserved));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'relayKnownPreservedAsBase', 0, 2, array(array($Test__t_RelayPrx)), null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'relayKnownPreservedAsKnownPreserved', 0, 2, array(array($Test__t_RelayPrx)), null, null, array($Test__t_KnownPreserved));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownPreservedAsBase', 0, 2, null, null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'unknownPreservedAsKnownPreserved', 0, 2, null, null, null, array($Test__t_KnownPreserved));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'relayUnknownPreservedAsBase', 0, 2, array(array($Test__t_RelayPrx)), null, null, array($Test__t_Base));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'relayUnknownPreservedAsKnownPreserved', 0, 2, array(array($Test__t_RelayPrx)), null, null, array($Test__t_KnownPreserved));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 2, null, null, null, null);
 }
 
 namespace Test

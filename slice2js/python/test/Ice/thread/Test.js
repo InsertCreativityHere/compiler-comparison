@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "sleep": [, , , , , [[3]], , , , ]
+        "sleep": [, , , , [[3]], , , , ]
     });
 
     const iceC_Test_RemoteCommunicator_ids = [
@@ -57,10 +57,10 @@
 
     Slice.defineOperations(Test.RemoteCommunicator, Test.RemoteCommunicatorPrx, iceC_Test_RemoteCommunicator_ids, "::Test::RemoteCommunicator",
     {
-        "getObject": [, , , , ["Test.TestIntfPrx"], , , , , ],
-        "getThreadStartCount": [, , , , [3], , , , , ],
-        "getThreadStopCount": [, , , , [3], , , , , ],
-        "destroy": [, , , , , , , , , ]
+        "getObject": [, , , ["Test.TestIntfPrx"], , , , , ],
+        "getThreadStartCount": [, , , [3], , , , , ],
+        "getThreadStopCount": [, , , [3], , , , , ],
+        "destroy": [, , , , , , , , ]
     });
 
     const iceC_Test_RemoteCommunicatorFactory_ids = [
@@ -78,8 +78,8 @@
 
     Slice.defineOperations(Test.RemoteCommunicatorFactory, Test.RemoteCommunicatorFactoryPrx, iceC_Test_RemoteCommunicatorFactory_ids, "::Test::RemoteCommunicatorFactory",
     {
-        "createCommunicator": [, , , , ["Test.RemoteCommunicatorPrx"], [["Ice.PropertyDictHelper"]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "createCommunicator": [, , , ["Test.RemoteCommunicatorPrx"], [["Ice.PropertyDictHelper"]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

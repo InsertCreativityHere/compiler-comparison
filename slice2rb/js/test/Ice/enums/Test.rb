@@ -298,10 +298,10 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_opByte = ::Ice::__defineOperation('opByte', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteEnum, false, 0]], [[::Test::T_ByteEnum, false, 0]], [::Test::T_ByteEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_opShort = ::Ice::__defineOperation('opShort', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortEnum, false, 0]], [[::Test::T_ShortEnum, false, 0]], [::Test::T_ShortEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_opInt = ::Ice::__defineOperation('opInt', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntEnum, false, 0]], [[::Test::T_IntEnum, false, 0]], [::Test::T_IntEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_opSimple = ::Ice::__defineOperation('opSimple', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SimpleEnum, false, 0]], [[::Test::T_SimpleEnum, false, 0]], [::Test::T_SimpleEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_opByte = ::Ice::__defineOperation('opByte', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteEnum, false, 0]], [[::Test::T_ByteEnum, false, 0]], [::Test::T_ByteEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_opShort = ::Ice::__defineOperation('opShort', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortEnum, false, 0]], [[::Test::T_ShortEnum, false, 0]], [::Test::T_ShortEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_opInt = ::Ice::__defineOperation('opInt', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntEnum, false, 0]], [[::Test::T_IntEnum, false, 0]], [::Test::T_IntEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_opSimple = ::Ice::__defineOperation('opSimple', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SimpleEnum, false, 0]], [[::Test::T_SimpleEnum, false, 0]], [::Test::T_SimpleEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

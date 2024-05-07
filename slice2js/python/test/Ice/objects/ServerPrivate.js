@@ -51,7 +51,7 @@
 
     Slice.defineOperations(Test.UnexpectedObjectExceptionTest, Test.UnexpectedObjectExceptionTestPrx, iceC_Test_UnexpectedObjectExceptionTest_ids, "::Test::UnexpectedObjectExceptionTest",
     {
-        "op": [, , , , ["Test.AlsoEmpty", true], , , , , true]
+        "op": [, , , ["Test.AlsoEmpty", true], , , , , true]
     });
 
     Test.COneMember = class extends Ice.Value

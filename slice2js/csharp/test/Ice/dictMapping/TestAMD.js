@@ -63,15 +63,15 @@
 
     Slice.defineOperations(Test.MyClass, Test.MyClassPrx, iceC_Test_MyClass_ids, "::Test::MyClass",
     {
-        "shutdown": [, , , , , , , , , ],
-        "opNV": [, , , , ["Test.NVHelper"], [["Test.NVHelper"]], [["Test.NVHelper"]], , , ],
-        "opNR": [, , , , ["Test.NRHelper"], [["Test.NRHelper"]], [["Test.NRHelper"]], , , ],
-        "opNDV": [, , , , ["Test.NDVHelper"], [["Test.NDVHelper"]], [["Test.NDVHelper"]], , , ],
-        "opNDR": [, , , , ["Test.NDRHelper"], [["Test.NDRHelper"]], [["Test.NDRHelper"]], , , ],
-        "opNDAIS": [, , , , ["Test.NDAISHelper"], [["Test.NDAISHelper"]], [["Test.NDAISHelper"]], , , ],
-        "opNDGIS": [, , , , ["Test.NDGISHelper"], [["Test.NDGISHelper"]], [["Test.NDGISHelper"]], , , ],
-        "opNDASS": [, , , , ["Test.NDASSHelper"], [["Test.NDASSHelper"]], [["Test.NDASSHelper"]], , , ],
-        "opNDGSS": [, , , , ["Test.NDGSSHelper"], [["Test.NDGSSHelper"]], [["Test.NDGSSHelper"]], , , ]
+        "shutdown": [, , , , , , , , ],
+        "opNV": [, , , ["Test.NVHelper"], [["Test.NVHelper"]], [["Test.NVHelper"]], , , ],
+        "opNR": [, , , ["Test.NRHelper"], [["Test.NRHelper"]], [["Test.NRHelper"]], , , ],
+        "opNDV": [, , , ["Test.NDVHelper"], [["Test.NDVHelper"]], [["Test.NDVHelper"]], , , ],
+        "opNDR": [, , , ["Test.NDRHelper"], [["Test.NDRHelper"]], [["Test.NDRHelper"]], , , ],
+        "opNDAIS": [, , , ["Test.NDAISHelper"], [["Test.NDAISHelper"]], [["Test.NDAISHelper"]], , , ],
+        "opNDGIS": [, , , ["Test.NDGISHelper"], [["Test.NDGISHelper"]], [["Test.NDGISHelper"]], , , ],
+        "opNDASS": [, , , ["Test.NDASSHelper"], [["Test.NDASSHelper"]], [["Test.NDASSHelper"]], , , ],
+        "opNDGSS": [, , , ["Test.NDGSSHelper"], [["Test.NDGSSHelper"]], [["Test.NDGSSHelper"]], , , ]
     });
     exports.Test = Test;
 }

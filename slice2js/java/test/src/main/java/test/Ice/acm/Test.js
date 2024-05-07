@@ -39,11 +39,11 @@
 
     Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, "::Test::TestIntf",
     {
-        "sleep": [, , , , , [[3]], , , , ],
-        "sleepAndHold": [, , , , , [[3]], , , , ],
-        "interruptSleep": [, , , , , , , , , ],
-        "startHeartbeatCount": [, , , , , , , , , ],
-        "waitForHeartbeatCount": [, , , , , [[3]], , , , ]
+        "sleep": [, , , , [[3]], , , , ],
+        "sleepAndHold": [, , , , [[3]], , , , ],
+        "interruptSleep": [, , , , , , , , ],
+        "startHeartbeatCount": [, , , , , , , , ],
+        "waitForHeartbeatCount": [, , , , [[3]], , , , ]
     });
 
     const iceC_Test_RemoteObjectAdapter_ids = [
@@ -61,10 +61,10 @@
 
     Slice.defineOperations(Test.RemoteObjectAdapter, Test.RemoteObjectAdapterPrx, iceC_Test_RemoteObjectAdapter_ids, "::Test::RemoteObjectAdapter",
     {
-        "getTestIntf": [, , , , ["Test.TestIntfPrx"], , , , , ],
-        "activate": [, , , , , , , , , ],
-        "hold": [, , , , , , , , , ],
-        "deactivate": [, , , , , , , , , ]
+        "getTestIntf": [, , , ["Test.TestIntfPrx"], , , , , ],
+        "activate": [, , , , , , , , ],
+        "hold": [, , , , , , , , ],
+        "deactivate": [, , , , , , , , ]
     });
 
     const iceC_Test_RemoteCommunicator_ids = [
@@ -82,8 +82,8 @@
 
     Slice.defineOperations(Test.RemoteCommunicator, Test.RemoteCommunicatorPrx, iceC_Test_RemoteCommunicator_ids, "::Test::RemoteCommunicator",
     {
-        "createObjectAdapter": [, , , , ["Test.RemoteObjectAdapterPrx"], [[3], [3], [3]], , , , ],
-        "shutdown": [, , , , , , , , , ]
+        "createObjectAdapter": [, , , ["Test.RemoteObjectAdapterPrx"], [[3], [3], [3]], , , , ],
+        "shutdown": [, , , , , , , , ]
     });
     exports.Test = Test;
 }

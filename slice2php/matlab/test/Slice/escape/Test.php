@@ -382,10 +382,10 @@ namespace classdef\break
     global $Ice__t_ObjectPrx;
     $classdef_break__t_elseifPrx = IcePHP_defineProxy('::classdef::break::elseif', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($classdef_break__t_elseifPrx, 'events', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($classdef_break__t_elseifPrx, 'function', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($classdef_break__t_elseifPrx, 'delete', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($classdef_break__t_elseifPrx, 'checkedCast', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($classdef_break__t_elseifPrx, 'events', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($classdef_break__t_elseifPrx, 'function', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($classdef_break__t_elseifPrx, 'delete', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($classdef_break__t_elseifPrx, 'checkedCast', 0, 0, null, null, null, null);
 }
 
 namespace classdef\break

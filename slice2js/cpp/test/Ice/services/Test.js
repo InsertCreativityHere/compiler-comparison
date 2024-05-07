@@ -39,7 +39,7 @@
 
     Slice.defineOperations(Test.Clock, Test.ClockPrx, iceC_Test_Clock_ids, "::Test::Clock",
     {
-        "tick": [, , , , , [[7]], , , , ]
+        "tick": [, , , , [[7]], , , , ]
     });
     exports.Test = Test;
 }

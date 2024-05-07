@@ -108,11 +108,11 @@ if 'RetryPrx' not in _M_Test.__dict__:
     _M_Test._t_RetryDisp = IcePy.defineClass('::Test::Retry', Retry, (), None, ())
     Retry._ice_type = _M_Test._t_RetryDisp
 
-    Retry._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
-    Retry._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())
-    Retry._op_opNotIdempotent = IcePy.Operation('opNotIdempotent', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Retry._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-    Retry._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    Retry._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
+    Retry._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())
+    Retry._op_opNotIdempotent = IcePy.Operation('opNotIdempotent', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Retry._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    Retry._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
 
     _M_Test.Retry = Retry
     del Retry

@@ -148,8 +148,8 @@ module ::Ice
 
         T_RemoteLoggerPrx.defineProxy(RemoteLoggerPrx, nil, [])
 
-        RemoteLoggerPrx_mixin::OP_init = ::Ice::__defineOperation('init', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_LogMessageSeq, false, 0]], [], nil, [])
-        RemoteLoggerPrx_mixin::OP_log = ::Ice::__defineOperation('log', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_LogMessage, false, 0]], [], nil, [])
+        RemoteLoggerPrx_mixin::OP_init = ::Ice::__defineOperation('init', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_LogMessageSeq, false, 0]], [], nil, [])
+        RemoteLoggerPrx_mixin::OP_log = ::Ice::__defineOperation('log', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_LogMessage, false, 0]], [], nil, [])
     end
 
     if not defined?(::Ice::RemoteLoggerAlreadyAttachedException)
@@ -196,8 +196,8 @@ module ::Ice
 
         T_LoggerAdminPrx.defineProxy(LoggerAdminPrx, nil, [])
 
-        LoggerAdminPrx_mixin::OP_attachRemoteLogger = ::Ice::__defineOperation('attachRemoteLogger', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_RemoteLoggerPrx, false, 0], [::Ice::T_LogMessageTypeSeq, false, 0], [::Ice::T_StringSeq, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Ice::T_RemoteLoggerAlreadyAttachedException])
-        LoggerAdminPrx_mixin::OP_detachRemoteLogger = ::Ice::__defineOperation('detachRemoteLogger', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_RemoteLoggerPrx, false, 0]], [], [::Ice::T_bool, false, 0], [])
-        LoggerAdminPrx_mixin::OP_getLog = ::Ice::__defineOperation('getLog', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_LogMessageTypeSeq, false, 0], [::Ice::T_StringSeq, false, 0], [::Ice::T_int, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_LogMessageSeq, false, 0], [])
+        LoggerAdminPrx_mixin::OP_attachRemoteLogger = ::Ice::__defineOperation('attachRemoteLogger', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_RemoteLoggerPrx, false, 0], [::Ice::T_LogMessageTypeSeq, false, 0], [::Ice::T_StringSeq, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Ice::T_RemoteLoggerAlreadyAttachedException])
+        LoggerAdminPrx_mixin::OP_detachRemoteLogger = ::Ice::__defineOperation('detachRemoteLogger', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_RemoteLoggerPrx, false, 0]], [], [::Ice::T_bool, false, 0], [])
+        LoggerAdminPrx_mixin::OP_getLog = ::Ice::__defineOperation('getLog', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_LogMessageTypeSeq, false, 0], [::Ice::T_StringSeq, false, 0], [::Ice::T_int, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_LogMessageSeq, false, 0], [])
     end
 end

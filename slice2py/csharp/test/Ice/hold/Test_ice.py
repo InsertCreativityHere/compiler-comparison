@@ -108,11 +108,11 @@ if 'HoldPrx' not in _M_Test.__dict__:
     _M_Test._t_HoldDisp = IcePy.defineClass('::Test::Hold', Hold, (), None, ())
     Hold._ice_type = _M_Test._t_HoldDisp
 
-    Hold._op_putOnHold = IcePy.Operation('putOnHold', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
-    Hold._op_waitForHold = IcePy.Operation('waitForHold', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Hold._op_set = IcePy.Operation('set', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
-    Hold._op_setOneway = IcePy.Operation('setOneway', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
-    Hold._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Hold._op_putOnHold = IcePy.Operation('putOnHold', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    Hold._op_waitForHold = IcePy.Operation('waitForHold', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Hold._op_set = IcePy.Operation('set', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
+    Hold._op_setOneway = IcePy.Operation('setOneway', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    Hold._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Hold = Hold
     del Hold

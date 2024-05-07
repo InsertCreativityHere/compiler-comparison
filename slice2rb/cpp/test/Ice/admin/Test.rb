@@ -82,17 +82,17 @@ module ::Test
 
         T_RemoteCommunicatorPrx.defineProxy(RemoteCommunicatorPrx, nil, [])
 
-        RemoteCommunicatorPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        RemoteCommunicatorPrx_mixin::OP_getChanges = ::Ice::__defineOperation('getChanges', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_PropertyDict, false, 0], [])
-        RemoteCommunicatorPrx_mixin::OP_addUpdateCallback = ::Ice::__defineOperation('addUpdateCallback', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_removeUpdateCallback = ::Ice::__defineOperation('removeUpdateCallback', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_print = ::Ice::__defineOperation('print', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_trace = ::Ice::__defineOperation('trace', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_warning = ::Ice::__defineOperation('warning', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_error = ::Ice::__defineOperation('error', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_waitForShutdown = ::Ice::__defineOperation('waitForShutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
+        RemoteCommunicatorPrx_mixin::OP_getChanges = ::Ice::__defineOperation('getChanges', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_PropertyDict, false, 0], [])
+        RemoteCommunicatorPrx_mixin::OP_addUpdateCallback = ::Ice::__defineOperation('addUpdateCallback', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_removeUpdateCallback = ::Ice::__defineOperation('removeUpdateCallback', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_print = ::Ice::__defineOperation('print', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_trace = ::Ice::__defineOperation('trace', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_warning = ::Ice::__defineOperation('warning', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_error = ::Ice::__defineOperation('error', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_waitForShutdown = ::Ice::__defineOperation('waitForShutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::RemoteCommunicatorFactory_Mixin)
@@ -122,8 +122,8 @@ module ::Test
 
         T_RemoteCommunicatorFactoryPrx.defineProxy(RemoteCommunicatorFactoryPrx, nil, [])
 
-        RemoteCommunicatorFactoryPrx_mixin::OP_createCommunicator = ::Ice::__defineOperation('createCommunicator', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_PropertyDict, false, 0]], [], [::Test::T_RemoteCommunicatorPrx, false, 0], [])
-        RemoteCommunicatorFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteCommunicatorFactoryPrx_mixin::OP_createCommunicator = ::Ice::__defineOperation('createCommunicator', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_PropertyDict, false, 0]], [], [::Test::T_RemoteCommunicatorPrx, false, 0], [])
+        RemoteCommunicatorFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::TestFacet_Mixin)
@@ -149,6 +149,6 @@ module ::Test
 
         T_TestFacetPrx.defineProxy(TestFacetPrx, nil, [])
 
-        TestFacetPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestFacetPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

@@ -73,7 +73,7 @@ module ::Test
 
         T_Initial2Prx.defineProxy(Initial2Prx, nil, [])
 
-        Initial2Prx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_A, false, 0], [::Ice::T_Value, true, 1]], [], nil, [])
-        Initial2Prx_mixin::OP_opVoid = ::Ice::__defineOperation('opVoid', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2]], [], nil, [])
+        Initial2Prx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_A, false, 0], [::Ice::T_Value, true, 1]], [], nil, [])
+        Initial2Prx_mixin::OP_opVoid = ::Ice::__defineOperation('opVoid', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2]], [], nil, [])
     end
 end

@@ -58,7 +58,7 @@ module ::Glacier2
 
         T_PermissionsVerifierPrx.defineProxy(PermissionsVerifierPrx, nil, [])
 
-        PermissionsVerifierPrx_mixin::OP_checkPermissions = ::Ice::__defineOperation('checkPermissions', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_bool, false, 0], [::Glacier2::T_PermissionDeniedException])
+        PermissionsVerifierPrx_mixin::OP_checkPermissions = ::Ice::__defineOperation('checkPermissions', ::Ice::OperationMode::Idempotent, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_bool, false, 0], [::Glacier2::T_PermissionDeniedException])
     end
 
     if not defined?(::Glacier2::SSLPermissionsVerifier_Mixin)
@@ -84,6 +84,6 @@ module ::Glacier2
 
         T_SSLPermissionsVerifierPrx.defineProxy(SSLPermissionsVerifierPrx, nil, [])
 
-        SSLPermissionsVerifierPrx_mixin::OP_authorize = ::Ice::__defineOperation('authorize', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, ::Ice::FormatType::SlicedFormat, [[::Glacier2::T_SSLInfo, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_bool, false, 0], [::Glacier2::T_PermissionDeniedException])
+        SSLPermissionsVerifierPrx_mixin::OP_authorize = ::Ice::__defineOperation('authorize', ::Ice::OperationMode::Idempotent, false, ::Ice::FormatType::SlicedFormat, [[::Glacier2::T_SSLInfo, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_bool, false, 0], [::Glacier2::T_PermissionDeniedException])
     end
 end
