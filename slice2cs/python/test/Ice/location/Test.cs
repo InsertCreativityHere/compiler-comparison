@@ -304,11 +304,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(global::Ice.AdapterNotFoundException)
+                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
-                    catch(global::Ice.AdapterAlreadyActiveException)
+                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
@@ -354,15 +354,15 @@ namespace Test
                     {
                         throw ex;
                     }
+                    catch(global::Ice.AdapterAlreadyActiveException)
+                    {
+                        throw;
+                    }
                     catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
                     catch(global::Ice.InvalidReplicaGroupIdException)
-                    {
-                        throw;
-                    }
-                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
