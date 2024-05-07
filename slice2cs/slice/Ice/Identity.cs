@@ -74,11 +74,10 @@ namespace Ice
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Ice::Identity");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, name);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, category);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.name);
+            hash.Add(this.category);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

@@ -98,17 +98,16 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::S");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, b1);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, b2);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, b3);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, b4);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, s1);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, s2);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, s3);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, s4);
-            return h_;
+            var hash = new global::System.HashCode();
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.b1);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.b2);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.b3);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.b4);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.s1);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.s2);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.s3);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.s4);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

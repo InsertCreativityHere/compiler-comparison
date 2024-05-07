@@ -131,19 +131,18 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::SmallStruct");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, bo);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, by);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, sh);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, f);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, str);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, e);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, p);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.bo);
+            hash.Add(this.by);
+            hash.Add(this.sh);
+            hash.Add(this.i);
+            hash.Add(this.l);
+            hash.Add(this.f);
+            hash.Add(this.d);
+            hash.Add(this.str);
+            hash.Add(this.e);
+            hash.Add(this.p);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -692,18 +691,17 @@ namespace Test
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Sub::NestedStruct");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, bo);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, by);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, sh);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, f);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, str);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, e);
-                return h_;
+                var hash = new global::System.HashCode();
+                hash.Add(this.bo);
+                hash.Add(this.by);
+                hash.Add(this.sh);
+                hash.Add(this.i);
+                hash.Add(this.l);
+                hash.Add(this.f);
+                hash.Add(this.d);
+                hash.Add(this.str);
+                hash.Add(this.e);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -989,18 +987,17 @@ namespace Test2
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test2::Sub2::NestedStruct2");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, bo);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, by);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, sh);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, f);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, str);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, e);
-                return h_;
+                var hash = new global::System.HashCode();
+                hash.Add(this.bo);
+                hash.Add(this.by);
+                hash.Add(this.sh);
+                hash.Add(this.i);
+                hash.Add(this.l);
+                hash.Add(this.f);
+                hash.Add(this.d);
+                hash.Add(this.str);
+                hash.Add(this.e);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

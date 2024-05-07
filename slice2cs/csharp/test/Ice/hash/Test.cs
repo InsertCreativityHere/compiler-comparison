@@ -604,10 +604,9 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Polyline");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, vertices);
-            return h_;
+            var hash = new global::System.HashCode();
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.vertices);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -807,10 +806,9 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::ColorPalette");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, colors);
-            return h_;
+            var hash = new global::System.HashCode();
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.colors);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1016,12 +1014,11 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Draw");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, backgroundColor);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, pen);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, shared);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.backgroundColor);
+            hash.Add(this.pen);
+            hash.Add(this.shared);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

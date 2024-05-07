@@ -76,11 +76,10 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStorm::SubscriberRecordKey");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, topic);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.topic);
+            hash.Add(this.id);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -227,16 +226,15 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStorm::SubscriberRecord");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, topicName);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, link);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, obj);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, theQoS);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, cost);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, theTopic);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.topicName);
+            hash.Add(this.id);
+            hash.Add(this.link);
+            hash.Add(this.obj);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.theQoS);
+            hash.Add(this.cost);
+            hash.Add(this.theTopic);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

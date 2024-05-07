@@ -82,13 +82,12 @@ namespace IceStorm
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStorm::EventData");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, op);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, mode);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, data);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, context);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.op);
+            hash.Add(this.mode);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.data);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.context);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

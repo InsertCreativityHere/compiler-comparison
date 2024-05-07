@@ -95,10 +95,9 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::AnotherStruct");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.s);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -226,12 +225,11 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Structure");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, p);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, e);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.p);
+            hash.Add(this.e);
+            hash.Add(this.s);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -448,12 +446,11 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::MyStruct1");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, tesT);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, myClass);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, myStruct1);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.tesT);
+            hash.Add(this.myClass);
+            hash.Add(this.myStruct1);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -16585,6 +16582,8 @@ namespace Test
 
         #region Inherited Slice operations
 
+        public abstract void shutdown(global::Ice.Current current = null);
+
         public abstract bool supportsCompress(global::Ice.Current current = null);
 
         public abstract void opVoid(global::Ice.Current current = null);
@@ -16610,8 +16609,6 @@ namespace Test
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
 
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
-
-        public abstract void shutdown(global::Ice.Current current = null);
 
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
 
@@ -17394,6 +17391,8 @@ namespace Test2
     {
         #region Inherited Slice operations
 
+        public abstract void shutdown(global::Ice.Current current = null);
+
         public abstract bool supportsCompress(global::Ice.Current current = null);
 
         public abstract void opVoid(global::Ice.Current current = null);
@@ -17419,8 +17418,6 @@ namespace Test2
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
 
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
-
-        public abstract void shutdown(global::Ice.Current current = null);
 
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
 

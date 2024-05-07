@@ -70,10 +70,9 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::S1");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, name);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.name);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -221,17 +220,16 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::S2");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, bo);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, by);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, sh);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, str);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, seq);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.bo);
+            hash.Add(this.by);
+            hash.Add(this.sh);
+            hash.Add(this.i);
+            hash.Add(this.l);
+            hash.Add(this.str);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.seq);
+            hash.Add(this.s);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -452,12 +450,11 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::S3");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, obj);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, sd);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, prx);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.obj);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.sd);
+            hash.Add(this.prx);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

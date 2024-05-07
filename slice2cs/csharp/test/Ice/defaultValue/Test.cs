@@ -209,31 +209,30 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Struct1");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, boolFalse);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, boolTrue);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, b);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, f);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, str);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c1);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c2);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c3);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc1);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc2);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc3);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, noDefault);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroI);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroL);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroF);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroDotF);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroD);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroDotD);
-                return h_;
+                var hash = new global::System.HashCode();
+                hash.Add(this.boolFalse);
+                hash.Add(this.boolTrue);
+                hash.Add(this.b);
+                hash.Add(this.s);
+                hash.Add(this.i);
+                hash.Add(this.l);
+                hash.Add(this.f);
+                hash.Add(this.d);
+                hash.Add(this.str);
+                hash.Add(this.c1);
+                hash.Add(this.c2);
+                hash.Add(this.c3);
+                hash.Add(this.nc1);
+                hash.Add(this.nc2);
+                hash.Add(this.nc3);
+                hash.Add(this.noDefault);
+                hash.Add(this.zeroI);
+                hash.Add(this.zeroL);
+                hash.Add(this.zeroF);
+                hash.Add(this.zeroDotF);
+                hash.Add(this.zeroD);
+                hash.Add(this.zeroDotD);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -611,29 +610,28 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Struct2");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, boolTrue);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, b);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, f);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, str);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c1);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c2);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c3);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc1);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc2);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc3);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroI);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroL);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroF);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroDotF);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroD);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroDotD);
-                return h_;
+                var hash = new global::System.HashCode();
+                hash.Add(this.boolTrue);
+                hash.Add(this.b);
+                hash.Add(this.s);
+                hash.Add(this.i);
+                hash.Add(this.l);
+                hash.Add(this.f);
+                hash.Add(this.d);
+                hash.Add(this.str);
+                hash.Add(this.c1);
+                hash.Add(this.c2);
+                hash.Add(this.c3);
+                hash.Add(this.nc1);
+                hash.Add(this.nc2);
+                hash.Add(this.nc3);
+                hash.Add(this.zeroI);
+                hash.Add(this.zeroL);
+                hash.Add(this.zeroF);
+                hash.Add(this.zeroDotF);
+                hash.Add(this.zeroD);
+                hash.Add(this.zeroDotD);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -885,29 +883,28 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Struct3");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, boolFalse);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, boolTrue);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, b);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, f);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c1);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c2);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c3);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc1);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc2);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc3);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroI);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroL);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroF);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroDotF);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroD);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroDotD);
-                return h_;
+                var hash = new global::System.HashCode();
+                hash.Add(this.boolFalse);
+                hash.Add(this.boolTrue);
+                hash.Add(this.b);
+                hash.Add(this.s);
+                hash.Add(this.i);
+                hash.Add(this.l);
+                hash.Add(this.f);
+                hash.Add(this.d);
+                hash.Add(this.c1);
+                hash.Add(this.c2);
+                hash.Add(this.c3);
+                hash.Add(this.nc1);
+                hash.Add(this.nc2);
+                hash.Add(this.nc3);
+                hash.Add(this.zeroI);
+                hash.Add(this.zeroL);
+                hash.Add(this.zeroF);
+                hash.Add(this.zeroDotF);
+                hash.Add(this.zeroD);
+                hash.Add(this.zeroDotD);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1159,29 +1156,28 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Struct4");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, boolFalse);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, boolTrue);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, b);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, f);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c1);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c2);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c3);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc1);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc2);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, nc3);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroI);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroL);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroF);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroDotF);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroD);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroDotD);
-                return h_;
+                var hash = new global::System.HashCode();
+                hash.Add(this.boolFalse);
+                hash.Add(this.boolTrue);
+                hash.Add(this.b);
+                hash.Add(this.s);
+                hash.Add(this.i);
+                hash.Add(this.l);
+                hash.Add(this.f);
+                hash.Add(this.d);
+                hash.Add(this.c1);
+                hash.Add(this.c2);
+                hash.Add(this.c3);
+                hash.Add(this.nc1);
+                hash.Add(this.nc2);
+                hash.Add(this.nc3);
+                hash.Add(this.zeroI);
+                hash.Add(this.zeroL);
+                hash.Add(this.zeroF);
+                hash.Add(this.zeroDotF);
+                hash.Add(this.zeroD);
+                hash.Add(this.zeroDotD);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2130,25 +2126,24 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::StructProperty");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, boolFalse);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, boolTrue);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, b);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, f);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, str);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, noDefault);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroI);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroL);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroF);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroDotF);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroD);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, zeroDotD);
-                return h_;
+                var hash = new global::System.HashCode();
+                hash.Add(this.boolFalse);
+                hash.Add(this.boolTrue);
+                hash.Add(this.b);
+                hash.Add(this.s);
+                hash.Add(this.i);
+                hash.Add(this.l);
+                hash.Add(this.f);
+                hash.Add(this.d);
+                hash.Add(this.str);
+                hash.Add(this.noDefault);
+                hash.Add(this.zeroI);
+                hash.Add(this.zeroL);
+                hash.Add(this.zeroF);
+                hash.Add(this.zeroDotF);
+                hash.Add(this.zeroD);
+                hash.Add(this.zeroDotD);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2545,10 +2540,9 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::InnerStruct2");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, a);
-                return h_;
+                var hash = new global::System.HashCode();
+                hash.Add(this.a);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2720,23 +2714,22 @@ namespace Ice.defaultValue
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::StructNoDefaults");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, bo);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, b);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, l);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, f);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, str);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, c1);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, bs);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, iseq);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, st);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, st2);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, dict);
-                return h_;
+                var hash = new global::System.HashCode();
+                hash.Add(this.bo);
+                hash.Add(this.b);
+                hash.Add(this.s);
+                hash.Add(this.i);
+                hash.Add(this.l);
+                hash.Add(this.f);
+                hash.Add(this.d);
+                hash.Add(this.str);
+                hash.Add(this.c1);
+                Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.bs);
+                Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.iseq);
+                hash.Add(this.st);
+                hash.Add(this.st2);
+                Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.dict);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

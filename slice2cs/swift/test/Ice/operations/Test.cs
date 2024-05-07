@@ -95,10 +95,9 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::AnotherStruct");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.s);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -226,12 +225,11 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Structure");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, p);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, e);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.p);
+            hash.Add(this.e);
+            hash.Add(this.s);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -501,12 +499,11 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::MyStruct1");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, tesT);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, myClass);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, myStruct1);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.tesT);
+            hash.Add(this.myClass);
+            hash.Add(this.myStruct1);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -16484,14 +16481,6 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
-
-        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
         public abstract void shutdown(global::Ice.Current current = null);
 
         public abstract bool supportsCompress(global::Ice.Current current = null);
@@ -16623,6 +16612,14 @@ namespace Test
         public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
 
         public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current = null);
+
+        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
+
+        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         #endregion
 
@@ -17121,14 +17118,6 @@ namespace Test2
     {
         #region Inherited Slice operations
 
-        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
         public abstract void shutdown(global::Ice.Current current = null);
 
         public abstract bool supportsCompress(global::Ice.Current current = null);
@@ -17260,6 +17249,14 @@ namespace Test2
         public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
 
         public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         #endregion
 

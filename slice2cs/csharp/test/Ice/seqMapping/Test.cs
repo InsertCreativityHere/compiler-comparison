@@ -135,10 +135,9 @@ namespace Ice.seqMapping
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::SD");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, i);
-                return h_;
+                var hash = new global::System.HashCode();
+                hash.Add(this.i);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

@@ -171,11 +171,10 @@ namespace IceMX
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceMX::MetricsFailures");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, failures);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.id);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.failures);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

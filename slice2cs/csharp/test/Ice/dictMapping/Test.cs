@@ -76,11 +76,10 @@ namespace Ice.dictMapping
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::TEstNv");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, d);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-                return h_;
+                var hash = new global::System.HashCode();
+                Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.d);
+                Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.s);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

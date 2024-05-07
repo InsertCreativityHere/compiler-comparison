@@ -141,12 +141,11 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::Variable");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, s);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, bl);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, ss);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.s);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.bl);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.ss);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -465,16 +464,15 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::Test::BufferStruct");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, byteBuf);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, boolBuf);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, shortBuf);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, intBuf);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, longBuf);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, floatBuf);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, doubleBuf);
-            return h_;
+            var hash = new global::System.HashCode();
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.byteBuf);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.boolBuf);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.shortBuf);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.intBuf);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.longBuf);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.floatBuf);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.doubleBuf);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

@@ -86,14 +86,13 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::AllData");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, applications);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, adapters);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, objects);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, internalObjects);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, serials);
-            return h_;
+            var hash = new global::System.HashCode();
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.applications);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.adapters);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.objects);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.internalObjects);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.serials);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

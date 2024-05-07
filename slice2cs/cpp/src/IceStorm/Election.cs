@@ -75,11 +75,10 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStormElection::TopicContent");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, records);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.id);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.records);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -365,11 +364,10 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStormElection::NodeInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, n);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.id);
+            hash.Add(this.n);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -584,16 +582,15 @@ namespace IceStormElection
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceStormElection::QueryInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, coord);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, group);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, replica);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, state);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, up);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, max);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.id);
+            hash.Add(this.coord);
+            hash.Add(this.group);
+            hash.Add(this.replica);
+            hash.Add(this.state);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.up);
+            hash.Add(this.max);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

@@ -138,13 +138,12 @@ namespace classdef
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override int GetHashCode()
             {
-                int h_ = 5381;
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, "::classdef::break::bitor");
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, @case);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, @continue);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, eq);
-                global::Ice.Internal.HashUtil.hashAdd(ref h_, ne);
-                return h_;
+                var hash = new global::System.HashCode();
+                hash.Add(this.@case);
+                hash.Add(this.@continue);
+                hash.Add(this.eq);
+                hash.Add(this.ne);
+                return hash.ToHashCode();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

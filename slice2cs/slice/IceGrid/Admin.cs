@@ -136,11 +136,10 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::ObjectInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, proxy);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, type);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.proxy);
+            hash.Add(this.type);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -270,12 +269,11 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::AdapterInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, proxy);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, replicaGroupId);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.id);
+            hash.Add(this.proxy);
+            hash.Add(this.replicaGroupId);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -420,15 +418,14 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::ServerInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, application);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, uuid);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, revision);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, node);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, descriptor);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, sessionId);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.application);
+            hash.Add(this.uuid);
+            hash.Add(this.revision);
+            hash.Add(this.node);
+            hash.Add(this.descriptor);
+            hash.Add(this.sessionId);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -590,17 +587,16 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::NodeInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, name);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, os);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, hostname);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, release);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, version);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, machine);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, nProcessors);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, dataDir);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.name);
+            hash.Add(this.os);
+            hash.Add(this.hostname);
+            hash.Add(this.release);
+            hash.Add(this.version);
+            hash.Add(this.machine);
+            hash.Add(this.nProcessors);
+            hash.Add(this.dataDir);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -744,11 +740,10 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::RegistryInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, name);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, hostname);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.name);
+            hash.Add(this.hostname);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -970,16 +965,15 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::ApplicationInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, uuid);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, createTime);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, createUser);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, updateTime);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, updateUser);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, revision);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, descriptor);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.uuid);
+            hash.Add(this.createTime);
+            hash.Add(this.createUser);
+            hash.Add(this.updateTime);
+            hash.Add(this.updateUser);
+            hash.Add(this.revision);
+            hash.Add(this.descriptor);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1129,13 +1123,12 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::ApplicationUpdateInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, updateTime);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, updateUser);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, revision);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, descriptor);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.updateTime);
+            hash.Add(this.updateUser);
+            hash.Add(this.revision);
+            hash.Add(this.descriptor);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1305,13 +1298,12 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::ServerDynamicInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, state);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, pid);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, enabled);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.id);
+            hash.Add(this.state);
+            hash.Add(this.pid);
+            hash.Add(this.enabled);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1443,11 +1435,10 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::AdapterDynamicInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, id);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, proxy);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.id);
+            hash.Add(this.proxy);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1578,12 +1569,11 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override int GetHashCode()
         {
-            int h_ = 5381;
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, "::IceGrid::NodeDynamicInfo");
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, info);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, servers);
-            global::Ice.Internal.HashUtil.hashAdd(ref h_, adapters);
-            return h_;
+            var hash = new global::System.HashCode();
+            hash.Add(this.info);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.servers);
+            Ice.UtilInternal.Collections.HashCodeAdd(ref hash, this.adapters);
+            return hash.ToHashCode();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
