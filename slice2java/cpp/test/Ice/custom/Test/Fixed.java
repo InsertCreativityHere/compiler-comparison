@@ -138,5 +138,5 @@ public class Fixed implements java.lang.Cloneable,
     private static final Fixed _nullMarshalValue = new Fixed();
 
     /** @hidden */
-    public static final long serialVersionUID = -5072326574647995042L;
+    public static final long serialVersionUID = -5072317965704849593L;
 }
