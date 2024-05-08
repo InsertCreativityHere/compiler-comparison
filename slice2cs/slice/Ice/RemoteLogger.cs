@@ -752,7 +752,10 @@ namespace Ice
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static RemoteLoggerPrx createProxy(Communicator communicator, string proxyString) =>
+            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static RemoteLoggerPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1014,7 +1017,10 @@ namespace Ice
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static LoggerAdminPrx createProxy(Communicator communicator, string proxyString) =>
+            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static LoggerAdminPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

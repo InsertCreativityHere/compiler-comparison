@@ -321,7 +321,10 @@ namespace Ice
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static PropertiesAdminPrx createProxy(Communicator communicator, string proxyString) =>
+            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static PropertiesAdminPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

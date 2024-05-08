@@ -1854,7 +1854,10 @@ namespace IceStorm
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static TopicPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static TopicPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -2161,7 +2164,10 @@ namespace IceStorm
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static TopicManagerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static TopicManagerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -2307,7 +2313,10 @@ namespace IceStorm
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static FinderPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static FinderPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

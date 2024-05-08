@@ -380,7 +380,10 @@ namespace Glacier2
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static PermissionsVerifierPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static PermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -547,7 +550,10 @@ namespace Glacier2
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static SSLPermissionsVerifierPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static SSLPermissionsVerifierPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

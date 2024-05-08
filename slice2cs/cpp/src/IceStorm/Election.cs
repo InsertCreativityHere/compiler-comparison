@@ -1623,7 +1623,10 @@ namespace IceStormElection
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static ReplicaObserverPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static ReplicaObserverPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1772,7 +1775,10 @@ namespace IceStormElection
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static TopicManagerSyncPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static TopicManagerSyncPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -2301,7 +2307,10 @@ namespace IceStormElection
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static NodePrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static NodePrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

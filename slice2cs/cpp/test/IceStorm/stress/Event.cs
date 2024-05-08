@@ -116,7 +116,10 @@ namespace Test
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static EventPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static EventPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

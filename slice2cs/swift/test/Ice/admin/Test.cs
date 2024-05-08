@@ -562,7 +562,10 @@ namespace Test
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static RemoteCommunicatorPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static RemoteCommunicatorPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -749,7 +752,10 @@ namespace Test
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static RemoteCommunicatorFactoryPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static RemoteCommunicatorFactoryPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -888,7 +894,10 @@ namespace Test
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static TestFacetPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static TestFacetPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

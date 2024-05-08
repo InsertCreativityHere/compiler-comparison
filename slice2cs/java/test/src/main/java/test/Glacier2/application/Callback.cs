@@ -149,7 +149,10 @@ namespace Test
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static CallbackReceiverPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static CallbackReceiverPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -329,7 +332,10 @@ namespace Test
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static CallbackPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static CallbackPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

@@ -1044,7 +1044,10 @@ namespace @abstract
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static casePrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static casePrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1183,7 +1186,10 @@ namespace @abstract
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static decimalPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static decimalPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1370,7 +1376,10 @@ namespace @abstract
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static explicitPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static explicitPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1843,7 +1852,10 @@ namespace @abstract
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static optionalParamsPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static optionalParamsPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -2020,7 +2032,10 @@ namespace @abstract
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static implicitPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static implicitPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -2161,7 +2176,10 @@ namespace @abstract
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static TestPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static TestPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
@@ -2304,7 +2322,10 @@ namespace System
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static TestPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static TestPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -2607,9 +2628,9 @@ namespace @abstract
     {
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.Current current = null);
-
         public abstract void @default(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.Current current = null);
 
         #endregion
 

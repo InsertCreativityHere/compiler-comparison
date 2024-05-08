@@ -402,7 +402,10 @@ namespace Ice
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static RouterPrx createProxy(Communicator communicator, string proxyString) =>
+            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static RouterPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -548,7 +551,10 @@ namespace Ice
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static RouterFinderPrx createProxy(Communicator communicator, string proxyString) =>
+            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static RouterFinderPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

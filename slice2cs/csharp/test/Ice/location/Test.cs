@@ -459,7 +459,10 @@ namespace Ice.location
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static TestLocatorRegistryPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static TestLocatorRegistryPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
@@ -774,7 +777,10 @@ namespace Ice.location
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static TestLocatorPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static TestLocatorPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
@@ -951,7 +957,10 @@ namespace Ice.location
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static ServerManagerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static ServerManagerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
@@ -1090,7 +1099,10 @@ namespace Ice.location
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static HelloPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static HelloPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
@@ -1354,7 +1366,10 @@ namespace Ice.location
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static TestIntfPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {

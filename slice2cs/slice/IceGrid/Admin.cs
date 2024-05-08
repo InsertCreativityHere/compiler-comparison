@@ -5867,15 +5867,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -5920,15 +5920,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -5973,15 +5973,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -6026,15 +6026,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -6078,15 +6078,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -6132,15 +6132,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ApplicationNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
-                    catch(ApplicationNotExistException)
                     {
                         throw;
                     }
@@ -6365,15 +6365,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ServerNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(ServerNotExistException)
                     {
                         throw;
                     }
@@ -6423,15 +6423,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ServerNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(ServerNotExistException)
                     {
                         throw;
                     }
@@ -6513,15 +6513,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ServerNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(ServerNotExistException)
                     {
                         throw;
                     }
@@ -6572,15 +6572,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ServerNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(ServerNotExistException)
                     {
                         throw;
                     }
@@ -6624,15 +6624,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ServerNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(ServerNotExistException)
                     {
                         throw;
                     }
@@ -6682,19 +6682,19 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(DeploymentException)
-                    {
-                        throw;
-                    }
-                    catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
                     catch(ServerNotExistException)
                     {
                         throw;
                     }
                     catch(ServerStartException)
+                    {
+                        throw;
+                    }
+                    catch(DeploymentException)
+                    {
+                        throw;
+                    }
+                    catch(NodeUnreachableException)
                     {
                         throw;
                     }
@@ -6738,6 +6738,10 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ServerNotExistException)
+                    {
+                        throw;
+                    }
                     catch(ServerStopException)
                     {
                         throw;
@@ -6747,10 +6751,6 @@ namespace IceGrid
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(ServerNotExistException)
                     {
                         throw;
                     }
@@ -6795,6 +6795,10 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ServerNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
@@ -6804,10 +6808,6 @@ namespace IceGrid
                         throw;
                     }
                     catch(BadSignalException)
-                    {
-                        throw;
-                    }
-                    catch(ServerNotExistException)
                     {
                         throw;
                     }
@@ -7955,7 +7955,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static AdminPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static AdminPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -8159,7 +8162,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static FileIteratorPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static FileIteratorPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -8454,7 +8460,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static RegistryObserverPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static RegistryObserverPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -8798,7 +8807,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static NodeObserverPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static NodeObserverPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -9071,7 +9083,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static ApplicationObserverPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static ApplicationObserverPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -9337,7 +9352,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static AdapterObserverPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static AdapterObserverPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -9603,7 +9621,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static ObjectObserverPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static ObjectObserverPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -10259,6 +10280,10 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ServerNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
@@ -10268,10 +10293,6 @@ namespace IceGrid
                         throw;
                     }
                     catch(FileNotAvailableException)
-                    {
-                        throw;
-                    }
-                    catch(ServerNotExistException)
                     {
                         throw;
                     }
@@ -10322,6 +10343,10 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ServerNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
@@ -10331,10 +10356,6 @@ namespace IceGrid
                         throw;
                     }
                     catch(FileNotAvailableException)
-                    {
-                        throw;
-                    }
-                    catch(ServerNotExistException)
                     {
                         throw;
                     }
@@ -10385,6 +10406,10 @@ namespace IceGrid
                     {
                         throw ex;
                     }
+                    catch(ServerNotExistException)
+                    {
+                        throw;
+                    }
                     catch(DeploymentException)
                     {
                         throw;
@@ -10394,10 +10419,6 @@ namespace IceGrid
                         throw;
                     }
                     catch(FileNotAvailableException)
-                    {
-                        throw;
-                    }
-                    catch(ServerNotExistException)
                     {
                         throw;
                     }
@@ -10651,7 +10672,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static AdminSessionPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static AdminSessionPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

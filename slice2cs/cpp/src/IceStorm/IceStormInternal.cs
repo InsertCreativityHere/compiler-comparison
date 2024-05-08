@@ -529,7 +529,10 @@ namespace IceStorm
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static TopicLinkPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static TopicLinkPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1213,7 +1216,10 @@ namespace IceStorm
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static TopicInternalPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static TopicInternalPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1528,7 +1534,10 @@ namespace IceStorm
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static TopicManagerInternalPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static TopicManagerInternalPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1933,11 +1942,11 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
+        public abstract TopicPrx create(string name, global::Ice.Current current = null);
+
         public abstract TopicPrx retrieve(string name, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx> retrieveAll(global::Ice.Current current = null);
-
-        public abstract TopicPrx create(string name, global::Ice.Current current = null);
 
         #endregion
 

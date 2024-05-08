@@ -871,7 +871,10 @@ namespace Ice
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static LocatorPrx createProxy(Communicator communicator, string proxyString) =>
+            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static LocatorPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1157,7 +1160,10 @@ namespace Ice
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static LocatorRegistryPrx createProxy(Communicator communicator, string proxyString) =>
+            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static LocatorRegistryPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1303,7 +1309,10 @@ namespace Ice
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static LocatorFinderPrx createProxy(Communicator communicator, string proxyString) =>
+            uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static LocatorFinderPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

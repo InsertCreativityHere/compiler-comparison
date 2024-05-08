@@ -1069,7 +1069,10 @@ namespace Test
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static TestCasePrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static TestCasePrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
@@ -1378,7 +1381,10 @@ namespace Test
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static ControllerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static ControllerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
@@ -1642,7 +1648,10 @@ namespace Test
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static ProcessPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static ProcessPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
@@ -1857,7 +1866,10 @@ namespace Test
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static ProcessControllerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static ProcessControllerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
@@ -2113,7 +2125,10 @@ namespace Test
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static BrowserProcessControllerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static BrowserProcessControllerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
@@ -2257,7 +2272,10 @@ namespace Test
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static ProcessControllerRegistryPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static ProcessControllerRegistryPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {

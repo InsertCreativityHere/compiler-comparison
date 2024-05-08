@@ -681,7 +681,10 @@ namespace and
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static breakPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static breakPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -820,7 +823,10 @@ namespace and
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static funcPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static funcPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1007,7 +1013,10 @@ namespace and
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static doPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static doPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

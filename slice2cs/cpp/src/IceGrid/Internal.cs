@@ -2895,7 +2895,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static AdapterPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static AdapterPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -3166,7 +3169,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static FileReaderPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static FileReaderPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -3880,7 +3886,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static ServerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static ServerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -4140,7 +4149,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static ReplicaObserverPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static ReplicaObserverPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -5011,7 +5023,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static NodePrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static NodePrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -5479,7 +5494,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static NodeSessionPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static NodeSessionPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -6080,7 +6098,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static DatabaseObserverPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static DatabaseObserverPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -6593,7 +6614,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static ReplicaSessionPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static ReplicaSessionPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -6976,11 +7000,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -7032,11 +7056,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -7272,7 +7296,10 @@ namespace IceGrid
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static InternalRegistryPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static InternalRegistryPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -7676,9 +7703,9 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
-        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
-
         public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
+
+        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
 
         #endregion
 
@@ -8122,8 +8149,6 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
-        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
-
         public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
 
         public abstract void replicaInit(InternalRegistryPrx[] replicas, global::Ice.Current current = null);
@@ -8131,6 +8156,8 @@ namespace IceGrid
         public abstract void replicaAdded(InternalRegistryPrx replica, global::Ice.Current current = null);
 
         public abstract void replicaRemoved(InternalRegistryPrx replica, global::Ice.Current current = null);
+
+        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
 
         #endregion
 
@@ -8686,6 +8713,16 @@ namespace IceGrid
     {
         #region Inherited Slice operations
 
+        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current = null);
+
+        public abstract void adapterUpdated(AdapterInfo info, global::Ice.Current current = null);
+
+        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current = null);
+
+        public abstract void objectAdded(ObjectInfo info, global::Ice.Current current = null);
+
+        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
+
         public abstract void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current = null);
 
         public abstract void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current = null);
@@ -8698,17 +8735,7 @@ namespace IceGrid
 
         public abstract void adapterAdded(AdapterInfo info, global::Ice.Current current = null);
 
-        public abstract void adapterUpdated(AdapterInfo info, global::Ice.Current current = null);
-
         public abstract void adapterRemoved(string id, global::Ice.Current current = null);
-
-        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current = null);
-
-        public abstract void objectAdded(ObjectInfo info, global::Ice.Current current = null);
-
-        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
-
-        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current = null);
 
         #endregion
 
@@ -9133,9 +9160,9 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
-        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
-
         public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
+
+        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
 
         #endregion
 

@@ -619,7 +619,10 @@ namespace @abstract
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static catchPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static catchPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -758,7 +761,10 @@ namespace @abstract
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static defaultPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static defaultPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -945,7 +951,10 @@ namespace @abstract
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static finalizePrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static finalizePrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1194,7 +1203,10 @@ namespace @abstract
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static newPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static newPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

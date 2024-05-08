@@ -809,7 +809,10 @@ namespace Test1
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static WstringClassPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1125,7 +1128,10 @@ namespace Test2
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static WstringClassPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static WstringClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

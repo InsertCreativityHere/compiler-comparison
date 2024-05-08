@@ -793,7 +793,10 @@ namespace Glacier2
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static SessionPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static SessionPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1021,7 +1024,10 @@ namespace Glacier2
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static StringSetPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static StringSetPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1249,7 +1255,10 @@ namespace Glacier2
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static IdentitySetPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static IdentitySetPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1564,7 +1573,10 @@ namespace Glacier2
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static SessionControlPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static SessionControlPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1729,7 +1741,10 @@ namespace Glacier2
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static SessionManagerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static SessionManagerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {
@@ -1894,7 +1909,10 @@ namespace Glacier2
 
         #endregion
 
-        #region Checked and unchecked cast operations
+        #region Factory operations
+
+        public static SSLSessionManagerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+            uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
         public static SSLSessionManagerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
         {

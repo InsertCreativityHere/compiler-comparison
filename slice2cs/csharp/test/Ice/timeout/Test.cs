@@ -279,7 +279,10 @@ namespace Ice.timeout
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static TimeoutPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static TimeoutPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
@@ -496,7 +499,10 @@ namespace Ice.timeout
 
             #endregion
 
-            #region Checked and unchecked cast operations
+            #region Factory operations
+
+            public static ControllerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
+                uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
             public static ControllerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
             {
