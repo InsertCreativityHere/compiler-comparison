@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("ServiceManager.ice")]
 
 #pragma warning disable 1591
 
@@ -36,6 +37,7 @@ namespace IceBox
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceBox::AlreadyStartedException")]
     public partial class AlreadyStartedException : global::Ice.UserException
     {
         #region Constructors
@@ -93,6 +95,7 @@ namespace IceBox
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceBox::AlreadyStoppedException")]
     public partial class AlreadyStoppedException : global::Ice.UserException
     {
         #region Constructors
@@ -150,6 +153,7 @@ namespace IceBox
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceBox::NoSuchServiceException")]
     public partial class NoSuchServiceException : global::Ice.UserException
     {
         #region Constructors

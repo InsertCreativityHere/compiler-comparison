@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Key.ice")]
 
 #pragma warning disable 1591
 
@@ -147,6 +148,7 @@ namespace @abstract
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::abstract::delegate")]
     public partial class @delegate : global::Ice.Value
     {
         #region Slice data members
@@ -247,6 +249,7 @@ namespace @abstract
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::abstract::optionalMembers")]
     public partial class optionalMembers : global::Ice.Value
     {
         #region Slice data members
@@ -416,6 +419,7 @@ namespace @abstract
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::abstract::fixed")]
     public partial class @fixed : global::Ice.UserException
     {
         #region Slice data members
@@ -496,6 +500,7 @@ namespace @abstract
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::abstract::foreach")]
     public partial class @foreach : @fixed
     {
         #region Slice data members
@@ -584,6 +589,7 @@ namespace @abstract
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::abstract::BaseMethods")]
     public partial class BaseMethods : global::Ice.UserException
     {
         #region Slice data members
@@ -2628,9 +2634,9 @@ namespace @abstract
     {
         #region Inherited Slice operations
 
-        public abstract void @default(global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.Current current = null);
+
+        public abstract void @default(global::Ice.Current current = null);
 
         #endregion
 

@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
 
@@ -34,6 +35,7 @@ namespace Ice.interceptor
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::InvalidInputException")]
         public partial class InvalidInputException : global::Ice.UserException
         {
             #region Slice data members
@@ -116,15 +118,6 @@ namespace Ice.interceptor
         public partial interface MyObject : global::Ice.Object, MyObjectOperations_
         {
         }
-    }
-}
-
-namespace Ice.TypeId.Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class InvalidInputException
-    {
-        public abstract global::Ice.interceptor.Test.InvalidInputException targetClass { get; }
     }
 }
 

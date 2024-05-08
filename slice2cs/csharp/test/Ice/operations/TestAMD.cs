@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("TestAMD.ice")]
 
 #pragma warning disable 1591
 
@@ -538,6 +539,7 @@ namespace Ice.operations.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::MyClass1")]
         public partial class MyClass1 : global::Ice.Value
         {
             #region Slice data members
@@ -812,15 +814,6 @@ namespace Ice.operations.AMD
         {
             public const string value = "\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343";
         }
-    }
-}
-
-namespace Ice.operations.AMD.TypeId.Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class MyClass1
-    {
-        public abstract global::Ice.operations.AMD.Test.MyClass1 targetClass { get; }
     }
 }
 

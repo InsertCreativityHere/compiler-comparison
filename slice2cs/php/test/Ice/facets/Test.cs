@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
 
@@ -2369,11 +2370,11 @@ namespace Test
 
         #region Inherited Slice operations
 
+        public abstract string callA(global::Ice.Current current = null);
+
         public abstract string callB(global::Ice.Current current = null);
 
         public abstract string callC(global::Ice.Current current = null);
-
-        public abstract string callA(global::Ice.Current current = null);
 
         #endregion
 

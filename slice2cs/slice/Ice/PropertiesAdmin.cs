@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("PropertiesAdmin.ice")]
 
 #pragma warning disable 1591
 

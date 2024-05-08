@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
 
@@ -1314,6 +1315,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::Base")]
         public partial class @Base : global::Ice.Value
         {
             #region Slice data members
@@ -1477,6 +1479,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::Derived")]
         public partial class Derived : @Base
         {
             #region Slice data members
@@ -1583,6 +1586,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::BaseEx")]
         public partial class BaseEx : global::Ice.UserException
         {
             #region Slice data members
@@ -1753,6 +1757,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::DerivedEx")]
         public partial class DerivedEx : BaseEx
         {
             #region Slice data members
@@ -1864,6 +1869,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::ClassProperty")]
         public partial class ClassProperty : global::Ice.Value
         {
             #region Slice data members
@@ -2269,6 +2275,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::ExceptionProperty")]
         public partial class ExceptionProperty : global::Ice.UserException
         {
             #region Slice data members
@@ -2849,6 +2856,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::ExceptionNoDefaultsBase")]
         public partial class ExceptionNoDefaultsBase : global::Ice.UserException
         {
             #region Slice data members
@@ -2941,6 +2949,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::ExceptionNoDefaults")]
         public partial class ExceptionNoDefaults : ExceptionNoDefaultsBase
         {
             #region Slice data members
@@ -3042,6 +3051,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::ClassNoDefaultsBase")]
         public partial class ClassNoDefaultsBase : global::Ice.Value
         {
             #region Slice data members
@@ -3127,6 +3137,7 @@ namespace Ice.defaultValue
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::ClassNoDefaults")]
         public partial class ClassNoDefaults : ClassNoDefaultsBase
         {
             #region Slice data members
@@ -3203,69 +3214,6 @@ namespace Ice.defaultValue
 
             #endregion
         }
-    }
-}
-
-namespace Ice.defaultValue.TypeId.Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class @Base
-    {
-        public abstract global::Ice.defaultValue.Test.@Base targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class Derived
-    {
-        public abstract global::Ice.defaultValue.Test.Derived targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class BaseEx
-    {
-        public abstract global::Ice.defaultValue.Test.BaseEx targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class DerivedEx
-    {
-        public abstract global::Ice.defaultValue.Test.DerivedEx targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class ClassProperty
-    {
-        public abstract global::Ice.defaultValue.Test.ClassProperty targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class ExceptionProperty
-    {
-        public abstract global::Ice.defaultValue.Test.ExceptionProperty targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class ExceptionNoDefaultsBase
-    {
-        public abstract global::Ice.defaultValue.Test.ExceptionNoDefaultsBase targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class ExceptionNoDefaults
-    {
-        public abstract global::Ice.defaultValue.Test.ExceptionNoDefaults targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class ClassNoDefaultsBase
-    {
-        public abstract global::Ice.defaultValue.Test.ClassNoDefaultsBase targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class ClassNoDefaults
-    {
-        public abstract global::Ice.defaultValue.Test.ClassNoDefaults targetClass { get; }
     }
 }
 

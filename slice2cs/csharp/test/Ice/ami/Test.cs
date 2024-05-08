@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
 
@@ -34,6 +35,7 @@ namespace Ice.ami
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::TestIntfException")]
         public partial class TestIntfException : global::Ice.UserException
         {
             #region Constructors
@@ -165,15 +167,6 @@ namespace Ice.ami
                 }
             }
         }
-    }
-}
-
-namespace Ice.TypeId.Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class TestIntfException
-    {
-        public abstract global::Ice.ami.Test.TestIntfException targetClass { get; }
     }
 }
 

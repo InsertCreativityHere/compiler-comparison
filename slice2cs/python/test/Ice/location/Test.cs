@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
 
@@ -304,11 +305,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(global::Ice.AdapterAlreadyActiveException)
+                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
-                    catch(global::Ice.AdapterNotFoundException)
+                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
@@ -354,15 +355,15 @@ namespace Test
                     {
                         throw ex;
                     }
+                    catch(global::Ice.AdapterNotFoundException)
+                    {
+                        throw;
+                    }
                     catch(global::Ice.InvalidReplicaGroupIdException)
                     {
                         throw;
                     }
                     catch(global::Ice.AdapterAlreadyActiveException)
-                    {
-                        throw;
-                    }
-                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }

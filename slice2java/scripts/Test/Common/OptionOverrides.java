@@ -402,7 +402,7 @@ public class OptionOverrides extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 4172571521736295823L;
+    public static final long serialVersionUID = 471944078298815591L;
 
     /** @hidden */
     @Override

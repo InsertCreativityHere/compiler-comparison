@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("TestAMD.ice")]
 
 #pragma warning disable 1591
 
@@ -49,6 +50,7 @@ namespace Ice.exceptions.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::A")]
         public partial class A : global::Ice.UserException
         {
             #region Slice data members
@@ -129,6 +131,7 @@ namespace Ice.exceptions.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::B")]
         public partial class B : A
         {
             #region Slice data members
@@ -211,6 +214,7 @@ namespace Ice.exceptions.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::C")]
         public partial class C : B
         {
             #region Slice data members
@@ -293,6 +297,7 @@ namespace Ice.exceptions.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::D")]
         public partial class D : global::Ice.UserException
         {
             #region Slice data members
@@ -390,33 +395,6 @@ namespace Ice.exceptions.AMD
         public partial interface WrongOperation : global::Ice.Object, WrongOperationOperations_
         {
         }
-    }
-}
-
-namespace Ice.exceptions.AMD.TypeId.Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class A
-    {
-        public abstract global::Ice.exceptions.AMD.Test.A targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class B
-    {
-        public abstract global::Ice.exceptions.AMD.Test.B targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class C
-    {
-        public abstract global::Ice.exceptions.AMD.Test.C targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class D
-    {
-        public abstract global::Ice.exceptions.AMD.Test.D targetClass { get; }
     }
 }
 

@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("TestAMD.ice")]
 
 #pragma warning disable 1591
 
@@ -34,6 +35,7 @@ namespace Ice.servantLocator.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::TestIntfUserException")]
         public partial class TestIntfUserException : global::Ice.UserException
         {
             #region Constructors
@@ -87,6 +89,7 @@ namespace Ice.servantLocator.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::TestImpossibleException")]
         public partial class TestImpossibleException : global::Ice.UserException
         {
             #region Constructors
@@ -157,21 +160,6 @@ namespace Ice.servantLocator.AMD
         public partial interface TestActivation : global::Ice.Object, TestActivationOperations_
         {
         }
-    }
-}
-
-namespace Ice.servantLocator.AMD.TypeId.Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class TestIntfUserException
-    {
-        public abstract global::Ice.servantLocator.AMD.Test.TestIntfUserException targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class TestImpossibleException
-    {
-        public abstract global::Ice.servantLocator.AMD.Test.TestImpossibleException targetClass { get; }
     }
 }
 
@@ -759,11 +747,11 @@ namespace Ice.servantLocator.AMD
                         {
                             throw ex;
                         }
-                        catch(TestImpossibleException)
+                        catch(TestIntfUserException)
                         {
                             throw;
                         }
-                        catch(TestIntfUserException)
+                        catch(TestImpossibleException)
                         {
                             throw;
                         }
@@ -809,11 +797,11 @@ namespace Ice.servantLocator.AMD
                         {
                             throw ex;
                         }
-                        catch(TestImpossibleException)
+                        catch(TestIntfUserException)
                         {
                             throw;
                         }
-                        catch(TestIntfUserException)
+                        catch(TestImpossibleException)
                         {
                             throw;
                         }
@@ -853,11 +841,11 @@ namespace Ice.servantLocator.AMD
                         {
                             throw ex;
                         }
-                        catch(TestImpossibleException)
+                        catch(TestIntfUserException)
                         {
                             throw;
                         }
-                        catch(TestIntfUserException)
+                        catch(TestImpossibleException)
                         {
                             throw;
                         }

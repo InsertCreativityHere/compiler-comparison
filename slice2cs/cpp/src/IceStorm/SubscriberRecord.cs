@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("SubscriberRecord.ice")]
 
 #pragma warning disable 1591
 

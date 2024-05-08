@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
 
@@ -96,6 +97,7 @@ namespace Ice.scope
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::C")]
         public partial class C : global::Ice.Value
         {
             #region Slice data members
@@ -315,6 +317,7 @@ namespace Ice.scope
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::C1")]
         public partial class C1 : global::Ice.Value
         {
             #region Slice data members
@@ -526,6 +529,7 @@ namespace Ice.scope
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::C2")]
         public partial class C2 : global::Ice.Value
         {
             #region Slice data members
@@ -757,6 +761,7 @@ namespace Ice.scope
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+                [Ice.SliceTypeId("::Test::Inner::Inner2::C")]
                 public partial class C : global::Ice.Value
                 {
                     #region Slice data members
@@ -846,6 +851,7 @@ namespace Ice.scope
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+            [Ice.SliceTypeId("::Test::Inner::C")]
             public partial class C : global::Ice.Value
             {
                 #region Slice data members
@@ -946,45 +952,6 @@ namespace Inner
             public partial interface I : global::Ice.Object, IOperations_
             {
             }
-        }
-    }
-}
-
-namespace Ice.scope.TypeId.Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class C
-    {
-        public abstract global::Ice.scope.Test.C targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class C1
-    {
-        public abstract global::Ice.scope.Test.C1 targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class C2
-    {
-        public abstract global::Ice.scope.Test.C2 targetClass { get; }
-    }
-
-    namespace Inner
-    {
-        namespace Inner2
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public abstract class C
-            {
-                public abstract global::Ice.scope.Test.Inner.Inner2.C targetClass { get; }
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class C
-        {
-            public abstract global::Ice.scope.Test.Inner.C targetClass { get; }
         }
     }
 }

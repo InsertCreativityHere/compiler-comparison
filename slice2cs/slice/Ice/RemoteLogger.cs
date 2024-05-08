@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("RemoteLogger.ice")]
 
 #pragma warning disable 1591
 
@@ -242,6 +243,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Ice::RemoteLoggerAlreadyAttachedException")]
     public partial class RemoteLoggerAlreadyAttachedException : UserException
     {
         #region Constructors

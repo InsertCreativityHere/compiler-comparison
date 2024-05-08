@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Internal.ice")]
 
 #pragma warning disable 1591
 
@@ -31,6 +32,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::InternalDbEnvDescriptor")]
     public partial class InternalDbEnvDescriptor : global::Ice.Value
     {
         #region Slice data members
@@ -110,6 +112,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::InternalAdapterDescriptor")]
     public partial class InternalAdapterDescriptor : global::Ice.Value
     {
         #region Slice data members
@@ -189,6 +192,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::InternalServerDescriptor")]
     public partial class InternalServerDescriptor : global::Ice.Value
     {
         #region Slice data members
@@ -385,6 +389,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::AdapterActiveException")]
     public partial class AdapterActiveException : global::Ice.UserException
     {
         #region Constructors
@@ -438,6 +443,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::AdapterNotActiveException")]
     public partial class AdapterNotActiveException : global::Ice.UserException
     {
         #region Slice data members
@@ -537,6 +543,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::AdapterExistsException")]
     public partial class AdapterExistsException : global::Ice.UserException
     {
         #region Slice data members
@@ -681,6 +688,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::NodeActiveException")]
     public partial class NodeActiveException : global::Ice.UserException
     {
         #region Constructors
@@ -753,6 +761,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::ReplicaActiveException")]
     public partial class ReplicaActiveException : global::Ice.UserException
     {
         #region Constructors
@@ -862,6 +871,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::InternalNodeInfo")]
     public partial class InternalNodeInfo : global::Ice.Value
     {
         #region Slice data members
@@ -977,6 +987,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::InternalReplicaInfo")]
     public partial class InternalReplicaInfo : global::Ice.Value
     {
         #region Slice data members
@@ -6434,11 +6445,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(DeploymentException)
+                    catch(ObserverAlreadyRegisteredException)
                     {
                         throw;
                     }
-                    catch(ObserverAlreadyRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -6542,11 +6553,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
@@ -7000,11 +7011,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -7056,11 +7067,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -7703,9 +7714,9 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
-
         public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
 
         #endregion
 
@@ -8149,6 +8160,8 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
+        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
+
         public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
 
         public abstract void replicaInit(InternalRegistryPrx[] replicas, global::Ice.Current current = null);
@@ -8156,8 +8169,6 @@ namespace IceGrid
         public abstract void replicaAdded(InternalRegistryPrx replica, global::Ice.Current current = null);
 
         public abstract void replicaRemoved(InternalRegistryPrx replica, global::Ice.Current current = null);
-
-        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
 
         #endregion
 
@@ -8713,16 +8724,6 @@ namespace IceGrid
     {
         #region Inherited Slice operations
 
-        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current = null);
-
-        public abstract void adapterUpdated(AdapterInfo info, global::Ice.Current current = null);
-
-        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current = null);
-
-        public abstract void objectAdded(ObjectInfo info, global::Ice.Current current = null);
-
-        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
-
         public abstract void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current = null);
 
         public abstract void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current = null);
@@ -8735,7 +8736,17 @@ namespace IceGrid
 
         public abstract void adapterAdded(AdapterInfo info, global::Ice.Current current = null);
 
+        public abstract void adapterUpdated(AdapterInfo info, global::Ice.Current current = null);
+
         public abstract void adapterRemoved(string id, global::Ice.Current current = null);
+
+        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current = null);
+
+        public abstract void objectAdded(ObjectInfo info, global::Ice.Current current = null);
+
+        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
+
+        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current = null);
 
         #endregion
 
@@ -9160,9 +9171,9 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
-
         public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
 
         #endregion
 

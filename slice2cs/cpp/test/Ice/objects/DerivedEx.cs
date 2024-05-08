@@ -13,14 +13,11 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
 
-#pragma warning disable 1591
+[assembly:Ice.Slice("DerivedEx.ice")]
 
-namespace IceCompactId
-{
-}
+#pragma warning disable 1591
 
 namespace Test
 {
@@ -36,6 +33,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::DerivedEx")]
     public partial class DerivedEx : BaseEx
     {
         #region Constructors

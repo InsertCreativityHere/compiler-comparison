@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Session.ice")]
 
 #pragma warning disable 1591
 
@@ -36,6 +37,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Glacier2::CannotCreateSessionException")]
     public partial class CannotCreateSessionException : global::Ice.UserException
     {
         #region Slice data members

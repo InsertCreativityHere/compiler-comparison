@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("TestAMD.ice")]
 
 #pragma warning disable 1591
 
@@ -217,6 +218,7 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::CV")]
         public partial class CV : global::Ice.Value
         {
             #region Slice data members
@@ -305,6 +307,7 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::CR")]
         public partial class CR : global::Ice.Value
         {
             #region Slice data members
@@ -406,21 +409,6 @@ namespace Ice.seqMapping.AMD
         public partial interface MyClass : global::Ice.Object, MyClassOperations_
         {
         }
-    }
-}
-
-namespace Ice.seqMapping.AMD.TypeId.Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class CV
-    {
-        public abstract global::Ice.seqMapping.AMD.Test.CV targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class CR
-    {
-        public abstract global::Ice.seqMapping.AMD.Test.CR targetClass { get; }
     }
 }
 

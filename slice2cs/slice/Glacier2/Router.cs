@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Router.ice")]
 
 #pragma warning disable 1591
 
@@ -37,6 +38,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Glacier2::SessionNotExistException")]
     public partial class SessionNotExistException : global::Ice.UserException
     {
         #region Constructors

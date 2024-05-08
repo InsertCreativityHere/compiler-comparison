@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
 
@@ -251,6 +252,7 @@ namespace Ice.stream
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::OptionalClass")]
         public partial class OptionalClass : global::Ice.Value
         {
             #region Slice data members
@@ -342,6 +344,7 @@ namespace Ice.stream
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::MyClass")]
         public partial class MyClass : global::Ice.Value
         {
             #region Slice data members
@@ -495,6 +498,7 @@ namespace Ice.stream
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::MyException")]
         public partial class MyException : global::Ice.UserException
         {
             #region Slice data members
@@ -583,27 +587,6 @@ namespace Ice.stream
         public partial interface MyInterface : global::Ice.Object, MyInterfaceOperations_
         {
         }
-    }
-}
-
-namespace Ice.stream.TypeId.Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class OptionalClass
-    {
-        public abstract global::Ice.stream.Test.OptionalClass targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class MyClass
-    {
-        public abstract global::Ice.stream.Test.MyClass targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class MyException
-    {
-        public abstract global::Ice.stream.Test.MyException targetClass { get; }
     }
 }
 

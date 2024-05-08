@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Forward.ice")]
 
 #pragma warning disable 1591
 
@@ -33,6 +34,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::F1")]
         public partial class F1 : global::Ice.Value
         {
             #region Slice data members
@@ -109,15 +111,6 @@ namespace Ice.objects
         public partial interface F2 : global::Ice.Object, F2Operations_
         {
         }
-    }
-}
-
-namespace Ice.objects.TypeId.Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class F1
-    {
-        public abstract global::Ice.objects.Test.F1 targetClass { get; }
     }
 }
 

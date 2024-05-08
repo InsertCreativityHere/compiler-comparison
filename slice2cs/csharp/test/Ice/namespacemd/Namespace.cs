@@ -13,8 +13,9 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
+
+[assembly:Ice.Slice("Namespace.ice")]
 
 #pragma warning disable 1591
 
@@ -33,6 +34,7 @@ namespace Ice.namespacemd
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::WithNamespace::C1")]
         public partial class C1 : global::Ice.Value
         {
             #region Slice data members
@@ -106,6 +108,7 @@ namespace Ice.namespacemd
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::WithNamespace::C2")]
         public partial class C2 : C1
         {
             #region Slice data members
@@ -182,6 +185,7 @@ namespace Ice.namespacemd
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::WithNamespace::E1")]
         public partial class E1 : global::Ice.UserException
         {
             #region Slice data members
@@ -262,6 +266,7 @@ namespace Ice.namespacemd
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::WithNamespace::E2")]
         public partial class E2 : E1
         {
             #region Slice data members
@@ -331,32 +336,5 @@ namespace Ice.namespacemd
 
             #endregion
         }
-    }
-}
-
-namespace Ice.TypeId.WithNamespace
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class C1
-    {
-        public abstract global::Ice.namespacemd.WithNamespace.C1 targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class C2
-    {
-        public abstract global::Ice.namespacemd.WithNamespace.C2 targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class E1
-    {
-        public abstract global::Ice.namespacemd.WithNamespace.E1 targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class E2
-    {
-        public abstract global::Ice.namespacemd.WithNamespace.E2 targetClass { get; }
     }
 }

@@ -13,25 +13,11 @@
 // </auto-generated>
 //
 
-
 using _System = global::System;
 
+[assembly:Ice.Slice("Test.ice")]
+
 #pragma warning disable 1591
-
-namespace Ice.objects.TypeId
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class TypeId_1
-    {
-        public const string typeId = "::Test::Compact";
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class TypeId_789
-    {
-        public const string typeId = "::Test::CompactExt";
-    }
-}
 
 namespace Ice.objects
 {
@@ -169,6 +155,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::Base")]
         public partial class @Base : global::Ice.Value
         {
             #region Slice data members
@@ -249,6 +236,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::A")]
         public partial class A : global::Ice.Value
         {
             #region Slice data members
@@ -340,6 +328,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::B")]
         public partial class B : A
         {
             #region Slice data members
@@ -415,6 +404,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::C")]
         public partial class C : global::Ice.Value
         {
             #region Slice data members
@@ -500,6 +490,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::D")]
         public partial class D : global::Ice.Value
         {
             #region Slice data members
@@ -597,6 +588,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::E")]
         public partial class E : global::Ice.Value
         {
             #region Slice data members
@@ -676,6 +668,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::F")]
         public partial class F : global::Ice.Value
         {
             #region Slice data members
@@ -755,6 +748,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::G")]
         public partial class G : @Base
         {
             partial void ice_initialize();
@@ -850,6 +844,8 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::Compact")]
+        [Ice.CompactSliceTypeId(1)]
         public partial class Compact : global::Ice.Value
         {
             partial void ice_initialize();
@@ -913,6 +909,8 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::CompactExt")]
+        [Ice.CompactSliceTypeId(789)]
         public partial class CompactExt : Compact
         {
             partial void ice_initialize();
@@ -974,6 +972,7 @@ namespace Ice.objects
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+            [Ice.SliceTypeId("::Test::Inner::A")]
             public partial class A : global::Ice.Value
             {
                 #region Slice data members
@@ -1048,6 +1047,7 @@ namespace Ice.objects
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+            [Ice.SliceTypeId("::Test::Inner::Ex")]
             public partial class Ex : global::Ice.UserException
             {
                 #region Slice data members
@@ -1129,6 +1129,7 @@ namespace Ice.objects
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+                [Ice.SliceTypeId("::Test::Inner::Sub::A")]
                 public partial class A : global::Ice.Value
                 {
                     #region Slice data members
@@ -1203,6 +1204,7 @@ namespace Ice.objects
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+                [Ice.SliceTypeId("::Test::Inner::Sub::Ex")]
                 public partial class Ex : global::Ice.UserException
                 {
                     #region Slice data members
@@ -1284,6 +1286,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::A1")]
         public partial class A1 : global::Ice.Value
         {
             #region Slice data members
@@ -1357,6 +1360,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::B1")]
         public partial class B1 : global::Ice.Value
         {
             #region Slice data members
@@ -1436,6 +1440,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::D1")]
         public partial class D1 : B1
         {
             #region Slice data members
@@ -1518,6 +1523,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::EBase")]
         public partial class EBase : global::Ice.UserException
         {
             #region Slice data members
@@ -1610,6 +1616,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::EDerived")]
         public partial class EDerived : EBase
         {
             #region Slice data members
@@ -1697,6 +1704,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::Recursive")]
         public partial class Recursive : global::Ice.Value
         {
             #region Slice data members
@@ -1770,6 +1778,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::K")]
         public partial class K : global::Ice.Value
         {
             #region Slice data members
@@ -1843,6 +1852,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::L")]
         public partial class L : global::Ice.Value
         {
             #region Slice data members
@@ -2045,6 +2055,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::M")]
         public partial class M : global::Ice.Value
         {
             #region Slice data members
@@ -2118,6 +2129,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::F3")]
         public partial class F3 : global::Ice.Value
         {
             #region Slice data members
@@ -2212,6 +2224,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::Empty")]
         public partial class Empty : global::Ice.Value
         {
             partial void ice_initialize();
@@ -2269,6 +2282,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::AlsoEmpty")]
         public partial class AlsoEmpty : global::Ice.Value
         {
             partial void ice_initialize();
@@ -2341,6 +2355,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::IBase")]
         public partial class IBase : global::Ice.Value
         {
             #region Slice data members
@@ -2414,6 +2429,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::IDerived")]
         public partial class IDerived : IBase
         {
             #region Slice data members
@@ -2489,6 +2505,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::IDerived2")]
         public partial class IDerived2 : IBase
         {
             partial void ice_initialize();
@@ -2554,6 +2571,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::I2")]
         public partial class I2 : global::Ice.Value
         {
             partial void ice_initialize();
@@ -2795,6 +2813,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::COneMember")]
         public partial class COneMember : global::Ice.Value
         {
             #region Slice data members
@@ -2868,6 +2887,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::CTwoMembers")]
         public partial class CTwoMembers : global::Ice.Value
         {
             #region Slice data members
@@ -2948,6 +2968,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::EOneMember")]
         public partial class EOneMember : global::Ice.UserException
         {
             #region Slice data members
@@ -3034,6 +3055,7 @@ namespace Ice.objects
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::ETwoMembers")]
         public partial class ETwoMembers : global::Ice.UserException
         {
             #region Slice data members
@@ -3363,219 +3385,6 @@ namespace Ice.objects
 
             #endregion
         }
-    }
-}
-
-namespace Ice.objects.TypeId.Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class @Base
-    {
-        public abstract global::Ice.objects.Test.@Base targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class A
-    {
-        public abstract global::Ice.objects.Test.A targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class B
-    {
-        public abstract global::Ice.objects.Test.B targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class C
-    {
-        public abstract global::Ice.objects.Test.C targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class D
-    {
-        public abstract global::Ice.objects.Test.D targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class E
-    {
-        public abstract global::Ice.objects.Test.E targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class F
-    {
-        public abstract global::Ice.objects.Test.F targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class G
-    {
-        public abstract global::Ice.objects.Test.G targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class Compact
-    {
-        public abstract global::Ice.objects.Test.Compact targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class CompactExt
-    {
-        public abstract global::Ice.objects.Test.CompactExt targetClass { get; }
-    }
-
-    namespace Inner
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class A
-        {
-            public abstract global::Ice.objects.Test.Inner.A targetClass { get; }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public abstract class Ex
-        {
-            public abstract global::Ice.objects.Test.Inner.Ex targetClass { get; }
-        }
-
-        namespace Sub
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public abstract class A
-            {
-                public abstract global::Ice.objects.Test.Inner.Sub.A targetClass { get; }
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public abstract class Ex
-            {
-                public abstract global::Ice.objects.Test.Inner.Sub.Ex targetClass { get; }
-            }
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class A1
-    {
-        public abstract global::Ice.objects.Test.A1 targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class B1
-    {
-        public abstract global::Ice.objects.Test.B1 targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class D1
-    {
-        public abstract global::Ice.objects.Test.D1 targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class EBase
-    {
-        public abstract global::Ice.objects.Test.EBase targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class EDerived
-    {
-        public abstract global::Ice.objects.Test.EDerived targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class Recursive
-    {
-        public abstract global::Ice.objects.Test.Recursive targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class K
-    {
-        public abstract global::Ice.objects.Test.K targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class L
-    {
-        public abstract global::Ice.objects.Test.L targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class M
-    {
-        public abstract global::Ice.objects.Test.M targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class F3
-    {
-        public abstract global::Ice.objects.Test.F3 targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class Empty
-    {
-        public abstract global::Ice.objects.Test.Empty targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class AlsoEmpty
-    {
-        public abstract global::Ice.objects.Test.AlsoEmpty targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class IBase
-    {
-        public abstract global::Ice.objects.Test.IBase targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class IDerived
-    {
-        public abstract global::Ice.objects.Test.IDerived targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class IDerived2
-    {
-        public abstract global::Ice.objects.Test.IDerived2 targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class I2
-    {
-        public abstract global::Ice.objects.Test.I2 targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class COneMember
-    {
-        public abstract global::Ice.objects.Test.COneMember targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class CTwoMembers
-    {
-        public abstract global::Ice.objects.Test.CTwoMembers targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class EOneMember
-    {
-        public abstract global::Ice.objects.Test.EOneMember targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class ETwoMembers
-    {
-        public abstract global::Ice.objects.Test.ETwoMembers targetClass { get; }
     }
 }
 
