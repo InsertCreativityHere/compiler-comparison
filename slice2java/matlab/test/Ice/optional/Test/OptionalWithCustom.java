@@ -186,7 +186,7 @@ public class OptionalWithCustom extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 8161692125791210811L;
+    public static final long serialVersionUID = 1799938021007846715L;
 
     /** @hidden */
     @Override
