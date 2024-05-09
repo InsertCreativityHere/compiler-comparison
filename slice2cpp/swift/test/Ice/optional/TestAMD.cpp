@@ -155,25 +155,25 @@ Test::InitialPrx::_iceI_pingPong(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 
 void
-Test::InitialPrx::opOptionalException(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
+Test::InitialPrx::opOptionalException(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_opOptionalException, iceP_a, iceP_b, iceP_o, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_opOptionalException, iceP_a, iceP_b, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::opOptionalExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
+Test::InitialPrx::opOptionalExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_opOptionalException, iceP_a, iceP_b, iceP_o, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_opOptionalException, iceP_a, iceP_b, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opOptionalExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opOptionalExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opOptionalException, iceP_a, iceP_b, iceP_o, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opOptionalException, iceP_a, iceP_b, context);
 }
 
 void
-Test::InitialPrx::_iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opOptionalException";
 
@@ -181,7 +181,7 @@ Test::InitialPrx::_iceI_opOptionalException(const ::std::shared_ptr<::IceInterna
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
-            ostr->writeAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
+            ostr->writeAll({1, 2}, iceP_a, iceP_b);
         },
         [](const ::Ice::UserException& ex)
         {
@@ -200,25 +200,25 @@ Test::InitialPrx::_iceI_opOptionalException(const ::std::shared_ptr<::IceInterna
 }
 
 void
-Test::InitialPrx::opDerivedException(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
+Test::InitialPrx::opDerivedException(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_opDerivedException, iceP_a, iceP_b, iceP_o, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_opDerivedException, iceP_a, iceP_b, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::opDerivedExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
+Test::InitialPrx::opDerivedExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_opDerivedException, iceP_a, iceP_b, iceP_o, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_opDerivedException, iceP_a, iceP_b, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opDerivedExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opDerivedExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opDerivedException, iceP_a, iceP_b, iceP_o, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opDerivedException, iceP_a, iceP_b, context);
 }
 
 void
-Test::InitialPrx::_iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opDerivedException";
 
@@ -226,7 +226,7 @@ Test::InitialPrx::_iceI_opDerivedException(const ::std::shared_ptr<::IceInternal
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
-            ostr->writeAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
+            ostr->writeAll({1, 2}, iceP_a, iceP_b);
         },
         [](const ::Ice::UserException& ex)
         {
@@ -245,25 +245,25 @@ Test::InitialPrx::_iceI_opDerivedException(const ::std::shared_ptr<::IceInternal
 }
 
 void
-Test::InitialPrx::opRequiredException(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
+Test::InitialPrx::opRequiredException(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_opRequiredException, iceP_a, iceP_b, iceP_o, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_opRequiredException, iceP_a, iceP_b, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::opRequiredExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
+Test::InitialPrx::opRequiredExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_opRequiredException, iceP_a, iceP_b, iceP_o, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_opRequiredException, iceP_a, iceP_b, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opRequiredExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opRequiredExceptionAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opRequiredException, iceP_a, iceP_b, iceP_o, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opRequiredException, iceP_a, iceP_b, context);
 }
 
 void
-Test::InitialPrx::_iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::std::optional<OneOptionalPtr>& iceP_o, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_b, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opRequiredException";
 
@@ -271,7 +271,7 @@ Test::InitialPrx::_iceI_opRequiredException(const ::std::shared_ptr<::IceInterna
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
-            ostr->writeAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
+            ostr->writeAll({1, 2}, iceP_a, iceP_b);
         },
         [](const ::Ice::UserException& ex)
         {
@@ -817,50 +817,6 @@ Test::InitialPrx::_iceI_opVarStruct(const ::std::shared_ptr<::IceInternal::Outgo
         });
 }
 
-::std::optional<::Test::OneOptionalPtr>
-Test::InitialPrx::opOneOptional(const ::std::optional<OneOptionalPtr>& iceP_p1, ::std::optional<OneOptionalPtr>& iceP_p3, const ::Ice::Context& context) const
-{
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<OneOptionalPtr>, ::std::optional<OneOptionalPtr>>>(true, this, &InitialPrx::_iceI_opOneOptional, iceP_p1, context).get();
-    iceP_p3 = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
-}
-
-::std::future<::std::tuple<::std::optional<::Test::OneOptionalPtr>, ::std::optional<::Test::OneOptionalPtr>>>
-Test::InitialPrx::opOneOptionalAsync(const ::std::optional<OneOptionalPtr>& iceP_p1, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<OneOptionalPtr>, ::std::optional<OneOptionalPtr>>>(false, this, &InitialPrx::_iceI_opOneOptional, iceP_p1, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::opOneOptionalAsync(const ::std::optional<OneOptionalPtr>& iceP_p1, ::std::function<void(::std::optional<::Test::OneOptionalPtr>, ::std::optional<::Test::OneOptionalPtr>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<OneOptionalPtr>, ::std::optional<OneOptionalPtr>>&& result)
-    {
-        ::std::apply(::std::move(response), ::std::move(result));
-    };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<OneOptionalPtr>, ::std::optional<OneOptionalPtr>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opOneOptional, iceP_p1, context);
-}
-
-void
-Test::InitialPrx::_iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<OneOptionalPtr>, ::std::optional<OneOptionalPtr>>>>& outAsync, const ::std::optional<OneOptionalPtr>& iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opOneOptional";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<OneOptionalPtr>, ::std::optional<OneOptionalPtr>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 ::std::optional<::Test::MyInterfacePrx>
 Test::InitialPrx::opMyInterfaceProxy(const ::std::optional<MyInterfacePrx>& iceP_p1, ::std::optional<MyInterfacePrx>& iceP_p3, const ::Ice::Context& context) const
 {
@@ -901,6 +857,52 @@ Test::InitialPrx::_iceI_opMyInterfaceProxy(const ::std::shared_ptr<::IceInternal
         {
             ::std::tuple<::std::optional<MyInterfacePrx>, ::std::optional<MyInterfacePrx>> v;
             istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
+            return v;
+        });
+}
+
+::Test::OneOptionalPtr
+Test::InitialPrx::opOneOptional(const OneOptionalPtr& iceP_p1, OneOptionalPtr& iceP_p3, const ::Ice::Context& context) const
+{
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<OneOptionalPtr, OneOptionalPtr>>(true, this, &InitialPrx::_iceI_opOneOptional, iceP_p1, context).get();
+    iceP_p3 = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
+}
+
+::std::future<::std::tuple<::Test::OneOptionalPtr, ::Test::OneOptionalPtr>>
+Test::InitialPrx::opOneOptionalAsync(const OneOptionalPtr& iceP_p1, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<OneOptionalPtr, OneOptionalPtr>>(false, this, &InitialPrx::_iceI_opOneOptional, iceP_p1, context);
+}
+
+::std::function<void()>
+Test::InitialPrx::opOneOptionalAsync(const OneOptionalPtr& iceP_p1, ::std::function<void(::Test::OneOptionalPtr, ::Test::OneOptionalPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+{
+    auto responseCb = [response = ::std::move(response)](::std::tuple<OneOptionalPtr, OneOptionalPtr>&& result)
+    {
+        ::std::apply(::std::move(response), ::std::move(result));
+    };
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<OneOptionalPtr, OneOptionalPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opOneOptional, iceP_p1, context);
+}
+
+void
+Test::InitialPrx::_iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<OneOptionalPtr, OneOptionalPtr>>>& outAsync, const OneOptionalPtr& iceP_p1, const ::Ice::Context& context) const
+{
+    static constexpr ::std::string_view operationName = "opOneOptional";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_p1);
+            ostr->writePendingValues();
+        },
+        nullptr,
+        [](::Ice::InputStream* istr)
+        {
+            ::std::tuple<OneOptionalPtr, OneOptionalPtr> v;
+            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            istr->readPendingValues();
             return v;
         });
 }
@@ -1990,85 +1992,6 @@ Test::InitialPrx::_iceI_opMDict2(const ::std::shared_ptr<::IceInternal::Outgoing
         });
 }
 
-::std::optional<::Test::GPtr>
-Test::InitialPrx::opMG1(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::optional<GPtr>>(true, this, &InitialPrx::_iceI_opMG1, context).get();
-}
-
-::std::future<::std::optional<::Test::GPtr>>
-Test::InitialPrx::opMG1Async(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::optional<GPtr>>(false, this, &InitialPrx::_iceI_opMG1, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::opMG1Async(::std::function<void(::std::optional<::Test::GPtr>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<GPtr>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opMG1, context);
-}
-
-void
-Test::InitialPrx::_iceI_opMG1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<GPtr>>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opMG1";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::optional<GPtr> ret;
-            istr->readAll({1}, ret);
-            return ret;
-        });
-}
-
-::std::optional<::Test::GPtr>
-Test::InitialPrx::opMG2(const ::std::optional<GPtr>& iceP_p1, ::std::optional<GPtr>& iceP_p2, const ::Ice::Context& context) const
-{
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<GPtr>, ::std::optional<GPtr>>>(true, this, &InitialPrx::_iceI_opMG2, iceP_p1, context).get();
-    iceP_p2 = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
-}
-
-::std::future<::std::tuple<::std::optional<::Test::GPtr>, ::std::optional<::Test::GPtr>>>
-Test::InitialPrx::opMG2Async(const ::std::optional<GPtr>& iceP_p1, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<GPtr>, ::std::optional<GPtr>>>(false, this, &InitialPrx::_iceI_opMG2, iceP_p1, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::opMG2Async(const ::std::optional<GPtr>& iceP_p1, ::std::function<void(::std::optional<::Test::GPtr>, ::std::optional<::Test::GPtr>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<GPtr>, ::std::optional<GPtr>>&& result)
-    {
-        ::std::apply(::std::move(response), ::std::move(result));
-    };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<GPtr>, ::std::optional<GPtr>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opMG2, iceP_p1, context);
-}
-
-void
-Test::InitialPrx::_iceI_opMG2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<GPtr>, ::std::optional<GPtr>>>>& outAsync, const ::std::optional<GPtr>& iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opMG2";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<GPtr>, ::std::optional<GPtr>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 bool
 Test::InitialPrx::supportsRequiredParams(const ::Ice::Context& context) const
 {
@@ -2149,35 +2072,6 @@ void
 Test::InitialPrx::_iceI_supportsCsharpSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "supportsCsharpSerializable";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-
-bool
-Test::InitialPrx::supportsNullOptional(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsNullOptional, context).get();
-}
-
-::std::future<bool>
-Test::InitialPrx::supportsNullOptionalAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &InitialPrx::_iceI_supportsNullOptional, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::supportsNullOptionalAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<bool>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_supportsNullOptional, context);
-}
-
-void
-Test::InitialPrx::_iceI_supportsNullOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "supportsNullOptional";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2496,14 +2390,6 @@ Test::RequiredException::ice_throw() const
 {
     throw *this;
 }
-
-/// \cond STREAM
-bool
-Test::RequiredException::_usesClasses() const
-{
-    return true;
-}
-/// \endcond
 
 void
 Test::RequiredException::_writeImpl(::Ice::OutputStream* ostr) const
@@ -2825,13 +2711,12 @@ Test::Initial::_iceD_opOptionalException(::Ice::IncomingRequest& request, ::std:
     istr->startEncapsulation();
     ::std::optional<::std::int32_t> iceP_a;
     ::std::optional<::std::string> iceP_b;
-    ::std::optional<OneOptionalPtr> iceP_o;
-    istr->readAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
+    istr->readAll({1, 2}, iceP_a, iceP_b);
     istr->endEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
-        this->opOptionalExceptionAsync(iceP_a, ::std::move(iceP_b), ::std::move(iceP_o), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
+        this->opOptionalExceptionAsync(iceP_a, ::std::move(iceP_b), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
@@ -2849,13 +2734,12 @@ Test::Initial::_iceD_opDerivedException(::Ice::IncomingRequest& request, ::std::
     istr->startEncapsulation();
     ::std::optional<::std::int32_t> iceP_a;
     ::std::optional<::std::string> iceP_b;
-    ::std::optional<OneOptionalPtr> iceP_o;
-    istr->readAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
+    istr->readAll({1, 2}, iceP_a, iceP_b);
     istr->endEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
-        this->opDerivedExceptionAsync(iceP_a, ::std::move(iceP_b), ::std::move(iceP_o), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
+        this->opDerivedExceptionAsync(iceP_a, ::std::move(iceP_b), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
@@ -2873,13 +2757,12 @@ Test::Initial::_iceD_opRequiredException(::Ice::IncomingRequest& request, ::std:
     istr->startEncapsulation();
     ::std::optional<::std::int32_t> iceP_a;
     ::std::optional<::std::string> iceP_b;
-    ::std::optional<OneOptionalPtr> iceP_o;
-    istr->readAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
+    istr->readAll({1, 2}, iceP_a, iceP_b);
     istr->endEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
-        this->opRequiredExceptionAsync(iceP_a, ::std::move(iceP_b), ::std::move(iceP_o), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
+        this->opRequiredExceptionAsync(iceP_a, ::std::move(iceP_b), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
@@ -3250,36 +3133,6 @@ Test::Initial::_iceD_opVarStruct(::Ice::IncomingRequest& request, ::std::functio
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_opOneOptional(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    ::std::optional<OneOptionalPtr> iceP_p1;
-    istr->readAll({2}, iceP_p1);
-    istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](const ::std::optional<OneOptionalPtr>& ret, const ::std::optional<OneOptionalPtr>& iceP_p3)
-    {
-        responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
-            {
-                ostr->writeAll({1, 3}, ret, iceP_p3);
-            });
-    };
-    try
-    {
-        this->opOneOptionalAsync(::std::move(iceP_p1), ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::Initial::_iceD_opMyInterfaceProxy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
@@ -3300,6 +3153,38 @@ Test::Initial::_iceD_opMyInterfaceProxy(::Ice::IncomingRequest& request, ::std::
     try
     {
         this->opMyInterfaceProxyAsync(::std::move(iceP_p1), ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
+    }
+    catch (...)
+    {
+        responseHandler->sendException(::std::current_exception());
+    }
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
+Test::Initial::_iceD_opOneOptional(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
+    OneOptionalPtr iceP_p1;
+    istr->readAll(iceP_p1);
+    istr->readPendingValues();
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](const OneOptionalPtr& ret, const OneOptionalPtr& iceP_p3)
+    {
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(iceP_p3, ret);
+                ostr->writePendingValues();
+            });
+    };
+    try
+    {
+        this->opOneOptionalAsync(::std::move(iceP_p1), ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
@@ -4065,64 +3950,6 @@ Test::Initial::_iceD_opMDict2(::Ice::IncomingRequest& request, ::std::function<v
 }
 /// \endcond
 
-Test::Initial::OpMG1MarshaledResult::OpMG1MarshaledResult(const ::std::optional<GPtr>& ret, const ::Ice::Current& current):
-    MarshaledResult(current)
-{
-    ::Ice::OutputStream* ostr = &_ostr;
-    ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
-    ostr->writeAll({1}, ret);
-    ostr->endEncapsulation();
-}
-
-/// \cond INTERNAL
-void
-Test::Initial::_iceD_opMG1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    request.inputStream().skipEmptyEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    try
-    {
-        this->opMG1Async([responseHandler](OpMG1MarshaledResult marshaledResult) { responseHandler->sendResponse(::std::move(marshaledResult)); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
-}
-/// \endcond
-
-Test::Initial::OpMG2MarshaledResult::OpMG2MarshaledResult(const ::std::optional<GPtr>& ret, const ::std::optional<GPtr>& iceP_p2, const ::Ice::Current& current):
-    MarshaledResult(current)
-{
-    ::Ice::OutputStream* ostr = &_ostr;
-    ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
-    ostr->writeAll({1, 3}, ret, iceP_p2);
-    ostr->endEncapsulation();
-}
-
-/// \cond INTERNAL
-void
-Test::Initial::_iceD_opMG2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    ::std::optional<GPtr> iceP_p1;
-    istr->readAll({2}, iceP_p1);
-    istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    try
-    {
-        this->opMG2Async(::std::move(iceP_p1), [responseHandler](OpMG2MarshaledResult marshaledResult) { responseHandler->sendResponse(::std::move(marshaledResult)); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
-}
-/// \endcond
-
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_supportsRequiredParams(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
@@ -4203,38 +4030,12 @@ Test::Initial::_iceD_supportsCsharpSerializable(::Ice::IncomingRequest& request,
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_supportsNullOptional(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    request.inputStream().skipEmptyEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](bool ret)
-    {
-        responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
-            {
-                ostr->writeAll(ret);
-            });
-    };
-    try
-    {
-        this->supportsNullOptionalAsync(::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntOneOptionalDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMG1", "opMG2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opSerializable", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "shutdown", "supportsCsharpSerializable", "supportsJavaSerializable", "supportsNullOptional", "supportsRequiredParams"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntOneOptionalDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opSerializable", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "shutdown", "supportsCsharpSerializable", "supportsJavaSerializable", "supportsRequiredParams"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 55, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 52, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -4375,145 +4176,130 @@ Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         }
         case 26:
         {
-            _iceD_opMG1(request, ::std::move(sendResponse));
+            _iceD_opMSeq1(request, ::std::move(sendResponse));
             break;
         }
         case 27:
         {
-            _iceD_opMG2(request, ::std::move(sendResponse));
+            _iceD_opMSeq2(request, ::std::move(sendResponse));
             break;
         }
         case 28:
         {
-            _iceD_opMSeq1(request, ::std::move(sendResponse));
+            _iceD_opMStruct1(request, ::std::move(sendResponse));
             break;
         }
         case 29:
         {
-            _iceD_opMSeq2(request, ::std::move(sendResponse));
+            _iceD_opMStruct2(request, ::std::move(sendResponse));
             break;
         }
         case 30:
         {
-            _iceD_opMStruct1(request, ::std::move(sendResponse));
+            _iceD_opMyEnum(request, ::std::move(sendResponse));
             break;
         }
         case 31:
         {
-            _iceD_opMStruct2(request, ::std::move(sendResponse));
+            _iceD_opMyInterfaceProxy(request, ::std::move(sendResponse));
             break;
         }
         case 32:
         {
-            _iceD_opMyEnum(request, ::std::move(sendResponse));
+            _iceD_opOneOptional(request, ::std::move(sendResponse));
             break;
         }
         case 33:
         {
-            _iceD_opMyInterfaceProxy(request, ::std::move(sendResponse));
+            _iceD_opOptionalException(request, ::std::move(sendResponse));
             break;
         }
         case 34:
         {
-            _iceD_opOneOptional(request, ::std::move(sendResponse));
+            _iceD_opRequiredException(request, ::std::move(sendResponse));
             break;
         }
         case 35:
         {
-            _iceD_opOptionalException(request, ::std::move(sendResponse));
+            _iceD_opSerializable(request, ::std::move(sendResponse));
             break;
         }
         case 36:
         {
-            _iceD_opRequiredException(request, ::std::move(sendResponse));
+            _iceD_opShort(request, ::std::move(sendResponse));
             break;
         }
         case 37:
         {
-            _iceD_opSerializable(request, ::std::move(sendResponse));
+            _iceD_opShortSeq(request, ::std::move(sendResponse));
             break;
         }
         case 38:
         {
-            _iceD_opShort(request, ::std::move(sendResponse));
+            _iceD_opSmallStruct(request, ::std::move(sendResponse));
             break;
         }
         case 39:
         {
-            _iceD_opShortSeq(request, ::std::move(sendResponse));
+            _iceD_opSmallStructList(request, ::std::move(sendResponse));
             break;
         }
         case 40:
         {
-            _iceD_opSmallStruct(request, ::std::move(sendResponse));
+            _iceD_opSmallStructSeq(request, ::std::move(sendResponse));
             break;
         }
         case 41:
         {
-            _iceD_opSmallStructList(request, ::std::move(sendResponse));
+            _iceD_opString(request, ::std::move(sendResponse));
             break;
         }
         case 42:
         {
-            _iceD_opSmallStructSeq(request, ::std::move(sendResponse));
+            _iceD_opStringIntDict(request, ::std::move(sendResponse));
             break;
         }
         case 43:
         {
-            _iceD_opString(request, ::std::move(sendResponse));
+            _iceD_opStringSeq(request, ::std::move(sendResponse));
             break;
         }
         case 44:
         {
-            _iceD_opStringIntDict(request, ::std::move(sendResponse));
+            _iceD_opVarStruct(request, ::std::move(sendResponse));
             break;
         }
         case 45:
         {
-            _iceD_opStringSeq(request, ::std::move(sendResponse));
+            _iceD_opVarStructSeq(request, ::std::move(sendResponse));
             break;
         }
         case 46:
         {
-            _iceD_opVarStruct(request, ::std::move(sendResponse));
+            _iceD_opVoid(request, ::std::move(sendResponse));
             break;
         }
         case 47:
         {
-            _iceD_opVarStructSeq(request, ::std::move(sendResponse));
+            _iceD_pingPong(request, ::std::move(sendResponse));
             break;
         }
         case 48:
         {
-            _iceD_opVoid(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, ::std::move(sendResponse));
             break;
         }
         case 49:
         {
-            _iceD_pingPong(request, ::std::move(sendResponse));
+            _iceD_supportsCsharpSerializable(request, ::std::move(sendResponse));
             break;
         }
         case 50:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
-            break;
-        }
-        case 51:
-        {
-            _iceD_supportsCsharpSerializable(request, ::std::move(sendResponse));
-            break;
-        }
-        case 52:
-        {
             _iceD_supportsJavaSerializable(request, ::std::move(sendResponse));
             break;
         }
-        case 53:
-        {
-            _iceD_supportsNullOptional(request, ::std::move(sendResponse));
-            break;
-        }
-        case 54:
+        case 51:
         {
             _iceD_supportsRequiredParams(request, ::std::move(sendResponse));
             break;

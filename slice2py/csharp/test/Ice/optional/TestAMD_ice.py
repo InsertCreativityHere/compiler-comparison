@@ -1089,6 +1089,12 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opMyInterfaceProxyAsync(self, p1, context=None):
             return _M_Test.Initial._op_opMyInterfaceProxy.invokeAsync(self, ((p1, ), context))
 
+        def opOneOptional(self, p1, context=None):
+            return _M_Test.Initial._op_opOneOptional.invoke(self, ((p1, ), context))
+
+        def opOneOptionalAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opOneOptional.invokeAsync(self, ((p1, ), context))
+
         def opByteSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opByteSeq.invoke(self, ((p1, ), context))
 
@@ -1245,12 +1251,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def supportsJavaSerializableAsync(self, context=None):
             return _M_Test.Initial._op_supportsJavaSerializable.invokeAsync(self, ((), context))
 
-        def supportsNullOptional(self, context=None):
-            return _M_Test.Initial._op_supportsNullOptional.invoke(self, ((), context))
-
-        def supportsNullOptionalAsync(self, context=None):
-            return _M_Test.Initial._op_supportsNullOptional.invokeAsync(self, ((), context))
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.InitialPrx.ice_checkedCast(proxy, '::Test::Initial', facetOrContext, context)
@@ -1333,6 +1333,9 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         def opMyInterfaceProxy(self, p1, current=None):
             raise NotImplementedError("servant method 'opMyInterfaceProxy' not implemented")
+
+        def opOneOptional(self, p1, current=None):
+            raise NotImplementedError("servant method 'opOneOptional' not implemented")
 
         def opByteSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opByteSeq' not implemented")
@@ -1490,9 +1493,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def supportsJavaSerializable(self, current=None):
             raise NotImplementedError("servant method 'supportsJavaSerializable' not implemented")
 
-        def supportsNullOptional(self, current=None):
-            raise NotImplementedError("servant method 'supportsNullOptional' not implemented")
-
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_InitialDisp)
 
@@ -1519,6 +1519,7 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opFixedStruct = IcePy.Operation('opFixedStruct', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_FixedStruct, True, 2),), (((), _M_Test._t_FixedStruct, True, 3),), ((), _M_Test._t_FixedStruct, True, 1), ())
     Initial._op_opVarStruct = IcePy.Operation('opVarStruct', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_VarStruct, True, 2),), (((), _M_Test._t_VarStruct, True, 3),), ((), _M_Test._t_VarStruct, True, 1), ())
     Initial._op_opMyInterfaceProxy = IcePy.Operation('opMyInterfaceProxy', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_MyInterfacePrx, True, 2),), (((), _M_Test._t_MyInterfacePrx, True, 3),), ((), _M_Test._t_MyInterfacePrx, True, 1), ())
+    Initial._op_opOneOptional = IcePy.Operation('opOneOptional', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_OneOptional, False, 0),), (((), _M_Test._t_OneOptional, False, 0),), ((), _M_Test._t_OneOptional, False, 0), ())
     Initial._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteSeq, True, 2),), (((), _M_Test._t_ByteSeq, True, 3),), ((), _M_Test._t_ByteSeq, True, 1), ())
     Initial._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_BoolSeq, True, 2),), (((), _M_Test._t_BoolSeq, True, 3),), ((), _M_Test._t_BoolSeq, True, 1), ())
     Initial._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ShortSeq, True, 2),), (((), _M_Test._t_ShortSeq, True, 3),), ((), _M_Test._t_ShortSeq, True, 1), ())
@@ -1545,7 +1546,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opMDict2 = IcePy.Operation('opMDict2', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
     Initial._op_supportsRequiredParams = IcePy.Operation('supportsRequiredParams', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsJavaSerializable = IcePy.Operation('supportsJavaSerializable', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    Initial._op_supportsNullOptional = IcePy.Operation('supportsNullOptional', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
 
     _M_Test.Initial = Initial
     del Initial

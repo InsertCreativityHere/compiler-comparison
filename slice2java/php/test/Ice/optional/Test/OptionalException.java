@@ -47,21 +47,19 @@ public class OptionalException extends com.zeroc.Ice.UserException
         this.b = "";
     }
 
-    public OptionalException(boolean req, int a, String b, OneOptional o)
+    public OptionalException(boolean req, int a, String b)
     {
         this.req = req;
         setA(a);
         setB(b);
-        setO(o);
     }
 
-    public OptionalException(boolean req, int a, String b, OneOptional o, Throwable cause)
+    public OptionalException(boolean req, int a, String b, Throwable cause)
     {
         super(cause);
         this.req = req;
         setA(a);
         setB(b);
-        setO(o);
     }
 
     public String ice_id()
@@ -177,59 +175,6 @@ public class OptionalException extends com.zeroc.Ice.UserException
         }
     }
 
-    private OneOptional o;
-    private boolean _o;
-
-    public OneOptional getO()
-    {
-        if(!_o)
-        {
-            throw new java.util.NoSuchElementException("o is not set");
-        }
-        return o;
-    }
-
-    public void setO(OneOptional o)
-    {
-        _o = true;
-        this.o = o;
-    }
-
-    public boolean hasO()
-    {
-        return _o;
-    }
-
-    public void clearO()
-    {
-        _o = false;
-    }
-
-    public void optionalO(java.util.Optional<OneOptional> v)
-    {
-        if(v == null || !v.isPresent())
-        {
-            _o = false;
-        }
-        else
-        {
-            _o = true;
-            o = v.get();
-        }
-    }
-
-    public java.util.Optional<OneOptional> optionalO()
-    {
-        if(_o)
-        {
-            return java.util.Optional.ofNullable(o);
-        }
-        else
-        {
-            return java.util.Optional.empty();
-        }
-    }
-
     /** @hidden */
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
@@ -243,10 +188,6 @@ public class OptionalException extends com.zeroc.Ice.UserException
         if(_b)
         {
             ostr_.writeString(2, b);
-        }
-        if(_o)
-        {
-            ostr_.writeValue(50, o);
         }
         ostr_.endSlice();
     }
@@ -265,13 +206,9 @@ public class OptionalException extends com.zeroc.Ice.UserException
         {
             b = istr_.readString();
         }
-        if(_o = istr_.readOptional(50, com.zeroc.Ice.OptionalFormat.Class))
-        {
-            istr_.readValue(v -> o = v, OneOptional.class);
-        }
         istr_.endSlice();
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -1072633361490568928L;
+    public static final long serialVersionUID = 5320643035633820943L;
 }

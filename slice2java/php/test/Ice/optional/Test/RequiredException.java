@@ -29,32 +29,28 @@ public class RequiredException extends OptionalException
         this.ss = "test";
     }
 
-    public RequiredException(boolean req, String ss, OneOptional o2)
+    public RequiredException(boolean req, String ss)
     {
         super(req);
         this.ss = ss;
-        this.o2 = o2;
     }
 
-    public RequiredException(boolean req, String ss, OneOptional o2, Throwable cause)
+    public RequiredException(boolean req, String ss, Throwable cause)
     {
         super(req, cause);
         this.ss = ss;
-        this.o2 = o2;
     }
 
-    public RequiredException(boolean req, int a, String b, OneOptional o, String ss, OneOptional o2)
+    public RequiredException(boolean req, int a, String b, String ss)
     {
-        super(req, a, b, o);
+        super(req, a, b);
         this.ss = ss;
-        this.o2 = o2;
     }
 
-    public RequiredException(boolean req, int a, String b, OneOptional o, String ss, OneOptional o2, Throwable cause)
+    public RequiredException(boolean req, int a, String b, String ss, Throwable cause)
     {
-        super(req, a, b, o, cause);
+        super(req, a, b, cause);
         this.ss = ss;
-        this.o2 = o2;
     }
 
     public String ice_id()
@@ -64,15 +60,12 @@ public class RequiredException extends OptionalException
 
     public String ss;
 
-    public OneOptional o2;
-
     /** @hidden */
     @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
         ostr_.startSlice("::Test::RequiredException", -1, false);
         ostr_.writeString(ss);
-        ostr_.writeValue(o2);
         ostr_.endSlice();
         super._writeImpl(ostr_);
     }
@@ -83,18 +76,10 @@ public class RequiredException extends OptionalException
     {
         istr_.startSlice();
         ss = istr_.readString();
-        istr_.readValue(v -> o2 = v, OneOptional.class);
         istr_.endSlice();
         super._readImpl(istr_);
     }
 
     /** @hidden */
-    @Override
-    public boolean _usesClasses()
-    {
-        return true;
-    }
-
-    /** @hidden */
-    public static final long serialVersionUID = 2648421301211755601L;
+    public static final long serialVersionUID = 2894242984054274299L;
 }

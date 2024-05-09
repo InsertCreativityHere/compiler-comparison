@@ -398,13 +398,12 @@
 
     Test.OptionalException = class extends Ice.UserException
     {
-        constructor(req = false, a = 5, b = undefined, o = undefined, _cause = "")
+        constructor(req = false, a = 5, b = undefined, _cause = "")
         {
             super(_cause);
             this.req = req;
             this.a = a;
             this.b = b;
-            this.o = o;
         }
 
         static get _parent()
@@ -427,7 +426,6 @@
             ostr.writeBool(this.req);
             Ice.IntHelper.writeOptional(ostr, 1, this.a);
             Ice.StringHelper.writeOptional(ostr, 2, this.b);
-            ostr.writeOptionalValue(50, this.o);
         }
 
         _readMemberImpl(istr)
@@ -435,18 +433,16 @@
             this.req = istr.readBool();
             this.a = Ice.IntHelper.readOptional(istr, 1);
             this.b = Ice.StringHelper.readOptional(istr, 2);
-            istr.readOptionalValue(50, obj => this.o = obj, Test.OneOptional);
         }
     };
 
     Test.DerivedException = class extends Test.OptionalException
     {
-        constructor(req, a, b, o, d1 = "", ss = "test", o2 = undefined, d2 = "", _cause = "")
+        constructor(req, a, b, d1 = "", ss = "test", d2 = "", _cause = "")
         {
-            super(req, a, b, o, _cause);
+            super(req, a, b, _cause);
             this.d1 = d1;
             this.ss = ss;
-            this.o2 = o2;
             this.d2 = d2;
         }
 
@@ -470,7 +466,6 @@
             ostr.writeString(this.d1);
             ostr.writeString(this.d2);
             Ice.StringHelper.writeOptional(ostr, 600, this.ss);
-            ostr.writeOptionalValue(601, this.o2);
         }
 
         _readMemberImpl(istr)
@@ -478,17 +473,15 @@
             this.d1 = istr.readString();
             this.d2 = istr.readString();
             this.ss = Ice.StringHelper.readOptional(istr, 600);
-            istr.readOptionalValue(601, obj => this.o2 = obj, Test.OneOptional);
         }
     };
 
     Test.RequiredException = class extends Test.OptionalException
     {
-        constructor(req, a, b, o, ss = "test", o2 = null, _cause = "")
+        constructor(req, a, b, ss = "test", _cause = "")
         {
-            super(req, a, b, o, _cause);
+            super(req, a, b, _cause);
             this.ss = ss;
-            this.o2 = o2;
         }
 
         static get _parent()
@@ -509,18 +502,11 @@
         _writeMemberImpl(ostr)
         {
             ostr.writeString(this.ss);
-            ostr.writeValue(this.o2);
         }
 
         _readMemberImpl(istr)
         {
             this.ss = istr.readString();
-            istr.readValue(obj => this.o2 = obj, Test.OneOptional);
-        }
-
-        _usesClasses()
-        {
-            return true;
         }
     };
 
@@ -687,15 +673,15 @@
     {
         "shutdown": [, , , , , , , , ],
         "pingPong": [, , , [8, true], [[8, true]], , , true, true],
-        "opOptionalException": [, , , , [[3, , 1], [7, , 2], ["Test.OneOptional", true, 3]], ,
+        "opOptionalException": [, , , , [[3, , 1], [7, , 2]], ,
         [
             Test.OptionalException
         ], , ],
-        "opDerivedException": [, , , , [[3, , 1], [7, , 2], ["Test.OneOptional", true, 3]], ,
+        "opDerivedException": [, , , , [[3, , 1], [7, , 2]], ,
         [
             Test.OptionalException
         ], , ],
-        "opRequiredException": [, , , , [[3, , 1], [7, , 2], ["Test.OneOptional", true, 3]], ,
+        "opRequiredException": [, , , , [[3, , 1], [7, , 2]], ,
         [
             Test.OptionalException
         ], , ],
@@ -711,8 +697,8 @@
         "opSmallStruct": [, , , [Test.SmallStruct, , 1], [[Test.SmallStruct, , 2]], [[Test.SmallStruct, , 3]], , , ],
         "opFixedStruct": [, , , [Test.FixedStruct, , 1], [[Test.FixedStruct, , 2]], [[Test.FixedStruct, , 3]], , , ],
         "opVarStruct": [, , , [Test.VarStruct, , 1], [[Test.VarStruct, , 2]], [[Test.VarStruct, , 3]], , , ],
-        "opOneOptional": [, , , ["Test.OneOptional", true, 1], [["Test.OneOptional", true, 2]], [["Test.OneOptional", true, 3]], , , ],
         "opMyInterfaceProxy": [, , , ["Test.MyInterfacePrx", , 1], [["Test.MyInterfacePrx", , 2]], [["Test.MyInterfacePrx", , 3]], , , ],
+        "opOneOptional": [, , , ["Test.OneOptional", true], [["Test.OneOptional", true]], [["Test.OneOptional", true]], , true, true],
         "opByteSeq": [, , , ["Test.ByteSeqHelper", , 1], [["Test.ByteSeqHelper", , 2]], [["Test.ByteSeqHelper", , 3]], , , ],
         "opBoolSeq": [, , , ["Test.BoolSeqHelper", , 1], [["Test.BoolSeqHelper", , 2]], [["Test.BoolSeqHelper", , 3]], , , ],
         "opShortSeq": [, , , ["Test.ShortSeqHelper", , 1], [["Test.ShortSeqHelper", , 2]], [["Test.ShortSeqHelper", , 3]], , , ],
@@ -738,12 +724,9 @@
         "opMSeq2": [, , , ["Test.StringSeqHelper", , 1], [["Test.StringSeqHelper", , 2]], [["Test.StringSeqHelper", , 3]], , , ],
         "opMDict1": [, , , ["Test.StringIntDictHelper", , 1], , , , , ],
         "opMDict2": [, , , ["Test.StringIntDictHelper", , 1], [["Test.StringIntDictHelper", , 2]], [["Test.StringIntDictHelper", , 3]], , , ],
-        "opMG1": [, , , ["Test.G", true, 1], , , , , ],
-        "opMG2": [, , , ["Test.G", true, 1], [["Test.G", true, 2]], [["Test.G", true, 3]], , , ],
         "supportsRequiredParams": [, , , [1], , , , , ],
         "supportsJavaSerializable": [, , , [1], , , , , ],
-        "supportsCsharpSerializable": [, , , [1], , , , , ],
-        "supportsNullOptional": [, , , [1], , , , , ]
+        "supportsCsharpSerializable": [, , , [1], , , , , ]
     });
     exports.Test = Test;
 }

@@ -761,6 +761,10 @@ module ::Test
                 InitialPrx_mixin::OP_opMyInterfaceProxy.invoke(self, [p1], context)
             end
 
+            def opOneOptional(p1, context=nil)
+                InitialPrx_mixin::OP_opOneOptional.invoke(self, [p1], context)
+            end
+
             def opByteSeq(p1, context=nil)
                 InitialPrx_mixin::OP_opByteSeq.invoke(self, [p1], context)
             end
@@ -864,10 +868,6 @@ module ::Test
             def supportsJavaSerializable(context=nil)
                 InitialPrx_mixin::OP_supportsJavaSerializable.invoke(self, [], context)
             end
-
-            def supportsNullOptional(context=nil)
-                InitialPrx_mixin::OP_supportsNullOptional.invoke(self, [], context)
-            end
         end
 
         class InitialPrx < ::Ice::ObjectPrx
@@ -900,6 +900,7 @@ module ::Test
         InitialPrx_mixin::OP_opFixedStruct = ::Ice::__defineOperation('opFixedStruct', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FixedStruct, true, 2]], [[::Test::T_FixedStruct, true, 3]], [::Test::T_FixedStruct, true, 1], [])
         InitialPrx_mixin::OP_opVarStruct = ::Ice::__defineOperation('opVarStruct', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_VarStruct, true, 2]], [[::Test::T_VarStruct, true, 3]], [::Test::T_VarStruct, true, 1], [])
         InitialPrx_mixin::OP_opMyInterfaceProxy = ::Ice::__defineOperation('opMyInterfaceProxy', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_MyInterfacePrx, true, 2]], [[::Test::T_MyInterfacePrx, true, 3]], [::Test::T_MyInterfacePrx, true, 1], [])
+        InitialPrx_mixin::OP_opOneOptional = ::Ice::__defineOperation('opOneOptional', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_OneOptional, false, 0]], [[::Test::T_OneOptional, false, 0]], [::Test::T_OneOptional, false, 0], [])
         InitialPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ByteSeq, true, 2]], [[::Test::T_ByteSeq, true, 3]], [::Test::T_ByteSeq, true, 1], [])
         InitialPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_BoolSeq, true, 2]], [[::Test::T_BoolSeq, true, 3]], [::Test::T_BoolSeq, true, 1], [])
         InitialPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ShortSeq, true, 2]], [[::Test::T_ShortSeq, true, 3]], [::Test::T_ShortSeq, true, 1], [])
@@ -926,6 +927,5 @@ module ::Test
         InitialPrx_mixin::OP_opMDict2 = ::Ice::__defineOperation('opMDict2', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringIntDict, true, 2]], [[::Test::T_StringIntDict, true, 3]], [::Test::T_StringIntDict, true, 1], [])
         InitialPrx_mixin::OP_supportsRequiredParams = ::Ice::__defineOperation('supportsRequiredParams', ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsJavaSerializable = ::Ice::__defineOperation('supportsJavaSerializable', ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
-        InitialPrx_mixin::OP_supportsNullOptional = ::Ice::__defineOperation('supportsNullOptional', ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
     end
 end

@@ -49,21 +49,19 @@ public class DerivedException extends OptionalException
         setSs("test");
     }
 
-    public DerivedException(boolean req, int a, String b, OneOptional o, String d1, String ss, OneOptional o2, String d2)
+    public DerivedException(boolean req, int a, String b, String d1, String ss, String d2)
     {
-        super(req, a, b, o);
+        super(req, a, b);
         this.d1 = d1;
         setSs(ss);
-        setO2(o2);
         this.d2 = d2;
     }
 
-    public DerivedException(boolean req, int a, String b, OneOptional o, String d1, String ss, OneOptional o2, String d2, Throwable cause)
+    public DerivedException(boolean req, int a, String b, String d1, String ss, String d2, Throwable cause)
     {
-        super(req, a, b, o, cause);
+        super(req, a, b, cause);
         this.d1 = d1;
         setSs(ss);
-        setO2(o2);
         this.d2 = d2;
     }
 
@@ -127,59 +125,6 @@ public class DerivedException extends OptionalException
         }
     }
 
-    private OneOptional o2;
-    private boolean _o2;
-
-    public OneOptional getO2()
-    {
-        if(!_o2)
-        {
-            throw new java.util.NoSuchElementException("o2 is not set");
-        }
-        return o2;
-    }
-
-    public void setO2(OneOptional o2)
-    {
-        _o2 = true;
-        this.o2 = o2;
-    }
-
-    public boolean hasO2()
-    {
-        return _o2;
-    }
-
-    public void clearO2()
-    {
-        _o2 = false;
-    }
-
-    public void optionalO2(java.util.Optional<OneOptional> v)
-    {
-        if(v == null || !v.isPresent())
-        {
-            _o2 = false;
-        }
-        else
-        {
-            _o2 = true;
-            o2 = v.get();
-        }
-    }
-
-    public java.util.Optional<OneOptional> optionalO2()
-    {
-        if(_o2)
-        {
-            return java.util.Optional.ofNullable(o2);
-        }
-        else
-        {
-            return java.util.Optional.empty();
-        }
-    }
-
     public String d2;
 
     /** @hidden */
@@ -192,10 +137,6 @@ public class DerivedException extends OptionalException
         if(_ss)
         {
             ostr_.writeString(600, ss);
-        }
-        if(_o2)
-        {
-            ostr_.writeValue(601, o2);
         }
         ostr_.endSlice();
         super._writeImpl(ostr_);
@@ -212,14 +153,10 @@ public class DerivedException extends OptionalException
         {
             ss = istr_.readString();
         }
-        if(_o2 = istr_.readOptional(601, com.zeroc.Ice.OptionalFormat.Class))
-        {
-            istr_.readValue(v -> o2 = v, OneOptional.class);
-        }
         istr_.endSlice();
         super._readImpl(istr_);
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -1385237146855504212L;
+    public static final long serialVersionUID = 4781625806702793507L;
 }

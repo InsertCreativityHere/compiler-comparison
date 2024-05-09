@@ -687,6 +687,7 @@
         "opFixedStruct": [, , , [Test.FixedStruct, , 1], [[Test.FixedStruct, , 2]], [[Test.FixedStruct, , 3]], , , ],
         "opVarStruct": [, , , [Test.VarStruct, , 1], [[Test.VarStruct, , 2]], [[Test.VarStruct, , 3]], , , ],
         "opMyInterfaceProxy": [, , , ["Test.MyInterfacePrx", , 1], [["Test.MyInterfacePrx", , 2]], [["Test.MyInterfacePrx", , 3]], , , ],
+        "opOneOptional": [, , , ["Test.OneOptional", true], [["Test.OneOptional", true]], [["Test.OneOptional", true]], , true, true],
         "opByteSeq": [, , , ["Test.ByteSeqHelper", , 1], [["Test.ByteSeqHelper", , 2]], [["Test.ByteSeqHelper", , 3]], , , ],
         "opBoolSeq": [, , , ["Test.BoolSeqHelper", , 1], [["Test.BoolSeqHelper", , 2]], [["Test.BoolSeqHelper", , 3]], , , ],
         "opShortSeq": [, , , ["Test.ShortSeqHelper", , 1], [["Test.ShortSeqHelper", , 2]], [["Test.ShortSeqHelper", , 3]], , , ],
@@ -712,8 +713,7 @@
         "opMDict1": [, , , ["Test.StringIntDictHelper", , 1], , , , , ],
         "opMDict2": [, , , ["Test.StringIntDictHelper", , 1], [["Test.StringIntDictHelper", , 2]], [["Test.StringIntDictHelper", , 3]], , , ],
         "supportsRequiredParams": [, , , [1], , , , , ],
-        "supportsJavaSerializable": [, , , [1], , , , , ],
-        "supportsNullOptional": [, , , [1], , , , , ]
+        "supportsJavaSerializable": [, , , [1], , , , , ]
     });
     exports.Test = Test;
 }

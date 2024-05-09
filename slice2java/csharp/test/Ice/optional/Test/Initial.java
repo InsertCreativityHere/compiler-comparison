@@ -538,6 +538,40 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
+     * Holds the result of operation opOneOptional.
+     **/
+    public static class OpOneOptionalResult
+    {
+        /**
+         * Default constructor.
+         **/
+        public OpOneOptionalResult()
+        {
+        }
+
+        public OpOneOptionalResult(OneOptional returnValue, OneOptional p3)
+        {
+            this.returnValue = returnValue;
+            this.p3 = p3;
+        }
+
+        public OneOptional returnValue;
+        public OneOptional p3;
+
+        public void write(com.zeroc.Ice.OutputStream ostr)
+        {
+            ostr.writeValue(this.p3);
+            ostr.writeValue(returnValue);
+        }
+
+        public void read(com.zeroc.Ice.InputStream istr)
+        {
+            istr.readValue(v -> this.p3 = v, OneOptional.class);
+            istr.readValue(v -> returnValue = v, OneOptional.class);
+        }
+    }
+
+    /**
      * Holds the result of operation opByteSeq.
      **/
     public static class OpByteSeqResult
@@ -1461,6 +1495,8 @@ public interface Initial extends com.zeroc.Ice.Object
 
     Initial.OpMyInterfaceProxyResult opMyInterfaceProxy(java.util.Optional<MyInterfacePrx> p1, com.zeroc.Ice.Current current);
 
+    Initial.OpOneOptionalResult opOneOptional(OneOptional p1, com.zeroc.Ice.Current current);
+
     Initial.OpByteSeqResult opByteSeq(java.util.Optional<byte[]> p1, com.zeroc.Ice.Current current);
 
     Initial.OpBoolSeqResult opBoolSeq(java.util.Optional<boolean[]> p1, com.zeroc.Ice.Current current);
@@ -1512,8 +1548,6 @@ public interface Initial extends com.zeroc.Ice.Object
     boolean supportsRequiredParams(com.zeroc.Ice.Current current);
 
     boolean supportsJavaSerializable(com.zeroc.Ice.Current current);
-
-    boolean supportsNullOptional(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -1913,6 +1947,30 @@ public interface Initial extends com.zeroc.Ice.Object
         Initial.OpMyInterfaceProxyResult ret = obj.opMyInterfaceProxy(iceP_p1, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ret.write(ostr);
+        inS.endWriteParams(ostr);
+        return inS.setResult(ostr);
+    }
+
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opOneOptional(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        final com.zeroc.IceInternal.Holder<OneOptional> icePP_p1 = new com.zeroc.IceInternal.Holder<>();
+        istr.readValue(v -> icePP_p1.value = v, OneOptional.class);
+        istr.readPendingValues();
+        inS.endReadParams();
+        OneOptional iceP_p1 = icePP_p1.value;
+        Initial.OpOneOptionalResult ret = obj.opOneOptional(iceP_p1, current);
+        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        ret.write(ostr);
+        ostr.writePendingValues();
         inS.endWriteParams(ostr);
         return inS.setResult(ostr);
     }
@@ -2426,24 +2484,6 @@ public interface Initial extends com.zeroc.Ice.Object
         return inS.setResult(ostr);
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsNullOptional(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        boolean ret = obj.supportsNullOptional(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeBool(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -2478,6 +2518,7 @@ public interface Initial extends com.zeroc.Ice.Object
         "opMStruct2",
         "opMyEnum",
         "opMyInterfaceProxy",
+        "opOneOptional",
         "opOptionalException",
         "opRequiredException",
         "opShort",
@@ -2494,7 +2535,6 @@ public interface Initial extends com.zeroc.Ice.Object
         "pingPong",
         "shutdown",
         "supportsJavaSerializable",
-        "supportsNullOptional",
         "supportsRequiredParams"
     };
 
@@ -2637,71 +2677,71 @@ public interface Initial extends com.zeroc.Ice.Object
             }
             case 31:
             {
-                return _iceD_opOptionalException(this, in, current);
+                return _iceD_opOneOptional(this, in, current);
             }
             case 32:
             {
-                return _iceD_opRequiredException(this, in, current);
+                return _iceD_opOptionalException(this, in, current);
             }
             case 33:
             {
-                return _iceD_opShort(this, in, current);
+                return _iceD_opRequiredException(this, in, current);
             }
             case 34:
             {
-                return _iceD_opShortSeq(this, in, current);
+                return _iceD_opShort(this, in, current);
             }
             case 35:
             {
-                return _iceD_opSmallStruct(this, in, current);
+                return _iceD_opShortSeq(this, in, current);
             }
             case 36:
             {
-                return _iceD_opSmallStructList(this, in, current);
+                return _iceD_opSmallStruct(this, in, current);
             }
             case 37:
             {
-                return _iceD_opSmallStructSeq(this, in, current);
+                return _iceD_opSmallStructList(this, in, current);
             }
             case 38:
             {
-                return _iceD_opString(this, in, current);
+                return _iceD_opSmallStructSeq(this, in, current);
             }
             case 39:
             {
-                return _iceD_opStringIntDict(this, in, current);
+                return _iceD_opString(this, in, current);
             }
             case 40:
             {
-                return _iceD_opStringSeq(this, in, current);
+                return _iceD_opStringIntDict(this, in, current);
             }
             case 41:
             {
-                return _iceD_opVarStruct(this, in, current);
+                return _iceD_opStringSeq(this, in, current);
             }
             case 42:
             {
-                return _iceD_opVarStructSeq(this, in, current);
+                return _iceD_opVarStruct(this, in, current);
             }
             case 43:
             {
-                return _iceD_opVoid(this, in, current);
+                return _iceD_opVarStructSeq(this, in, current);
             }
             case 44:
             {
-                return _iceD_pingPong(this, in, current);
+                return _iceD_opVoid(this, in, current);
             }
             case 45:
             {
-                return _iceD_shutdown(this, in, current);
+                return _iceD_pingPong(this, in, current);
             }
             case 46:
             {
-                return _iceD_supportsJavaSerializable(this, in, current);
+                return _iceD_shutdown(this, in, current);
             }
             case 47:
             {
-                return _iceD_supportsNullOptional(this, in, current);
+                return _iceD_supportsJavaSerializable(this, in, current);
             }
             case 48:
             {

@@ -92,18 +92,18 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void opOptionalException(int a, String b, OneOptional o)
+    default void opOptionalException(int a, String b)
         throws OptionalException
     {
-        opOptionalException(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        opOptionalException(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void opOptionalException(int a, String b, OneOptional o, java.util.Map<String, String> context)
+    default void opOptionalException(int a, String b, java.util.Map<String, String> context)
         throws OptionalException
     {
         try
         {
-            _iceI_opOptionalExceptionAsync(a, b, o, context, true).waitForResponseOrUserEx();
+            _iceI_opOptionalExceptionAsync(a, b, context, true).waitForResponseOrUserEx();
         }
         catch(OptionalException ex)
         {
@@ -115,18 +115,18 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default void opOptionalException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o)
+    default void opOptionalException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b)
         throws OptionalException
     {
-        opOptionalException(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        opOptionalException(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void opOptionalException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o, java.util.Map<String, String> context)
+    default void opOptionalException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Map<String, String> context)
         throws OptionalException
     {
         try
         {
-            _iceI_opOptionalExceptionAsync(a, b, o, context, true).waitForResponseOrUserEx();
+            _iceI_opOptionalExceptionAsync(a, b, context, true).waitForResponseOrUserEx();
         }
         catch(OptionalException ex)
         {
@@ -138,32 +138,30 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opOptionalExceptionAsync(int a, String b, OneOptional o)
+    default java.util.concurrent.CompletableFuture<Void> opOptionalExceptionAsync(int a, String b)
     {
-        return _iceI_opOptionalExceptionAsync(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opOptionalExceptionAsync(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opOptionalExceptionAsync(int a, String b, OneOptional o, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> opOptionalExceptionAsync(int a, String b, java.util.Map<String, String> context)
     {
-        return _iceI_opOptionalExceptionAsync(a, b, o, context, false);
+        return _iceI_opOptionalExceptionAsync(a, b, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_a -
      * @param iceP_b -
-     * @param iceP_o -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opOptionalExceptionAsync(int iceP_a, String iceP_b, OneOptional iceP_o, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opOptionalExceptionAsync(int iceP_a, String iceP_b, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptionalException", null, sync, _iceE_opOptionalException);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(1, iceP_a);
                      ostr.writeString(2, iceP_b);
-                     ostr.writeValue(3, iceP_o);
                  }, null);
         return f;
     }
@@ -174,48 +172,46 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         OptionalException.class
     };
 
-    default java.util.concurrent.CompletableFuture<Void> opOptionalExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o)
+    default java.util.concurrent.CompletableFuture<Void> opOptionalExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b)
     {
-        return _iceI_opOptionalExceptionAsync(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opOptionalExceptionAsync(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opOptionalExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> opOptionalExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Map<String, String> context)
     {
-        return _iceI_opOptionalExceptionAsync(a, b, o, context, false);
+        return _iceI_opOptionalExceptionAsync(a, b, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_a -
      * @param iceP_b -
-     * @param iceP_o -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opOptionalExceptionAsync(java.util.OptionalInt iceP_a, java.util.Optional<java.lang.String> iceP_b, java.util.Optional<OneOptional> iceP_o, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opOptionalExceptionAsync(java.util.OptionalInt iceP_a, java.util.Optional<java.lang.String> iceP_b, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptionalException", null, sync, _iceE_opOptionalException);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(1, iceP_a);
                      ostr.writeString(2, iceP_b);
-                     ostr.writeValue(3, iceP_o);
                  }, null);
         return f;
     }
 
-    default void opDerivedException(int a, String b, OneOptional o)
+    default void opDerivedException(int a, String b)
         throws OptionalException
     {
-        opDerivedException(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        opDerivedException(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void opDerivedException(int a, String b, OneOptional o, java.util.Map<String, String> context)
+    default void opDerivedException(int a, String b, java.util.Map<String, String> context)
         throws OptionalException
     {
         try
         {
-            _iceI_opDerivedExceptionAsync(a, b, o, context, true).waitForResponseOrUserEx();
+            _iceI_opDerivedExceptionAsync(a, b, context, true).waitForResponseOrUserEx();
         }
         catch(OptionalException ex)
         {
@@ -227,18 +223,18 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default void opDerivedException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o)
+    default void opDerivedException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b)
         throws OptionalException
     {
-        opDerivedException(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        opDerivedException(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void opDerivedException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o, java.util.Map<String, String> context)
+    default void opDerivedException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Map<String, String> context)
         throws OptionalException
     {
         try
         {
-            _iceI_opDerivedExceptionAsync(a, b, o, context, true).waitForResponseOrUserEx();
+            _iceI_opDerivedExceptionAsync(a, b, context, true).waitForResponseOrUserEx();
         }
         catch(OptionalException ex)
         {
@@ -250,32 +246,30 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opDerivedExceptionAsync(int a, String b, OneOptional o)
+    default java.util.concurrent.CompletableFuture<Void> opDerivedExceptionAsync(int a, String b)
     {
-        return _iceI_opDerivedExceptionAsync(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opDerivedExceptionAsync(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opDerivedExceptionAsync(int a, String b, OneOptional o, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> opDerivedExceptionAsync(int a, String b, java.util.Map<String, String> context)
     {
-        return _iceI_opDerivedExceptionAsync(a, b, o, context, false);
+        return _iceI_opDerivedExceptionAsync(a, b, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_a -
      * @param iceP_b -
-     * @param iceP_o -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opDerivedExceptionAsync(int iceP_a, String iceP_b, OneOptional iceP_o, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opDerivedExceptionAsync(int iceP_a, String iceP_b, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opDerivedException", null, sync, _iceE_opDerivedException);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(1, iceP_a);
                      ostr.writeString(2, iceP_b);
-                     ostr.writeValue(3, iceP_o);
                  }, null);
         return f;
     }
@@ -286,48 +280,46 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         OptionalException.class
     };
 
-    default java.util.concurrent.CompletableFuture<Void> opDerivedExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o)
+    default java.util.concurrent.CompletableFuture<Void> opDerivedExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b)
     {
-        return _iceI_opDerivedExceptionAsync(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opDerivedExceptionAsync(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opDerivedExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> opDerivedExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Map<String, String> context)
     {
-        return _iceI_opDerivedExceptionAsync(a, b, o, context, false);
+        return _iceI_opDerivedExceptionAsync(a, b, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_a -
      * @param iceP_b -
-     * @param iceP_o -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opDerivedExceptionAsync(java.util.OptionalInt iceP_a, java.util.Optional<java.lang.String> iceP_b, java.util.Optional<OneOptional> iceP_o, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opDerivedExceptionAsync(java.util.OptionalInt iceP_a, java.util.Optional<java.lang.String> iceP_b, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opDerivedException", null, sync, _iceE_opDerivedException);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(1, iceP_a);
                      ostr.writeString(2, iceP_b);
-                     ostr.writeValue(3, iceP_o);
                  }, null);
         return f;
     }
 
-    default void opRequiredException(int a, String b, OneOptional o)
+    default void opRequiredException(int a, String b)
         throws OptionalException
     {
-        opRequiredException(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        opRequiredException(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void opRequiredException(int a, String b, OneOptional o, java.util.Map<String, String> context)
+    default void opRequiredException(int a, String b, java.util.Map<String, String> context)
         throws OptionalException
     {
         try
         {
-            _iceI_opRequiredExceptionAsync(a, b, o, context, true).waitForResponseOrUserEx();
+            _iceI_opRequiredExceptionAsync(a, b, context, true).waitForResponseOrUserEx();
         }
         catch(OptionalException ex)
         {
@@ -339,18 +331,18 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default void opRequiredException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o)
+    default void opRequiredException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b)
         throws OptionalException
     {
-        opRequiredException(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        opRequiredException(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void opRequiredException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o, java.util.Map<String, String> context)
+    default void opRequiredException(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Map<String, String> context)
         throws OptionalException
     {
         try
         {
-            _iceI_opRequiredExceptionAsync(a, b, o, context, true).waitForResponseOrUserEx();
+            _iceI_opRequiredExceptionAsync(a, b, context, true).waitForResponseOrUserEx();
         }
         catch(OptionalException ex)
         {
@@ -362,32 +354,30 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opRequiredExceptionAsync(int a, String b, OneOptional o)
+    default java.util.concurrent.CompletableFuture<Void> opRequiredExceptionAsync(int a, String b)
     {
-        return _iceI_opRequiredExceptionAsync(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opRequiredExceptionAsync(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opRequiredExceptionAsync(int a, String b, OneOptional o, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> opRequiredExceptionAsync(int a, String b, java.util.Map<String, String> context)
     {
-        return _iceI_opRequiredExceptionAsync(a, b, o, context, false);
+        return _iceI_opRequiredExceptionAsync(a, b, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_a -
      * @param iceP_b -
-     * @param iceP_o -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opRequiredExceptionAsync(int iceP_a, String iceP_b, OneOptional iceP_o, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opRequiredExceptionAsync(int iceP_a, String iceP_b, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opRequiredException", null, sync, _iceE_opRequiredException);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(1, iceP_a);
                      ostr.writeString(2, iceP_b);
-                     ostr.writeValue(3, iceP_o);
                  }, null);
         return f;
     }
@@ -398,32 +388,30 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         OptionalException.class
     };
 
-    default java.util.concurrent.CompletableFuture<Void> opRequiredExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o)
+    default java.util.concurrent.CompletableFuture<Void> opRequiredExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b)
     {
-        return _iceI_opRequiredExceptionAsync(a, b, o, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opRequiredExceptionAsync(a, b, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> opRequiredExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Optional<OneOptional> o, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> opRequiredExceptionAsync(java.util.OptionalInt a, java.util.Optional<java.lang.String> b, java.util.Map<String, String> context)
     {
-        return _iceI_opRequiredExceptionAsync(a, b, o, context, false);
+        return _iceI_opRequiredExceptionAsync(a, b, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_a -
      * @param iceP_b -
-     * @param iceP_o -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opRequiredExceptionAsync(java.util.OptionalInt iceP_a, java.util.Optional<java.lang.String> iceP_b, java.util.Optional<OneOptional> iceP_o, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opRequiredExceptionAsync(java.util.OptionalInt iceP_a, java.util.Optional<java.lang.String> iceP_b, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opRequiredException", null, sync, _iceE_opRequiredException);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(1, iceP_a);
                      ostr.writeString(2, iceP_b);
-                     ostr.writeValue(3, iceP_o);
                  }, null);
         return f;
     }
@@ -2348,166 +2336,6 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default Initial.OpOneOptionalResult opOneOptional(OneOptional p1)
-    {
-        return opOneOptional(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default Initial.OpOneOptionalResult opOneOptional(OneOptional p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opOneOptionalAsync(p1, context, true).waitForResponse();
-    }
-
-    default Initial.OpOneOptionalResult opOneOptional(java.util.Optional<OneOptional> p1)
-    {
-        return opOneOptional(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default Initial.OpOneOptionalResult opOneOptional(java.util.Optional<OneOptional> p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opOneOptionalAsync(p1, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalResult> opOneOptionalAsync(OneOptional p1)
-    {
-        return _iceI_opOneOptionalAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalResult> opOneOptionalAsync(OneOptional p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opOneOptionalAsync(p1, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_p1 -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalResult> _iceI_opOneOptionalAsync(OneOptional iceP_p1, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOneOptional", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeValue(2, iceP_p1);
-                 }, istr -> {
-                     Initial.OpOneOptionalResult ret = new Initial.OpOneOptionalResult();
-                     ret.read(istr);
-                     return ret;
-                 });
-        return f;
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalResult> opOneOptionalAsync(java.util.Optional<OneOptional> p1)
-    {
-        return _iceI_opOneOptionalAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalResult> opOneOptionalAsync(java.util.Optional<OneOptional> p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opOneOptionalAsync(p1, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_p1 -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalResult> _iceI_opOneOptionalAsync(java.util.Optional<OneOptional> iceP_p1, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOneOptional", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeValue(2, iceP_p1);
-                 }, istr -> {
-                     Initial.OpOneOptionalResult ret = new Initial.OpOneOptionalResult();
-                     ret.read(istr);
-                     return ret;
-                 });
-        return f;
-    }
-
-    default Initial.OpOneOptionalReqResult opOneOptionalReq(OneOptional p1)
-    {
-        return opOneOptionalReq(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default Initial.OpOneOptionalReqResult opOneOptionalReq(OneOptional p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opOneOptionalReqAsync(p1, context, true).waitForResponse();
-    }
-
-    default Initial.OpOneOptionalReqResult opOneOptionalReq(java.util.Optional<OneOptional> p1)
-    {
-        return opOneOptionalReq(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default Initial.OpOneOptionalReqResult opOneOptionalReq(java.util.Optional<OneOptional> p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opOneOptionalReqAsync(p1, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalReqResult> opOneOptionalReqAsync(OneOptional p1)
-    {
-        return _iceI_opOneOptionalReqAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalReqResult> opOneOptionalReqAsync(OneOptional p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opOneOptionalReqAsync(p1, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_p1 -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalReqResult> _iceI_opOneOptionalReqAsync(OneOptional iceP_p1, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalReqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOneOptionalReq", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeValue(2, iceP_p1);
-                 }, istr -> {
-                     Initial.OpOneOptionalReqResult ret = new Initial.OpOneOptionalReqResult();
-                     ret.read(istr);
-                     return ret;
-                 });
-        return f;
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalReqResult> opOneOptionalReqAsync(java.util.Optional<OneOptional> p1)
-    {
-        return _iceI_opOneOptionalReqAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalReqResult> opOneOptionalReqAsync(java.util.Optional<OneOptional> p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opOneOptionalReqAsync(p1, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_p1 -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalReqResult> _iceI_opOneOptionalReqAsync(java.util.Optional<OneOptional> iceP_p1, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalReqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOneOptionalReq", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeValue(2, iceP_p1);
-                 }, istr -> {
-                     Initial.OpOneOptionalReqResult ret = new Initial.OpOneOptionalReqResult();
-                     ret.read(istr);
-                     return ret;
-                 });
-        return f;
-    }
-
     default Initial.OpMyInterfaceProxyResult opMyInterfaceProxy(MyInterfacePrx p1)
     {
         return opMyInterfaceProxy(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -2663,6 +2491,48 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
                  }, istr -> {
                      Initial.OpMyInterfaceProxyReqResult ret = new Initial.OpMyInterfaceProxyReqResult();
                      ret.read(istr);
+                     return ret;
+                 });
+        return f;
+    }
+
+    default Initial.OpOneOptionalResult opOneOptional(OneOptional p1)
+    {
+        return opOneOptional(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default Initial.OpOneOptionalResult opOneOptional(OneOptional p1, java.util.Map<String, String> context)
+    {
+        return _iceI_opOneOptionalAsync(p1, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalResult> opOneOptionalAsync(OneOptional p1)
+    {
+        return _iceI_opOneOptionalAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalResult> opOneOptionalAsync(OneOptional p1, java.util.Map<String, String> context)
+    {
+        return _iceI_opOneOptionalAsync(p1, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_p1 -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalResult> _iceI_opOneOptionalAsync(OneOptional iceP_p1, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOneOptional", null, sync, null);
+        f.invoke(true, context, null, ostr -> {
+                     ostr.writeValue(iceP_p1);
+                     ostr.writePendingValues();
+                 }, istr -> {
+                     Initial.OpOneOptionalResult ret = new Initial.OpOneOptionalResult();
+                     ret.read(istr);
+                     istr.readPendingValues();
                      return ret;
                  });
         return f;
@@ -5851,123 +5721,6 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default java.util.Optional<G> opMG1()
-    {
-        return opMG1(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default java.util.Optional<G> opMG1(java.util.Map<String, String> context)
-    {
-        return _iceI_opMG1Async(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.util.Optional<G>> opMG1Async()
-    {
-        return _iceI_opMG1Async(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.util.Optional<G>> opMG1Async(java.util.Map<String, String> context)
-    {
-        return _iceI_opMG1Async(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<G>> _iceI_opMG1Async(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<G>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opMG1", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<java.util.Optional<G>> ret = new com.zeroc.IceInternal.Holder<>();
-                     istr.readValue(1, v -> ret.value = v, G.class);
-                     return ret.value;
-                 });
-        return f;
-    }
-
-    default Initial.OpMG2Result opMG2(G p1)
-    {
-        return opMG2(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default Initial.OpMG2Result opMG2(G p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opMG2Async(p1, context, true).waitForResponse();
-    }
-
-    default Initial.OpMG2Result opMG2(java.util.Optional<G> p1)
-    {
-        return opMG2(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default Initial.OpMG2Result opMG2(java.util.Optional<G> p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opMG2Async(p1, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpMG2Result> opMG2Async(G p1)
-    {
-        return _iceI_opMG2Async(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpMG2Result> opMG2Async(G p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opMG2Async(p1, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_p1 -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpMG2Result> _iceI_opMG2Async(G iceP_p1, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpMG2Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opMG2", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeValue(2, iceP_p1);
-                 }, istr -> {
-                     Initial.OpMG2Result ret = new Initial.OpMG2Result();
-                     ret.read(istr);
-                     return ret;
-                 });
-        return f;
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpMG2Result> opMG2Async(java.util.Optional<G> p1)
-    {
-        return _iceI_opMG2Async(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpMG2Result> opMG2Async(java.util.Optional<G> p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opMG2Async(p1, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_p1 -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpMG2Result> _iceI_opMG2Async(java.util.Optional<G> iceP_p1, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpMG2Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opMG2", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeValue(2, iceP_p1);
-                 }, istr -> {
-                     Initial.OpMG2Result ret = new Initial.OpMG2Result();
-                     ret.read(istr);
-                     return ret;
-                 });
-        return f;
-    }
-
     default boolean supportsRequiredParams()
     {
         return supportsRequiredParams(com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -6071,43 +5824,6 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_supportsCsharpSerializableAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "supportsCsharpSerializable", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
-                     boolean ret;
-                     ret = istr.readBool();
-                     return ret;
-                 });
-        return f;
-    }
-
-    default boolean supportsNullOptional()
-    {
-        return supportsNullOptional(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default boolean supportsNullOptional(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsNullOptionalAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsNullOptionalAsync()
-    {
-        return _iceI_supportsNullOptionalAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsNullOptionalAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsNullOptionalAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_supportsNullOptionalAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "supportsNullOptional", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      boolean ret;
                      ret = istr.readBool();

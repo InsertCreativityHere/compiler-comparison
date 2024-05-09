@@ -748,12 +748,11 @@ namespace Test
     global $Test__t_OptionalException;
     class OptionalException extends \Ice\UserException
     {
-        public function __construct($req=false, $a=5, $b=\Ice\None, $o=\Ice\None)
+        public function __construct($req=false, $a=5, $b=\Ice\None)
         {
             $this->req = $req;
             $this->a = $a;
             $this->b = $b;
-            $this->o = $o;
         }
 
         public function ice_id()
@@ -770,18 +769,15 @@ namespace Test
         public $req;
         public $a;
         public $b;
-        public $o;
     }
     global $IcePHP__t_bool;
     global $IcePHP__t_int;
     global $IcePHP__t_string;
-    global $Test__t_OneOptional;
 
     $Test__t_OptionalException = IcePHP_defineException('::Test::OptionalException', '\\Test\\OptionalException', null, array(
         array('req', $IcePHP__t_bool, false, 0),
         array('a', $IcePHP__t_int, true, 1),
-        array('b', $IcePHP__t_string, true, 2),
-        array('o', $Test__t_OneOptional, true, 50)));
+        array('b', $IcePHP__t_string, true, 2)));
 }
 
 namespace Test
@@ -789,12 +785,11 @@ namespace Test
     global $Test__t_DerivedException;
     class DerivedException extends \Test\OptionalException
     {
-        public function __construct($req=false, $a=5, $b=\Ice\None, $o=\Ice\None, $d1='', $ss="test", $o2=\Ice\None, $d2='')
+        public function __construct($req=false, $a=5, $b=\Ice\None, $d1='', $ss="test", $d2='')
         {
-            parent::__construct($req, $a, $b, $o);
+            parent::__construct($req, $a, $b);
             $this->d1 = $d1;
             $this->ss = $ss;
-            $this->o2 = $o2;
             $this->d2 = $d2;
         }
 
@@ -811,16 +806,13 @@ namespace Test
 
         public $d1;
         public $ss;
-        public $o2;
         public $d2;
     }
     global $IcePHP__t_string;
-    global $Test__t_OneOptional;
 
     $Test__t_DerivedException = IcePHP_defineException('::Test::DerivedException', '\\Test\\DerivedException', $Test__t_OptionalException, array(
         array('d1', $IcePHP__t_string, false, 0),
         array('ss', $IcePHP__t_string, true, 600),
-        array('o2', $Test__t_OneOptional, true, 601),
         array('d2', $IcePHP__t_string, false, 0)));
 }
 
@@ -829,11 +821,10 @@ namespace Test
     global $Test__t_RequiredException;
     class RequiredException extends \Test\OptionalException
     {
-        public function __construct($req=false, $a=5, $b=\Ice\None, $o=\Ice\None, $ss="test", $o2=null)
+        public function __construct($req=false, $a=5, $b=\Ice\None, $ss="test")
         {
-            parent::__construct($req, $a, $b, $o);
+            parent::__construct($req, $a, $b);
             $this->ss = $ss;
-            $this->o2 = $o2;
         }
 
         public function ice_id()
@@ -848,14 +839,11 @@ namespace Test
         }
 
         public $ss;
-        public $o2;
     }
     global $IcePHP__t_string;
-    global $Test__t_OneOptional;
 
     $Test__t_RequiredException = IcePHP_defineException('::Test::RequiredException', '\\Test\\RequiredException', $Test__t_OptionalException, array(
-        array('ss', $IcePHP__t_string, false, 0),
-        array('o2', $Test__t_OneOptional, false, 0)));
+        array('ss', $IcePHP__t_string, false, 0)));
 }
 
 namespace Test
@@ -1089,7 +1077,6 @@ namespace Test
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $IcePHP__t_string;
-    global $Test__t_OneOptional;
     global $IcePHP__t_byte;
     global $IcePHP__t_bool;
     global $IcePHP__t_short;
@@ -1101,6 +1088,7 @@ namespace Test
     global $Test__t_FixedStruct;
     global $Test__t_VarStruct;
     global $Test__t_MyInterfacePrx;
+    global $Test__t_OneOptional;
     global $Test__t_ByteSeq;
     global $Test__t_BoolSeq;
     global $Test__t_ShortSeq;
@@ -1122,9 +1110,9 @@ namespace Test
     global $Test__t_G;
     IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'pingPong', 0, 0, array(array($Ice__t_Value)), null, array($Ice__t_Value), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opOptionalException', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2), array($Test__t_OneOptional, 3)), null, null, array($Test__t_OptionalException));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opDerivedException', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2), array($Test__t_OneOptional, 3)), null, null, array($Test__t_OptionalException));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opRequiredException', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2), array($Test__t_OneOptional, 3)), null, null, array($Test__t_OptionalException));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opOptionalException', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, array($Test__t_OptionalException));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opDerivedException', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, array($Test__t_OptionalException));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opRequiredException', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, array($Test__t_OptionalException));
     IcePHP_defineOperation($Test__t_InitialPrx, 'opByte', 0, 0, array(array($IcePHP__t_byte, 2)), array(array($IcePHP__t_byte, 3)), array($IcePHP__t_byte, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opByteReq', 0, 0, array(array($IcePHP__t_byte, 2)), array(array($IcePHP__t_byte, 3)), array($IcePHP__t_byte, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opBool', 0, 0, array(array($IcePHP__t_bool, 2)), array(array($IcePHP__t_bool, 3)), array($IcePHP__t_bool, 1), null);
@@ -1149,10 +1137,9 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'opFixedStructReq', 0, 0, array(array($Test__t_FixedStruct, 2)), array(array($Test__t_FixedStruct, 3)), array($Test__t_FixedStruct, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opVarStruct', 0, 0, array(array($Test__t_VarStruct, 2)), array(array($Test__t_VarStruct, 3)), array($Test__t_VarStruct, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opVarStructReq', 0, 0, array(array($Test__t_VarStruct, 2)), array(array($Test__t_VarStruct, 3)), array($Test__t_VarStruct, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opOneOptional', 0, 0, array(array($Test__t_OneOptional, 2)), array(array($Test__t_OneOptional, 3)), array($Test__t_OneOptional, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opOneOptionalReq', 0, 0, array(array($Test__t_OneOptional, 2)), array(array($Test__t_OneOptional, 3)), array($Test__t_OneOptional, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opMyInterfaceProxy', 0, 0, array(array($Test__t_MyInterfacePrx, 2)), array(array($Test__t_MyInterfacePrx, 3)), array($Test__t_MyInterfacePrx, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opMyInterfaceProxyReq', 0, 0, array(array($Test__t_MyInterfacePrx, 2)), array(array($Test__t_MyInterfacePrx, 3)), array($Test__t_MyInterfacePrx, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opOneOptional', 0, 0, array(array($Test__t_OneOptional)), array(array($Test__t_OneOptional)), array($Test__t_OneOptional), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opByteSeq', 0, 0, array(array($Test__t_ByteSeq, 2)), array(array($Test__t_ByteSeq, 3)), array($Test__t_ByteSeq, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opByteSeqReq', 0, 0, array(array($Test__t_ByteSeq, 2)), array(array($Test__t_ByteSeq, 3)), array($Test__t_ByteSeq, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opBoolSeq', 0, 0, array(array($Test__t_BoolSeq, 2)), array(array($Test__t_BoolSeq, 3)), array($Test__t_BoolSeq, 1), null);
@@ -1196,11 +1183,8 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'opMSeq2', 0, 0, array(array($Test__t_StringSeq, 2)), array(array($Test__t_StringSeq, 3)), array($Test__t_StringSeq, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opMDict1', 0, 0, null, null, array($Test__t_StringIntDict, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opMDict2', 0, 0, array(array($Test__t_StringIntDict, 2)), array(array($Test__t_StringIntDict, 3)), array($Test__t_StringIntDict, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opMG1', 0, 0, null, null, array($Test__t_G, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opMG2', 0, 0, array(array($Test__t_G, 2)), array(array($Test__t_G, 3)), array($Test__t_G, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsRequiredParams', 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsJavaSerializable', 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsCsharpSerializable', 0, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'supportsNullOptional', 0, 0, null, null, array($IcePHP__t_bool), null);
 }
 ?>

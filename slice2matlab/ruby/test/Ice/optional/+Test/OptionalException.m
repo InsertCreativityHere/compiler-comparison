@@ -4,7 +4,6 @@
 %   req
 %   a
 %   b
-%   o
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -14,15 +13,13 @@ classdef OptionalException < Ice.UserException
         req logical
         a
         b
-        o
     end
     methods
-        function obj = OptionalException(ice_exid, ice_exmsg, req, a, b, o)
+        function obj = OptionalException(ice_exid, ice_exmsg, req, a, b)
             if nargin <= 2
                 req = false;
                 a = 5;
                 b = IceInternal.UnsetI.Instance;
-                o = IceInternal.UnsetI.Instance;
             end
             if nargin == 0 || isempty(ice_exid)
                 ice_exid = 'Test:OptionalException';
@@ -34,15 +31,9 @@ classdef OptionalException < Ice.UserException
             obj.req = req;
             obj.a = a;
             obj.b = b;
-            obj.o = o;
         end
         function id = ice_id(~)
             id = '::Test::OptionalException';
-        end
-    end
-    methods(Hidden=true)
-        function obj = icePostUnmarshal(obj)
-            obj.o = obj.o.value;
         end
     end
     methods(Access=protected)
@@ -51,8 +42,6 @@ classdef OptionalException < Ice.UserException
             obj.req = is.readBool();
             obj.a = is.readIntOpt(1);
             obj.b = is.readStringOpt(2);
-            obj.o = IceInternal.ValueHolder();
-            is.readValueOpt(50, @(v) obj.o.set(v), 'Test.OneOptional');
             is.endSlice();
         end
     end

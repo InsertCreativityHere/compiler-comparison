@@ -115,9 +115,9 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openServerLog(String id, String path, int count, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
+               FileNotAvailableException,
                DeploymentException,
-               NodeUnreachableException,
-               FileNotAvailableException;
+               NodeUnreachableException;
 
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -133,9 +133,9 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openServerStdErr(String id, int count, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
+               FileNotAvailableException,
                DeploymentException,
-               NodeUnreachableException,
-               FileNotAvailableException;
+               NodeUnreachableException;
 
     /**
      * Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -151,9 +151,9 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openServerStdOut(String id, int count, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
+               FileNotAvailableException,
                DeploymentException,
-               NodeUnreachableException,
-               FileNotAvailableException;
+               NodeUnreachableException;
 
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
@@ -168,8 +168,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openNodeStdErr(String name, int count, com.zeroc.Ice.Current current)
         throws NodeNotExistException,
-               NodeUnreachableException,
-               FileNotAvailableException;
+               FileNotAvailableException,
+               NodeUnreachableException;
 
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
@@ -184,8 +184,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openNodeStdOut(String name, int count, com.zeroc.Ice.Current current)
         throws NodeNotExistException,
-               NodeUnreachableException,
-               FileNotAvailableException;
+               FileNotAvailableException,
+               NodeUnreachableException;
 
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.

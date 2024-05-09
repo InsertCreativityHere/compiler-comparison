@@ -861,6 +861,52 @@ Test::InitialPrx::_iceI_opMyInterfaceProxy(const ::std::shared_ptr<::IceInternal
         });
 }
 
+::Test::OneOptionalPtr
+Test::InitialPrx::opOneOptional(const OneOptionalPtr& iceP_p1, OneOptionalPtr& iceP_p3, const ::Ice::Context& context) const
+{
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<OneOptionalPtr, OneOptionalPtr>>(true, this, &InitialPrx::_iceI_opOneOptional, iceP_p1, context).get();
+    iceP_p3 = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
+}
+
+::std::future<::std::tuple<::Test::OneOptionalPtr, ::Test::OneOptionalPtr>>
+Test::InitialPrx::opOneOptionalAsync(const OneOptionalPtr& iceP_p1, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<OneOptionalPtr, OneOptionalPtr>>(false, this, &InitialPrx::_iceI_opOneOptional, iceP_p1, context);
+}
+
+::std::function<void()>
+Test::InitialPrx::opOneOptionalAsync(const OneOptionalPtr& iceP_p1, ::std::function<void(::Test::OneOptionalPtr, ::Test::OneOptionalPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+{
+    auto responseCb = [response = ::std::move(response)](::std::tuple<OneOptionalPtr, OneOptionalPtr>&& result)
+    {
+        ::std::apply(::std::move(response), ::std::move(result));
+    };
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<OneOptionalPtr, OneOptionalPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opOneOptional, iceP_p1, context);
+}
+
+void
+Test::InitialPrx::_iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<OneOptionalPtr, OneOptionalPtr>>>& outAsync, const OneOptionalPtr& iceP_p1, const ::Ice::Context& context) const
+{
+    static constexpr ::std::string_view operationName = "opOneOptional";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_p1);
+            ostr->writePendingValues();
+        },
+        nullptr,
+        [](::Ice::InputStream* istr)
+        {
+            ::std::tuple<OneOptionalPtr, OneOptionalPtr> v;
+            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
+            istr->readPendingValues();
+            return v;
+        });
+}
+
 ::std::optional<::Test::ByteSeq>
 Test::InitialPrx::opByteSeq(const ::std::optional<ByteSeq>& iceP_p1, ::std::optional<ByteSeq>& iceP_p3, const ::Ice::Context& context) const
 {
@@ -1909,35 +1955,6 @@ void
 Test::InitialPrx::_iceI_supportsJavaSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "supportsJavaSerializable";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-
-bool
-Test::InitialPrx::supportsNullOptional(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsNullOptional, context).get();
-}
-
-::std::future<bool>
-Test::InitialPrx::supportsNullOptionalAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &InitialPrx::_iceI_supportsNullOptional, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::supportsNullOptionalAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<bool>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_supportsNullOptional, context);
-}
-
-void
-Test::InitialPrx::_iceI_supportsNullOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "supportsNullOptional";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3029,6 +3046,38 @@ Test::Initial::_iceD_opMyInterfaceProxy(::Ice::IncomingRequest& request, ::std::
 
 /// \cond INTERNAL
 void
+Test::Initial::_iceD_opOneOptional(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
+    OneOptionalPtr iceP_p1;
+    istr->readAll(iceP_p1);
+    istr->readPendingValues();
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](const OneOptionalPtr& ret, const OneOptionalPtr& iceP_p3)
+    {
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(iceP_p3, ret);
+                ostr->writePendingValues();
+            });
+    };
+    try
+    {
+        this->opOneOptionalAsync(::std::move(iceP_p1), ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
+    }
+    catch (...)
+    {
+        responseHandler->sendException(::std::current_exception());
+    }
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
 Test::Initial::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
@@ -3778,35 +3827,9 @@ Test::Initial::_iceD_supportsJavaSerializable(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_supportsNullOptional(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    request.inputStream().skipEmptyEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](bool ret)
-    {
-        responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
-            {
-                ostr->writeAll(ret);
-            });
-    };
-    try
-    {
-        this->supportsNullOptionalAsync(::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOptionalException", "opRequiredException", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "shutdown", "supportsJavaSerializable", "supportsNullOptional", "supportsRequiredParams"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "shutdown", "supportsJavaSerializable", "supportsRequiredParams"};
 
     const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 49, current.operation);
@@ -3975,87 +3998,87 @@ Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         }
         case 31:
         {
-            _iceD_opOptionalException(request, ::std::move(sendResponse));
+            _iceD_opOneOptional(request, ::std::move(sendResponse));
             break;
         }
         case 32:
         {
-            _iceD_opRequiredException(request, ::std::move(sendResponse));
+            _iceD_opOptionalException(request, ::std::move(sendResponse));
             break;
         }
         case 33:
         {
-            _iceD_opShort(request, ::std::move(sendResponse));
+            _iceD_opRequiredException(request, ::std::move(sendResponse));
             break;
         }
         case 34:
         {
-            _iceD_opShortSeq(request, ::std::move(sendResponse));
+            _iceD_opShort(request, ::std::move(sendResponse));
             break;
         }
         case 35:
         {
-            _iceD_opSmallStruct(request, ::std::move(sendResponse));
+            _iceD_opShortSeq(request, ::std::move(sendResponse));
             break;
         }
         case 36:
         {
-            _iceD_opSmallStructList(request, ::std::move(sendResponse));
+            _iceD_opSmallStruct(request, ::std::move(sendResponse));
             break;
         }
         case 37:
         {
-            _iceD_opSmallStructSeq(request, ::std::move(sendResponse));
+            _iceD_opSmallStructList(request, ::std::move(sendResponse));
             break;
         }
         case 38:
         {
-            _iceD_opString(request, ::std::move(sendResponse));
+            _iceD_opSmallStructSeq(request, ::std::move(sendResponse));
             break;
         }
         case 39:
         {
-            _iceD_opStringIntDict(request, ::std::move(sendResponse));
+            _iceD_opString(request, ::std::move(sendResponse));
             break;
         }
         case 40:
         {
-            _iceD_opStringSeq(request, ::std::move(sendResponse));
+            _iceD_opStringIntDict(request, ::std::move(sendResponse));
             break;
         }
         case 41:
         {
-            _iceD_opVarStruct(request, ::std::move(sendResponse));
+            _iceD_opStringSeq(request, ::std::move(sendResponse));
             break;
         }
         case 42:
         {
-            _iceD_opVarStructSeq(request, ::std::move(sendResponse));
+            _iceD_opVarStruct(request, ::std::move(sendResponse));
             break;
         }
         case 43:
         {
-            _iceD_opVoid(request, ::std::move(sendResponse));
+            _iceD_opVarStructSeq(request, ::std::move(sendResponse));
             break;
         }
         case 44:
         {
-            _iceD_pingPong(request, ::std::move(sendResponse));
+            _iceD_opVoid(request, ::std::move(sendResponse));
             break;
         }
         case 45:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
+            _iceD_pingPong(request, ::std::move(sendResponse));
             break;
         }
         case 46:
         {
-            _iceD_supportsJavaSerializable(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, ::std::move(sendResponse));
             break;
         }
         case 47:
         {
-            _iceD_supportsNullOptional(request, ::std::move(sendResponse));
+            _iceD_supportsJavaSerializable(request, ::std::move(sendResponse));
             break;
         }
         case 48:

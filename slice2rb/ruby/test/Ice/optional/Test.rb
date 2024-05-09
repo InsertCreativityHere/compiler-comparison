@@ -477,35 +477,32 @@ module ::Test
 
     if not defined?(::Test::OptionalException)
         class OptionalException < Ice::UserException
-            def initialize(req=false, a=5, b=::Ice::Unset, o=::Ice::Unset)
+            def initialize(req=false, a=5, b=::Ice::Unset)
                 @req = req
                 @a = a
                 @b = b
-                @o = o
             end
 
             def to_s
                 '::Test::OptionalException'
             end
 
-            attr_accessor :req, :a, :b, :o
+            attr_accessor :req, :a, :b
         end
 
         T_OptionalException = ::Ice::__defineException('::Test::OptionalException', OptionalException, nil, [
             ["req", ::Ice::T_bool, false, 0],
             ["a", ::Ice::T_int, true, 1],
-            ["b", ::Ice::T_string, true, 2],
-            ["o", ::Test::T_OneOptional, true, 50]
+            ["b", ::Ice::T_string, true, 2]
         ])
     end
 
     if not defined?(::Test::DerivedException)
         class DerivedException < ::Test::OptionalException
-            def initialize(req=false, a=5, b=::Ice::Unset, o=::Ice::Unset, d1='', ss="test", o2=::Ice::Unset, d2='')
-                super(req, a, b, o)
+            def initialize(req=false, a=5, b=::Ice::Unset, d1='', ss="test", d2='')
+                super(req, a, b)
                 @d1 = d1
                 @ss = ss
-                @o2 = o2
                 @d2 = d2
             end
 
@@ -513,36 +510,31 @@ module ::Test
                 '::Test::DerivedException'
             end
 
-            attr_accessor :d1, :ss, :o2, :d2
+            attr_accessor :d1, :ss, :d2
         end
 
         T_DerivedException = ::Ice::__defineException('::Test::DerivedException', DerivedException, ::Test::T_OptionalException, [
             ["d1", ::Ice::T_string, false, 0],
             ["ss", ::Ice::T_string, true, 600],
-            ["o2", ::Test::T_OneOptional, true, 601],
             ["d2", ::Ice::T_string, false, 0]
         ])
     end
 
     if not defined?(::Test::RequiredException)
         class RequiredException < ::Test::OptionalException
-            def initialize(req=false, a=5, b=::Ice::Unset, o=::Ice::Unset, ss="test", o2=nil)
-                super(req, a, b, o)
+            def initialize(req=false, a=5, b=::Ice::Unset, ss="test")
+                super(req, a, b)
                 @ss = ss
-                @o2 = o2
             end
 
             def to_s
                 '::Test::RequiredException'
             end
 
-            attr_accessor :ss, :o2
+            attr_accessor :ss
         end
 
-        T_RequiredException = ::Ice::__defineException('::Test::RequiredException', RequiredException, ::Test::T_OptionalException, [
-            ["ss", ::Ice::T_string, false, 0],
-            ["o2", ::Test::T_OneOptional, false, 0]
-        ])
+        T_RequiredException = ::Ice::__defineException('::Test::RequiredException', RequiredException, ::Test::T_OptionalException, [["ss", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::OptionalWithCustom_Mixin)
@@ -711,16 +703,16 @@ module ::Test
                 InitialPrx_mixin::OP_pingPong.invoke(self, [o], context)
             end
 
-            def opOptionalException(a, b, o, context=nil)
-                InitialPrx_mixin::OP_opOptionalException.invoke(self, [a, b, o], context)
+            def opOptionalException(a, b, context=nil)
+                InitialPrx_mixin::OP_opOptionalException.invoke(self, [a, b], context)
             end
 
-            def opDerivedException(a, b, o, context=nil)
-                InitialPrx_mixin::OP_opDerivedException.invoke(self, [a, b, o], context)
+            def opDerivedException(a, b, context=nil)
+                InitialPrx_mixin::OP_opDerivedException.invoke(self, [a, b], context)
             end
 
-            def opRequiredException(a, b, o, context=nil)
-                InitialPrx_mixin::OP_opRequiredException.invoke(self, [a, b, o], context)
+            def opRequiredException(a, b, context=nil)
+                InitialPrx_mixin::OP_opRequiredException.invoke(self, [a, b], context)
             end
 
             def opByte(p1, context=nil)
@@ -771,12 +763,12 @@ module ::Test
                 InitialPrx_mixin::OP_opVarStruct.invoke(self, [p1], context)
             end
 
-            def opOneOptional(p1, context=nil)
-                InitialPrx_mixin::OP_opOneOptional.invoke(self, [p1], context)
-            end
-
             def opMyInterfaceProxy(p1, context=nil)
                 InitialPrx_mixin::OP_opMyInterfaceProxy.invoke(self, [p1], context)
+            end
+
+            def opOneOptional(p1, context=nil)
+                InitialPrx_mixin::OP_opOneOptional.invoke(self, [p1], context)
             end
 
             def opByteSeq(p1, context=nil)
@@ -883,14 +875,6 @@ module ::Test
                 InitialPrx_mixin::OP_opMDict2.invoke(self, [p1], context)
             end
 
-            def opMG1(context=nil)
-                InitialPrx_mixin::OP_opMG1.invoke(self, [], context)
-            end
-
-            def opMG2(p1, context=nil)
-                InitialPrx_mixin::OP_opMG2.invoke(self, [p1], context)
-            end
-
             def supportsRequiredParams(context=nil)
                 InitialPrx_mixin::OP_supportsRequiredParams.invoke(self, [], context)
             end
@@ -901,10 +885,6 @@ module ::Test
 
             def supportsCsharpSerializable(context=nil)
                 InitialPrx_mixin::OP_supportsCsharpSerializable.invoke(self, [], context)
-            end
-
-            def supportsNullOptional(context=nil)
-                InitialPrx_mixin::OP_supportsNullOptional.invoke(self, [], context)
             end
         end
 
@@ -922,9 +902,9 @@ module ::Test
 
         InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         InitialPrx_mixin::OP_pingPong = ::Ice::__defineOperation('pingPong', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_Value, false, 0]], [], [::Ice::T_Value, false, 0], [])
-        InitialPrx_mixin::OP_opOptionalException = ::Ice::__defineOperation('opOptionalException', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2], [::Test::T_OneOptional, true, 3]], [], nil, [::Test::T_OptionalException])
-        InitialPrx_mixin::OP_opDerivedException = ::Ice::__defineOperation('opDerivedException', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2], [::Test::T_OneOptional, true, 3]], [], nil, [::Test::T_OptionalException])
-        InitialPrx_mixin::OP_opRequiredException = ::Ice::__defineOperation('opRequiredException', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2], [::Test::T_OneOptional, true, 3]], [], nil, [::Test::T_OptionalException])
+        InitialPrx_mixin::OP_opOptionalException = ::Ice::__defineOperation('opOptionalException', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2]], [], nil, [::Test::T_OptionalException])
+        InitialPrx_mixin::OP_opDerivedException = ::Ice::__defineOperation('opDerivedException', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2]], [], nil, [::Test::T_OptionalException])
+        InitialPrx_mixin::OP_opRequiredException = ::Ice::__defineOperation('opRequiredException', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2]], [], nil, [::Test::T_OptionalException])
         InitialPrx_mixin::OP_opByte = ::Ice::__defineOperation('opByte', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_byte, true, 2]], [[::Ice::T_byte, true, 3]], [::Ice::T_byte, true, 1], [])
         InitialPrx_mixin::OP_opBool = ::Ice::__defineOperation('opBool', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, true, 2]], [[::Ice::T_bool, true, 3]], [::Ice::T_bool, true, 1], [])
         InitialPrx_mixin::OP_opShort = ::Ice::__defineOperation('opShort', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_short, true, 2]], [[::Ice::T_short, true, 3]], [::Ice::T_short, true, 1], [])
@@ -937,8 +917,8 @@ module ::Test
         InitialPrx_mixin::OP_opSmallStruct = ::Ice::__defineOperation('opSmallStruct', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SmallStruct, true, 2]], [[::Test::T_SmallStruct, true, 3]], [::Test::T_SmallStruct, true, 1], [])
         InitialPrx_mixin::OP_opFixedStruct = ::Ice::__defineOperation('opFixedStruct', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_FixedStruct, true, 2]], [[::Test::T_FixedStruct, true, 3]], [::Test::T_FixedStruct, true, 1], [])
         InitialPrx_mixin::OP_opVarStruct = ::Ice::__defineOperation('opVarStruct', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_VarStruct, true, 2]], [[::Test::T_VarStruct, true, 3]], [::Test::T_VarStruct, true, 1], [])
-        InitialPrx_mixin::OP_opOneOptional = ::Ice::__defineOperation('opOneOptional', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_OneOptional, true, 2]], [[::Test::T_OneOptional, true, 3]], [::Test::T_OneOptional, true, 1], [])
         InitialPrx_mixin::OP_opMyInterfaceProxy = ::Ice::__defineOperation('opMyInterfaceProxy', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_MyInterfacePrx, true, 2]], [[::Test::T_MyInterfacePrx, true, 3]], [::Test::T_MyInterfacePrx, true, 1], [])
+        InitialPrx_mixin::OP_opOneOptional = ::Ice::__defineOperation('opOneOptional', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_OneOptional, false, 0]], [[::Test::T_OneOptional, false, 0]], [::Test::T_OneOptional, false, 0], [])
         InitialPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteSeq, true, 2]], [[::Test::T_ByteSeq, true, 3]], [::Test::T_ByteSeq, true, 1], [])
         InitialPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolSeq, true, 2]], [[::Test::T_BoolSeq, true, 3]], [::Test::T_BoolSeq, true, 1], [])
         InitialPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortSeq, true, 2]], [[::Test::T_ShortSeq, true, 3]], [::Test::T_ShortSeq, true, 1], [])
@@ -965,11 +945,8 @@ module ::Test
         InitialPrx_mixin::OP_opMSeq2 = ::Ice::__defineOperation('opMSeq2', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringSeq, true, 2]], [[::Test::T_StringSeq, true, 3]], [::Test::T_StringSeq, true, 1], [])
         InitialPrx_mixin::OP_opMDict1 = ::Ice::__defineOperation('opMDict1', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_StringIntDict, true, 1], [])
         InitialPrx_mixin::OP_opMDict2 = ::Ice::__defineOperation('opMDict2', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringIntDict, true, 2]], [[::Test::T_StringIntDict, true, 3]], [::Test::T_StringIntDict, true, 1], [])
-        InitialPrx_mixin::OP_opMG1 = ::Ice::__defineOperation('opMG1', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_G, true, 1], [])
-        InitialPrx_mixin::OP_opMG2 = ::Ice::__defineOperation('opMG2', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_G, true, 2]], [[::Test::T_G, true, 3]], [::Test::T_G, true, 1], [])
         InitialPrx_mixin::OP_supportsRequiredParams = ::Ice::__defineOperation('supportsRequiredParams', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsJavaSerializable = ::Ice::__defineOperation('supportsJavaSerializable', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsCsharpSerializable = ::Ice::__defineOperation('supportsCsharpSerializable', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        InitialPrx_mixin::OP_supportsNullOptional = ::Ice::__defineOperation('supportsNullOptional', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
     end
 end

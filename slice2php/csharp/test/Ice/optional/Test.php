@@ -1063,6 +1063,7 @@ namespace Test
     global $Test__t_FixedStruct;
     global $Test__t_VarStruct;
     global $Test__t_MyInterfacePrx;
+    global $Test__t_OneOptional;
     global $Test__t_ByteSeq;
     global $Test__t_BoolSeq;
     global $Test__t_ShortSeq;
@@ -1098,6 +1099,7 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'opFixedStruct', 0, 0, array(array($Test__t_FixedStruct, 2)), array(array($Test__t_FixedStruct, 3)), array($Test__t_FixedStruct, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opVarStruct', 0, 0, array(array($Test__t_VarStruct, 2)), array(array($Test__t_VarStruct, 3)), array($Test__t_VarStruct, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opMyInterfaceProxy', 0, 0, array(array($Test__t_MyInterfacePrx, 2)), array(array($Test__t_MyInterfacePrx, 3)), array($Test__t_MyInterfacePrx, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opOneOptional', 0, 0, array(array($Test__t_OneOptional)), array(array($Test__t_OneOptional)), array($Test__t_OneOptional), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opByteSeq', 0, 0, array(array($Test__t_ByteSeq, 2)), array(array($Test__t_ByteSeq, 3)), array($Test__t_ByteSeq, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opBoolSeq', 0, 0, array(array($Test__t_BoolSeq, 2)), array(array($Test__t_BoolSeq, 3)), array($Test__t_BoolSeq, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opShortSeq', 0, 0, array(array($Test__t_ShortSeq, 2)), array(array($Test__t_ShortSeq, 3)), array($Test__t_ShortSeq, 1), null);
@@ -1124,6 +1126,5 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'opMDict2', 0, 0, array(array($Test__t_StringIntDict, 2)), array(array($Test__t_StringIntDict, 3)), array($Test__t_StringIntDict, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsRequiredParams', 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsJavaSerializable', 0, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'supportsNullOptional', 0, 0, null, null, array($IcePHP__t_bool), null);
 }
 ?>

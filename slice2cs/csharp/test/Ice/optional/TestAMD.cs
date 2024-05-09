@@ -2051,6 +2051,8 @@ namespace Ice.optional.AMD
 
         public record struct Initial_OpMyInterfaceProxyResult(MyInterfacePrx returnValue, MyInterfacePrx p3);
 
+        public record struct Initial_OpOneOptionalResult(OneOptional returnValue, OneOptional p3);
+
         public record struct Initial_OpByteSeqResult(byte[] returnValue, byte[] p3);
 
         public record struct Initial_OpBoolSeqResult(bool[] returnValue, bool[] p3);
@@ -2302,6 +2304,10 @@ namespace Ice.optional.AMD
 
             global::System.Threading.Tasks.Task<Initial_OpMyInterfaceProxyResult> opMyInterfaceProxyAsync(MyInterfacePrx p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
 
+            OneOptional opOneOptional(OneOptional p1, out OneOptional p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
+
+            global::System.Threading.Tasks.Task<Initial_OpOneOptionalResult> opOneOptionalAsync(OneOptional p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+
             byte[] opByteSeq(byte[] p1, out byte[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null);
 
             global::System.Threading.Tasks.Task<Initial_OpByteSeqResult> opByteSeqAsync(byte[] p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
@@ -2405,10 +2411,6 @@ namespace Ice.optional.AMD
             bool supportsJavaSerializable(global::System.Collections.Generic.Dictionary<string, string> context = null);
 
             global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
-
-            bool supportsNullOptional(global::System.Collections.Generic.Dictionary<string, string> context = null);
-
-            global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -2480,6 +2482,9 @@ namespace Ice.optional.AMD
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<Initial_OpMyInterfaceProxyResult> opMyInterfaceProxyAsync(MyInterfacePrx p1, global::Ice.Current current = null);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<Initial_OpOneOptionalResult> opOneOptionalAsync(OneOptional p1, global::Ice.Current current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<Initial_OpByteSeqResult> opByteSeqAsync(byte[] p1, global::Ice.Current current = null);
@@ -2558,9 +2563,6 @@ namespace Ice.optional.AMD
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(global::Ice.Current current = null);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::Ice.Current current = null);
         }
     }
 }
@@ -3623,6 +3625,20 @@ namespace Ice.optional.AMD
                 }
             }
 
+            public OneOptional opOneOptional(OneOptional p1, out OneOptional p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            {
+                try
+                {
+                    var result_ = _iceI_opOneOptionalAsync(p1, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                    p3 = result_.p3;
+                    return result_.returnValue;
+                }
+                catch(global::System.AggregateException ex_)
+                {
+                    throw ex_.InnerException;
+                }
+            }
+
             public byte[] opByteSeq(byte[] p1, out byte[] p3, global::System.Collections.Generic.Dictionary<string, string> context = null)
             {
                 try
@@ -3964,18 +3980,6 @@ namespace Ice.optional.AMD
                 try
                 {
                     return _iceI_supportsJavaSerializableAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-                }
-                catch(global::System.AggregateException ex_)
-                {
-                    throw ex_.InnerException;
-                }
-            }
-
-            public bool supportsNullOptional(global::System.Collections.Generic.Dictionary<string, string> context = null)
-            {
-                try
-                {
-                    return _iceI_supportsNullOptionalAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
                 catch(global::System.AggregateException ex_)
                 {
@@ -4793,6 +4797,45 @@ namespace Ice.optional.AMD
                         {
                             ret.p3 = null;
                         }
+                        return ret;
+                    });
+            }
+
+            public global::System.Threading.Tasks.Task<Initial_OpOneOptionalResult> opOneOptionalAsync(OneOptional p1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            {
+                return _iceI_opOneOptionalAsync(p1, context, progress, cancel, false);
+            }
+
+            private global::System.Threading.Tasks.Task<Initial_OpOneOptionalResult> _iceI_opOneOptionalAsync(OneOptional iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            {
+                iceCheckTwowayOnly(_opOneOptional_name);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Initial_OpOneOptionalResult>(progress, cancel);
+                _iceI_opOneOptional(iceP_p1, context, synchronous, completed);
+                return completed.Task;
+            }
+
+            private const string _opOneOptional_name = "opOneOptional";
+
+            private void _iceI_opOneOptional(OneOptional iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            {
+                var outAsync = getOutgoingAsync<Initial_OpOneOptionalResult>(completed);
+                outAsync.invoke(
+                    _opOneOptional_name,
+                    global::Ice.OperationMode.Normal,
+                    global::Ice.FormatType.DefaultFormat,
+                    context,
+                    synchronous,
+                    write: (global::Ice.OutputStream ostr) =>
+                    {
+                        ostr.writeValue(iceP_p1);
+                        ostr.writePendingValues();
+                    },
+                    read: (global::Ice.InputStream istr) =>
+                    {
+                        Initial_OpOneOptionalResult ret = new Initial_OpOneOptionalResult();
+                        istr.readValue((OneOptional v) => {ret.p3 = v; });
+                        istr.readValue((OneOptional v) => {ret.returnValue = v; });
+                        istr.readPendingValues();
                         return ret;
                     });
             }
@@ -6135,38 +6178,6 @@ namespace Ice.optional.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
-            {
-                return _iceI_supportsNullOptionalAsync(context, progress, cancel, false);
-            }
-
-            private global::System.Threading.Tasks.Task<bool> _iceI_supportsNullOptionalAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-            {
-                iceCheckTwowayOnly(_supportsNullOptional_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
-                _iceI_supportsNullOptional(context, synchronous, completed);
-                return completed.Task;
-            }
-
-            private const string _supportsNullOptional_name = "supportsNullOptional";
-
-            private void _iceI_supportsNullOptional(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
-            {
-                var outAsync = getOutgoingAsync<bool>(completed);
-                outAsync.invoke(
-                    _supportsNullOptional_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
-                    context,
-                    synchronous,
-                    read: (global::Ice.InputStream istr) =>
-                    {
-                        bool ret = default;
-                        ret = istr.readBool();
-                        return ret;
-                    });
-            }
-
             #endregion
 
             #region Factory operations
@@ -6407,6 +6418,8 @@ namespace Ice.optional.AMD
 
             public abstract global::System.Threading.Tasks.Task<Initial_OpMyInterfaceProxyResult> opMyInterfaceProxyAsync(MyInterfacePrx p1, global::Ice.Current current = null);
 
+            public abstract global::System.Threading.Tasks.Task<Initial_OpOneOptionalResult> opOneOptionalAsync(OneOptional p1, global::Ice.Current current = null);
+
             public abstract global::System.Threading.Tasks.Task<Initial_OpByteSeqResult> opByteSeqAsync(byte[] p1, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<Initial_OpBoolSeqResult> opBoolSeqAsync(bool[] p1, global::Ice.Current current = null);
@@ -6458,8 +6471,6 @@ namespace Ice.optional.AMD
             public abstract global::System.Threading.Tasks.Task<bool> supportsRequiredParamsAsync(global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::Ice.Current current = null);
 
             #endregion
 
@@ -6873,6 +6884,25 @@ namespace Ice.optional.AMD
                             MyInterfacePrxHelper.write(ostr, ret.p3);
                             ostr.endSize(pos);
                         }
+                    });
+            }
+
+            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            iceD_opOneOptional(Initial obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
+                var istr = inS.startReadParams();
+                OneOptional iceP_p1 = default;
+                istr.readValue((OneOptional v) => {iceP_p1 = v; });
+                istr.readPendingValues();
+                inS.endReadParams();
+                return inS.setResultTask<Initial_OpOneOptionalResult>(obj.opOneOptionalAsync(iceP_p1, current),
+                    (ostr, ret) =>
+                    {
+                        ostr.writeValue(ret.p3);
+                        ostr.writeValue(ret.returnValue);
+                        ostr.writePendingValues();
                     });
             }
 
@@ -7492,19 +7522,6 @@ namespace Ice.optional.AMD
                     });
             }
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_supportsNullOptional(Initial obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                return inS.setResultTask<bool>(obj.supportsNullOptionalAsync(current),
-                    (ostr, ret) =>
-                    {
-                        ostr.writeBool(ret);
-                    });
-            }
-
             private static readonly string[] _all =
             {
                 "ice_id",
@@ -7538,6 +7555,7 @@ namespace Ice.optional.AMD
                 "opMStruct2",
                 "opMyEnum",
                 "opMyInterfaceProxy",
+                "opOneOptional",
                 "opOptionalException",
                 "opRequiredException",
                 "opShort",
@@ -7554,7 +7572,6 @@ namespace Ice.optional.AMD
                 "pingPong",
                 "shutdown",
                 "supportsJavaSerializable",
-                "supportsNullOptional",
                 "supportsRequiredParams"
             };
 
@@ -7695,71 +7712,71 @@ namespace Ice.optional.AMD
                     }
                     case 31:
                     {
-                        return iceD_opOptionalException(this, inS, current);
+                        return iceD_opOneOptional(this, inS, current);
                     }
                     case 32:
                     {
-                        return iceD_opRequiredException(this, inS, current);
+                        return iceD_opOptionalException(this, inS, current);
                     }
                     case 33:
                     {
-                        return iceD_opShort(this, inS, current);
+                        return iceD_opRequiredException(this, inS, current);
                     }
                     case 34:
                     {
-                        return iceD_opShortSeq(this, inS, current);
+                        return iceD_opShort(this, inS, current);
                     }
                     case 35:
                     {
-                        return iceD_opSmallStruct(this, inS, current);
+                        return iceD_opShortSeq(this, inS, current);
                     }
                     case 36:
                     {
-                        return iceD_opSmallStructList(this, inS, current);
+                        return iceD_opSmallStruct(this, inS, current);
                     }
                     case 37:
                     {
-                        return iceD_opSmallStructSeq(this, inS, current);
+                        return iceD_opSmallStructList(this, inS, current);
                     }
                     case 38:
                     {
-                        return iceD_opString(this, inS, current);
+                        return iceD_opSmallStructSeq(this, inS, current);
                     }
                     case 39:
                     {
-                        return iceD_opStringIntDict(this, inS, current);
+                        return iceD_opString(this, inS, current);
                     }
                     case 40:
                     {
-                        return iceD_opStringSeq(this, inS, current);
+                        return iceD_opStringIntDict(this, inS, current);
                     }
                     case 41:
                     {
-                        return iceD_opVarStruct(this, inS, current);
+                        return iceD_opStringSeq(this, inS, current);
                     }
                     case 42:
                     {
-                        return iceD_opVarStructSeq(this, inS, current);
+                        return iceD_opVarStruct(this, inS, current);
                     }
                     case 43:
                     {
-                        return iceD_opVoid(this, inS, current);
+                        return iceD_opVarStructSeq(this, inS, current);
                     }
                     case 44:
                     {
-                        return iceD_pingPong(this, inS, current);
+                        return iceD_opVoid(this, inS, current);
                     }
                     case 45:
                     {
-                        return iceD_shutdown(this, inS, current);
+                        return iceD_pingPong(this, inS, current);
                     }
                     case 46:
                     {
-                        return iceD_supportsJavaSerializable(this, inS, current);
+                        return iceD_shutdown(this, inS, current);
                     }
                     case 47:
                     {
-                        return iceD_supportsNullOptional(this, inS, current);
+                        return iceD_supportsJavaSerializable(this, inS, current);
                     }
                     case 48:
                     {

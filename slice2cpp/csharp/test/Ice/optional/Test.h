@@ -392,6 +392,17 @@ public:
     void _iceI_opMyInterfaceProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<MyInterfacePrx>, ::std::optional<MyInterfacePrx>>>>&, const ::std::optional<MyInterfacePrx>&, const ::Ice::Context&) const;
     /// \endcond
 
+    OneOptionalPtr opOneOptional(const OneOptionalPtr& p1, OneOptionalPtr& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<::std::tuple<OneOptionalPtr, OneOptionalPtr>> opOneOptionalAsync(const OneOptionalPtr& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    opOneOptionalAsync(const OneOptionalPtr& p1, ::std::function<void(::Test::OneOptionalPtr, ::Test::OneOptionalPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<OneOptionalPtr, OneOptionalPtr>>>&, const OneOptionalPtr&, const ::Ice::Context&) const;
+    /// \endcond
+
     ::std::optional<ByteSeq> opByteSeq(const ::std::optional<ByteSeq>& p1, ::std::optional<ByteSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>> opByteSeqAsync(const ::std::optional<ByteSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -676,17 +687,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_supportsJavaSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    bool supportsNullOptional(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<bool> supportsNullOptionalAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    supportsNullOptionalAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_supportsNullOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1681,6 +1681,11 @@ public:
     void _iceD_opMyInterfaceProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
+    virtual OneOptionalPtr opOneOptional(OneOptionalPtr p1, OneOptionalPtr& p3, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_opOneOptional(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
     virtual ::std::optional<ByteSeq> opByteSeq(::std::optional<ByteSeq> p1, ::std::optional<ByteSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opByteSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
@@ -1887,11 +1892,6 @@ public:
     virtual bool supportsJavaSerializable(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_supportsJavaSerializable(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual bool supportsNullOptional(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_supportsNullOptional(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL

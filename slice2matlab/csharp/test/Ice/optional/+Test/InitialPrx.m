@@ -37,6 +37,8 @@
 %   opVarStructAsync
 %   opMyInterfaceProxy
 %   opMyInterfaceProxyAsync
+%   opOneOptional
+%   opOneOptionalAsync
 %   opByteSeq
 %   opByteSeqAsync
 %   opBoolSeq
@@ -89,8 +91,6 @@
 %   supportsRequiredParamsAsync
 %   supportsJavaSerializable
 %   supportsJavaSerializableAsync
-%   supportsNullOptional
-%   supportsNullOptionalAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -808,6 +808,58 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opMyInterfaceProxy', 0, true, os_, 2, @unmarshal, {}, varargin{:});
+        end
+        function [result, p3] = opOneOptional(obj, p1, varargin)
+            % opOneOptional
+            %
+            % Parameters:
+            %   p1 (Test.OneOptional)
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns:
+            %   result (Test.OneOptional)
+            %   p3 (Test.OneOptional)
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeValue(p1);
+            os_.writePendingValues();
+            obj.iceEndWriteParams(os_);
+            is_ = obj.iceInvoke('opOneOptional', 0, true, os_, true, {}, varargin{:});
+            is_.startEncapsulation();
+            p3_h_ = IceInternal.ValueHolder();
+            is_.readValue(@(v) p3_h_.set(v), 'Test.OneOptional');
+            result_h_ = IceInternal.ValueHolder();
+            is_.readValue(@(v) result_h_.set(v), 'Test.OneOptional');
+            is_.readPendingValues();
+            is_.endEncapsulation();
+            p3 = p3_h_.value;
+            result = result_h_.value;
+        end
+        function r_ = opOneOptionalAsync(obj, p1, varargin)
+            % opOneOptionalAsync
+            %
+            % Parameters:
+            %   p1 (Test.OneOptional)
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeValue(p1);
+            os_.writePendingValues();
+            obj.iceEndWriteParams(os_);
+            function varargout = unmarshal(is_)
+                is_.startEncapsulation();
+                p3 = IceInternal.ValueHolder();
+                is_.readValue(@(v) p3.set(v), 'Test.OneOptional');
+                result = IceInternal.ValueHolder();
+                is_.readValue(@(v) result.set(v), 'Test.OneOptional');
+                is_.readPendingValues();
+                is_.endEncapsulation();
+                varargout{1} = result.value;
+                varargout{2} = p3.value;
+            end
+            r_ = obj.iceInvokeAsync('opOneOptional', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opByteSeq(obj, p1, varargin)
             % opByteSeq
@@ -1799,35 +1851,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{1} = result;
             end
             r_ = obj.iceInvokeAsync('supportsJavaSerializable', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = supportsNullOptional(obj, varargin)
-            % supportsNullOptional
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
-            is_ = obj.iceInvoke('supportsNullOptional', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readBool();
-            is_.endEncapsulation();
-        end
-        function r_ = supportsNullOptionalAsync(obj, varargin)
-            % supportsNullOptionalAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readBool();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('supportsNullOptional', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

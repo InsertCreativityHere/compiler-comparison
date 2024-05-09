@@ -1456,6 +1456,48 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default Initial.OpOneOptionalResult opOneOptional(OneOptional p1)
+    {
+        return opOneOptional(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default Initial.OpOneOptionalResult opOneOptional(OneOptional p1, java.util.Map<String, String> context)
+    {
+        return _iceI_opOneOptionalAsync(p1, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalResult> opOneOptionalAsync(OneOptional p1)
+    {
+        return _iceI_opOneOptionalAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalResult> opOneOptionalAsync(OneOptional p1, java.util.Map<String, String> context)
+    {
+        return _iceI_opOneOptionalAsync(p1, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_p1 -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalResult> _iceI_opOneOptionalAsync(OneOptional iceP_p1, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOneOptional", null, sync, null);
+        f.invoke(true, context, null, ostr -> {
+                     ostr.writeValue(iceP_p1);
+                     ostr.writePendingValues();
+                 }, istr -> {
+                     Initial.OpOneOptionalResult ret = new Initial.OpOneOptionalResult();
+                     ret.read(istr);
+                     istr.readPendingValues();
+                     return ret;
+                 });
+        return f;
+    }
+
     default Initial.OpByteSeqResult opByteSeq(byte[] p1)
     {
         return opByteSeq(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -3185,43 +3227,6 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_supportsJavaSerializableAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "supportsJavaSerializable", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
-                     boolean ret;
-                     ret = istr.readBool();
-                     return ret;
-                 });
-        return f;
-    }
-
-    default boolean supportsNullOptional()
-    {
-        return supportsNullOptional(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default boolean supportsNullOptional(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsNullOptionalAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsNullOptionalAsync()
-    {
-        return _iceI_supportsNullOptionalAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsNullOptionalAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsNullOptionalAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_supportsNullOptionalAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "supportsNullOptional", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      boolean ret;
                      ret = istr.readBool();

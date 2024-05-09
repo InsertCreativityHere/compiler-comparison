@@ -1798,6 +1798,10 @@ public extension MyInterfacePrx {
 ///
 ///  - opMyInterfaceProxyAsync: 
 ///
+///  - opOneOptional: 
+///
+///  - opOneOptionalAsync: 
+///
 ///  - opByteSeq: 
 ///
 ///  - opByteSeqAsync: 
@@ -1901,10 +1905,6 @@ public extension MyInterfacePrx {
 ///  - supportsJavaSerializable: 
 ///
 ///  - supportsJavaSerializableAsync: 
-///
-///  - supportsNullOptional: 
-///
-///  - supportsNullOptionalAsync: 
 public protocol InitialPrx: Ice.ObjectPrx {}
 
 private final class InitialPrxI: Ice.ObjectPrxI, InitialPrx {
@@ -2056,6 +2056,10 @@ public extension Ice.InputStream {
 ///
 ///  - opMyInterfaceProxyAsync: 
 ///
+///  - opOneOptional: 
+///
+///  - opOneOptionalAsync: 
+///
 ///  - opByteSeq: 
 ///
 ///  - opByteSeqAsync: 
@@ -2159,10 +2163,6 @@ public extension Ice.InputStream {
 ///  - supportsJavaSerializable: 
 ///
 ///  - supportsJavaSerializableAsync: 
-///
-///  - supportsNullOptional: 
-///
-///  - supportsNullOptionalAsync: 
 public extension InitialPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -3132,6 +3132,69 @@ public extension InitialPrx {
                                   read: { istr in
                                       let iceP_returnValue: MyInterfacePrx? = try istr.read(tag: 1, type: MyInterfacePrx.self)
                                       let iceP_p3: MyInterfacePrx? = try istr.read(tag: 3, type: MyInterfacePrx.self)
+                                      return (iceP_returnValue, iceP_p3)
+                                  },
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
+
+    ///
+    /// - parameter _: `OneOptional?`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - returns: `(returnValue: OneOptional?, p3: OneOptional?)`:
+    ///
+    ///   - returnValue: `OneOptional?`
+    ///
+    ///   - p3: `OneOptional?`
+    func opOneOptional(_ iceP_p1: OneOptional?, context: Ice.Context? = nil) throws -> (returnValue: OneOptional?, p3: OneOptional?) {
+        return try _impl._invoke(operation: "opOneOptional",
+                                 mode: .Normal,
+                                 write: { ostr in
+                                     ostr.write(iceP_p1)
+                                     ostr.writePendingValues()
+                                 },
+                                 read: { istr in
+                                     var iceP_p3: OneOptional?
+                                     try istr.read(OneOptional.self) { iceP_p3 = $0 }
+                                     var iceP_returnValue: OneOptional?
+                                     try istr.read(OneOptional.self) { iceP_returnValue = $0 }
+                                     try istr.readPendingValues()
+                                     return (iceP_returnValue, iceP_p3)
+                                 },
+                                 context: context)
+    }
+
+    ///
+    /// - parameter _: `OneOptional?`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<(returnValue: OneOptional?, p3: OneOptional?)>` - The result of the operation
+    func opOneOptionalAsync(_ iceP_p1: OneOptional?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: OneOptional?, p3: OneOptional?)> {
+        return _impl._invokeAsync(operation: "opOneOptional",
+                                  mode: .Normal,
+                                  write: { ostr in
+                                      ostr.write(iceP_p1)
+                                      ostr.writePendingValues()
+                                  },
+                                  read: { istr in
+                                      var iceP_p3: OneOptional?
+                                      try istr.read(OneOptional.self) { iceP_p3 = $0 }
+                                      var iceP_returnValue: OneOptional?
+                                      try istr.read(OneOptional.self) { iceP_returnValue = $0 }
+                                      try istr.readPendingValues()
                                       return (iceP_returnValue, iceP_p3)
                                   },
                                   context: context,
@@ -4449,45 +4512,6 @@ public extension InitialPrx {
                                   sentFlags: sentFlags,
                                   sent: sent)
     }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
-    func supportsNullOptional(context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "supportsNullOptional",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func supportsNullOptionalAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "supportsNullOptional",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
 }
 
 /// :nodoc:
@@ -5253,6 +5277,8 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_opMyEnum(incoming: request, current: current)
         case "opMyInterfaceProxy":
             return try servant._iceD_opMyInterfaceProxy(incoming: request, current: current)
+        case "opOneOptional":
+            return try servant._iceD_opOneOptional(incoming: request, current: current)
         case "opOptionalException":
             return try servant._iceD_opOptionalException(incoming: request, current: current)
         case "opRequiredException":
@@ -5285,8 +5311,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_shutdown(incoming: request, current: current)
         case "supportsJavaSerializable":
             return try servant._iceD_supportsJavaSerializable(incoming: request, current: current)
-        case "supportsNullOptional":
-            return try servant._iceD_supportsNullOptional(incoming: request, current: current)
         case "supportsRequiredParams":
             return try servant._iceD_supportsRequiredParams(incoming: request, current: current)
         default:
@@ -5443,6 +5467,14 @@ public protocol Initial {
     ///
     /// - returns: `PromiseKit.Promise<(returnValue: MyInterfacePrx?, p3: MyInterfacePrx?)>` - The result of the operation
     func opMyInterfaceProxyAsync(p1: MyInterfacePrx?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: MyInterfacePrx?, p3: MyInterfacePrx?)>
+
+    ///
+    /// - parameter p1: `OneOptional?`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `PromiseKit.Promise<(returnValue: OneOptional?, p3: OneOptional?)>` - The result of the operation
+    func opOneOptionalAsync(p1: OneOptional?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: OneOptional?, p3: OneOptional?)>
 
     ///
     /// - parameter p1: `ByteSeq?`
@@ -5639,12 +5671,6 @@ public protocol Initial {
     ///
     /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
     func supportsJavaSerializableAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Bool>
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func supportsNullOptionalAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Bool>
 }
 
 /// MyInterface overview.
@@ -5702,6 +5728,8 @@ public extension MyInterface {
 ///
 ///  - opMyInterfaceProxy: 
 ///
+///  - opOneOptional: 
+///
 ///  - opByteSeq: 
 ///
 ///  - opBoolSeq: 
@@ -5753,8 +5781,6 @@ public extension MyInterface {
 ///  - supportsRequiredParams: 
 ///
 ///  - supportsJavaSerializable: 
-///
-///  - supportsNullOptional: 
 public extension Initial {
     func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         try inS.readEmptyParams()
@@ -5973,6 +5999,22 @@ public extension Initial {
             let (iceP_returnValue, iceP_p3) = retVals
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
+        }
+    }
+
+    func _iceD_opOneOptional(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let iceP_p1: OneOptional? = try inS.read { istr in
+            var iceP_p1: OneOptional?
+            try istr.read(OneOptional.self) { iceP_p1 = $0 }
+            try istr.readPendingValues()
+            return iceP_p1
+        }
+
+        return inS.setResultPromise(opOneOptionalAsync(p1: iceP_p1, current: current)) { (ostr, retVals) in
+            let (iceP_returnValue, iceP_p3) = retVals
+            ostr.write(iceP_p3)
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
@@ -6282,15 +6324,6 @@ public extension Initial {
         try inS.readEmptyParams()
 
         return inS.setResultPromise(supportsJavaSerializableAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_supportsNullOptional(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(supportsNullOptionalAsync(current: current)) { (ostr, retVals) in
             let iceP_returnValue = retVals
             ostr.write(iceP_returnValue)
         }
