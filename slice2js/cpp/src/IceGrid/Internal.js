@@ -573,8 +573,8 @@
         "registerWellKnownObjects": [, 2, , , [["IceGrid.ObjectInfoSeqHelper"]], , , , ],
         "setAdapterDirectProxy": [, 2, , , [[7], [7], [9]], ,
         [
-            IceGrid.AdapterNotExistException,
-            IceGrid.AdapterExistsException
+            IceGrid.AdapterExistsException,
+            IceGrid.AdapterNotExistException
         ], , ],
         "receivedUpdate": [, , , , [[IceGrid.TopicName._helper], [3], [7]], , , , ],
         "destroy": [, , , , , , , , ]

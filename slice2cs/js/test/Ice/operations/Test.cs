@@ -16084,16 +16084,6 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current = null);
-
-        public abstract bool supportsCompress(global::Ice.Current current = null);
-
-        public abstract void opVoid(global::Ice.Current current = null);
-
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
-
-        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
-
         public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
 
         public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
@@ -16163,6 +16153,16 @@ namespace Test
         public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.Current current = null);
+
+        public abstract void shutdown(global::Ice.Current current = null);
+
+        public abstract bool supportsCompress(global::Ice.Current current = null);
+
+        public abstract void opVoid(global::Ice.Current current = null);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
+
+        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current = null);
 
@@ -16893,16 +16893,6 @@ namespace Test2
     {
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current = null);
-
-        public abstract bool supportsCompress(global::Ice.Current current = null);
-
-        public abstract void opVoid(global::Ice.Current current = null);
-
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
-
-        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
-
         public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
 
         public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
@@ -16972,6 +16962,16 @@ namespace Test2
         public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.Current current = null);
+
+        public abstract void shutdown(global::Ice.Current current = null);
+
+        public abstract bool supportsCompress(global::Ice.Current current = null);
+
+        public abstract void opVoid(global::Ice.Current current = null);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
+
+        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current = null);
 
