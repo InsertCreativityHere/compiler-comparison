@@ -50,16 +50,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D3() : base()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D3(string sb, B pb, string sd3, B pd3) : base(sb, pb)
         {
             this.sd3 = sd3;
             this.pd3 = pd3;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public D3()
+        {
             ice_initialize();
         }
 
@@ -129,15 +129,15 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PCUnknown() : base()
+        public PCUnknown(int pi, string pu) : base(pi)
         {
+            this.pu = pu;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PCUnknown(int pi, string pu) : base(pi)
+        public PCUnknown()
         {
-            this.pu = pu;
             ice_initialize();
         }
 
@@ -205,15 +205,24 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PCDerived() : base()
+        public PCDerived(int pi, string ps, PBase pb, PBase[] pbs) : base(pi, ps, pb)
         {
+            this.pbs = pbs;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PCDerived(int pi, string ps, PBase pb, PBase[] pbs) : base(pi, ps, pb)
+        public PCDerived(PBase[] pbs)
         {
             this.pbs = pbs;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public PCDerived()
+        {
+            this.pbs = null;
             ice_initialize();
         }
 
@@ -281,15 +290,22 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PCDerived2() : base()
+        public PCDerived2(int pi, string ps, PBase pb, PBase[] pbs, int pcd2) : base(pi, ps, pb, pbs)
+        {
+            this.pcd2 = pcd2;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public PCDerived2(PBase[] pbs) : base(pbs)
         {
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PCDerived2(int pi, string ps, PBase pb, PBase[] pbs, int pcd2) : base(pi, ps, pb, pbs)
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public PCDerived2()
         {
-            this.pcd2 = pcd2;
             ice_initialize();
         }
 
@@ -357,15 +373,22 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PCDerived3() : base()
+        public PCDerived3(int pi, string ps, PBase pb, PBase[] pbs, int pcd2, global::Ice.Value pcd3) : base(pi, ps, pb, pbs, pcd2)
+        {
+            this.pcd3 = pcd3;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public PCDerived3(PBase[] pbs) : base(pbs)
         {
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PCDerived3(int pi, string ps, PBase pb, PBase[] pbs, int pcd2, global::Ice.Value pcd3) : base(pi, ps, pb, pbs, pcd2)
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public PCDerived3()
         {
-            this.pcd3 = pcd3;
             ice_initialize();
         }
 
@@ -434,15 +457,24 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CompactPCDerived() : base()
+        public CompactPCDerived(int pi, string ps, PBase pb, PBase[] pbs) : base(pi, ps, pb)
         {
+            this.pbs = pbs;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CompactPCDerived(int pi, string ps, PBase pb, PBase[] pbs) : base(pi, ps, pb)
+        public CompactPCDerived(PBase[] pbs)
         {
             this.pbs = pbs;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public CompactPCDerived()
+        {
+            this.pbs = null;
             ice_initialize();
         }
 

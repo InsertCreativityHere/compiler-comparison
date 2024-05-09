@@ -55,6 +55,14 @@ namespace IceStormElection
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public LogUpdate(global::Ice.InputStream istr)
+        {
+            this.generation = istr.readLong();
+            this.iteration = istr.readLong();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -67,25 +75,13 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.generation = istr.readLong();
-            this.iteration = istr.readLong();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, LogUpdate v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static LogUpdate ice_read(global::Ice.InputStream istr)
-        {
-            var v = new LogUpdate();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static LogUpdate ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }

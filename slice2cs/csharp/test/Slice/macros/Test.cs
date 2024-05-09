@@ -50,16 +50,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Default()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @Default(int x, int y)
         {
             this.x = x;
             this.y = y;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public @Default()
+        {
             ice_initialize();
         }
 
@@ -130,16 +130,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoDefault()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NoDefault(int x, int y)
         {
             this.x = x;
             this.y = y;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public NoDefault()
+        {
             ice_initialize();
         }
 
@@ -210,16 +210,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CsOnly()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CsOnly(string lang, int version)
         {
             this.lang = lang;
             this.version = version;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public CsOnly()
+        {
             ice_initialize();
         }
 

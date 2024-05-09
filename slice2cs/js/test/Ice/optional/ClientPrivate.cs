@@ -311,7 +311,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             A iceP_p = default;
-            global::Ice.Value iceP_o = global::Ice.Util.None;
+            global::Ice.Value iceP_o = default;
             istr.readValue((A v) => {iceP_p = v; });
             istr.readValue(1, (global::Ice.Value v) => {iceP_o = v; });
             istr.readPendingValues();
@@ -326,8 +326,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int? iceP_a;
-            string iceP_v;
+            int? iceP_a = default;
+            string iceP_v = default;
             iceP_a = istr.readInt(1);
             iceP_v = istr.readString(2);
             inS.endReadParams();

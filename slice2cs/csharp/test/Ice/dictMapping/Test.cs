@@ -47,19 +47,21 @@ namespace Ice.dictMapping
 
             partial void ice_initialize();
 
-            #region Constructors
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TEstNv()
-            {
-                ice_initialize();
-            }
+            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public TEstNv(global::System.Collections.Generic.Dictionary<int, int> d, int[] s)
             {
                 this.d = d;
                 this.s = s;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public TEstNv(global::Ice.InputStream istr)
+            {
+                this.d = NVHelper.read(istr);
+                this.s = IntSeqHelper.read(istr);
                 ice_initialize();
             }
 
@@ -120,34 +122,13 @@ namespace Ice.dictMapping
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.d = NVHelper.read(istr);
-                this.s = IntSeqHelper.read(istr);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, TEstNv v)
             {
-                if (v is null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
+                v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static TEstNv ice_read(global::Ice.InputStream istr)
-            {
-                var v = new TEstNv();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly TEstNv _nullMarshalValue = new TEstNv();
+            public static TEstNv ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }

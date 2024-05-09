@@ -50,31 +50,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ParseException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ParseException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public ParseException(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ParseException(string reason)
+        public ParseException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ParseException(string reason, global::System.Exception ex) : base(ex)
+        public ParseException()
         {
-            _initDM(reason);
         }
 
         #endregion
@@ -262,7 +250,7 @@ namespace IceGrid
                 read: (global::Ice.InputStream istr) =>
                 {
                     ApplicationDescriptor ret = default;
-                    ret = ApplicationDescriptor.ice_read(istr);
+                    ret = new ApplicationDescriptor(istr);
                     istr.readPendingValues();
                     return ret;
                 });

@@ -722,7 +722,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             global::Ice.Identity iceP_reply = default;
-            iceP_reply = global::Ice.Identity.ice_read(istr);
+            iceP_reply = new global::Ice.Identity(istr);
             inS.endReadParams();
             obj.pingBiDir(iceP_reply, current);
             return inS.setResult(inS.writeEmptyParams());

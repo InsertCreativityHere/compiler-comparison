@@ -55,6 +55,14 @@ namespace Ice
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public ProtocolVersion(InputStream istr)
+        {
+            this.major = istr.readByte();
+            this.minor = istr.readByte();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -67,25 +75,13 @@ namespace Ice
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(InputStream istr)
-        {
-            this.major = istr.readByte();
-            this.minor = istr.readByte();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(OutputStream ostr, ProtocolVersion v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ProtocolVersion ice_read(InputStream istr)
-        {
-            var v = new ProtocolVersion();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static ProtocolVersion ice_read(InputStream istr) => new(istr);
 
         #endregion
     }
@@ -124,6 +120,14 @@ namespace Ice
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public EncodingVersion(InputStream istr)
+        {
+            this.major = istr.readByte();
+            this.minor = istr.readByte();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -136,25 +140,13 @@ namespace Ice
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(InputStream istr)
-        {
-            this.major = istr.readByte();
-            this.minor = istr.readByte();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(OutputStream ostr, EncodingVersion v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static EncodingVersion ice_read(InputStream istr)
-        {
-            var v = new EncodingVersion();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static EncodingVersion ice_read(InputStream istr) => new(istr);
 
         #endregion
     }

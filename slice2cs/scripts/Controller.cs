@@ -67,12 +67,6 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Config()
-            {
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Config(string protocol, bool? mx, bool? serialize, bool? compress, bool? ipv6, string[] cprops, string[] sprops)
             {
                 this.protocol = protocol;
@@ -82,6 +76,12 @@ namespace Test
                 this.ipv6 = ipv6;
                 this.cprops = cprops;
                 this.sprops = sprops;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public Config()
+            {
                 ice_initialize();
             }
 
@@ -191,12 +191,6 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public OptionOverrides()
-            {
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public OptionOverrides(string[] protocol, bool[] mx, bool[] serialize, bool[] compress, bool[] ipv6)
             {
                 this.protocol = protocol;
@@ -204,6 +198,12 @@ namespace Test
                 this.serialize = serialize;
                 this.compress = compress;
                 this.ipv6 = ipv6;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public OptionOverrides()
+            {
                 ice_initialize();
             }
 
@@ -322,31 +322,19 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestCaseNotExistException()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestCaseNotExistException(global::System.Exception ex) : base(ex)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM(string reason)
+            public TestCaseNotExistException(string reason, global::System.Exception innerException = null) : base(innerException)
             {
                 this.reason = reason;
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestCaseNotExistException(string reason)
+            public TestCaseNotExistException(global::System.Exception innerException) : base(innerException)
             {
-                _initDM(reason);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestCaseNotExistException(string reason, global::System.Exception ex) : base(ex)
+            public TestCaseNotExistException()
             {
-                _initDM(reason);
             }
 
             #endregion
@@ -403,31 +391,19 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestCaseFailedException()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestCaseFailedException(global::System.Exception ex) : base(ex)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM(string output)
+            public TestCaseFailedException(string output, global::System.Exception innerException = null) : base(innerException)
             {
                 this.output = output;
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestCaseFailedException(string output)
+            public TestCaseFailedException(global::System.Exception innerException) : base(innerException)
             {
-                _initDM(output);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestCaseFailedException(string output, global::System.Exception ex) : base(ex)
+            public TestCaseFailedException()
             {
-                _initDM(output);
             }
 
             #endregion
@@ -514,31 +490,19 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ProcessFailedException()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ProcessFailedException(global::System.Exception ex) : base(ex)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM(string reason)
+            public ProcessFailedException(string reason, global::System.Exception innerException = null) : base(innerException)
             {
                 this.reason = reason;
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ProcessFailedException(string reason)
+            public ProcessFailedException(global::System.Exception innerException) : base(innerException)
             {
-                _initDM(reason);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ProcessFailedException(string reason, global::System.Exception ex) : base(ex)
+            public ProcessFailedException()
             {
-                _initDM(reason);
             }
 
             #endregion

@@ -104,12 +104,6 @@ namespace Clash
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Cls()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Cls(IntfPrx s, string context, int current, short response, string upCast, int typeId, short del, short? cookie, string ex, int result, string istr, string ostr, string inS, string @in, string proxy)
         {
             this.s = s;
@@ -127,6 +121,12 @@ namespace Clash
             this.inS = inS;
             this.@in = @in;
             this.proxy = proxy;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public Cls()
+        {
             ice_initialize();
         }
 
@@ -224,7 +224,7 @@ namespace Clash
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public St()
@@ -239,6 +239,16 @@ namespace Clash
             this.istr = istr;
             this.ostr = ostr;
             this.rhs = rhs;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public St(global::Ice.InputStream istr)
+        {
+            this.v = istr.readString();
+            this.istr = istr.readShort();
+            this.ostr = istr.readInt();
+            this.rhs = istr.readInt();
             ice_initialize();
         }
 
@@ -305,36 +315,13 @@ namespace Clash
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.v = istr.readString();
-            this.istr = istr.readShort();
-            this.ostr = istr.readInt();
-            this.rhs = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, St v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static St ice_read(global::Ice.InputStream istr)
-        {
-            var v = new St();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly St _nullMarshalValue = new St();
+        public static St ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -367,32 +354,20 @@ namespace Clash
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Ex()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Ex(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(short istr, int ostr)
+        public Ex(short istr, int ostr, global::System.Exception innerException = null) : base(innerException)
         {
             this.istr = istr;
             this.ostr = ostr;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Ex(short istr, int ostr)
+        public Ex(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(istr, ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Ex(short istr, int ostr, global::System.Exception ex) : base(ex)
+        public Ex()
         {
-            _initDM(istr, ostr);
         }
 
         #endregion
@@ -1306,7 +1281,7 @@ namespace Clash
             string iceP_result = default;
             string iceP_istr = default;
             string iceP_ostr = default;
-            string iceP_proxy;
+            string iceP_proxy = default;
             iceP_context = istr.readString();
             iceP_current = istr.readString();
             iceP_response = istr.readString();

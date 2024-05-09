@@ -39,12 +39,12 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TestIntfUserException()
+        public TestIntfUserException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TestIntfUserException(global::System.Exception ex) : base(ex)
+        public TestIntfUserException()
         {
         }
 
@@ -93,12 +93,12 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TestImpossibleException()
+        public TestImpossibleException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TestImpossibleException(global::System.Exception ex) : base(ex)
+        public TestImpossibleException()
         {
         }
 
@@ -692,11 +692,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(TestImpossibleException)
+                    catch(TestIntfUserException)
                     {
                         throw;
                     }
-                    catch(TestIntfUserException)
+                    catch(TestImpossibleException)
                     {
                         throw;
                     }
@@ -742,11 +742,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(TestImpossibleException)
+                    catch(TestIntfUserException)
                     {
                         throw;
                     }
-                    catch(TestIntfUserException)
+                    catch(TestImpossibleException)
                     {
                         throw;
                     }
@@ -786,11 +786,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(TestImpossibleException)
+                    catch(TestIntfUserException)
                     {
                         throw;
                     }
-                    catch(TestIntfUserException)
+                    catch(TestImpossibleException)
                     {
                         throw;
                     }

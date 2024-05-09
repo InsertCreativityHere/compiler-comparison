@@ -49,19 +49,21 @@ namespace IceStorm
 
         partial void ice_initialize();
 
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllData()
-        {
-            ice_initialize();
-        }
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AllData(global::System.Collections.Generic.Dictionary<string, global::IceStormElection.LogUpdate> llus, global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> subscribers)
         {
             this.llus = llus;
             this.subscribers = subscribers;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public AllData(global::Ice.InputStream istr)
+        {
+            this.llus = global::IceStormElection.StringLogUpdateDictHelper.read(istr);
+            this.subscribers = SubscriberRecordDictHelper.read(istr);
             ice_initialize();
         }
 
@@ -122,34 +124,13 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.llus = global::IceStormElection.StringLogUpdateDictHelper.read(istr);
-            this.subscribers = SubscriberRecordDictHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, AllData v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static AllData ice_read(global::Ice.InputStream istr)
-        {
-            var v = new AllData();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly AllData _nullMarshalValue = new AllData();
+        public static AllData ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -187,7 +168,7 @@ namespace IceStormElection
                 string k = default;
                 k = istr.readString();
                 LogUpdate v = default;
-                v.ice_readMembers(istr);
+                v = new LogUpdate(istr);
                 r[k] = v;
             }
             return r;
@@ -225,9 +206,9 @@ namespace IceStorm
             for(int i = 0; i < sz; ++i)
             {
                 SubscriberRecordKey k = default;
-                k = SubscriberRecordKey.ice_read(istr);
+                k = new SubscriberRecordKey(istr);
                 SubscriberRecord v = default;
-                v = SubscriberRecord.ice_read(istr);
+                v = new SubscriberRecord(istr);
                 r[k] = v;
             }
             return r;

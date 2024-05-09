@@ -134,6 +134,13 @@ namespace Test
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public S(global::Ice.InputStream istr)
+        {
+            this.en = (E)istr.readEnum(2);
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -145,24 +152,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.en = (E)istr.readEnum(2);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S ice_read(global::Ice.InputStream istr)
-        {
-            var v = new S();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static S ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -974,7 +970,7 @@ namespace Test
                 v = new S[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new S(istr);
                 }
             }
             return v;
@@ -4344,7 +4340,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            C[] iceP_inSeq;
+            C[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -4382,7 +4378,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            C[] iceP_inSeq;
+            C[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -4420,7 +4416,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            C[] iceP_inSeq;
+            C[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -4458,7 +4454,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool[] iceP_inSeq;
+            bool[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 bool[] tmpVal;
@@ -4485,7 +4481,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_inSeq;
+            byte[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 byte[] tmpVal;
@@ -4512,7 +4508,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            short[] iceP_inSeq;
+            short[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -4540,7 +4536,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int[] iceP_inSeq;
+            int[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -4568,7 +4564,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            long[] iceP_inSeq;
+            long[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -4596,7 +4592,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            float[] iceP_inSeq;
+            float[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -4624,7 +4620,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            double[] iceP_inSeq;
+            double[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -4652,7 +4648,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_inSeq;
+            string[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -4680,7 +4676,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            E[] iceP_inSeq;
+            E[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -4718,7 +4714,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            S[] iceP_inSeq;
+            S[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -4756,7 +4752,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<int, string>[] iceP_inSeq;
+            global::System.Collections.Generic.Dictionary<int, string>[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -4794,7 +4790,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[][] iceP_inSeq;
+            string[][] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -4832,7 +4828,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_inSeq;
+            byte[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 byte[] tmpVal;
@@ -4859,7 +4855,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            short[] iceP_inSeq;
+            short[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -4887,7 +4883,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int[] iceP_inSeq;
+            int[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -4915,7 +4911,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            long[] iceP_inSeq;
+            long[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -4943,7 +4939,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            float[] iceP_inSeq;
+            float[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -4971,7 +4967,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            double[] iceP_inSeq;
+            double[] iceP_inSeq = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();

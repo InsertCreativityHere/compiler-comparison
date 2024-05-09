@@ -53,6 +53,13 @@ namespace Ice.seqMapping.AMD
                 ice_initialize();
             }
 
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public S(global::Ice.InputStream istr)
+            {
+                this.i = istr.readInt();
+                ice_initialize();
+            }
+
             #endregion
 
             #region Marshaling support
@@ -64,24 +71,13 @@ namespace Ice.seqMapping.AMD
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.i = istr.readInt();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, S v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static S ice_read(global::Ice.InputStream istr)
-            {
-                var v = new S();
-                v.ice_readMembers(istr);
-                return v;
-            }
+            public static S ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -107,7 +103,7 @@ namespace Ice.seqMapping.AMD
 
             partial void ice_initialize();
 
-            #region Constructors
+            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public SD()
@@ -119,6 +115,13 @@ namespace Ice.seqMapping.AMD
             public SD(int i)
             {
                 this.i = i;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public SD(global::Ice.InputStream istr)
+            {
+                this.i = istr.readInt();
                 ice_initialize();
             }
 
@@ -176,33 +179,13 @@ namespace Ice.seqMapping.AMD
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.i = istr.readInt();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, SD v)
             {
-                if (v is null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
+                v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static SD ice_read(global::Ice.InputStream istr)
-            {
-                var v = new SD();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly SD _nullMarshalValue = new SD();
+            public static SD ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -233,15 +216,15 @@ namespace Ice.seqMapping.AMD
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public CV()
+            public CV(int i)
             {
+                this.i = i;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public CV(int i)
+            public CV()
             {
-                this.i = i;
                 ice_initialize();
             }
 
@@ -322,15 +305,15 @@ namespace Ice.seqMapping.AMD
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public CR()
+            public CR(CV v)
             {
+                this.v = v;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public CR(CV v)
+            public CR()
             {
-                this.v = v;
                 ice_initialize();
             }
 
@@ -2036,7 +2019,7 @@ namespace Ice.seqMapping.AMD
                     v = new S[szx];
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        v[ix].ice_readMembers(istr);
+                        v[ix] = new S(istr);
                     }
                 }
                 return v;
@@ -2070,8 +2053,7 @@ namespace Ice.seqMapping.AMD
                     v = new global::System.Collections.Generic.List<S>(szx);
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        S val = new S();
-                        val.ice_readMembers(istr);
+                        S val = new S(istr);
                         v.Add(val);
                     }
                 }
@@ -2107,8 +2089,7 @@ namespace Ice.seqMapping.AMD
                     v = new global::System.Collections.Generic.LinkedList<S>();
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        S val = new S();
-                        val.ice_readMembers(istr);
+                        S val = new S(istr);
                         v.AddLast(val);
                     }
                 }
@@ -2144,8 +2125,7 @@ namespace Ice.seqMapping.AMD
                     v = new global::System.Collections.Generic.Queue<S>(szx);
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        S val = new S();
-                        val.ice_readMembers(istr);
+                        S val = new S(istr);
                         v.Enqueue(val);
                     }
                 }
@@ -2181,7 +2161,7 @@ namespace Ice.seqMapping.AMD
                     S[] v_tmp = new S[szx];
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        v_tmp[ix].ice_readMembers(istr);
+                        v_tmp[ix] = new S(istr);
                     }
                     global::System.Array.Reverse(v_tmp);
                     v = new global::System.Collections.Generic.Stack<S>(v_tmp);
@@ -2204,7 +2184,7 @@ namespace Ice.seqMapping.AMD
                     ostr.writeSize(v.Length);
                     for(int ix = 0; ix < v.Length; ++ix)
                     {
-                        (v[ix] == null ? new SD() : v[ix]).ice_writeMembers(ostr);
+                        v[ix].ice_writeMembers(ostr);
                     }
                 }
             }
@@ -2217,8 +2197,7 @@ namespace Ice.seqMapping.AMD
                     v = new SD[szx];
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        v[ix] = new SD();
-                        v[ix].ice_readMembers(istr);
+                        v[ix] = new SD(istr);
                     }
                 }
                 return v;
@@ -2239,7 +2218,7 @@ namespace Ice.seqMapping.AMD
                     ostr.writeSize(v.Count);
                     for(int ix = 0; ix < v.Count; ++ix)
                     {
-                        (v[ix] == null ? new SD() : v[ix]).ice_writeMembers(ostr);
+                        v[ix].ice_writeMembers(ostr);
                     }
                 }
             }
@@ -2252,8 +2231,7 @@ namespace Ice.seqMapping.AMD
                     v = new global::System.Collections.Generic.List<SD>(szx);
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        SD val = new SD();
-                        val.ice_readMembers(istr);
+                        SD val = new SD(istr);
                         v.Add(val);
                     }
                 }
@@ -2289,8 +2267,7 @@ namespace Ice.seqMapping.AMD
                     v = new global::System.Collections.Generic.LinkedList<SD>();
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        SD val = new SD();
-                        val.ice_readMembers(istr);
+                        SD val = new SD(istr);
                         v.AddLast(val);
                     }
                 }
@@ -2326,8 +2303,7 @@ namespace Ice.seqMapping.AMD
                     v = new global::System.Collections.Generic.Queue<SD>(szx);
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        SD val = new SD();
-                        val.ice_readMembers(istr);
+                        SD val = new SD(istr);
                         v.Enqueue(val);
                     }
                 }
@@ -2350,7 +2326,7 @@ namespace Ice.seqMapping.AMD
                     SD[] v_tmp = v.ToArray();
                     for(int ix = 0; ix < v_tmp.Length; ++ix)
                     {
-                        (v_tmp[ix] == null ? new SD() : v_tmp[ix]).ice_writeMembers(ostr);
+                        v_tmp[ix].ice_writeMembers(ostr);
                     }
                 }
             }
@@ -2363,8 +2339,7 @@ namespace Ice.seqMapping.AMD
                     SD[] v_tmp = new SD[szx];
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        v_tmp[ix] = new SD();
-                        v_tmp[ix].ice_readMembers(istr);
+                        v_tmp[ix] = new SD(istr);
                     }
                     global::System.Array.Reverse(v_tmp);
                     v = new global::System.Collections.Generic.Stack<SD>(v_tmp);

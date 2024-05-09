@@ -59,6 +59,15 @@ namespace Test
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public PointF(global::Ice.InputStream istr)
+        {
+            this.x = istr.readFloat();
+            this.y = istr.readFloat();
+            this.z = istr.readFloat();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -72,26 +81,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.x = istr.readFloat();
-            this.y = istr.readFloat();
-            this.z = istr.readFloat();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, PointF v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static PointF ice_read(global::Ice.InputStream istr)
-        {
-            var v = new PointF();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static PointF ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -134,6 +130,15 @@ namespace Test
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public PointD(global::Ice.InputStream istr)
+        {
+            this.x = istr.readDouble();
+            this.y = istr.readDouble();
+            this.z = istr.readDouble();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -147,26 +152,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.x = istr.readDouble();
-            this.y = istr.readDouble();
-            this.z = istr.readDouble();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, PointD v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static PointD ice_read(global::Ice.InputStream istr)
-        {
-            var v = new PointD();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static PointD ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -205,6 +197,14 @@ namespace Test
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public Point(global::Ice.InputStream istr)
+        {
+            this.x = istr.readInt();
+            this.y = istr.readInt();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -217,25 +217,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.x = istr.readInt();
-            this.y = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Point v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static Point ice_read(global::Ice.InputStream istr)
-        {
-            var v = new Point();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static Point ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -261,18 +249,19 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Polyline()
-        {
-            ice_initialize();
-        }
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Polyline(Point[] vertices)
         {
             this.vertices = vertices;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public Polyline(global::Ice.InputStream istr)
+        {
+            this.vertices = PointsHelper.read(istr);
             ice_initialize();
         }
 
@@ -330,33 +319,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.vertices = PointsHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Polyline v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static Polyline ice_read(global::Ice.InputStream istr)
-        {
-            var v = new Polyline();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly Polyline _nullMarshalValue = new Polyline();
+        public static Polyline ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -403,6 +372,16 @@ namespace Test
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public Color(global::Ice.InputStream istr)
+        {
+            this.r = istr.readInt();
+            this.g = istr.readInt();
+            this.b = istr.readInt();
+            this.a = istr.readInt();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -417,27 +396,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.r = istr.readInt();
-            this.g = istr.readInt();
-            this.b = istr.readInt();
-            this.a = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Color v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static Color ice_read(global::Ice.InputStream istr)
-        {
-            var v = new Color();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static Color ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -463,18 +428,19 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ColorPalette()
-        {
-            ice_initialize();
-        }
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ColorPalette(global::System.Collections.Generic.Dictionary<int, Color> colors)
         {
             this.colors = colors;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public ColorPalette(global::Ice.InputStream istr)
+        {
+            this.colors = StringColorMapHelper.read(istr);
             ice_initialize();
         }
 
@@ -532,33 +498,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.colors = StringColorMapHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ColorPalette v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ColorPalette ice_read(global::Ice.InputStream istr)
-        {
-            var v = new ColorPalette();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly ColorPalette _nullMarshalValue = new ColorPalette();
+        public static ColorPalette ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -592,16 +538,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Pen()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Pen(int thickness, Color color)
         {
             this.thickness = thickness;
             this.color = color;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public Pen()
+        {
             ice_initialize();
         }
 
@@ -636,7 +582,7 @@ namespace Test
         {
             istr_.startSlice();
             thickness = istr_.readInt();
-            color.ice_readMembers(istr_);
+            color = new Color(istr_);
             istr_.endSlice();
         }
 
@@ -670,7 +616,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Draw()
@@ -684,6 +630,15 @@ namespace Test
             this.backgroundColor = backgroundColor;
             this.pen = pen;
             this.shared = shared;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public Draw(global::Ice.InputStream istr)
+        {
+            this.backgroundColor = new Color(istr);
+            istr.readValue((Pen v) => { this.pen = v; });
+            this.shared = istr.readBool();
             ice_initialize();
         }
 
@@ -747,35 +702,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.backgroundColor.ice_readMembers(istr);
-            istr.readValue((Pen v) => { this.pen = v; });
-            this.shared = istr.readBool();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Draw v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static Draw ice_read(global::Ice.InputStream istr)
-        {
-            var v = new Draw();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly Draw _nullMarshalValue = new Draw();
+        public static Draw ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -810,7 +743,7 @@ namespace Test
                 v = new Point[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new Point(istr);
                 }
             }
             return v;
@@ -847,7 +780,7 @@ namespace Test
                 int k = default;
                 k = istr.readInt();
                 Color v = default;
-                v.ice_readMembers(istr);
+                v = new Color(istr);
                 r[k] = v;
             }
             return r;

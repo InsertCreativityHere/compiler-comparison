@@ -44,12 +44,12 @@ namespace Glacier2
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SessionNotExistException()
+        public SessionNotExistException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SessionNotExistException(global::System.Exception ex) : base(ex)
+        public SessionNotExistException()
         {
         }
 

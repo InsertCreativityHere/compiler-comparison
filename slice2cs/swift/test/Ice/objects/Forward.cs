@@ -47,15 +47,15 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public F1()
+        public F1(string name)
         {
+            this.name = name;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public F1(string name)
+        public F1()
         {
-            this.name = name;
             ice_initialize();
         }
 

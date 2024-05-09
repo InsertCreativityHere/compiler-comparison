@@ -46,31 +46,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Base()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Base(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string b)
+        public @Base(string b, global::System.Exception innerException = null) : base(innerException)
         {
             this.b = b;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Base(string b)
+        public @Base(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(b);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Base(string b, global::System.Exception ex) : base(ex)
+        public @Base()
         {
-            _initDM(b);
         }
 
         #endregion
@@ -127,31 +115,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownDerived()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownDerived(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string kd)
+        public KnownDerived(string b, string kd, global::System.Exception innerException = null) : base(b, innerException)
         {
             this.kd = kd;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownDerived(string b, string kd) : base(b)
+        public KnownDerived(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(kd);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownDerived(string b, string kd, global::System.Exception ex) : base(b, ex)
+        public KnownDerived()
         {
-            _initDM(kd);
         }
 
         #endregion
@@ -210,31 +186,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownIntermediate()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownIntermediate(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string ki)
+        public KnownIntermediate(string b, string ki, global::System.Exception innerException = null) : base(b, innerException)
         {
             this.ki = ki;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownIntermediate(string b, string ki) : base(b)
+        public KnownIntermediate(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(ki);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownIntermediate(string b, string ki, global::System.Exception ex) : base(b, ex)
+        public KnownIntermediate()
         {
-            _initDM(ki);
         }
 
         #endregion
@@ -293,31 +257,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownMostDerived()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownMostDerived(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string kmd)
+        public KnownMostDerived(string b, string ki, string kmd, global::System.Exception innerException = null) : base(b, ki, innerException)
         {
             this.kmd = kmd;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownMostDerived(string b, string ki, string kmd) : base(b, ki)
+        public KnownMostDerived(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(kmd);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownMostDerived(string b, string ki, string kmd, global::System.Exception ex) : base(b, ki, ex)
+        public KnownMostDerived()
         {
-            _initDM(kmd);
         }
 
         #endregion

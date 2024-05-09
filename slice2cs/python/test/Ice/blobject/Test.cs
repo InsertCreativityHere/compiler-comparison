@@ -39,12 +39,12 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UE()
+        public UE(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UE(global::System.Exception ex) : base(ex)
+        public UE()
         {
         }
 

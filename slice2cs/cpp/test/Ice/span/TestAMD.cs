@@ -785,7 +785,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_dataIn;
+            byte[] iceP_dataIn = default;
             if (istr.readOptional(1, global::Ice.OptionalFormat.VSize))
             {
                 byte[] tmpVal;
@@ -811,7 +811,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            short[] iceP_dataIn;
+            short[] iceP_dataIn = default;
             if (istr.readOptional(1, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -838,7 +838,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_dataIn;
+            string[] iceP_dataIn = default;
             if (istr.readOptional(1, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);

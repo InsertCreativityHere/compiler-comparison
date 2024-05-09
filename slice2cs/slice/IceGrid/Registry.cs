@@ -1814,7 +1814,7 @@ namespace IceGrid
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
             global::Ice.Identity iceP_id = default;
-            iceP_id = global::Ice.Identity.ice_read(istr);
+            iceP_id = new global::Ice.Identity(istr);
             inS.endReadParams();
             var ret = obj.findObjectById(iceP_id, current);
             var ostr = inS.startWriteParams();
@@ -2186,11 +2186,11 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
+        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findAdapterByIdAsync(string id, global::Ice.Current current = null);
+
         public abstract global::Ice.LocatorRegistryPrx getRegistry(global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findAdapterByIdAsync(string id, global::Ice.Current current = null);
 
         #endregion
 

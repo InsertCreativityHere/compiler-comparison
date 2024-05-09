@@ -47,15 +47,15 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C()
+        public C(int i)
         {
+            this.i = i;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C(int i)
+        public C()
         {
-            this.i = i;
             ice_initialize();
         }
 
@@ -116,7 +116,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1()
@@ -128,6 +128,13 @@ namespace Test
         public S1(string name)
         {
             this.name = name;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public S1(global::Ice.InputStream istr)
+        {
+            this.name = istr.readString();
             ice_initialize();
         }
 
@@ -185,33 +192,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.name = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S1 v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S1 ice_read(global::Ice.InputStream istr)
-        {
-            var v = new S1();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly S1 _nullMarshalValue = new S1();
+        public static S1 ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -276,12 +263,15 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S2()
+        public S2(string[] ss, global::System.Collections.Generic.List<int> il, global::System.Collections.Generic.Dictionary<string, string> sd, S1 s)
         {
-            this.s = new();
+            this.ss = ss;
+            this.il = il;
+            this.sd = sd;
+            this.s = s;
             ice_initialize();
         }
 
@@ -302,6 +292,26 @@ namespace Test
             this.s = s;
             this.cls = cls;
             this.prx = prx;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public S2(global::Ice.InputStream istr)
+        {
+            this.bo = istr.readBool();
+            this.by = istr.readByte();
+            this.sh = istr.readShort();
+            this.i = istr.readInt();
+            this.l = istr.readLong();
+            this.f = istr.readFloat();
+            this.d = istr.readDouble();
+            this.str = istr.readString();
+            this.ss = StringSeqHelper.read(istr);
+            this.il = IntListHelper.read(istr);
+            this.sd = StringDictHelper.read(istr);
+            this.s = new S1(istr);
+            istr.readValue((C v) => { this.cls = v; });
+            this.prx = istr.readProxy();
             ice_initialize();
         }
 
@@ -398,46 +408,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.bo = istr.readBool();
-            this.by = istr.readByte();
-            this.sh = istr.readShort();
-            this.i = istr.readInt();
-            this.l = istr.readLong();
-            this.f = istr.readFloat();
-            this.d = istr.readDouble();
-            this.str = istr.readString();
-            this.ss = StringSeqHelper.read(istr);
-            this.il = IntListHelper.read(istr);
-            this.sd = StringDictHelper.read(istr);
-            this.s = S1.ice_read(istr);
-            istr.readValue((C v) => { this.cls = v; });
-            this.prx = istr.readProxy();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S2 v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S2 ice_read(global::Ice.InputStream istr)
-        {
-            var v = new S2();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly S2 _nullMarshalValue = new S2();
+        public static S2 ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }

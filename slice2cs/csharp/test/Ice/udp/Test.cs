@@ -736,7 +736,7 @@ namespace Ice.udp
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
                 global::Ice.Identity iceP_id = default;
-                iceP_id = global::Ice.Identity.ice_read(istr);
+                iceP_id = new global::Ice.Identity(istr);
                 inS.endReadParams();
                 obj.pingBiDir(iceP_id, current);
                 return inS.setResult(inS.writeEmptyParams());

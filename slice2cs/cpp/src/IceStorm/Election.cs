@@ -45,20 +45,21 @@ namespace IceStormElection
 
         partial void ice_initialize();
 
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TopicContent()
-        {
-            this.id = new();
-            ice_initialize();
-        }
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TopicContent(global::Ice.Identity id, global::IceStorm.SubscriberRecord[] records)
         {
             this.id = id;
             this.records = records;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public TopicContent(global::Ice.InputStream istr)
+        {
+            this.id = new global::Ice.Identity(istr);
+            this.records = global::IceStorm.SubscriberRecordSeqHelper.read(istr);
             ice_initialize();
         }
 
@@ -119,34 +120,13 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.id = global::Ice.Identity.ice_read(istr);
-            this.records = global::IceStorm.SubscriberRecordSeqHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, TopicContent v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static TopicContent ice_read(global::Ice.InputStream istr)
-        {
-            var v = new TopicContent();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly TopicContent _nullMarshalValue = new TopicContent();
+        public static TopicContent ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -180,31 +160,19 @@ namespace IceStormElection
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObserverInconsistencyException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObserverInconsistencyException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public ObserverInconsistencyException(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObserverInconsistencyException(string reason)
+        public ObserverInconsistencyException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObserverInconsistencyException(string reason, global::System.Exception ex) : base(ex)
+        public ObserverInconsistencyException()
         {
-            _initDM(reason);
         }
 
         #endregion
@@ -336,7 +304,7 @@ namespace IceStormElection
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeInfo()
@@ -349,6 +317,14 @@ namespace IceStormElection
         {
             this.id = id;
             this.n = n;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public NodeInfo(global::Ice.InputStream istr)
+        {
+            this.id = istr.readInt();
+            this.n = NodePrxHelper.read(istr);
             ice_initialize();
         }
 
@@ -409,34 +385,13 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.id = istr.readInt();
-            this.n = NodePrxHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, NodeInfo v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static NodeInfo ice_read(global::Ice.InputStream istr)
-        {
-            var v = new NodeInfo();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly NodeInfo _nullMarshalValue = new NodeInfo();
+        public static NodeInfo ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -475,6 +430,14 @@ namespace IceStormElection
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public GroupInfo(global::Ice.InputStream istr)
+        {
+            this.id = istr.readInt();
+            this.llu = new LogUpdate(istr);
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -487,25 +450,13 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.id = istr.readInt();
-            this.llu.ice_readMembers(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, GroupInfo v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static GroupInfo ice_read(global::Ice.InputStream istr)
-        {
-            var v = new GroupInfo();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static GroupInfo ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -549,11 +500,12 @@ namespace IceStormElection
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public QueryInfo()
+        public QueryInfo(GroupInfo[] up)
         {
+            this.up = up;
             ice_initialize();
         }
 
@@ -567,6 +519,19 @@ namespace IceStormElection
             this.state = state;
             this.up = up;
             this.max = max;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public QueryInfo(global::Ice.InputStream istr)
+        {
+            this.id = istr.readInt();
+            this.coord = istr.readInt();
+            this.group = istr.readString();
+            this.replica = istr.readProxy();
+            this.state = (NodeState)istr.readEnum(3);
+            this.up = GroupInfoSeqHelper.read(istr);
+            this.max = istr.readInt();
             ice_initialize();
         }
 
@@ -642,39 +607,13 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.id = istr.readInt();
-            this.coord = istr.readInt();
-            this.group = istr.readString();
-            this.replica = istr.readProxy();
-            this.state = (NodeState)istr.readEnum(3);
-            this.up = GroupInfoSeqHelper.read(istr);
-            this.max = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, QueryInfo v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static QueryInfo ice_read(global::Ice.InputStream istr)
-        {
-            var v = new QueryInfo();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly QueryInfo _nullMarshalValue = new QueryInfo();
+        public static QueryInfo ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -1291,7 +1230,7 @@ namespace IceStormElection
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new TopicContent() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -1304,8 +1243,7 @@ namespace IceStormElection
                 v = new TopicContent[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new TopicContent();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new TopicContent(istr);
                 }
             }
             return v;
@@ -1759,7 +1697,7 @@ namespace IceStormElection
                 read: (global::Ice.InputStream istr) =>
                 {
                     TopicManagerSync_GetContentResult ret = new TopicManagerSync_GetContentResult();
-                    ret.llu.ice_readMembers(istr);
+                    ret.llu = new LogUpdate(istr);
                     ret.content = TopicContentSeqHelper.read(istr);
                     return ret;
                 });
@@ -1870,7 +1808,7 @@ namespace IceStormElection
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new NodeInfo() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -1883,8 +1821,7 @@ namespace IceStormElection
                 v = new NodeInfo[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new NodeInfo();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new NodeInfo(istr);
                 }
             }
             return v;
@@ -1918,7 +1855,7 @@ namespace IceStormElection
                 v = new GroupInfo[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new GroupInfo(istr);
                 }
             }
             return v;
@@ -2292,7 +2229,7 @@ namespace IceStormElection
                 read: (global::Ice.InputStream istr) =>
                 {
                     QueryInfo ret = default;
-                    ret = QueryInfo.ice_read(istr);
+                    ret = new QueryInfo(istr);
                     return ret;
                 });
         }
@@ -2449,7 +2386,7 @@ namespace IceStormElection
             var istr = inS.startReadParams();
             LogUpdate iceP_llu = default;
             TopicContent[] iceP_content = default;
-            iceP_llu.ice_readMembers(istr);
+            iceP_llu = new LogUpdate(istr);
             iceP_content = TopicContentSeqHelper.read(istr);
             inS.endReadParams();
             obj.init(iceP_llu, iceP_content, current);
@@ -2464,7 +2401,7 @@ namespace IceStormElection
             var istr = inS.startReadParams();
             LogUpdate iceP_llu = default;
             string iceP_name = default;
-            iceP_llu.ice_readMembers(istr);
+            iceP_llu = new LogUpdate(istr);
             iceP_name = istr.readString();
             inS.endReadParams();
             obj.createTopic(iceP_llu, iceP_name, current);
@@ -2479,7 +2416,7 @@ namespace IceStormElection
             var istr = inS.startReadParams();
             LogUpdate iceP_llu = default;
             string iceP_name = default;
-            iceP_llu.ice_readMembers(istr);
+            iceP_llu = new LogUpdate(istr);
             iceP_name = istr.readString();
             inS.endReadParams();
             obj.destroyTopic(iceP_llu, iceP_name, current);
@@ -2495,9 +2432,9 @@ namespace IceStormElection
             LogUpdate iceP_llu = default;
             string iceP_topic = default;
             global::IceStorm.SubscriberRecord iceP_record = default;
-            iceP_llu.ice_readMembers(istr);
+            iceP_llu = new LogUpdate(istr);
             iceP_topic = istr.readString();
-            iceP_record = global::IceStorm.SubscriberRecord.ice_read(istr);
+            iceP_record = new global::IceStorm.SubscriberRecord(istr);
             inS.endReadParams();
             obj.addSubscriber(iceP_llu, iceP_topic, iceP_record, current);
             return inS.setResult(inS.writeEmptyParams());
@@ -2512,7 +2449,7 @@ namespace IceStormElection
             LogUpdate iceP_llu = default;
             string iceP_topic = default;
             global::Ice.Identity[] iceP_subscribers = default;
-            iceP_llu.ice_readMembers(istr);
+            iceP_llu = new LogUpdate(istr);
             iceP_topic = istr.readString();
             iceP_subscribers = global::Ice.IdentitySeqHelper.read(istr);
             inS.endReadParams();
@@ -2804,7 +2741,7 @@ namespace IceStormElection
             iceP_gn = istr.readString();
             iceP_forwardedInvites = global::Ice.IntSeqHelper.read(istr);
             iceP_observer = istr.readProxy();
-            iceP_llu.ice_readMembers(istr);
+            iceP_llu = new LogUpdate(istr);
             iceP_max = istr.readInt();
             inS.endReadParams();
             obj.accept(iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, current);

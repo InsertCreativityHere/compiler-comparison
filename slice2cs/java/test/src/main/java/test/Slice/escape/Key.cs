@@ -74,6 +74,13 @@ namespace @abstract
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public @break(global::Ice.InputStream istr)
+        {
+            this.@case = istr.readInt();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -85,24 +92,13 @@ namespace @abstract
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.@case = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, @break v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static @break ice_read(global::Ice.InputStream istr)
-        {
-            var v = new @break();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static @break ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -169,17 +165,17 @@ namespace @abstract
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @else()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @else(int @if, defaultPrx ice_equals_, int final)
         {
             this.@if = @if;
             this.ice_equals_ = ice_equals_;
             this.final = final;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public @else()
+        {
             ice_initialize();
         }
 
@@ -263,31 +259,19 @@ namespace @abstract
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public hashCode()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public hashCode(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int @if)
+        public hashCode(int @if, global::System.Exception innerException = null) : base(innerException)
         {
             this.@if = @if;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public hashCode(int @if)
+        public hashCode(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(@if);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public hashCode(int @if, global::System.Exception ex) : base(ex)
+        public hashCode()
         {
-            _initDM(@if);
         }
 
         #endregion
@@ -347,32 +331,20 @@ namespace @abstract
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public import()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public import(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int instanceof, int native)
+        public import(int @if, int instanceof, int native, global::System.Exception innerException = null) : base(@if, innerException)
         {
             this.instanceof = instanceof;
             this.native = native;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public import(int @if, int instanceof, int native) : base(@if)
+        public import(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(instanceof, native);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public import(int @if, int instanceof, int native, global::System.Exception ex) : base(@if, ex)
+        public import()
         {
-            _initDM(instanceof, native);
         }
 
         #endregion
@@ -1659,7 +1631,7 @@ namespace @abstract
             int iceP_static = default;
             int iceP_strictfp = default;
             int iceP_super = default;
-            iceP_notifyAll.ice_readMembers(istr);
+            iceP_notifyAll = new @break(istr);
             istr.readValue((@else v) => {iceP_null = v; });
             iceP_package = finalizePrxHelper.read(istr);
             iceP_public = catchPrxHelper.read(istr);

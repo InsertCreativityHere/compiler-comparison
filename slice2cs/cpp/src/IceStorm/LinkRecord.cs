@@ -48,7 +48,7 @@ namespace IceStorm
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LinkRecord()
@@ -62,6 +62,15 @@ namespace IceStorm
             this.obj = obj;
             this.cost = cost;
             this.theTopic = theTopic;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public LinkRecord(global::Ice.InputStream istr)
+        {
+            this.obj = TopicLinkPrxHelper.read(istr);
+            this.cost = istr.readInt();
+            this.theTopic = TopicPrxHelper.read(istr);
             ice_initialize();
         }
 
@@ -125,35 +134,13 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.obj = TopicLinkPrxHelper.read(istr);
-            this.cost = istr.readInt();
-            this.theTopic = TopicPrxHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, LinkRecord v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static LinkRecord ice_read(global::Ice.InputStream istr)
-        {
-            var v = new LinkRecord();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly LinkRecord _nullMarshalValue = new LinkRecord();
+        public static LinkRecord ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }

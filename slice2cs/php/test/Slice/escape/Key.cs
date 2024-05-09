@@ -106,6 +106,21 @@ namespace and
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public xor(global::Ice.InputStream istr)
+        {
+            this.@abstract = istr.readInt();
+            this.clone = istr.readInt();
+            this.@private = istr.readInt();
+            this.@protected = istr.readInt();
+            this.@public = istr.readInt();
+            this.@this = istr.readInt();
+            this.@throw = istr.readInt();
+            this.use = istr.readInt();
+            this.var = istr.readInt();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -125,32 +140,13 @@ namespace and
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.@abstract = istr.readInt();
-            this.clone = istr.readInt();
-            this.@private = istr.readInt();
-            this.@protected = istr.readInt();
-            this.@public = istr.readInt();
-            this.@this = istr.readInt();
-            this.@throw = istr.readInt();
-            this.use = istr.readInt();
-            this.var = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, xor v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static xor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new xor();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static xor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -235,18 +231,18 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public echo()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public echo(int @if, int @else, diePrx elseif, int empty)
         {
             this.@if = @if;
             this.@else = @else;
             this.elseif = elseif;
             this.empty = empty;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public echo()
+        {
             ice_initialize();
         }
 
@@ -332,31 +328,19 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public endif()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public endif(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int endswitch)
+        public endif(int endswitch, global::System.Exception innerException = null) : base(innerException)
         {
             this.endswitch = endswitch;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public endif(int endswitch)
+        public endif(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(endswitch);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public endif(int endswitch, global::System.Exception ex) : base(ex)
+        public endif()
         {
-            _initDM(endswitch);
         }
 
         #endregion
@@ -416,32 +400,20 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public endwhile()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public endwhile(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int eval, int exit)
+        public endwhile(int endswitch, int eval, int exit, global::System.Exception innerException = null) : base(endswitch, innerException)
         {
             this.eval = eval;
             this.exit = exit;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public endwhile(int endswitch, int eval, int exit) : base(endswitch)
+        public endwhile(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(eval, exit);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public endwhile(int endswitch, int eval, int exit, global::System.Exception ex) : base(endswitch, ex)
+        public endwhile()
         {
-            _initDM(eval, exit);
         }
 
         #endregion

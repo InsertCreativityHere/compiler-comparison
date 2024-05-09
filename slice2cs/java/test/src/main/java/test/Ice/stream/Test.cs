@@ -100,11 +100,12 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SmallStruct()
+        public SmallStruct(byte[] ss)
         {
+            this.ss = ss;
             ice_initialize();
         }
 
@@ -123,6 +124,24 @@ namespace Test
             this.c = c;
             this.p = p;
             this.ss = ss;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public SmallStruct(global::Ice.InputStream istr)
+        {
+            this.bo = istr.readBool();
+            this.by = istr.readByte();
+            this.sh = istr.readShort();
+            this.i = istr.readInt();
+            this.l = istr.readLong();
+            this.f = istr.readFloat();
+            this.d = istr.readDouble();
+            this.str = istr.readString();
+            this.e = (MyEnum)istr.readEnum(2);
+            istr.readValue((MyClass v) => { this.c = v; });
+            this.p = MyInterfacePrxHelper.read(istr);
+            this.ss = SerialSmallHelper.read(istr);
             ice_initialize();
         }
 
@@ -213,44 +232,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.bo = istr.readBool();
-            this.by = istr.readByte();
-            this.sh = istr.readShort();
-            this.i = istr.readInt();
-            this.l = istr.readLong();
-            this.f = istr.readFloat();
-            this.d = istr.readDouble();
-            this.str = istr.readString();
-            this.e = (MyEnum)istr.readEnum(2);
-            istr.readValue((MyClass v) => { this.c = v; });
-            this.p = MyInterfacePrxHelper.read(istr);
-            this.ss = SerialSmallHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, SmallStruct v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static SmallStruct ice_read(global::Ice.InputStream istr)
-        {
-            var v = new SmallStruct();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly SmallStruct _nullMarshalValue = new SmallStruct();
+        public static SmallStruct ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -289,6 +277,14 @@ namespace Test
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public Point(global::Ice.InputStream istr)
+        {
+            this.x = istr.readInt();
+            this.y = istr.readInt();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -301,25 +297,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.x = istr.readInt();
-            this.y = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Point v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static Point ice_read(global::Ice.InputStream istr)
-        {
-            var v = new Point();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static Point ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -395,12 +379,6 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OptionalClass()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OptionalClass(bool bo, byte by, short? sh, int? i, SmallStruct sm, MyEnum[] enumS4, MyClass[] myClassS5, global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD6, global::System.Collections.Generic.Dictionary<short, int> shortIntD7, MyEnum? enum8, MyClass class9, global::System.Collections.Generic.Dictionary<string, MyClass> stringMyClassD10, int[] intSeq12, byte[] byteSeq13, string[] stringSeq14, Point? p15)
         {
             this.bo = bo;
@@ -419,6 +397,12 @@ namespace Test
             this.byteSeq13 = byteSeq13;
             this.stringSeq14 = stringSeq14;
             this.p15 = p15;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public OptionalClass()
+        {
             ice_initialize();
         }
 
@@ -509,7 +493,7 @@ namespace Test
             {
                 istr_.skip(4);
                 SmallStruct tmpVal = default;
-                tmpVal = SmallStruct.ice_read(istr_);
+                tmpVal = new SmallStruct(istr_);
                 sm = tmpVal;
             }
             else
@@ -618,7 +602,7 @@ namespace Test
             {
                 istr_.skipSize();
                 Point tmpVal = default;
-                tmpVal.ice_readMembers(istr_);
+                tmpVal = new Point(istr_);
                 p15 = tmpVal;
             }
             else
@@ -699,13 +683,6 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass()
-        {
-            this.s = new();
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MyClass(MyClass c, MyInterfacePrx prx, global::Ice.Value o, SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass> d)
         {
             this.c = c;
@@ -723,6 +700,43 @@ namespace Test
             this.seq9 = seq9;
             this.seq10 = seq10;
             this.d = d;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public MyClass(SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass> d)
+        {
+            this.s = s;
+            this.seq1 = seq1;
+            this.seq2 = seq2;
+            this.seq3 = seq3;
+            this.seq4 = seq4;
+            this.seq5 = seq5;
+            this.seq6 = seq6;
+            this.seq7 = seq7;
+            this.seq8 = seq8;
+            this.seq9 = seq9;
+            this.seq10 = seq10;
+            this.d = d;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public MyClass()
+        {
+            this.s = null;
+            this.seq1 = null;
+            this.seq2 = null;
+            this.seq3 = null;
+            this.seq4 = null;
+            this.seq5 = null;
+            this.seq6 = null;
+            this.seq7 = null;
+            this.seq8 = null;
+            this.seq9 = null;
+            this.seq10 = null;
+            this.d = null;
             ice_initialize();
         }
 
@@ -772,7 +786,7 @@ namespace Test
             istr_.readValue((MyClass v) => { this.c = v; });
             prx = MyInterfacePrxHelper.read(istr_);
             istr_.readValue((global::Ice.Value v) => { this.o = v; });
-            s = SmallStruct.ice_read(istr_);
+            s = new SmallStruct(istr_);
             seq1 = global::Ice.BoolSeqHelper.read(istr_);
             seq2 = global::Ice.ByteSeqHelper.read(istr_);
             seq3 = global::Ice.ShortSeqHelper.read(istr_);
@@ -815,31 +829,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(MyClass c)
+        public MyException(MyClass c, global::System.Exception innerException = null) : base(innerException)
         {
             this.c = c;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyException(MyClass c)
+        public MyException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(c);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyException(MyClass c, global::System.Exception ex) : base(ex)
+        public MyException()
         {
-            _initDM(c);
         }
 
         #endregion

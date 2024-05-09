@@ -57,6 +57,14 @@ namespace Demo
                 ice_initialize();
             }
 
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public Circle(global::Ice.InputStream istr)
+            {
+                this.center = new Point(istr);
+                this.radius = istr.readLong();
+                ice_initialize();
+            }
+
             #endregion
 
             #region Marshaling support
@@ -69,25 +77,13 @@ namespace Demo
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.center.ice_readMembers(istr);
-                this.radius = istr.readLong();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, Circle v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static Circle ice_read(global::Ice.InputStream istr)
-            {
-                var v = new Circle();
-                v.ice_readMembers(istr);
-                return v;
-            }
+            public static Circle ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }

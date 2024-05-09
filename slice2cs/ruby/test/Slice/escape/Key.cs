@@ -74,6 +74,13 @@ namespace BEGIN
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public and(global::Ice.InputStream istr)
+        {
+            this.begin = istr.readInt();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -85,24 +92,13 @@ namespace BEGIN
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.begin = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, and v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static and ice_read(global::Ice.InputStream istr)
-        {
-            var v = new and();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static and ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -157,18 +153,18 @@ namespace BEGIN
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public display()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public display(int when, int @do, breakPrx dup, int @else)
         {
             this.when = when;
             this.@do = @do;
             this.dup = dup;
             this.@else = @else;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public display()
+        {
             ice_initialize();
         }
 
@@ -254,31 +250,19 @@ namespace BEGIN
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public next()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public next(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int @new)
+        public next(int @new, global::System.Exception innerException = null) : base(innerException)
         {
             this.@new = @new;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public next(int @new)
+        public next(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(@new);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public next(int @new, global::System.Exception ex) : base(ex)
+        public next()
         {
-            _initDM(@new);
         }
 
         #endregion
@@ -338,32 +322,20 @@ namespace BEGIN
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public nil()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public nil(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int not, int or)
+        public nil(int @new, int not, int or, global::System.Exception innerException = null) : base(@new, innerException)
         {
             this.not = not;
             this.or = or;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public nil(int @new, int not, int or) : base(@new)
+        public nil(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(not, or);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public nil(int @new, int not, int or, global::System.Exception ex) : base(@new, ex)
+        public nil()
         {
-            _initDM(not, or);
         }
 
         #endregion

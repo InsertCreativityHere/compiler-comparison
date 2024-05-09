@@ -67,12 +67,6 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D()
-            {
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public D(bool[] boolSeq, byte[] byteSeq, short[] shortSeq, int[] intSeq, long[] longSeq, float[] floatSeq, double[] doubleSeq)
             {
                 this.boolSeq = boolSeq;
@@ -82,6 +76,12 @@ namespace Test
                 this.longSeq = longSeq;
                 this.floatSeq = floatSeq;
                 this.doubleSeq = doubleSeq;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public D()
+            {
                 ice_initialize();
             }
 

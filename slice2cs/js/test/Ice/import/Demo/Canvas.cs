@@ -532,7 +532,7 @@ namespace Demo
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
                 Square iceP_square = default;
-                iceP_square.ice_readMembers(istr);
+                iceP_square = new Square(istr);
                 inS.endReadParams();
                 obj.paintSquare(iceP_square, current);
                 return inS.setResult(inS.writeEmptyParams());
@@ -545,7 +545,7 @@ namespace Demo
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
                 Circle iceP_circle = default;
-                iceP_circle.ice_readMembers(istr);
+                iceP_circle = new Circle(istr);
                 inS.endReadParams();
                 obj.paintCircle(iceP_circle, current);
                 return inS.setResult(inS.writeEmptyParams());

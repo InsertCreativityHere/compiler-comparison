@@ -47,15 +47,22 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Derived() : base()
+        public Derived(S theS, string str, string b) : base(theS, str)
+        {
+            this.b = b;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public Derived(S theS) : base(theS)
         {
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Derived(S theS, string str, string b) : base(theS, str)
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Derived()
         {
-            this.b = b;
             ice_initialize();
         }
 

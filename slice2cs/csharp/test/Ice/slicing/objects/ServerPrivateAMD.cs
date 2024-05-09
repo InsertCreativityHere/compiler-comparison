@@ -47,15 +47,15 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SBSUnknownDerived() : base()
+        public SBSUnknownDerived(string sb, string sbsud) : base(sb)
         {
+            this.sbsud = sbsud;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SBSUnknownDerived(string sb, string sbsud) : base(sb)
+        public SBSUnknownDerived()
         {
-            this.sbsud = sbsud;
             ice_initialize();
         }
 
@@ -126,16 +126,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SUnknown()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SUnknown(string su, SUnknown cycle)
         {
             this.su = su;
             this.cycle = cycle;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public SUnknown()
+        {
             ice_initialize();
         }
 
@@ -206,16 +206,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D2() : base()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D2(string sb, B pb, string sd2, B pd2) : base(sb, pb)
         {
             this.sd2 = sd2;
             this.pd2 = pd2;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public D2()
+        {
             ice_initialize();
         }
 
@@ -288,16 +288,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D4() : base()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D4(string sb, B pb, B p1, B p2) : base(sb, pb)
         {
             this.p1 = p1;
             this.p2 = p2;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public D4()
+        {
             ice_initialize();
         }
 
@@ -369,32 +369,20 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerivedException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerivedException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string sude, D2 pd2)
+        public UnknownDerivedException(string sbe, B pb, string sude, D2 pd2, global::System.Exception innerException = null) : base(sbe, pb, innerException)
         {
             this.sude = sude;
             this.pd2 = pd2;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerivedException(string sbe, B pb, string sude, D2 pd2) : base(sbe, pb)
+        public UnknownDerivedException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(sude, pd2);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerivedException(string sbe, B pb, string sude, D2 pd2, global::System.Exception ex) : base(sbe, pb, ex)
+        public UnknownDerivedException()
         {
-            _initDM(sude, pd2);
         }
 
         #endregion
@@ -456,15 +444,15 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass()
+        public MyClass(int i)
         {
+            this.i = i;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass(int i)
+        public MyClass()
         {
-            this.i = i;
             ice_initialize();
         }
 
@@ -536,17 +524,17 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknown() : base()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PSUnknown(int pi, string ps, string psu, PNode graph, MyClass cl) : base(pi, ps)
         {
             this.psu = psu;
             this.graph = graph;
             this.cl = cl;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public PSUnknown()
+        {
             ice_initialize();
         }
 
@@ -618,15 +606,15 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknown2() : base()
+        public PSUnknown2(int pi, string ps, PBase pb) : base(pi, ps)
         {
+            this.pb = pb;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknown2(int pi, string ps, PBase pb) : base(pi, ps)
+        public PSUnknown2()
         {
-            this.pb = pb;
             ice_initialize();
         }
 
@@ -693,31 +681,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknownException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknownException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(PSUnknown2 p)
+        public PSUnknownException(PSUnknown2 p, global::System.Exception innerException = null) : base(innerException)
         {
             this.p = p;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknownException(PSUnknown2 p)
+        public PSUnknownException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(p);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknownException(PSUnknown2 p, global::System.Exception ex) : base(ex)
+        public PSUnknownException()
         {
-            _initDM(p);
         }
 
         #endregion

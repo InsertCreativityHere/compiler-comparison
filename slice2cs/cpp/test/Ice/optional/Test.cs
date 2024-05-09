@@ -47,15 +47,15 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OneOptional()
+        public OneOptional(int? a)
         {
+            this.a = a;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OneOptional(int? a)
+        public OneOptional()
         {
-            this.a = a;
             ice_initialize();
         }
 
@@ -163,6 +163,13 @@ namespace Test
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public SmallStruct(global::Ice.InputStream istr)
+        {
+            this.m = istr.readByte();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -174,24 +181,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.m = istr.readByte();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, SmallStruct v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static SmallStruct ice_read(global::Ice.InputStream istr)
-        {
-            var v = new SmallStruct();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static SmallStruct ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -226,6 +222,13 @@ namespace Test
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public FixedStruct(global::Ice.InputStream istr)
+        {
+            this.m = istr.readInt();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -237,24 +240,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.m = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, FixedStruct v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static FixedStruct ice_read(global::Ice.InputStream istr)
-        {
-            var v = new FixedStruct();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static FixedStruct ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -280,7 +272,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public VarStruct()
@@ -292,6 +284,13 @@ namespace Test
         public VarStruct(string m)
         {
             this.m = m;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public VarStruct(global::Ice.InputStream istr)
+        {
+            this.m = istr.readString();
             ice_initialize();
         }
 
@@ -349,33 +348,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.m = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, VarStruct v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static VarStruct ice_read(global::Ice.InputStream istr)
-        {
-            var v = new VarStruct();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly VarStruct _nullMarshalValue = new VarStruct();
+        public static VarStruct ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -490,12 +469,6 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MultiOptional()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public MultiOptional(byte? a, bool? b, short? c, int? d, long? e, float? f, double? g, string h, MyEnum? i, MyInterfacePrx j, byte[] bs, string[] ss, global::System.Collections.Generic.Dictionary<int, int> iid, global::System.Collections.Generic.Dictionary<string, int> sid, FixedStruct? fs, VarStruct vs, short[] shs, MyEnum[] es, FixedStruct[] fss, VarStruct[] vss, OneOptional[] oos, MyInterfacePrx[] mips, global::System.Collections.Generic.Dictionary<int, MyEnum> ied, global::System.Collections.Generic.Dictionary<int, FixedStruct> ifsd, global::System.Collections.Generic.Dictionary<int, VarStruct> ivsd, global::System.Collections.Generic.Dictionary<int, OneOptional> iood, global::System.Collections.Generic.Dictionary<int, MyInterfacePrx> imipd, bool[] bos, byte[] ser)
         {
             this.a = a;
@@ -527,6 +500,12 @@ namespace Test
             this.imipd = imipd;
             this.bos = bos;
             this.ser = ser;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public MultiOptional()
+        {
             ice_initialize();
         }
 
@@ -737,7 +716,7 @@ namespace Test
             {
                 istr_.skipSize();
                 FixedStruct tmpVal = default;
-                tmpVal.ice_readMembers(istr_);
+                tmpVal = new FixedStruct(istr_);
                 fs = tmpVal;
             }
             else
@@ -748,7 +727,7 @@ namespace Test
             {
                 istr_.skip(4);
                 VarStruct tmpVal = default;
-                tmpVal = VarStruct.ice_read(istr_);
+                tmpVal = new VarStruct(istr_);
                 vs = tmpVal;
             }
             else
@@ -937,18 +916,18 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public A()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public A(int requiredA, int? ma, int? mb, int? mc)
         {
             this.requiredA = requiredA;
             this.ma = ma;
             this.mb = mb;
             this.mc = mc;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public A()
+        {
             ice_initialize();
         }
 
@@ -1023,16 +1002,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B() : base()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public B(int requiredA, int? ma, int? mb, int? mc, int requiredB, int? md) : base(requiredA, ma, mb, mc)
         {
             this.requiredB = requiredB;
             this.md = md;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public B()
+        {
             ice_initialize();
         }
 
@@ -1105,16 +1084,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C() : base()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C(int requiredA, int? ma, int? mb, int? mc, int requiredB, int? md, string ss, string ms) : base(requiredA, ma, mb, mc, requiredB, md)
         {
             this.ss = ss;
             this.ms = ms;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public C()
+        {
             ice_initialize();
         }
 
@@ -1187,16 +1166,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WD()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public WD(int? a, string s)
         {
             this.a = a;
             this.s = s;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public WD()
+        {
             ice_initialize();
         }
 
@@ -1272,17 +1251,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OptionalException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OptionalException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(bool req, int? a, string b, OneOptional o)
+        public OptionalException(bool req, int? a, string b, OneOptional o, global::System.Exception innerException = null) : base(innerException)
         {
             this.req = req;
             this.a = a;
@@ -1291,15 +1260,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OptionalException(bool req, int? a, string b, OneOptional o)
+        public OptionalException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(req, a, b, o);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OptionalException(bool req, int? a, string b, OneOptional o, global::System.Exception ex) : base(ex)
+        public OptionalException()
         {
-            _initDM(req, a, b, o);
         }
 
         #endregion
@@ -1371,17 +1338,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string d1, string ss, OneOptional o2, string d2)
+        public DerivedException(bool req, int? a, string b, OneOptional o, string d1, string ss, OneOptional o2, string d2, global::System.Exception innerException = null) : base(req, a, b, o, innerException)
         {
             this.d1 = d1;
             this.ss = ss;
@@ -1390,15 +1347,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedException(bool req, int? a, string b, OneOptional o, string d1, string ss, OneOptional o2, string d2) : base(req, a, b, o)
+        public DerivedException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(d1, ss, o2, d2);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedException(bool req, int? a, string b, OneOptional o, string d1, string ss, OneOptional o2, string d2, global::System.Exception ex) : base(req, a, b, o, ex)
+        public DerivedException()
         {
-            _initDM(d1, ss, o2, d2);
         }
 
         #endregion
@@ -1466,32 +1421,20 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RequiredException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RequiredException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string ss, OneOptional o2)
+        public RequiredException(bool req, int? a, string b, OneOptional o, string ss, OneOptional o2, global::System.Exception innerException = null) : base(req, a, b, o, innerException)
         {
             this.ss = ss;
             this.o2 = o2;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RequiredException(bool req, int? a, string b, OneOptional o, string ss, OneOptional o2) : base(req, a, b, o)
+        public RequiredException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(ss, o2);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RequiredException(bool req, int? a, string b, OneOptional o, string ss, OneOptional o2, global::System.Exception ex) : base(req, a, b, o, ex)
+        public RequiredException()
         {
-            _initDM(ss, o2);
         }
 
         #endregion
@@ -1562,16 +1505,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OptionalWithCustom()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public OptionalWithCustom(SmallStruct[] l, SmallStruct[] lp)
         {
             this.l = l;
             this.lp = lp;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public OptionalWithCustom()
+        {
             ice_initialize();
         }
 
@@ -1663,15 +1606,15 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E()
+        public E(FixedStruct fse)
         {
+            this.fse = fse;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E(FixedStruct fse)
+        public E()
         {
-            this.fse = fse;
             ice_initialize();
         }
 
@@ -1704,7 +1647,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            fse.ice_readMembers(istr_);
+            fse = new FixedStruct(istr_);
             istr_.endSlice();
         }
 
@@ -1737,15 +1680,15 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public F() : base()
+        public F(FixedStruct fse, FixedStruct? fsf) : base(fse)
         {
+            this.fsf = fsf;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public F(FixedStruct fse, FixedStruct? fsf) : base(fse)
+        public F()
         {
-            this.fsf = fsf;
             ice_initialize();
         }
 
@@ -1787,7 +1730,7 @@ namespace Test
             {
                 istr_.skipSize();
                 FixedStruct tmpVal = default;
-                tmpVal.ice_readMembers(istr_);
+                tmpVal = new FixedStruct(istr_);
                 fsf = tmpVal;
             }
             else
@@ -1822,7 +1765,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public G1()
@@ -1834,6 +1777,13 @@ namespace Test
         public G1(string a)
         {
             this.a = a;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public G1(global::Ice.InputStream istr)
+        {
+            this.a = istr.readString();
             ice_initialize();
         }
 
@@ -1891,33 +1841,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.a = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, G1 v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static G1 ice_read(global::Ice.InputStream istr)
-        {
-            var v = new G1();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly G1 _nullMarshalValue = new G1();
+        public static G1 ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -1952,6 +1882,13 @@ namespace Test
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public G2(global::Ice.InputStream istr)
+        {
+            this.a = istr.readLong();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -1963,24 +1900,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.a = istr.readLong();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, G2 v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static G2 ice_read(global::Ice.InputStream istr)
-        {
-            var v = new G2();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static G2 ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -2020,19 +1946,27 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public G()
-        {
-            this.gg1 = new();
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public G(G1 gg1Opt, G2 gg2, G2? gg2Opt, G1 gg1)
         {
             this.gg1Opt = gg1Opt;
             this.gg2 = gg2;
             this.gg2Opt = gg2Opt;
             this.gg1 = gg1;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public G(G1 gg1)
+        {
+            this.gg1 = gg1;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public G()
+        {
+            this.gg1 = null;
             ice_initialize();
         }
 
@@ -2077,13 +2011,13 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            gg2.ice_readMembers(istr_);
-            gg1 = G1.ice_read(istr_);
+            gg2 = new G2(istr_);
+            gg1 = new G1(istr_);
             if (istr_.readOptional(0, global::Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
                 G2 tmpVal = default;
-                tmpVal.ice_readMembers(istr_);
+                tmpVal = new G2(istr_);
                 gg2Opt = tmpVal;
             }
             else
@@ -2094,7 +2028,7 @@ namespace Test
             {
                 istr_.skip(4);
                 G1 tmpVal = default;
-                tmpVal = G1.ice_read(istr_);
+                tmpVal = new G1(istr_);
                 gg1Opt = tmpVal;
             }
             else
@@ -3091,7 +3025,7 @@ namespace Test
                 v = new SmallStruct[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new SmallStruct(istr);
                 }
             }
             return v;
@@ -3125,7 +3059,7 @@ namespace Test
                 v = new SmallStruct[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new SmallStruct(istr);
                 }
             }
             return v;
@@ -3159,7 +3093,7 @@ namespace Test
                 v = new FixedStruct[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new FixedStruct(istr);
                 }
             }
             return v;
@@ -3193,7 +3127,7 @@ namespace Test
                 v = new FixedStruct[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new FixedStruct(istr);
                 }
             }
             return v;
@@ -3214,7 +3148,7 @@ namespace Test
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new VarStruct() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -3227,8 +3161,7 @@ namespace Test
                 v = new VarStruct[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new VarStruct();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new VarStruct(istr);
                 }
             }
             return v;
@@ -3460,7 +3393,7 @@ namespace Test
                 int k = default;
                 k = istr.readInt();
                 FixedStruct v = default;
-                v.ice_readMembers(istr);
+                v = new FixedStruct(istr);
                 r[k] = v;
             }
             return r;
@@ -3497,7 +3430,7 @@ namespace Test
                 int k = default;
                 k = istr.readInt();
                 VarStruct v = default;
-                v = VarStruct.ice_read(istr);
+                v = new VarStruct(istr);
                 r[k] = v;
             }
             return r;
@@ -4915,7 +4848,7 @@ namespace Test
                     {
                         istr.skipSize();
                         SmallStruct tmpVal = default;
-                        tmpVal.ice_readMembers(istr);
+                        tmpVal = new SmallStruct(istr);
                         ret.returnValue = tmpVal;
                     }
                     else
@@ -4926,7 +4859,7 @@ namespace Test
                     {
                         istr.skipSize();
                         SmallStruct tmpVal = default;
-                        tmpVal.ice_readMembers(istr);
+                        tmpVal = new SmallStruct(istr);
                         ret.p3 = tmpVal;
                     }
                     else
@@ -4976,7 +4909,7 @@ namespace Test
                     {
                         istr.skipSize();
                         FixedStruct tmpVal = default;
-                        tmpVal.ice_readMembers(istr);
+                        tmpVal = new FixedStruct(istr);
                         ret.returnValue = tmpVal;
                     }
                     else
@@ -4987,7 +4920,7 @@ namespace Test
                     {
                         istr.skipSize();
                         FixedStruct tmpVal = default;
-                        tmpVal.ice_readMembers(istr);
+                        tmpVal = new FixedStruct(istr);
                         ret.p3 = tmpVal;
                     }
                     else
@@ -5038,7 +4971,7 @@ namespace Test
                     {
                         istr.skip(4);
                         VarStruct tmpVal = default;
-                        tmpVal = VarStruct.ice_read(istr);
+                        tmpVal = new VarStruct(istr);
                         ret.returnValue = tmpVal;
                     }
                     else
@@ -5049,7 +4982,7 @@ namespace Test
                     {
                         istr.skip(4);
                         VarStruct tmpVal = default;
-                        tmpVal = VarStruct.ice_read(istr);
+                        tmpVal = new VarStruct(istr);
                         ret.p3 = tmpVal;
                     }
                     else
@@ -6275,7 +6208,7 @@ namespace Test
                     {
                         istr.skipSize();
                         SmallStruct tmpVal = default;
-                        tmpVal.ice_readMembers(istr);
+                        tmpVal = new SmallStruct(istr);
                         ret = tmpVal;
                     }
                     else
@@ -6325,7 +6258,7 @@ namespace Test
                     {
                         istr.skipSize();
                         SmallStruct tmpVal = default;
-                        tmpVal.ice_readMembers(istr);
+                        tmpVal = new SmallStruct(istr);
                         ret.returnValue = tmpVal;
                     }
                     else
@@ -6336,7 +6269,7 @@ namespace Test
                     {
                         istr.skipSize();
                         SmallStruct tmpVal = default;
-                        tmpVal.ice_readMembers(istr);
+                        tmpVal = new SmallStruct(istr);
                         ret.p2 = tmpVal;
                     }
                     else
@@ -7113,9 +7046,9 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int? iceP_a;
-            string iceP_b;
-            OneOptional iceP_o = global::Ice.Util.None;
+            int? iceP_a = default;
+            string iceP_b = default;
+            OneOptional iceP_o = default;
             iceP_a = istr.readInt(1);
             iceP_b = istr.readString(2);
             istr.readValue(3, (OneOptional v) => {iceP_o = v; });
@@ -7130,9 +7063,9 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int? iceP_a;
-            string iceP_b;
-            OneOptional iceP_o = global::Ice.Util.None;
+            int? iceP_a = default;
+            string iceP_b = default;
+            OneOptional iceP_o = default;
             iceP_a = istr.readInt(1);
             iceP_b = istr.readString(2);
             istr.readValue(3, (OneOptional v) => {iceP_o = v; });
@@ -7147,9 +7080,9 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int? iceP_a;
-            string iceP_b;
-            OneOptional iceP_o = global::Ice.Util.None;
+            int? iceP_a = default;
+            string iceP_b = default;
+            OneOptional iceP_o = default;
             iceP_a = istr.readInt(1);
             iceP_b = istr.readString(2);
             istr.readValue(3, (OneOptional v) => {iceP_o = v; });
@@ -7164,7 +7097,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte? iceP_p1;
+            byte? iceP_p1 = default;
             iceP_p1 = istr.readByte(2);
             inS.endReadParams();
             byte? iceP_p3;
@@ -7182,7 +7115,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool? iceP_p1;
+            bool? iceP_p1 = default;
             iceP_p1 = istr.readBool(2);
             inS.endReadParams();
             bool? iceP_p3;
@@ -7200,7 +7133,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            short? iceP_p1;
+            short? iceP_p1 = default;
             iceP_p1 = istr.readShort(2);
             inS.endReadParams();
             short? iceP_p3;
@@ -7218,7 +7151,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int? iceP_p1;
+            int? iceP_p1 = default;
             iceP_p1 = istr.readInt(2);
             inS.endReadParams();
             int? iceP_p3;
@@ -7236,7 +7169,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            long? iceP_p1;
+            long? iceP_p1 = default;
             iceP_p1 = istr.readLong(1);
             inS.endReadParams();
             long? iceP_p3;
@@ -7254,7 +7187,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            float? iceP_p1;
+            float? iceP_p1 = default;
             iceP_p1 = istr.readFloat(2);
             inS.endReadParams();
             float? iceP_p3;
@@ -7272,7 +7205,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            double? iceP_p1;
+            double? iceP_p1 = default;
             iceP_p1 = istr.readDouble(2);
             inS.endReadParams();
             double? iceP_p3;
@@ -7290,7 +7223,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_p1;
+            string iceP_p1 = default;
             iceP_p1 = istr.readString(2);
             inS.endReadParams();
             string iceP_p3;
@@ -7308,7 +7241,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            MyEnum? iceP_p1;
+            MyEnum? iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.Size))
             {
                 MyEnum tmpVal;
@@ -7341,12 +7274,12 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            SmallStruct? iceP_p1;
+            SmallStruct? iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
                 SmallStruct tmpVal = default;
-                tmpVal.ice_readMembers(istr);
+                tmpVal = new SmallStruct(istr);
                 iceP_p1 = tmpVal;
             }
             else
@@ -7377,12 +7310,12 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            FixedStruct? iceP_p1;
+            FixedStruct? iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
                 FixedStruct tmpVal = default;
-                tmpVal.ice_readMembers(istr);
+                tmpVal = new FixedStruct(istr);
                 iceP_p1 = tmpVal;
             }
             else
@@ -7413,12 +7346,12 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            VarStruct iceP_p1;
+            VarStruct iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
                 VarStruct tmpVal = default;
-                tmpVal = VarStruct.ice_read(istr);
+                tmpVal = new VarStruct(istr);
                 iceP_p1 = tmpVal;
             }
             else
@@ -7451,7 +7384,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            OneOptional iceP_p1 = global::Ice.Util.None;
+            OneOptional iceP_p1 = default;
             istr.readValue(2, (OneOptional v) => {iceP_p1 = v; });
             inS.endReadParams();
             OneOptional iceP_p3;
@@ -7469,7 +7402,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            MyInterfacePrx iceP_p1;
+            MyInterfacePrx iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -7507,7 +7440,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_p1;
+            byte[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 byte[] tmpVal;
@@ -7534,7 +7467,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            bool[] iceP_p1;
+            bool[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 bool[] tmpVal;
@@ -7561,7 +7494,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            short[] iceP_p1;
+            short[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -7589,7 +7522,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int[] iceP_p1;
+            int[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -7617,7 +7550,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            long[] iceP_p1;
+            long[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -7645,7 +7578,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            float[] iceP_p1;
+            float[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -7673,7 +7606,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            double[] iceP_p1;
+            double[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -7701,7 +7634,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_p1;
+            string[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -7729,7 +7662,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            SmallStruct[] iceP_p1;
+            SmallStruct[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 SmallStruct[] tmpVal;
@@ -7762,7 +7695,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            SmallStruct[] iceP_p1;
+            SmallStruct[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 SmallStruct[] tmpVal;
@@ -7795,7 +7728,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            FixedStruct[] iceP_p1;
+            FixedStruct[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -7831,7 +7764,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            FixedStruct[] iceP_p1;
+            FixedStruct[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -7867,7 +7800,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            VarStruct[] iceP_p1;
+            VarStruct[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -7905,7 +7838,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_p1;
+            byte[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 byte[] tmpVal;
@@ -7932,7 +7865,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<int, int> iceP_p1;
+            global::System.Collections.Generic.Dictionary<int, int> iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
@@ -7968,7 +7901,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, int> iceP_p1;
+            global::System.Collections.Generic.Dictionary<string, int> iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -8006,7 +7939,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<int, OneOptional> iceP_p1;
+            global::System.Collections.Generic.Dictionary<int, OneOptional> iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -8095,12 +8028,12 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            SmallStruct? iceP_p1;
+            SmallStruct? iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
                 istr.skipSize();
                 SmallStruct tmpVal = default;
-                tmpVal.ice_readMembers(istr);
+                tmpVal = new SmallStruct(istr);
                 iceP_p1 = tmpVal;
             }
             else
@@ -8126,7 +8059,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_p1;
+            string[] iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -8157,7 +8090,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, int> iceP_p1;
+            global::System.Collections.Generic.Dictionary<string, int> iceP_p1 = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
@@ -8188,7 +8121,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            G iceP_p1 = global::Ice.Util.None;
+            G iceP_p1 = default;
             istr.readValue(2, (G v) => {iceP_p1 = v; });
             inS.endReadParams();
             return inS.setMarshaledResult(obj.opMG2(iceP_p1, current));

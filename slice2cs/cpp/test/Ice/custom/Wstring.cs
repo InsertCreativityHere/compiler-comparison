@@ -42,7 +42,7 @@ namespace Test1
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public WstringStruct()
@@ -54,6 +54,13 @@ namespace Test1
         public WstringStruct(string s)
         {
             this.s = s;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public WstringStruct(global::Ice.InputStream istr)
+        {
+            this.s = istr.readString();
             ice_initialize();
         }
 
@@ -111,33 +118,13 @@ namespace Test1
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.s = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, WstringStruct v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static WstringStruct ice_read(global::Ice.InputStream istr)
-        {
-            var v = new WstringStruct();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly WstringStruct _nullMarshalValue = new WstringStruct();
+        public static WstringStruct ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -167,31 +154,19 @@ namespace Test1
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public WstringException(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException(string reason)
+        public WstringException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException(string reason, global::System.Exception ex) : base(ex)
+        public WstringException()
         {
-            _initDM(reason);
         }
 
         #endregion
@@ -262,7 +237,7 @@ namespace Test2
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public WstringStruct()
@@ -274,6 +249,13 @@ namespace Test2
         public WstringStruct(string s)
         {
             this.s = s;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public WstringStruct(global::Ice.InputStream istr)
+        {
+            this.s = istr.readString();
             ice_initialize();
         }
 
@@ -331,33 +313,13 @@ namespace Test2
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.s = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, WstringStruct v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static WstringStruct ice_read(global::Ice.InputStream istr)
-        {
-            var v = new WstringStruct();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly WstringStruct _nullMarshalValue = new WstringStruct();
+        public static WstringStruct ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -387,31 +349,19 @@ namespace Test2
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public WstringException(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException(string reason)
+        public WstringException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public WstringException(string reason, global::System.Exception ex) : base(ex)
+        public WstringException()
         {
-            _initDM(reason);
         }
 
         #endregion
@@ -720,8 +670,8 @@ namespace Test1
                 read: (global::Ice.InputStream istr) =>
                 {
                     WstringClass_OpStructResult ret = new WstringClass_OpStructResult();
-                    ret.s2 = WstringStruct.ice_read(istr);
-                    ret.returnValue = WstringStruct.ice_read(istr);
+                    ret.s2 = new WstringStruct(istr);
+                    ret.returnValue = new WstringStruct(istr);
                     return ret;
                 });
         }
@@ -1039,8 +989,8 @@ namespace Test2
                 read: (global::Ice.InputStream istr) =>
                 {
                     WstringClass_OpStructResult ret = new WstringClass_OpStructResult();
-                    ret.s2 = WstringStruct.ice_read(istr);
-                    ret.returnValue = WstringStruct.ice_read(istr);
+                    ret.s2 = new WstringStruct(istr);
+                    ret.returnValue = new WstringStruct(istr);
                     return ret;
                 });
         }
@@ -1254,7 +1204,7 @@ namespace Test1
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             WstringStruct iceP_s1 = default;
-            iceP_s1 = WstringStruct.ice_read(istr);
+            iceP_s1 = new WstringStruct(istr);
             inS.endReadParams();
             WstringStruct iceP_s2;
             var ret = obj.opStruct(iceP_s1, out iceP_s2, current);
@@ -1411,7 +1361,7 @@ namespace Test2
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             WstringStruct iceP_s1 = default;
-            iceP_s1 = WstringStruct.ice_read(istr);
+            iceP_s1 = new WstringStruct(istr);
             inS.endReadParams();
             WstringStruct iceP_s2;
             var ret = obj.opStruct(iceP_s1, out iceP_s2, current);

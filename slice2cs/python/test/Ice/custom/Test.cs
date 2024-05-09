@@ -63,13 +63,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S()
-        {
-            ice_initialize();
-        }
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S(byte[] b1, byte[] b2, byte[] b3, byte[] b4, string[] s1, string[] s2, string[] s3, string[] s4)
@@ -82,6 +76,20 @@ namespace Test
             this.s2 = s2;
             this.s3 = s3;
             this.s4 = s4;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public S(global::Ice.InputStream istr)
+        {
+            this.b1 = ByteStringHelper.read(istr);
+            this.b2 = ByteStringHelper.read(istr);
+            this.b3 = ByteListHelper.read(istr);
+            this.b4 = ByteListHelper.read(istr);
+            this.s1 = StringListHelper.read(istr);
+            this.s2 = StringListHelper.read(istr);
+            this.s3 = StringTupleHelper.read(istr);
+            this.s4 = StringTupleHelper.read(istr);
             ice_initialize();
         }
 
@@ -160,40 +168,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.b1 = ByteStringHelper.read(istr);
-            this.b2 = ByteStringHelper.read(istr);
-            this.b3 = ByteListHelper.read(istr);
-            this.b4 = ByteListHelper.read(istr);
-            this.s1 = StringListHelper.read(istr);
-            this.s2 = StringListHelper.read(istr);
-            this.s3 = StringTupleHelper.read(istr);
-            this.s4 = StringTupleHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, S v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static S ice_read(global::Ice.InputStream istr)
-        {
-            var v = new S();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly S _nullMarshalValue = new S();
+        public static S ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -245,12 +226,6 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public C(byte[] b1, byte[] b2, byte[] b3, byte[] b4, string[] s1, string[] s2, string[] s3, string[] s4)
         {
             this.b1 = b1;
@@ -261,6 +236,21 @@ namespace Test
             this.s2 = s2;
             this.s3 = s3;
             this.s4 = s4;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public C()
+        {
+            this.b1 = null;
+            this.b2 = null;
+            this.b3 = null;
+            this.b4 = null;
+            this.s1 = null;
+            this.s2 = null;
+            this.s3 = null;
+            this.s4 = null;
             ice_initialize();
         }
 
@@ -358,12 +348,6 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D(bool[] boolSeq, byte[] byteSeq, short[] shortSeq, int[] intSeq, long[] longSeq, float[] floatSeq, double[] doubleSeq)
         {
             this.boolSeq = boolSeq;
@@ -373,6 +357,12 @@ namespace Test
             this.longSeq = longSeq;
             this.floatSeq = floatSeq;
             this.doubleSeq = doubleSeq;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public D()
+        {
             ice_initialize();
         }
 
@@ -2568,7 +2558,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             S iceP_val = default;
-            iceP_val = S.ice_read(istr);
+            iceP_val = new S(istr);
             inS.endReadParams();
             obj.sendS(iceP_val, current);
             return inS.setResult(inS.writeEmptyParams());

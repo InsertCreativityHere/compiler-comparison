@@ -47,15 +47,15 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ConcreteClass()
+        public ConcreteClass(int i)
         {
+            this.i = i;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ConcreteClass(int i)
+        public ConcreteClass()
         {
-            this.i = i;
             ice_initialize();
         }
 
@@ -113,12 +113,12 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E()
+        public E(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E(global::System.Exception ex) : base(ex)
+        public E()
         {
         }
 

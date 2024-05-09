@@ -107,7 +107,7 @@ namespace classdef
 
             partial void ice_initialize();
 
-            #region Constructors
+            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bitor()
@@ -122,6 +122,16 @@ namespace classdef
                 this.@continue = @continue;
                 this.eq = eq;
                 this.ne = ne;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public bitor(global::Ice.InputStream istr)
+            {
+                this.@case = (bitand)istr.readEnum(31);
+                this.@continue = istr.readInt();
+                this.eq = istr.readInt();
+                this.ne = istr.readInt();
                 ice_initialize();
             }
 
@@ -188,36 +198,13 @@ namespace classdef
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.@case = (bitand)istr.readEnum(31);
-                this.@continue = istr.readInt();
-                this.eq = istr.readInt();
-                this.ne = istr.readInt();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, bitor v)
             {
-                if (v is null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
+                v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bitor ice_read(global::Ice.InputStream istr)
-            {
-                var v = new bitor();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly bitor _nullMarshalValue = new bitor();
+            public static bitor ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -254,18 +241,26 @@ namespace classdef
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public logical()
-            {
-                this.@for = new();
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public logical(bitand @else, bitor @for, bool int64)
             {
                 this.@else = @else;
                 this.@for = @for;
                 this.int64 = int64;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public logical(bitor @for)
+            {
+                this.@for = @for;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            public logical()
+            {
+                this.@for = null;
                 ice_initialize();
             }
 
@@ -301,7 +296,7 @@ namespace classdef
             {
                 istr_.startSlice();
                 @else = (bitand)istr_.readEnum(31);
-                @for = bitor.ice_read(istr_);
+                @for = new bitor(istr_);
                 int64 = istr_.readBool();
                 istr_.endSlice();
             }
@@ -335,15 +330,22 @@ namespace classdef
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public xor() : base()
+            public xor(bitand @else, bitor @for, bool int64, int @return) : base(@else, @for, int64)
+            {
+                this.@return = @return;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public xor(bitor @for) : base(@for)
             {
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public xor(bitand @else, bitor @for, bool int64, int @return) : base(@else, @for, int64)
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            public xor()
             {
-                this.@return = @return;
                 ice_initialize();
             }
 
@@ -414,16 +416,16 @@ namespace classdef
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public @try()
-            {
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public @try(int @while, int delete)
             {
                 this.@while = @while;
                 this.delete = delete;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public @try()
+            {
                 ice_initialize();
             }
 
@@ -500,18 +502,29 @@ namespace classdef
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public properties() : base()
-            {
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public properties(int @while, int delete, int @if, xor @catch, bitor[] spmd, global::System.Collections.Generic.Dictionary<int, bitor> otherwise) : base(@while, delete)
             {
                 this.@if = @if;
                 this.@catch = @catch;
                 this.spmd = spmd;
                 this.otherwise = otherwise;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public properties(bitor[] spmd, global::System.Collections.Generic.Dictionary<int, bitor> otherwise)
+            {
+                this.spmd = spmd;
+                this.otherwise = otherwise;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            public properties()
+            {
+                this.spmd = null;
+                this.otherwise = null;
                 ice_initialize();
             }
 
@@ -599,20 +612,10 @@ namespace classdef
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public persistent()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public persistent(global::System.Exception ex) : base(ex)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM(string identifier, string message, string stack, string cause, string type, logical end)
+            public persistent(string identifier, string ice_message_, string stack, string cause, string type, logical end, global::System.Exception innerException = null) : base(innerException)
             {
                 this.identifier = identifier;
-                this.ice_message_ = message;
+                this.ice_message_ = ice_message_;
                 this.stack = stack;
                 this.cause = cause;
                 this.type = type;
@@ -620,15 +623,13 @@ namespace classdef
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public persistent(string identifier, string message, string stack, string cause, string type, logical end)
+            public persistent(global::System.Exception innerException) : base(innerException)
             {
-                _initDM(identifier, message, stack, cause, type, end);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public persistent(string identifier, string message, string stack, string cause, string type, logical end, global::System.Exception ex) : base(ex)
+            public persistent()
             {
-                _initDM(identifier, message, stack, cause, type, end);
             }
 
             #endregion
@@ -701,31 +702,19 @@ namespace classdef
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global(global::System.Exception ex) : base(ex)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM(int enumeration)
+            public global(string identifier, string ice_message_, string stack, string cause, string type, logical end, int enumeration, global::System.Exception innerException = null) : base(identifier, ice_message_, stack, cause, type, end, innerException)
             {
                 this.enumeration = enumeration;
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global(string identifier, string message, string stack, string cause, string type, logical end, int enumeration) : base(identifier, message, stack, cause, type, end)
+            public global(global::System.Exception innerException) : base(innerException)
             {
-                _initDM(enumeration);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global(string identifier, string message, string stack, string cause, string type, logical end, int enumeration, global::System.Exception ex) : base(identifier, message, stack, cause, type, end, ex)
+            public global()
             {
-                _initDM(enumeration);
             }
 
             #endregion
@@ -848,7 +837,7 @@ namespace classdef
                     ostr.writeSize(v.Length);
                     for(int ix = 0; ix < v.Length; ++ix)
                     {
-                        (v[ix] == null ? new bitor() : v[ix]).ice_writeMembers(ostr);
+                        v[ix].ice_writeMembers(ostr);
                     }
                 }
             }
@@ -861,8 +850,7 @@ namespace classdef
                     v = new bitor[szx];
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        v[ix] = new bitor();
-                        v[ix].ice_readMembers(istr);
+                        v[ix] = new bitor(istr);
                     }
                 }
                 return v;
@@ -899,7 +887,7 @@ namespace classdef
                     int k = default;
                     k = istr.readInt();
                     bitor v = default;
-                    v = bitor.ice_read(istr);
+                    v = new bitor(istr);
                     r[k] = v;
                 }
                 return r;

@@ -693,7 +693,7 @@ namespace IceDiscovery
             var istr = inS.startReadParams();
             global::Ice.Identity iceP_id = default;
             global::Ice.ObjectPrx iceP_prx = default;
-            iceP_id = global::Ice.Identity.ice_read(istr);
+            iceP_id = new global::Ice.Identity(istr);
             iceP_prx = istr.readProxy();
             inS.endReadParams();
             obj.foundObjectById(iceP_id, iceP_prx, current);
@@ -825,7 +825,7 @@ namespace IceDiscovery
             global::Ice.Identity iceP_id = default;
             LookupReplyPrx iceP_reply = default;
             iceP_domainId = istr.readString();
-            iceP_id = global::Ice.Identity.ice_read(istr);
+            iceP_id = new global::Ice.Identity(istr);
             iceP_reply = LookupReplyPrxHelper.read(istr);
             inS.endReadParams();
             obj.findObjectById(iceP_domainId, iceP_id, iceP_reply, current);

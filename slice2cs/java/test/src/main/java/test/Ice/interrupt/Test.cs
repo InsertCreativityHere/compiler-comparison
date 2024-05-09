@@ -39,12 +39,12 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InterruptedException()
+        public InterruptedException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InterruptedException(global::System.Exception ex) : base(ex)
+        public InterruptedException()
         {
         }
 
@@ -108,12 +108,12 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CannotInterruptException()
+        public CannotInterruptException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CannotInterruptException(global::System.Exception ex) : base(ex)
+        public CannotInterruptException()
         {
         }
 

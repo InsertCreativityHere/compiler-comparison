@@ -60,19 +60,21 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Foo()
-        {
-            ice_initialize();
-        }
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Foo(byte[] SLmem, byte[][] SLSmem)
         {
             this.SLmem = SLmem;
             this.SLSmem = SLSmem;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public Foo(global::Ice.InputStream istr)
+        {
+            this.SLmem = SerialLargeHelper.read(istr);
+            this.SLSmem = SLSHelper.read(istr);
             ice_initialize();
         }
 
@@ -133,34 +135,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.SLmem = SerialLargeHelper.read(istr);
-            this.SLSmem = SLSHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Foo v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static Foo ice_read(global::Ice.InputStream istr)
-        {
-            var v = new Foo();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly Foo _nullMarshalValue = new Foo();
+        public static Foo ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -193,32 +174,18 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Bar()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Bar(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(byte[] SLmem, byte[][] SLSmem)
+        public Bar(byte[] SLmem, byte[][] SLSmem, global::System.Exception innerException = null) : base(innerException)
         {
             this.SLmem = SLmem;
             this.SLSmem = SLSmem;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Bar(byte[] SLmem, byte[][] SLSmem)
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Bar()
         {
-            _initDM(SLmem, SLSmem);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Bar(byte[] SLmem, byte[][] SLSmem, global::System.Exception ex) : base(ex)
-        {
-            _initDM(SLmem, SLSmem);
+            this.SLmem = null;
+            this.SLSmem = null;
         }
 
         #endregion
@@ -281,16 +248,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Baz()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Baz(byte[] SLmem, byte[][] SLSmem)
         {
             this.SLmem = SLmem;
             this.SLSmem = SLSmem;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Baz()
+        {
+            this.SLmem = null;
+            this.SLSmem = null;
             ice_initialize();
         }
 

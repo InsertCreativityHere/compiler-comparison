@@ -45,7 +45,7 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertyDescriptor()
@@ -58,6 +58,14 @@ namespace IceGrid
         {
             this.name = name;
             this.value = value;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public PropertyDescriptor(global::Ice.InputStream istr)
+        {
+            this.name = istr.readString();
+            this.value = istr.readString();
             ice_initialize();
         }
 
@@ -118,34 +126,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.name = istr.readString();
-            this.value = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, PropertyDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static PropertyDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new PropertyDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly PropertyDescriptor _nullMarshalValue = new PropertyDescriptor();
+        public static PropertyDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -174,19 +161,21 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PropertySetDescriptor()
-        {
-            ice_initialize();
-        }
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertySetDescriptor(string[] references, PropertyDescriptor[] properties)
         {
             this.references = references;
             this.properties = properties;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public PropertySetDescriptor(global::Ice.InputStream istr)
+        {
+            this.references = global::Ice.StringSeqHelper.read(istr);
+            this.properties = PropertyDescriptorSeqHelper.read(istr);
             ice_initialize();
         }
 
@@ -247,34 +236,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.references = global::Ice.StringSeqHelper.read(istr);
-            this.properties = PropertyDescriptorSeqHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, PropertySetDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static PropertySetDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new PropertySetDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly PropertySetDescriptor _nullMarshalValue = new PropertySetDescriptor();
+        public static PropertySetDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -306,12 +274,12 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectDescriptor()
+        public ObjectDescriptor(global::Ice.Identity id)
         {
-            this.id = new();
+            this.id = id;
             ice_initialize();
         }
 
@@ -321,6 +289,15 @@ namespace IceGrid
             this.id = id;
             this.type = type;
             this.proxyOptions = proxyOptions;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public ObjectDescriptor(global::Ice.InputStream istr)
+        {
+            this.id = new global::Ice.Identity(istr);
+            this.type = istr.readString();
+            this.proxyOptions = istr.readString();
             ice_initialize();
         }
 
@@ -384,35 +361,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.id = global::Ice.Identity.ice_read(istr);
-            this.type = istr.readString();
-            this.proxyOptions = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ObjectDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ObjectDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new ObjectDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly ObjectDescriptor _nullMarshalValue = new ObjectDescriptor();
+        public static ObjectDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -462,11 +417,13 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterDescriptor()
+        public AdapterDescriptor(ObjectDescriptor[] objects, ObjectDescriptor[] allocatables)
         {
+            this.objects = objects;
+            this.allocatables = allocatables;
             ice_initialize();
         }
 
@@ -482,6 +439,21 @@ namespace IceGrid
             this.serverLifetime = serverLifetime;
             this.objects = objects;
             this.allocatables = allocatables;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public AdapterDescriptor(global::Ice.InputStream istr)
+        {
+            this.name = istr.readString();
+            this.description = istr.readString();
+            this.id = istr.readString();
+            this.replicaGroupId = istr.readString();
+            this.priority = istr.readString();
+            this.registerProcess = istr.readBool();
+            this.serverLifetime = istr.readBool();
+            this.objects = ObjectDescriptorSeqHelper.read(istr);
+            this.allocatables = ObjectDescriptorSeqHelper.read(istr);
             ice_initialize();
         }
 
@@ -563,41 +535,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.name = istr.readString();
-            this.description = istr.readString();
-            this.id = istr.readString();
-            this.replicaGroupId = istr.readString();
-            this.priority = istr.readString();
-            this.registerProcess = istr.readBool();
-            this.serverLifetime = istr.readBool();
-            this.objects = ObjectDescriptorSeqHelper.read(istr);
-            this.allocatables = ObjectDescriptorSeqHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, AdapterDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static AdapterDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new AdapterDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly AdapterDescriptor _nullMarshalValue = new AdapterDescriptor();
+        public static AdapterDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -637,19 +581,31 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CommunicatorDescriptor()
-        {
-            this.propertySet = new();
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CommunicatorDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description)
         {
             this.adapters = adapters;
             this.propertySet = propertySet;
             this.logs = logs;
             this.description = description;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public CommunicatorDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs)
+        {
+            this.adapters = adapters;
+            this.propertySet = propertySet;
+            this.logs = logs;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public CommunicatorDescriptor()
+        {
+            this.adapters = null;
+            this.propertySet = null;
+            this.logs = null;
             ice_initialize();
         }
 
@@ -686,7 +642,7 @@ namespace IceGrid
         {
             istr_.startSlice();
             adapters = AdapterDescriptorSeqHelper.read(istr_);
-            propertySet = PropertySetDescriptor.ice_read(istr_);
+            propertySet = new PropertySetDescriptor(istr_);
             logs = global::Ice.StringSeqHelper.read(istr_);
             description = istr_.readString();
             istr_.endSlice();
@@ -719,11 +675,12 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DistributionDescriptor()
+        public DistributionDescriptor(string[] directories)
         {
+            this.directories = directories;
             ice_initialize();
         }
 
@@ -732,6 +689,14 @@ namespace IceGrid
         {
             this.icepatch = icepatch;
             this.directories = directories;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public DistributionDescriptor(global::Ice.InputStream istr)
+        {
+            this.icepatch = istr.readString();
+            this.directories = global::Ice.StringSeqHelper.read(istr);
             ice_initialize();
         }
 
@@ -792,34 +757,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.icepatch = istr.readString();
-            this.directories = global::Ice.StringSeqHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, DistributionDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static DistributionDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new DistributionDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly DistributionDescriptor _nullMarshalValue = new DistributionDescriptor();
+        public static DistributionDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -886,13 +830,6 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerDescriptor() : base()
-        {
-            this.distrib = new();
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public ServerDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string id, string exe, string iceVersion, string pwd, string[] options, string[] envs, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, DistributionDescriptor distrib, bool allocatable, string user) : base(adapters, propertySet, logs, description)
         {
             this.id = id;
@@ -908,6 +845,25 @@ namespace IceGrid
             this.distrib = distrib;
             this.allocatable = allocatable;
             this.user = user;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public ServerDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string[] options, string[] envs, DistributionDescriptor distrib) : base(adapters, propertySet, logs)
+        {
+            this.options = options;
+            this.envs = envs;
+            this.distrib = distrib;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public ServerDescriptor()
+        {
+            this.options = null;
+            this.envs = null;
+            this.distrib = null;
             ice_initialize();
         }
 
@@ -963,7 +919,7 @@ namespace IceGrid
             activationTimeout = istr_.readString();
             deactivationTimeout = istr_.readString();
             applicationDistrib = istr_.readBool();
-            distrib = DistributionDescriptor.ice_read(istr_);
+            distrib = new DistributionDescriptor(istr_);
             allocatable = istr_.readBool();
             user = istr_.readString();
             istr_.endSlice();
@@ -1002,16 +958,23 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServiceDescriptor() : base()
+        public ServiceDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string name, string entry) : base(adapters, propertySet, logs, description)
+        {
+            this.name = name;
+            this.entry = entry;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public ServiceDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs) : base(adapters, propertySet, logs)
         {
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServiceDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string name, string entry) : base(adapters, propertySet, logs, description)
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public ServiceDescriptor()
         {
-            this.name = name;
-            this.entry = entry;
             ice_initialize();
         }
 
@@ -1085,12 +1048,14 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerInstanceDescriptor()
+        public ServerInstanceDescriptor(global::System.Collections.Generic.Dictionary<string, string> parameterValues, PropertySetDescriptor propertySet, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> servicePropertySets)
         {
-            this.propertySet = new();
+            this.parameterValues = parameterValues;
+            this.propertySet = propertySet;
+            this.servicePropertySets = servicePropertySets;
             ice_initialize();
         }
 
@@ -1101,6 +1066,16 @@ namespace IceGrid
             this.parameterValues = parameterValues;
             this.propertySet = propertySet;
             this.servicePropertySets = servicePropertySets;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public ServerInstanceDescriptor(global::Ice.InputStream istr)
+        {
+            this.template = istr.readString();
+            this.parameterValues = StringStringDictHelper.read(istr);
+            this.propertySet = new PropertySetDescriptor(istr);
+            this.servicePropertySets = PropertySetDescriptorDictHelper.read(istr);
             ice_initialize();
         }
 
@@ -1167,36 +1142,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.template = istr.readString();
-            this.parameterValues = StringStringDictHelper.read(istr);
-            this.propertySet = PropertySetDescriptor.ice_read(istr);
-            this.servicePropertySets = PropertySetDescriptorDictHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ServerInstanceDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ServerInstanceDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new ServerInstanceDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly ServerInstanceDescriptor _nullMarshalValue = new ServerInstanceDescriptor();
+        public static ServerInstanceDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -1228,11 +1180,13 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TemplateDescriptor()
+        public TemplateDescriptor(string[] parameters, global::System.Collections.Generic.Dictionary<string, string> parameterDefaults)
         {
+            this.parameters = parameters;
+            this.parameterDefaults = parameterDefaults;
             ice_initialize();
         }
 
@@ -1242,6 +1196,15 @@ namespace IceGrid
             this.descriptor = descriptor;
             this.parameters = parameters;
             this.parameterDefaults = parameterDefaults;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public TemplateDescriptor(global::Ice.InputStream istr)
+        {
+            istr.readValue((CommunicatorDescriptor v) => { this.descriptor = v; });
+            this.parameters = global::Ice.StringSeqHelper.read(istr);
+            this.parameterDefaults = StringStringDictHelper.read(istr);
             ice_initialize();
         }
 
@@ -1305,35 +1268,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            istr.readValue((CommunicatorDescriptor v) => { this.descriptor = v; });
-            this.parameters = global::Ice.StringSeqHelper.read(istr);
-            this.parameterDefaults = StringStringDictHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, TemplateDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static TemplateDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new TemplateDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly TemplateDescriptor _nullMarshalValue = new TemplateDescriptor();
+        public static TemplateDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -1368,12 +1309,13 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServiceInstanceDescriptor()
+        public ServiceInstanceDescriptor(global::System.Collections.Generic.Dictionary<string, string> parameterValues, PropertySetDescriptor propertySet)
         {
-            this.propertySet = new();
+            this.parameterValues = parameterValues;
+            this.propertySet = propertySet;
             ice_initialize();
         }
 
@@ -1384,6 +1326,16 @@ namespace IceGrid
             this.parameterValues = parameterValues;
             this.descriptor = descriptor;
             this.propertySet = propertySet;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public ServiceInstanceDescriptor(global::Ice.InputStream istr)
+        {
+            this.template = istr.readString();
+            this.parameterValues = StringStringDictHelper.read(istr);
+            istr.readValue((ServiceDescriptor v) => { this.descriptor = v; });
+            this.propertySet = new PropertySetDescriptor(istr);
             ice_initialize();
         }
 
@@ -1450,36 +1402,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.template = istr.readString();
-            this.parameterValues = StringStringDictHelper.read(istr);
-            istr.readValue((ServiceDescriptor v) => { this.descriptor = v; });
-            this.propertySet = PropertySetDescriptor.ice_read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ServiceInstanceDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ServiceInstanceDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new ServiceInstanceDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly ServiceInstanceDescriptor _nullMarshalValue = new ServiceInstanceDescriptor();
+        public static ServiceInstanceDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -1510,15 +1439,24 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public IceBoxDescriptor() : base()
+        public IceBoxDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string id, string exe, string iceVersion, string pwd, string[] options, string[] envs, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, DistributionDescriptor distrib, bool allocatable, string user, ServiceInstanceDescriptor[] services) : base(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
         {
+            this.services = services;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public IceBoxDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string id, string exe, string iceVersion, string pwd, string[] options, string[] envs, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, DistributionDescriptor distrib, bool allocatable, string user, ServiceInstanceDescriptor[] services) : base(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
+        public IceBoxDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string[] options, string[] envs, DistributionDescriptor distrib, ServiceInstanceDescriptor[] services) : base(adapters, propertySet, logs, options, envs, distrib)
         {
             this.services = services;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public IceBoxDescriptor()
+        {
+            this.services = null;
             ice_initialize();
         }
 
@@ -1596,11 +1534,15 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeDescriptor()
+        public NodeDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, ServerInstanceDescriptor[] serverInstances, ServerDescriptor[] servers, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
         {
+            this.variables = variables;
+            this.serverInstances = serverInstances;
+            this.servers = servers;
+            this.propertySets = propertySets;
             ice_initialize();
         }
 
@@ -1613,6 +1555,18 @@ namespace IceGrid
             this.loadFactor = loadFactor;
             this.description = description;
             this.propertySets = propertySets;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public NodeDescriptor(global::Ice.InputStream istr)
+        {
+            this.variables = StringStringDictHelper.read(istr);
+            this.serverInstances = ServerInstanceDescriptorSeqHelper.read(istr);
+            this.servers = ServerDescriptorSeqHelper.read(istr);
+            this.loadFactor = istr.readString();
+            this.description = istr.readString();
+            this.propertySets = PropertySetDescriptorDictHelper.read(istr);
             ice_initialize();
         }
 
@@ -1685,38 +1639,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.variables = StringStringDictHelper.read(istr);
-            this.serverInstances = ServerInstanceDescriptorSeqHelper.read(istr);
-            this.servers = ServerDescriptorSeqHelper.read(istr);
-            this.loadFactor = istr.readString();
-            this.description = istr.readString();
-            this.propertySets = PropertySetDescriptorDictHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, NodeDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static NodeDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new NodeDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly NodeDescriptor _nullMarshalValue = new NodeDescriptor();
+        public static NodeDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -1747,15 +1676,15 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LoadBalancingPolicy()
+        public LoadBalancingPolicy(string nReplicas)
         {
+            this.nReplicas = nReplicas;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LoadBalancingPolicy(string nReplicas)
+        public LoadBalancingPolicy()
         {
-            this.nReplicas = nReplicas;
             ice_initialize();
         }
 
@@ -1814,13 +1743,13 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RandomLoadBalancingPolicy() : base()
+        public RandomLoadBalancingPolicy(string nReplicas) : base(nReplicas)
         {
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RandomLoadBalancingPolicy(string nReplicas) : base(nReplicas)
+        public RandomLoadBalancingPolicy()
         {
             ice_initialize();
         }
@@ -1880,13 +1809,13 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OrderedLoadBalancingPolicy() : base()
+        public OrderedLoadBalancingPolicy(string nReplicas) : base(nReplicas)
         {
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public OrderedLoadBalancingPolicy(string nReplicas) : base(nReplicas)
+        public OrderedLoadBalancingPolicy()
         {
             ice_initialize();
         }
@@ -1946,13 +1875,13 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RoundRobinLoadBalancingPolicy() : base()
+        public RoundRobinLoadBalancingPolicy(string nReplicas) : base(nReplicas)
         {
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RoundRobinLoadBalancingPolicy(string nReplicas) : base(nReplicas)
+        public RoundRobinLoadBalancingPolicy()
         {
             ice_initialize();
         }
@@ -2019,15 +1948,15 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdaptiveLoadBalancingPolicy() : base()
+        public AdaptiveLoadBalancingPolicy(string nReplicas, string loadSample) : base(nReplicas)
         {
+            this.loadSample = loadSample;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdaptiveLoadBalancingPolicy(string nReplicas, string loadSample) : base(nReplicas)
+        public AdaptiveLoadBalancingPolicy()
         {
-            this.loadSample = loadSample;
             ice_initialize();
         }
 
@@ -2105,11 +2034,12 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ReplicaGroupDescriptor()
+        public ReplicaGroupDescriptor(ObjectDescriptor[] objects)
         {
+            this.objects = objects;
             ice_initialize();
         }
 
@@ -2122,6 +2052,18 @@ namespace IceGrid
             this.objects = objects;
             this.description = description;
             this.filter = filter;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public ReplicaGroupDescriptor(global::Ice.InputStream istr)
+        {
+            this.id = istr.readString();
+            istr.readValue((LoadBalancingPolicy v) => { this.loadBalancing = v; });
+            this.proxyOptions = istr.readString();
+            this.objects = ObjectDescriptorSeqHelper.read(istr);
+            this.description = istr.readString();
+            this.filter = istr.readString();
             ice_initialize();
         }
 
@@ -2194,38 +2136,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.id = istr.readString();
-            istr.readValue((LoadBalancingPolicy v) => { this.loadBalancing = v; });
-            this.proxyOptions = istr.readString();
-            this.objects = ObjectDescriptorSeqHelper.read(istr);
-            this.description = istr.readString();
-            this.filter = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ReplicaGroupDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ReplicaGroupDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new ReplicaGroupDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly ReplicaGroupDescriptor _nullMarshalValue = new ReplicaGroupDescriptor();
+        public static ReplicaGroupDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -2275,12 +2192,18 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationDescriptor()
+        public ApplicationDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, ReplicaGroupDescriptor[] replicaGroups, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serverTemplates, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serviceTemplates, global::System.Collections.Generic.Dictionary<string, NodeDescriptor> nodes, DistributionDescriptor distrib, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
         {
-            this.distrib = new();
+            this.variables = variables;
+            this.replicaGroups = replicaGroups;
+            this.serverTemplates = serverTemplates;
+            this.serviceTemplates = serviceTemplates;
+            this.nodes = nodes;
+            this.distrib = distrib;
+            this.propertySets = propertySets;
             ice_initialize();
         }
 
@@ -2296,6 +2219,21 @@ namespace IceGrid
             this.distrib = distrib;
             this.description = description;
             this.propertySets = propertySets;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public ApplicationDescriptor(global::Ice.InputStream istr)
+        {
+            this.name = istr.readString();
+            this.variables = StringStringDictHelper.read(istr);
+            this.replicaGroups = ReplicaGroupDescriptorSeqHelper.read(istr);
+            this.serverTemplates = TemplateDescriptorDictHelper.read(istr);
+            this.serviceTemplates = TemplateDescriptorDictHelper.read(istr);
+            this.nodes = NodeDescriptorDictHelper.read(istr);
+            this.distrib = new DistributionDescriptor(istr);
+            this.description = istr.readString();
+            this.propertySets = PropertySetDescriptorDictHelper.read(istr);
             ice_initialize();
         }
 
@@ -2377,41 +2315,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.name = istr.readString();
-            this.variables = StringStringDictHelper.read(istr);
-            this.replicaGroups = ReplicaGroupDescriptorSeqHelper.read(istr);
-            this.serverTemplates = TemplateDescriptorDictHelper.read(istr);
-            this.serviceTemplates = TemplateDescriptorDictHelper.read(istr);
-            this.nodes = NodeDescriptorDictHelper.read(istr);
-            this.distrib = DistributionDescriptor.ice_read(istr);
-            this.description = istr.readString();
-            this.propertySets = PropertySetDescriptorDictHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ApplicationDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ApplicationDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new ApplicationDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly ApplicationDescriptor _nullMarshalValue = new ApplicationDescriptor();
+        public static ApplicationDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -2442,15 +2352,15 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BoxedString()
+        public BoxedString(string value)
         {
+            this.value = value;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BoxedString(string value)
+        public BoxedString()
         {
-            this.value = value;
             ice_initialize();
         }
 
@@ -2538,11 +2448,18 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeUpdateDescriptor()
+        public NodeUpdateDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ServerInstanceDescriptor[] serverInstances, ServerDescriptor[] servers, string[] removeServers)
         {
+            this.variables = variables;
+            this.removeVariables = removeVariables;
+            this.propertySets = propertySets;
+            this.removePropertySets = removePropertySets;
+            this.serverInstances = serverInstances;
+            this.servers = servers;
+            this.removeServers = removeServers;
             ice_initialize();
         }
 
@@ -2559,6 +2476,22 @@ namespace IceGrid
             this.servers = servers;
             this.removeServers = removeServers;
             this.loadFactor = loadFactor;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public NodeUpdateDescriptor(global::Ice.InputStream istr)
+        {
+            this.name = istr.readString();
+            istr.readValue((BoxedString v) => { this.description = v; });
+            this.variables = StringStringDictHelper.read(istr);
+            this.removeVariables = global::Ice.StringSeqHelper.read(istr);
+            this.propertySets = PropertySetDescriptorDictHelper.read(istr);
+            this.removePropertySets = global::Ice.StringSeqHelper.read(istr);
+            this.serverInstances = ServerInstanceDescriptorSeqHelper.read(istr);
+            this.servers = ServerDescriptorSeqHelper.read(istr);
+            this.removeServers = global::Ice.StringSeqHelper.read(istr);
+            istr.readValue((BoxedString v) => { this.loadFactor = v; });
             ice_initialize();
         }
 
@@ -2643,42 +2576,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.name = istr.readString();
-            istr.readValue((BoxedString v) => { this.description = v; });
-            this.variables = StringStringDictHelper.read(istr);
-            this.removeVariables = global::Ice.StringSeqHelper.read(istr);
-            this.propertySets = PropertySetDescriptorDictHelper.read(istr);
-            this.removePropertySets = global::Ice.StringSeqHelper.read(istr);
-            this.serverInstances = ServerInstanceDescriptorSeqHelper.read(istr);
-            this.servers = ServerDescriptorSeqHelper.read(istr);
-            this.removeServers = global::Ice.StringSeqHelper.read(istr);
-            istr.readValue((BoxedString v) => { this.loadFactor = v; });
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, NodeUpdateDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static NodeUpdateDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new NodeUpdateDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly NodeUpdateDescriptor _nullMarshalValue = new NodeUpdateDescriptor();
+        public static NodeUpdateDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -2709,16 +2613,17 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BoxedDistributionDescriptor()
+        public BoxedDistributionDescriptor(DistributionDescriptor value)
         {
-            this.value = new();
+            this.value = value;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BoxedDistributionDescriptor(DistributionDescriptor value)
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public BoxedDistributionDescriptor()
         {
-            this.value = value;
+            this.value = null;
             ice_initialize();
         }
 
@@ -2751,7 +2656,7 @@ namespace IceGrid
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            value = DistributionDescriptor.ice_read(istr_);
+            value = new DistributionDescriptor(istr_);
             istr_.endSlice();
         }
 
@@ -2821,11 +2726,23 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationUpdateDescriptor()
+        public ApplicationUpdateDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ReplicaGroupDescriptor[] replicaGroups, string[] removeReplicaGroups, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serverTemplates, string[] removeServerTemplates, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serviceTemplates, string[] removeServiceTemplates, NodeUpdateDescriptor[] nodes, string[] removeNodes)
         {
+            this.variables = variables;
+            this.removeVariables = removeVariables;
+            this.propertySets = propertySets;
+            this.removePropertySets = removePropertySets;
+            this.replicaGroups = replicaGroups;
+            this.removeReplicaGroups = removeReplicaGroups;
+            this.serverTemplates = serverTemplates;
+            this.removeServerTemplates = removeServerTemplates;
+            this.serviceTemplates = serviceTemplates;
+            this.removeServiceTemplates = removeServiceTemplates;
+            this.nodes = nodes;
+            this.removeNodes = removeNodes;
             ice_initialize();
         }
 
@@ -2847,6 +2764,27 @@ namespace IceGrid
             this.removeServiceTemplates = removeServiceTemplates;
             this.nodes = nodes;
             this.removeNodes = removeNodes;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public ApplicationUpdateDescriptor(global::Ice.InputStream istr)
+        {
+            this.name = istr.readString();
+            istr.readValue((BoxedString v) => { this.description = v; });
+            istr.readValue((BoxedDistributionDescriptor v) => { this.distrib = v; });
+            this.variables = StringStringDictHelper.read(istr);
+            this.removeVariables = global::Ice.StringSeqHelper.read(istr);
+            this.propertySets = PropertySetDescriptorDictHelper.read(istr);
+            this.removePropertySets = global::Ice.StringSeqHelper.read(istr);
+            this.replicaGroups = ReplicaGroupDescriptorSeqHelper.read(istr);
+            this.removeReplicaGroups = global::Ice.StringSeqHelper.read(istr);
+            this.serverTemplates = TemplateDescriptorDictHelper.read(istr);
+            this.removeServerTemplates = global::Ice.StringSeqHelper.read(istr);
+            this.serviceTemplates = TemplateDescriptorDictHelper.read(istr);
+            this.removeServiceTemplates = global::Ice.StringSeqHelper.read(istr);
+            this.nodes = NodeUpdateDescriptorSeqHelper.read(istr);
+            this.removeNodes = global::Ice.StringSeqHelper.read(istr);
             ice_initialize();
         }
 
@@ -2946,47 +2884,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.name = istr.readString();
-            istr.readValue((BoxedString v) => { this.description = v; });
-            istr.readValue((BoxedDistributionDescriptor v) => { this.distrib = v; });
-            this.variables = StringStringDictHelper.read(istr);
-            this.removeVariables = global::Ice.StringSeqHelper.read(istr);
-            this.propertySets = PropertySetDescriptorDictHelper.read(istr);
-            this.removePropertySets = global::Ice.StringSeqHelper.read(istr);
-            this.replicaGroups = ReplicaGroupDescriptorSeqHelper.read(istr);
-            this.removeReplicaGroups = global::Ice.StringSeqHelper.read(istr);
-            this.serverTemplates = TemplateDescriptorDictHelper.read(istr);
-            this.removeServerTemplates = global::Ice.StringSeqHelper.read(istr);
-            this.serviceTemplates = TemplateDescriptorDictHelper.read(istr);
-            this.removeServiceTemplates = global::Ice.StringSeqHelper.read(istr);
-            this.nodes = NodeUpdateDescriptorSeqHelper.read(istr);
-            this.removeNodes = global::Ice.StringSeqHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, ApplicationUpdateDescriptor v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ApplicationUpdateDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new ApplicationUpdateDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly ApplicationUpdateDescriptor _nullMarshalValue = new ApplicationUpdateDescriptor();
+        public static ApplicationUpdateDescriptor ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -3045,7 +2949,7 @@ namespace IceGrid
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new PropertyDescriptor() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -3058,8 +2962,7 @@ namespace IceGrid
                 v = new PropertyDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new PropertyDescriptor();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new PropertyDescriptor(istr);
                 }
             }
             return v;
@@ -3096,7 +2999,7 @@ namespace IceGrid
                 string k = default;
                 k = istr.readString();
                 PropertySetDescriptor v = default;
-                v = PropertySetDescriptor.ice_read(istr);
+                v = new PropertySetDescriptor(istr);
                 r[k] = v;
             }
             return r;
@@ -3117,7 +3020,7 @@ namespace IceGrid
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new ObjectDescriptor() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -3130,8 +3033,7 @@ namespace IceGrid
                 v = new ObjectDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new ObjectDescriptor();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new ObjectDescriptor(istr);
                 }
             }
             return v;
@@ -3152,7 +3054,7 @@ namespace IceGrid
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new AdapterDescriptor() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -3165,8 +3067,7 @@ namespace IceGrid
                 v = new AdapterDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new AdapterDescriptor();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new AdapterDescriptor(istr);
                 }
             }
             return v;
@@ -3255,7 +3156,7 @@ namespace IceGrid
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new ServerInstanceDescriptor() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -3268,8 +3169,7 @@ namespace IceGrid
                 v = new ServerInstanceDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new ServerInstanceDescriptor();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new ServerInstanceDescriptor(istr);
                 }
             }
             return v;
@@ -3306,7 +3206,7 @@ namespace IceGrid
                 string k = default;
                 k = istr.readString();
                 TemplateDescriptor v = default;
-                v = TemplateDescriptor.ice_read(istr);
+                v = new TemplateDescriptor(istr);
                 r[k] = v;
             }
             return r;
@@ -3327,7 +3227,7 @@ namespace IceGrid
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new ServiceInstanceDescriptor() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -3340,8 +3240,7 @@ namespace IceGrid
                 v = new ServiceInstanceDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new ServiceInstanceDescriptor();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new ServiceInstanceDescriptor(istr);
                 }
             }
             return v;
@@ -3378,7 +3277,7 @@ namespace IceGrid
                 string k = default;
                 k = istr.readString();
                 NodeDescriptor v = default;
-                v = NodeDescriptor.ice_read(istr);
+                v = new NodeDescriptor(istr);
                 r[k] = v;
             }
             return r;
@@ -3399,7 +3298,7 @@ namespace IceGrid
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new ReplicaGroupDescriptor() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -3412,8 +3311,7 @@ namespace IceGrid
                 v = new ReplicaGroupDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new ReplicaGroupDescriptor();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new ReplicaGroupDescriptor(istr);
                 }
             }
             return v;
@@ -3434,7 +3332,7 @@ namespace IceGrid
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new ApplicationDescriptor() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -3447,8 +3345,7 @@ namespace IceGrid
                 v = new ApplicationDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new ApplicationDescriptor();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new ApplicationDescriptor(istr);
                 }
             }
             return v;
@@ -3469,7 +3366,7 @@ namespace IceGrid
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new NodeUpdateDescriptor() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -3482,8 +3379,7 @@ namespace IceGrid
                 v = new NodeUpdateDescriptor[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new NodeUpdateDescriptor();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new NodeUpdateDescriptor(istr);
                 }
             }
             return v;

@@ -53,17 +53,17 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D() : base()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public D(int requiredA, int? ma, int? mb, int? mc, int requiredB, int? md, string ds, string[] seq, A ao) : base(requiredA, ma, mb, mc, requiredB, md)
         {
             this.ds = ds;
             this.seq = seq;
             this.ao = ao;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public D()
+        {
             ice_initialize();
         }
 
@@ -409,7 +409,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             A iceP_p = default;
-            global::Ice.Value iceP_o = global::Ice.Util.None;
+            global::Ice.Value iceP_o = default;
             istr.readValue((A v) => {iceP_p = v; });
             istr.readValue(1, (global::Ice.Value v) => {iceP_o = v; });
             istr.readPendingValues();
@@ -424,8 +424,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int? iceP_a;
-            string iceP_v;
+            int? iceP_a = default;
+            string iceP_v = default;
             iceP_a = istr.readInt(1);
             iceP_v = istr.readString(2);
             inS.endReadParams();

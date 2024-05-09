@@ -48,7 +48,7 @@ namespace IceStorm
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LinkInfo()
@@ -62,6 +62,15 @@ namespace IceStorm
             this.theTopic = theTopic;
             this.name = name;
             this.cost = cost;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public LinkInfo(global::Ice.InputStream istr)
+        {
+            this.theTopic = TopicPrxHelper.read(istr);
+            this.name = istr.readString();
+            this.cost = istr.readInt();
             ice_initialize();
         }
 
@@ -125,35 +134,13 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.theTopic = TopicPrxHelper.read(istr);
-            this.name = istr.readString();
-            this.cost = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, LinkInfo v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static LinkInfo ice_read(global::Ice.InputStream istr)
-        {
-            var v = new LinkInfo();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly LinkInfo _nullMarshalValue = new LinkInfo();
+        public static LinkInfo ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -187,31 +174,19 @@ namespace IceStorm
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LinkExists()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LinkExists(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string name)
+        public LinkExists(string name, global::System.Exception innerException = null) : base(innerException)
         {
             this.name = name;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LinkExists(string name)
+        public LinkExists(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(name);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LinkExists(string name, global::System.Exception ex) : base(ex)
+        public LinkExists()
         {
-            _initDM(name);
         }
 
         #endregion
@@ -272,31 +247,19 @@ namespace IceStorm
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchLink()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchLink(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string name)
+        public NoSuchLink(string name, global::System.Exception innerException = null) : base(innerException)
         {
             this.name = name;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchLink(string name)
+        public NoSuchLink(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(name);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchLink(string name, global::System.Exception ex) : base(ex)
+        public NoSuchLink()
         {
-            _initDM(name);
         }
 
         #endregion
@@ -350,12 +313,12 @@ namespace IceStorm
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadySubscribed()
+        public AlreadySubscribed(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadySubscribed(global::System.Exception ex) : base(ex)
+        public AlreadySubscribed()
         {
         }
 
@@ -415,31 +378,19 @@ namespace IceStorm
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InvalidSubscriber()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InvalidSubscriber(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public InvalidSubscriber(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InvalidSubscriber(string reason)
+        public InvalidSubscriber(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InvalidSubscriber(string reason, global::System.Exception ex) : base(ex)
+        public InvalidSubscriber()
         {
-            _initDM(reason);
         }
 
         #endregion
@@ -500,31 +451,19 @@ namespace IceStorm
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadQoS()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadQoS(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public BadQoS(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadQoS(string reason)
+        public BadQoS(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadQoS(string reason, global::System.Exception ex) : base(ex)
+        public BadQoS()
         {
-            _initDM(reason);
         }
 
         #endregion
@@ -600,31 +539,19 @@ namespace IceStorm
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TopicExists()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TopicExists(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string name)
+        public TopicExists(string name, global::System.Exception innerException = null) : base(innerException)
         {
             this.name = name;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TopicExists(string name)
+        public TopicExists(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(name);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TopicExists(string name, global::System.Exception ex) : base(ex)
+        public TopicExists()
         {
-            _initDM(name);
         }
 
         #endregion
@@ -685,31 +612,19 @@ namespace IceStorm
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchTopic()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchTopic(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string name)
+        public NoSuchTopic(string name, global::System.Exception innerException = null) : base(innerException)
         {
             this.name = name;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchTopic(string name)
+        public NoSuchTopic(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(name);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchTopic(string name, global::System.Exception ex) : base(ex)
+        public NoSuchTopic()
         {
-            _initDM(name);
         }
 
         #endregion
@@ -1306,7 +1221,7 @@ namespace IceStorm
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new LinkInfo() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -1319,8 +1234,7 @@ namespace IceStorm
                 v = new LinkInfo[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new LinkInfo();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new LinkInfo(istr);
                 }
             }
             return v;

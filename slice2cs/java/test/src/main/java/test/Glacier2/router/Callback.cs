@@ -49,32 +49,20 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CallbackException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CallbackException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(double someValue, string someString)
+        public CallbackException(double someValue, string someString, global::System.Exception innerException = null) : base(innerException)
         {
             this.someValue = someValue;
             this.someString = someString;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CallbackException(double someValue, string someString)
+        public CallbackException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(someValue, someString);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CallbackException(double someValue, string someString, global::System.Exception ex) : base(ex)
+        public CallbackException()
         {
-            _initDM(someValue, someString);
         }
 
         #endregion

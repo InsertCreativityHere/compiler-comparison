@@ -74,6 +74,13 @@ namespace and
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public @continue(global::Ice.InputStream istr)
+        {
+            this.def = istr.readInt();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -85,24 +92,13 @@ namespace and
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.def = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, @continue v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static @continue ice_read(global::Ice.InputStream istr)
-        {
-            var v = new @continue();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static @continue ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -169,17 +165,17 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @for()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @for(int lambda, execPrx from, int global)
         {
             this.lambda = lambda;
             this.from = from;
             this.global = global;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public @for()
+        {
             ice_initialize();
         }
 
@@ -263,31 +259,19 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @is()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @is(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int lambda)
+        public @is(int lambda, global::System.Exception innerException = null) : base(innerException)
         {
             this.lambda = lambda;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @is(int lambda)
+        public @is(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(lambda);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @is(int lambda, global::System.Exception ex) : base(ex)
+        public @is()
         {
-            _initDM(lambda);
         }
 
         #endregion
@@ -347,32 +331,20 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public not()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public not(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int or, int pass)
+        public not(int lambda, int or, int pass, global::System.Exception innerException = null) : base(lambda, innerException)
         {
             this.or = or;
             this.pass = pass;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public not(int lambda, int or, int pass) : base(lambda)
+        public not(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(or, pass);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public not(int lambda, int or, int pass, global::System.Exception ex) : base(lambda, ex)
+        public not()
         {
-            _initDM(or, pass);
         }
 
         #endregion
@@ -1608,7 +1580,7 @@ namespace and
             execPrx iceP_yield = default;
             ifPrx iceP_or = default;
             int iceP_global = default;
-            iceP_else.ice_readMembers(istr);
+            iceP_else = new @continue(istr);
             istr.readValue((@for v) => {iceP_return = v; });
             iceP_while = delPrxHelper.read(istr);
             iceP_yield = execPrxHelper.read(istr);

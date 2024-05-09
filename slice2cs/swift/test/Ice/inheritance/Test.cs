@@ -133,15 +133,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A()
+            public A(int aA)
             {
+                this.aA = aA;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A(int aA)
+            public A()
             {
-                this.aA = aA;
                 ice_initialize();
             }
 
@@ -207,15 +207,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B() : base()
+            public B(int aA, int bB) : base(aA)
             {
+                this.bB = bB;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B(int aA, int bB) : base(aA)
+            public B()
             {
-                this.bB = bB;
                 ice_initialize();
             }
 
@@ -283,15 +283,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C() : base()
+            public C(int aA, int bB, int cC) : base(aA, bB)
             {
+                this.cC = cC;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C(int aA, int bB, int cC) : base(aA, bB)
+            public C()
             {
-                this.cC = cC;
                 ice_initialize();
             }
 
@@ -359,15 +359,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D() : base()
+            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
             {
+                this.dD = dD;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
+            public D()
             {
-                this.dD = dD;
                 ice_initialize();
             }
 
@@ -438,15 +438,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A()
+            public A(int aA)
             {
+                this.aA = aA;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A(int aA)
+            public A()
             {
-                this.aA = aA;
                 ice_initialize();
             }
 
@@ -512,15 +512,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B() : base()
+            public B(int aA, int bB) : base(aA)
             {
+                this.bB = bB;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B(int aA, int bB) : base(aA)
+            public B()
             {
-                this.bB = bB;
                 ice_initialize();
             }
 
@@ -588,15 +588,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C() : base()
+            public C(int aA, int bB, int cC) : base(aA, bB)
             {
+                this.cC = cC;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C(int aA, int bB, int cC) : base(aA, bB)
+            public C()
             {
-                this.cC = cC;
                 ice_initialize();
             }
 
@@ -664,15 +664,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D() : base()
+            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
             {
+                this.dD = dD;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
+            public D()
             {
-                this.dD = dD;
                 ice_initialize();
             }
 
@@ -743,15 +743,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A()
+            public A(int aA)
             {
+                this.aA = aA;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A(int aA)
+            public A()
             {
-                this.aA = aA;
                 ice_initialize();
             }
 
@@ -817,15 +817,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B() : base()
+            public B(int aA, int bB) : base(aA)
             {
+                this.bB = bB;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B(int aA, int bB) : base(aA)
+            public B()
             {
-                this.bB = bB;
                 ice_initialize();
             }
 
@@ -893,15 +893,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C() : base()
+            public C(int aA, int bB, int cC) : base(aA, bB)
             {
+                this.cC = cC;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C(int aA, int bB, int cC) : base(aA, bB)
+            public C()
             {
-                this.cC = cC;
                 ice_initialize();
             }
 
@@ -969,15 +969,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D() : base()
+            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
             {
+                this.dD = dD;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
+            public D()
             {
-                this.dD = dD;
                 ice_initialize();
             }
 
@@ -1048,15 +1048,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A()
+            public A(int aA)
             {
+                this.aA = aA;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A(int aA)
+            public A()
             {
-                this.aA = aA;
                 ice_initialize();
             }
 
@@ -1122,15 +1122,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B() : base()
+            public B(int aA, int bB) : base(aA)
             {
+                this.bB = bB;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B(int aA, int bB) : base(aA)
+            public B()
             {
-                this.bB = bB;
                 ice_initialize();
             }
 
@@ -1198,15 +1198,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C() : base()
+            public C(int aA, int bB, int cC) : base(aA, bB)
             {
+                this.cC = cC;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C(int aA, int bB, int cC) : base(aA, bB)
+            public C()
             {
-                this.cC = cC;
                 ice_initialize();
             }
 
@@ -1274,15 +1274,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D() : base()
+            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
             {
+                this.dD = dD;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
+            public D()
             {
-                this.dD = dD;
                 ice_initialize();
             }
 
@@ -1353,15 +1353,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A()
+            public A(int aA)
             {
+                this.aA = aA;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A(int aA)
+            public A()
             {
-                this.aA = aA;
                 ice_initialize();
             }
 
@@ -1427,15 +1427,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B() : base()
+            public B(int aA, int bB) : base(aA)
             {
+                this.bB = bB;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B(int aA, int bB) : base(aA)
+            public B()
             {
-                this.bB = bB;
                 ice_initialize();
             }
 
@@ -1503,15 +1503,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C() : base()
+            public C(int aA, int bB, int cC) : base(aA, bB)
             {
+                this.cC = cC;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C(int aA, int bB, int cC) : base(aA, bB)
+            public C()
             {
-                this.cC = cC;
                 ice_initialize();
             }
 
@@ -1579,15 +1579,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D() : base()
+            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
             {
+                this.dD = dD;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
+            public D()
             {
-                this.dD = dD;
                 ice_initialize();
             }
 
@@ -1658,15 +1658,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A()
+            public A(int aA)
             {
+                this.aA = aA;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public A(int aA)
+            public A()
             {
-                this.aA = aA;
                 ice_initialize();
             }
 
@@ -1732,15 +1732,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B() : base()
+            public B(int aA, int bB) : base(aA)
             {
+                this.bB = bB;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public B(int aA, int bB) : base(aA)
+            public B()
             {
-                this.bB = bB;
                 ice_initialize();
             }
 
@@ -1808,15 +1808,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C() : base()
+            public C(int aA, int bB, int cC) : base(aA, bB)
             {
+                this.cC = cC;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public C(int aA, int bB, int cC) : base(aA, bB)
+            public C()
             {
-                this.cC = cC;
                 ice_initialize();
             }
 
@@ -1884,15 +1884,15 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D() : base()
+            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
             {
+                this.dD = dD;
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D(int aA, int bB, int cC, int dD) : base(aA, bB, cC)
+            public D()
             {
-                this.dD = dD;
                 ice_initialize();
             }
 

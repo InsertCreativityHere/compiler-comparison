@@ -43,12 +43,12 @@ namespace Ice
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterNotFoundException()
+        public AdapterNotFoundException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterNotFoundException(global::System.Exception ex) : base(ex)
+        public AdapterNotFoundException()
         {
         }
 
@@ -101,12 +101,12 @@ namespace Ice
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InvalidReplicaGroupIdException()
+        public InvalidReplicaGroupIdException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InvalidReplicaGroupIdException(global::System.Exception ex) : base(ex)
+        public InvalidReplicaGroupIdException()
         {
         }
 
@@ -159,12 +159,12 @@ namespace Ice
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterAlreadyActiveException()
+        public AdapterAlreadyActiveException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterAlreadyActiveException(global::System.Exception ex) : base(ex)
+        public AdapterAlreadyActiveException()
         {
         }
 
@@ -217,12 +217,12 @@ namespace Ice
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectNotFoundException()
+        public ObjectNotFoundException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectNotFoundException(global::System.Exception ex) : base(ex)
+        public ObjectNotFoundException()
         {
         }
 
@@ -275,12 +275,12 @@ namespace Ice
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerNotFoundException()
+        public ServerNotFoundException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerNotFoundException(global::System.Exception ex) : base(ex)
+        public ServerNotFoundException()
         {
         }
 
@@ -1460,7 +1460,7 @@ namespace Ice
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
             Identity iceP_id = default;
-            iceP_id = Identity.ice_read(istr);
+            iceP_id = new Identity(istr);
             inS.endReadParams();
             return inS.setResultTask<ObjectPrx>(obj.findObjectByIdAsync(iceP_id, current),
                 (ostr, ret) =>

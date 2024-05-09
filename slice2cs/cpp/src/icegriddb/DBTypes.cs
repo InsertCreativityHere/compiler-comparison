@@ -54,13 +54,7 @@ namespace IceGrid
 
         partial void ice_initialize();
 
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllData()
-        {
-            ice_initialize();
-        }
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AllData(ApplicationInfo[] applications, AdapterInfo[] adapters, ObjectInfo[] objects, ObjectInfo[] internalObjects, global::System.Collections.Generic.Dictionary<string, long> serials)
@@ -70,6 +64,17 @@ namespace IceGrid
             this.objects = objects;
             this.internalObjects = internalObjects;
             this.serials = serials;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public AllData(global::Ice.InputStream istr)
+        {
+            this.applications = ApplicationInfoSeqHelper.read(istr);
+            this.adapters = AdapterInfoSeqHelper.read(istr);
+            this.objects = ObjectInfoSeqHelper.read(istr);
+            this.internalObjects = ObjectInfoSeqHelper.read(istr);
+            this.serials = StringLongDictHelper.read(istr);
             ice_initialize();
         }
 
@@ -139,37 +144,13 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.applications = ApplicationInfoSeqHelper.read(istr);
-            this.adapters = AdapterInfoSeqHelper.read(istr);
-            this.objects = ObjectInfoSeqHelper.read(istr);
-            this.internalObjects = ObjectInfoSeqHelper.read(istr);
-            this.serials = StringLongDictHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, AllData v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static AllData ice_read(global::Ice.InputStream istr)
-        {
-            var v = new AllData();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly AllData _nullMarshalValue = new AllData();
+        public static AllData ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }

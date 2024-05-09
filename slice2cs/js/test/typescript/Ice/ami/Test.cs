@@ -39,12 +39,12 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TestIntfException()
+        public TestIntfException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TestIntfException(global::System.Exception ex) : base(ex)
+        public TestIntfException()
         {
         }
 
@@ -1702,7 +1702,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             global::Ice.Identity iceP_id = default;
-            iceP_id = global::Ice.Identity.ice_read(istr);
+            iceP_id = new global::Ice.Identity(istr);
             inS.endReadParams();
             obj.pingBidDir(iceP_id, current);
             return inS.setResult(inS.writeEmptyParams());

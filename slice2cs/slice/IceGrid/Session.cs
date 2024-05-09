@@ -736,7 +736,7 @@ namespace IceGrid
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             global::Ice.Identity iceP_id = default;
-            iceP_id = global::Ice.Identity.ice_read(istr);
+            iceP_id = new global::Ice.Identity(istr);
             inS.endReadParams();
             return inS.setResultTask<global::Ice.ObjectPrx>(obj.allocateObjectByIdAsync(iceP_id, current),
                 (ostr, ret) =>
@@ -768,7 +768,7 @@ namespace IceGrid
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             global::Ice.Identity iceP_id = default;
-            iceP_id = global::Ice.Identity.ice_read(istr);
+            iceP_id = new global::Ice.Identity(istr);
             inS.endReadParams();
             obj.releaseObject(iceP_id, current);
             return inS.setResult(inS.writeEmptyParams());

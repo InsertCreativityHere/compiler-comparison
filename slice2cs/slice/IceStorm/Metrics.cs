@@ -50,16 +50,16 @@ namespace IceMX
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TopicMetrics() : base()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TopicMetrics(string id, long total, int current, long totalLifetime, int failures, long published, long forwarded) : base(id, total, current, totalLifetime, failures)
         {
             this.published = published;
             this.forwarded = forwarded;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public TopicMetrics()
+        {
             ice_initialize();
         }
 
@@ -135,17 +135,17 @@ namespace IceMX
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SubscriberMetrics() : base()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberMetrics(string id, long total, int current, long totalLifetime, int failures, int queued, int outstanding, long delivered) : base(id, total, current, totalLifetime, failures)
         {
             this.queued = queued;
             this.outstanding = outstanding;
             this.delivered = delivered;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public SubscriberMetrics()
+        {
             ice_initialize();
         }
 

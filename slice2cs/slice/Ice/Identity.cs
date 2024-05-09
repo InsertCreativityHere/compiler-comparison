@@ -45,7 +45,7 @@ namespace Ice
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Identity()
@@ -58,6 +58,14 @@ namespace Ice
         {
             this.name = name;
             this.category = category;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public Identity(InputStream istr)
+        {
+            this.name = istr.readString();
+            this.category = istr.readString();
             ice_initialize();
         }
 
@@ -118,34 +126,13 @@ namespace Ice
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(InputStream istr)
-        {
-            this.name = istr.readString();
-            this.category = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(OutputStream ostr, Identity v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static Identity ice_read(InputStream istr)
-        {
-            var v = new Identity();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly Identity _nullMarshalValue = new Identity();
+        public static Identity ice_read(InputStream istr) => new(istr);
 
         #endregion
     }
@@ -167,7 +154,7 @@ namespace Ice
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new Identity() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -180,8 +167,7 @@ namespace Ice
                 v = new Identity[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new Identity();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new Identity(istr);
                 }
             }
             return v;

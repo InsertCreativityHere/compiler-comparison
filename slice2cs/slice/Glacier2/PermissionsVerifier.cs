@@ -50,31 +50,19 @@ namespace Glacier2
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PermissionDeniedException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PermissionDeniedException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public PermissionDeniedException(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PermissionDeniedException(string reason)
+        public PermissionDeniedException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PermissionDeniedException(string reason, global::System.Exception ex) : base(ex)
+        public PermissionDeniedException()
         {
-            _initDM(reason);
         }
 
         #endregion
@@ -785,7 +773,7 @@ namespace Glacier2
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
             SSLInfo iceP_info = default;
-            iceP_info = SSLInfo.ice_read(istr);
+            iceP_info = new SSLInfo(istr);
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
             string iceP_reason;

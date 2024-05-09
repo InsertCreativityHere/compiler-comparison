@@ -46,31 +46,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerived()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerived(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string ud)
+        public UnknownDerived(string b, string ud, global::System.Exception innerException = null) : base(b, innerException)
         {
             this.ud = ud;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerived(string b, string ud) : base(b)
+        public UnknownDerived(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(ud);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerived(string b, string ud, global::System.Exception ex) : base(b, ex)
+        public UnknownDerived()
         {
-            _initDM(ud);
         }
 
         #endregion
@@ -129,31 +117,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownIntermediate()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownIntermediate(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string ui)
+        public UnknownIntermediate(string b, string ui, global::System.Exception innerException = null) : base(b, innerException)
         {
             this.ui = ui;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownIntermediate(string b, string ui) : base(b)
+        public UnknownIntermediate(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(ui);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownIntermediate(string b, string ui, global::System.Exception ex) : base(b, ex)
+        public UnknownIntermediate()
         {
-            _initDM(ui);
         }
 
         #endregion
@@ -212,31 +188,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived1()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived1(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string umd1)
+        public UnknownMostDerived1(string b, string ki, string umd1, global::System.Exception innerException = null) : base(b, ki, innerException)
         {
             this.umd1 = umd1;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived1(string b, string ki, string umd1) : base(b, ki)
+        public UnknownMostDerived1(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(umd1);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived1(string b, string ki, string umd1, global::System.Exception ex) : base(b, ki, ex)
+        public UnknownMostDerived1()
         {
-            _initDM(umd1);
         }
 
         #endregion
@@ -295,31 +259,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived2()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived2(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string umd2)
+        public UnknownMostDerived2(string b, string ui, string umd2, global::System.Exception innerException = null) : base(b, ui, innerException)
         {
             this.umd2 = umd2;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived2(string b, string ui, string umd2) : base(b, ui)
+        public UnknownMostDerived2(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(umd2);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived2(string b, string ui, string umd2, global::System.Exception ex) : base(b, ui, ex)
+        public UnknownMostDerived2()
         {
-            _initDM(umd2);
         }
 
         #endregion

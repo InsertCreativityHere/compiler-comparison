@@ -96,7 +96,7 @@ namespace Ice.stream
 
             partial void ice_initialize();
 
-            #region Constructors
+            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public SmallStruct()
@@ -117,6 +117,22 @@ namespace Ice.stream
                 this.str = str;
                 this.e = e;
                 this.p = p;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public SmallStruct(global::Ice.InputStream istr)
+            {
+                this.bo = istr.readBool();
+                this.by = istr.readByte();
+                this.sh = istr.readShort();
+                this.i = istr.readInt();
+                this.l = istr.readLong();
+                this.f = istr.readFloat();
+                this.d = istr.readDouble();
+                this.str = istr.readString();
+                this.e = (MyEnum)istr.readEnum(2);
+                this.p = MyInterfacePrxHelper.read(istr);
                 ice_initialize();
             }
 
@@ -201,42 +217,13 @@ namespace Ice.stream
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.bo = istr.readBool();
-                this.by = istr.readByte();
-                this.sh = istr.readShort();
-                this.i = istr.readInt();
-                this.l = istr.readLong();
-                this.f = istr.readFloat();
-                this.d = istr.readDouble();
-                this.str = istr.readString();
-                this.e = (MyEnum)istr.readEnum(2);
-                this.p = MyInterfacePrxHelper.read(istr);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, SmallStruct v)
             {
-                if (v is null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
+                v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static SmallStruct ice_read(global::Ice.InputStream istr)
-            {
-                var v = new SmallStruct();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly SmallStruct _nullMarshalValue = new SmallStruct();
+            public static SmallStruct ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -276,18 +263,18 @@ namespace Ice.stream
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public OptionalClass()
-            {
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public OptionalClass(bool bo, byte by, short? sh, int? i)
             {
                 this.bo = bo;
                 this.by = by;
                 this.sh = sh;
                 this.i = i;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public OptionalClass()
+            {
                 ice_initialize();
             }
 
@@ -398,13 +385,6 @@ namespace Ice.stream
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public MyClass()
-            {
-                this.s = new();
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public MyClass(MyClass c, global::Ice.Value o, SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass> d)
             {
                 this.c = c;
@@ -421,6 +401,43 @@ namespace Ice.stream
                 this.seq9 = seq9;
                 this.seq10 = seq10;
                 this.d = d;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public MyClass(SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass> d)
+            {
+                this.s = s;
+                this.seq1 = seq1;
+                this.seq2 = seq2;
+                this.seq3 = seq3;
+                this.seq4 = seq4;
+                this.seq5 = seq5;
+                this.seq6 = seq6;
+                this.seq7 = seq7;
+                this.seq8 = seq8;
+                this.seq9 = seq9;
+                this.seq10 = seq10;
+                this.d = d;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            public MyClass()
+            {
+                this.s = null;
+                this.seq1 = null;
+                this.seq2 = null;
+                this.seq3 = null;
+                this.seq4 = null;
+                this.seq5 = null;
+                this.seq6 = null;
+                this.seq7 = null;
+                this.seq8 = null;
+                this.seq9 = null;
+                this.seq10 = null;
+                this.d = null;
                 ice_initialize();
             }
 
@@ -468,7 +485,7 @@ namespace Ice.stream
                 istr_.startSlice();
                 istr_.readValue((MyClass v) => { this.c = v; });
                 istr_.readValue((global::Ice.Value v) => { this.o = v; });
-                s = SmallStruct.ice_read(istr_);
+                s = new SmallStruct(istr_);
                 seq1 = global::Ice.BoolSeqHelper.read(istr_);
                 seq2 = global::Ice.ByteSeqHelper.read(istr_);
                 seq3 = global::Ice.ShortSeqHelper.read(istr_);
@@ -511,31 +528,19 @@ namespace Ice.stream
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public MyException()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public MyException(global::System.Exception ex) : base(ex)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM(MyClass c)
+            public MyException(MyClass c, global::System.Exception innerException = null) : base(innerException)
             {
                 this.c = c;
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public MyException(MyClass c)
+            public MyException(global::System.Exception innerException) : base(innerException)
             {
-                _initDM(c);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public MyException(MyClass c, global::System.Exception ex) : base(ex)
+            public MyException()
             {
-                _initDM(c);
             }
 
             #endregion
@@ -1287,7 +1292,7 @@ namespace Ice.stream
                     ostr.writeSize(v.Count);
                     for(int ix = 0; ix < v.Count; ++ix)
                     {
-                        (v[ix] == null ? new SmallStruct() : v[ix]).ice_writeMembers(ostr);
+                        v[ix].ice_writeMembers(ostr);
                     }
                 }
             }
@@ -1300,8 +1305,7 @@ namespace Ice.stream
                     v = new global::System.Collections.Generic.List<SmallStruct>(szx);
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        SmallStruct val = new SmallStruct();
-                        val.ice_readMembers(istr);
+                        SmallStruct val = new SmallStruct(istr);
                         v.Add(val);
                     }
                 }
@@ -1472,8 +1476,7 @@ namespace Ice.stream
                     v = new global::System.Collections.Generic.LinkedList<SmallStruct>();
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        SmallStruct val = new SmallStruct();
-                        val.ice_readMembers(istr);
+                        SmallStruct val = new SmallStruct(istr);
                         v.AddLast(val);
                     }
                 }
@@ -1528,7 +1531,7 @@ namespace Ice.stream
                     SmallStruct[] v_tmp = v.ToArray();
                     for(int ix = 0; ix < v_tmp.Length; ++ix)
                     {
-                        (v_tmp[ix] == null ? new SmallStruct() : v_tmp[ix]).ice_writeMembers(ostr);
+                        v_tmp[ix].ice_writeMembers(ostr);
                     }
                 }
             }
@@ -1541,8 +1544,7 @@ namespace Ice.stream
                     SmallStruct[] v_tmp = new SmallStruct[szx];
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        v_tmp[ix] = new SmallStruct();
-                        v_tmp[ix].ice_readMembers(istr);
+                        v_tmp[ix] = new SmallStruct(istr);
                     }
                     global::System.Array.Reverse(v_tmp);
                     v = new global::System.Collections.Generic.Stack<SmallStruct>(v_tmp);
@@ -1714,8 +1716,7 @@ namespace Ice.stream
                     v = new global::System.Collections.Generic.Queue<SmallStruct>(szx);
                     for(int ix = 0; ix < szx; ++ix)
                     {
-                        SmallStruct val = new SmallStruct();
-                        val.ice_readMembers(istr);
+                        SmallStruct val = new SmallStruct(istr);
                         v.Enqueue(val);
                     }
                 }

@@ -97,7 +97,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TestToken()
@@ -114,6 +114,18 @@ namespace Test
             this.config = config;
             this.caseIndex = caseIndex;
             this.testReference = testReference;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public TestToken(global::Ice.InputStream istr)
+        {
+            this.expectedResult = istr.readBool();
+            this.description = istr.readString();
+            this.code = (StateCode)istr.readEnum(2);
+            this.config = istr.readShort();
+            this.caseIndex = istr.readShort();
+            this.testReference = istr.readString();
             ice_initialize();
         }
 
@@ -186,38 +198,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.expectedResult = istr.readBool();
-            this.description = istr.readString();
-            this.code = (StateCode)istr.readEnum(2);
-            this.config = istr.readShort();
-            this.caseIndex = istr.readShort();
-            this.testReference = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, TestToken v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static TestToken ice_read(global::Ice.InputStream istr)
-        {
-            var v = new TestToken();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly TestToken _nullMarshalValue = new TestToken();
+        public static TestToken ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -587,7 +574,7 @@ namespace Test
                 read: (global::Ice.InputStream istr) =>
                 {
                     TestToken iceP_newState = default;
-                    iceP_newState = TestToken.ice_read(istr);
+                    iceP_newState = new TestToken(istr);
                     return iceP_newState;
                 });
         }
@@ -1062,7 +1049,7 @@ namespace Test
             global::Glacier2.SessionPrx iceP_currentSession = default;
             TestToken iceP_currentState = default;
             iceP_currentSession = global::Glacier2.SessionPrxHelper.read(istr);
-            iceP_currentState = TestToken.ice_read(istr);
+            iceP_currentState = new TestToken(istr);
             inS.endReadParams();
             TestToken iceP_newState;
             obj.step(iceP_currentSession, iceP_currentState, out iceP_newState, current);

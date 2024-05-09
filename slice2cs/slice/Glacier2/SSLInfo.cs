@@ -57,11 +57,12 @@ namespace Glacier2
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SSLInfo()
+        public SSLInfo(string[] certs)
         {
+            this.certs = certs;
             ice_initialize();
         }
 
@@ -74,6 +75,18 @@ namespace Glacier2
             this.localPort = localPort;
             this.cipher = cipher;
             this.certs = certs;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public SSLInfo(global::Ice.InputStream istr)
+        {
+            this.remoteHost = istr.readString();
+            this.remotePort = istr.readInt();
+            this.localHost = istr.readString();
+            this.localPort = istr.readInt();
+            this.cipher = istr.readString();
+            this.certs = global::Ice.StringSeqHelper.read(istr);
             ice_initialize();
         }
 
@@ -146,38 +159,13 @@ namespace Glacier2
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.remoteHost = istr.readString();
-            this.remotePort = istr.readInt();
-            this.localHost = istr.readString();
-            this.localPort = istr.readInt();
-            this.cipher = istr.readString();
-            this.certs = global::Ice.StringSeqHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, SSLInfo v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static SSLInfo ice_read(global::Ice.InputStream istr)
-        {
-            var v = new SSLInfo();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly SSLInfo _nullMarshalValue = new SSLInfo();
+        public static SSLInfo ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }

@@ -51,6 +51,13 @@ namespace Test
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public @Fixed(global::Ice.InputStream istr)
+        {
+            this.s = istr.readShort();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -62,24 +69,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.s = istr.readShort();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, @Fixed v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static @Fixed ice_read(global::Ice.InputStream istr)
-        {
-            var v = new @Fixed();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static @Fixed ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -111,11 +107,13 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Variable()
+        public Variable(bool[] bl, string[] ss)
         {
+            this.bl = bl;
+            this.ss = ss;
             ice_initialize();
         }
 
@@ -125,6 +123,15 @@ namespace Test
             this.s = s;
             this.bl = bl;
             this.ss = ss;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public Variable(global::Ice.InputStream istr)
+        {
+            this.s = istr.readString();
+            this.bl = BoolListHelper.read(istr);
+            this.ss = StringSeqHelper.read(istr);
             ice_initialize();
         }
 
@@ -188,35 +195,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.s = istr.readString();
-            this.bl = BoolListHelper.read(istr);
-            this.ss = StringSeqHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, Variable v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static Variable ice_read(global::Ice.InputStream istr)
-        {
-            var v = new Variable();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly Variable _nullMarshalValue = new Variable();
+        public static Variable ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -345,15 +330,17 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DictClass()
+        public DictClass(global::System.Collections.Generic.Dictionary<int, string> isdict)
         {
+            this.isdict = isdict;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DictClass(global::System.Collections.Generic.Dictionary<int, string> isdict)
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public DictClass()
         {
-            this.isdict = isdict;
+            this.isdict = null;
             ice_initialize();
         }
 
@@ -432,13 +419,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BufferStruct()
-        {
-            ice_initialize();
-        }
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BufferStruct(byte[] byteBuf, bool[] boolBuf, short[] shortBuf, int[] intBuf, long[] longBuf, float[] floatBuf, double[] doubleBuf)
@@ -450,6 +431,19 @@ namespace Test
             this.longBuf = longBuf;
             this.floatBuf = floatBuf;
             this.doubleBuf = doubleBuf;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public BufferStruct(global::Ice.InputStream istr)
+        {
+            this.byteBuf = ByteBufferHelper.read(istr);
+            this.boolBuf = BoolBufferHelper.read(istr);
+            this.shortBuf = ShortBufferHelper.read(istr);
+            this.intBuf = IntBufferHelper.read(istr);
+            this.longBuf = LongBufferHelper.read(istr);
+            this.floatBuf = FloatBufferHelper.read(istr);
+            this.doubleBuf = DoubleBufferHelper.read(istr);
             ice_initialize();
         }
 
@@ -525,39 +519,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.byteBuf = ByteBufferHelper.read(istr);
-            this.boolBuf = BoolBufferHelper.read(istr);
-            this.shortBuf = ShortBufferHelper.read(istr);
-            this.intBuf = IntBufferHelper.read(istr);
-            this.longBuf = LongBufferHelper.read(istr);
-            this.floatBuf = FloatBufferHelper.read(istr);
-            this.doubleBuf = DoubleBufferHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, BufferStruct v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static BufferStruct ice_read(global::Ice.InputStream istr)
-        {
-            var v = new BufferStruct();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly BufferStruct _nullMarshalValue = new BufferStruct();
+        public static BufferStruct ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -1300,7 +1268,7 @@ namespace Test
                 v = new @Fixed[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new @Fixed(istr);
                 }
             }
             return v;
@@ -1334,7 +1302,7 @@ namespace Test
                 v = new @Fixed[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new @Fixed(istr);
                 }
             }
             return v;
@@ -1457,7 +1425,7 @@ namespace Test
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new Variable() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -1470,8 +1438,7 @@ namespace Test
                 v = new Variable[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new Variable();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new Variable(istr);
                 }
             }
             return v;
@@ -1492,7 +1459,7 @@ namespace Test
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new Variable() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -1505,8 +1472,7 @@ namespace Test
                 v = new Variable[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new Variable();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new Variable(istr);
                 }
             }
             return v;
@@ -4170,7 +4136,7 @@ namespace Test
                 read: (global::Ice.InputStream istr) =>
                 {
                     BufferStruct ret = default;
-                    ret = BufferStruct.ice_read(istr);
+                    ret = new BufferStruct(istr);
                     return ret;
                 });
         }
@@ -4915,7 +4881,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             BufferStruct iceP_s = default;
-            iceP_s = BufferStruct.ice_read(istr);
+            iceP_s = new BufferStruct(istr);
             inS.endReadParams();
             return inS.setResultTask<BufferStruct>(obj.opBufferStructAsync(iceP_s, current),
                 (ostr, ret) =>

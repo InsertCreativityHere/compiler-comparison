@@ -65,12 +65,6 @@ namespace IceMX
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SessionMetrics() : base()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SessionMetrics(string id, long total, int current, long totalLifetime, int failures, int forwardedClient, int forwardedServer, int routingTableSize, int queuedClient, int queuedServer, int overriddenClient, int overriddenServer) : base(id, total, current, totalLifetime, failures)
         {
             this.forwardedClient = forwardedClient;
@@ -80,6 +74,12 @@ namespace IceMX
             this.queuedServer = queuedServer;
             this.overriddenClient = overriddenClient;
             this.overriddenServer = overriddenServer;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public SessionMetrics()
+        {
             ice_initialize();
         }
 

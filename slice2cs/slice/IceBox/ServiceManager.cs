@@ -43,12 +43,12 @@ namespace IceBox
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadyStartedException()
+        public AlreadyStartedException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadyStartedException(global::System.Exception ex) : base(ex)
+        public AlreadyStartedException()
         {
         }
 
@@ -101,12 +101,12 @@ namespace IceBox
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadyStoppedException()
+        public AlreadyStoppedException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadyStoppedException(global::System.Exception ex) : base(ex)
+        public AlreadyStoppedException()
         {
         }
 
@@ -159,12 +159,12 @@ namespace IceBox
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchServiceException()
+        public NoSuchServiceException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchServiceException(global::System.Exception ex) : base(ex)
+        public NoSuchServiceException()
         {
         }
 
@@ -729,11 +729,11 @@ namespace IceBox
                     {
                         throw ex;
                     }
-                    catch(AlreadyStartedException)
+                    catch(NoSuchServiceException)
                     {
                         throw;
                     }
-                    catch(NoSuchServiceException)
+                    catch(AlreadyStartedException)
                     {
                         throw;
                     }

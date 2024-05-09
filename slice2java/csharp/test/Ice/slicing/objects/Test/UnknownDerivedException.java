@@ -75,5 +75,5 @@ public class UnknownDerivedException extends BaseException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -5270345130312707086L;
+    public static final long serialVersionUID = -3842303457318799420L;
 }

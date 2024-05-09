@@ -51,11 +51,13 @@ namespace IceStorm
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public EventData()
+        public EventData(byte[] data, global::System.Collections.Generic.Dictionary<string, string> context)
         {
+            this.data = data;
+            this.context = context;
             ice_initialize();
         }
 
@@ -66,6 +68,16 @@ namespace IceStorm
             this.mode = mode;
             this.data = data;
             this.context = context;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public EventData(global::Ice.InputStream istr)
+        {
+            this.op = istr.readString();
+            this.mode = (global::Ice.OperationMode)istr.readEnum(2);
+            this.data = global::Ice.ByteSeqHelper.read(istr);
+            this.context = global::Ice.ContextHelper.read(istr);
             ice_initialize();
         }
 
@@ -132,36 +144,13 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.op = istr.readString();
-            this.mode = (global::Ice.OperationMode)istr.readEnum(2);
-            this.data = global::Ice.ByteSeqHelper.read(istr);
-            this.context = global::Ice.ContextHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, EventData v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static EventData ice_read(global::Ice.InputStream istr)
-        {
-            var v = new EventData();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly EventData _nullMarshalValue = new EventData();
+        public static EventData ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -203,12 +192,12 @@ namespace IceStorm
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ReapWouldBlock()
+        public ReapWouldBlock(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ReapWouldBlock(global::System.Exception ex) : base(ex)
+        public ReapWouldBlock()
         {
         }
 
@@ -453,7 +442,7 @@ namespace IceStorm
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new EventData() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -466,8 +455,7 @@ namespace IceStorm
                 v = new EventData[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new EventData();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new EventData(istr);
                 }
             }
             return v;

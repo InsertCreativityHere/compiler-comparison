@@ -45,21 +45,21 @@ namespace IceStorm
 
         partial void ice_initialize();
 
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SubscriberRecordKey()
-        {
-            this.topic = new();
-            this.id = new();
-            ice_initialize();
-        }
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SubscriberRecordKey(global::Ice.Identity topic, global::Ice.Identity id)
         {
             this.topic = topic;
             this.id = id;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public SubscriberRecordKey(global::Ice.InputStream istr)
+        {
+            this.topic = new global::Ice.Identity(istr);
+            this.id = new global::Ice.Identity(istr);
             ice_initialize();
         }
 
@@ -120,34 +120,13 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.topic = global::Ice.Identity.ice_read(istr);
-            this.id = global::Ice.Identity.ice_read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, SubscriberRecordKey v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static SubscriberRecordKey ice_read(global::Ice.InputStream istr)
-        {
-            var v = new SubscriberRecordKey();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly SubscriberRecordKey _nullMarshalValue = new SubscriberRecordKey();
+        public static SubscriberRecordKey ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -191,12 +170,13 @@ namespace IceStorm
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SubscriberRecord()
+        public SubscriberRecord(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> theQoS)
         {
-            this.id = new();
+            this.id = id;
+            this.theQoS = theQoS;
             ice_initialize();
         }
 
@@ -210,6 +190,19 @@ namespace IceStorm
             this.theQoS = theQoS;
             this.cost = cost;
             this.theTopic = theTopic;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public SubscriberRecord(global::Ice.InputStream istr)
+        {
+            this.topicName = istr.readString();
+            this.id = new global::Ice.Identity(istr);
+            this.link = istr.readBool();
+            this.obj = istr.readProxy();
+            this.theQoS = QoSHelper.read(istr);
+            this.cost = istr.readInt();
+            this.theTopic = TopicPrxHelper.read(istr);
             ice_initialize();
         }
 
@@ -285,39 +278,13 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.topicName = istr.readString();
-            this.id = global::Ice.Identity.ice_read(istr);
-            this.link = istr.readBool();
-            this.obj = istr.readProxy();
-            this.theQoS = QoSHelper.read(istr);
-            this.cost = istr.readInt();
-            this.theTopic = TopicPrxHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, SubscriberRecord v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static SubscriberRecord ice_read(global::Ice.InputStream istr)
-        {
-            var v = new SubscriberRecord();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly SubscriberRecord _nullMarshalValue = new SubscriberRecord();
+        public static SubscriberRecord ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -339,7 +306,7 @@ namespace IceStorm
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new SubscriberRecord() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -352,8 +319,7 @@ namespace IceStorm
                 v = new SubscriberRecord[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new SubscriberRecord();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new SubscriberRecord(istr);
                 }
             }
             return v;

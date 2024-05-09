@@ -47,15 +47,15 @@ namespace NoNamespace
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C1()
+        public C1(int i)
         {
+            this.i = i;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C1(int i)
+        public C1()
         {
-            this.i = i;
             ice_initialize();
         }
 
@@ -121,15 +121,15 @@ namespace NoNamespace
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C2() : base()
+        public C2(int i, long l) : base(i)
         {
+            this.l = l;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C2(int i, long l) : base(i)
+        public C2()
         {
-            this.l = l;
             ice_initialize();
         }
 
@@ -196,31 +196,19 @@ namespace NoNamespace
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E1()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E1(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int i)
+        public E1(int i, global::System.Exception innerException = null) : base(innerException)
         {
             this.i = i;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E1(int i)
+        public E1(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(i);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E1(int i, global::System.Exception ex) : base(ex)
+        public E1()
         {
-            _initDM(i);
         }
 
         #endregion
@@ -277,31 +265,19 @@ namespace NoNamespace
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E2()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E2(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(long l)
+        public E2(int i, long l, global::System.Exception innerException = null) : base(i, innerException)
         {
             this.l = l;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E2(int i, long l) : base(i)
+        public E2(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(l);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public E2(int i, long l, global::System.Exception ex) : base(i, ex)
+        public E2()
         {
-            _initDM(l);
         }
 
         #endregion
@@ -364,31 +340,19 @@ namespace NoNamespace
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public notify()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public notify(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int i)
+        public notify(int i, global::System.Exception innerException = null) : base(innerException)
         {
             this.i = i;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public notify(int i)
+        public notify(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(i);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public notify(int i, global::System.Exception ex) : base(ex)
+        public notify()
         {
-            _initDM(i);
         }
 
         #endregion

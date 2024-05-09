@@ -61,31 +61,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public A()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public A(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int aMem)
+        public A(int aMem, global::System.Exception innerException = null) : base(innerException)
         {
             this.aMem = aMem;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public A(int aMem)
+        public A(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(aMem);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public A(int aMem, global::System.Exception ex) : base(ex)
+        public A()
         {
-            _initDM(aMem);
         }
 
         #endregion
@@ -142,31 +130,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int bMem)
+        public B(int aMem, int bMem, global::System.Exception innerException = null) : base(aMem, innerException)
         {
             this.bMem = bMem;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B(int aMem, int bMem) : base(aMem)
+        public B(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(bMem);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B(int aMem, int bMem, global::System.Exception ex) : base(aMem, ex)
+        public B()
         {
-            _initDM(bMem);
         }
 
         #endregion
@@ -225,31 +201,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int cMem)
+        public C(int aMem, int bMem, int cMem, global::System.Exception innerException = null) : base(aMem, bMem, innerException)
         {
             this.cMem = cMem;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C(int aMem, int bMem, int cMem) : base(aMem, bMem)
+        public C(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(cMem);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C(int aMem, int bMem, int cMem, global::System.Exception ex) : base(aMem, bMem, ex)
+        public C()
         {
-            _initDM(cMem);
         }
 
         #endregion
@@ -308,31 +272,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int dMem)
+        public D(int dMem, global::System.Exception innerException = null) : base(innerException)
         {
             this.dMem = dMem;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D(int dMem)
+        public D(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(dMem);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D(int dMem, global::System.Exception ex) : base(ex)
+        public D()
         {
-            _initDM(dMem);
         }
 
         #endregion

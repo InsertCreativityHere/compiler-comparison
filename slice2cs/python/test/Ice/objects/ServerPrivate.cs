@@ -178,15 +178,15 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public COneMember()
+        public COneMember(Empty e)
         {
+            this.e = e;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public COneMember(Empty e)
+        public COneMember()
         {
-            this.e = e;
             ice_initialize();
         }
 
@@ -255,16 +255,16 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CTwoMembers()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public CTwoMembers(Empty e1, Empty e2)
         {
             this.e1 = e1;
             this.e2 = e2;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public CTwoMembers()
+        {
             ice_initialize();
         }
 
@@ -331,31 +331,19 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public EOneMember()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public EOneMember(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(Empty e)
+        public EOneMember(Empty e, global::System.Exception innerException = null) : base(innerException)
         {
             this.e = e;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public EOneMember(Empty e)
+        public EOneMember(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(e);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public EOneMember(Empty e, global::System.Exception ex) : base(ex)
+        public EOneMember()
         {
-            _initDM(e);
         }
 
         #endregion
@@ -421,32 +409,20 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ETwoMembers()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ETwoMembers(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(Empty e1, Empty e2)
+        public ETwoMembers(Empty e1, Empty e2, global::System.Exception innerException = null) : base(innerException)
         {
             this.e1 = e1;
             this.e2 = e2;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ETwoMembers(Empty e1, Empty e2)
+        public ETwoMembers(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(e1, e2);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ETwoMembers(Empty e1, Empty e2, global::System.Exception ex) : base(ex)
+        public ETwoMembers()
         {
-            _initDM(e1, e2);
         }
 
         #endregion
@@ -507,7 +483,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SOneMember()
@@ -519,6 +495,13 @@ namespace Test
         public SOneMember(Empty e)
         {
             this.e = e;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public SOneMember(global::Ice.InputStream istr)
+        {
+            istr.readValue((Empty v) => { this.e = v; });
             ice_initialize();
         }
 
@@ -576,33 +559,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            istr.readValue((Empty v) => { this.e = v; });
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, SOneMember v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static SOneMember ice_read(global::Ice.InputStream istr)
-        {
-            var v = new SOneMember();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly SOneMember _nullMarshalValue = new SOneMember();
+        public static SOneMember ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -631,7 +594,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public STwoMembers()
@@ -644,6 +607,14 @@ namespace Test
         {
             this.e1 = e1;
             this.e2 = e2;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public STwoMembers(global::Ice.InputStream istr)
+        {
+            istr.readValue((Empty v) => { this.e1 = v; });
+            istr.readValue((Empty v) => { this.e2 = v; });
             ice_initialize();
         }
 
@@ -704,34 +675,13 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            istr.readValue((Empty v) => { this.e1 = v; });
-            istr.readValue((Empty v) => { this.e2 = v; });
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, STwoMembers v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static STwoMembers ice_read(global::Ice.InputStream istr)
-        {
-            var v = new STwoMembers();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly STwoMembers _nullMarshalValue = new STwoMembers();
+        public static STwoMembers ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }

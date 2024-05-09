@@ -97,7 +97,7 @@ namespace Ice
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public LogMessage()
@@ -112,6 +112,16 @@ namespace Ice
             this.timestamp = timestamp;
             this.traceCategory = traceCategory;
             this.message = message;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public LogMessage(InputStream istr)
+        {
+            this.type = (LogMessageType)istr.readEnum(3);
+            this.timestamp = istr.readLong();
+            this.traceCategory = istr.readString();
+            this.message = istr.readString();
             ice_initialize();
         }
 
@@ -178,36 +188,13 @@ namespace Ice
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(InputStream istr)
-        {
-            this.type = (LogMessageType)istr.readEnum(3);
-            this.timestamp = istr.readLong();
-            this.traceCategory = istr.readString();
-            this.message = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(OutputStream ostr, LogMessage v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static LogMessage ice_read(InputStream istr)
-        {
-            var v = new LogMessage();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly LogMessage _nullMarshalValue = new LogMessage();
+        public static LogMessage ice_read(InputStream istr) => new(istr);
 
         #endregion
     }
@@ -249,12 +236,12 @@ namespace Ice
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RemoteLoggerAlreadyAttachedException()
+        public RemoteLoggerAlreadyAttachedException(global::System.Exception innerException) : base(innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RemoteLoggerAlreadyAttachedException(global::System.Exception ex) : base(ex)
+        public RemoteLoggerAlreadyAttachedException()
         {
         }
 
@@ -624,7 +611,7 @@ namespace Ice
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    (v[ix] == null ? new LogMessage() : v[ix]).ice_writeMembers(ostr);
+                    v[ix].ice_writeMembers(ostr);
                 }
             }
         }
@@ -637,8 +624,7 @@ namespace Ice
                 v = new LogMessage[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new LogMessage();
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new LogMessage(istr);
                 }
             }
             return v;
@@ -1167,7 +1153,7 @@ namespace Ice
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
             LogMessage iceP_message = default;
-            iceP_message = LogMessage.ice_read(istr);
+            iceP_message = new LogMessage(istr);
             inS.endReadParams();
             obj.log(iceP_message, current);
             return inS.setResult(inS.writeEmptyParams());

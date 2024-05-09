@@ -160,7 +160,7 @@ namespace Ice.defaultValue
 
             partial void ice_initialize();
 
-            #region Constructors
+            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct1()
@@ -193,6 +193,34 @@ namespace Ice.defaultValue
                 this.zeroDotF = zeroDotF;
                 this.zeroD = zeroD;
                 this.zeroDotD = zeroDotD;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public Struct1(global::Ice.InputStream istr)
+            {
+                this.boolFalse = istr.readBool();
+                this.boolTrue = istr.readBool();
+                this.b = istr.readByte();
+                this.s = istr.readShort();
+                this.i = istr.readInt();
+                this.l = istr.readLong();
+                this.f = istr.readFloat();
+                this.d = istr.readDouble();
+                this.str = istr.readString();
+                this.c1 = (Color)istr.readEnum(2);
+                this.c2 = (Color)istr.readEnum(2);
+                this.c3 = (Color)istr.readEnum(2);
+                this.nc1 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.nc2 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.nc3 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.noDefault = istr.readString();
+                this.zeroI = istr.readInt();
+                this.zeroL = istr.readLong();
+                this.zeroF = istr.readFloat();
+                this.zeroDotF = istr.readFloat();
+                this.zeroD = istr.readDouble();
+                this.zeroDotD = istr.readDouble();
                 ice_initialize();
             }
 
@@ -313,54 +341,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.boolFalse = istr.readBool();
-                this.boolTrue = istr.readBool();
-                this.b = istr.readByte();
-                this.s = istr.readShort();
-                this.i = istr.readInt();
-                this.l = istr.readLong();
-                this.f = istr.readFloat();
-                this.d = istr.readDouble();
-                this.str = istr.readString();
-                this.c1 = (Color)istr.readEnum(2);
-                this.c2 = (Color)istr.readEnum(2);
-                this.c3 = (Color)istr.readEnum(2);
-                this.nc1 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.nc2 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.nc3 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.noDefault = istr.readString();
-                this.zeroI = istr.readInt();
-                this.zeroL = istr.readLong();
-                this.zeroF = istr.readFloat();
-                this.zeroDotF = istr.readFloat();
-                this.zeroD = istr.readDouble();
-                this.zeroDotD = istr.readDouble();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, Struct1 v)
             {
-                if (v is null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
+                v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static Struct1 ice_read(global::Ice.InputStream istr)
-            {
-                var v = new Struct1();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly Struct1 _nullMarshalValue = new Struct1();
+            public static Struct1 ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -563,7 +550,7 @@ namespace Ice.defaultValue
 
             partial void ice_initialize();
 
-            #region Constructors
+            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct2()
@@ -594,6 +581,32 @@ namespace Ice.defaultValue
                 this.zeroDotF = zeroDotF;
                 this.zeroD = zeroD;
                 this.zeroDotD = zeroDotD;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public Struct2(global::Ice.InputStream istr)
+            {
+                this.boolTrue = istr.readBool();
+                this.b = istr.readByte();
+                this.s = istr.readShort();
+                this.i = istr.readInt();
+                this.l = istr.readLong();
+                this.f = istr.readFloat();
+                this.d = istr.readDouble();
+                this.str = istr.readString();
+                this.c1 = (Color)istr.readEnum(2);
+                this.c2 = (Color)istr.readEnum(2);
+                this.c3 = (Color)istr.readEnum(2);
+                this.nc1 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.nc2 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.nc3 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.zeroI = istr.readInt();
+                this.zeroL = istr.readLong();
+                this.zeroF = istr.readFloat();
+                this.zeroDotF = istr.readFloat();
+                this.zeroD = istr.readDouble();
+                this.zeroDotD = istr.readDouble();
                 ice_initialize();
             }
 
@@ -708,52 +721,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.boolTrue = istr.readBool();
-                this.b = istr.readByte();
-                this.s = istr.readShort();
-                this.i = istr.readInt();
-                this.l = istr.readLong();
-                this.f = istr.readFloat();
-                this.d = istr.readDouble();
-                this.str = istr.readString();
-                this.c1 = (Color)istr.readEnum(2);
-                this.c2 = (Color)istr.readEnum(2);
-                this.c3 = (Color)istr.readEnum(2);
-                this.nc1 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.nc2 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.nc3 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.zeroI = istr.readInt();
-                this.zeroL = istr.readLong();
-                this.zeroF = istr.readFloat();
-                this.zeroDotF = istr.readFloat();
-                this.zeroD = istr.readDouble();
-                this.zeroDotD = istr.readDouble();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, Struct2 v)
             {
-                if (v is null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
+                v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static Struct2 ice_read(global::Ice.InputStream istr)
-            {
-                var v = new Struct2();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly Struct2 _nullMarshalValue = new Struct2();
+            public static Struct2 ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -836,7 +810,7 @@ namespace Ice.defaultValue
 
             partial void ice_initialize();
 
-            #region Constructors
+            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct3()
@@ -867,6 +841,32 @@ namespace Ice.defaultValue
                 this.zeroDotF = zeroDotF;
                 this.zeroD = zeroD;
                 this.zeroDotD = zeroDotD;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public Struct3(global::Ice.InputStream istr)
+            {
+                this.boolFalse = istr.readBool();
+                this.boolTrue = istr.readBool();
+                this.b = istr.readByte();
+                this.s = istr.readShort();
+                this.i = istr.readInt();
+                this.l = istr.readLong();
+                this.f = istr.readFloat();
+                this.d = istr.readDouble();
+                this.c1 = (Color)istr.readEnum(2);
+                this.c2 = (Color)istr.readEnum(2);
+                this.c3 = (Color)istr.readEnum(2);
+                this.nc1 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.nc2 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.nc3 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.zeroI = istr.readInt();
+                this.zeroL = istr.readLong();
+                this.zeroF = istr.readFloat();
+                this.zeroDotF = istr.readFloat();
+                this.zeroD = istr.readDouble();
+                this.zeroDotD = istr.readDouble();
                 ice_initialize();
             }
 
@@ -981,52 +981,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.boolFalse = istr.readBool();
-                this.boolTrue = istr.readBool();
-                this.b = istr.readByte();
-                this.s = istr.readShort();
-                this.i = istr.readInt();
-                this.l = istr.readLong();
-                this.f = istr.readFloat();
-                this.d = istr.readDouble();
-                this.c1 = (Color)istr.readEnum(2);
-                this.c2 = (Color)istr.readEnum(2);
-                this.c3 = (Color)istr.readEnum(2);
-                this.nc1 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.nc2 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.nc3 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.zeroI = istr.readInt();
-                this.zeroL = istr.readLong();
-                this.zeroF = istr.readFloat();
-                this.zeroDotF = istr.readFloat();
-                this.zeroD = istr.readDouble();
-                this.zeroDotD = istr.readDouble();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, Struct3 v)
             {
-                if (v is null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
+                v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static Struct3 ice_read(global::Ice.InputStream istr)
-            {
-                var v = new Struct3();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly Struct3 _nullMarshalValue = new Struct3();
+            public static Struct3 ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -1109,7 +1070,7 @@ namespace Ice.defaultValue
 
             partial void ice_initialize();
 
-            #region Constructors
+            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Struct4()
@@ -1140,6 +1101,32 @@ namespace Ice.defaultValue
                 this.zeroDotF = zeroDotF;
                 this.zeroD = zeroD;
                 this.zeroDotD = zeroDotD;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public Struct4(global::Ice.InputStream istr)
+            {
+                this.boolFalse = istr.readBool();
+                this.boolTrue = istr.readBool();
+                this.b = istr.readByte();
+                this.s = istr.readShort();
+                this.i = istr.readInt();
+                this.l = istr.readLong();
+                this.f = istr.readFloat();
+                this.d = istr.readDouble();
+                this.c1 = (Color)istr.readEnum(2);
+                this.c2 = (Color)istr.readEnum(2);
+                this.c3 = (Color)istr.readEnum(2);
+                this.nc1 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.nc2 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.nc3 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
+                this.zeroI = istr.readInt();
+                this.zeroL = istr.readLong();
+                this.zeroF = istr.readFloat();
+                this.zeroDotF = istr.readFloat();
+                this.zeroD = istr.readDouble();
+                this.zeroDotD = istr.readDouble();
                 ice_initialize();
             }
 
@@ -1254,52 +1241,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.boolFalse = istr.readBool();
-                this.boolTrue = istr.readBool();
-                this.b = istr.readByte();
-                this.s = istr.readShort();
-                this.i = istr.readInt();
-                this.l = istr.readLong();
-                this.f = istr.readFloat();
-                this.d = istr.readDouble();
-                this.c1 = (Color)istr.readEnum(2);
-                this.c2 = (Color)istr.readEnum(2);
-                this.c3 = (Color)istr.readEnum(2);
-                this.nc1 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.nc2 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.nc3 = (global::Ice.defaultValue.Test.Nested.Color)istr.readEnum(2);
-                this.zeroI = istr.readInt();
-                this.zeroL = istr.readLong();
-                this.zeroF = istr.readFloat();
-                this.zeroDotF = istr.readFloat();
-                this.zeroD = istr.readDouble();
-                this.zeroDotD = istr.readDouble();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, Struct4 v)
             {
-                if (v is null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
+                v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static Struct4 ice_read(global::Ice.InputStream istr)
-            {
-                var v = new Struct4();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly Struct4 _nullMarshalValue = new Struct4();
+            public static Struct4 ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -1375,12 +1323,6 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public @Base()
-            {
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public @Base(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
             {
                 this.boolFalse = boolFalse;
@@ -1399,6 +1341,12 @@ namespace Ice.defaultValue
                 this.zeroDotF = zeroDotF;
                 this.zeroD = zeroD;
                 this.zeroDotD = zeroDotD;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public @Base()
+            {
                 ice_initialize();
             }
 
@@ -1509,12 +1457,6 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Derived() : base()
-            {
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public Derived(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, global::Ice.defaultValue.Test.Nested.Color nc1, global::Ice.defaultValue.Test.Nested.Color nc2, global::Ice.defaultValue.Test.Nested.Color nc3) : base(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
             {
                 this.c1 = c1;
@@ -1523,6 +1465,12 @@ namespace Ice.defaultValue
                 this.nc1 = nc1;
                 this.nc2 = nc2;
                 this.nc3 = nc3;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public Derived()
+            {
                 ice_initialize();
             }
 
@@ -1644,17 +1592,7 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public BaseEx()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public BaseEx(global::System.Exception ex) : base(ex)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
+            public BaseEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, global::System.Exception innerException = null) : base(innerException)
             {
                 this.boolFalse = boolFalse;
                 this.boolTrue = boolTrue;
@@ -1675,15 +1613,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public BaseEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
+            public BaseEx(global::System.Exception innerException) : base(innerException)
             {
-                _initDM(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public BaseEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, global::System.Exception ex) : base(ex)
+            public BaseEx()
             {
-                _initDM(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
             }
 
             #endregion
@@ -1785,17 +1721,7 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public DerivedEx()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public DerivedEx(global::System.Exception ex) : base(ex)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM(Color c1, Color c2, Color c3, global::Ice.defaultValue.Test.Nested.Color nc1, global::Ice.defaultValue.Test.Nested.Color nc2, global::Ice.defaultValue.Test.Nested.Color nc3)
+            public DerivedEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, global::Ice.defaultValue.Test.Nested.Color nc1, global::Ice.defaultValue.Test.Nested.Color nc2, global::Ice.defaultValue.Test.Nested.Color nc3, global::System.Exception innerException = null) : base(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, innerException)
             {
                 this.c1 = c1;
                 this.c2 = c2;
@@ -1806,15 +1732,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public DerivedEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, global::Ice.defaultValue.Test.Nested.Color nc1, global::Ice.defaultValue.Test.Nested.Color nc2, global::Ice.defaultValue.Test.Nested.Color nc3) : base(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
+            public DerivedEx(global::System.Exception innerException) : base(innerException)
             {
-                _initDM(c1, c2, c3, nc1, nc2, nc3);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public DerivedEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, global::Ice.defaultValue.Test.Nested.Color nc1, global::Ice.defaultValue.Test.Nested.Color nc2, global::Ice.defaultValue.Test.Nested.Color nc3, global::System.Exception ex) : base(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, ex)
+            public DerivedEx()
             {
-                _initDM(c1, c2, c3, nc1, nc2, nc3);
             }
 
             #endregion
@@ -1929,12 +1853,6 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ClassProperty()
-            {
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ClassProperty(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
             {
                 this.boolFalse = boolFalse;
@@ -1953,6 +1871,12 @@ namespace Ice.defaultValue
                 this.zeroDotF = zeroDotF;
                 this.zeroD = zeroD;
                 this.zeroDotD = zeroDotD;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public ClassProperty()
+            {
                 ice_initialize();
             }
 
@@ -2088,7 +2012,7 @@ namespace Ice.defaultValue
 
             partial void ice_initialize();
 
-            #region Constructors
+            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public StructProperty()
@@ -2115,6 +2039,28 @@ namespace Ice.defaultValue
                 this.zeroDotF = zeroDotF;
                 this.zeroD = zeroD;
                 this.zeroDotD = zeroDotD;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public StructProperty(global::Ice.InputStream istr)
+            {
+                this.boolFalse = istr.readBool();
+                this.boolTrue = istr.readBool();
+                this.b = istr.readByte();
+                this.s = istr.readShort();
+                this.i = istr.readInt();
+                this.l = istr.readLong();
+                this.f = istr.readFloat();
+                this.d = istr.readDouble();
+                this.str = istr.readString();
+                this.noDefault = istr.readString();
+                this.zeroI = istr.readInt();
+                this.zeroL = istr.readLong();
+                this.zeroF = istr.readFloat();
+                this.zeroDotF = istr.readFloat();
+                this.zeroD = istr.readDouble();
+                this.zeroDotD = istr.readDouble();
                 ice_initialize();
             }
 
@@ -2217,48 +2163,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.boolFalse = istr.readBool();
-                this.boolTrue = istr.readBool();
-                this.b = istr.readByte();
-                this.s = istr.readShort();
-                this.i = istr.readInt();
-                this.l = istr.readLong();
-                this.f = istr.readFloat();
-                this.d = istr.readDouble();
-                this.str = istr.readString();
-                this.noDefault = istr.readString();
-                this.zeroI = istr.readInt();
-                this.zeroL = istr.readLong();
-                this.zeroF = istr.readFloat();
-                this.zeroDotF = istr.readFloat();
-                this.zeroD = istr.readDouble();
-                this.zeroDotD = istr.readDouble();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, StructProperty v)
             {
-                if (v is null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
+                v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static StructProperty ice_read(global::Ice.InputStream istr)
-            {
-                var v = new StructProperty();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly StructProperty _nullMarshalValue = new StructProperty();
+            public static StructProperty ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -2333,17 +2244,7 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionProperty()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionProperty(global::System.Exception ex) : base(ex)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
+            public ExceptionProperty(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, global::System.Exception innerException = null) : base(innerException)
             {
                 this.boolFalse = boolFalse;
                 this.boolTrue = boolTrue;
@@ -2364,15 +2265,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionProperty(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
+            public ExceptionProperty(global::System.Exception innerException) : base(innerException)
             {
-                _initDM(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionProperty(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, global::System.Exception ex) : base(ex)
+            public ExceptionProperty()
             {
-                _initDM(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
             }
 
             #endregion
@@ -2464,6 +2363,13 @@ namespace Ice.defaultValue
                 ice_initialize();
             }
 
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public InnerStruct(global::Ice.InputStream istr)
+            {
+                this.a = istr.readInt();
+                ice_initialize();
+            }
+
             #endregion
 
             #region Marshaling support
@@ -2475,24 +2381,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.a = istr.readInt();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, InnerStruct v)
             {
                 v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static InnerStruct ice_read(global::Ice.InputStream istr)
-            {
-                var v = new InnerStruct();
-                v.ice_readMembers(istr);
-                return v;
-            }
+            public static InnerStruct ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -2518,7 +2413,7 @@ namespace Ice.defaultValue
 
             partial void ice_initialize();
 
-            #region Constructors
+            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public InnerStruct2()
@@ -2530,6 +2425,13 @@ namespace Ice.defaultValue
             public InnerStruct2(string a)
             {
                 this.a = a;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public InnerStruct2(global::Ice.InputStream istr)
+            {
+                this.a = istr.readString();
                 ice_initialize();
             }
 
@@ -2587,33 +2489,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.a = istr.readString();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, InnerStruct2 v)
             {
-                if (v is null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
+                v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static InnerStruct2 ice_read(global::Ice.InputStream istr)
-            {
-                var v = new InnerStruct2();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly InnerStruct2 _nullMarshalValue = new InnerStruct2();
+            public static InnerStruct2 ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -2678,12 +2560,15 @@ namespace Ice.defaultValue
 
             partial void ice_initialize();
 
-            #region Constructors
+            #region Constructor
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public StructNoDefaults()
+            public StructNoDefaults(byte[] bs, int[] iseq, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict)
             {
-                this.st2 = new();
+                this.bs = bs;
+                this.iseq = iseq;
+                this.st2 = st2;
+                this.dict = dict;
                 ice_initialize();
             }
 
@@ -2704,6 +2589,26 @@ namespace Ice.defaultValue
                 this.st = st;
                 this.st2 = st2;
                 this.dict = dict;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public StructNoDefaults(global::Ice.InputStream istr)
+            {
+                this.bo = istr.readBool();
+                this.b = istr.readByte();
+                this.s = istr.readShort();
+                this.i = istr.readInt();
+                this.l = istr.readLong();
+                this.f = istr.readFloat();
+                this.d = istr.readDouble();
+                this.str = istr.readString();
+                this.c1 = (Color)istr.readEnum(2);
+                this.bs = ByteSeqHelper.read(istr);
+                this.iseq = IntSeqHelper.read(istr);
+                this.st = new InnerStruct(istr);
+                this.st2 = new InnerStruct2(istr);
+                this.dict = IntStringDictHelper.read(istr);
                 ice_initialize();
             }
 
@@ -2800,46 +2705,13 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public void ice_readMembers(global::Ice.InputStream istr)
-            {
-                this.bo = istr.readBool();
-                this.b = istr.readByte();
-                this.s = istr.readShort();
-                this.i = istr.readInt();
-                this.l = istr.readLong();
-                this.f = istr.readFloat();
-                this.d = istr.readDouble();
-                this.str = istr.readString();
-                this.c1 = (Color)istr.readEnum(2);
-                this.bs = ByteSeqHelper.read(istr);
-                this.iseq = IntSeqHelper.read(istr);
-                this.st.ice_readMembers(istr);
-                this.st2 = InnerStruct2.ice_read(istr);
-                this.dict = IntStringDictHelper.read(istr);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(global::Ice.OutputStream ostr, StructNoDefaults v)
             {
-                if (v is null)
-                {
-                    _nullMarshalValue.ice_writeMembers(ostr);
-                }
-                else
-                {
-                    v.ice_writeMembers(ostr);
-                }
+                v.ice_writeMembers(ostr);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static StructNoDefaults ice_read(global::Ice.InputStream istr)
-            {
-                var v = new StructNoDefaults();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            private static readonly StructNoDefaults _nullMarshalValue = new StructNoDefaults();
+            public static StructNoDefaults ice_read(global::Ice.InputStream istr) => new(istr);
 
             #endregion
         }
@@ -2875,17 +2747,7 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaultsBase()
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaultsBase(global::System.Exception ex) : base(ex)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM(string str, Color c1, byte[] bs)
+            public ExceptionNoDefaultsBase(string str, Color c1, byte[] bs, global::System.Exception innerException = null) : base(innerException)
             {
                 this.str = str;
                 this.c1 = c1;
@@ -2893,15 +2755,16 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaultsBase(string str, Color c1, byte[] bs)
+            public ExceptionNoDefaultsBase(byte[] bs, global::System.Exception innerException = null) : base(innerException)
             {
-                _initDM(str, c1, bs);
+                this.bs = bs;
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaultsBase(string str, Color c1, byte[] bs, global::System.Exception ex) : base(ex)
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            public ExceptionNoDefaultsBase()
             {
-                _initDM(str, c1, bs);
+                this.bs = null;
             }
 
             #endregion
@@ -2968,25 +2831,7 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM()
-            {
-                this.st2 = new();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaults()
-            {
-                _initDM();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaults(global::System.Exception ex) : base(ex)
-            {
-                _initDM();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            private void _initDM(InnerStruct st, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict)
+            public ExceptionNoDefaults(string str, Color c1, byte[] bs, InnerStruct st, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict, global::System.Exception innerException = null) : base(str, c1, bs, innerException)
             {
                 this.st = st;
                 this.st2 = st2;
@@ -2994,15 +2839,18 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaults(string str, Color c1, byte[] bs, InnerStruct st, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict) : base(str, c1, bs)
+            public ExceptionNoDefaults(byte[] bs, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict, global::System.Exception innerException = null) : base(bs, innerException)
             {
-                _initDM(st, st2, dict);
+                this.st2 = st2;
+                this.dict = dict;
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaults(string str, Color c1, byte[] bs, InnerStruct st, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict, global::System.Exception ex) : base(str, c1, bs, ex)
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            public ExceptionNoDefaults()
             {
-                _initDM(st, st2, dict);
+                this.st2 = null;
+                this.dict = null;
             }
 
             #endregion
@@ -3030,8 +2878,8 @@ namespace Ice.defaultValue
             protected override void iceReadImpl(global::Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                st.ice_readMembers(istr_);
-                st2 = InnerStruct2.ice_read(istr_);
+                st = new InnerStruct(istr_);
+                st2 = new InnerStruct2(istr_);
                 dict = IntStringDictHelper.read(istr_);
                 istr_.endSlice();
                 base.iceReadImpl(istr_);
@@ -3072,17 +2920,26 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ClassNoDefaultsBase()
-            {
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ClassNoDefaultsBase(string str, Color c1, byte[] bs)
             {
                 this.str = str;
                 this.c1 = c1;
                 this.bs = bs;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public ClassNoDefaultsBase(byte[] bs)
+            {
+                this.bs = bs;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            public ClassNoDefaultsBase()
+            {
+                this.bs = null;
                 ice_initialize();
             }
 
@@ -3158,18 +3015,28 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ClassNoDefaults() : base()
-            {
-                this.st2 = new();
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public ClassNoDefaults(string str, Color c1, byte[] bs, InnerStruct st, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict) : base(str, c1, bs)
             {
                 this.st = st;
                 this.st2 = st2;
                 this.dict = dict;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            public ClassNoDefaults(byte[] bs, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict) : base(bs)
+            {
+                this.st2 = st2;
+                this.dict = dict;
+                ice_initialize();
+            }
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            public ClassNoDefaults()
+            {
+                this.st2 = null;
+                this.dict = null;
                 ice_initialize();
             }
 
@@ -3205,8 +3072,8 @@ namespace Ice.defaultValue
             protected override void iceReadImpl(global::Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                st.ice_readMembers(istr_);
-                st2 = InnerStruct2.ice_read(istr_);
+                st = new InnerStruct(istr_);
+                st2 = new InnerStruct2(istr_);
                 dict = IntStringDictHelper.read(istr_);
                 istr_.endSlice();
                 base.iceReadImpl(istr_);

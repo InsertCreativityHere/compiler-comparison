@@ -74,6 +74,13 @@ namespace @await
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public @break(global::Ice.InputStream istr)
+        {
+            this.@while = istr.readInt();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -85,24 +92,13 @@ namespace @await
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.@while = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, @break v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static @break ice_read(global::Ice.InputStream istr)
-        {
-            var v = new @break();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static @break ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -169,17 +165,17 @@ namespace @await
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delete()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public delete(int @if, casePrx @else, int export)
         {
             this.@if = @if;
             this.@else = @else;
             this.export = export;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public delete()
+        {
             ice_initialize();
         }
 
@@ -279,12 +275,6 @@ namespace @await
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public package()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public package(@break? @for, var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string debugger, explicitPrx @null)
         {
             this.@for = @for;
@@ -293,6 +283,12 @@ namespace @await
             this.@internal = @internal;
             this.debugger = debugger;
             this.@null = @null;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public package()
+        {
             ice_initialize();
         }
 
@@ -356,7 +352,7 @@ namespace @await
             {
                 istr_.skipSize();
                 @break tmpVal = default;
-                tmpVal.ice_readMembers(istr_);
+                tmpVal = new @break(istr_);
                 @for = tmpVal;
             }
             else
@@ -453,31 +449,19 @@ namespace @await
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @fixed()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @fixed(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int @for)
+        public @fixed(int @for, global::System.Exception innerException = null) : base(innerException)
         {
             this.@for = @for;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @fixed(int @for)
+        public @fixed(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(@for);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @fixed(int @for, global::System.Exception ex) : base(ex)
+        public @fixed()
         {
-            _initDM(@for);
         }
 
         #endregion
@@ -537,32 +521,20 @@ namespace @await
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @foreach()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @foreach(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int @goto, int @if)
+        public @foreach(int @for, int @goto, int @if, global::System.Exception innerException = null) : base(@for, innerException)
         {
             this.@goto = @goto;
             this.@if = @if;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @foreach(int @for, int @goto, int @if) : base(@for)
+        public @foreach(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(@goto, @if);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @foreach(int @for, int @goto, int @if, global::System.Exception ex) : base(@for, ex)
+        public @foreach()
         {
-            _initDM(@goto, @if);
         }
 
         #endregion
@@ -665,45 +637,33 @@ namespace @await
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public BaseMethods(int ice_Data_, int ice_HelpLink_, int ice_InnerException_, int ice_Message_, int ice_Source_, int ice_StackTrace_, int ice_TargetSite_, int ice_HResult_, int ice_Equals_, int ice_GetBaseException_, int ice_GetHashCode_, int ice_GetObjectData_, int ice_GetType_, int ice_ReferenceEquals_, int ice_ToString_, global::System.Exception innerException = null) : base(innerException)
+        {
+            this.ice_Data_ = ice_Data_;
+            this.ice_HelpLink_ = ice_HelpLink_;
+            this.ice_InnerException_ = ice_InnerException_;
+            this.ice_Message_ = ice_Message_;
+            this.ice_Source_ = ice_Source_;
+            this.ice_StackTrace_ = ice_StackTrace_;
+            this.ice_TargetSite_ = ice_TargetSite_;
+            this.ice_HResult_ = ice_HResult_;
+            this.ice_Equals_ = ice_Equals_;
+            this.ice_GetBaseException_ = ice_GetBaseException_;
+            this.ice_GetHashCode_ = ice_GetHashCode_;
+            this.ice_GetObjectData_ = ice_GetObjectData_;
+            this.ice_GetType_ = ice_GetType_;
+            this.ice_ReferenceEquals_ = ice_ReferenceEquals_;
+            this.ice_ToString_ = ice_ToString_;
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public BaseMethods(global::System.Exception innerException) : base(innerException)
+        {
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public BaseMethods()
         {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BaseMethods(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int Data, int HelpLink, int InnerException, int Message, int Source, int StackTrace, int TargetSite, int HResult, int Equals, int GetBaseException, int GetHashCode, int GetObjectData, int GetType, int ReferenceEquals, int ToString)
-        {
-            this.ice_Data_ = Data;
-            this.ice_HelpLink_ = HelpLink;
-            this.ice_InnerException_ = InnerException;
-            this.ice_Message_ = Message;
-            this.ice_Source_ = Source;
-            this.ice_StackTrace_ = StackTrace;
-            this.ice_TargetSite_ = TargetSite;
-            this.ice_HResult_ = HResult;
-            this.ice_Equals_ = Equals;
-            this.ice_GetBaseException_ = GetBaseException;
-            this.ice_GetHashCode_ = GetHashCode;
-            this.ice_GetObjectData_ = GetObjectData;
-            this.ice_GetType_ = GetType;
-            this.ice_ReferenceEquals_ = ReferenceEquals;
-            this.ice_ToString_ = ToString;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BaseMethods(int Data, int HelpLink, int InnerException, int Message, int Source, int StackTrace, int TargetSite, int HResult, int Equals, int GetBaseException, int GetHashCode, int GetObjectData, int GetType, int ReferenceEquals, int ToString)
-        {
-            _initDM(Data, HelpLink, InnerException, Message, Source, StackTrace, TargetSite, HResult, Equals, GetBaseException, GetHashCode, GetObjectData, GetType, ReferenceEquals, ToString);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BaseMethods(int Data, int HelpLink, int InnerException, int Message, int Source, int StackTrace, int TargetSite, int HResult, int Equals, int GetBaseException, int GetHashCode, int GetObjectData, int GetType, int ReferenceEquals, int ToString, global::System.Exception ex) : base(ex)
-        {
-            _initDM(Data, HelpLink, InnerException, Message, Source, StackTrace, TargetSite, HResult, Equals, GetBaseException, GetHashCode, GetObjectData, GetType, ReferenceEquals, ToString);
         }
 
         #endregion
@@ -1492,7 +1452,7 @@ namespace @await
                 string k = default;
                 k = istr.readString();
                 @break v = default;
-                v.ice_readMembers(istr);
+                v = new @break(istr);
                 r[k] = v;
             }
             return r;
@@ -1630,7 +1590,7 @@ namespace @await
                     {
                         istr.skipSize();
                         @break tmpVal = default;
-                        tmpVal.ice_readMembers(istr);
+                        tmpVal = new @break(istr);
                         ret = tmpVal;
                     }
                     else
@@ -1698,7 +1658,7 @@ namespace @await
                     {
                         istr.skipSize();
                         @break tmpVal = default;
-                        tmpVal.ice_readMembers(istr);
+                        tmpVal = new @break(istr);
                         ret = tmpVal;
                     }
                     else
@@ -1740,7 +1700,7 @@ namespace @await
                     {
                         istr.skipSize();
                         @break tmpVal = default;
-                        tmpVal.ice_readMembers(istr);
+                        tmpVal = new @break(istr);
                         ret.returnValue = tmpVal;
                     }
                     else
@@ -1826,7 +1786,7 @@ namespace @await
                     {
                         istr.skipSize();
                         @break tmpVal = default;
-                        tmpVal.ice_readMembers(istr);
+                        tmpVal = new @break(istr);
                         ret.returnValue = tmpVal;
                     }
                     else
@@ -2804,11 +2764,11 @@ namespace @await
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            var? iceP_goto;
-            explicitPrx iceP_if;
-            global::System.Collections.Generic.Dictionary<string, @break> iceP_internal;
-            string iceP_namespace;
-            explicitPrx iceP_null;
+            var? iceP_goto = default;
+            explicitPrx iceP_if = default;
+            global::System.Collections.Generic.Dictionary<string, @break> iceP_internal = default;
+            string iceP_namespace = default;
+            explicitPrx iceP_null = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.Size))
             {
                 var tmpVal;
@@ -2871,11 +2831,11 @@ namespace @await
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            var? iceP_goto;
-            explicitPrx iceP_if;
-            global::System.Collections.Generic.Dictionary<string, @break> iceP_internal;
-            string iceP_namespace;
-            explicitPrx iceP_null;
+            var? iceP_goto = default;
+            explicitPrx iceP_if = default;
+            global::System.Collections.Generic.Dictionary<string, @break> iceP_internal = default;
+            string iceP_namespace = default;
+            explicitPrx iceP_null = default;
             if (istr.readOptional(2, global::Ice.OptionalFormat.Size))
             {
                 var tmpVal;
@@ -3139,7 +3099,7 @@ namespace @await
             int iceP_override = default;
             int iceP_params = default;
             int iceP_private = default;
-            iceP_internal.ice_readMembers(istr);
+            iceP_internal = new @break(istr);
             istr.readValue((delete v) => {iceP_is = v; });
             iceP_lock = explicitPrxHelper.read(istr);
             iceP_namespace = casePrxHelper.read(istr);

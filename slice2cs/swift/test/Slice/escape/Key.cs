@@ -75,6 +75,13 @@ namespace and
             ice_initialize();
         }
 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public guard(global::Ice.InputStream istr)
+        {
+            this.@default = istr.readInt();
+            ice_initialize();
+        }
+
         #endregion
 
         #region Marshaling support
@@ -86,24 +93,13 @@ namespace and
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.@default = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, guard v)
         {
             v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static guard ice_read(global::Ice.InputStream istr)
-        {
-            var v = new guard();
-            v.ice_readMembers(istr);
-            return v;
-        }
+        public static guard ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -129,7 +125,7 @@ namespace and
 
         partial void ice_initialize();
 
-        #region Constructors
+        #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public defer()
@@ -141,6 +137,13 @@ namespace and
         public defer(string @else)
         {
             this.@else = @else;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public defer(global::Ice.InputStream istr)
+        {
+            this.@else = istr.readString();
             ice_initialize();
         }
 
@@ -198,33 +201,13 @@ namespace and
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.@else = istr.readString();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(global::Ice.OutputStream ostr, defer v)
         {
-            if (v is null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
+            v.ice_writeMembers(ostr);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static defer ice_read(global::Ice.InputStream istr)
-        {
-            var v = new defer();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly defer _nullMarshalValue = new defer();
+        public static defer ice_read(global::Ice.InputStream istr) => new(istr);
 
         #endregion
     }
@@ -291,17 +274,17 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @switch()
-        {
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public @switch(int @if, funcPrx export, int @volatile)
         {
             this.@if = @if;
             this.export = export;
             this.@volatile = @volatile;
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public @switch()
+        {
             ice_initialize();
         }
 
@@ -385,31 +368,19 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @return()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @return(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int Int32)
+        public @return(int Int32, global::System.Exception innerException = null) : base(innerException)
         {
             this.Int32 = Int32;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @return(int Int32)
+        public @return(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(Int32);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @return(int Int32, global::System.Exception ex) : base(ex)
+        public @return()
         {
-            _initDM(Int32);
         }
 
         #endregion
@@ -469,32 +440,20 @@ namespace and
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @as()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @as(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(int @static, int @switch)
+        public @as(int Int32, int @static, int @switch, global::System.Exception innerException = null) : base(Int32, innerException)
         {
             this.@static = @static;
             this.@switch = @switch;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @as(int Int32, int @static, int @switch) : base(Int32)
+        public @as(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(@static, @switch);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @as(int Int32, int @static, int @switch, global::System.Exception ex) : base(Int32, ex)
+        public @as()
         {
-            _initDM(@static, @switch);
         }
 
         #endregion
@@ -1135,7 +1094,7 @@ namespace and
                 v = new guard[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix].ice_readMembers(istr);
+                    v[ix] = new guard(istr);
                 }
             }
             return v;
@@ -1172,7 +1131,7 @@ namespace and
                 string k = default;
                 k = istr.readString();
                 guard v = default;
-                v.ice_readMembers(istr);
+                v = new guard(istr);
                 r[k] = v;
             }
             return r;

@@ -50,31 +50,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationNotExistException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationNotExistException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string name)
+        public ApplicationNotExistException(string name, global::System.Exception innerException = null) : base(innerException)
         {
             this.name = name;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationNotExistException(string name)
+        public ApplicationNotExistException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(name);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationNotExistException(string name, global::System.Exception ex) : base(ex)
+        public ApplicationNotExistException()
         {
-            _initDM(name);
         }
 
         #endregion
@@ -135,31 +123,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerNotExistException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerNotExistException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string id)
+        public ServerNotExistException(string id, global::System.Exception innerException = null) : base(innerException)
         {
             this.id = id;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerNotExistException(string id)
+        public ServerNotExistException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(id);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerNotExistException(string id, global::System.Exception ex) : base(ex)
+        public ServerNotExistException()
         {
-            _initDM(id);
         }
 
         #endregion
@@ -223,32 +199,20 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStartException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStartException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string id, string reason)
+        public ServerStartException(string id, string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.id = id;
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStartException(string id, string reason)
+        public ServerStartException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(id, reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStartException(string id, string reason, global::System.Exception ex) : base(ex)
+        public ServerStartException()
         {
-            _initDM(id, reason);
         }
 
         #endregion
@@ -314,32 +278,20 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStopException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStopException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string id, string reason)
+        public ServerStopException(string id, string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.id = id;
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStopException(string id, string reason)
+        public ServerStopException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(id, reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerStopException(string id, string reason, global::System.Exception ex) : base(ex)
+        public ServerStopException()
         {
-            _initDM(id, reason);
         }
 
         #endregion
@@ -402,31 +354,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterNotExistException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterNotExistException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string id)
+        public AdapterNotExistException(string id, global::System.Exception innerException = null) : base(innerException)
         {
             this.id = id;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterNotExistException(string id)
+        public AdapterNotExistException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(id);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterNotExistException(string id, global::System.Exception ex) : base(ex)
+        public AdapterNotExistException()
         {
-            _initDM(id);
         }
 
         #endregion
@@ -487,39 +427,16 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.id = new();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectExistsException()
-        {
-            _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectExistsException(global::System.Exception ex) : base(ex)
-        {
-            _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(global::Ice.Identity id)
+        public ObjectExistsException(global::Ice.Identity id, global::System.Exception innerException = null) : base(innerException)
         {
             this.id = id;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectExistsException(global::Ice.Identity id)
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public ObjectExistsException()
         {
-            _initDM(id);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectExistsException(global::Ice.Identity id, global::System.Exception ex) : base(ex)
-        {
-            _initDM(id);
+            this.id = null;
         }
 
         #endregion
@@ -544,7 +461,7 @@ namespace IceGrid
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            id = global::Ice.Identity.ice_read(istr_);
+            id = new global::Ice.Identity(istr_);
             istr_.endSlice();
         }
 
@@ -580,39 +497,16 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.id = new();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectNotRegisteredException()
-        {
-            _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectNotRegisteredException(global::System.Exception ex) : base(ex)
-        {
-            _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(global::Ice.Identity id)
+        public ObjectNotRegisteredException(global::Ice.Identity id, global::System.Exception innerException = null) : base(innerException)
         {
             this.id = id;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectNotRegisteredException(global::Ice.Identity id)
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public ObjectNotRegisteredException()
         {
-            _initDM(id);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectNotRegisteredException(global::Ice.Identity id, global::System.Exception ex) : base(ex)
-        {
-            _initDM(id);
+            this.id = null;
         }
 
         #endregion
@@ -637,7 +531,7 @@ namespace IceGrid
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            id = global::Ice.Identity.ice_read(istr_);
+            id = new global::Ice.Identity(istr_);
             istr_.endSlice();
         }
 
@@ -673,31 +567,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeNotExistException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeNotExistException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string name)
+        public NodeNotExistException(string name, global::System.Exception innerException = null) : base(innerException)
         {
             this.name = name;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeNotExistException(string name)
+        public NodeNotExistException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(name);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeNotExistException(string name, global::System.Exception ex) : base(ex)
+        public NodeNotExistException()
         {
-            _initDM(name);
         }
 
         #endregion
@@ -758,31 +640,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryNotExistException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryNotExistException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string name)
+        public RegistryNotExistException(string name, global::System.Exception innerException = null) : base(innerException)
         {
             this.name = name;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryNotExistException(string name)
+        public RegistryNotExistException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(name);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryNotExistException(string name, global::System.Exception ex) : base(ex)
+        public RegistryNotExistException()
         {
-            _initDM(name);
         }
 
         #endregion
@@ -843,31 +713,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DeploymentException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DeploymentException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public DeploymentException(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DeploymentException(string reason)
+        public DeploymentException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DeploymentException(string reason, global::System.Exception ex) : base(ex)
+        public DeploymentException()
         {
-            _initDM(reason);
         }
 
         #endregion
@@ -931,32 +789,20 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeUnreachableException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeUnreachableException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string name, string reason)
+        public NodeUnreachableException(string name, string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.name = name;
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeUnreachableException(string name, string reason)
+        public NodeUnreachableException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(name, reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeUnreachableException(string name, string reason, global::System.Exception ex) : base(ex)
+        public NodeUnreachableException()
         {
-            _initDM(name, reason);
         }
 
         #endregion
@@ -1022,32 +868,20 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerUnreachableException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerUnreachableException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string name, string reason)
+        public ServerUnreachableException(string name, string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.name = name;
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerUnreachableException(string name, string reason)
+        public ServerUnreachableException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(name, reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerUnreachableException(string name, string reason, global::System.Exception ex) : base(ex)
+        public ServerUnreachableException()
         {
-            _initDM(name, reason);
         }
 
         #endregion
@@ -1113,32 +947,20 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryUnreachableException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryUnreachableException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string name, string reason)
+        public RegistryUnreachableException(string name, string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.name = name;
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryUnreachableException(string name, string reason)
+        public RegistryUnreachableException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(name, reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public RegistryUnreachableException(string name, string reason, global::System.Exception ex) : base(ex)
+        public RegistryUnreachableException()
         {
-            _initDM(name, reason);
         }
 
         #endregion
@@ -1201,31 +1023,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadSignalException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadSignalException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public BadSignalException(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadSignalException(string reason)
+        public BadSignalException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BadSignalException(string reason, global::System.Exception ex) : base(ex)
+        public BadSignalException()
         {
-            _initDM(reason);
         }
 
         #endregion
@@ -1286,31 +1096,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AccessDeniedException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AccessDeniedException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string lockUserId)
+        public AccessDeniedException(string lockUserId, global::System.Exception innerException = null) : base(innerException)
         {
             this.lockUserId = lockUserId;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AccessDeniedException(string lockUserId)
+        public AccessDeniedException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(lockUserId);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AccessDeniedException(string lockUserId, global::System.Exception ex) : base(ex)
+        public AccessDeniedException()
         {
-            _initDM(lockUserId);
         }
 
         #endregion
@@ -1371,31 +1169,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllocationException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllocationException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public AllocationException(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllocationException(string reason)
+        public AllocationException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllocationException(string reason, global::System.Exception ex) : base(ex)
+        public AllocationException()
         {
-            _initDM(reason);
         }
 
         #endregion
@@ -1449,22 +1235,17 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public AllocationTimeoutException(string reason, global::System.Exception innerException = null) : base(reason, innerException)
+        {
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        public AllocationTimeoutException(global::System.Exception innerException) : base(innerException)
+        {
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public AllocationTimeoutException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllocationTimeoutException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllocationTimeoutException(string reason) : base(reason)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AllocationTimeoutException(string reason, global::System.Exception ex) : base(reason, ex)
         {
         }
 
@@ -1526,31 +1307,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PermissionDeniedException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PermissionDeniedException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public PermissionDeniedException(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PermissionDeniedException(string reason)
+        public PermissionDeniedException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PermissionDeniedException(string reason, global::System.Exception ex) : base(ex)
+        public PermissionDeniedException()
         {
-            _initDM(reason);
         }
 
         #endregion
@@ -1611,39 +1380,16 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM()
-        {
-            this.id = new();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObserverAlreadyRegisteredException()
-        {
-            _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObserverAlreadyRegisteredException(global::System.Exception ex) : base(ex)
-        {
-            _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(global::Ice.Identity id)
+        public ObserverAlreadyRegisteredException(global::Ice.Identity id, global::System.Exception innerException = null) : base(innerException)
         {
             this.id = id;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObserverAlreadyRegisteredException(global::Ice.Identity id)
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public ObserverAlreadyRegisteredException()
         {
-            _initDM(id);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObserverAlreadyRegisteredException(global::Ice.Identity id, global::System.Exception ex) : base(ex)
-        {
-            _initDM(id);
+            this.id = null;
         }
 
         #endregion
@@ -1668,7 +1414,7 @@ namespace IceGrid
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            id = global::Ice.Identity.ice_read(istr_);
+            id = new global::Ice.Identity(istr_);
             istr_.endSlice();
         }
 
@@ -1704,31 +1450,19 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public FileNotAvailableException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public FileNotAvailableException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        private void _initDM(string reason)
+        public FileNotAvailableException(string reason, global::System.Exception innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public FileNotAvailableException(string reason)
+        public FileNotAvailableException(global::System.Exception innerException) : base(innerException)
         {
-            _initDM(reason);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public FileNotAvailableException(string reason, global::System.Exception ex) : base(ex)
+        public FileNotAvailableException()
         {
-            _initDM(reason);
         }
 
         #endregion
