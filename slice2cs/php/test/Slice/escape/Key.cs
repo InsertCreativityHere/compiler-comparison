@@ -1762,9 +1762,9 @@ namespace and
     {
         #region Inherited Slice operations
 
-        public abstract void @continue(int declare, int @default, global::Ice.Current current = null);
-
         public abstract void @do(global::Ice.Current current = null);
+
+        public abstract void @continue(int declare, int @default, global::Ice.Current current = null);
 
         #endregion
 
