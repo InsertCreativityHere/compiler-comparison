@@ -580,329 +580,59 @@ namespace Test
 
 namespace Test
 {
-    public struct TestIntf_OpDoubleArrayResult
-    {
-        public TestIntf_OpDoubleArrayResult(double[] returnValue, double[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpDoubleArrayResult(double[] returnValue, double[] outSeq);
 
-        public double[] returnValue;
-        public double[] outSeq;
-    }
+    public record struct TestIntf_OpBoolArrayResult(bool[] returnValue, bool[] outSeq);
 
-    public struct TestIntf_OpBoolArrayResult
-    {
-        public TestIntf_OpBoolArrayResult(bool[] returnValue, bool[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpByteArrayResult(byte[] returnValue, byte[] outSeq);
 
-        public bool[] returnValue;
-        public bool[] outSeq;
-    }
+    public record struct TestIntf_OpVariableArrayResult(Variable[] returnValue, Variable[] outSeq);
 
-    public struct TestIntf_OpByteArrayResult
-    {
-        public TestIntf_OpByteArrayResult(byte[] returnValue, byte[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpBoolSeqResult(bool[] returnValue, bool[] outSeq);
 
-        public byte[] returnValue;
-        public byte[] outSeq;
-    }
+    public record struct TestIntf_OpBoolListResult(bool[] returnValue, bool[] outSeq);
 
-    public struct TestIntf_OpVariableArrayResult
-    {
-        public TestIntf_OpVariableArrayResult(Variable[] returnValue, Variable[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpByteSeqResult(byte[] returnValue, byte[] outSeq);
 
-        public Variable[] returnValue;
-        public Variable[] outSeq;
-    }
+    public record struct TestIntf_OpByteListResult(byte[] returnValue, byte[] outSeq);
 
-    public struct TestIntf_OpBoolSeqResult
-    {
-        public TestIntf_OpBoolSeqResult(bool[] returnValue, bool[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpMyByteSeqResult(byte[] returnValue, byte[] outSeq);
 
-        public bool[] returnValue;
-        public bool[] outSeq;
-    }
+    public record struct TestIntf_OpStringSeqResult(string[] returnValue, string[] outSeq);
 
-    public struct TestIntf_OpBoolListResult
-    {
-        public TestIntf_OpBoolListResult(bool[] returnValue, bool[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpStringListResult(string[] returnValue, string[] outSeq);
 
-        public bool[] returnValue;
-        public bool[] outSeq;
-    }
+    public record struct TestIntf_OpFixedSeqResult(@Fixed[] returnValue, @Fixed[] outSeq);
 
-    public struct TestIntf_OpByteSeqResult
-    {
-        public TestIntf_OpByteSeqResult(byte[] returnValue, byte[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpFixedListResult(@Fixed[] returnValue, @Fixed[] outSeq);
 
-        public byte[] returnValue;
-        public byte[] outSeq;
-    }
+    public record struct TestIntf_OpVariableSeqResult(Variable[] returnValue, Variable[] outSeq);
 
-    public struct TestIntf_OpByteListResult
-    {
-        public TestIntf_OpByteListResult(byte[] returnValue, byte[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpVariableListResult(Variable[] returnValue, Variable[] outSeq);
 
-        public byte[] returnValue;
-        public byte[] outSeq;
-    }
+    public record struct TestIntf_OpStringStringDictSeqResult(global::System.Collections.Generic.Dictionary<string, string>[] returnValue, global::System.Collections.Generic.Dictionary<string, string>[] outSeq);
 
-    public struct TestIntf_OpMyByteSeqResult
-    {
-        public TestIntf_OpMyByteSeqResult(byte[] returnValue, byte[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpStringStringDictListResult(global::System.Collections.Generic.Dictionary<string, string>[] returnValue, global::System.Collections.Generic.Dictionary<string, string>[] outSeq);
 
-        public byte[] returnValue;
-        public byte[] outSeq;
-    }
+    public record struct TestIntf_OpESeqResult(E[] returnValue, E[] outSeq);
 
-    public struct TestIntf_OpStringSeqResult
-    {
-        public TestIntf_OpStringSeqResult(string[] returnValue, string[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpEListResult(E[] returnValue, E[] outSeq);
 
-        public string[] returnValue;
-        public string[] outSeq;
-    }
+    public record struct TestIntf_OpDPrxSeqResult(DPrx[] returnValue, DPrx[] outSeq);
 
-    public struct TestIntf_OpStringListResult
-    {
-        public TestIntf_OpStringListResult(string[] returnValue, string[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpDPrxListResult(DPrx[] returnValue, DPrx[] outSeq);
 
-        public string[] returnValue;
-        public string[] outSeq;
-    }
+    public record struct TestIntf_OpCSeqResult(C[] returnValue, C[] outSeq);
 
-    public struct TestIntf_OpFixedSeqResult
-    {
-        public TestIntf_OpFixedSeqResult(@Fixed[] returnValue, @Fixed[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpCListResult(C[] returnValue, C[] outSeq);
 
-        public @Fixed[] returnValue;
-        public @Fixed[] outSeq;
-    }
+    public record struct TestIntf_OpIntStringDictResult(global::System.Collections.Generic.Dictionary<int, string> returnValue, global::System.Collections.Generic.Dictionary<int, string> odict);
 
-    public struct TestIntf_OpFixedListResult
-    {
-        public TestIntf_OpFixedListResult(@Fixed[] returnValue, @Fixed[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
+    public record struct TestIntf_OpVarDictResult(global::System.Collections.Generic.Dictionary<long, long> returnValue, global::System.Collections.Generic.Dictionary<string, int> odict);
 
-        public @Fixed[] returnValue;
-        public @Fixed[] outSeq;
-    }
+    public record struct TestIntf_OpShortBufferResult(short[] returnValue, short[] outS);
 
-    public struct TestIntf_OpVariableSeqResult
-    {
-        public TestIntf_OpVariableSeqResult(Variable[] returnValue, Variable[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public Variable[] returnValue;
-        public Variable[] outSeq;
-    }
-
-    public struct TestIntf_OpVariableListResult
-    {
-        public TestIntf_OpVariableListResult(Variable[] returnValue, Variable[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public Variable[] returnValue;
-        public Variable[] outSeq;
-    }
-
-    public struct TestIntf_OpStringStringDictSeqResult
-    {
-        public TestIntf_OpStringStringDictSeqResult(global::System.Collections.Generic.Dictionary<string, string>[] returnValue, global::System.Collections.Generic.Dictionary<string, string>[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string>[] returnValue;
-        public global::System.Collections.Generic.Dictionary<string, string>[] outSeq;
-    }
-
-    public struct TestIntf_OpStringStringDictListResult
-    {
-        public TestIntf_OpStringStringDictListResult(global::System.Collections.Generic.Dictionary<string, string>[] returnValue, global::System.Collections.Generic.Dictionary<string, string>[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string>[] returnValue;
-        public global::System.Collections.Generic.Dictionary<string, string>[] outSeq;
-    }
-
-    public struct TestIntf_OpESeqResult
-    {
-        public TestIntf_OpESeqResult(E[] returnValue, E[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public E[] returnValue;
-        public E[] outSeq;
-    }
-
-    public struct TestIntf_OpEListResult
-    {
-        public TestIntf_OpEListResult(E[] returnValue, E[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public E[] returnValue;
-        public E[] outSeq;
-    }
-
-    public struct TestIntf_OpDPrxSeqResult
-    {
-        public TestIntf_OpDPrxSeqResult(DPrx[] returnValue, DPrx[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public DPrx[] returnValue;
-        public DPrx[] outSeq;
-    }
-
-    public struct TestIntf_OpDPrxListResult
-    {
-        public TestIntf_OpDPrxListResult(DPrx[] returnValue, DPrx[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public DPrx[] returnValue;
-        public DPrx[] outSeq;
-    }
-
-    public struct TestIntf_OpCSeqResult
-    {
-        public TestIntf_OpCSeqResult(C[] returnValue, C[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public C[] returnValue;
-        public C[] outSeq;
-    }
-
-    public struct TestIntf_OpCListResult
-    {
-        public TestIntf_OpCListResult(C[] returnValue, C[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public C[] returnValue;
-        public C[] outSeq;
-    }
-
-    public struct TestIntf_OpIntStringDictResult
-    {
-        public TestIntf_OpIntStringDictResult(global::System.Collections.Generic.Dictionary<int, string> returnValue, global::System.Collections.Generic.Dictionary<int, string> odict)
-        {
-            this.returnValue = returnValue;
-            this.odict = odict;
-        }
-
-        public global::System.Collections.Generic.Dictionary<int, string> returnValue;
-        public global::System.Collections.Generic.Dictionary<int, string> odict;
-    }
-
-    public struct TestIntf_OpVarDictResult
-    {
-        public TestIntf_OpVarDictResult(global::System.Collections.Generic.Dictionary<long, long> returnValue, global::System.Collections.Generic.Dictionary<string, int> odict)
-        {
-            this.returnValue = returnValue;
-            this.odict = odict;
-        }
-
-        public global::System.Collections.Generic.Dictionary<long, long> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, int> odict;
-    }
-
-    public struct TestIntf_OpShortBufferResult
-    {
-        public TestIntf_OpShortBufferResult(short[] returnValue, short[] outS)
-        {
-            this.returnValue = returnValue;
-            this.outS = outS;
-        }
-
-        public short[] returnValue;
-        public short[] outS;
-    }
-
-    public struct TestIntf_OpBoolBufferResult
-    {
-        public TestIntf_OpBoolBufferResult(bool[] returnValue, bool[] outS)
-        {
-            this.returnValue = returnValue;
-            this.outS = outS;
-        }
-
-        public bool[] returnValue;
-        public bool[] outS;
-    }
+    public record struct TestIntf_OpBoolBufferResult(bool[] returnValue, bool[] outS);
 }
 
 namespace Test

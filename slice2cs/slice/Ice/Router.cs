@@ -54,17 +54,7 @@ namespace Ice
 
 namespace Ice
 {
-    public struct Router_GetClientProxyResult
-    {
-        public Router_GetClientProxyResult(ObjectPrx returnValue, bool? hasRoutingTable)
-        {
-            this.returnValue = returnValue;
-            this.hasRoutingTable = hasRoutingTable;
-        }
-
-        public ObjectPrx returnValue;
-        public bool? hasRoutingTable;
-    }
+    public record struct Router_GetClientProxyResult(ObjectPrx returnValue, bool? hasRoutingTable);
 }
 
 namespace Ice

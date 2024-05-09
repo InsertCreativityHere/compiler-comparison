@@ -173,101 +173,21 @@ namespace Ice.dictMapping
 {
     namespace Test
     {
-        public struct MyClass_OpNVResult
-        {
-            public MyClass_OpNVResult(global::System.Collections.Generic.Dictionary<int, int> returnValue, global::System.Collections.Generic.Dictionary<int, int> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
+        public record struct MyClass_OpNVResult(global::System.Collections.Generic.Dictionary<int, int> returnValue, global::System.Collections.Generic.Dictionary<int, int> o);
 
-            public global::System.Collections.Generic.Dictionary<int, int> returnValue;
-            public global::System.Collections.Generic.Dictionary<int, int> o;
-        }
+        public record struct MyClass_OpNRResult(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> o);
 
-        public struct MyClass_OpNRResult
-        {
-            public MyClass_OpNRResult(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
+        public record struct MyClass_OpNDVResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o);
 
-            public global::System.Collections.Generic.Dictionary<string, string> returnValue;
-            public global::System.Collections.Generic.Dictionary<string, string> o;
-        }
+        public record struct MyClass_OpNDRResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o);
 
-        public struct MyClass_OpNDVResult
-        {
-            public MyClass_OpNDVResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
+        public record struct MyClass_OpNDAISResult(global::System.Collections.Generic.Dictionary<string, int[]> returnValue, global::System.Collections.Generic.Dictionary<string, int[]> o);
 
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> returnValue;
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o;
-        }
+        public record struct MyClass_OpNDGISResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o);
 
-        public struct MyClass_OpNDRResult
-        {
-            public MyClass_OpNDRResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
+        public record struct MyClass_OpNDASSResult(global::System.Collections.Generic.Dictionary<string, string[]> returnValue, global::System.Collections.Generic.Dictionary<string, string[]> o);
 
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> returnValue;
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o;
-        }
-
-        public struct MyClass_OpNDAISResult
-        {
-            public MyClass_OpNDAISResult(global::System.Collections.Generic.Dictionary<string, int[]> returnValue, global::System.Collections.Generic.Dictionary<string, int[]> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Dictionary<string, int[]> returnValue;
-            public global::System.Collections.Generic.Dictionary<string, int[]> o;
-        }
-
-        public struct MyClass_OpNDGISResult
-        {
-            public MyClass_OpNDGISResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> returnValue;
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o;
-        }
-
-        public struct MyClass_OpNDASSResult
-        {
-            public MyClass_OpNDASSResult(global::System.Collections.Generic.Dictionary<string, string[]> returnValue, global::System.Collections.Generic.Dictionary<string, string[]> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Dictionary<string, string[]> returnValue;
-            public global::System.Collections.Generic.Dictionary<string, string[]> o;
-        }
-
-        public struct MyClass_OpNDGSSResult
-        {
-            public MyClass_OpNDGSSResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> returnValue;
-            public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o;
-        }
+        public record struct MyClass_OpNDGSSResult(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> returnValue, global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o);
     }
 }
 

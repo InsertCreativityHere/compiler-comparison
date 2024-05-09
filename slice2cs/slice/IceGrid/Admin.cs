@@ -1742,17 +1742,7 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    public struct FileIterator_ReadResult
-    {
-        public FileIterator_ReadResult(bool returnValue, string[] lines)
-        {
-            this.returnValue = returnValue;
-            this.lines = lines;
-        }
-
-        public bool returnValue;
-        public string[] lines;
-    }
+    public record struct FileIterator_ReadResult(bool returnValue, string[] lines);
 }
 
 namespace IceGrid

@@ -335,41 +335,11 @@ namespace Test
 
 namespace Test
 {
-    public struct MyClass_OpSerialSmallJavaResult
-    {
-        public MyClass_OpSerialSmallJavaResult(byte[] returnValue, byte[] o)
-        {
-            this.returnValue = returnValue;
-            this.o = o;
-        }
+    public record struct MyClass_OpSerialSmallJavaResult(byte[] returnValue, byte[] o);
 
-        public byte[] returnValue;
-        public byte[] o;
-    }
+    public record struct MyClass_OpSerialLargeJavaResult(byte[] returnValue, byte[] o);
 
-    public struct MyClass_OpSerialLargeJavaResult
-    {
-        public MyClass_OpSerialLargeJavaResult(byte[] returnValue, byte[] o)
-        {
-            this.returnValue = returnValue;
-            this.o = o;
-        }
-
-        public byte[] returnValue;
-        public byte[] o;
-    }
-
-    public struct MyClass_OpSerialStructJavaResult
-    {
-        public MyClass_OpSerialStructJavaResult(byte[] returnValue, byte[] o)
-        {
-            this.returnValue = returnValue;
-            this.o = o;
-        }
-
-        public byte[] returnValue;
-        public byte[] o;
-    }
+    public record struct MyClass_OpSerialStructJavaResult(byte[] returnValue, byte[] o);
 }
 
 namespace Test

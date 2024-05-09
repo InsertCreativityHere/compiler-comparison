@@ -697,17 +697,7 @@ namespace IceStormElection
 
 namespace IceStormElection
 {
-    public struct TopicManagerSync_GetContentResult
-    {
-        public TopicManagerSync_GetContentResult(LogUpdate llu, TopicContent[] content)
-        {
-            this.llu = llu;
-            this.content = content;
-        }
-
-        public LogUpdate llu;
-        public TopicContent[] content;
-    }
+    public record struct TopicManagerSync_GetContentResult(LogUpdate llu, TopicContent[] content);
 }
 
 namespace IceStormElection

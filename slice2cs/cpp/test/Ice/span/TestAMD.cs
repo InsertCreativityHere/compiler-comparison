@@ -39,77 +39,17 @@ namespace Test
 
 namespace Test
 {
-    public struct TestIntf_OpByteSpanResult
-    {
-        public TestIntf_OpByteSpanResult(byte[] returnValue, byte[] dataOut)
-        {
-            this.returnValue = returnValue;
-            this.dataOut = dataOut;
-        }
+    public record struct TestIntf_OpByteSpanResult(byte[] returnValue, byte[] dataOut);
 
-        public byte[] returnValue;
-        public byte[] dataOut;
-    }
+    public record struct TestIntf_OpShortSpanResult(short[] returnValue, short[] dataOut);
 
-    public struct TestIntf_OpShortSpanResult
-    {
-        public TestIntf_OpShortSpanResult(short[] returnValue, short[] dataOut)
-        {
-            this.returnValue = returnValue;
-            this.dataOut = dataOut;
-        }
+    public record struct TestIntf_OpStringSpanResult(string[] returnValue, string[] dataOut);
 
-        public short[] returnValue;
-        public short[] dataOut;
-    }
+    public record struct TestIntf_OpOptionalByteSpanResult(byte[] returnValue, byte[] dataOut);
 
-    public struct TestIntf_OpStringSpanResult
-    {
-        public TestIntf_OpStringSpanResult(string[] returnValue, string[] dataOut)
-        {
-            this.returnValue = returnValue;
-            this.dataOut = dataOut;
-        }
+    public record struct TestIntf_OpOptionalShortSpanResult(short[] returnValue, short[] dataOut);
 
-        public string[] returnValue;
-        public string[] dataOut;
-    }
-
-    public struct TestIntf_OpOptionalByteSpanResult
-    {
-        public TestIntf_OpOptionalByteSpanResult(byte[] returnValue, byte[] dataOut)
-        {
-            this.returnValue = returnValue;
-            this.dataOut = dataOut;
-        }
-
-        public byte[] returnValue;
-        public byte[] dataOut;
-    }
-
-    public struct TestIntf_OpOptionalShortSpanResult
-    {
-        public TestIntf_OpOptionalShortSpanResult(short[] returnValue, short[] dataOut)
-        {
-            this.returnValue = returnValue;
-            this.dataOut = dataOut;
-        }
-
-        public short[] returnValue;
-        public short[] dataOut;
-    }
-
-    public struct TestIntf_OpOptionalStringSpanResult
-    {
-        public TestIntf_OpOptionalStringSpanResult(string[] returnValue, string[] dataOut)
-        {
-            this.returnValue = returnValue;
-            this.dataOut = dataOut;
-        }
-
-        public string[] returnValue;
-        public string[] dataOut;
-    }
+    public record struct TestIntf_OpOptionalStringSpanResult(string[] returnValue, string[] dataOut);
 }
 
 namespace Test

@@ -139,29 +139,9 @@ namespace Glacier2
 
 namespace Glacier2
 {
-    public struct PermissionsVerifier_CheckPermissionsResult
-    {
-        public PermissionsVerifier_CheckPermissionsResult(bool returnValue, string reason)
-        {
-            this.returnValue = returnValue;
-            this.reason = reason;
-        }
+    public record struct PermissionsVerifier_CheckPermissionsResult(bool returnValue, string reason);
 
-        public bool returnValue;
-        public string reason;
-    }
-
-    public struct SSLPermissionsVerifier_AuthorizeResult
-    {
-        public SSLPermissionsVerifier_AuthorizeResult(bool returnValue, string reason)
-        {
-            this.returnValue = returnValue;
-            this.reason = reason;
-        }
-
-        public bool returnValue;
-        public string reason;
-    }
+    public record struct SSLPermissionsVerifier_AuthorizeResult(bool returnValue, string reason);
 }
 
 namespace Glacier2

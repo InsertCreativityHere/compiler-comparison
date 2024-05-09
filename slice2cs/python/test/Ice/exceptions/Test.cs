@@ -483,17 +483,7 @@ namespace Test
 
 namespace Test
 {
-    public struct Thrower_ThrowMarshalExceptionResult
-    {
-        public Thrower_ThrowMarshalExceptionResult(int returnValue, int p)
-        {
-            this.returnValue = returnValue;
-            this.p = p;
-        }
-
-        public int returnValue;
-        public int p;
-    }
+    public record struct Thrower_ThrowMarshalExceptionResult(int returnValue, int p);
 }
 
 namespace Test

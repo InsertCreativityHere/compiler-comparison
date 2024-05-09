@@ -2140,380 +2140,70 @@ namespace Test
 
 namespace Test
 {
-    public struct Initial_OpByteResult
-    {
-        public Initial_OpByteResult(byte? returnValue, byte? p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpByteResult(byte? returnValue, byte? p3);
 
-        public byte? returnValue;
-        public byte? p3;
-    }
+    public record struct Initial_OpBoolResult(bool? returnValue, bool? p3);
 
-    public struct Initial_OpBoolResult
-    {
-        public Initial_OpBoolResult(bool? returnValue, bool? p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpShortResult(short? returnValue, short? p3);
 
-        public bool? returnValue;
-        public bool? p3;
-    }
+    public record struct Initial_OpIntResult(int? returnValue, int? p3);
 
-    public struct Initial_OpShortResult
-    {
-        public Initial_OpShortResult(short? returnValue, short? p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpLongResult(long? returnValue, long? p3);
 
-        public short? returnValue;
-        public short? p3;
-    }
+    public record struct Initial_OpFloatResult(float? returnValue, float? p3);
 
-    public struct Initial_OpIntResult
-    {
-        public Initial_OpIntResult(int? returnValue, int? p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpDoubleResult(double? returnValue, double? p3);
 
-        public int? returnValue;
-        public int? p3;
-    }
+    public record struct Initial_OpStringResult(string returnValue, string p3);
 
-    public struct Initial_OpLongResult
-    {
-        public Initial_OpLongResult(long? returnValue, long? p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpMyEnumResult(MyEnum? returnValue, MyEnum? p3);
 
-        public long? returnValue;
-        public long? p3;
-    }
+    public record struct Initial_OpSmallStructResult(SmallStruct? returnValue, SmallStruct? p3);
 
-    public struct Initial_OpFloatResult
-    {
-        public Initial_OpFloatResult(float? returnValue, float? p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpFixedStructResult(FixedStruct? returnValue, FixedStruct? p3);
 
-        public float? returnValue;
-        public float? p3;
-    }
+    public record struct Initial_OpVarStructResult(VarStruct returnValue, VarStruct p3);
 
-    public struct Initial_OpDoubleResult
-    {
-        public Initial_OpDoubleResult(double? returnValue, double? p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpOneOptionalResult(OneOptional returnValue, OneOptional p3);
 
-        public double? returnValue;
-        public double? p3;
-    }
+    public record struct Initial_OpMyInterfaceProxyResult(MyInterfacePrx returnValue, MyInterfacePrx p3);
 
-    public struct Initial_OpStringResult
-    {
-        public Initial_OpStringResult(string returnValue, string p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpByteSeqResult(byte[] returnValue, byte[] p3);
 
-        public string returnValue;
-        public string p3;
-    }
+    public record struct Initial_OpBoolSeqResult(bool[] returnValue, bool[] p3);
 
-    public struct Initial_OpMyEnumResult
-    {
-        public Initial_OpMyEnumResult(MyEnum? returnValue, MyEnum? p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpShortSeqResult(short[] returnValue, short[] p3);
 
-        public MyEnum? returnValue;
-        public MyEnum? p3;
-    }
+    public record struct Initial_OpIntSeqResult(int[] returnValue, int[] p3);
 
-    public struct Initial_OpSmallStructResult
-    {
-        public Initial_OpSmallStructResult(SmallStruct? returnValue, SmallStruct? p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpLongSeqResult(long[] returnValue, long[] p3);
 
-        public SmallStruct? returnValue;
-        public SmallStruct? p3;
-    }
+    public record struct Initial_OpFloatSeqResult(float[] returnValue, float[] p3);
 
-    public struct Initial_OpFixedStructResult
-    {
-        public Initial_OpFixedStructResult(FixedStruct? returnValue, FixedStruct? p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpDoubleSeqResult(double[] returnValue, double[] p3);
 
-        public FixedStruct? returnValue;
-        public FixedStruct? p3;
-    }
+    public record struct Initial_OpStringSeqResult(string[] returnValue, string[] p3);
 
-    public struct Initial_OpVarStructResult
-    {
-        public Initial_OpVarStructResult(VarStruct returnValue, VarStruct p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpSmallStructSeqResult(SmallStruct[] returnValue, SmallStruct[] p3);
 
-        public VarStruct returnValue;
-        public VarStruct p3;
-    }
+    public record struct Initial_OpSmallStructListResult(SmallStruct[] returnValue, SmallStruct[] p3);
 
-    public struct Initial_OpOneOptionalResult
-    {
-        public Initial_OpOneOptionalResult(OneOptional returnValue, OneOptional p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpFixedStructSeqResult(FixedStruct[] returnValue, FixedStruct[] p3);
 
-        public OneOptional returnValue;
-        public OneOptional p3;
-    }
+    public record struct Initial_OpFixedStructListResult(FixedStruct[] returnValue, FixedStruct[] p3);
 
-    public struct Initial_OpMyInterfaceProxyResult
-    {
-        public Initial_OpMyInterfaceProxyResult(MyInterfacePrx returnValue, MyInterfacePrx p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpVarStructSeqResult(VarStruct[] returnValue, VarStruct[] p3);
 
-        public MyInterfacePrx returnValue;
-        public MyInterfacePrx p3;
-    }
+    public record struct Initial_OpSerializableResult(byte[] returnValue, byte[] p3);
 
-    public struct Initial_OpByteSeqResult
-    {
-        public Initial_OpByteSeqResult(byte[] returnValue, byte[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
+    public record struct Initial_OpIntIntDictResult(global::System.Collections.Generic.Dictionary<int, int> returnValue, global::System.Collections.Generic.Dictionary<int, int> p3);
 
-        public byte[] returnValue;
-        public byte[] p3;
-    }
+    public record struct Initial_OpStringIntDictResult(global::System.Collections.Generic.Dictionary<string, int> returnValue, global::System.Collections.Generic.Dictionary<string, int> p3);
 
-    public struct Initial_OpBoolSeqResult
-    {
-        public Initial_OpBoolSeqResult(bool[] returnValue, bool[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public bool[] returnValue;
-        public bool[] p3;
-    }
-
-    public struct Initial_OpShortSeqResult
-    {
-        public Initial_OpShortSeqResult(short[] returnValue, short[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public short[] returnValue;
-        public short[] p3;
-    }
-
-    public struct Initial_OpIntSeqResult
-    {
-        public Initial_OpIntSeqResult(int[] returnValue, int[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public int[] returnValue;
-        public int[] p3;
-    }
-
-    public struct Initial_OpLongSeqResult
-    {
-        public Initial_OpLongSeqResult(long[] returnValue, long[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public long[] returnValue;
-        public long[] p3;
-    }
-
-    public struct Initial_OpFloatSeqResult
-    {
-        public Initial_OpFloatSeqResult(float[] returnValue, float[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public float[] returnValue;
-        public float[] p3;
-    }
-
-    public struct Initial_OpDoubleSeqResult
-    {
-        public Initial_OpDoubleSeqResult(double[] returnValue, double[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public double[] returnValue;
-        public double[] p3;
-    }
-
-    public struct Initial_OpStringSeqResult
-    {
-        public Initial_OpStringSeqResult(string[] returnValue, string[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public string[] returnValue;
-        public string[] p3;
-    }
-
-    public struct Initial_OpSmallStructSeqResult
-    {
-        public Initial_OpSmallStructSeqResult(SmallStruct[] returnValue, SmallStruct[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public SmallStruct[] returnValue;
-        public SmallStruct[] p3;
-    }
-
-    public struct Initial_OpSmallStructListResult
-    {
-        public Initial_OpSmallStructListResult(SmallStruct[] returnValue, SmallStruct[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public SmallStruct[] returnValue;
-        public SmallStruct[] p3;
-    }
-
-    public struct Initial_OpFixedStructSeqResult
-    {
-        public Initial_OpFixedStructSeqResult(FixedStruct[] returnValue, FixedStruct[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public FixedStruct[] returnValue;
-        public FixedStruct[] p3;
-    }
-
-    public struct Initial_OpFixedStructListResult
-    {
-        public Initial_OpFixedStructListResult(FixedStruct[] returnValue, FixedStruct[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public FixedStruct[] returnValue;
-        public FixedStruct[] p3;
-    }
-
-    public struct Initial_OpVarStructSeqResult
-    {
-        public Initial_OpVarStructSeqResult(VarStruct[] returnValue, VarStruct[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public VarStruct[] returnValue;
-        public VarStruct[] p3;
-    }
-
-    public struct Initial_OpSerializableResult
-    {
-        public Initial_OpSerializableResult(byte[] returnValue, byte[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public byte[] returnValue;
-        public byte[] p3;
-    }
-
-    public struct Initial_OpIntIntDictResult
-    {
-        public Initial_OpIntIntDictResult(global::System.Collections.Generic.Dictionary<int, int> returnValue, global::System.Collections.Generic.Dictionary<int, int> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<int, int> returnValue;
-        public global::System.Collections.Generic.Dictionary<int, int> p3;
-    }
-
-    public struct Initial_OpStringIntDictResult
-    {
-        public Initial_OpStringIntDictResult(global::System.Collections.Generic.Dictionary<string, int> returnValue, global::System.Collections.Generic.Dictionary<string, int> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, int> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, int> p3;
-    }
-
-    public struct Initial_OpIntOneOptionalDictResult
-    {
-        public Initial_OpIntOneOptionalDictResult(global::System.Collections.Generic.Dictionary<int, OneOptional> returnValue, global::System.Collections.Generic.Dictionary<int, OneOptional> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<int, OneOptional> returnValue;
-        public global::System.Collections.Generic.Dictionary<int, OneOptional> p3;
-    }
+    public record struct Initial_OpIntOneOptionalDictResult(global::System.Collections.Generic.Dictionary<int, OneOptional> returnValue, global::System.Collections.Generic.Dictionary<int, OneOptional> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct Initial_OpMStruct1MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct Initial_OpMStruct1MarshaledResult : global::Ice.MarshaledResult
     {
         public Initial_OpMStruct1MarshaledResult(SmallStruct? ret, global::Ice.Current current)
         {
@@ -2527,32 +2217,15 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new Initial_OpMStruct1MarshaledResult(default, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
-    public struct Initial_OpMStruct2Result
-    {
-        public Initial_OpMStruct2Result(SmallStruct? returnValue, SmallStruct? p2)
-        {
-            this.returnValue = returnValue;
-            this.p2 = p2;
-        }
-
-        public SmallStruct? returnValue;
-        public SmallStruct? p2;
-    }
+    public record struct Initial_OpMStruct2Result(SmallStruct? returnValue, SmallStruct? p2);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct Initial_OpMStruct2MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct Initial_OpMStruct2MarshaledResult : global::Ice.MarshaledResult
     {
         public Initial_OpMStruct2MarshaledResult(SmallStruct? ret, SmallStruct? p2, global::Ice.Current current)
         {
@@ -2571,20 +2244,13 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new Initial_OpMStruct2MarshaledResult(default, default, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct Initial_OpMSeq1MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct Initial_OpMSeq1MarshaledResult : global::Ice.MarshaledResult
     {
         public Initial_OpMSeq1MarshaledResult(string[] ret, global::Ice.Current current)
         {
@@ -2594,32 +2260,15 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new Initial_OpMSeq1MarshaledResult(null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
-    public struct Initial_OpMSeq2Result
-    {
-        public Initial_OpMSeq2Result(string[] returnValue, string[] p2)
-        {
-            this.returnValue = returnValue;
-            this.p2 = p2;
-        }
-
-        public string[] returnValue;
-        public string[] p2;
-    }
+    public record struct Initial_OpMSeq2Result(string[] returnValue, string[] p2);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct Initial_OpMSeq2MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct Initial_OpMSeq2MarshaledResult : global::Ice.MarshaledResult
     {
         public Initial_OpMSeq2MarshaledResult(string[] ret, string[] p2, global::Ice.Current current)
         {
@@ -2630,20 +2279,13 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new Initial_OpMSeq2MarshaledResult(null, null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct Initial_OpMDict1MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct Initial_OpMDict1MarshaledResult : global::Ice.MarshaledResult
     {
         public Initial_OpMDict1MarshaledResult(global::System.Collections.Generic.Dictionary<string, int> ret, global::Ice.Current current)
         {
@@ -2658,32 +2300,15 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new Initial_OpMDict1MarshaledResult(null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
-    public struct Initial_OpMDict2Result
-    {
-        public Initial_OpMDict2Result(global::System.Collections.Generic.Dictionary<string, int> returnValue, global::System.Collections.Generic.Dictionary<string, int> p2)
-        {
-            this.returnValue = returnValue;
-            this.p2 = p2;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, int> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, int> p2;
-    }
+    public record struct Initial_OpMDict2Result(global::System.Collections.Generic.Dictionary<string, int> returnValue, global::System.Collections.Generic.Dictionary<string, int> p2);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct Initial_OpMDict2MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct Initial_OpMDict2MarshaledResult : global::Ice.MarshaledResult
     {
         public Initial_OpMDict2MarshaledResult(global::System.Collections.Generic.Dictionary<string, int> ret, global::System.Collections.Generic.Dictionary<string, int> p2, global::Ice.Current current)
         {
@@ -2704,20 +2329,13 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new Initial_OpMDict2MarshaledResult(null, null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct Initial_OpMG1MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct Initial_OpMG1MarshaledResult : global::Ice.MarshaledResult
     {
         public Initial_OpMG1MarshaledResult(G ret, global::Ice.Current current)
         {
@@ -2727,32 +2345,15 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new Initial_OpMG1MarshaledResult(null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
-    public struct Initial_OpMG2Result
-    {
-        public Initial_OpMG2Result(G returnValue, G p2)
-        {
-            this.returnValue = returnValue;
-            this.p2 = p2;
-        }
-
-        public G returnValue;
-        public G p2;
-    }
+    public record struct Initial_OpMG2Result(G returnValue, G p2);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct Initial_OpMG2MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct Initial_OpMG2MarshaledResult : global::Ice.MarshaledResult
     {
         public Initial_OpMG2MarshaledResult(G ret, G p2, global::Ice.Current current)
         {
@@ -2763,16 +2364,9 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new Initial_OpMG2MarshaledResult(null, null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 }
 

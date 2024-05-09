@@ -890,29 +890,9 @@ namespace IceMX
 
 namespace IceMX
 {
-    public struct MetricsAdmin_GetMetricsViewNamesResult
-    {
-        public MetricsAdmin_GetMetricsViewNamesResult(string[] returnValue, string[] disabledViews)
-        {
-            this.returnValue = returnValue;
-            this.disabledViews = disabledViews;
-        }
+    public record struct MetricsAdmin_GetMetricsViewNamesResult(string[] returnValue, string[] disabledViews);
 
-        public string[] returnValue;
-        public string[] disabledViews;
-    }
-
-    public struct MetricsAdmin_GetMetricsViewResult
-    {
-        public MetricsAdmin_GetMetricsViewResult(global::System.Collections.Generic.Dictionary<string, Metrics[]> returnValue, long timestamp)
-        {
-            this.returnValue = returnValue;
-            this.timestamp = timestamp;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, Metrics[]> returnValue;
-        public long timestamp;
-    }
+    public record struct MetricsAdmin_GetMetricsViewResult(global::System.Collections.Generic.Dictionary<string, Metrics[]> returnValue, long timestamp);
 }
 
 namespace IceMX

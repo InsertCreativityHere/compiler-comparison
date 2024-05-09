@@ -829,45 +829,9 @@ namespace System
 
 namespace @await
 {
-    public struct optionalParams_InResult
-    {
-        public optionalParams_InResult(@break? returnValue, var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null)
-        {
-            this.returnValue = returnValue;
-            this.@goto = @goto;
-            this.@if = @if;
-            this.@internal = @internal;
-            this.@namespace = @namespace;
-            this.@null = @null;
-        }
+    public record struct optionalParams_InResult(@break? returnValue, var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null);
 
-        public @break? returnValue;
-        public var? @goto;
-        public explicitPrx @if;
-        public global::System.Collections.Generic.Dictionary<string, @break> @internal;
-        public string @namespace;
-        public explicitPrx @null;
-    }
-
-    public struct optionalParams_ForeachResult
-    {
-        public optionalParams_ForeachResult(@break? returnValue, var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null)
-        {
-            this.returnValue = returnValue;
-            this.@goto = @goto;
-            this.@if = @if;
-            this.@internal = @internal;
-            this.@namespace = @namespace;
-            this.@null = @null;
-        }
-
-        public @break? returnValue;
-        public var? @goto;
-        public explicitPrx @if;
-        public global::System.Collections.Generic.Dictionary<string, @break> @internal;
-        public string @namespace;
-        public explicitPrx @null;
-    }
+    public record struct optionalParams_ForeachResult(@break? returnValue, var? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace, explicitPrx @null);
 }
 
 namespace @await

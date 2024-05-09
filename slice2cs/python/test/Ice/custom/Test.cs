@@ -510,185 +510,35 @@ namespace Test
 
 namespace Test
 {
-    public struct Custom_OpByteString1Result
-    {
-        public Custom_OpByteString1Result(byte[] returnValue, byte[] b2)
-        {
-            this.returnValue = returnValue;
-            this.b2 = b2;
-        }
+    public record struct Custom_OpByteString1Result(byte[] returnValue, byte[] b2);
 
-        public byte[] returnValue;
-        public byte[] b2;
-    }
+    public record struct Custom_OpByteString2Result(byte[] returnValue, byte[] b2);
 
-    public struct Custom_OpByteString2Result
-    {
-        public Custom_OpByteString2Result(byte[] returnValue, byte[] b2)
-        {
-            this.returnValue = returnValue;
-            this.b2 = b2;
-        }
+    public record struct Custom_OpByteList1Result(byte[] returnValue, byte[] b2);
 
-        public byte[] returnValue;
-        public byte[] b2;
-    }
+    public record struct Custom_OpByteList2Result(byte[] returnValue, byte[] b2);
 
-    public struct Custom_OpByteList1Result
-    {
-        public Custom_OpByteList1Result(byte[] returnValue, byte[] b2)
-        {
-            this.returnValue = returnValue;
-            this.b2 = b2;
-        }
+    public record struct Custom_OpStringList1Result(string[] returnValue, string[] s2);
 
-        public byte[] returnValue;
-        public byte[] b2;
-    }
+    public record struct Custom_OpStringList2Result(string[] returnValue, string[] s2);
 
-    public struct Custom_OpByteList2Result
-    {
-        public Custom_OpByteList2Result(byte[] returnValue, byte[] b2)
-        {
-            this.returnValue = returnValue;
-            this.b2 = b2;
-        }
+    public record struct Custom_OpStringTuple1Result(string[] returnValue, string[] s2);
 
-        public byte[] returnValue;
-        public byte[] b2;
-    }
+    public record struct Custom_OpStringTuple2Result(string[] returnValue, string[] s2);
 
-    public struct Custom_OpStringList1Result
-    {
-        public Custom_OpStringList1Result(string[] returnValue, string[] s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
+    public record struct Custom_OpBoolSeqResult(bool[] returnValue, bool[] v2);
 
-        public string[] returnValue;
-        public string[] s2;
-    }
+    public record struct Custom_OpByteSeqResult(byte[] returnValue, byte[] v2);
 
-    public struct Custom_OpStringList2Result
-    {
-        public Custom_OpStringList2Result(string[] returnValue, string[] s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
+    public record struct Custom_OpShortSeqResult(short[] returnValue, short[] v2);
 
-        public string[] returnValue;
-        public string[] s2;
-    }
+    public record struct Custom_OpIntSeqResult(int[] returnValue, int[] v2);
 
-    public struct Custom_OpStringTuple1Result
-    {
-        public Custom_OpStringTuple1Result(string[] returnValue, string[] s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
+    public record struct Custom_OpLongSeqResult(long[] returnValue, long[] v2);
 
-        public string[] returnValue;
-        public string[] s2;
-    }
+    public record struct Custom_OpFloatSeqResult(float[] returnValue, float[] v2);
 
-    public struct Custom_OpStringTuple2Result
-    {
-        public Custom_OpStringTuple2Result(string[] returnValue, string[] s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
-
-        public string[] returnValue;
-        public string[] s2;
-    }
-
-    public struct Custom_OpBoolSeqResult
-    {
-        public Custom_OpBoolSeqResult(bool[] returnValue, bool[] v2)
-        {
-            this.returnValue = returnValue;
-            this.v2 = v2;
-        }
-
-        public bool[] returnValue;
-        public bool[] v2;
-    }
-
-    public struct Custom_OpByteSeqResult
-    {
-        public Custom_OpByteSeqResult(byte[] returnValue, byte[] v2)
-        {
-            this.returnValue = returnValue;
-            this.v2 = v2;
-        }
-
-        public byte[] returnValue;
-        public byte[] v2;
-    }
-
-    public struct Custom_OpShortSeqResult
-    {
-        public Custom_OpShortSeqResult(short[] returnValue, short[] v2)
-        {
-            this.returnValue = returnValue;
-            this.v2 = v2;
-        }
-
-        public short[] returnValue;
-        public short[] v2;
-    }
-
-    public struct Custom_OpIntSeqResult
-    {
-        public Custom_OpIntSeqResult(int[] returnValue, int[] v2)
-        {
-            this.returnValue = returnValue;
-            this.v2 = v2;
-        }
-
-        public int[] returnValue;
-        public int[] v2;
-    }
-
-    public struct Custom_OpLongSeqResult
-    {
-        public Custom_OpLongSeqResult(long[] returnValue, long[] v2)
-        {
-            this.returnValue = returnValue;
-            this.v2 = v2;
-        }
-
-        public long[] returnValue;
-        public long[] v2;
-    }
-
-    public struct Custom_OpFloatSeqResult
-    {
-        public Custom_OpFloatSeqResult(float[] returnValue, float[] v2)
-        {
-            this.returnValue = returnValue;
-            this.v2 = v2;
-        }
-
-        public float[] returnValue;
-        public float[] v2;
-    }
-
-    public struct Custom_OpDoubleSeqResult
-    {
-        public Custom_OpDoubleSeqResult(double[] returnValue, double[] v2)
-        {
-            this.returnValue = returnValue;
-            this.v2 = v2;
-        }
-
-        public double[] returnValue;
-        public double[] v2;
-    }
+    public record struct Custom_OpDoubleSeqResult(double[] returnValue, double[] v2);
 }
 
 namespace Test

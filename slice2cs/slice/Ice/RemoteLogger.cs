@@ -303,17 +303,7 @@ namespace Ice
 
 namespace Ice
 {
-    public struct LoggerAdmin_GetLogResult
-    {
-        public LoggerAdmin_GetLogResult(LogMessage[] returnValue, string prefix)
-        {
-            this.returnValue = returnValue;
-            this.prefix = prefix;
-        }
-
-        public LogMessage[] returnValue;
-        public string prefix;
-    }
+    public record struct LoggerAdmin_GetLogResult(LogMessage[] returnValue, string prefix);
 }
 
 namespace Ice

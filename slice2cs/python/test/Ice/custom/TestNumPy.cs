@@ -222,89 +222,19 @@ namespace Test
 {
     namespace NumPy
     {
-        public struct Custom_OpBoolSeqResult
-        {
-            public Custom_OpBoolSeqResult(bool[] returnValue, bool[] v2)
-            {
-                this.returnValue = returnValue;
-                this.v2 = v2;
-            }
+        public record struct Custom_OpBoolSeqResult(bool[] returnValue, bool[] v2);
 
-            public bool[] returnValue;
-            public bool[] v2;
-        }
+        public record struct Custom_OpByteSeqResult(byte[] returnValue, byte[] v2);
 
-        public struct Custom_OpByteSeqResult
-        {
-            public Custom_OpByteSeqResult(byte[] returnValue, byte[] v2)
-            {
-                this.returnValue = returnValue;
-                this.v2 = v2;
-            }
+        public record struct Custom_OpShortSeqResult(short[] returnValue, short[] v2);
 
-            public byte[] returnValue;
-            public byte[] v2;
-        }
+        public record struct Custom_OpIntSeqResult(int[] returnValue, int[] v2);
 
-        public struct Custom_OpShortSeqResult
-        {
-            public Custom_OpShortSeqResult(short[] returnValue, short[] v2)
-            {
-                this.returnValue = returnValue;
-                this.v2 = v2;
-            }
+        public record struct Custom_OpLongSeqResult(long[] returnValue, long[] v2);
 
-            public short[] returnValue;
-            public short[] v2;
-        }
+        public record struct Custom_OpFloatSeqResult(float[] returnValue, float[] v2);
 
-        public struct Custom_OpIntSeqResult
-        {
-            public Custom_OpIntSeqResult(int[] returnValue, int[] v2)
-            {
-                this.returnValue = returnValue;
-                this.v2 = v2;
-            }
-
-            public int[] returnValue;
-            public int[] v2;
-        }
-
-        public struct Custom_OpLongSeqResult
-        {
-            public Custom_OpLongSeqResult(long[] returnValue, long[] v2)
-            {
-                this.returnValue = returnValue;
-                this.v2 = v2;
-            }
-
-            public long[] returnValue;
-            public long[] v2;
-        }
-
-        public struct Custom_OpFloatSeqResult
-        {
-            public Custom_OpFloatSeqResult(float[] returnValue, float[] v2)
-            {
-                this.returnValue = returnValue;
-                this.v2 = v2;
-            }
-
-            public float[] returnValue;
-            public float[] v2;
-        }
-
-        public struct Custom_OpDoubleSeqResult
-        {
-            public Custom_OpDoubleSeqResult(double[] returnValue, double[] v2)
-            {
-                this.returnValue = returnValue;
-                this.v2 = v2;
-            }
-
-            public double[] returnValue;
-            public double[] v2;
-        }
+        public record struct Custom_OpDoubleSeqResult(double[] returnValue, double[] v2);
     }
 }
 

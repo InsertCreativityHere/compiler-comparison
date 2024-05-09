@@ -461,56 +461,16 @@ namespace Test2
 
 namespace Test1
 {
-    public struct WstringClass_OpStringResult
-    {
-        public WstringClass_OpStringResult(string returnValue, string s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
+    public record struct WstringClass_OpStringResult(string returnValue, string s2);
 
-        public string returnValue;
-        public string s2;
-    }
-
-    public struct WstringClass_OpStructResult
-    {
-        public WstringClass_OpStructResult(WstringStruct returnValue, WstringStruct s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
-
-        public WstringStruct returnValue;
-        public WstringStruct s2;
-    }
+    public record struct WstringClass_OpStructResult(WstringStruct returnValue, WstringStruct s2);
 }
 
 namespace Test2
 {
-    public struct WstringClass_OpStringResult
-    {
-        public WstringClass_OpStringResult(string returnValue, string s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
+    public record struct WstringClass_OpStringResult(string returnValue, string s2);
 
-        public string returnValue;
-        public string s2;
-    }
-
-    public struct WstringClass_OpStructResult
-    {
-        public WstringClass_OpStructResult(WstringStruct returnValue, WstringStruct s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
-
-        public WstringStruct returnValue;
-        public WstringStruct s2;
-    }
+    public record struct WstringClass_OpStructResult(WstringStruct returnValue, WstringStruct s2);
 }
 
 namespace Test1

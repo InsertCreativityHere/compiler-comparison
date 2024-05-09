@@ -808,41 +808,9 @@ namespace System
 
 namespace @abstract
 {
-    public struct optionalParams_InResult
-    {
-        public optionalParams_InResult(@break? returnValue, @as? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace)
-        {
-            this.returnValue = returnValue;
-            this.@goto = @goto;
-            this.@if = @if;
-            this.@internal = @internal;
-            this.@namespace = @namespace;
-        }
+    public record struct optionalParams_InResult(@break? returnValue, @as? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace);
 
-        public @break? returnValue;
-        public @as? @goto;
-        public explicitPrx @if;
-        public global::System.Collections.Generic.Dictionary<string, @break> @internal;
-        public string @namespace;
-    }
-
-    public struct optionalParams_ForeachResult
-    {
-        public optionalParams_ForeachResult(@break? returnValue, @as? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace)
-        {
-            this.returnValue = returnValue;
-            this.@goto = @goto;
-            this.@if = @if;
-            this.@internal = @internal;
-            this.@namespace = @namespace;
-        }
-
-        public @break? returnValue;
-        public @as? @goto;
-        public explicitPrx @if;
-        public global::System.Collections.Generic.Dictionary<string, @break> @internal;
-        public string @namespace;
-    }
+    public record struct optionalParams_ForeachResult(@break? returnValue, @as? @goto, explicitPrx @if, global::System.Collections.Generic.Dictionary<string, @break> @internal, string @namespace);
 }
 
 namespace @abstract

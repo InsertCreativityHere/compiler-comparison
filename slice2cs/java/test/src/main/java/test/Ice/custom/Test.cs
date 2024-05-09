@@ -185,509 +185,89 @@ namespace Test
 
 namespace Test
 {
-    public struct TestIntf_OpCSeqResult
-    {
-        public TestIntf_OpCSeqResult(C[] returnValue, C[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public C[] returnValue;
-        public C[] outSeq;
-    }
-
-    public struct TestIntf_OpCArrayResult
-    {
-        public TestIntf_OpCArrayResult(C[] returnValue, C[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public C[] returnValue;
-        public C[] outSeq;
-    }
-
-    public struct TestIntf_OpCListResult
-    {
-        public TestIntf_OpCListResult(C[] returnValue, C[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public C[] returnValue;
-        public C[] outSeq;
-    }
-
-    public struct TestIntf_OpBoolSeqResult
-    {
-        public TestIntf_OpBoolSeqResult(bool[] returnValue, bool[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public bool[] returnValue;
-        public bool[] outSeq;
-    }
-
-    public struct TestIntf_OpByteSeqResult
-    {
-        public TestIntf_OpByteSeqResult(byte[] returnValue, byte[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public byte[] returnValue;
-        public byte[] outSeq;
-    }
-
-    public struct TestIntf_OpShortSeqResult
-    {
-        public TestIntf_OpShortSeqResult(short[] returnValue, short[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public short[] returnValue;
-        public short[] outSeq;
-    }
-
-    public struct TestIntf_OpIntSeqResult
-    {
-        public TestIntf_OpIntSeqResult(int[] returnValue, int[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public int[] returnValue;
-        public int[] outSeq;
-    }
-
-    public struct TestIntf_OpLongSeqResult
-    {
-        public TestIntf_OpLongSeqResult(long[] returnValue, long[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public long[] returnValue;
-        public long[] outSeq;
-    }
-
-    public struct TestIntf_OpFloatSeqResult
-    {
-        public TestIntf_OpFloatSeqResult(float[] returnValue, float[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public float[] returnValue;
-        public float[] outSeq;
-    }
-
-    public struct TestIntf_OpDoubleSeqResult
-    {
-        public TestIntf_OpDoubleSeqResult(double[] returnValue, double[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public double[] returnValue;
-        public double[] outSeq;
-    }
-
-    public struct TestIntf_OpStringSeqResult
-    {
-        public TestIntf_OpStringSeqResult(string[] returnValue, string[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public string[] returnValue;
-        public string[] outSeq;
-    }
-
-    public struct TestIntf_OpESeqResult
-    {
-        public TestIntf_OpESeqResult(E[] returnValue, E[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public E[] returnValue;
-        public E[] outSeq;
-    }
-
-    public struct TestIntf_OpSSeqResult
-    {
-        public TestIntf_OpSSeqResult(S[] returnValue, S[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public S[] returnValue;
-        public S[] outSeq;
-    }
-
-    public struct TestIntf_OpDSeqResult
-    {
-        public TestIntf_OpDSeqResult(global::System.Collections.Generic.Dictionary<int, string>[] returnValue, global::System.Collections.Generic.Dictionary<int, string>[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public global::System.Collections.Generic.Dictionary<int, string>[] returnValue;
-        public global::System.Collections.Generic.Dictionary<int, string>[] outSeq;
-    }
-
-    public struct TestIntf_OpStringSeqSeqResult
-    {
-        public TestIntf_OpStringSeqSeqResult(string[][] returnValue, string[][] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public string[][] returnValue;
-        public string[][] outSeq;
-    }
-
-    public struct TestIntf_OpByteBufferSeqResult
-    {
-        public TestIntf_OpByteBufferSeqResult(byte[] returnValue, byte[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public byte[] returnValue;
-        public byte[] outSeq;
-    }
-
-    public struct TestIntf_OpShortBufferSeqResult
-    {
-        public TestIntf_OpShortBufferSeqResult(short[] returnValue, short[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public short[] returnValue;
-        public short[] outSeq;
-    }
-
-    public struct TestIntf_OpIntBufferSeqResult
-    {
-        public TestIntf_OpIntBufferSeqResult(int[] returnValue, int[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public int[] returnValue;
-        public int[] outSeq;
-    }
-
-    public struct TestIntf_OpLongBufferSeqResult
-    {
-        public TestIntf_OpLongBufferSeqResult(long[] returnValue, long[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public long[] returnValue;
-        public long[] outSeq;
-    }
-
-    public struct TestIntf_OpFloatBufferSeqResult
-    {
-        public TestIntf_OpFloatBufferSeqResult(float[] returnValue, float[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public float[] returnValue;
-        public float[] outSeq;
-    }
-
-    public struct TestIntf_OpDoubleBufferSeqResult
-    {
-        public TestIntf_OpDoubleBufferSeqResult(double[] returnValue, double[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public double[] returnValue;
-        public double[] outSeq;
-    }
-
-    public struct TestIntf_OpOptCSeqResult
-    {
-        public TestIntf_OpOptCSeqResult(C[] returnValue, C[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public C[] returnValue;
-        public C[] outSeq;
-    }
-
-    public struct TestIntf_OpOptCArrayResult
-    {
-        public TestIntf_OpOptCArrayResult(C[] returnValue, C[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public C[] returnValue;
-        public C[] outSeq;
-    }
-
-    public struct TestIntf_OpOptCListResult
-    {
-        public TestIntf_OpOptCListResult(C[] returnValue, C[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public C[] returnValue;
-        public C[] outSeq;
-    }
-
-    public struct TestIntf_OpOptBoolSeqResult
-    {
-        public TestIntf_OpOptBoolSeqResult(bool[] returnValue, bool[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public bool[] returnValue;
-        public bool[] outSeq;
-    }
-
-    public struct TestIntf_OpOptByteSeqResult
-    {
-        public TestIntf_OpOptByteSeqResult(byte[] returnValue, byte[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public byte[] returnValue;
-        public byte[] outSeq;
-    }
-
-    public struct TestIntf_OpOptShortSeqResult
-    {
-        public TestIntf_OpOptShortSeqResult(short[] returnValue, short[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public short[] returnValue;
-        public short[] outSeq;
-    }
-
-    public struct TestIntf_OpOptIntSeqResult
-    {
-        public TestIntf_OpOptIntSeqResult(int[] returnValue, int[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public int[] returnValue;
-        public int[] outSeq;
-    }
-
-    public struct TestIntf_OpOptLongSeqResult
-    {
-        public TestIntf_OpOptLongSeqResult(long[] returnValue, long[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public long[] returnValue;
-        public long[] outSeq;
-    }
-
-    public struct TestIntf_OpOptFloatSeqResult
-    {
-        public TestIntf_OpOptFloatSeqResult(float[] returnValue, float[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public float[] returnValue;
-        public float[] outSeq;
-    }
-
-    public struct TestIntf_OpOptDoubleSeqResult
-    {
-        public TestIntf_OpOptDoubleSeqResult(double[] returnValue, double[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public double[] returnValue;
-        public double[] outSeq;
-    }
-
-    public struct TestIntf_OpOptStringSeqResult
-    {
-        public TestIntf_OpOptStringSeqResult(string[] returnValue, string[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public string[] returnValue;
-        public string[] outSeq;
-    }
-
-    public struct TestIntf_OpOptESeqResult
-    {
-        public TestIntf_OpOptESeqResult(E[] returnValue, E[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public E[] returnValue;
-        public E[] outSeq;
-    }
-
-    public struct TestIntf_OpOptSSeqResult
-    {
-        public TestIntf_OpOptSSeqResult(S[] returnValue, S[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public S[] returnValue;
-        public S[] outSeq;
-    }
-
-    public struct TestIntf_OpOptDSeqResult
-    {
-        public TestIntf_OpOptDSeqResult(global::System.Collections.Generic.Dictionary<int, string>[] returnValue, global::System.Collections.Generic.Dictionary<int, string>[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public global::System.Collections.Generic.Dictionary<int, string>[] returnValue;
-        public global::System.Collections.Generic.Dictionary<int, string>[] outSeq;
-    }
-
-    public struct TestIntf_OpOptStringSeqSeqResult
-    {
-        public TestIntf_OpOptStringSeqSeqResult(string[][] returnValue, string[][] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public string[][] returnValue;
-        public string[][] outSeq;
-    }
-
-    public struct TestIntf_OpOptByteBufferSeqResult
-    {
-        public TestIntf_OpOptByteBufferSeqResult(byte[] returnValue, byte[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public byte[] returnValue;
-        public byte[] outSeq;
-    }
-
-    public struct TestIntf_OpOptShortBufferSeqResult
-    {
-        public TestIntf_OpOptShortBufferSeqResult(short[] returnValue, short[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public short[] returnValue;
-        public short[] outSeq;
-    }
-
-    public struct TestIntf_OpOptIntBufferSeqResult
-    {
-        public TestIntf_OpOptIntBufferSeqResult(int[] returnValue, int[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public int[] returnValue;
-        public int[] outSeq;
-    }
-
-    public struct TestIntf_OpOptLongBufferSeqResult
-    {
-        public TestIntf_OpOptLongBufferSeqResult(long[] returnValue, long[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public long[] returnValue;
-        public long[] outSeq;
-    }
-
-    public struct TestIntf_OpOptFloatBufferSeqResult
-    {
-        public TestIntf_OpOptFloatBufferSeqResult(float[] returnValue, float[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public float[] returnValue;
-        public float[] outSeq;
-    }
-
-    public struct TestIntf_OpOptDoubleBufferSeqResult
-    {
-        public TestIntf_OpOptDoubleBufferSeqResult(double[] returnValue, double[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public double[] returnValue;
-        public double[] outSeq;
-    }
+    public record struct TestIntf_OpCSeqResult(C[] returnValue, C[] outSeq);
+
+    public record struct TestIntf_OpCArrayResult(C[] returnValue, C[] outSeq);
+
+    public record struct TestIntf_OpCListResult(C[] returnValue, C[] outSeq);
+
+    public record struct TestIntf_OpBoolSeqResult(bool[] returnValue, bool[] outSeq);
+
+    public record struct TestIntf_OpByteSeqResult(byte[] returnValue, byte[] outSeq);
+
+    public record struct TestIntf_OpShortSeqResult(short[] returnValue, short[] outSeq);
+
+    public record struct TestIntf_OpIntSeqResult(int[] returnValue, int[] outSeq);
+
+    public record struct TestIntf_OpLongSeqResult(long[] returnValue, long[] outSeq);
+
+    public record struct TestIntf_OpFloatSeqResult(float[] returnValue, float[] outSeq);
+
+    public record struct TestIntf_OpDoubleSeqResult(double[] returnValue, double[] outSeq);
+
+    public record struct TestIntf_OpStringSeqResult(string[] returnValue, string[] outSeq);
+
+    public record struct TestIntf_OpESeqResult(E[] returnValue, E[] outSeq);
+
+    public record struct TestIntf_OpSSeqResult(S[] returnValue, S[] outSeq);
+
+    public record struct TestIntf_OpDSeqResult(global::System.Collections.Generic.Dictionary<int, string>[] returnValue, global::System.Collections.Generic.Dictionary<int, string>[] outSeq);
+
+    public record struct TestIntf_OpStringSeqSeqResult(string[][] returnValue, string[][] outSeq);
+
+    public record struct TestIntf_OpByteBufferSeqResult(byte[] returnValue, byte[] outSeq);
+
+    public record struct TestIntf_OpShortBufferSeqResult(short[] returnValue, short[] outSeq);
+
+    public record struct TestIntf_OpIntBufferSeqResult(int[] returnValue, int[] outSeq);
+
+    public record struct TestIntf_OpLongBufferSeqResult(long[] returnValue, long[] outSeq);
+
+    public record struct TestIntf_OpFloatBufferSeqResult(float[] returnValue, float[] outSeq);
+
+    public record struct TestIntf_OpDoubleBufferSeqResult(double[] returnValue, double[] outSeq);
+
+    public record struct TestIntf_OpOptCSeqResult(C[] returnValue, C[] outSeq);
+
+    public record struct TestIntf_OpOptCArrayResult(C[] returnValue, C[] outSeq);
+
+    public record struct TestIntf_OpOptCListResult(C[] returnValue, C[] outSeq);
+
+    public record struct TestIntf_OpOptBoolSeqResult(bool[] returnValue, bool[] outSeq);
+
+    public record struct TestIntf_OpOptByteSeqResult(byte[] returnValue, byte[] outSeq);
+
+    public record struct TestIntf_OpOptShortSeqResult(short[] returnValue, short[] outSeq);
+
+    public record struct TestIntf_OpOptIntSeqResult(int[] returnValue, int[] outSeq);
+
+    public record struct TestIntf_OpOptLongSeqResult(long[] returnValue, long[] outSeq);
+
+    public record struct TestIntf_OpOptFloatSeqResult(float[] returnValue, float[] outSeq);
+
+    public record struct TestIntf_OpOptDoubleSeqResult(double[] returnValue, double[] outSeq);
+
+    public record struct TestIntf_OpOptStringSeqResult(string[] returnValue, string[] outSeq);
+
+    public record struct TestIntf_OpOptESeqResult(E[] returnValue, E[] outSeq);
+
+    public record struct TestIntf_OpOptSSeqResult(S[] returnValue, S[] outSeq);
+
+    public record struct TestIntf_OpOptDSeqResult(global::System.Collections.Generic.Dictionary<int, string>[] returnValue, global::System.Collections.Generic.Dictionary<int, string>[] outSeq);
+
+    public record struct TestIntf_OpOptStringSeqSeqResult(string[][] returnValue, string[][] outSeq);
+
+    public record struct TestIntf_OpOptByteBufferSeqResult(byte[] returnValue, byte[] outSeq);
+
+    public record struct TestIntf_OpOptShortBufferSeqResult(short[] returnValue, short[] outSeq);
+
+    public record struct TestIntf_OpOptIntBufferSeqResult(int[] returnValue, int[] outSeq);
+
+    public record struct TestIntf_OpOptLongBufferSeqResult(long[] returnValue, long[] outSeq);
+
+    public record struct TestIntf_OpOptFloatBufferSeqResult(float[] returnValue, float[] outSeq);
+
+    public record struct TestIntf_OpOptDoubleBufferSeqResult(double[] returnValue, double[] outSeq);
 }
 
 namespace Test

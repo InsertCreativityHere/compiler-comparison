@@ -416,905 +416,155 @@ namespace Ice.seqMapping.AMD
 {
     namespace Test
     {
-        public struct MyClass_OpAByteSResult
-        {
-            public MyClass_OpAByteSResult(byte[] returnValue, byte[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public byte[] returnValue;
-            public byte[] o;
-        }
-
-        public struct MyClass_OpLByteSResult
-        {
-            public MyClass_OpLByteSResult(global::System.Collections.Generic.List<byte> returnValue, global::System.Collections.Generic.List<byte> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<byte> returnValue;
-            public global::System.Collections.Generic.List<byte> o;
-        }
-
-        public struct MyClass_OpKByteSResult
-        {
-            public MyClass_OpKByteSResult(global::System.Collections.Generic.LinkedList<byte> returnValue, global::System.Collections.Generic.LinkedList<byte> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<byte> returnValue;
-            public global::System.Collections.Generic.LinkedList<byte> o;
-        }
-
-        public struct MyClass_OpQByteSResult
-        {
-            public MyClass_OpQByteSResult(global::System.Collections.Generic.Queue<byte> returnValue, global::System.Collections.Generic.Queue<byte> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<byte> returnValue;
-            public global::System.Collections.Generic.Queue<byte> o;
-        }
-
-        public struct MyClass_OpSByteSResult
-        {
-            public MyClass_OpSByteSResult(global::System.Collections.Generic.Stack<byte> returnValue, global::System.Collections.Generic.Stack<byte> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<byte> returnValue;
-            public global::System.Collections.Generic.Stack<byte> o;
-        }
-
-        public struct MyClass_OpABoolSResult
-        {
-            public MyClass_OpABoolSResult(bool[] returnValue, bool[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public bool[] returnValue;
-            public bool[] o;
-        }
-
-        public struct MyClass_OpLBoolSResult
-        {
-            public MyClass_OpLBoolSResult(global::System.Collections.Generic.List<bool> returnValue, global::System.Collections.Generic.List<bool> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<bool> returnValue;
-            public global::System.Collections.Generic.List<bool> o;
-        }
-
-        public struct MyClass_OpKBoolSResult
-        {
-            public MyClass_OpKBoolSResult(global::System.Collections.Generic.LinkedList<bool> returnValue, global::System.Collections.Generic.LinkedList<bool> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<bool> returnValue;
-            public global::System.Collections.Generic.LinkedList<bool> o;
-        }
-
-        public struct MyClass_OpQBoolSResult
-        {
-            public MyClass_OpQBoolSResult(global::System.Collections.Generic.Queue<bool> returnValue, global::System.Collections.Generic.Queue<bool> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<bool> returnValue;
-            public global::System.Collections.Generic.Queue<bool> o;
-        }
-
-        public struct MyClass_OpSBoolSResult
-        {
-            public MyClass_OpSBoolSResult(global::System.Collections.Generic.Stack<bool> returnValue, global::System.Collections.Generic.Stack<bool> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<bool> returnValue;
-            public global::System.Collections.Generic.Stack<bool> o;
-        }
-
-        public struct MyClass_OpAShortSResult
-        {
-            public MyClass_OpAShortSResult(short[] returnValue, short[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public short[] returnValue;
-            public short[] o;
-        }
-
-        public struct MyClass_OpLShortSResult
-        {
-            public MyClass_OpLShortSResult(global::System.Collections.Generic.List<short> returnValue, global::System.Collections.Generic.List<short> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<short> returnValue;
-            public global::System.Collections.Generic.List<short> o;
-        }
-
-        public struct MyClass_OpKShortSResult
-        {
-            public MyClass_OpKShortSResult(global::System.Collections.Generic.LinkedList<short> returnValue, global::System.Collections.Generic.LinkedList<short> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<short> returnValue;
-            public global::System.Collections.Generic.LinkedList<short> o;
-        }
-
-        public struct MyClass_OpQShortSResult
-        {
-            public MyClass_OpQShortSResult(global::System.Collections.Generic.Queue<short> returnValue, global::System.Collections.Generic.Queue<short> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<short> returnValue;
-            public global::System.Collections.Generic.Queue<short> o;
-        }
-
-        public struct MyClass_OpSShortSResult
-        {
-            public MyClass_OpSShortSResult(global::System.Collections.Generic.Stack<short> returnValue, global::System.Collections.Generic.Stack<short> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<short> returnValue;
-            public global::System.Collections.Generic.Stack<short> o;
-        }
-
-        public struct MyClass_OpAIntSResult
-        {
-            public MyClass_OpAIntSResult(int[] returnValue, int[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public int[] returnValue;
-            public int[] o;
-        }
-
-        public struct MyClass_OpLIntSResult
-        {
-            public MyClass_OpLIntSResult(global::System.Collections.Generic.List<int> returnValue, global::System.Collections.Generic.List<int> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<int> returnValue;
-            public global::System.Collections.Generic.List<int> o;
-        }
-
-        public struct MyClass_OpKIntSResult
-        {
-            public MyClass_OpKIntSResult(global::System.Collections.Generic.LinkedList<int> returnValue, global::System.Collections.Generic.LinkedList<int> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<int> returnValue;
-            public global::System.Collections.Generic.LinkedList<int> o;
-        }
-
-        public struct MyClass_OpQIntSResult
-        {
-            public MyClass_OpQIntSResult(global::System.Collections.Generic.Queue<int> returnValue, global::System.Collections.Generic.Queue<int> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<int> returnValue;
-            public global::System.Collections.Generic.Queue<int> o;
-        }
-
-        public struct MyClass_OpSIntSResult
-        {
-            public MyClass_OpSIntSResult(global::System.Collections.Generic.Stack<int> returnValue, global::System.Collections.Generic.Stack<int> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<int> returnValue;
-            public global::System.Collections.Generic.Stack<int> o;
-        }
-
-        public struct MyClass_OpALongSResult
-        {
-            public MyClass_OpALongSResult(long[] returnValue, long[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public long[] returnValue;
-            public long[] o;
-        }
-
-        public struct MyClass_OpLLongSResult
-        {
-            public MyClass_OpLLongSResult(global::System.Collections.Generic.List<long> returnValue, global::System.Collections.Generic.List<long> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<long> returnValue;
-            public global::System.Collections.Generic.List<long> o;
-        }
-
-        public struct MyClass_OpKLongSResult
-        {
-            public MyClass_OpKLongSResult(global::System.Collections.Generic.LinkedList<long> returnValue, global::System.Collections.Generic.LinkedList<long> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<long> returnValue;
-            public global::System.Collections.Generic.LinkedList<long> o;
-        }
-
-        public struct MyClass_OpQLongSResult
-        {
-            public MyClass_OpQLongSResult(global::System.Collections.Generic.Queue<long> returnValue, global::System.Collections.Generic.Queue<long> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<long> returnValue;
-            public global::System.Collections.Generic.Queue<long> o;
-        }
-
-        public struct MyClass_OpSLongSResult
-        {
-            public MyClass_OpSLongSResult(global::System.Collections.Generic.Stack<long> returnValue, global::System.Collections.Generic.Stack<long> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<long> returnValue;
-            public global::System.Collections.Generic.Stack<long> o;
-        }
-
-        public struct MyClass_OpAFloatSResult
-        {
-            public MyClass_OpAFloatSResult(float[] returnValue, float[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public float[] returnValue;
-            public float[] o;
-        }
-
-        public struct MyClass_OpLFloatSResult
-        {
-            public MyClass_OpLFloatSResult(global::System.Collections.Generic.List<float> returnValue, global::System.Collections.Generic.List<float> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<float> returnValue;
-            public global::System.Collections.Generic.List<float> o;
-        }
-
-        public struct MyClass_OpKFloatSResult
-        {
-            public MyClass_OpKFloatSResult(global::System.Collections.Generic.LinkedList<float> returnValue, global::System.Collections.Generic.LinkedList<float> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<float> returnValue;
-            public global::System.Collections.Generic.LinkedList<float> o;
-        }
-
-        public struct MyClass_OpQFloatSResult
-        {
-            public MyClass_OpQFloatSResult(global::System.Collections.Generic.Queue<float> returnValue, global::System.Collections.Generic.Queue<float> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<float> returnValue;
-            public global::System.Collections.Generic.Queue<float> o;
-        }
-
-        public struct MyClass_OpSFloatSResult
-        {
-            public MyClass_OpSFloatSResult(global::System.Collections.Generic.Stack<float> returnValue, global::System.Collections.Generic.Stack<float> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<float> returnValue;
-            public global::System.Collections.Generic.Stack<float> o;
-        }
-
-        public struct MyClass_OpADoubleSResult
-        {
-            public MyClass_OpADoubleSResult(double[] returnValue, double[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public double[] returnValue;
-            public double[] o;
-        }
-
-        public struct MyClass_OpLDoubleSResult
-        {
-            public MyClass_OpLDoubleSResult(global::System.Collections.Generic.List<double> returnValue, global::System.Collections.Generic.List<double> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<double> returnValue;
-            public global::System.Collections.Generic.List<double> o;
-        }
-
-        public struct MyClass_OpKDoubleSResult
-        {
-            public MyClass_OpKDoubleSResult(global::System.Collections.Generic.LinkedList<double> returnValue, global::System.Collections.Generic.LinkedList<double> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<double> returnValue;
-            public global::System.Collections.Generic.LinkedList<double> o;
-        }
-
-        public struct MyClass_OpQDoubleSResult
-        {
-            public MyClass_OpQDoubleSResult(global::System.Collections.Generic.Queue<double> returnValue, global::System.Collections.Generic.Queue<double> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<double> returnValue;
-            public global::System.Collections.Generic.Queue<double> o;
-        }
-
-        public struct MyClass_OpSDoubleSResult
-        {
-            public MyClass_OpSDoubleSResult(global::System.Collections.Generic.Stack<double> returnValue, global::System.Collections.Generic.Stack<double> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<double> returnValue;
-            public global::System.Collections.Generic.Stack<double> o;
-        }
-
-        public struct MyClass_OpAStringSResult
-        {
-            public MyClass_OpAStringSResult(string[] returnValue, string[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public string[] returnValue;
-            public string[] o;
-        }
-
-        public struct MyClass_OpLStringSResult
-        {
-            public MyClass_OpLStringSResult(global::System.Collections.Generic.List<string> returnValue, global::System.Collections.Generic.List<string> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<string> returnValue;
-            public global::System.Collections.Generic.List<string> o;
-        }
-
-        public struct MyClass_OpKStringSResult
-        {
-            public MyClass_OpKStringSResult(global::System.Collections.Generic.LinkedList<string> returnValue, global::System.Collections.Generic.LinkedList<string> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<string> returnValue;
-            public global::System.Collections.Generic.LinkedList<string> o;
-        }
-
-        public struct MyClass_OpQStringSResult
-        {
-            public MyClass_OpQStringSResult(global::System.Collections.Generic.Queue<string> returnValue, global::System.Collections.Generic.Queue<string> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<string> returnValue;
-            public global::System.Collections.Generic.Queue<string> o;
-        }
-
-        public struct MyClass_OpSStringSResult
-        {
-            public MyClass_OpSStringSResult(global::System.Collections.Generic.Stack<string> returnValue, global::System.Collections.Generic.Stack<string> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<string> returnValue;
-            public global::System.Collections.Generic.Stack<string> o;
-        }
-
-        public struct MyClass_OpAObjectSResult
-        {
-            public MyClass_OpAObjectSResult(global::Ice.Value[] returnValue, global::Ice.Value[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::Ice.Value[] returnValue;
-            public global::Ice.Value[] o;
-        }
-
-        public struct MyClass_OpLObjectSResult
-        {
-            public MyClass_OpLObjectSResult(global::System.Collections.Generic.List<global::Ice.Value> returnValue, global::System.Collections.Generic.List<global::Ice.Value> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<global::Ice.Value> returnValue;
-            public global::System.Collections.Generic.List<global::Ice.Value> o;
-        }
-
-        public struct MyClass_OpAObjectPrxSResult
-        {
-            public MyClass_OpAObjectPrxSResult(global::Ice.ObjectPrx[] returnValue, global::Ice.ObjectPrx[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::Ice.ObjectPrx[] returnValue;
-            public global::Ice.ObjectPrx[] o;
-        }
-
-        public struct MyClass_OpLObjectPrxSResult
-        {
-            public MyClass_OpLObjectPrxSResult(global::System.Collections.Generic.List<global::Ice.ObjectPrx> returnValue, global::System.Collections.Generic.List<global::Ice.ObjectPrx> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<global::Ice.ObjectPrx> returnValue;
-            public global::System.Collections.Generic.List<global::Ice.ObjectPrx> o;
-        }
-
-        public struct MyClass_OpKObjectPrxSResult
-        {
-            public MyClass_OpKObjectPrxSResult(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> returnValue, global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> returnValue;
-            public global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> o;
-        }
-
-        public struct MyClass_OpQObjectPrxSResult
-        {
-            public MyClass_OpQObjectPrxSResult(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> returnValue, global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> returnValue;
-            public global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> o;
-        }
-
-        public struct MyClass_OpSObjectPrxSResult
-        {
-            public MyClass_OpSObjectPrxSResult(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> returnValue, global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> returnValue;
-            public global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> o;
-        }
-
-        public struct MyClass_OpAStructSResult
-        {
-            public MyClass_OpAStructSResult(S[] returnValue, S[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public S[] returnValue;
-            public S[] o;
-        }
-
-        public struct MyClass_OpLStructSResult
-        {
-            public MyClass_OpLStructSResult(global::System.Collections.Generic.List<S> returnValue, global::System.Collections.Generic.List<S> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<S> returnValue;
-            public global::System.Collections.Generic.List<S> o;
-        }
-
-        public struct MyClass_OpKStructSResult
-        {
-            public MyClass_OpKStructSResult(global::System.Collections.Generic.LinkedList<S> returnValue, global::System.Collections.Generic.LinkedList<S> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<S> returnValue;
-            public global::System.Collections.Generic.LinkedList<S> o;
-        }
-
-        public struct MyClass_OpQStructSResult
-        {
-            public MyClass_OpQStructSResult(global::System.Collections.Generic.Queue<S> returnValue, global::System.Collections.Generic.Queue<S> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<S> returnValue;
-            public global::System.Collections.Generic.Queue<S> o;
-        }
-
-        public struct MyClass_OpSStructSResult
-        {
-            public MyClass_OpSStructSResult(global::System.Collections.Generic.Stack<S> returnValue, global::System.Collections.Generic.Stack<S> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<S> returnValue;
-            public global::System.Collections.Generic.Stack<S> o;
-        }
-
-        public struct MyClass_OpAStructSDResult
-        {
-            public MyClass_OpAStructSDResult(SD[] returnValue, SD[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public SD[] returnValue;
-            public SD[] o;
-        }
-
-        public struct MyClass_OpLStructSDResult
-        {
-            public MyClass_OpLStructSDResult(global::System.Collections.Generic.List<SD> returnValue, global::System.Collections.Generic.List<SD> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<SD> returnValue;
-            public global::System.Collections.Generic.List<SD> o;
-        }
-
-        public struct MyClass_OpKStructSDResult
-        {
-            public MyClass_OpKStructSDResult(global::System.Collections.Generic.LinkedList<SD> returnValue, global::System.Collections.Generic.LinkedList<SD> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<SD> returnValue;
-            public global::System.Collections.Generic.LinkedList<SD> o;
-        }
-
-        public struct MyClass_OpQStructSDResult
-        {
-            public MyClass_OpQStructSDResult(global::System.Collections.Generic.Queue<SD> returnValue, global::System.Collections.Generic.Queue<SD> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<SD> returnValue;
-            public global::System.Collections.Generic.Queue<SD> o;
-        }
-
-        public struct MyClass_OpSStructSDResult
-        {
-            public MyClass_OpSStructSDResult(global::System.Collections.Generic.Stack<SD> returnValue, global::System.Collections.Generic.Stack<SD> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<SD> returnValue;
-            public global::System.Collections.Generic.Stack<SD> o;
-        }
-
-        public struct MyClass_OpACVSResult
-        {
-            public MyClass_OpACVSResult(CV[] returnValue, CV[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public CV[] returnValue;
-            public CV[] o;
-        }
-
-        public struct MyClass_OpLCVSResult
-        {
-            public MyClass_OpLCVSResult(global::System.Collections.Generic.List<CV> returnValue, global::System.Collections.Generic.List<CV> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<CV> returnValue;
-            public global::System.Collections.Generic.List<CV> o;
-        }
-
-        public struct MyClass_OpACRSResult
-        {
-            public MyClass_OpACRSResult(CR[] returnValue, CR[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public CR[] returnValue;
-            public CR[] o;
-        }
-
-        public struct MyClass_OpLCRSResult
-        {
-            public MyClass_OpLCRSResult(global::System.Collections.Generic.List<CR> returnValue, global::System.Collections.Generic.List<CR> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<CR> returnValue;
-            public global::System.Collections.Generic.List<CR> o;
-        }
-
-        public struct MyClass_OpAEnSResult
-        {
-            public MyClass_OpAEnSResult(En[] returnValue, En[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public En[] returnValue;
-            public En[] o;
-        }
-
-        public struct MyClass_OpLEnSResult
-        {
-            public MyClass_OpLEnSResult(global::System.Collections.Generic.List<En> returnValue, global::System.Collections.Generic.List<En> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<En> returnValue;
-            public global::System.Collections.Generic.List<En> o;
-        }
-
-        public struct MyClass_OpKEnSResult
-        {
-            public MyClass_OpKEnSResult(global::System.Collections.Generic.LinkedList<En> returnValue, global::System.Collections.Generic.LinkedList<En> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<En> returnValue;
-            public global::System.Collections.Generic.LinkedList<En> o;
-        }
-
-        public struct MyClass_OpQEnSResult
-        {
-            public MyClass_OpQEnSResult(global::System.Collections.Generic.Queue<En> returnValue, global::System.Collections.Generic.Queue<En> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<En> returnValue;
-            public global::System.Collections.Generic.Queue<En> o;
-        }
-
-        public struct MyClass_OpSEnSResult
-        {
-            public MyClass_OpSEnSResult(global::System.Collections.Generic.Stack<En> returnValue, global::System.Collections.Generic.Stack<En> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<En> returnValue;
-            public global::System.Collections.Generic.Stack<En> o;
-        }
-
-        public struct MyClass_OpAIPrxSResult
-        {
-            public MyClass_OpAIPrxSResult(IPrx[] returnValue, IPrx[] o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public IPrx[] returnValue;
-            public IPrx[] o;
-        }
-
-        public struct MyClass_OpLIPrxSResult
-        {
-            public MyClass_OpLIPrxSResult(global::System.Collections.Generic.List<IPrx> returnValue, global::System.Collections.Generic.List<IPrx> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.List<IPrx> returnValue;
-            public global::System.Collections.Generic.List<IPrx> o;
-        }
-
-        public struct MyClass_OpKIPrxSResult
-        {
-            public MyClass_OpKIPrxSResult(global::System.Collections.Generic.LinkedList<IPrx> returnValue, global::System.Collections.Generic.LinkedList<IPrx> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.LinkedList<IPrx> returnValue;
-            public global::System.Collections.Generic.LinkedList<IPrx> o;
-        }
-
-        public struct MyClass_OpQIPrxSResult
-        {
-            public MyClass_OpQIPrxSResult(global::System.Collections.Generic.Queue<IPrx> returnValue, global::System.Collections.Generic.Queue<IPrx> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Queue<IPrx> returnValue;
-            public global::System.Collections.Generic.Queue<IPrx> o;
-        }
-
-        public struct MyClass_OpSIPrxSResult
-        {
-            public MyClass_OpSIPrxSResult(global::System.Collections.Generic.Stack<IPrx> returnValue, global::System.Collections.Generic.Stack<IPrx> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::System.Collections.Generic.Stack<IPrx> returnValue;
-            public global::System.Collections.Generic.Stack<IPrx> o;
-        }
-
-        public struct MyClass_OpCustomIntSResult
-        {
-            public MyClass_OpCustomIntSResult(global::Ice.seqMapping.Custom<int> returnValue, global::Ice.seqMapping.Custom<int> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::Ice.seqMapping.Custom<int> returnValue;
-            public global::Ice.seqMapping.Custom<int> o;
-        }
-
-        public struct MyClass_OpCustomCVSResult
-        {
-            public MyClass_OpCustomCVSResult(global::Ice.seqMapping.Custom<CV> returnValue, global::Ice.seqMapping.Custom<CV> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::Ice.seqMapping.Custom<CV> returnValue;
-            public global::Ice.seqMapping.Custom<CV> o;
-        }
-
-        public struct MyClass_OpCustomIntSSResult
-        {
-            public MyClass_OpCustomIntSSResult(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> returnValue, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> returnValue;
-            public global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o;
-        }
-
-        public struct MyClass_OpCustomCVSSResult
-        {
-            public MyClass_OpCustomCVSSResult(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> returnValue, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> returnValue;
-            public global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> o;
-        }
+        public record struct MyClass_OpAByteSResult(byte[] returnValue, byte[] o);
+
+        public record struct MyClass_OpLByteSResult(global::System.Collections.Generic.List<byte> returnValue, global::System.Collections.Generic.List<byte> o);
+
+        public record struct MyClass_OpKByteSResult(global::System.Collections.Generic.LinkedList<byte> returnValue, global::System.Collections.Generic.LinkedList<byte> o);
+
+        public record struct MyClass_OpQByteSResult(global::System.Collections.Generic.Queue<byte> returnValue, global::System.Collections.Generic.Queue<byte> o);
+
+        public record struct MyClass_OpSByteSResult(global::System.Collections.Generic.Stack<byte> returnValue, global::System.Collections.Generic.Stack<byte> o);
+
+        public record struct MyClass_OpABoolSResult(bool[] returnValue, bool[] o);
+
+        public record struct MyClass_OpLBoolSResult(global::System.Collections.Generic.List<bool> returnValue, global::System.Collections.Generic.List<bool> o);
+
+        public record struct MyClass_OpKBoolSResult(global::System.Collections.Generic.LinkedList<bool> returnValue, global::System.Collections.Generic.LinkedList<bool> o);
+
+        public record struct MyClass_OpQBoolSResult(global::System.Collections.Generic.Queue<bool> returnValue, global::System.Collections.Generic.Queue<bool> o);
+
+        public record struct MyClass_OpSBoolSResult(global::System.Collections.Generic.Stack<bool> returnValue, global::System.Collections.Generic.Stack<bool> o);
+
+        public record struct MyClass_OpAShortSResult(short[] returnValue, short[] o);
+
+        public record struct MyClass_OpLShortSResult(global::System.Collections.Generic.List<short> returnValue, global::System.Collections.Generic.List<short> o);
+
+        public record struct MyClass_OpKShortSResult(global::System.Collections.Generic.LinkedList<short> returnValue, global::System.Collections.Generic.LinkedList<short> o);
+
+        public record struct MyClass_OpQShortSResult(global::System.Collections.Generic.Queue<short> returnValue, global::System.Collections.Generic.Queue<short> o);
+
+        public record struct MyClass_OpSShortSResult(global::System.Collections.Generic.Stack<short> returnValue, global::System.Collections.Generic.Stack<short> o);
+
+        public record struct MyClass_OpAIntSResult(int[] returnValue, int[] o);
+
+        public record struct MyClass_OpLIntSResult(global::System.Collections.Generic.List<int> returnValue, global::System.Collections.Generic.List<int> o);
+
+        public record struct MyClass_OpKIntSResult(global::System.Collections.Generic.LinkedList<int> returnValue, global::System.Collections.Generic.LinkedList<int> o);
+
+        public record struct MyClass_OpQIntSResult(global::System.Collections.Generic.Queue<int> returnValue, global::System.Collections.Generic.Queue<int> o);
+
+        public record struct MyClass_OpSIntSResult(global::System.Collections.Generic.Stack<int> returnValue, global::System.Collections.Generic.Stack<int> o);
+
+        public record struct MyClass_OpALongSResult(long[] returnValue, long[] o);
+
+        public record struct MyClass_OpLLongSResult(global::System.Collections.Generic.List<long> returnValue, global::System.Collections.Generic.List<long> o);
+
+        public record struct MyClass_OpKLongSResult(global::System.Collections.Generic.LinkedList<long> returnValue, global::System.Collections.Generic.LinkedList<long> o);
+
+        public record struct MyClass_OpQLongSResult(global::System.Collections.Generic.Queue<long> returnValue, global::System.Collections.Generic.Queue<long> o);
+
+        public record struct MyClass_OpSLongSResult(global::System.Collections.Generic.Stack<long> returnValue, global::System.Collections.Generic.Stack<long> o);
+
+        public record struct MyClass_OpAFloatSResult(float[] returnValue, float[] o);
+
+        public record struct MyClass_OpLFloatSResult(global::System.Collections.Generic.List<float> returnValue, global::System.Collections.Generic.List<float> o);
+
+        public record struct MyClass_OpKFloatSResult(global::System.Collections.Generic.LinkedList<float> returnValue, global::System.Collections.Generic.LinkedList<float> o);
+
+        public record struct MyClass_OpQFloatSResult(global::System.Collections.Generic.Queue<float> returnValue, global::System.Collections.Generic.Queue<float> o);
+
+        public record struct MyClass_OpSFloatSResult(global::System.Collections.Generic.Stack<float> returnValue, global::System.Collections.Generic.Stack<float> o);
+
+        public record struct MyClass_OpADoubleSResult(double[] returnValue, double[] o);
+
+        public record struct MyClass_OpLDoubleSResult(global::System.Collections.Generic.List<double> returnValue, global::System.Collections.Generic.List<double> o);
+
+        public record struct MyClass_OpKDoubleSResult(global::System.Collections.Generic.LinkedList<double> returnValue, global::System.Collections.Generic.LinkedList<double> o);
+
+        public record struct MyClass_OpQDoubleSResult(global::System.Collections.Generic.Queue<double> returnValue, global::System.Collections.Generic.Queue<double> o);
+
+        public record struct MyClass_OpSDoubleSResult(global::System.Collections.Generic.Stack<double> returnValue, global::System.Collections.Generic.Stack<double> o);
+
+        public record struct MyClass_OpAStringSResult(string[] returnValue, string[] o);
+
+        public record struct MyClass_OpLStringSResult(global::System.Collections.Generic.List<string> returnValue, global::System.Collections.Generic.List<string> o);
+
+        public record struct MyClass_OpKStringSResult(global::System.Collections.Generic.LinkedList<string> returnValue, global::System.Collections.Generic.LinkedList<string> o);
+
+        public record struct MyClass_OpQStringSResult(global::System.Collections.Generic.Queue<string> returnValue, global::System.Collections.Generic.Queue<string> o);
+
+        public record struct MyClass_OpSStringSResult(global::System.Collections.Generic.Stack<string> returnValue, global::System.Collections.Generic.Stack<string> o);
+
+        public record struct MyClass_OpAObjectSResult(global::Ice.Value[] returnValue, global::Ice.Value[] o);
+
+        public record struct MyClass_OpLObjectSResult(global::System.Collections.Generic.List<global::Ice.Value> returnValue, global::System.Collections.Generic.List<global::Ice.Value> o);
+
+        public record struct MyClass_OpAObjectPrxSResult(global::Ice.ObjectPrx[] returnValue, global::Ice.ObjectPrx[] o);
+
+        public record struct MyClass_OpLObjectPrxSResult(global::System.Collections.Generic.List<global::Ice.ObjectPrx> returnValue, global::System.Collections.Generic.List<global::Ice.ObjectPrx> o);
+
+        public record struct MyClass_OpKObjectPrxSResult(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> returnValue, global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx> o);
+
+        public record struct MyClass_OpQObjectPrxSResult(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> returnValue, global::System.Collections.Generic.Queue<global::Ice.ObjectPrx> o);
+
+        public record struct MyClass_OpSObjectPrxSResult(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> returnValue, global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> o);
+
+        public record struct MyClass_OpAStructSResult(S[] returnValue, S[] o);
+
+        public record struct MyClass_OpLStructSResult(global::System.Collections.Generic.List<S> returnValue, global::System.Collections.Generic.List<S> o);
+
+        public record struct MyClass_OpKStructSResult(global::System.Collections.Generic.LinkedList<S> returnValue, global::System.Collections.Generic.LinkedList<S> o);
+
+        public record struct MyClass_OpQStructSResult(global::System.Collections.Generic.Queue<S> returnValue, global::System.Collections.Generic.Queue<S> o);
+
+        public record struct MyClass_OpSStructSResult(global::System.Collections.Generic.Stack<S> returnValue, global::System.Collections.Generic.Stack<S> o);
+
+        public record struct MyClass_OpAStructSDResult(SD[] returnValue, SD[] o);
+
+        public record struct MyClass_OpLStructSDResult(global::System.Collections.Generic.List<SD> returnValue, global::System.Collections.Generic.List<SD> o);
+
+        public record struct MyClass_OpKStructSDResult(global::System.Collections.Generic.LinkedList<SD> returnValue, global::System.Collections.Generic.LinkedList<SD> o);
+
+        public record struct MyClass_OpQStructSDResult(global::System.Collections.Generic.Queue<SD> returnValue, global::System.Collections.Generic.Queue<SD> o);
+
+        public record struct MyClass_OpSStructSDResult(global::System.Collections.Generic.Stack<SD> returnValue, global::System.Collections.Generic.Stack<SD> o);
+
+        public record struct MyClass_OpACVSResult(CV[] returnValue, CV[] o);
+
+        public record struct MyClass_OpLCVSResult(global::System.Collections.Generic.List<CV> returnValue, global::System.Collections.Generic.List<CV> o);
+
+        public record struct MyClass_OpACRSResult(CR[] returnValue, CR[] o);
+
+        public record struct MyClass_OpLCRSResult(global::System.Collections.Generic.List<CR> returnValue, global::System.Collections.Generic.List<CR> o);
+
+        public record struct MyClass_OpAEnSResult(En[] returnValue, En[] o);
+
+        public record struct MyClass_OpLEnSResult(global::System.Collections.Generic.List<En> returnValue, global::System.Collections.Generic.List<En> o);
+
+        public record struct MyClass_OpKEnSResult(global::System.Collections.Generic.LinkedList<En> returnValue, global::System.Collections.Generic.LinkedList<En> o);
+
+        public record struct MyClass_OpQEnSResult(global::System.Collections.Generic.Queue<En> returnValue, global::System.Collections.Generic.Queue<En> o);
+
+        public record struct MyClass_OpSEnSResult(global::System.Collections.Generic.Stack<En> returnValue, global::System.Collections.Generic.Stack<En> o);
+
+        public record struct MyClass_OpAIPrxSResult(IPrx[] returnValue, IPrx[] o);
+
+        public record struct MyClass_OpLIPrxSResult(global::System.Collections.Generic.List<IPrx> returnValue, global::System.Collections.Generic.List<IPrx> o);
+
+        public record struct MyClass_OpKIPrxSResult(global::System.Collections.Generic.LinkedList<IPrx> returnValue, global::System.Collections.Generic.LinkedList<IPrx> o);
+
+        public record struct MyClass_OpQIPrxSResult(global::System.Collections.Generic.Queue<IPrx> returnValue, global::System.Collections.Generic.Queue<IPrx> o);
+
+        public record struct MyClass_OpSIPrxSResult(global::System.Collections.Generic.Stack<IPrx> returnValue, global::System.Collections.Generic.Stack<IPrx> o);
+
+        public record struct MyClass_OpCustomIntSResult(global::Ice.seqMapping.Custom<int> returnValue, global::Ice.seqMapping.Custom<int> o);
+
+        public record struct MyClass_OpCustomCVSResult(global::Ice.seqMapping.Custom<CV> returnValue, global::Ice.seqMapping.Custom<CV> o);
+
+        public record struct MyClass_OpCustomIntSSResult(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> returnValue, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o);
+
+        public record struct MyClass_OpCustomCVSSResult(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> returnValue, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> o);
     }
 }
 

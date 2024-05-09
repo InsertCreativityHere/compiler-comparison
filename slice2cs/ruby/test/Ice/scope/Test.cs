@@ -955,226 +955,46 @@ namespace Inner
 
 namespace Test
 {
-    public struct I_OpSResult
-    {
-        public I_OpSResult(S returnValue, S s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
+    public record struct I_OpSResult(S returnValue, S s2);
 
-        public S returnValue;
-        public S s2;
-    }
+    public record struct I_OpSSeqResult(S[] returnValue, S[] s2);
 
-    public struct I_OpSSeqResult
-    {
-        public I_OpSSeqResult(S[] returnValue, S[] s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
+    public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, S> returnValue, global::System.Collections.Generic.Dictionary<string, S> s2);
 
-        public S[] returnValue;
-        public S[] s2;
-    }
+    public record struct I_OpCResult(C returnValue, C c2);
 
-    public struct I_OpSMapResult
-    {
-        public I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, S> returnValue, global::System.Collections.Generic.Dictionary<string, S> s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
+    public record struct I_OpCSeqResult(C[] returnValue, C[] s2);
 
-        public global::System.Collections.Generic.Dictionary<string, S> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, S> s2;
-    }
-
-    public struct I_OpCResult
-    {
-        public I_OpCResult(C returnValue, C c2)
-        {
-            this.returnValue = returnValue;
-            this.c2 = c2;
-        }
-
-        public C returnValue;
-        public C c2;
-    }
-
-    public struct I_OpCSeqResult
-    {
-        public I_OpCSeqResult(C[] returnValue, C[] s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
-
-        public C[] returnValue;
-        public C[] s2;
-    }
-
-    public struct I_OpCMapResult
-    {
-        public I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, C> returnValue, global::System.Collections.Generic.Dictionary<string, C> c2)
-        {
-            this.returnValue = returnValue;
-            this.c2 = c2;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, C> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, C> c2;
-    }
+    public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, C> returnValue, global::System.Collections.Generic.Dictionary<string, C> c2);
 
     namespace Inner
     {
         namespace Inner2
         {
-            public struct I_OpSResult
-            {
-                public I_OpSResult(S returnValue, S s2)
-                {
-                    this.returnValue = returnValue;
-                    this.s2 = s2;
-                }
+            public record struct I_OpSResult(S returnValue, S s2);
 
-                public S returnValue;
-                public S s2;
-            }
+            public record struct I_OpSSeqResult(S[] returnValue, S[] s2);
 
-            public struct I_OpSSeqResult
-            {
-                public I_OpSSeqResult(S[] returnValue, S[] s2)
-                {
-                    this.returnValue = returnValue;
-                    this.s2 = s2;
-                }
+            public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, S> returnValue, global::System.Collections.Generic.Dictionary<string, S> s2);
 
-                public S[] returnValue;
-                public S[] s2;
-            }
+            public record struct I_OpCResult(C returnValue, C c2);
 
-            public struct I_OpSMapResult
-            {
-                public I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, S> returnValue, global::System.Collections.Generic.Dictionary<string, S> s2)
-                {
-                    this.returnValue = returnValue;
-                    this.s2 = s2;
-                }
+            public record struct I_OpCSeqResult(C[] returnValue, C[] c2);
 
-                public global::System.Collections.Generic.Dictionary<string, S> returnValue;
-                public global::System.Collections.Generic.Dictionary<string, S> s2;
-            }
-
-            public struct I_OpCResult
-            {
-                public I_OpCResult(C returnValue, C c2)
-                {
-                    this.returnValue = returnValue;
-                    this.c2 = c2;
-                }
-
-                public C returnValue;
-                public C c2;
-            }
-
-            public struct I_OpCSeqResult
-            {
-                public I_OpCSeqResult(C[] returnValue, C[] c2)
-                {
-                    this.returnValue = returnValue;
-                    this.c2 = c2;
-                }
-
-                public C[] returnValue;
-                public C[] c2;
-            }
-
-            public struct I_OpCMapResult
-            {
-                public I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, C> returnValue, global::System.Collections.Generic.Dictionary<string, C> c2)
-                {
-                    this.returnValue = returnValue;
-                    this.c2 = c2;
-                }
-
-                public global::System.Collections.Generic.Dictionary<string, C> returnValue;
-                public global::System.Collections.Generic.Dictionary<string, C> c2;
-            }
+            public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, C> returnValue, global::System.Collections.Generic.Dictionary<string, C> c2);
         }
 
-        public struct I_OpSResult
-        {
-            public I_OpSResult(global::Test.Inner.Inner2.S returnValue, global::Test.Inner.Inner2.S s2)
-            {
-                this.returnValue = returnValue;
-                this.s2 = s2;
-            }
+        public record struct I_OpSResult(global::Test.Inner.Inner2.S returnValue, global::Test.Inner.Inner2.S s2);
 
-            public global::Test.Inner.Inner2.S returnValue;
-            public global::Test.Inner.Inner2.S s2;
-        }
+        public record struct I_OpSSeqResult(global::Test.Inner.Inner2.S[] returnValue, global::Test.Inner.Inner2.S[] s2);
 
-        public struct I_OpSSeqResult
-        {
-            public I_OpSSeqResult(global::Test.Inner.Inner2.S[] returnValue, global::Test.Inner.Inner2.S[] s2)
-            {
-                this.returnValue = returnValue;
-                this.s2 = s2;
-            }
+        public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> returnValue, global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s2);
 
-            public global::Test.Inner.Inner2.S[] returnValue;
-            public global::Test.Inner.Inner2.S[] s2;
-        }
+        public record struct I_OpCResult(global::Test.Inner.Inner2.C returnValue, global::Test.Inner.Inner2.C c2);
 
-        public struct I_OpSMapResult
-        {
-            public I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> returnValue, global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s2)
-            {
-                this.returnValue = returnValue;
-                this.s2 = s2;
-            }
+        public record struct I_OpCSeqResult(global::Test.Inner.Inner2.C[] returnValue, global::Test.Inner.Inner2.C[] c2);
 
-            public global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> returnValue;
-            public global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s2;
-        }
-
-        public struct I_OpCResult
-        {
-            public I_OpCResult(global::Test.Inner.Inner2.C returnValue, global::Test.Inner.Inner2.C c2)
-            {
-                this.returnValue = returnValue;
-                this.c2 = c2;
-            }
-
-            public global::Test.Inner.Inner2.C returnValue;
-            public global::Test.Inner.Inner2.C c2;
-        }
-
-        public struct I_OpCSeqResult
-        {
-            public I_OpCSeqResult(global::Test.Inner.Inner2.C[] returnValue, global::Test.Inner.Inner2.C[] c2)
-            {
-                this.returnValue = returnValue;
-                this.c2 = c2;
-            }
-
-            public global::Test.Inner.Inner2.C[] returnValue;
-            public global::Test.Inner.Inner2.C[] c2;
-        }
-
-        public struct I_OpCMapResult
-        {
-            public I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C> returnValue, global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C> c2)
-            {
-                this.returnValue = returnValue;
-                this.c2 = c2;
-            }
-
-            public global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C> returnValue;
-            public global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C> c2;
-        }
+        public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C> returnValue, global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C> c2);
     }
 }
 
@@ -1184,77 +1004,17 @@ namespace Inner
     {
         namespace Inner2
         {
-            public struct I_OpSResult
-            {
-                public I_OpSResult(global::Test.S returnValue, global::Test.S s2)
-                {
-                    this.returnValue = returnValue;
-                    this.s2 = s2;
-                }
+            public record struct I_OpSResult(global::Test.S returnValue, global::Test.S s2);
 
-                public global::Test.S returnValue;
-                public global::Test.S s2;
-            }
+            public record struct I_OpSSeqResult(global::Test.S[] returnValue, global::Test.S[] s2);
 
-            public struct I_OpSSeqResult
-            {
-                public I_OpSSeqResult(global::Test.S[] returnValue, global::Test.S[] s2)
-                {
-                    this.returnValue = returnValue;
-                    this.s2 = s2;
-                }
+            public record struct I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, global::Test.S> returnValue, global::System.Collections.Generic.Dictionary<string, global::Test.S> s2);
 
-                public global::Test.S[] returnValue;
-                public global::Test.S[] s2;
-            }
+            public record struct I_OpCResult(global::Test.C returnValue, global::Test.C c2);
 
-            public struct I_OpSMapResult
-            {
-                public I_OpSMapResult(global::System.Collections.Generic.Dictionary<string, global::Test.S> returnValue, global::System.Collections.Generic.Dictionary<string, global::Test.S> s2)
-                {
-                    this.returnValue = returnValue;
-                    this.s2 = s2;
-                }
+            public record struct I_OpCSeqResult(global::Test.C[] returnValue, global::Test.C[] c2);
 
-                public global::System.Collections.Generic.Dictionary<string, global::Test.S> returnValue;
-                public global::System.Collections.Generic.Dictionary<string, global::Test.S> s2;
-            }
-
-            public struct I_OpCResult
-            {
-                public I_OpCResult(global::Test.C returnValue, global::Test.C c2)
-                {
-                    this.returnValue = returnValue;
-                    this.c2 = c2;
-                }
-
-                public global::Test.C returnValue;
-                public global::Test.C c2;
-            }
-
-            public struct I_OpCSeqResult
-            {
-                public I_OpCSeqResult(global::Test.C[] returnValue, global::Test.C[] c2)
-                {
-                    this.returnValue = returnValue;
-                    this.c2 = c2;
-                }
-
-                public global::Test.C[] returnValue;
-                public global::Test.C[] c2;
-            }
-
-            public struct I_OpCMapResult
-            {
-                public I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, global::Test.C> returnValue, global::System.Collections.Generic.Dictionary<string, global::Test.C> c2)
-                {
-                    this.returnValue = returnValue;
-                    this.c2 = c2;
-                }
-
-                public global::System.Collections.Generic.Dictionary<string, global::Test.C> returnValue;
-                public global::System.Collections.Generic.Dictionary<string, global::Test.C> c2;
-            }
+            public record struct I_OpCMapResult(global::System.Collections.Generic.Dictionary<string, global::Test.C> returnValue, global::System.Collections.Generic.Dictionary<string, global::Test.C> c2);
         }
     }
 }

@@ -849,532 +849,92 @@ namespace Test2
 
 namespace Test
 {
-    public struct MyClass_OpByteResult
-    {
-        public MyClass_OpByteResult(byte returnValue, byte p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public byte returnValue;
-        public byte p3;
-    }
-
-    public struct MyClass_OpBoolResult
-    {
-        public MyClass_OpBoolResult(bool returnValue, bool p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public bool returnValue;
-        public bool p3;
-    }
-
-    public struct MyClass_OpShortIntLongResult
-    {
-        public MyClass_OpShortIntLongResult(long returnValue, short p4, int p5, long p6)
-        {
-            this.returnValue = returnValue;
-            this.p4 = p4;
-            this.p5 = p5;
-            this.p6 = p6;
-        }
-
-        public long returnValue;
-        public short p4;
-        public int p5;
-        public long p6;
-    }
-
-    public struct MyClass_OpFloatDoubleResult
-    {
-        public MyClass_OpFloatDoubleResult(double returnValue, float p3, double p4)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-            this.p4 = p4;
-        }
-
-        public double returnValue;
-        public float p3;
-        public double p4;
-    }
-
-    public struct MyClass_OpStringResult
-    {
-        public MyClass_OpStringResult(string returnValue, string p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public string returnValue;
-        public string p3;
-    }
-
-    public struct MyClass_OpMyEnumResult
-    {
-        public MyClass_OpMyEnumResult(MyEnum returnValue, MyEnum p2)
-        {
-            this.returnValue = returnValue;
-            this.p2 = p2;
-        }
-
-        public MyEnum returnValue;
-        public MyEnum p2;
-    }
-
-    public struct MyClass_OpMyClassResult
-    {
-        public MyClass_OpMyClassResult(MyClassPrx returnValue, MyClassPrx p2, MyClassPrx p3)
-        {
-            this.returnValue = returnValue;
-            this.p2 = p2;
-            this.p3 = p3;
-        }
-
-        public MyClassPrx returnValue;
-        public MyClassPrx p2;
-        public MyClassPrx p3;
-    }
-
-    public struct MyClass_OpStructResult
-    {
-        public MyClass_OpStructResult(Structure returnValue, Structure p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public Structure returnValue;
-        public Structure p3;
-    }
-
-    public struct MyClass_OpByteSResult
-    {
-        public MyClass_OpByteSResult(byte[] returnValue, byte[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public byte[] returnValue;
-        public byte[] p3;
-    }
-
-    public struct MyClass_OpBoolSResult
-    {
-        public MyClass_OpBoolSResult(bool[] returnValue, bool[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public bool[] returnValue;
-        public bool[] p3;
-    }
-
-    public struct MyClass_OpShortIntLongSResult
-    {
-        public MyClass_OpShortIntLongSResult(long[] returnValue, short[] p4, int[] p5, long[] p6)
-        {
-            this.returnValue = returnValue;
-            this.p4 = p4;
-            this.p5 = p5;
-            this.p6 = p6;
-        }
-
-        public long[] returnValue;
-        public short[] p4;
-        public int[] p5;
-        public long[] p6;
-    }
-
-    public struct MyClass_OpFloatDoubleSResult
-    {
-        public MyClass_OpFloatDoubleSResult(double[] returnValue, float[] p3, double[] p4)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-            this.p4 = p4;
-        }
-
-        public double[] returnValue;
-        public float[] p3;
-        public double[] p4;
-    }
-
-    public struct MyClass_OpStringSResult
-    {
-        public MyClass_OpStringSResult(string[] returnValue, string[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public string[] returnValue;
-        public string[] p3;
-    }
-
-    public struct MyClass_OpByteSSResult
-    {
-        public MyClass_OpByteSSResult(byte[][] returnValue, byte[][] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public byte[][] returnValue;
-        public byte[][] p3;
-    }
-
-    public struct MyClass_OpBoolSSResult
-    {
-        public MyClass_OpBoolSSResult(bool[][] returnValue, bool[][] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public bool[][] returnValue;
-        public bool[][] p3;
-    }
-
-    public struct MyClass_OpShortIntLongSSResult
-    {
-        public MyClass_OpShortIntLongSSResult(long[][] returnValue, short[][] p4, int[][] p5, long[][] p6)
-        {
-            this.returnValue = returnValue;
-            this.p4 = p4;
-            this.p5 = p5;
-            this.p6 = p6;
-        }
-
-        public long[][] returnValue;
-        public short[][] p4;
-        public int[][] p5;
-        public long[][] p6;
-    }
-
-    public struct MyClass_OpFloatDoubleSSResult
-    {
-        public MyClass_OpFloatDoubleSSResult(double[][] returnValue, float[][] p3, double[][] p4)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-            this.p4 = p4;
-        }
-
-        public double[][] returnValue;
-        public float[][] p3;
-        public double[][] p4;
-    }
-
-    public struct MyClass_OpStringSSResult
-    {
-        public MyClass_OpStringSSResult(string[][] returnValue, string[][] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public string[][] returnValue;
-        public string[][] p3;
-    }
-
-    public struct MyClass_OpStringSSSResult
-    {
-        public MyClass_OpStringSSSResult(string[][][] returnValue, string[][][] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public string[][][] returnValue;
-        public string[][][] p3;
-    }
-
-    public struct MyClass_OpByteBoolDResult
-    {
-        public MyClass_OpByteBoolDResult(global::System.Collections.Generic.Dictionary<byte, bool> returnValue, global::System.Collections.Generic.Dictionary<byte, bool> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<byte, bool> returnValue;
-        public global::System.Collections.Generic.Dictionary<byte, bool> p3;
-    }
-
-    public struct MyClass_OpShortIntDResult
-    {
-        public MyClass_OpShortIntDResult(global::System.Collections.Generic.Dictionary<short, int> returnValue, global::System.Collections.Generic.Dictionary<short, int> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<short, int> returnValue;
-        public global::System.Collections.Generic.Dictionary<short, int> p3;
-    }
-
-    public struct MyClass_OpLongFloatDResult
-    {
-        public MyClass_OpLongFloatDResult(global::System.Collections.Generic.Dictionary<long, float> returnValue, global::System.Collections.Generic.Dictionary<long, float> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<long, float> returnValue;
-        public global::System.Collections.Generic.Dictionary<long, float> p3;
-    }
-
-    public struct MyClass_OpStringStringDResult
-    {
-        public MyClass_OpStringStringDResult(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, string> p3;
-    }
-
-    public struct MyClass_OpStringMyEnumDResult
-    {
-        public MyClass_OpStringMyEnumDResult(global::System.Collections.Generic.Dictionary<string, MyEnum> returnValue, global::System.Collections.Generic.Dictionary<string, MyEnum> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, MyEnum> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, MyEnum> p3;
-    }
-
-    public struct MyClass_OpMyEnumStringDResult
-    {
-        public MyClass_OpMyEnumStringDResult(global::System.Collections.Generic.Dictionary<MyEnum, string> returnValue, global::System.Collections.Generic.Dictionary<MyEnum, string> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<MyEnum, string> returnValue;
-        public global::System.Collections.Generic.Dictionary<MyEnum, string> p3;
-    }
-
-    public struct MyClass_OpMyStructMyEnumDResult
-    {
-        public MyClass_OpMyStructMyEnumDResult(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> returnValue, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> returnValue;
-        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3;
-    }
-
-    public struct MyClass_OpByteBoolDSResult
-    {
-        public MyClass_OpByteBoolDSResult(global::System.Collections.Generic.Dictionary<byte, bool>[] returnValue, global::System.Collections.Generic.Dictionary<byte, bool>[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<byte, bool>[] returnValue;
-        public global::System.Collections.Generic.Dictionary<byte, bool>[] p3;
-    }
-
-    public struct MyClass_OpShortIntDSResult
-    {
-        public MyClass_OpShortIntDSResult(global::System.Collections.Generic.Dictionary<short, int>[] returnValue, global::System.Collections.Generic.Dictionary<short, int>[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<short, int>[] returnValue;
-        public global::System.Collections.Generic.Dictionary<short, int>[] p3;
-    }
-
-    public struct MyClass_OpLongFloatDSResult
-    {
-        public MyClass_OpLongFloatDSResult(global::System.Collections.Generic.Dictionary<long, float>[] returnValue, global::System.Collections.Generic.Dictionary<long, float>[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<long, float>[] returnValue;
-        public global::System.Collections.Generic.Dictionary<long, float>[] p3;
-    }
-
-    public struct MyClass_OpStringStringDSResult
-    {
-        public MyClass_OpStringStringDSResult(global::System.Collections.Generic.Dictionary<string, string>[] returnValue, global::System.Collections.Generic.Dictionary<string, string>[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string>[] returnValue;
-        public global::System.Collections.Generic.Dictionary<string, string>[] p3;
-    }
-
-    public struct MyClass_OpStringMyEnumDSResult
-    {
-        public MyClass_OpStringMyEnumDSResult(global::System.Collections.Generic.Dictionary<string, MyEnum>[] returnValue, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, MyEnum>[] returnValue;
-        public global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3;
-    }
-
-    public struct MyClass_OpMyEnumStringDSResult
-    {
-        public MyClass_OpMyEnumStringDSResult(global::System.Collections.Generic.Dictionary<MyEnum, string>[] returnValue, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<MyEnum, string>[] returnValue;
-        public global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3;
-    }
-
-    public struct MyClass_OpMyStructMyEnumDSResult
-    {
-        public MyClass_OpMyStructMyEnumDSResult(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] returnValue, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] returnValue;
-        public global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3;
-    }
-
-    public struct MyClass_OpByteByteSDResult
-    {
-        public MyClass_OpByteByteSDResult(global::System.Collections.Generic.Dictionary<byte, byte[]> returnValue, global::System.Collections.Generic.Dictionary<byte, byte[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<byte, byte[]> returnValue;
-        public global::System.Collections.Generic.Dictionary<byte, byte[]> p3;
-    }
-
-    public struct MyClass_OpBoolBoolSDResult
-    {
-        public MyClass_OpBoolBoolSDResult(global::System.Collections.Generic.Dictionary<bool, bool[]> returnValue, global::System.Collections.Generic.Dictionary<bool, bool[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<bool, bool[]> returnValue;
-        public global::System.Collections.Generic.Dictionary<bool, bool[]> p3;
-    }
-
-    public struct MyClass_OpShortShortSDResult
-    {
-        public MyClass_OpShortShortSDResult(global::System.Collections.Generic.Dictionary<short, short[]> returnValue, global::System.Collections.Generic.Dictionary<short, short[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<short, short[]> returnValue;
-        public global::System.Collections.Generic.Dictionary<short, short[]> p3;
-    }
-
-    public struct MyClass_OpIntIntSDResult
-    {
-        public MyClass_OpIntIntSDResult(global::System.Collections.Generic.Dictionary<int, int[]> returnValue, global::System.Collections.Generic.Dictionary<int, int[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<int, int[]> returnValue;
-        public global::System.Collections.Generic.Dictionary<int, int[]> p3;
-    }
-
-    public struct MyClass_OpLongLongSDResult
-    {
-        public MyClass_OpLongLongSDResult(global::System.Collections.Generic.Dictionary<long, long[]> returnValue, global::System.Collections.Generic.Dictionary<long, long[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<long, long[]> returnValue;
-        public global::System.Collections.Generic.Dictionary<long, long[]> p3;
-    }
-
-    public struct MyClass_OpStringFloatSDResult
-    {
-        public MyClass_OpStringFloatSDResult(global::System.Collections.Generic.Dictionary<string, float[]> returnValue, global::System.Collections.Generic.Dictionary<string, float[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, float[]> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, float[]> p3;
-    }
-
-    public struct MyClass_OpStringDoubleSDResult
-    {
-        public MyClass_OpStringDoubleSDResult(global::System.Collections.Generic.Dictionary<string, double[]> returnValue, global::System.Collections.Generic.Dictionary<string, double[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, double[]> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, double[]> p3;
-    }
-
-    public struct MyClass_OpStringStringSDResult
-    {
-        public MyClass_OpStringStringSDResult(global::System.Collections.Generic.Dictionary<string, string[]> returnValue, global::System.Collections.Generic.Dictionary<string, string[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string[]> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, string[]> p3;
-    }
-
-    public struct MyClass_OpMyEnumMyEnumSDResult
-    {
-        public MyClass_OpMyEnumMyEnumSDResult(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> returnValue, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> returnValue;
-        public global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3;
-    }
+    public record struct MyClass_OpByteResult(byte returnValue, byte p3);
+
+    public record struct MyClass_OpBoolResult(bool returnValue, bool p3);
+
+    public record struct MyClass_OpShortIntLongResult(long returnValue, short p4, int p5, long p6);
+
+    public record struct MyClass_OpFloatDoubleResult(double returnValue, float p3, double p4);
+
+    public record struct MyClass_OpStringResult(string returnValue, string p3);
+
+    public record struct MyClass_OpMyEnumResult(MyEnum returnValue, MyEnum p2);
+
+    public record struct MyClass_OpMyClassResult(MyClassPrx returnValue, MyClassPrx p2, MyClassPrx p3);
+
+    public record struct MyClass_OpStructResult(Structure returnValue, Structure p3);
+
+    public record struct MyClass_OpByteSResult(byte[] returnValue, byte[] p3);
+
+    public record struct MyClass_OpBoolSResult(bool[] returnValue, bool[] p3);
+
+    public record struct MyClass_OpShortIntLongSResult(long[] returnValue, short[] p4, int[] p5, long[] p6);
+
+    public record struct MyClass_OpFloatDoubleSResult(double[] returnValue, float[] p3, double[] p4);
+
+    public record struct MyClass_OpStringSResult(string[] returnValue, string[] p3);
+
+    public record struct MyClass_OpByteSSResult(byte[][] returnValue, byte[][] p3);
+
+    public record struct MyClass_OpBoolSSResult(bool[][] returnValue, bool[][] p3);
+
+    public record struct MyClass_OpShortIntLongSSResult(long[][] returnValue, short[][] p4, int[][] p5, long[][] p6);
+
+    public record struct MyClass_OpFloatDoubleSSResult(double[][] returnValue, float[][] p3, double[][] p4);
+
+    public record struct MyClass_OpStringSSResult(string[][] returnValue, string[][] p3);
+
+    public record struct MyClass_OpStringSSSResult(string[][][] returnValue, string[][][] p3);
+
+    public record struct MyClass_OpByteBoolDResult(global::System.Collections.Generic.Dictionary<byte, bool> returnValue, global::System.Collections.Generic.Dictionary<byte, bool> p3);
+
+    public record struct MyClass_OpShortIntDResult(global::System.Collections.Generic.Dictionary<short, int> returnValue, global::System.Collections.Generic.Dictionary<short, int> p3);
+
+    public record struct MyClass_OpLongFloatDResult(global::System.Collections.Generic.Dictionary<long, float> returnValue, global::System.Collections.Generic.Dictionary<long, float> p3);
+
+    public record struct MyClass_OpStringStringDResult(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> p3);
+
+    public record struct MyClass_OpStringMyEnumDResult(global::System.Collections.Generic.Dictionary<string, MyEnum> returnValue, global::System.Collections.Generic.Dictionary<string, MyEnum> p3);
+
+    public record struct MyClass_OpMyEnumStringDResult(global::System.Collections.Generic.Dictionary<MyEnum, string> returnValue, global::System.Collections.Generic.Dictionary<MyEnum, string> p3);
+
+    public record struct MyClass_OpMyStructMyEnumDResult(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> returnValue, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3);
+
+    public record struct MyClass_OpByteBoolDSResult(global::System.Collections.Generic.Dictionary<byte, bool>[] returnValue, global::System.Collections.Generic.Dictionary<byte, bool>[] p3);
+
+    public record struct MyClass_OpShortIntDSResult(global::System.Collections.Generic.Dictionary<short, int>[] returnValue, global::System.Collections.Generic.Dictionary<short, int>[] p3);
+
+    public record struct MyClass_OpLongFloatDSResult(global::System.Collections.Generic.Dictionary<long, float>[] returnValue, global::System.Collections.Generic.Dictionary<long, float>[] p3);
+
+    public record struct MyClass_OpStringStringDSResult(global::System.Collections.Generic.Dictionary<string, string>[] returnValue, global::System.Collections.Generic.Dictionary<string, string>[] p3);
+
+    public record struct MyClass_OpStringMyEnumDSResult(global::System.Collections.Generic.Dictionary<string, MyEnum>[] returnValue, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3);
+
+    public record struct MyClass_OpMyEnumStringDSResult(global::System.Collections.Generic.Dictionary<MyEnum, string>[] returnValue, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3);
+
+    public record struct MyClass_OpMyStructMyEnumDSResult(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] returnValue, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3);
+
+    public record struct MyClass_OpByteByteSDResult(global::System.Collections.Generic.Dictionary<byte, byte[]> returnValue, global::System.Collections.Generic.Dictionary<byte, byte[]> p3);
+
+    public record struct MyClass_OpBoolBoolSDResult(global::System.Collections.Generic.Dictionary<bool, bool[]> returnValue, global::System.Collections.Generic.Dictionary<bool, bool[]> p3);
+
+    public record struct MyClass_OpShortShortSDResult(global::System.Collections.Generic.Dictionary<short, short[]> returnValue, global::System.Collections.Generic.Dictionary<short, short[]> p3);
+
+    public record struct MyClass_OpIntIntSDResult(global::System.Collections.Generic.Dictionary<int, int[]> returnValue, global::System.Collections.Generic.Dictionary<int, int[]> p3);
+
+    public record struct MyClass_OpLongLongSDResult(global::System.Collections.Generic.Dictionary<long, long[]> returnValue, global::System.Collections.Generic.Dictionary<long, long[]> p3);
+
+    public record struct MyClass_OpStringFloatSDResult(global::System.Collections.Generic.Dictionary<string, float[]> returnValue, global::System.Collections.Generic.Dictionary<string, float[]> p3);
+
+    public record struct MyClass_OpStringDoubleSDResult(global::System.Collections.Generic.Dictionary<string, double[]> returnValue, global::System.Collections.Generic.Dictionary<string, double[]> p3);
+
+    public record struct MyClass_OpStringStringSDResult(global::System.Collections.Generic.Dictionary<string, string[]> returnValue, global::System.Collections.Generic.Dictionary<string, string[]> p3);
+
+    public record struct MyClass_OpMyEnumMyEnumSDResult(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> returnValue, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct MyClass_OpMStruct1MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct MyClass_OpMStruct1MarshaledResult : global::Ice.MarshaledResult
     {
         public MyClass_OpMStruct1MarshaledResult(Structure ret, global::Ice.Current current)
         {
@@ -1384,32 +944,15 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new MyClass_OpMStruct1MarshaledResult(null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
-    public struct MyClass_OpMStruct2Result
-    {
-        public MyClass_OpMStruct2Result(Structure returnValue, Structure p2)
-        {
-            this.returnValue = returnValue;
-            this.p2 = p2;
-        }
-
-        public Structure returnValue;
-        public Structure p2;
-    }
+    public record struct MyClass_OpMStruct2Result(Structure returnValue, Structure p2);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct MyClass_OpMStruct2MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct MyClass_OpMStruct2MarshaledResult : global::Ice.MarshaledResult
     {
         public MyClass_OpMStruct2MarshaledResult(Structure ret, Structure p2, global::Ice.Current current)
         {
@@ -1420,20 +963,13 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new MyClass_OpMStruct2MarshaledResult(null, null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct MyClass_OpMSeq1MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct MyClass_OpMSeq1MarshaledResult : global::Ice.MarshaledResult
     {
         public MyClass_OpMSeq1MarshaledResult(string[] ret, global::Ice.Current current)
         {
@@ -1443,32 +979,15 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new MyClass_OpMSeq1MarshaledResult(null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
-    public struct MyClass_OpMSeq2Result
-    {
-        public MyClass_OpMSeq2Result(string[] returnValue, string[] p2)
-        {
-            this.returnValue = returnValue;
-            this.p2 = p2;
-        }
-
-        public string[] returnValue;
-        public string[] p2;
-    }
+    public record struct MyClass_OpMSeq2Result(string[] returnValue, string[] p2);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct MyClass_OpMSeq2MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct MyClass_OpMSeq2MarshaledResult : global::Ice.MarshaledResult
     {
         public MyClass_OpMSeq2MarshaledResult(string[] ret, string[] p2, global::Ice.Current current)
         {
@@ -1479,20 +998,13 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new MyClass_OpMSeq2MarshaledResult(null, null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct MyClass_OpMDict1MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct MyClass_OpMDict1MarshaledResult : global::Ice.MarshaledResult
     {
         public MyClass_OpMDict1MarshaledResult(global::System.Collections.Generic.Dictionary<string, string> ret, global::Ice.Current current)
         {
@@ -1502,32 +1014,15 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new MyClass_OpMDict1MarshaledResult(null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
-    public struct MyClass_OpMDict2Result
-    {
-        public MyClass_OpMDict2Result(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> p2)
-        {
-            this.returnValue = returnValue;
-            this.p2 = p2;
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, string> p2;
-    }
+    public record struct MyClass_OpMDict2Result(global::System.Collections.Generic.Dictionary<string, string> returnValue, global::System.Collections.Generic.Dictionary<string, string> p2);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct MyClass_OpMDict2MarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct MyClass_OpMDict2MarshaledResult : global::Ice.MarshaledResult
     {
         public MyClass_OpMDict2MarshaledResult(global::System.Collections.Generic.Dictionary<string, string> ret, global::System.Collections.Generic.Dictionary<string, string> p2, global::Ice.Current current)
         {
@@ -1538,16 +1033,9 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new MyClass_OpMDict2MarshaledResult(null, null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 }
 
@@ -16636,50 +16124,6 @@ namespace Test
 
         public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
-
-        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
-
-        public abstract void opIdempotent(global::Ice.Current current = null);
-
-        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
-
-        public abstract short opShort1(short opShort1, global::Ice.Current current = null);
-
-        public abstract int opInt1(int opInt1, global::Ice.Current current = null);
-
-        public abstract long opLong1(long opLong1, global::Ice.Current current = null);
-
-        public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
-
-        public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
-
-        public abstract string opString1(string opString1, global::Ice.Current current = null);
-
-        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
-
-        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
-
-        public abstract string[] opStringLiterals(global::Ice.Current current = null);
-
-        public abstract string[] opWStringLiterals(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current = null);
-
-        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
-
-        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
 
         public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
@@ -16735,6 +16179,50 @@ namespace Test
         public abstract void opByteSOneway(byte[] s, global::Ice.Current current = null);
 
         public abstract int opByteSOnewayCallCount(global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
+
+        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
+
+        public abstract void opIdempotent(global::Ice.Current current = null);
+
+        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
+
+        public abstract short opShort1(short opShort1, global::Ice.Current current = null);
+
+        public abstract int opInt1(int opInt1, global::Ice.Current current = null);
+
+        public abstract long opLong1(long opLong1, global::Ice.Current current = null);
+
+        public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
+
+        public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
+
+        public abstract string opString1(string opString1, global::Ice.Current current = null);
+
+        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
+
+        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
+
+        public abstract string[] opStringLiterals(global::Ice.Current current = null);
+
+        public abstract string[] opWStringLiterals(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current = null);
+
+        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
+
+        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         #endregion
 
@@ -17445,50 +16933,6 @@ namespace Test2
 
         public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
-
-        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
-
-        public abstract void opIdempotent(global::Ice.Current current = null);
-
-        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
-
-        public abstract short opShort1(short opShort1, global::Ice.Current current = null);
-
-        public abstract int opInt1(int opInt1, global::Ice.Current current = null);
-
-        public abstract long opLong1(long opLong1, global::Ice.Current current = null);
-
-        public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
-
-        public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
-
-        public abstract string opString1(string opString1, global::Ice.Current current = null);
-
-        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
-
-        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
-
-        public abstract string[] opStringLiterals(global::Ice.Current current = null);
-
-        public abstract string[] opWStringLiterals(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
 
         public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
@@ -17544,6 +16988,50 @@ namespace Test2
         public abstract void opByteSOneway(byte[] s, global::Ice.Current current = null);
 
         public abstract int opByteSOnewayCallCount(global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
+
+        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
+
+        public abstract void opIdempotent(global::Ice.Current current = null);
+
+        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
+
+        public abstract short opShort1(short opShort1, global::Ice.Current current = null);
+
+        public abstract int opInt1(int opInt1, global::Ice.Current current = null);
+
+        public abstract long opLong1(long opLong1, global::Ice.Current current = null);
+
+        public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
+
+        public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
+
+        public abstract string opString1(string opString1, global::Ice.Current current = null);
+
+        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
+
+        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
+
+        public abstract string[] opStringLiterals(global::Ice.Current current = null);
+
+        public abstract string[] opWStringLiterals(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         #endregion
 

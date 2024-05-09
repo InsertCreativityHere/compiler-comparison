@@ -169,51 +169,13 @@ namespace Test
 
 namespace Test
 {
-    public struct TestIntf_OpWithArgsResult
-    {
-        public TestIntf_OpWithArgsResult(int one, int two, int three, int four, int five, int six, int seven, int eight, int nine, int ten, int eleven)
-        {
-            this.one = one;
-            this.two = two;
-            this.three = three;
-            this.four = four;
-            this.five = five;
-            this.six = six;
-            this.seven = seven;
-            this.eight = eight;
-            this.nine = nine;
-            this.ten = ten;
-            this.eleven = eleven;
-        }
-
-        public int one;
-        public int two;
-        public int three;
-        public int four;
-        public int five;
-        public int six;
-        public int seven;
-        public int eight;
-        public int nine;
-        public int ten;
-        public int eleven;
-    }
+    public record struct TestIntf_OpWithArgsResult(int one, int two, int three, int four, int five, int six, int seven, int eight, int nine, int ten, int eleven);
 
     namespace Outer
     {
         namespace Inner
         {
-            public struct TestIntf_OpResult
-            {
-                public TestIntf_OpResult(int returnValue, int j)
-                {
-                    this.returnValue = returnValue;
-                    this.j = j;
-                }
-
-                public int returnValue;
-                public int j;
-            }
+            public record struct TestIntf_OpResult(int returnValue, int j);
         }
     }
 }

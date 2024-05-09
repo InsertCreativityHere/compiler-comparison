@@ -93,17 +93,7 @@ namespace Test
 
 namespace Test
 {
-    public struct MyClass_OpStringResult
-    {
-        public MyClass_OpStringResult(string returnValue, string s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
-
-        public string returnValue;
-        public string s2;
-    }
+    public record struct MyClass_OpStringResult(string returnValue, string s2);
 }
 
 namespace Test

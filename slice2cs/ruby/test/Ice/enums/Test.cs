@@ -212,53 +212,13 @@ namespace Test
 
 namespace Test
 {
-    public struct TestIntf_OpByteResult
-    {
-        public TestIntf_OpByteResult(ByteEnum returnValue, ByteEnum b2)
-        {
-            this.returnValue = returnValue;
-            this.b2 = b2;
-        }
+    public record struct TestIntf_OpByteResult(ByteEnum returnValue, ByteEnum b2);
 
-        public ByteEnum returnValue;
-        public ByteEnum b2;
-    }
+    public record struct TestIntf_OpShortResult(ShortEnum returnValue, ShortEnum s2);
 
-    public struct TestIntf_OpShortResult
-    {
-        public TestIntf_OpShortResult(ShortEnum returnValue, ShortEnum s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
+    public record struct TestIntf_OpIntResult(IntEnum returnValue, IntEnum i2);
 
-        public ShortEnum returnValue;
-        public ShortEnum s2;
-    }
-
-    public struct TestIntf_OpIntResult
-    {
-        public TestIntf_OpIntResult(IntEnum returnValue, IntEnum i2)
-        {
-            this.returnValue = returnValue;
-            this.i2 = i2;
-        }
-
-        public IntEnum returnValue;
-        public IntEnum i2;
-    }
-
-    public struct TestIntf_OpSimpleResult
-    {
-        public TestIntf_OpSimpleResult(SimpleEnum returnValue, SimpleEnum s2)
-        {
-            this.returnValue = returnValue;
-            this.s2 = s2;
-        }
-
-        public SimpleEnum returnValue;
-        public SimpleEnum s2;
-    }
+    public record struct TestIntf_OpSimpleResult(SimpleEnum returnValue, SimpleEnum s2);
 }
 
 namespace Test

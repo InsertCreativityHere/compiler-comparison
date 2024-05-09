@@ -1074,87 +1074,17 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    public struct FileReader_ReadResult
-    {
-        public FileReader_ReadResult(bool returnValue, long newPos, string[] lines)
-        {
-            this.returnValue = returnValue;
-            this.newPos = newPos;
-            this.lines = lines;
-        }
+    public record struct FileReader_ReadResult(bool returnValue, long newPos, string[] lines);
 
-        public bool returnValue;
-        public long newPos;
-        public string[] lines;
-    }
+    public record struct Node_LoadServerResult(ServerPrx returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int activateTimeout, int deactivateTimeout);
 
-    public struct Node_LoadServerResult
-    {
-        public Node_LoadServerResult(ServerPrx returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int activateTimeout, int deactivateTimeout)
-        {
-            this.returnValue = returnValue;
-            this.adapters = adapters;
-            this.activateTimeout = activateTimeout;
-            this.deactivateTimeout = deactivateTimeout;
-        }
+    public record struct Node_LoadServerWithoutRestartResult(ServerPrx returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int activateTimeout, int deactivateTimeout);
 
-        public ServerPrx returnValue;
-        public global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters;
-        public int activateTimeout;
-        public int deactivateTimeout;
-    }
+    public record struct InternalRegistry_GetApplicationsResult(ApplicationInfo[] returnValue, long serial);
 
-    public struct Node_LoadServerWithoutRestartResult
-    {
-        public Node_LoadServerWithoutRestartResult(ServerPrx returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int activateTimeout, int deactivateTimeout)
-        {
-            this.returnValue = returnValue;
-            this.adapters = adapters;
-            this.activateTimeout = activateTimeout;
-            this.deactivateTimeout = deactivateTimeout;
-        }
+    public record struct InternalRegistry_GetAdaptersResult(AdapterInfo[] returnValue, long serial);
 
-        public ServerPrx returnValue;
-        public global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters;
-        public int activateTimeout;
-        public int deactivateTimeout;
-    }
-
-    public struct InternalRegistry_GetApplicationsResult
-    {
-        public InternalRegistry_GetApplicationsResult(ApplicationInfo[] returnValue, long serial)
-        {
-            this.returnValue = returnValue;
-            this.serial = serial;
-        }
-
-        public ApplicationInfo[] returnValue;
-        public long serial;
-    }
-
-    public struct InternalRegistry_GetAdaptersResult
-    {
-        public InternalRegistry_GetAdaptersResult(AdapterInfo[] returnValue, long serial)
-        {
-            this.returnValue = returnValue;
-            this.serial = serial;
-        }
-
-        public AdapterInfo[] returnValue;
-        public long serial;
-    }
-
-    public struct InternalRegistry_GetObjectsResult
-    {
-        public InternalRegistry_GetObjectsResult(ObjectInfo[] returnValue, long serial)
-        {
-            this.returnValue = returnValue;
-            this.serial = serial;
-        }
-
-        public ObjectInfo[] returnValue;
-        public long serial;
-    }
+    public record struct InternalRegistry_GetObjectsResult(ObjectInfo[] returnValue, long serial);
 }
 
 namespace IceGrid
@@ -6445,11 +6375,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ObserverAlreadyRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(ObserverAlreadyRegisteredException)
                     {
                         throw;
                     }
@@ -6553,11 +6483,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }

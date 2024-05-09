@@ -173,17 +173,7 @@ namespace Test
     {
         namespace Inner
         {
-            public struct TestIntf_OpResult
-            {
-                public TestIntf_OpResult(int returnValue, int j)
-                {
-                    this.returnValue = returnValue;
-                    this.j = j;
-                }
-
-                public int returnValue;
-                public int j;
-            }
+            public record struct TestIntf_OpResult(int returnValue, int j);
         }
     }
 }

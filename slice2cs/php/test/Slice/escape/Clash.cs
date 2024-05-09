@@ -437,35 +437,7 @@ namespace Clash
 
 namespace Clash
 {
-    public struct Intf_OpOutResult
-    {
-        public Intf_OpOutResult(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy)
-        {
-            this.context = context;
-            this.current = current;
-            this.response = response;
-            this.ex = ex;
-            this.sent = sent;
-            this.cookie = cookie;
-            this.sync = sync;
-            this.result = result;
-            this.istr = istr;
-            this.ostr = ostr;
-            this.proxy = proxy;
-        }
-
-        public string context;
-        public string current;
-        public string response;
-        public string ex;
-        public string sent;
-        public string cookie;
-        public string sync;
-        public string result;
-        public string istr;
-        public string ostr;
-        public string proxy;
-    }
+    public record struct Intf_OpOutResult(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string proxy);
 }
 
 namespace Clash

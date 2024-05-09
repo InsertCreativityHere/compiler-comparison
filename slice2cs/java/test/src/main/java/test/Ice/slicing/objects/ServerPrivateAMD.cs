@@ -2048,95 +2048,19 @@ namespace Test
 
 namespace Test
 {
-    public struct TestIntf_ParamTest1Result
-    {
-        public TestIntf_ParamTest1Result(B p1, B p2)
-        {
-            this.p1 = p1;
-            this.p2 = p2;
-        }
+    public record struct TestIntf_ParamTest1Result(B p1, B p2);
 
-        public B p1;
-        public B p2;
-    }
+    public record struct TestIntf_ParamTest2Result(B p2, B p1);
 
-    public struct TestIntf_ParamTest2Result
-    {
-        public TestIntf_ParamTest2Result(B p2, B p1)
-        {
-            this.p2 = p2;
-            this.p1 = p1;
-        }
+    public record struct TestIntf_ParamTest3Result(B returnValue, B p1, B p2);
 
-        public B p2;
-        public B p1;
-    }
+    public record struct TestIntf_ParamTest4Result(B returnValue, B p);
 
-    public struct TestIntf_ParamTest3Result
-    {
-        public TestIntf_ParamTest3Result(B returnValue, B p1, B p2)
-        {
-            this.returnValue = returnValue;
-            this.p1 = p1;
-            this.p2 = p2;
-        }
+    public record struct TestIntf_ReturnTest1Result(B returnValue, B p1, B p2);
 
-        public B returnValue;
-        public B p1;
-        public B p2;
-    }
+    public record struct TestIntf_ReturnTest2Result(B returnValue, B p2, B p1);
 
-    public struct TestIntf_ParamTest4Result
-    {
-        public TestIntf_ParamTest4Result(B returnValue, B p)
-        {
-            this.returnValue = returnValue;
-            this.p = p;
-        }
-
-        public B returnValue;
-        public B p;
-    }
-
-    public struct TestIntf_ReturnTest1Result
-    {
-        public TestIntf_ReturnTest1Result(B returnValue, B p1, B p2)
-        {
-            this.returnValue = returnValue;
-            this.p1 = p1;
-            this.p2 = p2;
-        }
-
-        public B returnValue;
-        public B p1;
-        public B p2;
-    }
-
-    public struct TestIntf_ReturnTest2Result
-    {
-        public TestIntf_ReturnTest2Result(B returnValue, B p2, B p1)
-        {
-            this.returnValue = returnValue;
-            this.p2 = p2;
-            this.p1 = p1;
-        }
-
-        public B returnValue;
-        public B p2;
-        public B p1;
-    }
-
-    public struct TestIntf_DictionaryTestResult
-    {
-        public TestIntf_DictionaryTestResult(global::System.Collections.Generic.Dictionary<int, B> returnValue, global::System.Collections.Generic.Dictionary<int, B> bout)
-        {
-            this.returnValue = returnValue;
-            this.bout = bout;
-        }
-
-        public global::System.Collections.Generic.Dictionary<int, B> returnValue;
-        public global::System.Collections.Generic.Dictionary<int, B> bout;
-    }
+    public record struct TestIntf_DictionaryTestResult(global::System.Collections.Generic.Dictionary<int, B> returnValue, global::System.Collections.Generic.Dictionary<int, B> bout);
 }
 
 namespace Test

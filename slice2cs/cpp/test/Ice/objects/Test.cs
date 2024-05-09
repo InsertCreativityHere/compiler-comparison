@@ -3026,7 +3026,7 @@ namespace Test
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct Initial_GetMBMarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct Initial_GetMBMarshaledResult : global::Ice.MarshaledResult
     {
         public Initial_GetMBMarshaledResult(B ret, global::Ice.Current current)
         {
@@ -3037,20 +3037,13 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new Initial_GetMBMarshaledResult(null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public struct Initial_GetAMDMBMarshaledResult : global::Ice.MarshaledResult
+    public readonly record struct Initial_GetAMDMBMarshaledResult : global::Ice.MarshaledResult
     {
         public Initial_GetAMDMBMarshaledResult(B ret, global::Ice.Current current)
         {
@@ -3061,129 +3054,28 @@ namespace Test
             _ostr.endEncapsulation();
         }
 
-        public global::Ice.OutputStream getOutputStream(global::Ice.Current current)
-        {
-            if(_ostr == null)
-            {
-                return new Initial_GetAMDMBMarshaledResult(null, current).getOutputStream(current);
-            }
-            return _ostr;
-        }
+        public global::Ice.OutputStream outputStream => _ostr;
 
-        private global::Ice.OutputStream _ostr;
+        private readonly global::Ice.OutputStream _ostr;
     }
 
-    public struct Initial_GetAllResult
-    {
-        public Initial_GetAllResult(B b1, B b2, C theC, D theD)
-        {
-            this.b1 = b1;
-            this.b2 = b2;
-            this.theC = theC;
-            this.theD = theD;
-        }
+    public record struct Initial_GetAllResult(B b1, B b2, C theC, D theD);
 
-        public B b1;
-        public B b2;
-        public C theC;
-        public D theD;
-    }
+    public record struct Initial_OpValueResult(global::Ice.Value returnValue, global::Ice.Value v2);
 
-    public struct Initial_OpValueResult
-    {
-        public Initial_OpValueResult(global::Ice.Value returnValue, global::Ice.Value v2)
-        {
-            this.returnValue = returnValue;
-            this.v2 = v2;
-        }
+    public record struct Initial_OpValueSeqResult(global::Ice.Value[] returnValue, global::Ice.Value[] v2);
 
-        public global::Ice.Value returnValue;
-        public global::Ice.Value v2;
-    }
+    public record struct Initial_OpValueMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.Value> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.Value> v2);
 
-    public struct Initial_OpValueSeqResult
-    {
-        public Initial_OpValueSeqResult(global::Ice.Value[] returnValue, global::Ice.Value[] v2)
-        {
-            this.returnValue = returnValue;
-            this.v2 = v2;
-        }
+    public record struct Initial_OpBaseSeqResult(@Base[] returnValue, @Base[] outSeq);
 
-        public global::Ice.Value[] returnValue;
-        public global::Ice.Value[] v2;
-    }
+    public record struct Initial_OpMResult(M returnValue, M v2);
 
-    public struct Initial_OpValueMapResult
-    {
-        public Initial_OpValueMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.Value> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.Value> v2)
-        {
-            this.returnValue = returnValue;
-            this.v2 = v2;
-        }
+    public record struct Initial_OpF1Result(F1 returnValue, F1 f12);
 
-        public global::System.Collections.Generic.Dictionary<string, global::Ice.Value> returnValue;
-        public global::System.Collections.Generic.Dictionary<string, global::Ice.Value> v2;
-    }
+    public record struct Initial_OpF2Result(F2Prx returnValue, F2Prx f22);
 
-    public struct Initial_OpBaseSeqResult
-    {
-        public Initial_OpBaseSeqResult(@Base[] returnValue, @Base[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public @Base[] returnValue;
-        public @Base[] outSeq;
-    }
-
-    public struct Initial_OpMResult
-    {
-        public Initial_OpMResult(M returnValue, M v2)
-        {
-            this.returnValue = returnValue;
-            this.v2 = v2;
-        }
-
-        public M returnValue;
-        public M v2;
-    }
-
-    public struct Initial_OpF1Result
-    {
-        public Initial_OpF1Result(F1 returnValue, F1 f12)
-        {
-            this.returnValue = returnValue;
-            this.f12 = f12;
-        }
-
-        public F1 returnValue;
-        public F1 f12;
-    }
-
-    public struct Initial_OpF2Result
-    {
-        public Initial_OpF2Result(F2Prx returnValue, F2Prx f22)
-        {
-            this.returnValue = returnValue;
-            this.f22 = f22;
-        }
-
-        public F2Prx returnValue;
-        public F2Prx f22;
-    }
-
-    public struct Initial_OpF3Result
-    {
-        public Initial_OpF3Result(F3 returnValue, F3 f32)
-        {
-            this.returnValue = returnValue;
-            this.f32 = f32;
-        }
-
-        public F3 returnValue;
-        public F3 f32;
-    }
+    public record struct Initial_OpF3Result(F3 returnValue, F3 f32);
 }
 
 namespace Test
