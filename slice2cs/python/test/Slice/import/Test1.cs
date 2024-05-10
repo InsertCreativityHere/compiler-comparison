@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test1.ice")]

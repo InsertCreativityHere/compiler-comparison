@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Process.ice")]
@@ -55,7 +57,7 @@ namespace Ice
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Initiate a graceful shut-down.
@@ -64,7 +66,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Write a message on the process' stdout or stderr.
@@ -74,7 +76,7 @@ namespace Ice
         /// <param name="fd">1 for stdout, 2 for stderr.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void writeMessage(string message, int fd, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void writeMessage(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Write a message on the process' stdout or stderr.
@@ -86,7 +88,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -109,7 +111,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(Current current = null);
+        void shutdown(Current? current = null);
 
         /// <summary>
         /// Write a message on the process' stdout or stderr.
@@ -120,7 +122,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void writeMessage(string message, int fd, Current current = null);
+        void writeMessage(string message, int fd, Current? current = null);
     }
 }
 
@@ -136,27 +138,27 @@ namespace Ice
 
         #region Synchronous operations
 
-        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void writeMessage(string message, int fd, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void writeMessage(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_writeMessageAsync(message, fd, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -164,12 +166,12 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -178,7 +180,7 @@ namespace Ice
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -189,12 +191,12 @@ namespace Ice
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_writeMessageAsync(message, fd, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_writeMessageAsync(string iceP_message, int iceP_fd, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_writeMessageAsync(string iceP_message, int iceP_fd, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_writeMessage(iceP_message, iceP_fd, context, synchronous, completed);
@@ -203,7 +205,7 @@ namespace Ice
 
         private const string _writeMessage_name = "writeMessage";
 
-        private void _iceI_writeMessage(string iceP_message, int iceP_fd, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_writeMessage(string iceP_message, int iceP_fd, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -226,7 +228,7 @@ namespace Ice
         public static ProcessPrx createProxy(Communicator communicator, string proxyString) =>
             uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static ProcessPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static ProcessPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -237,9 +239,9 @@ namespace Ice
             return null;
         }
 
-        public static ProcessPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static ProcessPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx bb = b?.ice_facet(f);
+            ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -255,23 +257,27 @@ namespace Ice
             return null;
         }
 
-        public static ProcessPrx uncheckedCast(ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static ProcessPrx? uncheckedCast(ObjectPrx? b)
         {
             if (b is not null)
             {
-                ProcessPrxHelper prx = new ProcessPrxHelper();
+                var prx = new ProcessPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static ProcessPrx uncheckedCast(ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static ProcessPrx? uncheckedCast(ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx bb = b.ice_facet(f);
-                ProcessPrxHelper prx = new ProcessPrxHelper();
+                ObjectPrx? bb = b.ice_facet(f);
+                var prx = new ProcessPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -290,17 +296,17 @@ namespace Ice
 
         #region Marshaling support
 
-        public static void write(OutputStream ostr, ProcessPrx v)
+        public static void write(OutputStream ostr, ProcessPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static ProcessPrx read(InputStream istr)
+        public static ProcessPrx? read(InputStream istr)
         {
-            ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                ProcessPrxHelper result = new ProcessPrxHelper();
+                 var result = new ProcessPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -319,9 +325,9 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract void shutdown(Current current = null);
+        public abstract void shutdown(Current? current = null);
 
-        public abstract void writeMessage(string message, int fd, Current current = null);
+        public abstract void writeMessage(string message, int fd, Current? current = null);
 
         #endregion
 
@@ -333,17 +339,17 @@ namespace Ice
             "::Ice::Process"
         };
 
-        public override bool ice_isA(string s, Current current = null)
+        public override bool ice_isA(string s, Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current current = null)
+        public override string[] ice_ids(Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(Current current = null)
+        public override string ice_id(Current? current = null)
         {
             return ice_staticId();
         }
@@ -373,8 +379,8 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_message = default;
-            int iceP_fd = default;
+            string iceP_message;
+            int iceP_fd;
             iceP_message = istr.readString();
             iceP_fd = istr.readInt();
             inS.endReadParams();

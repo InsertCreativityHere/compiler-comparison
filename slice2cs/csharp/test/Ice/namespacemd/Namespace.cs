@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Namespace.ice")]
@@ -198,13 +200,13 @@ namespace Ice.namespacemd
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public E1(int i, global::System.Exception innerException = null) : base(innerException)
+            public E1(int i, global::System.Exception? innerException = null) : base(innerException)
             {
                 this.i = i;
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public E1(global::System.Exception innerException) : base(innerException)
+            public E1(global::System.Exception? innerException) : base(innerException)
             {
             }
 
@@ -267,13 +269,13 @@ namespace Ice.namespacemd
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public E2(int i, long l, global::System.Exception innerException = null) : base(i, innerException)
+            public E2(int i, long l, global::System.Exception? innerException = null) : base(i, innerException)
             {
                 this.l = l;
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public E2(global::System.Exception innerException) : base(innerException)
+            public E2(global::System.Exception? innerException) : base(innerException)
             {
             }
 

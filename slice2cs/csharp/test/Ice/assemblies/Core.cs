@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Core.ice")]
@@ -39,7 +41,7 @@ namespace Core
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ArgumentException(global::System.Exception innerException) : base(innerException)
+        public ArgumentException(global::System.Exception? innerException) : base(innerException)
         {
         }
 

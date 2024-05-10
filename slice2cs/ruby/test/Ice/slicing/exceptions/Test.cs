@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -46,13 +48,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Base(string b, global::System.Exception innerException = null) : base(innerException)
+        public @Base(string b, global::System.Exception? innerException = null) : base(innerException)
         {
             this.b = b;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Base(global::System.Exception innerException) : base(innerException)
+        public @Base(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -115,13 +117,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownDerived(string b, string kd, global::System.Exception innerException = null) : base(b, innerException)
+        public KnownDerived(string b, string kd, global::System.Exception? innerException = null) : base(b, innerException)
         {
             this.kd = kd;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownDerived(global::System.Exception innerException) : base(innerException)
+        public KnownDerived(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -186,13 +188,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownIntermediate(string b, string ki, global::System.Exception innerException = null) : base(b, innerException)
+        public KnownIntermediate(string b, string ki, global::System.Exception? innerException = null) : base(b, innerException)
         {
             this.ki = ki;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownIntermediate(global::System.Exception innerException) : base(innerException)
+        public KnownIntermediate(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -257,13 +259,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownMostDerived(string b, string ki, string kmd, global::System.Exception innerException = null) : base(b, ki, innerException)
+        public KnownMostDerived(string b, string ki, string kmd, global::System.Exception? innerException = null) : base(b, ki, innerException)
         {
             this.kmd = kmd;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public KnownMostDerived(global::System.Exception innerException) : base(innerException)
+        public KnownMostDerived(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -324,61 +326,61 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface TestIntfPrx : global::Ice.ObjectPrx
     {
-        void baseAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void baseAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task baseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task baseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void unknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void unknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task unknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task unknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void knownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void knownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task knownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task knownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void knownDerivedAsKnownDerived(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void knownDerivedAsKnownDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task knownDerivedAsKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task knownDerivedAsKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void unknownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void unknownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task unknownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task unknownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void knownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void knownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task knownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task knownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void knownMostDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void knownMostDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task knownMostDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task knownMostDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void knownIntermediateAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void knownIntermediateAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task knownIntermediateAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task knownIntermediateAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void knownMostDerivedAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void knownMostDerivedAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task knownMostDerivedAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task knownMostDerivedAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void knownMostDerivedAsKnownMostDerived(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void knownMostDerivedAsKnownMostDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task knownMostDerivedAsKnownMostDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task knownMostDerivedAsKnownMostDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void unknownMostDerived1AsBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void unknownMostDerived1AsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task unknownMostDerived1AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task unknownMostDerived1AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void unknownMostDerived1AsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void unknownMostDerived1AsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task unknownMostDerived1AsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task unknownMostDerived1AsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void unknownMostDerived2AsBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void unknownMostDerived2AsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task unknownMostDerived2AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task unknownMostDerived2AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -388,46 +390,46 @@ namespace Test
     public interface TestIntfOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void baseAsBase(global::Ice.Current current = null);
+        void baseAsBase(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unknownDerivedAsBase(global::Ice.Current current = null);
+        void unknownDerivedAsBase(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownDerivedAsBase(global::Ice.Current current = null);
+        void knownDerivedAsBase(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownDerivedAsKnownDerived(global::Ice.Current current = null);
+        void knownDerivedAsKnownDerived(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unknownIntermediateAsBase(global::Ice.Current current = null);
+        void unknownIntermediateAsBase(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownIntermediateAsBase(global::Ice.Current current = null);
+        void knownIntermediateAsBase(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownMostDerivedAsBase(global::Ice.Current current = null);
+        void knownMostDerivedAsBase(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownIntermediateAsKnownIntermediate(global::Ice.Current current = null);
+        void knownIntermediateAsKnownIntermediate(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownMostDerivedAsKnownIntermediate(global::Ice.Current current = null);
+        void knownMostDerivedAsKnownIntermediate(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownMostDerivedAsKnownMostDerived(global::Ice.Current current = null);
+        void knownMostDerivedAsKnownMostDerived(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unknownMostDerived1AsBase(global::Ice.Current current = null);
+        void unknownMostDerived1AsBase(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unknownMostDerived1AsKnownIntermediate(global::Ice.Current current = null);
+        void unknownMostDerived1AsKnownIntermediate(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unknownMostDerived2AsBase(global::Ice.Current current = null);
+        void unknownMostDerived2AsBase(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current = null);
+        void shutdown(global::Ice.Current? current = null);
     }
 }
 
@@ -443,171 +445,171 @@ namespace Test
 
         #region Synchronous operations
 
-        public void baseAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void baseAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_baseAsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void unknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void unknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_unknownDerivedAsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void knownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void knownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_knownDerivedAsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void knownDerivedAsKnownDerived(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void knownDerivedAsKnownDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_knownDerivedAsKnownDerivedAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void unknownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void unknownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_unknownIntermediateAsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void knownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void knownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_knownIntermediateAsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void knownMostDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void knownMostDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_knownMostDerivedAsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void knownIntermediateAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void knownIntermediateAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_knownIntermediateAsKnownIntermediateAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void knownMostDerivedAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void knownMostDerivedAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_knownMostDerivedAsKnownIntermediateAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void knownMostDerivedAsKnownMostDerived(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void knownMostDerivedAsKnownMostDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_knownMostDerivedAsKnownMostDerivedAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void unknownMostDerived1AsBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void unknownMostDerived1AsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_unknownMostDerived1AsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void unknownMostDerived1AsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void unknownMostDerived1AsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_unknownMostDerived1AsKnownIntermediateAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void unknownMostDerived2AsBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void unknownMostDerived2AsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_unknownMostDerived2AsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -615,12 +617,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task baseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task baseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_baseAsBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_baseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_baseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_baseAsBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -630,7 +632,7 @@ namespace Test
 
         private const string _baseAsBase_name = "baseAsBase";
 
-        private void _iceI_baseAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_baseAsBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -655,12 +657,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task unknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task unknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_unknownDerivedAsBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_unknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_unknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_unknownDerivedAsBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -670,7 +672,7 @@ namespace Test
 
         private const string _unknownDerivedAsBase_name = "unknownDerivedAsBase";
 
-        private void _iceI_unknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_unknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -695,12 +697,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task knownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task knownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_knownDerivedAsBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_knownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_knownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownDerivedAsBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -710,7 +712,7 @@ namespace Test
 
         private const string _knownDerivedAsBase_name = "knownDerivedAsBase";
 
-        private void _iceI_knownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -735,12 +737,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task knownDerivedAsKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task knownDerivedAsKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_knownDerivedAsKnownDerivedAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_knownDerivedAsKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_knownDerivedAsKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownDerivedAsKnownDerived_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -750,7 +752,7 @@ namespace Test
 
         private const string _knownDerivedAsKnownDerived_name = "knownDerivedAsKnownDerived";
 
-        private void _iceI_knownDerivedAsKnownDerived(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownDerivedAsKnownDerived(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -775,12 +777,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task unknownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task unknownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_unknownIntermediateAsBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_unknownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_unknownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_unknownIntermediateAsBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -790,7 +792,7 @@ namespace Test
 
         private const string _unknownIntermediateAsBase_name = "unknownIntermediateAsBase";
 
-        private void _iceI_unknownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_unknownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -815,12 +817,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task knownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task knownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_knownIntermediateAsBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_knownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_knownIntermediateAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownIntermediateAsBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -830,7 +832,7 @@ namespace Test
 
         private const string _knownIntermediateAsBase_name = "knownIntermediateAsBase";
 
-        private void _iceI_knownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownIntermediateAsBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -855,12 +857,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task knownMostDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task knownMostDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_knownMostDerivedAsBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_knownMostDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_knownMostDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownMostDerivedAsBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -870,7 +872,7 @@ namespace Test
 
         private const string _knownMostDerivedAsBase_name = "knownMostDerivedAsBase";
 
-        private void _iceI_knownMostDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownMostDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -895,12 +897,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task knownIntermediateAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task knownIntermediateAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_knownIntermediateAsKnownIntermediateAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_knownIntermediateAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_knownIntermediateAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownIntermediateAsKnownIntermediate_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -910,7 +912,7 @@ namespace Test
 
         private const string _knownIntermediateAsKnownIntermediate_name = "knownIntermediateAsKnownIntermediate";
 
-        private void _iceI_knownIntermediateAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownIntermediateAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -935,12 +937,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task knownMostDerivedAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task knownMostDerivedAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_knownMostDerivedAsKnownIntermediateAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_knownMostDerivedAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_knownMostDerivedAsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownMostDerivedAsKnownIntermediate_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -950,7 +952,7 @@ namespace Test
 
         private const string _knownMostDerivedAsKnownIntermediate_name = "knownMostDerivedAsKnownIntermediate";
 
-        private void _iceI_knownMostDerivedAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownMostDerivedAsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -975,12 +977,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task knownMostDerivedAsKnownMostDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task knownMostDerivedAsKnownMostDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_knownMostDerivedAsKnownMostDerivedAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_knownMostDerivedAsKnownMostDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_knownMostDerivedAsKnownMostDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_knownMostDerivedAsKnownMostDerived_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -990,7 +992,7 @@ namespace Test
 
         private const string _knownMostDerivedAsKnownMostDerived_name = "knownMostDerivedAsKnownMostDerived";
 
-        private void _iceI_knownMostDerivedAsKnownMostDerived(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_knownMostDerivedAsKnownMostDerived(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1015,12 +1017,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task unknownMostDerived1AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task unknownMostDerived1AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_unknownMostDerived1AsBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_unknownMostDerived1AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_unknownMostDerived1AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_unknownMostDerived1AsBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1030,7 +1032,7 @@ namespace Test
 
         private const string _unknownMostDerived1AsBase_name = "unknownMostDerived1AsBase";
 
-        private void _iceI_unknownMostDerived1AsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_unknownMostDerived1AsBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1055,12 +1057,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task unknownMostDerived1AsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task unknownMostDerived1AsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_unknownMostDerived1AsKnownIntermediateAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_unknownMostDerived1AsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_unknownMostDerived1AsKnownIntermediateAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_unknownMostDerived1AsKnownIntermediate_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1070,7 +1072,7 @@ namespace Test
 
         private const string _unknownMostDerived1AsKnownIntermediate_name = "unknownMostDerived1AsKnownIntermediate";
 
-        private void _iceI_unknownMostDerived1AsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_unknownMostDerived1AsKnownIntermediate(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1095,12 +1097,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task unknownMostDerived2AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task unknownMostDerived2AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_unknownMostDerived2AsBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_unknownMostDerived2AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_unknownMostDerived2AsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_unknownMostDerived2AsBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1110,7 +1112,7 @@ namespace Test
 
         private const string _unknownMostDerived2AsBase_name = "unknownMostDerived2AsBase";
 
-        private void _iceI_unknownMostDerived2AsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_unknownMostDerived2AsBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1135,12 +1137,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -1149,7 +1151,7 @@ namespace Test
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1167,7 +1169,7 @@ namespace Test
         public static TestIntfPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1178,9 +1180,9 @@ namespace Test
             return null;
         }
 
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1196,23 +1198,27 @@ namespace Test
             return null;
         }
 
-        public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                var prx = new TestIntfPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new TestIntfPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -1231,17 +1237,17 @@ namespace Test
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, TestIntfPrx v)
+        public static void write(global::Ice.OutputStream ostr, TestIntfPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static TestIntfPrx read(global::Ice.InputStream istr)
+        public static TestIntfPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                TestIntfPrxHelper result = new TestIntfPrxHelper();
+                 var result = new TestIntfPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -1260,33 +1266,33 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void baseAsBase(global::Ice.Current current = null);
+        public abstract void baseAsBase(global::Ice.Current? current = null);
 
-        public abstract void unknownDerivedAsBase(global::Ice.Current current = null);
+        public abstract void unknownDerivedAsBase(global::Ice.Current? current = null);
 
-        public abstract void knownDerivedAsBase(global::Ice.Current current = null);
+        public abstract void knownDerivedAsBase(global::Ice.Current? current = null);
 
-        public abstract void knownDerivedAsKnownDerived(global::Ice.Current current = null);
+        public abstract void knownDerivedAsKnownDerived(global::Ice.Current? current = null);
 
-        public abstract void unknownIntermediateAsBase(global::Ice.Current current = null);
+        public abstract void unknownIntermediateAsBase(global::Ice.Current? current = null);
 
-        public abstract void knownIntermediateAsBase(global::Ice.Current current = null);
+        public abstract void knownIntermediateAsBase(global::Ice.Current? current = null);
 
-        public abstract void knownMostDerivedAsBase(global::Ice.Current current = null);
+        public abstract void knownMostDerivedAsBase(global::Ice.Current? current = null);
 
-        public abstract void knownIntermediateAsKnownIntermediate(global::Ice.Current current = null);
+        public abstract void knownIntermediateAsKnownIntermediate(global::Ice.Current? current = null);
 
-        public abstract void knownMostDerivedAsKnownIntermediate(global::Ice.Current current = null);
+        public abstract void knownMostDerivedAsKnownIntermediate(global::Ice.Current? current = null);
 
-        public abstract void knownMostDerivedAsKnownMostDerived(global::Ice.Current current = null);
+        public abstract void knownMostDerivedAsKnownMostDerived(global::Ice.Current? current = null);
 
-        public abstract void unknownMostDerived1AsBase(global::Ice.Current current = null);
+        public abstract void unknownMostDerived1AsBase(global::Ice.Current? current = null);
 
-        public abstract void unknownMostDerived1AsKnownIntermediate(global::Ice.Current current = null);
+        public abstract void unknownMostDerived1AsKnownIntermediate(global::Ice.Current? current = null);
 
-        public abstract void unknownMostDerived2AsBase(global::Ice.Current current = null);
+        public abstract void unknownMostDerived2AsBase(global::Ice.Current? current = null);
 
-        public abstract void shutdown(global::Ice.Current current = null);
+        public abstract void shutdown(global::Ice.Current? current = null);
 
         #endregion
 
@@ -1298,17 +1304,17 @@ namespace Test
             "::Test::TestIntf"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }

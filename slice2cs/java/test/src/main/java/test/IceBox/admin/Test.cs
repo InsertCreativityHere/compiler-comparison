@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -42,9 +44,9 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface TestFacetPrx : global::Ice.ObjectPrx
     {
-        global::System.Collections.Generic.Dictionary<string, string> getChanges(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        global::System.Collections.Generic.Dictionary<string, string> getChanges(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getChangesAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getChangesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -54,7 +56,7 @@ namespace Test
     public interface TestFacetOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, string> getChanges(global::Ice.Current current = null);
+        global::System.Collections.Generic.Dictionary<string, string> getChanges(global::Ice.Current? current = null);
     }
 }
 
@@ -70,15 +72,15 @@ namespace Test
 
         #region Synchronous operations
 
-        public global::System.Collections.Generic.Dictionary<string, string> getChanges(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public global::System.Collections.Generic.Dictionary<string, string> getChanges(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getChangesAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -86,12 +88,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getChangesAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getChangesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getChangesAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_getChangesAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_getChangesAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getChanges_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
@@ -101,7 +103,7 @@ namespace Test
 
         private const string _getChanges_name = "getChanges";
 
-        private void _iceI_getChanges(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getChanges(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::System.Collections.Generic.Dictionary<string, string>>(completed);
             outAsync.invoke(
@@ -112,7 +114,7 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::System.Collections.Generic.Dictionary<string, string> ret = default;
+                    global::System.Collections.Generic.Dictionary<string, string> ret;
                     ret = global::Ice.PropertyDictHelper.read(istr);
                     return ret;
                 });
@@ -125,7 +127,7 @@ namespace Test
         public static TestFacetPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static TestFacetPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static TestFacetPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -136,9 +138,9 @@ namespace Test
             return null;
         }
 
-        public static TestFacetPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static TestFacetPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -154,23 +156,27 @@ namespace Test
             return null;
         }
 
-        public static TestFacetPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static TestFacetPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                TestFacetPrxHelper prx = new TestFacetPrxHelper();
+                var prx = new TestFacetPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static TestFacetPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static TestFacetPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                TestFacetPrxHelper prx = new TestFacetPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new TestFacetPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -189,17 +195,17 @@ namespace Test
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, TestFacetPrx v)
+        public static void write(global::Ice.OutputStream ostr, TestFacetPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static TestFacetPrx read(global::Ice.InputStream istr)
+        public static TestFacetPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                TestFacetPrxHelper result = new TestFacetPrxHelper();
+                 var result = new TestFacetPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -218,7 +224,7 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string> getChanges(global::Ice.Current current = null);
+        public abstract global::System.Collections.Generic.Dictionary<string, string> getChanges(global::Ice.Current? current = null);
 
         #endregion
 
@@ -230,17 +236,17 @@ namespace Test
             "::Test::TestFacet"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }

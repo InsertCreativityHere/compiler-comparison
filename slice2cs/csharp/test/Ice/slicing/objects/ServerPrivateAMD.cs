@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("ServerPrivateAMD.ice")]
@@ -117,7 +119,7 @@ namespace Test
         public string su = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SUnknown cycle;
+        public SUnknown? cycle;
 
         #endregion
 
@@ -126,7 +128,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SUnknown(string su, SUnknown cycle)
+        public SUnknown(string su, SUnknown? cycle)
         {
             this.su = su;
             this.cycle = cycle;
@@ -170,7 +172,7 @@ namespace Test
         {
             istr_.startSlice();
             su = istr_.readString();
-            istr_.readValue((SUnknown v) => { this.cycle = v; });
+            istr_.readValue((SUnknown? v) => { this.cycle = v; });
             istr_.endSlice();
         }
 
@@ -197,7 +199,7 @@ namespace Test
         public string sd2 = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B pd2;
+        public B? pd2;
 
         #endregion
 
@@ -206,7 +208,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D2(string sb, B pb, string sd2, B pd2) : base(sb, pb)
+        public D2(string sb, B? pb, string sd2, B? pd2) : base(sb, pb)
         {
             this.sd2 = sd2;
             this.pd2 = pd2;
@@ -251,7 +253,7 @@ namespace Test
         {
             istr_.startSlice();
             sd2 = istr_.readString();
-            istr_.readValue((B v) => { this.pd2 = v; });
+            istr_.readValue((B? v) => { this.pd2 = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -276,10 +278,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B p1;
+        public B? p1;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B p2;
+        public B? p2;
 
         #endregion
 
@@ -288,7 +290,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D4(string sb, B pb, B p1, B p2) : base(sb, pb)
+        public D4(string sb, B? pb, B? p1, B? p2) : base(sb, pb)
         {
             this.p1 = p1;
             this.p2 = p2;
@@ -332,8 +334,8 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((B v) => { this.p1 = v; });
-            istr_.readValue((B v) => { this.p2 = v; });
+            istr_.readValue((B? v) => { this.p1 = v; });
+            istr_.readValue((B? v) => { this.p2 = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -362,21 +364,21 @@ namespace Test
         public string sude = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D2 pd2;
+        public D2? pd2;
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerivedException(string sbe, B pb, string sude, D2 pd2, global::System.Exception innerException = null) : base(sbe, pb, innerException)
+        public UnknownDerivedException(string sbe, B? pb, string sude, D2? pd2, global::System.Exception? innerException = null) : base(sbe, pb, innerException)
         {
             this.sude = sude;
             this.pd2 = pd2;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerivedException(global::System.Exception innerException) : base(innerException)
+        public UnknownDerivedException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -410,7 +412,7 @@ namespace Test
         {
             istr_.startSlice();
             sude = istr_.readString();
-            istr_.readValue((D2 v) => { this.pd2 = v; });
+            istr_.readValue((D2? v) => { this.pd2 = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -512,10 +514,10 @@ namespace Test
         public string psu = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PNode graph;
+        public PNode? graph;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass cl;
+        public MyClass? cl;
 
         #endregion
 
@@ -524,7 +526,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknown(int pi, string ps, string psu, PNode graph, MyClass cl) : base(pi, ps)
+        public PSUnknown(int pi, string ps, string psu, PNode? graph, MyClass? cl) : base(pi, ps)
         {
             this.psu = psu;
             this.graph = graph;
@@ -571,8 +573,8 @@ namespace Test
         {
             istr_.startSlice();
             psu = istr_.readString();
-            istr_.readValue((PNode v) => { this.graph = v; });
-            istr_.readValue((MyClass v) => { this.cl = v; });
+            istr_.readValue((PNode? v) => { this.graph = v; });
+            istr_.readValue((MyClass? v) => { this.cl = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -597,7 +599,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PBase pb;
+        public PBase? pb;
 
         #endregion
 
@@ -606,7 +608,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknown2(int pi, string ps, PBase pb) : base(pi, ps)
+        public PSUnknown2(int pi, string ps, PBase? pb) : base(pi, ps)
         {
             this.pb = pb;
             ice_initialize();
@@ -648,7 +650,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((PBase v) => { this.pb = v; });
+            istr_.readValue((PBase? v) => { this.pb = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -674,20 +676,20 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknown2 p;
+        public PSUnknown2? p;
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknownException(PSUnknown2 p, global::System.Exception innerException = null) : base(innerException)
+        public PSUnknownException(PSUnknown2? p, global::System.Exception? innerException = null) : base(innerException)
         {
             this.p = p;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknownException(global::System.Exception innerException) : base(innerException)
+        public PSUnknownException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -719,7 +721,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((PSUnknown2 v) => { this.p = v; });
+            istr_.readValue((PSUnknown2? v) => { this.p = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }

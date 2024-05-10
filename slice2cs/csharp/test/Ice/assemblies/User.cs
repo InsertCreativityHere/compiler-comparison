@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("User.ice")]
@@ -100,9 +102,9 @@ namespace User
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface RegistryPrx : global::Ice.ObjectPrx
     {
-        UserInfo getUserInfo(string id, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        UserInfo? getUserInfo(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<UserInfo> getUserInfoAsync(string id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<UserInfo?> getUserInfoAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -112,7 +114,7 @@ namespace User
     public interface RegistryOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        UserInfo getUserInfo(string id, global::Ice.Current current = null);
+        UserInfo? getUserInfo(string id, global::Ice.Current? current = null);
     }
 }
 
@@ -128,15 +130,15 @@ namespace User
 
         #region Synchronous operations
 
-        public UserInfo getUserInfo(string id, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public UserInfo? getUserInfo(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getUserInfoAsync(id, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -144,24 +146,24 @@ namespace User
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<UserInfo> getUserInfoAsync(string id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<UserInfo?> getUserInfoAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getUserInfoAsync(id, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<UserInfo> _iceI_getUserInfoAsync(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<UserInfo?> _iceI_getUserInfoAsync(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getUserInfo_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<UserInfo>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<UserInfo?>(progress, cancel);
             _iceI_getUserInfo(iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getUserInfo_name = "getUserInfo";
 
-        private void _iceI_getUserInfo(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getUserInfo(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<UserInfo>(completed);
+            var outAsync = getOutgoingAsync<UserInfo?>(completed);
             outAsync.invoke(
                 _getUserInfo_name,
                 global::Ice.OperationMode.Normal,
@@ -188,8 +190,8 @@ namespace User
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    UserInfo ret = default;
-                    istr.readValue((UserInfo v) => {ret = v; });
+                    UserInfo? ret = null;
+                    istr.readValue((UserInfo? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
@@ -202,7 +204,7 @@ namespace User
         public static RegistryPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static RegistryPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static RegistryPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -213,9 +215,9 @@ namespace User
             return null;
         }
 
-        public static RegistryPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static RegistryPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -231,23 +233,27 @@ namespace User
             return null;
         }
 
-        public static RegistryPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static RegistryPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                RegistryPrxHelper prx = new RegistryPrxHelper();
+                var prx = new RegistryPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static RegistryPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static RegistryPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                RegistryPrxHelper prx = new RegistryPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new RegistryPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -266,17 +272,17 @@ namespace User
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, RegistryPrx v)
+        public static void write(global::Ice.OutputStream ostr, RegistryPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static RegistryPrx read(global::Ice.InputStream istr)
+        public static RegistryPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                RegistryPrxHelper result = new RegistryPrxHelper();
+                 var result = new RegistryPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -295,7 +301,7 @@ namespace User
     {
         #region Slice operations
 
-        public abstract UserInfo getUserInfo(string id, global::Ice.Current current = null);
+        public abstract UserInfo? getUserInfo(string id, global::Ice.Current? current = null);
 
         #endregion
 
@@ -307,17 +313,17 @@ namespace User
             "::User::Registry"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -337,7 +343,7 @@ namespace User
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id = default;
+            string iceP_id;
             iceP_id = istr.readString();
             inS.endReadParams();
             var ret = obj.getUserInfo(iceP_id, current);

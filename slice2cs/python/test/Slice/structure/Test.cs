@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -84,10 +86,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as S1);
+        public override bool Equals(object? other) => Equals(other as S1);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S1 other)
+        public bool Equals(S1? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -102,10 +104,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S1 lhs, S1 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(S1? lhs, S1? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S1 lhs, S1 rhs) => !(lhs == rhs);
+        public static bool operator !=(S1? lhs, S1? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -236,10 +238,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as S2);
+        public override bool Equals(object? other) => Equals(other as S2);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S2 other)
+        public bool Equals(S2? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -261,10 +263,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S2 lhs, S2 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(S2? lhs, S2? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S2 lhs, S2 rhs) => !(lhs == rhs);
+        public static bool operator !=(S2? lhs, S2? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -384,13 +386,13 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C obj;
+        public C? obj;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, string> sd;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.ObjectPrx prx;
+        public global::Ice.ObjectPrx? prx;
 
         #endregion
 
@@ -406,7 +408,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S3(C obj, global::System.Collections.Generic.Dictionary<string, string> sd, global::Ice.ObjectPrx prx)
+        public S3(C? obj, global::System.Collections.Generic.Dictionary<string, string> sd, global::Ice.ObjectPrx? prx)
         {
             this.obj = obj;
             this.sd = sd;
@@ -417,7 +419,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S3(global::Ice.InputStream istr)
         {
-            istr.readValue((C v) => { this.obj = v; });
+            istr.readValue((C? v) => { this.obj = v; });
             this.sd = StringDictHelper.read(istr);
             this.prx = istr.readProxy();
             ice_initialize();
@@ -445,10 +447,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as S3);
+        public override bool Equals(object? other) => Equals(other as S3);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S3 other)
+        public bool Equals(S3? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -457,7 +459,7 @@ namespace Test
             return other is not null && 
                 this.obj == other.obj && 
                 Ice.UtilInternal.Collections.DictionaryEquals(this.sd, other.sd) && 
-                (Ice.ObjectPrxHelperBase)this.prx == (Ice.ObjectPrxHelperBase)other.prx;
+                (Ice.ObjectPrxHelperBase?)this.prx == (Ice.ObjectPrxHelperBase?)other.prx;
         }
 
         #endregion
@@ -465,10 +467,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S3 lhs, S3 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(S3? lhs, S3? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S3 lhs, S3 rhs) => !(lhs == rhs);
+        public static bool operator !=(S3? lhs, S3? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -540,9 +542,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                string v = default;
+                string v;
                 v = istr.readString();
                 r[k] = v;
             }

@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("UserAccountMapper.ice")]
@@ -43,7 +45,7 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UserAccountNotFoundException(global::System.Exception innerException) : base(innerException)
+        public UserAccountNotFoundException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -118,7 +120,7 @@ namespace IceGrid
         /// <exception name="UserAccountNotFoundException">Raised if no user account is found for the given user.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        string getUserAccount(string user, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        string getUserAccount(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the name of the user account for the given user.
@@ -132,7 +134,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -160,7 +162,7 @@ namespace IceGrid
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getUserAccount(string user, global::Ice.Current current = null);
+        string getUserAccount(string user, global::Ice.Current? current = null);
     }
 }
 
@@ -176,15 +178,15 @@ namespace IceGrid
 
         #region Synchronous operations
 
-        public string getUserAccount(string user, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public string getUserAccount(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getUserAccountAsync(user, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -192,12 +194,12 @@ namespace IceGrid
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getUserAccountAsync(user, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string> _iceI_getUserAccountAsync(string iceP_user, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string> _iceI_getUserAccountAsync(string iceP_user, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getUserAccount_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
@@ -207,7 +209,7 @@ namespace IceGrid
 
         private const string _getUserAccount_name = "getUserAccount";
 
-        private void _iceI_getUserAccount(string iceP_user, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getUserAccount(string iceP_user, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
@@ -236,7 +238,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret = default;
+                    string ret;
                     ret = istr.readString();
                     return ret;
                 });
@@ -249,7 +251,7 @@ namespace IceGrid
         public static UserAccountMapperPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static UserAccountMapperPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static UserAccountMapperPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -260,9 +262,9 @@ namespace IceGrid
             return null;
         }
 
-        public static UserAccountMapperPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static UserAccountMapperPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -278,23 +280,27 @@ namespace IceGrid
             return null;
         }
 
-        public static UserAccountMapperPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static UserAccountMapperPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                UserAccountMapperPrxHelper prx = new UserAccountMapperPrxHelper();
+                var prx = new UserAccountMapperPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static UserAccountMapperPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static UserAccountMapperPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                UserAccountMapperPrxHelper prx = new UserAccountMapperPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new UserAccountMapperPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -313,17 +319,17 @@ namespace IceGrid
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, UserAccountMapperPrx v)
+        public static void write(global::Ice.OutputStream ostr, UserAccountMapperPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static UserAccountMapperPrx read(global::Ice.InputStream istr)
+        public static UserAccountMapperPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                UserAccountMapperPrxHelper result = new UserAccountMapperPrxHelper();
+                 var result = new UserAccountMapperPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -342,7 +348,7 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract string getUserAccount(string user, global::Ice.Current current = null);
+        public abstract string getUserAccount(string user, global::Ice.Current? current = null);
 
         #endregion
 
@@ -354,17 +360,17 @@ namespace IceGrid
             "::IceGrid::UserAccountMapper"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -384,7 +390,7 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_user = default;
+            string iceP_user;
             iceP_user = istr.readString();
             inS.endReadParams();
             var ret = obj.getUserAccount(iceP_user, current);

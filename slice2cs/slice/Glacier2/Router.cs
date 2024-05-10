@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Router.ice")]
@@ -44,7 +46,7 @@ namespace Glacier2
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SessionNotExistException(global::System.Exception innerException) : base(innerException)
+        public SessionNotExistException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -114,7 +116,7 @@ namespace Glacier2
         ///  <returns>The category.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        string getCategoryForClient(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        string getCategoryForClient(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// This category must be used in the identities of all of the client's callback objects.
@@ -124,7 +126,7 @@ namespace Glacier2
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<string> getCategoryForClientAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<string> getCategoryForClientAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Create a per-client session with the router.
@@ -148,7 +150,7 @@ namespace Glacier2
         ///  </exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        SessionPrx createSession(string userId, string password, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        SessionPrx? createSession(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Create a per-client session with the router.
@@ -162,7 +164,7 @@ namespace Glacier2
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<SessionPrx> createSessionAsync(string userId, string password, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Create a per-client session with the router.
@@ -182,7 +184,7 @@ namespace Glacier2
         /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        SessionPrx createSessionFromSecureConnection(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        SessionPrx? createSessionFromSecureConnection(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Create a per-client session with the router.
@@ -192,7 +194,7 @@ namespace Glacier2
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<SessionPrx> createSessionFromSecureConnectionAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Keep the session with this router alive.
@@ -202,7 +204,7 @@ namespace Glacier2
         ///  <exception name="SessionNotExistException">Raised if no session exists for the caller (client).</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void refreshSession(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void refreshSession(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Keep the session with this router alive.
@@ -212,7 +214,7 @@ namespace Glacier2
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task refreshSessionAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task refreshSessionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Destroy the calling client's session with this router.
@@ -220,7 +222,7 @@ namespace Glacier2
         /// <exception name="SessionNotExistException">Raised if no session exists for the calling client.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void destroySession(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void destroySession(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Destroy the calling client's session with this router.
@@ -229,7 +231,7 @@ namespace Glacier2
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
@@ -237,7 +239,7 @@ namespace Glacier2
         /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        long getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        long getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
@@ -246,7 +248,7 @@ namespace Glacier2
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<long> getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<long> getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
@@ -254,7 +256,7 @@ namespace Glacier2
         /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        int getACMTimeout(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        int getACMTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
@@ -263,7 +265,7 @@ namespace Glacier2
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<int> getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<int> getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -286,7 +288,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getCategoryForClient(global::Ice.Current current = null);
+        string getCategoryForClient(global::Ice.Current? current = null);
 
         /// <summary>
         /// Create a per-client session with the router.
@@ -299,7 +301,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SessionPrx> createSessionAsync(string userId, string password, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::Ice.Current? current = null);
 
         /// <summary>
         /// Create a per-client session with the router.
@@ -308,7 +310,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SessionPrx> createSessionFromSecureConnectionAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::Ice.Current? current = null);
 
         /// <summary>
         /// Keep the session with this router alive.
@@ -319,7 +321,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void refreshSession(global::Ice.Current current = null);
+        void refreshSession(global::Ice.Current? current = null);
 
         /// <summary>
         /// Destroy the calling client's session with this router.
@@ -328,7 +330,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroySession(global::Ice.Current current = null);
+        void destroySession(global::Ice.Current? current = null);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
@@ -337,7 +339,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        long getSessionTimeout(global::Ice.Current current = null);
+        long getSessionTimeout(global::Ice.Current? current = null);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
@@ -346,7 +348,7 @@ namespace Glacier2
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getACMTimeout(global::Ice.Current current = null);
+        int getACMTimeout(global::Ice.Current? current = null);
     }
 }
 
@@ -362,7 +364,7 @@ namespace Glacier2
 
         #region Synchronous operations
 
-        public global::Ice.ObjectPrx getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public global::Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -370,117 +372,117 @@ namespace Glacier2
                 hasRoutingTable = result_.hasRoutingTable;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public global::Ice.ObjectPrx getServerProxy(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public global::Ice.ObjectPrx? getServerProxy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getServerProxyAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public global::Ice.ObjectPrx[] addProxies(global::Ice.ObjectPrx[] proxies, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public global::Ice.ObjectPrx?[] addProxies(global::Ice.ObjectPrx?[] proxies, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_addProxiesAsync(proxies, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public string getCategoryForClient(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public string getCategoryForClient(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getCategoryForClientAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public SessionPrx createSession(string userId, string password, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public SessionPrx? createSession(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_createSessionAsync(userId, password, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public SessionPrx createSessionFromSecureConnection(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public SessionPrx? createSessionFromSecureConnection(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_createSessionFromSecureConnectionAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void refreshSession(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void refreshSession(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_refreshSessionAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void destroySession(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void destroySession(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_destroySessionAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public long getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public long getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getSessionTimeoutAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public int getACMTimeout(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public int getACMTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getACMTimeoutAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -488,12 +490,12 @@ namespace Glacier2
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<global::Ice.Router_GetClientProxyResult> getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<global::Ice.Router_GetClientProxyResult> getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getClientProxyAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.Router_GetClientProxyResult> _iceI_getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.Router_GetClientProxyResult> _iceI_getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getClientProxy_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.Router_GetClientProxyResult>(progress, cancel);
@@ -503,7 +505,7 @@ namespace Glacier2
 
         private const string _getClientProxy_name = "getClientProxy";
 
-        private void _iceI_getClientProxy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getClientProxy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::Ice.Router_GetClientProxyResult>(completed);
             outAsync.invoke(
@@ -514,7 +516,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Router_GetClientProxyResult ret = new global::Ice.Router_GetClientProxyResult();
+                    var ret = new global::Ice.Router_GetClientProxyResult();
                     ret.returnValue = istr.readProxy();
                     {
                         var tmp = istr.readBool(1);
@@ -524,24 +526,24 @@ namespace Glacier2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getServerProxyAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getServerProxy_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
             _iceI_getServerProxy(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getServerProxy_name = "getServerProxy";
 
-        private void _iceI_getServerProxy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getServerProxy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
+            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _getServerProxy_name,
                 global::Ice.OperationMode.Idempotent,
@@ -550,30 +552,30 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret = default;
+                    global::Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx[]> addProxiesAsync(global::Ice.ObjectPrx[] proxies, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?[]> addProxiesAsync(global::Ice.ObjectPrx?[] proxies, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_addProxiesAsync(proxies, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx[]> _iceI_addProxiesAsync(global::Ice.ObjectPrx[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?[]> _iceI_addProxiesAsync(global::Ice.ObjectPrx?[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_addProxies_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?[]>(progress, cancel);
             _iceI_addProxies(iceP_proxies, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _addProxies_name = "addProxies";
 
-        private void _iceI_addProxies(global::Ice.ObjectPrx[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_addProxies(global::Ice.ObjectPrx?[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx[]>(completed);
+            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?[]>(completed);
             outAsync.invoke(
                 _addProxies_name,
                 global::Ice.OperationMode.Idempotent,
@@ -586,18 +588,18 @@ namespace Glacier2
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx[] ret = default;
+                    global::Ice.ObjectPrx?[] ret;
                     ret = global::Ice.ObjectProxySeqHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<string> getCategoryForClientAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<string> getCategoryForClientAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getCategoryForClientAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string> _iceI_getCategoryForClientAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string> _iceI_getCategoryForClientAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getCategoryForClient_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
@@ -607,7 +609,7 @@ namespace Glacier2
 
         private const string _getCategoryForClient_name = "getCategoryForClient";
 
-        private void _iceI_getCategoryForClient(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getCategoryForClient(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
@@ -618,30 +620,30 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    string ret = default;
+                    string ret;
                     ret = istr.readString();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<SessionPrx> createSessionAsync(string userId, string password, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_createSessionAsync(userId, password, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<SessionPrx> _iceI_createSessionAsync(string iceP_userId, string iceP_password, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<SessionPrx?> _iceI_createSessionAsync(string iceP_userId, string iceP_password, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_createSession_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SessionPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SessionPrx?>(progress, cancel);
             _iceI_createSession(iceP_userId, iceP_password, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _createSession_name = "createSession";
 
-        private void _iceI_createSession(string iceP_userId, string iceP_password, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_createSession(string iceP_userId, string iceP_password, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<SessionPrx>(completed);
+            var outAsync = getOutgoingAsync<SessionPrx?>(completed);
             outAsync.invoke(
                 _createSession_name,
                 global::Ice.OperationMode.Normal,
@@ -673,30 +675,30 @@ namespace Glacier2
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SessionPrx ret = default;
+                    SessionPrx? ret;
                     ret = SessionPrxHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<SessionPrx> createSessionFromSecureConnectionAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_createSessionFromSecureConnectionAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<SessionPrx> _iceI_createSessionFromSecureConnectionAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<SessionPrx?> _iceI_createSessionFromSecureConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_createSessionFromSecureConnection_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SessionPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SessionPrx?>(progress, cancel);
             _iceI_createSessionFromSecureConnection(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _createSessionFromSecureConnection_name = "createSessionFromSecureConnection";
 
-        private void _iceI_createSessionFromSecureConnection(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_createSessionFromSecureConnection(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<SessionPrx>(completed);
+            var outAsync = getOutgoingAsync<SessionPrx?>(completed);
             outAsync.invoke(
                 _createSessionFromSecureConnection_name,
                 global::Ice.OperationMode.Normal,
@@ -723,18 +725,18 @@ namespace Glacier2
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SessionPrx ret = default;
+                    SessionPrx? ret;
                     ret = SessionPrxHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task refreshSessionAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task refreshSessionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_refreshSessionAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_refreshSessionAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_refreshSessionAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_refreshSession_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -744,7 +746,7 @@ namespace Glacier2
 
         private const string _refreshSession_name = "refreshSession";
 
-        private void _iceI_refreshSession(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_refreshSession(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -769,12 +771,12 @@ namespace Glacier2
                 });
         }
 
-        public global::System.Threading.Tasks.Task destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_destroySessionAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_destroySession_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -784,7 +786,7 @@ namespace Glacier2
 
         private const string _destroySession_name = "destroySession";
 
-        private void _iceI_destroySession(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_destroySession(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -809,12 +811,12 @@ namespace Glacier2
                 });
         }
 
-        public global::System.Threading.Tasks.Task<long> getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<long> getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getSessionTimeoutAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<long> _iceI_getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<long> _iceI_getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getSessionTimeout_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<long>(progress, cancel);
@@ -824,7 +826,7 @@ namespace Glacier2
 
         private const string _getSessionTimeout_name = "getSessionTimeout";
 
-        private void _iceI_getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<long>(completed);
             outAsync.invoke(
@@ -835,18 +837,18 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    long ret = default;
+                    long ret;
                     ret = istr.readLong();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int> getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<int> getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getACMTimeoutAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<int> _iceI_getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getACMTimeout_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -856,7 +858,7 @@ namespace Glacier2
 
         private const string _getACMTimeout_name = "getACMTimeout";
 
-        private void _iceI_getACMTimeout(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getACMTimeout(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
@@ -867,7 +869,7 @@ namespace Glacier2
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    int ret = default;
+                    int ret;
                     ret = istr.readInt();
                     return ret;
                 });
@@ -880,7 +882,7 @@ namespace Glacier2
         public static RouterPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static RouterPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static RouterPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -891,9 +893,9 @@ namespace Glacier2
             return null;
         }
 
-        public static RouterPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static RouterPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -909,23 +911,27 @@ namespace Glacier2
             return null;
         }
 
-        public static RouterPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static RouterPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                RouterPrxHelper prx = new RouterPrxHelper();
+                var prx = new RouterPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static RouterPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static RouterPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                RouterPrxHelper prx = new RouterPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new RouterPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -945,17 +951,17 @@ namespace Glacier2
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, RouterPrx v)
+        public static void write(global::Ice.OutputStream ostr, RouterPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static RouterPrx read(global::Ice.InputStream istr)
+        public static RouterPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                RouterPrxHelper result = new RouterPrxHelper();
+                 var result = new RouterPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -974,29 +980,29 @@ namespace Glacier2
     {
         #region Slice operations
 
-        public abstract string getCategoryForClient(global::Ice.Current current = null);
+        public abstract string getCategoryForClient(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<SessionPrx> createSessionAsync(string userId, string password, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<SessionPrx> createSessionFromSecureConnectionAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::Ice.Current? current = null);
 
-        public abstract void refreshSession(global::Ice.Current current = null);
+        public abstract void refreshSession(global::Ice.Current? current = null);
 
-        public abstract void destroySession(global::Ice.Current current = null);
+        public abstract void destroySession(global::Ice.Current? current = null);
 
-        public abstract long getSessionTimeout(global::Ice.Current current = null);
+        public abstract long getSessionTimeout(global::Ice.Current? current = null);
 
-        public abstract int getACMTimeout(global::Ice.Current current = null);
+        public abstract int getACMTimeout(global::Ice.Current? current = null);
 
         #endregion
 
         #region Inherited Slice operations
 
-        public abstract global::Ice.ObjectPrx getClientProxy(out bool? hasRoutingTable, global::Ice.Current current = null);
+        public abstract global::Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::Ice.Current? current = null);
 
-        public abstract global::Ice.ObjectPrx getServerProxy(global::Ice.Current current = null);
+        public abstract global::Ice.ObjectPrx? getServerProxy(global::Ice.Current? current = null);
 
-        public abstract global::Ice.ObjectPrx[] addProxies(global::Ice.ObjectPrx[] proxies, global::Ice.Current current = null);
+        public abstract global::Ice.ObjectPrx?[] addProxies(global::Ice.ObjectPrx?[] proxies, global::Ice.Current? current = null);
 
         #endregion
 
@@ -1009,17 +1015,17 @@ namespace Glacier2
             "::Ice::Router"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -1052,13 +1058,13 @@ namespace Glacier2
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_userId = default;
-            string iceP_password = default;
+            string iceP_userId;
+            string iceP_password;
             iceP_userId = istr.readString();
             iceP_password = istr.readString();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SessionPrx>(obj.createSessionAsync(iceP_userId, iceP_password, current),
+            return inS.setResultTask<SessionPrx?>(obj.createSessionAsync(iceP_userId, iceP_password, current),
                 (ostr, ret) =>
                 {
                     SessionPrxHelper.write(ostr, ret);
@@ -1072,7 +1078,7 @@ namespace Glacier2
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SessionPrx>(obj.createSessionFromSecureConnectionAsync(current),
+            return inS.setResultTask<SessionPrx?>(obj.createSessionFromSecureConnectionAsync(current),
                 (ostr, ret) =>
                 {
                     SessionPrxHelper.write(ostr, ret);

@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("ServerPrivateAMD.ice")]
@@ -191,7 +193,7 @@ namespace Test
         public string sb = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B pb;
+        public B? pb;
 
         #endregion
 
@@ -200,7 +202,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B(string sb, B pb)
+        public B(string sb, B? pb)
         {
             this.sb = sb;
             this.pb = pb;
@@ -244,7 +246,7 @@ namespace Test
         {
             istr_.startSlice();
             sb = istr_.readString();
-            istr_.readValue((B v) => { this.pb = v; });
+            istr_.readValue((B? v) => { this.pb = v; });
             istr_.endSlice();
         }
 
@@ -271,7 +273,7 @@ namespace Test
         public string sd1 = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B pd1;
+        public B? pd1;
 
         #endregion
 
@@ -280,7 +282,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D1(string sb, B pb, string sd1, B pd1) : base(sb, pb)
+        public D1(string sb, B? pb, string sd1, B? pd1) : base(sb, pb)
         {
             this.sd1 = sd1;
             this.pd1 = pd1;
@@ -325,7 +327,7 @@ namespace Test
         {
             istr_.startSlice();
             sd1 = istr_.readString();
-            istr_.readValue((B v) => { this.pd1 = v; });
+            istr_.readValue((B? v) => { this.pd1 = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -350,7 +352,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B[] s;
+        public B?[] s;
 
         #endregion
 
@@ -359,7 +361,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SS1(B[] s)
+        public SS1(B?[] s)
         {
             this.s = s;
             ice_initialize();
@@ -369,7 +371,7 @@ namespace Test
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public SS1()
         {
-            this.s = null;
+            this.s = null!;
             ice_initialize();
         }
 
@@ -426,7 +428,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B[] s;
+        public B?[] s;
 
         #endregion
 
@@ -435,7 +437,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SS2(B[] s)
+        public SS2(B?[] s)
         {
             this.s = s;
             ice_initialize();
@@ -445,7 +447,7 @@ namespace Test
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public SS2()
         {
-            this.s = null;
+            this.s = null!;
             ice_initialize();
         }
 
@@ -500,10 +502,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SS1 c1;
+        public SS1? c1;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SS2 c2;
+        public SS2? c2;
 
         #endregion
 
@@ -518,7 +520,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SS3(SS1 c1, SS2 c2)
+        public SS3(SS1? c1, SS2? c2)
         {
             this.c1 = c1;
             this.c2 = c2;
@@ -528,8 +530,8 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SS3(global::Ice.InputStream istr)
         {
-            istr.readValue((SS1 v) => { this.c1 = v; });
-            istr.readValue((SS2 v) => { this.c2 = v; });
+            istr.readValue((SS1? v) => { this.c1 = v; });
+            istr.readValue((SS2? v) => { this.c2 = v; });
             ice_initialize();
         }
 
@@ -554,10 +556,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as SS3);
+        public override bool Equals(object? other) => Equals(other as SS3);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(SS3 other)
+        public bool Equals(SS3? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -573,10 +575,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(SS3 lhs, SS3 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(SS3? lhs, SS3? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(SS3 lhs, SS3 rhs) => !(lhs == rhs);
+        public static bool operator !=(SS3? lhs, SS3? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -622,21 +624,21 @@ namespace Test
         public string sbe = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B pb;
+        public B? pb;
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BaseException(string sbe, B pb, global::System.Exception innerException = null) : base(innerException)
+        public BaseException(string sbe, B? pb, global::System.Exception? innerException = null) : base(innerException)
         {
             this.sbe = sbe;
             this.pb = pb;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BaseException(global::System.Exception innerException) : base(innerException)
+        public BaseException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -669,7 +671,7 @@ namespace Test
         {
             istr_.startSlice();
             sbe = istr_.readString();
-            istr_.readValue((B v) => { this.pb = v; });
+            istr_.readValue((B? v) => { this.pb = v; });
             istr_.endSlice();
         }
 
@@ -703,21 +705,21 @@ namespace Test
         public string sde = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D1 pd1;
+        public D1? pd1;
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedException(string sbe, B pb, string sde, D1 pd1, global::System.Exception innerException = null) : base(sbe, pb, innerException)
+        public DerivedException(string sbe, B? pb, string sde, D1? pd1, global::System.Exception? innerException = null) : base(sbe, pb, innerException)
         {
             this.sde = sde;
             this.pd1 = pd1;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedException(global::System.Exception innerException) : base(innerException)
+        public DerivedException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -751,7 +753,7 @@ namespace Test
         {
             istr_.startSlice();
             sde = istr_.readString();
-            istr_.readValue((D1 v) => { this.pd1 = v; });
+            istr_.readValue((D1? v) => { this.pd1 = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -926,7 +928,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PBase pb;
+        public PBase? pb;
 
         #endregion
 
@@ -935,7 +937,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PDerived(int pi, string ps, PBase pb) : base(pi, ps)
+        public PDerived(int pi, string ps, PBase? pb) : base(pi, ps)
         {
             this.pb = pb;
             ice_initialize();
@@ -977,7 +979,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((PBase v) => { this.pb = v; });
+            istr_.readValue((PBase? v) => { this.pb = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -1002,7 +1004,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PNode next;
+        public PNode? next;
 
         #endregion
 
@@ -1011,7 +1013,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PNode(PNode next)
+        public PNode(PNode? next)
         {
             this.next = next;
             ice_initialize();
@@ -1052,7 +1054,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((PNode v) => { this.next = v; });
+            istr_.readValue((PNode? v) => { this.next = v; });
             istr_.endSlice();
         }
 
@@ -1077,7 +1079,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PreservedException(global::System.Exception innerException) : base(innerException)
+        public PreservedException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -1224,7 +1226,7 @@ namespace Test
         public string su = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SUnknown cycle;
+        public SUnknown? cycle;
 
         #endregion
 
@@ -1233,7 +1235,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SUnknown(string su, SUnknown cycle)
+        public SUnknown(string su, SUnknown? cycle)
         {
             this.su = su;
             this.cycle = cycle;
@@ -1277,7 +1279,7 @@ namespace Test
         {
             istr_.startSlice();
             su = istr_.readString();
-            istr_.readValue((SUnknown v) => { this.cycle = v; });
+            istr_.readValue((SUnknown? v) => { this.cycle = v; });
             istr_.endSlice();
         }
 
@@ -1304,7 +1306,7 @@ namespace Test
         public string sd2 = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B pd2;
+        public B? pd2;
 
         #endregion
 
@@ -1313,7 +1315,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D2(string sb, B pb, string sd2, B pd2) : base(sb, pb)
+        public D2(string sb, B? pb, string sd2, B? pd2) : base(sb, pb)
         {
             this.sd2 = sd2;
             this.pd2 = pd2;
@@ -1358,7 +1360,7 @@ namespace Test
         {
             istr_.startSlice();
             sd2 = istr_.readString();
-            istr_.readValue((B v) => { this.pd2 = v; });
+            istr_.readValue((B? v) => { this.pd2 = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -1383,10 +1385,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B p1;
+        public B? p1;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public B p2;
+        public B? p2;
 
         #endregion
 
@@ -1395,7 +1397,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D4(string sb, B pb, B p1, B p2) : base(sb, pb)
+        public D4(string sb, B? pb, B? p1, B? p2) : base(sb, pb)
         {
             this.p1 = p1;
             this.p2 = p2;
@@ -1439,8 +1441,8 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((B v) => { this.p1 = v; });
-            istr_.readValue((B v) => { this.p2 = v; });
+            istr_.readValue((B? v) => { this.p1 = v; });
+            istr_.readValue((B? v) => { this.p2 = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -1469,21 +1471,21 @@ namespace Test
         public string sude = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public D2 pd2;
+        public D2? pd2;
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerivedException(string sbe, B pb, string sude, D2 pd2, global::System.Exception innerException = null) : base(sbe, pb, innerException)
+        public UnknownDerivedException(string sbe, B? pb, string sude, D2? pd2, global::System.Exception? innerException = null) : base(sbe, pb, innerException)
         {
             this.sude = sude;
             this.pd2 = pd2;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerivedException(global::System.Exception innerException) : base(innerException)
+        public UnknownDerivedException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -1517,7 +1519,7 @@ namespace Test
         {
             istr_.startSlice();
             sude = istr_.readString();
-            istr_.readValue((D2 v) => { this.pd2 = v; });
+            istr_.readValue((D2? v) => { this.pd2 = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -1619,10 +1621,10 @@ namespace Test
         public string psu = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PNode graph;
+        public PNode? graph;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass cl;
+        public MyClass? cl;
 
         #endregion
 
@@ -1631,7 +1633,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknown(int pi, string ps, string psu, PNode graph, MyClass cl) : base(pi, ps)
+        public PSUnknown(int pi, string ps, string psu, PNode? graph, MyClass? cl) : base(pi, ps)
         {
             this.psu = psu;
             this.graph = graph;
@@ -1678,8 +1680,8 @@ namespace Test
         {
             istr_.startSlice();
             psu = istr_.readString();
-            istr_.readValue((PNode v) => { this.graph = v; });
-            istr_.readValue((MyClass v) => { this.cl = v; });
+            istr_.readValue((PNode? v) => { this.graph = v; });
+            istr_.readValue((MyClass? v) => { this.cl = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -1704,7 +1706,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PBase pb;
+        public PBase? pb;
 
         #endregion
 
@@ -1713,7 +1715,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknown2(int pi, string ps, PBase pb) : base(pi, ps)
+        public PSUnknown2(int pi, string ps, PBase? pb) : base(pi, ps)
         {
             this.pb = pb;
             ice_initialize();
@@ -1755,7 +1757,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((PBase v) => { this.pb = v; });
+            istr_.readValue((PBase? v) => { this.pb = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -1781,20 +1783,20 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknown2 p;
+        public PSUnknown2? p;
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknownException(PSUnknown2 p, global::System.Exception innerException = null) : base(innerException)
+        public PSUnknownException(PSUnknown2? p, global::System.Exception? innerException = null) : base(innerException)
         {
             this.p = p;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PSUnknownException(global::System.Exception innerException) : base(innerException)
+        public PSUnknownException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -1826,7 +1828,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((PSUnknown2 v) => { this.p = v; });
+            istr_.readValue((PSUnknown2? v) => { this.p = v; });
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
@@ -1857,7 +1859,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Forward f;
+        public Forward? f;
 
         #endregion
 
@@ -1866,7 +1868,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Hidden(Forward f)
+        public Hidden(Forward? f)
         {
             this.f = f;
             ice_initialize();
@@ -1907,7 +1909,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((Forward v) => { this.f = v; });
+            istr_.readValue((Forward? v) => { this.f = v; });
             istr_.endSlice();
         }
 
@@ -1931,7 +1933,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Hidden h;
+        public Hidden? h;
 
         #endregion
 
@@ -1940,7 +1942,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Forward(Hidden h)
+        public Forward(Hidden? h)
         {
             this.h = h;
             ice_initialize();
@@ -1981,7 +1983,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((Hidden v) => { this.h = v; });
+            istr_.readValue((Hidden? v) => { this.h = v; });
             istr_.endSlice();
         }
 
@@ -1991,19 +1993,19 @@ namespace Test
 
 namespace Test
 {
-    public record struct TestIntf_ParamTest1Result(B p1, B p2);
+    public record struct TestIntf_ParamTest1Result(B? p1, B? p2);
 
-    public record struct TestIntf_ParamTest2Result(B p2, B p1);
+    public record struct TestIntf_ParamTest2Result(B? p2, B? p1);
 
-    public record struct TestIntf_ParamTest3Result(B returnValue, B p1, B p2);
+    public record struct TestIntf_ParamTest3Result(B? returnValue, B? p1, B? p2);
 
-    public record struct TestIntf_ParamTest4Result(B returnValue, B p);
+    public record struct TestIntf_ParamTest4Result(B? returnValue, B? p);
 
-    public record struct TestIntf_ReturnTest1Result(B returnValue, B p1, B p2);
+    public record struct TestIntf_ReturnTest1Result(B? returnValue, B? p1, B? p2);
 
-    public record struct TestIntf_ReturnTest2Result(B returnValue, B p2, B p1);
+    public record struct TestIntf_ReturnTest2Result(B? returnValue, B? p2, B? p1);
 
-    public record struct TestIntf_DictionaryTestResult(global::System.Collections.Generic.Dictionary<int, B> returnValue, global::System.Collections.Generic.Dictionary<int, B> bout);
+    public record struct TestIntf_DictionaryTestResult(global::System.Collections.Generic.Dictionary<int, B?> returnValue, global::System.Collections.Generic.Dictionary<int, B?> bout);
 }
 
 namespace Test
@@ -2011,152 +2013,152 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface TestIntfPrx : global::Ice.ObjectPrx
     {
-        global::Ice.Value SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        global::Ice.Value? SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<global::Ice.Value> SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        SBase SBaseAsSBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        SBase? SBaseAsSBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<SBase> SBaseAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<SBase?> SBaseAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        SBase SBSKnownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        SBase? SBSKnownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<SBase> SBSKnownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<SBase?> SBSKnownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        SBSKnownDerived SBSKnownDerivedAsSBSKnownDerived(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        SBSKnownDerived? SBSKnownDerivedAsSBSKnownDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<SBSKnownDerived> SBSKnownDerivedAsSBSKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<SBSKnownDerived?> SBSKnownDerivedAsSBSKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        SBase SBSUnknownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        SBase? SBSUnknownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<SBase> SBSUnknownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        SBase SBSUnknownDerivedAsSBaseCompact(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        SBase? SBSUnknownDerivedAsSBaseCompact(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<SBase> SBSUnknownDerivedAsSBaseCompactAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseCompactAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::Ice.Value SUnknownAsObject(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        global::Ice.Value? SUnknownAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<global::Ice.Value> SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void checkSUnknown(global::Ice.Value o, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void checkSUnknown(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value o, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        B oneElementCycle(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        B? oneElementCycle(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<B> oneElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<B?> oneElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        B twoElementCycle(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        B? twoElementCycle(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<B> twoElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<B?> twoElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        B D1AsB(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        B? D1AsB(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<B> D1AsBAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<B?> D1AsBAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        D1 D1AsD1(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        D1? D1AsD1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<D1> D1AsD1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<D1?> D1AsD1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        B D2AsB(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        B? D2AsB(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<B> D2AsBAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<B?> D2AsBAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void paramTest1(out B p1, out B p2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void paramTest1(out B? p1, out B? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void paramTest2(out B p2, out B p1, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void paramTest2(out B? p2, out B? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        B paramTest3(out B p1, out B p2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        B? paramTest3(out B? p1, out B? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        B paramTest4(out B p, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        B? paramTest4(out B? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        B returnTest1(out B p1, out B p2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        B? returnTest1(out B? p1, out B? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        B returnTest2(out B p2, out B p1, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        B? returnTest2(out B? p2, out B? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        B returnTest3(B p1, B p2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        B? returnTest3(B? p1, B? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<B> returnTest3Async(B p1, B p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<B?> returnTest3Async(B? p1, B? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        SS3 sequenceTest(SS1 p1, SS2 p2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        SS3 sequenceTest(SS1? p1, SS2? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1 p1, SS2 p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1? p1, SS2? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Collections.Generic.Dictionary<int, B> dictionaryTest(global::System.Collections.Generic.Dictionary<int, B> bin, out global::System.Collections.Generic.Dictionary<int, B> bout, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        global::System.Collections.Generic.Dictionary<int, B?> dictionaryTest(global::System.Collections.Generic.Dictionary<int, B?> bin, out global::System.Collections.Generic.Dictionary<int, B?> bout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B> bin, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B?> bin, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        PBase exchangePBase(PBase pb, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        PBase? exchangePBase(PBase? pb, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<PBase> exchangePBaseAsync(PBase pb, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<PBase?> exchangePBaseAsync(PBase? pb, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        Preserved PBSUnknownAsPreserved(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        Preserved? PBSUnknownAsPreserved(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<Preserved> PBSUnknownAsPreservedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void checkPBSUnknown(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void checkPBSUnknown(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        Preserved PBSUnknownAsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        Preserved? PBSUnknownAsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<Preserved> PBSUnknownAsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void checkPBSUnknownWithGraph(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void checkPBSUnknownWithGraph(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        Preserved PBSUnknown2AsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        Preserved? PBSUnknown2AsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<Preserved> PBSUnknown2AsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void checkPBSUnknown2WithGraph(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void checkPBSUnknown2WithGraph(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        PNode exchangePNode(PNode pn, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        PNode? exchangePNode(PNode? pn, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<PNode> exchangePNodeAsync(PNode pn, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<PNode?> exchangePNodeAsync(PNode? pn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void throwBaseAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void throwBaseAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void throwDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void throwDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void throwDerivedAsDerived(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void throwDerivedAsDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void throwUnknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void throwUnknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void throwPreservedException(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void throwPreservedException(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Use of forward-declared class to verify that code is generated correctly.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void useForward(out Forward f, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void useForward(out Forward? f, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Use of forward-declared class to verify that code is generated correctly.
@@ -2165,11 +2167,11 @@ namespace Test
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<Forward> useForwardAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Forward?> useForwardAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -2179,109 +2181,109 @@ namespace Test
     public interface TestIntfOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<global::Ice.Value> SBaseAsObjectAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SBase> SBaseAsSBaseAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<SBase?> SBaseAsSBaseAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SBase> SBSKnownDerivedAsSBaseAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<SBase?> SBSKnownDerivedAsSBaseAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SBSKnownDerived> SBSKnownDerivedAsSBSKnownDerivedAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<SBSKnownDerived?> SBSKnownDerivedAsSBSKnownDerivedAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SBase> SBSUnknownDerivedAsSBaseAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SBase> SBSUnknownDerivedAsSBaseCompactAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseCompactAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<global::Ice.Value> SUnknownAsObjectAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value o, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<B> oneElementCycleAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<B?> oneElementCycleAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<B> twoElementCycleAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<B?> twoElementCycleAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<B> D1AsBAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<B?> D1AsBAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<D1> D1AsD1Async(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<D1?> D1AsD1Async(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<B> D2AsBAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<B?> D2AsBAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<B> returnTest3Async(B p1, B p2, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<B?> returnTest3Async(B? p1, B? p2, global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1 p1, SS2 p2, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1? p1, SS2? p2, global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B> bin, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B?> bin, global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<PBase> exchangePBaseAsync(PBase pb, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<PBase?> exchangePBaseAsync(PBase? pb, global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Preserved> PBSUnknownAsPreservedAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved p, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved? p, global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Preserved> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved p, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved? p, global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Preserved> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved p, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved? p, global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<PNode> exchangePNodeAsync(PNode pn, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<PNode?> exchangePNodeAsync(PNode? pn, global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.Current? current = null);
 
         /// <summary>
         /// Use of forward-declared class to verify that code is generated correctly.
@@ -2289,10 +2291,10 @@ namespace Test
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Forward> useForwardAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<Forward?> useForwardAsync(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current? current = null);
     }
 }
 
@@ -2301,7 +2303,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class BSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, B[] v)
+        public static void write(global::Ice.OutputStream ostr, B?[] v)
         {
             if (v is null)
             {
@@ -2317,13 +2319,13 @@ namespace Test
             }
         }
 
-        public static B[] read(global::Ice.InputStream istr)
+        public static B?[] read(global::Ice.InputStream istr)
         {
-            B[] v;
+            B?[] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new B[szx];
-                for(int ix = 0; ix < szx; ++ix)
+                v = new B?[szx];
+                for (int ix = 0; ix < szx; ++ix)
                 {
                     istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<B>(v, ix));
                 }
@@ -2336,7 +2338,7 @@ namespace Test
     public sealed class BDictHelper
     {
         public static void write(global::Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, B> v)
+                                 global::System.Collections.Generic.Dictionary<int, B?> v)
         {
             if(v == null)
             {
@@ -2345,7 +2347,7 @@ namespace Test
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, B> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<int, B?> e in v)
                 {
                     ostr.writeInt(e.Key);
                     ostr.writeValue(e.Value);
@@ -2353,15 +2355,15 @@ namespace Test
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<int, B> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<int, B?> read(global::Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, B> r = new global::System.Collections.Generic.Dictionary<int, B>();
+            global::System.Collections.Generic.Dictionary<int, B?> r = new global::System.Collections.Generic.Dictionary<int, B?>();
             for(int i = 0; i < sz; ++i)
             {
-                int k = default;
+                int k;
                 k = istr.readInt();
-                istr.readValue((B v) => { r[k] = v; });
+                istr.readValue((B? v) => { r[k] = v; });
             }
             return r;
         }
@@ -2370,7 +2372,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class PBaseSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, PBase[] v)
+        public static void write(global::Ice.OutputStream ostr, PBase?[] v)
         {
             if (v is null)
             {
@@ -2386,13 +2388,13 @@ namespace Test
             }
         }
 
-        public static PBase[] read(global::Ice.InputStream istr)
+        public static PBase?[] read(global::Ice.InputStream istr)
         {
-            PBase[] v;
+            PBase?[] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new PBase[szx];
-                for(int ix = 0; ix < szx; ++ix)
+                v = new PBase?[szx];
+                for (int ix = 0; ix < szx; ++ix)
                 {
                     istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<PBase>(v, ix));
                 }
@@ -2411,163 +2413,163 @@ namespace Test
 
         #region Synchronous operations
 
-        public global::Ice.Value SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public global::Ice.Value? SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_SBaseAsObjectAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public SBase SBaseAsSBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public SBase? SBaseAsSBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_SBaseAsSBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public SBase SBSKnownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public SBase? SBSKnownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_SBSKnownDerivedAsSBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public SBSKnownDerived SBSKnownDerivedAsSBSKnownDerived(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public SBSKnownDerived? SBSKnownDerivedAsSBSKnownDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_SBSKnownDerivedAsSBSKnownDerivedAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public SBase SBSUnknownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public SBase? SBSUnknownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_SBSUnknownDerivedAsSBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public SBase SBSUnknownDerivedAsSBaseCompact(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public SBase? SBSUnknownDerivedAsSBaseCompact(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_SBSUnknownDerivedAsSBaseCompactAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public global::Ice.Value SUnknownAsObject(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public global::Ice.Value? SUnknownAsObject(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_SUnknownAsObjectAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void checkSUnknown(global::Ice.Value o, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void checkSUnknown(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_checkSUnknownAsync(o, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public B oneElementCycle(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public B? oneElementCycle(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_oneElementCycleAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public B twoElementCycle(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public B? twoElementCycle(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_twoElementCycleAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public B D1AsB(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public B? D1AsB(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_D1AsBAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public D1 D1AsD1(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public D1? D1AsD1(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_D1AsD1Async(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public B D2AsB(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public B? D2AsB(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_D2AsBAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void paramTest1(out B p1, out B p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void paramTest1(out B? p1, out B? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2575,13 +2577,13 @@ namespace Test
                 p1 = result_.p1;
                 p2 = result_.p2;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void paramTest2(out B p2, out B p1, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void paramTest2(out B? p2, out B? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2589,13 +2591,13 @@ namespace Test
                 p2 = result_.p2;
                 p1 = result_.p1;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public B paramTest3(out B p1, out B p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public B? paramTest3(out B? p1, out B? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2604,13 +2606,13 @@ namespace Test
                 p2 = result_.p2;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public B paramTest4(out B p, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public B? paramTest4(out B? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2618,13 +2620,13 @@ namespace Test
                 p = result_.p;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public B returnTest1(out B p1, out B p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public B? returnTest1(out B? p1, out B? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2633,13 +2635,13 @@ namespace Test
                 p2 = result_.p2;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public B returnTest2(out B p2, out B p1, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public B? returnTest2(out B? p2, out B? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2648,37 +2650,37 @@ namespace Test
                 p1 = result_.p1;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public B returnTest3(B p1, B p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public B? returnTest3(B? p1, B? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_returnTest3Async(p1, p2, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public SS3 sequenceTest(SS1 p1, SS2 p2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public SS3 sequenceTest(SS1? p1, SS2? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_sequenceTestAsync(p1, p2, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<int, B> dictionaryTest(global::System.Collections.Generic.Dictionary<int, B> bin, out global::System.Collections.Generic.Dictionary<int, B> bout, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public global::System.Collections.Generic.Dictionary<int, B?> dictionaryTest(global::System.Collections.Generic.Dictionary<int, B?> bin, out global::System.Collections.Generic.Dictionary<int, B?> bout, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2686,189 +2688,189 @@ namespace Test
                 bout = result_.bout;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public PBase exchangePBase(PBase pb, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public PBase? exchangePBase(PBase? pb, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_exchangePBaseAsync(pb, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public Preserved PBSUnknownAsPreserved(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public Preserved? PBSUnknownAsPreserved(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_PBSUnknownAsPreservedAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void checkPBSUnknown(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void checkPBSUnknown(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_checkPBSUnknownAsync(p, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public Preserved PBSUnknownAsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public Preserved? PBSUnknownAsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_PBSUnknownAsPreservedWithGraphAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void checkPBSUnknownWithGraph(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void checkPBSUnknownWithGraph(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_checkPBSUnknownWithGraphAsync(p, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public Preserved PBSUnknown2AsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public Preserved? PBSUnknown2AsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_PBSUnknown2AsPreservedWithGraphAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void checkPBSUnknown2WithGraph(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void checkPBSUnknown2WithGraph(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_checkPBSUnknown2WithGraphAsync(p, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public PNode exchangePNode(PNode pn, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public PNode? exchangePNode(PNode? pn, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_exchangePNodeAsync(pn, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void throwBaseAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void throwBaseAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_throwBaseAsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void throwDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void throwDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_throwDerivedAsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void throwDerivedAsDerived(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void throwDerivedAsDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_throwDerivedAsDerivedAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void throwUnknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void throwUnknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_throwUnknownDerivedAsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void throwPreservedException(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void throwPreservedException(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_throwPreservedExceptionAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void useForward(out Forward f, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void useForward(out Forward? f, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 f = _iceI_useForwardAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -2876,24 +2878,24 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<global::Ice.Value> SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_SBaseAsObjectAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.Value> _iceI_SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.Value?> _iceI_SBaseAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_SBaseAsObject_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.Value>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.Value?>(progress, cancel);
             _iceI_SBaseAsObject(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _SBaseAsObject_name = "SBaseAsObject";
 
-        private void _iceI_SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_SBaseAsObject(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.Value>(completed);
+            var outAsync = getOutgoingAsync<global::Ice.Value?>(completed);
             outAsync.invoke(
                 _SBaseAsObject_name,
                 global::Ice.OperationMode.Normal,
@@ -2902,31 +2904,31 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Value ret = default;
-                    istr.readValue((global::Ice.Value v) => {ret = v; });
+                    global::Ice.Value? ret = null;
+                    istr.readValue((global::Ice.Value? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<SBase> SBaseAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<SBase?> SBaseAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_SBaseAsSBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<SBase> _iceI_SBaseAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<SBase?> _iceI_SBaseAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_SBaseAsSBase_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SBase>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SBase?>(progress, cancel);
             _iceI_SBaseAsSBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _SBaseAsSBase_name = "SBaseAsSBase";
 
-        private void _iceI_SBaseAsSBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_SBaseAsSBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<SBase>(completed);
+            var outAsync = getOutgoingAsync<SBase?>(completed);
             outAsync.invoke(
                 _SBaseAsSBase_name,
                 global::Ice.OperationMode.Normal,
@@ -2935,31 +2937,31 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SBase ret = default;
-                    istr.readValue((SBase v) => {ret = v; });
+                    SBase? ret = null;
+                    istr.readValue((SBase? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<SBase> SBSKnownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<SBase?> SBSKnownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_SBSKnownDerivedAsSBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<SBase> _iceI_SBSKnownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<SBase?> _iceI_SBSKnownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_SBSKnownDerivedAsSBase_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SBase>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SBase?>(progress, cancel);
             _iceI_SBSKnownDerivedAsSBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _SBSKnownDerivedAsSBase_name = "SBSKnownDerivedAsSBase";
 
-        private void _iceI_SBSKnownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_SBSKnownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<SBase>(completed);
+            var outAsync = getOutgoingAsync<SBase?>(completed);
             outAsync.invoke(
                 _SBSKnownDerivedAsSBase_name,
                 global::Ice.OperationMode.Normal,
@@ -2968,31 +2970,31 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SBase ret = default;
-                    istr.readValue((SBase v) => {ret = v; });
+                    SBase? ret = null;
+                    istr.readValue((SBase? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<SBSKnownDerived> SBSKnownDerivedAsSBSKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<SBSKnownDerived?> SBSKnownDerivedAsSBSKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_SBSKnownDerivedAsSBSKnownDerivedAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<SBSKnownDerived> _iceI_SBSKnownDerivedAsSBSKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<SBSKnownDerived?> _iceI_SBSKnownDerivedAsSBSKnownDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_SBSKnownDerivedAsSBSKnownDerived_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SBSKnownDerived>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SBSKnownDerived?>(progress, cancel);
             _iceI_SBSKnownDerivedAsSBSKnownDerived(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _SBSKnownDerivedAsSBSKnownDerived_name = "SBSKnownDerivedAsSBSKnownDerived";
 
-        private void _iceI_SBSKnownDerivedAsSBSKnownDerived(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_SBSKnownDerivedAsSBSKnownDerived(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<SBSKnownDerived>(completed);
+            var outAsync = getOutgoingAsync<SBSKnownDerived?>(completed);
             outAsync.invoke(
                 _SBSKnownDerivedAsSBSKnownDerived_name,
                 global::Ice.OperationMode.Normal,
@@ -3001,31 +3003,31 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SBSKnownDerived ret = default;
-                    istr.readValue((SBSKnownDerived v) => {ret = v; });
+                    SBSKnownDerived? ret = null;
+                    istr.readValue((SBSKnownDerived? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<SBase> SBSUnknownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_SBSUnknownDerivedAsSBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<SBase> _iceI_SBSUnknownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<SBase?> _iceI_SBSUnknownDerivedAsSBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_SBSUnknownDerivedAsSBase_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SBase>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SBase?>(progress, cancel);
             _iceI_SBSUnknownDerivedAsSBase(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _SBSUnknownDerivedAsSBase_name = "SBSUnknownDerivedAsSBase";
 
-        private void _iceI_SBSUnknownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_SBSUnknownDerivedAsSBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<SBase>(completed);
+            var outAsync = getOutgoingAsync<SBase?>(completed);
             outAsync.invoke(
                 _SBSUnknownDerivedAsSBase_name,
                 global::Ice.OperationMode.Normal,
@@ -3034,31 +3036,31 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SBase ret = default;
-                    istr.readValue((SBase v) => {ret = v; });
+                    SBase? ret = null;
+                    istr.readValue((SBase? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<SBase> SBSUnknownDerivedAsSBaseCompactAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseCompactAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_SBSUnknownDerivedAsSBaseCompactAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<SBase> _iceI_SBSUnknownDerivedAsSBaseCompactAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<SBase?> _iceI_SBSUnknownDerivedAsSBaseCompactAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_SBSUnknownDerivedAsSBaseCompact_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SBase>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SBase?>(progress, cancel);
             _iceI_SBSUnknownDerivedAsSBaseCompact(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _SBSUnknownDerivedAsSBaseCompact_name = "SBSUnknownDerivedAsSBaseCompact";
 
-        private void _iceI_SBSUnknownDerivedAsSBaseCompact(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_SBSUnknownDerivedAsSBaseCompact(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<SBase>(completed);
+            var outAsync = getOutgoingAsync<SBase?>(completed);
             outAsync.invoke(
                 _SBSUnknownDerivedAsSBaseCompact_name,
                 global::Ice.OperationMode.Normal,
@@ -3067,31 +3069,31 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SBase ret = default;
-                    istr.readValue((SBase v) => {ret = v; });
+                    SBase? ret = null;
+                    istr.readValue((SBase? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.Value> SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_SUnknownAsObjectAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.Value> _iceI_SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.Value?> _iceI_SUnknownAsObjectAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_SUnknownAsObject_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.Value>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.Value?>(progress, cancel);
             _iceI_SUnknownAsObject(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _SUnknownAsObject_name = "SUnknownAsObject";
 
-        private void _iceI_SUnknownAsObject(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_SUnknownAsObject(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.Value>(completed);
+            var outAsync = getOutgoingAsync<global::Ice.Value?>(completed);
             outAsync.invoke(
                 _SUnknownAsObject_name,
                 global::Ice.OperationMode.Normal,
@@ -3100,19 +3102,19 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.Value ret = default;
-                    istr.readValue((global::Ice.Value v) => {ret = v; });
+                    global::Ice.Value? ret = null;
+                    istr.readValue((global::Ice.Value? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value o, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_checkSUnknownAsync(o, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_checkSUnknownAsync(global::Ice.Value iceP_o, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_checkSUnknownAsync(global::Ice.Value? iceP_o, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_checkSUnknown(iceP_o, context, synchronous, completed);
@@ -3121,7 +3123,7 @@ namespace Test
 
         private const string _checkSUnknown_name = "checkSUnknown";
 
-        private void _iceI_checkSUnknown(global::Ice.Value iceP_o, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_checkSUnknown(global::Ice.Value? iceP_o, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3137,24 +3139,24 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<B> oneElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<B?> oneElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_oneElementCycleAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<B> _iceI_oneElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<B?> _iceI_oneElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_oneElementCycle_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<B>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<B?>(progress, cancel);
             _iceI_oneElementCycle(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _oneElementCycle_name = "oneElementCycle";
 
-        private void _iceI_oneElementCycle(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_oneElementCycle(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<B>(completed);
+            var outAsync = getOutgoingAsync<B?>(completed);
             outAsync.invoke(
                 _oneElementCycle_name,
                 global::Ice.OperationMode.Normal,
@@ -3163,31 +3165,31 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    B ret = default;
-                    istr.readValue((B v) => {ret = v; });
+                    B? ret = null;
+                    istr.readValue((B? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<B> twoElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<B?> twoElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_twoElementCycleAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<B> _iceI_twoElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<B?> _iceI_twoElementCycleAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_twoElementCycle_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<B>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<B?>(progress, cancel);
             _iceI_twoElementCycle(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _twoElementCycle_name = "twoElementCycle";
 
-        private void _iceI_twoElementCycle(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_twoElementCycle(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<B>(completed);
+            var outAsync = getOutgoingAsync<B?>(completed);
             outAsync.invoke(
                 _twoElementCycle_name,
                 global::Ice.OperationMode.Normal,
@@ -3196,31 +3198,31 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    B ret = default;
-                    istr.readValue((B v) => {ret = v; });
+                    B? ret = null;
+                    istr.readValue((B? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<B> D1AsBAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<B?> D1AsBAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_D1AsBAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<B> _iceI_D1AsBAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<B?> _iceI_D1AsBAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_D1AsB_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<B>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<B?>(progress, cancel);
             _iceI_D1AsB(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _D1AsB_name = "D1AsB";
 
-        private void _iceI_D1AsB(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_D1AsB(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<B>(completed);
+            var outAsync = getOutgoingAsync<B?>(completed);
             outAsync.invoke(
                 _D1AsB_name,
                 global::Ice.OperationMode.Normal,
@@ -3229,31 +3231,31 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    B ret = default;
-                    istr.readValue((B v) => {ret = v; });
+                    B? ret = null;
+                    istr.readValue((B? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<D1> D1AsD1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<D1?> D1AsD1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_D1AsD1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<D1> _iceI_D1AsD1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<D1?> _iceI_D1AsD1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_D1AsD1_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<D1>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<D1?>(progress, cancel);
             _iceI_D1AsD1(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _D1AsD1_name = "D1AsD1";
 
-        private void _iceI_D1AsD1(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_D1AsD1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<D1>(completed);
+            var outAsync = getOutgoingAsync<D1?>(completed);
             outAsync.invoke(
                 _D1AsD1_name,
                 global::Ice.OperationMode.Normal,
@@ -3262,31 +3264,31 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    D1 ret = default;
-                    istr.readValue((D1 v) => {ret = v; });
+                    D1? ret = null;
+                    istr.readValue((D1? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<B> D2AsBAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<B?> D2AsBAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_D2AsBAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<B> _iceI_D2AsBAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<B?> _iceI_D2AsBAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_D2AsB_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<B>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<B?>(progress, cancel);
             _iceI_D2AsB(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _D2AsB_name = "D2AsB";
 
-        private void _iceI_D2AsB(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_D2AsB(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<B>(completed);
+            var outAsync = getOutgoingAsync<B?>(completed);
             outAsync.invoke(
                 _D2AsB_name,
                 global::Ice.OperationMode.Normal,
@@ -3295,19 +3297,19 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    B ret = default;
-                    istr.readValue((B v) => {ret = v; });
+                    B? ret = null;
+                    istr.readValue((B? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_paramTest1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> _iceI_paramTest1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> _iceI_paramTest1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_paramTest1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_ParamTest1Result>(progress, cancel);
@@ -3317,7 +3319,7 @@ namespace Test
 
         private const string _paramTest1_name = "paramTest1";
 
-        private void _iceI_paramTest1(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_paramTest1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_ParamTest1Result>(completed);
             outAsync.invoke(
@@ -3328,20 +3330,20 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TestIntf_ParamTest1Result ret = new TestIntf_ParamTest1Result();
-                    istr.readValue((B v) => {ret.p1 = v; });
-                    istr.readValue((B v) => {ret.p2 = v; });
+                    var ret = new TestIntf_ParamTest1Result();
+                    istr.readValue((B? v) => { ret.p1 = v; });
+                    istr.readValue((B? v) => { ret.p2 = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_paramTest2Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> _iceI_paramTest2Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> _iceI_paramTest2Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_paramTest2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_ParamTest2Result>(progress, cancel);
@@ -3351,7 +3353,7 @@ namespace Test
 
         private const string _paramTest2_name = "paramTest2";
 
-        private void _iceI_paramTest2(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_paramTest2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_ParamTest2Result>(completed);
             outAsync.invoke(
@@ -3362,20 +3364,20 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TestIntf_ParamTest2Result ret = new TestIntf_ParamTest2Result();
-                    istr.readValue((B v) => {ret.p2 = v; });
-                    istr.readValue((B v) => {ret.p1 = v; });
+                    var ret = new TestIntf_ParamTest2Result();
+                    istr.readValue((B? v) => { ret.p2 = v; });
+                    istr.readValue((B? v) => { ret.p1 = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_paramTest3Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> _iceI_paramTest3Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> _iceI_paramTest3Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_paramTest3_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_ParamTest3Result>(progress, cancel);
@@ -3385,7 +3387,7 @@ namespace Test
 
         private const string _paramTest3_name = "paramTest3";
 
-        private void _iceI_paramTest3(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_paramTest3(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_ParamTest3Result>(completed);
             outAsync.invoke(
@@ -3396,21 +3398,21 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TestIntf_ParamTest3Result ret = new TestIntf_ParamTest3Result();
-                    istr.readValue((B v) => {ret.p1 = v; });
-                    istr.readValue((B v) => {ret.p2 = v; });
-                    istr.readValue((B v) => {ret.returnValue = v; });
+                    var ret = new TestIntf_ParamTest3Result();
+                    istr.readValue((B? v) => { ret.p1 = v; });
+                    istr.readValue((B? v) => { ret.p2 = v; });
+                    istr.readValue((B? v) => {ret.returnValue = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_paramTest4Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> _iceI_paramTest4Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> _iceI_paramTest4Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_paramTest4_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_ParamTest4Result>(progress, cancel);
@@ -3420,7 +3422,7 @@ namespace Test
 
         private const string _paramTest4_name = "paramTest4";
 
-        private void _iceI_paramTest4(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_paramTest4(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_ParamTest4Result>(completed);
             outAsync.invoke(
@@ -3431,20 +3433,20 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TestIntf_ParamTest4Result ret = new TestIntf_ParamTest4Result();
-                    istr.readValue((B v) => {ret.p = v; });
-                    istr.readValue((B v) => {ret.returnValue = v; });
+                    var ret = new TestIntf_ParamTest4Result();
+                    istr.readValue((B? v) => { ret.p = v; });
+                    istr.readValue((B? v) => {ret.returnValue = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_returnTest1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> _iceI_returnTest1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> _iceI_returnTest1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_returnTest1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_ReturnTest1Result>(progress, cancel);
@@ -3454,7 +3456,7 @@ namespace Test
 
         private const string _returnTest1_name = "returnTest1";
 
-        private void _iceI_returnTest1(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_returnTest1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_ReturnTest1Result>(completed);
             outAsync.invoke(
@@ -3465,21 +3467,21 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TestIntf_ReturnTest1Result ret = new TestIntf_ReturnTest1Result();
-                    istr.readValue((B v) => {ret.p1 = v; });
-                    istr.readValue((B v) => {ret.p2 = v; });
-                    istr.readValue((B v) => {ret.returnValue = v; });
+                    var ret = new TestIntf_ReturnTest1Result();
+                    istr.readValue((B? v) => { ret.p1 = v; });
+                    istr.readValue((B? v) => { ret.p2 = v; });
+                    istr.readValue((B? v) => {ret.returnValue = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_returnTest2Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> _iceI_returnTest2Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> _iceI_returnTest2Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_returnTest2_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_ReturnTest2Result>(progress, cancel);
@@ -3489,7 +3491,7 @@ namespace Test
 
         private const string _returnTest2_name = "returnTest2";
 
-        private void _iceI_returnTest2(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_returnTest2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_ReturnTest2Result>(completed);
             outAsync.invoke(
@@ -3500,33 +3502,33 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TestIntf_ReturnTest2Result ret = new TestIntf_ReturnTest2Result();
-                    istr.readValue((B v) => {ret.p2 = v; });
-                    istr.readValue((B v) => {ret.p1 = v; });
-                    istr.readValue((B v) => {ret.returnValue = v; });
+                    var ret = new TestIntf_ReturnTest2Result();
+                    istr.readValue((B? v) => { ret.p2 = v; });
+                    istr.readValue((B? v) => { ret.p1 = v; });
+                    istr.readValue((B? v) => {ret.returnValue = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<B> returnTest3Async(B p1, B p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<B?> returnTest3Async(B? p1, B? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_returnTest3Async(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<B> _iceI_returnTest3Async(B iceP_p1, B iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<B?> _iceI_returnTest3Async(B? iceP_p1, B? iceP_p2, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_returnTest3_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<B>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<B?>(progress, cancel);
             _iceI_returnTest3(iceP_p1, iceP_p2, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _returnTest3_name = "returnTest3";
 
-        private void _iceI_returnTest3(B iceP_p1, B iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_returnTest3(B? iceP_p1, B? iceP_p2, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<B>(completed);
+            var outAsync = getOutgoingAsync<B?>(completed);
             outAsync.invoke(
                 _returnTest3_name,
                 global::Ice.OperationMode.Normal,
@@ -3541,19 +3543,19 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    B ret = default;
-                    istr.readValue((B v) => {ret = v; });
+                    B? ret = null;
+                    istr.readValue((B? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1 p1, SS2 p2, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1? p1, SS2? p2, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_sequenceTestAsync(p1, p2, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<SS3> _iceI_sequenceTestAsync(SS1 iceP_p1, SS2 iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<SS3> _iceI_sequenceTestAsync(SS1? iceP_p1, SS2? iceP_p2, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_sequenceTest_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<SS3>(progress, cancel);
@@ -3563,7 +3565,7 @@ namespace Test
 
         private const string _sequenceTest_name = "sequenceTest";
 
-        private void _iceI_sequenceTest(SS1 iceP_p1, SS2 iceP_p2, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_sequenceTest(SS1? iceP_p1, SS2? iceP_p2, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<SS3>(completed);
             outAsync.invoke(
@@ -3580,19 +3582,19 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    SS3 ret = default;
+                    SS3 ret;
                     ret = new SS3(istr);
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B> bin, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B?> bin, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_dictionaryTestAsync(bin, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> _iceI_dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B> iceP_bin, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> _iceI_dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B?> iceP_bin, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_dictionaryTest_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_DictionaryTestResult>(progress, cancel);
@@ -3602,7 +3604,7 @@ namespace Test
 
         private const string _dictionaryTest_name = "dictionaryTest";
 
-        private void _iceI_dictionaryTest(global::System.Collections.Generic.Dictionary<int, B> iceP_bin, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_dictionaryTest(global::System.Collections.Generic.Dictionary<int, B?> iceP_bin, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_DictionaryTestResult>(completed);
             outAsync.invoke(
@@ -3618,7 +3620,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TestIntf_DictionaryTestResult ret = new TestIntf_DictionaryTestResult();
+                    var ret = new TestIntf_DictionaryTestResult();
                     ret.bout = BDictHelper.read(istr);
                     ret.returnValue = BDictHelper.read(istr);
                     istr.readPendingValues();
@@ -3626,24 +3628,24 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<PBase> exchangePBaseAsync(PBase pb, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<PBase?> exchangePBaseAsync(PBase? pb, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_exchangePBaseAsync(pb, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<PBase> _iceI_exchangePBaseAsync(PBase iceP_pb, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<PBase?> _iceI_exchangePBaseAsync(PBase? iceP_pb, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_exchangePBase_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<PBase>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<PBase?>(progress, cancel);
             _iceI_exchangePBase(iceP_pb, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _exchangePBase_name = "exchangePBase";
 
-        private void _iceI_exchangePBase(PBase iceP_pb, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_exchangePBase(PBase? iceP_pb, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<PBase>(completed);
+            var outAsync = getOutgoingAsync<PBase?>(completed);
             outAsync.invoke(
                 _exchangePBase_name,
                 global::Ice.OperationMode.Normal,
@@ -3657,31 +3659,31 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    PBase ret = default;
-                    istr.readValue((PBase v) => {ret = v; });
+                    PBase? ret = null;
+                    istr.readValue((PBase? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Preserved> PBSUnknownAsPreservedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_PBSUnknownAsPreservedAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Preserved> _iceI_PBSUnknownAsPreservedAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Preserved?> _iceI_PBSUnknownAsPreservedAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_PBSUnknownAsPreserved_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Preserved>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Preserved?>(progress, cancel);
             _iceI_PBSUnknownAsPreserved(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _PBSUnknownAsPreserved_name = "PBSUnknownAsPreserved";
 
-        private void _iceI_PBSUnknownAsPreserved(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_PBSUnknownAsPreserved(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<Preserved>(completed);
+            var outAsync = getOutgoingAsync<Preserved?>(completed);
             outAsync.invoke(
                 _PBSUnknownAsPreserved_name,
                 global::Ice.OperationMode.Normal,
@@ -3690,19 +3692,19 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    Preserved ret = default;
-                    istr.readValue((Preserved v) => {ret = v; });
+                    Preserved? ret = null;
+                    istr.readValue((Preserved? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_checkPBSUnknownAsync(p, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_checkPBSUnknownAsync(Preserved iceP_p, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_checkPBSUnknownAsync(Preserved? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_checkPBSUnknown(iceP_p, context, synchronous, completed);
@@ -3711,7 +3713,7 @@ namespace Test
 
         private const string _checkPBSUnknown_name = "checkPBSUnknown";
 
-        private void _iceI_checkPBSUnknown(Preserved iceP_p, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_checkPBSUnknown(Preserved? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3727,24 +3729,24 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Preserved> PBSUnknownAsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_PBSUnknownAsPreservedWithGraphAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Preserved> _iceI_PBSUnknownAsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Preserved?> _iceI_PBSUnknownAsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_PBSUnknownAsPreservedWithGraph_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Preserved>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Preserved?>(progress, cancel);
             _iceI_PBSUnknownAsPreservedWithGraph(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _PBSUnknownAsPreservedWithGraph_name = "PBSUnknownAsPreservedWithGraph";
 
-        private void _iceI_PBSUnknownAsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_PBSUnknownAsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<Preserved>(completed);
+            var outAsync = getOutgoingAsync<Preserved?>(completed);
             outAsync.invoke(
                 _PBSUnknownAsPreservedWithGraph_name,
                 global::Ice.OperationMode.Normal,
@@ -3753,19 +3755,19 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    Preserved ret = default;
-                    istr.readValue((Preserved v) => {ret = v; });
+                    Preserved? ret = null;
+                    istr.readValue((Preserved? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_checkPBSUnknownWithGraphAsync(p, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_checkPBSUnknownWithGraphAsync(Preserved iceP_p, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_checkPBSUnknownWithGraphAsync(Preserved? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_checkPBSUnknownWithGraph(iceP_p, context, synchronous, completed);
@@ -3774,7 +3776,7 @@ namespace Test
 
         private const string _checkPBSUnknownWithGraph_name = "checkPBSUnknownWithGraph";
 
-        private void _iceI_checkPBSUnknownWithGraph(Preserved iceP_p, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_checkPBSUnknownWithGraph(Preserved? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3790,24 +3792,24 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Preserved> PBSUnknown2AsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_PBSUnknown2AsPreservedWithGraphAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Preserved> _iceI_PBSUnknown2AsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Preserved?> _iceI_PBSUnknown2AsPreservedWithGraphAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_PBSUnknown2AsPreservedWithGraph_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Preserved>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Preserved?>(progress, cancel);
             _iceI_PBSUnknown2AsPreservedWithGraph(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _PBSUnknown2AsPreservedWithGraph_name = "PBSUnknown2AsPreservedWithGraph";
 
-        private void _iceI_PBSUnknown2AsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_PBSUnknown2AsPreservedWithGraph(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<Preserved>(completed);
+            var outAsync = getOutgoingAsync<Preserved?>(completed);
             outAsync.invoke(
                 _PBSUnknown2AsPreservedWithGraph_name,
                 global::Ice.OperationMode.Normal,
@@ -3816,19 +3818,19 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    Preserved ret = default;
-                    istr.readValue((Preserved v) => {ret = v; });
+                    Preserved? ret = null;
+                    istr.readValue((Preserved? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved p, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_checkPBSUnknown2WithGraphAsync(p, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_checkPBSUnknown2WithGraphAsync(Preserved iceP_p, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_checkPBSUnknown2WithGraphAsync(Preserved? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_checkPBSUnknown2WithGraph(iceP_p, context, synchronous, completed);
@@ -3837,7 +3839,7 @@ namespace Test
 
         private const string _checkPBSUnknown2WithGraph_name = "checkPBSUnknown2WithGraph";
 
-        private void _iceI_checkPBSUnknown2WithGraph(Preserved iceP_p, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_checkPBSUnknown2WithGraph(Preserved? iceP_p, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3853,24 +3855,24 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<PNode> exchangePNodeAsync(PNode pn, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<PNode?> exchangePNodeAsync(PNode? pn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_exchangePNodeAsync(pn, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<PNode> _iceI_exchangePNodeAsync(PNode iceP_pn, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<PNode?> _iceI_exchangePNodeAsync(PNode? iceP_pn, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_exchangePNode_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<PNode>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<PNode?>(progress, cancel);
             _iceI_exchangePNode(iceP_pn, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _exchangePNode_name = "exchangePNode";
 
-        private void _iceI_exchangePNode(PNode iceP_pn, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_exchangePNode(PNode? iceP_pn, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<PNode>(completed);
+            var outAsync = getOutgoingAsync<PNode?>(completed);
             outAsync.invoke(
                 _exchangePNode_name,
                 global::Ice.OperationMode.Normal,
@@ -3884,19 +3886,19 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    PNode ret = default;
-                    istr.readValue((PNode v) => {ret = v; });
+                    PNode? ret = null;
+                    istr.readValue((PNode? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_throwBaseAsBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_throwBaseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_throwBaseAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_throwBaseAsBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -3906,7 +3908,7 @@ namespace Test
 
         private const string _throwBaseAsBase_name = "throwBaseAsBase";
 
-        private void _iceI_throwBaseAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_throwBaseAsBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3931,12 +3933,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_throwDerivedAsBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_throwDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_throwDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_throwDerivedAsBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -3946,7 +3948,7 @@ namespace Test
 
         private const string _throwDerivedAsBase_name = "throwDerivedAsBase";
 
-        private void _iceI_throwDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_throwDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3971,12 +3973,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_throwDerivedAsDerivedAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_throwDerivedAsDerivedAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_throwDerivedAsDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_throwDerivedAsDerived_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -3986,7 +3988,7 @@ namespace Test
 
         private const string _throwDerivedAsDerived_name = "throwDerivedAsDerived";
 
-        private void _iceI_throwDerivedAsDerived(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_throwDerivedAsDerived(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -4011,12 +4013,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_throwUnknownDerivedAsBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_throwUnknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_throwUnknownDerivedAsBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_throwUnknownDerivedAsBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -4026,7 +4028,7 @@ namespace Test
 
         private const string _throwUnknownDerivedAsBase_name = "throwUnknownDerivedAsBase";
 
-        private void _iceI_throwUnknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_throwUnknownDerivedAsBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -4051,12 +4053,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_throwPreservedExceptionAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_throwPreservedExceptionAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_throwPreservedExceptionAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_throwPreservedException_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -4066,7 +4068,7 @@ namespace Test
 
         private const string _throwPreservedException_name = "throwPreservedException";
 
-        private void _iceI_throwPreservedException(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_throwPreservedException(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -4091,24 +4093,24 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Forward> useForwardAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Forward?> useForwardAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_useForwardAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Forward> _iceI_useForwardAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Forward?> _iceI_useForwardAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_useForward_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Forward>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Forward?>(progress, cancel);
             _iceI_useForward(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _useForward_name = "useForward";
 
-        private void _iceI_useForward(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_useForward(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<Forward>(completed);
+            var outAsync = getOutgoingAsync<Forward?>(completed);
             outAsync.invoke(
                 _useForward_name,
                 global::Ice.OperationMode.Normal,
@@ -4117,19 +4119,19 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    Forward iceP_f = default;
-                    istr.readValue((Forward v) => {iceP_f = v; });
+                    Forward? iceP_f = null;
+                    istr.readValue((Forward? v) => { iceP_f = v; });
                     istr.readPendingValues();
                     return iceP_f;
                 });
         }
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -4138,7 +4140,7 @@ namespace Test
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -4156,7 +4158,7 @@ namespace Test
         public static TestIntfPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -4167,9 +4169,9 @@ namespace Test
             return null;
         }
 
-        public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -4185,23 +4187,27 @@ namespace Test
             return null;
         }
 
-        public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                var prx = new TestIntfPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new TestIntfPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -4220,17 +4226,17 @@ namespace Test
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, TestIntfPrx v)
+        public static void write(global::Ice.OutputStream ostr, TestIntfPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static TestIntfPrx read(global::Ice.InputStream istr)
+        public static TestIntfPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                TestIntfPrxHelper result = new TestIntfPrxHelper();
+                 var result = new TestIntfPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -4249,79 +4255,79 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<global::Ice.Value> SBaseAsObjectAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<SBase> SBaseAsSBaseAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<SBase?> SBaseAsSBaseAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<SBase> SBSKnownDerivedAsSBaseAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<SBase?> SBSKnownDerivedAsSBaseAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<SBSKnownDerived> SBSKnownDerivedAsSBSKnownDerivedAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<SBSKnownDerived?> SBSKnownDerivedAsSBSKnownDerivedAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<SBase> SBSUnknownDerivedAsSBaseAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<SBase> SBSUnknownDerivedAsSBaseCompactAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseCompactAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<global::Ice.Value> SUnknownAsObjectAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value o, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<B> oneElementCycleAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<B?> oneElementCycleAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<B> twoElementCycleAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<B?> twoElementCycleAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<B> D1AsBAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<B?> D1AsBAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<D1> D1AsD1Async(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<D1?> D1AsD1Async(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<B> D2AsBAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<B?> D2AsBAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<B> returnTest3Async(B p1, B p2, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<B?> returnTest3Async(B? p1, B? p2, global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1 p1, SS2 p2, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1? p1, SS2? p2, global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B> bin, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B?> bin, global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<PBase> exchangePBaseAsync(PBase pb, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<PBase?> exchangePBaseAsync(PBase? pb, global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<Preserved> PBSUnknownAsPreservedAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved p, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved? p, global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<Preserved> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved p, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved? p, global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<Preserved> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved p, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved? p, global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<PNode> exchangePNodeAsync(PNode pn, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<PNode?> exchangePNodeAsync(PNode? pn, global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<Forward> useForwardAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<Forward?> useForwardAsync(global::Ice.Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current? current = null);
 
         #endregion
 
@@ -4333,17 +4339,17 @@ namespace Test
             "::Test::TestIntf"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -4364,7 +4370,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<global::Ice.Value>(obj.SBaseAsObjectAsync(current),
+            return inS.setResultTask<global::Ice.Value?>(obj.SBaseAsObjectAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4379,7 +4385,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SBase>(obj.SBaseAsSBaseAsync(current),
+            return inS.setResultTask<SBase?>(obj.SBaseAsSBaseAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4394,7 +4400,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SBase>(obj.SBSKnownDerivedAsSBaseAsync(current),
+            return inS.setResultTask<SBase?>(obj.SBSKnownDerivedAsSBaseAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4409,7 +4415,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SBSKnownDerived>(obj.SBSKnownDerivedAsSBSKnownDerivedAsync(current),
+            return inS.setResultTask<SBSKnownDerived?>(obj.SBSKnownDerivedAsSBSKnownDerivedAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4424,7 +4430,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SBase>(obj.SBSUnknownDerivedAsSBaseAsync(current),
+            return inS.setResultTask<SBase?>(obj.SBSUnknownDerivedAsSBaseAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4439,7 +4445,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.CompactFormat);
-            return inS.setResultTask<SBase>(obj.SBSUnknownDerivedAsSBaseCompactAsync(current),
+            return inS.setResultTask<SBase?>(obj.SBSUnknownDerivedAsSBaseCompactAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4454,7 +4460,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<global::Ice.Value>(obj.SUnknownAsObjectAsync(current),
+            return inS.setResultTask<global::Ice.Value?>(obj.SUnknownAsObjectAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4468,8 +4474,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Value iceP_o = default;
-            istr.readValue((global::Ice.Value v) => {iceP_o = v; });
+            global::Ice.Value? iceP_o = null;
+            istr.readValue((global::Ice.Value? v) => { iceP_o = v; });
             istr.readPendingValues();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
@@ -4483,7 +4489,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<B>(obj.oneElementCycleAsync(current),
+            return inS.setResultTask<B?>(obj.oneElementCycleAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4498,7 +4504,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<B>(obj.twoElementCycleAsync(current),
+            return inS.setResultTask<B?>(obj.twoElementCycleAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4513,7 +4519,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<B>(obj.D1AsBAsync(current),
+            return inS.setResultTask<B?>(obj.D1AsBAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4528,7 +4534,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<D1>(obj.D1AsD1Async(current),
+            return inS.setResultTask<D1?>(obj.D1AsD1Async(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4543,7 +4549,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<B>(obj.D2AsBAsync(current),
+            return inS.setResultTask<B?>(obj.D2AsBAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4656,14 +4662,14 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            B iceP_p1 = default;
-            B iceP_p2 = default;
-            istr.readValue((B v) => {iceP_p1 = v; });
-            istr.readValue((B v) => {iceP_p2 = v; });
+            B? iceP_p1 = null;
+            B? iceP_p2 = null;
+            istr.readValue((B? v) => { iceP_p1 = v; });
+            istr.readValue((B? v) => { iceP_p2 = v; });
             istr.readPendingValues();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<B>(obj.returnTest3Async(iceP_p1, iceP_p2, current),
+            return inS.setResultTask<B?>(obj.returnTest3Async(iceP_p1, iceP_p2, current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4677,10 +4683,10 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            SS1 iceP_p1 = default;
-            SS2 iceP_p2 = default;
-            istr.readValue((SS1 v) => {iceP_p1 = v; });
-            istr.readValue((SS2 v) => {iceP_p2 = v; });
+            SS1? iceP_p1 = null;
+            SS2? iceP_p2 = null;
+            istr.readValue((SS1? v) => { iceP_p1 = v; });
+            istr.readValue((SS2? v) => { iceP_p2 = v; });
             istr.readPendingValues();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
@@ -4698,7 +4704,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<int, B> iceP_bin = default;
+            global::System.Collections.Generic.Dictionary<int, B?> iceP_bin;
             iceP_bin = BDictHelper.read(istr);
             istr.readPendingValues();
             inS.endReadParams();
@@ -4718,12 +4724,12 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            PBase iceP_pb = default;
-            istr.readValue((PBase v) => {iceP_pb = v; });
+            PBase? iceP_pb = null;
+            istr.readValue((PBase? v) => { iceP_pb = v; });
             istr.readPendingValues();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<PBase>(obj.exchangePBaseAsync(iceP_pb, current),
+            return inS.setResultTask<PBase?>(obj.exchangePBaseAsync(iceP_pb, current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4738,7 +4744,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<Preserved>(obj.PBSUnknownAsPreservedAsync(current),
+            return inS.setResultTask<Preserved?>(obj.PBSUnknownAsPreservedAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4752,8 +4758,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            Preserved iceP_p = default;
-            istr.readValue((Preserved v) => {iceP_p = v; });
+            Preserved? iceP_p = null;
+            istr.readValue((Preserved? v) => { iceP_p = v; });
             istr.readPendingValues();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
@@ -4767,7 +4773,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<Preserved>(obj.PBSUnknownAsPreservedWithGraphAsync(current),
+            return inS.setResultTask<Preserved?>(obj.PBSUnknownAsPreservedWithGraphAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4781,8 +4787,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            Preserved iceP_p = default;
-            istr.readValue((Preserved v) => {iceP_p = v; });
+            Preserved? iceP_p = null;
+            istr.readValue((Preserved? v) => { iceP_p = v; });
             istr.readPendingValues();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
@@ -4796,7 +4802,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<Preserved>(obj.PBSUnknown2AsPreservedWithGraphAsync(current),
+            return inS.setResultTask<Preserved?>(obj.PBSUnknown2AsPreservedWithGraphAsync(current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4810,8 +4816,8 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            Preserved iceP_p = default;
-            istr.readValue((Preserved v) => {iceP_p = v; });
+            Preserved? iceP_p = null;
+            istr.readValue((Preserved? v) => { iceP_p = v; });
             istr.readPendingValues();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
@@ -4824,12 +4830,12 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            PNode iceP_pn = default;
-            istr.readValue((PNode v) => {iceP_pn = v; });
+            PNode? iceP_pn = null;
+            istr.readValue((PNode? v) => { iceP_pn = v; });
             istr.readPendingValues();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<PNode>(obj.exchangePNodeAsync(iceP_pn, current),
+            return inS.setResultTask<PNode?>(obj.exchangePNodeAsync(iceP_pn, current),
                 (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
@@ -4894,7 +4900,7 @@ namespace Test
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             inS.readEmptyParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<Forward>(obj.useForwardAsync(current),
+            return inS.setResultTask<Forward?>(obj.useForwardAsync(current),
                 (ostr, iceP_f) =>
                 {
                     ostr.writeValue(iceP_f);

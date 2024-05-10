@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("ServerPrivate.ice")]
@@ -169,7 +171,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Empty e;
+        public Empty? e;
 
         #endregion
 
@@ -178,7 +180,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public COneMember(Empty e)
+        public COneMember(Empty? e)
         {
             this.e = e;
             ice_initialize();
@@ -219,7 +221,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((Empty v) => { this.e = v; });
+            istr_.readValue((Empty? v) => { this.e = v; });
             istr_.endSlice();
         }
 
@@ -243,10 +245,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Empty e1;
+        public Empty? e1;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Empty e2;
+        public Empty? e2;
 
         #endregion
 
@@ -255,7 +257,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CTwoMembers(Empty e1, Empty e2)
+        public CTwoMembers(Empty? e1, Empty? e2)
         {
             this.e1 = e1;
             this.e2 = e2;
@@ -298,8 +300,8 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((Empty v) => { this.e1 = v; });
-            istr_.readValue((Empty v) => { this.e2 = v; });
+            istr_.readValue((Empty? v) => { this.e1 = v; });
+            istr_.readValue((Empty? v) => { this.e2 = v; });
             istr_.endSlice();
         }
 
@@ -324,20 +326,20 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Empty e;
+        public Empty? e;
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public EOneMember(Empty e, global::System.Exception innerException = null) : base(innerException)
+        public EOneMember(Empty? e, global::System.Exception? innerException = null) : base(innerException)
         {
             this.e = e;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public EOneMember(global::System.Exception innerException) : base(innerException)
+        public EOneMember(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -368,7 +370,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((Empty v) => { this.e = v; });
+            istr_.readValue((Empty? v) => { this.e = v; });
             istr_.endSlice();
         }
 
@@ -399,24 +401,24 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Empty e1;
+        public Empty? e1;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Empty e2;
+        public Empty? e2;
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ETwoMembers(Empty e1, Empty e2, global::System.Exception innerException = null) : base(innerException)
+        public ETwoMembers(Empty? e1, Empty? e2, global::System.Exception? innerException = null) : base(innerException)
         {
             this.e1 = e1;
             this.e2 = e2;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ETwoMembers(global::System.Exception innerException) : base(innerException)
+        public ETwoMembers(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -448,8 +450,8 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((Empty v) => { this.e1 = v; });
-            istr_.readValue((Empty v) => { this.e2 = v; });
+            istr_.readValue((Empty? v) => { this.e1 = v; });
+            istr_.readValue((Empty? v) => { this.e2 = v; });
             istr_.endSlice();
         }
 
@@ -477,7 +479,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Empty e;
+        public Empty? e;
 
         #endregion
 
@@ -492,7 +494,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SOneMember(Empty e)
+        public SOneMember(Empty? e)
         {
             this.e = e;
             ice_initialize();
@@ -501,7 +503,7 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SOneMember(global::Ice.InputStream istr)
         {
-            istr.readValue((Empty v) => { this.e = v; });
+            istr.readValue((Empty? v) => { this.e = v; });
             ice_initialize();
         }
 
@@ -525,10 +527,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as SOneMember);
+        public override bool Equals(object? other) => Equals(other as SOneMember);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(SOneMember other)
+        public bool Equals(SOneMember? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -543,10 +545,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(SOneMember lhs, SOneMember rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(SOneMember? lhs, SOneMember? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(SOneMember lhs, SOneMember rhs) => !(lhs == rhs);
+        public static bool operator !=(SOneMember? lhs, SOneMember? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -585,10 +587,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Empty e1;
+        public Empty? e1;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Empty e2;
+        public Empty? e2;
 
         #endregion
 
@@ -603,7 +605,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public STwoMembers(Empty e1, Empty e2)
+        public STwoMembers(Empty? e1, Empty? e2)
         {
             this.e1 = e1;
             this.e2 = e2;
@@ -613,8 +615,8 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public STwoMembers(global::Ice.InputStream istr)
         {
-            istr.readValue((Empty v) => { this.e1 = v; });
-            istr.readValue((Empty v) => { this.e2 = v; });
+            istr.readValue((Empty? v) => { this.e1 = v; });
+            istr.readValue((Empty? v) => { this.e2 = v; });
             ice_initialize();
         }
 
@@ -639,10 +641,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as STwoMembers);
+        public override bool Equals(object? other) => Equals(other as STwoMembers);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(STwoMembers other)
+        public bool Equals(STwoMembers? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -658,10 +660,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(STwoMembers lhs, STwoMembers rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(STwoMembers? lhs, STwoMembers? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(STwoMembers lhs, STwoMembers rhs) => !(lhs == rhs);
+        public static bool operator !=(STwoMembers? lhs, STwoMembers? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -692,9 +694,9 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface UnexpectedObjectExceptionTestPrx : global::Ice.ObjectPrx
     {
-        AlsoEmpty op(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        AlsoEmpty? op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<AlsoEmpty> opAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<AlsoEmpty?> opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -704,7 +706,7 @@ namespace Test
     public interface UnexpectedObjectExceptionTestOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        AlsoEmpty op(global::Ice.Current current = null);
+        AlsoEmpty? op(global::Ice.Current? current = null);
     }
 }
 
@@ -720,15 +722,15 @@ namespace Test
 
         #region Synchronous operations
 
-        public AlsoEmpty op(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public AlsoEmpty? op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_opAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -736,24 +738,24 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<AlsoEmpty> opAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<AlsoEmpty?> opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<AlsoEmpty> _iceI_opAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<AlsoEmpty?> _iceI_opAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_op_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<AlsoEmpty>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<AlsoEmpty?>(progress, cancel);
             _iceI_op(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _op_name = "op";
 
-        private void _iceI_op(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_op(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<AlsoEmpty>(completed);
+            var outAsync = getOutgoingAsync<AlsoEmpty?>(completed);
             outAsync.invoke(
                 _op_name,
                 global::Ice.OperationMode.Normal,
@@ -762,8 +764,8 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    AlsoEmpty ret = default;
-                    istr.readValue((AlsoEmpty v) => {ret = v; });
+                    AlsoEmpty? ret = null;
+                    istr.readValue((AlsoEmpty? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
@@ -776,7 +778,7 @@ namespace Test
         public static UnexpectedObjectExceptionTestPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static UnexpectedObjectExceptionTestPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static UnexpectedObjectExceptionTestPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -787,9 +789,9 @@ namespace Test
             return null;
         }
 
-        public static UnexpectedObjectExceptionTestPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static UnexpectedObjectExceptionTestPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -805,23 +807,27 @@ namespace Test
             return null;
         }
 
-        public static UnexpectedObjectExceptionTestPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static UnexpectedObjectExceptionTestPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                UnexpectedObjectExceptionTestPrxHelper prx = new UnexpectedObjectExceptionTestPrxHelper();
+                var prx = new UnexpectedObjectExceptionTestPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static UnexpectedObjectExceptionTestPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static UnexpectedObjectExceptionTestPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                UnexpectedObjectExceptionTestPrxHelper prx = new UnexpectedObjectExceptionTestPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new UnexpectedObjectExceptionTestPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -840,17 +846,17 @@ namespace Test
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, UnexpectedObjectExceptionTestPrx v)
+        public static void write(global::Ice.OutputStream ostr, UnexpectedObjectExceptionTestPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static UnexpectedObjectExceptionTestPrx read(global::Ice.InputStream istr)
+        public static UnexpectedObjectExceptionTestPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                UnexpectedObjectExceptionTestPrxHelper result = new UnexpectedObjectExceptionTestPrxHelper();
+                 var result = new UnexpectedObjectExceptionTestPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -864,7 +870,7 @@ namespace Test
     public sealed class DOneMemberHelper
     {
         public static void write(global::Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, COneMember> v)
+                                 global::System.Collections.Generic.Dictionary<int, COneMember?> v)
         {
             if(v == null)
             {
@@ -873,7 +879,7 @@ namespace Test
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, COneMember> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<int, COneMember?> e in v)
                 {
                     ostr.writeInt(e.Key);
                     ostr.writeValue(e.Value);
@@ -881,15 +887,15 @@ namespace Test
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<int, COneMember> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<int, COneMember?> read(global::Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, COneMember> r = new global::System.Collections.Generic.Dictionary<int, COneMember>();
+            global::System.Collections.Generic.Dictionary<int, COneMember?> r = new global::System.Collections.Generic.Dictionary<int, COneMember?>();
             for(int i = 0; i < sz; ++i)
             {
-                int k = default;
+                int k;
                 k = istr.readInt();
-                istr.readValue((COneMember v) => { r[k] = v; });
+                istr.readValue((COneMember? v) => { r[k] = v; });
             }
             return r;
         }
@@ -899,7 +905,7 @@ namespace Test
     public sealed class DTwoMembersHelper
     {
         public static void write(global::Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, CTwoMembers> v)
+                                 global::System.Collections.Generic.Dictionary<int, CTwoMembers?> v)
         {
             if(v == null)
             {
@@ -908,7 +914,7 @@ namespace Test
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, CTwoMembers> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<int, CTwoMembers?> e in v)
                 {
                     ostr.writeInt(e.Key);
                     ostr.writeValue(e.Value);
@@ -916,15 +922,15 @@ namespace Test
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<int, CTwoMembers> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<int, CTwoMembers?> read(global::Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, CTwoMembers> r = new global::System.Collections.Generic.Dictionary<int, CTwoMembers>();
+            global::System.Collections.Generic.Dictionary<int, CTwoMembers?> r = new global::System.Collections.Generic.Dictionary<int, CTwoMembers?>();
             for(int i = 0; i < sz; ++i)
             {
-                int k = default;
+                int k;
                 k = istr.readInt();
-                istr.readValue((CTwoMembers v) => { r[k] = v; });
+                istr.readValue((CTwoMembers? v) => { r[k] = v; });
             }
             return r;
         }
@@ -939,7 +945,7 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract AlsoEmpty op(global::Ice.Current current = null);
+        public abstract AlsoEmpty? op(global::Ice.Current? current = null);
 
         #endregion
 
@@ -951,17 +957,17 @@ namespace Test
             "::Test::UnexpectedObjectExceptionTest"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }

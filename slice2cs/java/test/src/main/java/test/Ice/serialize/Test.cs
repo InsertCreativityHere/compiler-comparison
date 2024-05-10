@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -88,7 +90,7 @@ namespace Test
         public MyEnum e;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InitialPrx p;
+        public InitialPrx? p;
 
         #endregion
 
@@ -103,7 +105,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Struct1(bool bo, byte by, short sh, int i, long l, float f, double d, string str, MyEnum e, InitialPrx p)
+        public Struct1(bool bo, byte by, short sh, int i, long l, float f, double d, string str, MyEnum e, InitialPrx? p)
         {
             this.bo = bo;
             this.by = by;
@@ -163,10 +165,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as Struct1);
+        public override bool Equals(object? other) => Equals(other as Struct1);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(Struct1 other)
+        public bool Equals(Struct1? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -182,7 +184,7 @@ namespace Test
                 this.d == other.d && 
                 this.str == other.str && 
                 this.e == other.e && 
-                (Ice.ObjectPrxHelperBase)this.p == (Ice.ObjectPrxHelperBase)other.p;
+                (Ice.ObjectPrxHelperBase?)this.p == (Ice.ObjectPrxHelperBase?)other.p;
         }
 
         #endregion
@@ -190,10 +192,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(Struct1 lhs, Struct1 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(Struct1? lhs, Struct1? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(Struct1 lhs, Struct1 rhs) => !(lhs == rhs);
+        public static bool operator !=(Struct1? lhs, Struct1? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -243,10 +245,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Base b;
+        public @Base? b;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Value o;
+        public global::Ice.Value? o;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public Struct1 s;
@@ -261,7 +263,7 @@ namespace Test
         public MyEnum[] seq3;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Base[] seq4;
+        public @Base?[] seq4;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<byte, bool> d1;
@@ -273,7 +275,7 @@ namespace Test
         public global::System.Collections.Generic.Dictionary<string, MyEnum> d3;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::System.Collections.Generic.Dictionary<string, @Base> d4;
+        public global::System.Collections.Generic.Dictionary<string, @Base?> d4;
 
         #endregion
 
@@ -282,7 +284,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Base(@Base b, global::Ice.Value o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base> d4)
+        public @Base(@Base? b, global::Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base?> d4)
         {
             this.b = b;
             this.o = o;
@@ -299,7 +301,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Base(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base> d4)
+        public @Base(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base?> d4)
         {
             this.s = s;
             this.seq1 = seq1;
@@ -317,15 +319,15 @@ namespace Test
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public @Base()
         {
-            this.s = null;
-            this.seq1 = null;
-            this.seq2 = null;
-            this.seq3 = null;
-            this.seq4 = null;
-            this.d1 = null;
-            this.d2 = null;
-            this.d3 = null;
-            this.d4 = null;
+            this.s = null!;
+            this.seq1 = null!;
+            this.seq2 = null!;
+            this.seq3 = null!;
+            this.seq4 = null!;
+            this.d1 = null!;
+            this.d2 = null!;
+            this.d3 = null!;
+            this.d4 = null!;
             ice_initialize();
         }
 
@@ -368,8 +370,8 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((@Base v) => { this.b = v; });
-            istr_.readValue((global::Ice.Value v) => { this.o = v; });
+            istr_.readValue((@Base? v) => { this.b = v; });
+            istr_.readValue((global::Ice.Value? v) => { this.o = v; });
             s = new Struct1(istr_);
             seq1 = ByteSHelper.read(istr_);
             seq2 = IntSHelper.read(istr_);
@@ -402,7 +404,7 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.ObjectPrx p;
+        public global::Ice.ObjectPrx? p;
 
         #endregion
 
@@ -411,14 +413,14 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Derived(@Base b, global::Ice.Value o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base> d4, global::Ice.ObjectPrx p) : base(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
+        public Derived(@Base? b, global::Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base?> d4, global::Ice.ObjectPrx? p) : base(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
         {
             this.p = p;
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Derived(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base> d4) : base(s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
+        public Derived(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base?> d4) : base(s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
         {
             ice_initialize();
         }
@@ -489,21 +491,21 @@ namespace Test
         public Struct1 s;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public @Base b;
+        public @Base? b;
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Ex(Struct1 s, @Base b, global::System.Exception innerException = null) : base(innerException)
+        public Ex(Struct1 s, @Base? b, global::System.Exception? innerException = null) : base(innerException)
         {
             this.s = s;
             this.b = b;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Ex(Struct1 s, global::System.Exception innerException = null) : base(innerException)
+        public Ex(Struct1 s, global::System.Exception? innerException = null) : base(innerException)
         {
             this.s = s;
         }
@@ -512,7 +514,7 @@ namespace Test
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public Ex()
         {
-            this.s = null;
+            this.s = null!;
         }
 
         #endregion
@@ -539,7 +541,7 @@ namespace Test
         {
             istr_.startSlice();
             s = new Struct1(istr_);
-            istr_.readValue((@Base v) => { this.b = v; });
+            istr_.readValue((@Base? v) => { this.b = v; });
             istr_.endSlice();
         }
 
@@ -573,21 +575,21 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface InitialPrx : global::Ice.ObjectPrx
     {
-        byte[] getStruct1(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        byte[] getStruct1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<byte[]> getStruct1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<byte[]> getStruct1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] getBase(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        byte[] getBase(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<byte[]> getBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<byte[]> getBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] getEx(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        byte[] getEx(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<byte[]> getExAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<byte[]> getExAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -597,16 +599,16 @@ namespace Test
     public interface InitialOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] getStruct1(global::Ice.Current current = null);
+        byte[] getStruct1(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] getBase(global::Ice.Current current = null);
+        byte[] getBase(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] getEx(global::Ice.Current current = null);
+        byte[] getEx(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current = null);
+        void shutdown(global::Ice.Current? current = null);
     }
 }
 
@@ -681,7 +683,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class BaseSHelper
     {
-        public static void write(global::Ice.OutputStream ostr, @Base[] v)
+        public static void write(global::Ice.OutputStream ostr, @Base?[] v)
         {
             if (v is null)
             {
@@ -697,13 +699,13 @@ namespace Test
             }
         }
 
-        public static @Base[] read(global::Ice.InputStream istr)
+        public static @Base?[] read(global::Ice.InputStream istr)
         {
-            @Base[] v;
+            @Base?[] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new @Base[szx];
-                for(int ix = 0; ix < szx; ++ix)
+                v = new @Base?[szx];
+                for (int ix = 0; ix < szx; ++ix)
                 {
                     istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<@Base>(v, ix));
                 }
@@ -739,9 +741,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<byte, bool> r = new global::System.Collections.Generic.Dictionary<byte, bool>();
             for(int i = 0; i < sz; ++i)
             {
-                byte k = default;
+                byte k;
                 k = istr.readByte();
-                bool v = default;
+                bool v;
                 v = istr.readBool();
                 r[k] = v;
             }
@@ -776,9 +778,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<short, int> r = new global::System.Collections.Generic.Dictionary<short, int>();
             for(int i = 0; i < sz; ++i)
             {
-                short k = default;
+                short k;
                 k = istr.readShort();
-                int v = default;
+                int v;
                 v = istr.readInt();
                 r[k] = v;
             }
@@ -813,9 +815,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, MyEnum> r = new global::System.Collections.Generic.Dictionary<string, MyEnum>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                MyEnum v = default;
+                MyEnum v;
                 v = (MyEnum)istr.readEnum(2);
                 r[k] = v;
             }
@@ -827,7 +829,7 @@ namespace Test
     public sealed class StringBaseDHelper
     {
         public static void write(global::Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, @Base> v)
+                                 global::System.Collections.Generic.Dictionary<string, @Base?> v)
         {
             if(v == null)
             {
@@ -836,7 +838,7 @@ namespace Test
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, @Base> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<string, @Base?> e in v)
                 {
                     ostr.writeString(e.Key);
                     ostr.writeValue(e.Value);
@@ -844,15 +846,15 @@ namespace Test
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, @Base> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, @Base?> read(global::Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, @Base> r = new global::System.Collections.Generic.Dictionary<string, @Base>();
+            global::System.Collections.Generic.Dictionary<string, @Base?> r = new global::System.Collections.Generic.Dictionary<string, @Base?>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                istr.readValue((@Base v) => { r[k] = v; });
+                istr.readValue((@Base? v) => { r[k] = v; });
             }
             return r;
         }
@@ -868,51 +870,51 @@ namespace Test
 
         #region Synchronous operations
 
-        public byte[] getStruct1(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public byte[] getStruct1(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getStruct1Async(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public byte[] getBase(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public byte[] getBase(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public byte[] getEx(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public byte[] getEx(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getExAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -920,12 +922,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<byte[]> getStruct1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<byte[]> getStruct1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getStruct1Async(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<byte[]> _iceI_getStruct1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<byte[]> _iceI_getStruct1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getStruct1_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
@@ -935,7 +937,7 @@ namespace Test
 
         private const string _getStruct1_name = "getStruct1";
 
-        private void _iceI_getStruct1(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getStruct1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<byte[]>(completed);
             outAsync.invoke(
@@ -946,18 +948,18 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    byte[] ret = default;
+                    byte[] ret;
                     ret = ByteSHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<byte[]> getBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<byte[]> getBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getBaseAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<byte[]> _iceI_getBaseAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<byte[]> _iceI_getBaseAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getBase_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
@@ -967,7 +969,7 @@ namespace Test
 
         private const string _getBase_name = "getBase";
 
-        private void _iceI_getBase(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getBase(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<byte[]>(completed);
             outAsync.invoke(
@@ -978,18 +980,18 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    byte[] ret = default;
+                    byte[] ret;
                     ret = ByteSHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<byte[]> getExAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<byte[]> getExAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getExAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<byte[]> _iceI_getExAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<byte[]> _iceI_getExAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getEx_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
@@ -999,7 +1001,7 @@ namespace Test
 
         private const string _getEx_name = "getEx";
 
-        private void _iceI_getEx(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getEx(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<byte[]>(completed);
             outAsync.invoke(
@@ -1010,18 +1012,18 @@ namespace Test
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    byte[] ret = default;
+                    byte[] ret;
                     ret = ByteSHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -1030,7 +1032,7 @@ namespace Test
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1048,7 +1050,7 @@ namespace Test
         public static InitialPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static InitialPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static InitialPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1059,9 +1061,9 @@ namespace Test
             return null;
         }
 
-        public static InitialPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static InitialPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1077,23 +1079,27 @@ namespace Test
             return null;
         }
 
-        public static InitialPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static InitialPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                InitialPrxHelper prx = new InitialPrxHelper();
+                var prx = new InitialPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static InitialPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static InitialPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                InitialPrxHelper prx = new InitialPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new InitialPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -1112,17 +1118,17 @@ namespace Test
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, InitialPrx v)
+        public static void write(global::Ice.OutputStream ostr, InitialPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static InitialPrx read(global::Ice.InputStream istr)
+        public static InitialPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                InitialPrxHelper result = new InitialPrxHelper();
+                 var result = new InitialPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -1141,13 +1147,13 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract byte[] getStruct1(global::Ice.Current current = null);
+        public abstract byte[] getStruct1(global::Ice.Current? current = null);
 
-        public abstract byte[] getBase(global::Ice.Current current = null);
+        public abstract byte[] getBase(global::Ice.Current? current = null);
 
-        public abstract byte[] getEx(global::Ice.Current current = null);
+        public abstract byte[] getEx(global::Ice.Current? current = null);
 
-        public abstract void shutdown(global::Ice.Current current = null);
+        public abstract void shutdown(global::Ice.Current? current = null);
 
         #endregion
 
@@ -1159,17 +1165,17 @@ namespace Test
             "::Test::Initial"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }

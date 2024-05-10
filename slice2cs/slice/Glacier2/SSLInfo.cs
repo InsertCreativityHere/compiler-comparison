@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("SSLInfo.ice")]
@@ -115,10 +117,10 @@ namespace Glacier2
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as SSLInfo);
+        public override bool Equals(object? other) => Equals(other as SSLInfo);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(SSLInfo other)
+        public bool Equals(SSLInfo? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -138,10 +140,10 @@ namespace Glacier2
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(SSLInfo lhs, SSLInfo rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(SSLInfo? lhs, SSLInfo? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(SSLInfo lhs, SSLInfo rhs) => !(lhs == rhs);
+        public static bool operator !=(SSLInfo? lhs, SSLInfo? rhs) => !(lhs == rhs);
 
         #endregion
 

@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -77,37 +79,37 @@ namespace Ice.binding
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface TestIntfPrx : global::Ice.ObjectPrx
         {
-            string getAdapterName(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            string getAdapterName(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<string> getAdapterNameAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<string> getAdapterNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface RemoteObjectAdapterPrx : global::Ice.ObjectPrx
         {
-            TestIntfPrx getTestIntf(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            TestIntfPrx? getTestIntf(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<TestIntfPrx> getTestIntfAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<TestIntfPrx?> getTestIntfAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void deactivate(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void deactivate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task deactivateAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task deactivateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface RemoteCommunicatorPrx : global::Ice.ObjectPrx
         {
-            RemoteObjectAdapterPrx createObjectAdapter(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            RemoteObjectAdapterPrx? createObjectAdapter(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<RemoteObjectAdapterPrx> createObjectAdapterAsync(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<RemoteObjectAdapterPrx?> createObjectAdapterAsync(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void deactivateObjectAdapter(RemoteObjectAdapterPrx adapter, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void deactivateObjectAdapter(RemoteObjectAdapterPrx? adapter, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task deactivateObjectAdapterAsync(RemoteObjectAdapterPrx adapter, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task deactivateObjectAdapterAsync(RemoteObjectAdapterPrx? adapter, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -120,30 +122,30 @@ namespace Ice.binding
         public interface TestIntfOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string getAdapterName(global::Ice.Current current = null);
+            string getAdapterName(global::Ice.Current? current = null);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface RemoteObjectAdapterOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            TestIntfPrx getTestIntf(global::Ice.Current current = null);
+            TestIntfPrx? getTestIntf(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void deactivate(global::Ice.Current current = null);
+            void deactivate(global::Ice.Current? current = null);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface RemoteCommunicatorOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            RemoteObjectAdapterPrx createObjectAdapter(string name, string endpoints, global::Ice.Current current = null);
+            RemoteObjectAdapterPrx? createObjectAdapter(string name, string endpoints, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void deactivateObjectAdapter(RemoteObjectAdapterPrx adapter, global::Ice.Current current = null);
+            void deactivateObjectAdapter(RemoteObjectAdapterPrx? adapter, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current = null);
+            void shutdown(global::Ice.Current? current = null);
         }
     }
 }
@@ -162,15 +164,15 @@ namespace Ice.binding
 
             #region Synchronous operations
 
-            public string getAdapterName(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public string getAdapterName(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_getAdapterNameAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -178,12 +180,12 @@ namespace Ice.binding
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task<string> getAdapterNameAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<string> getAdapterNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getAdapterNameAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<string> _iceI_getAdapterNameAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<string> _iceI_getAdapterNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getAdapterName_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
@@ -193,7 +195,7 @@ namespace Ice.binding
 
             private const string _getAdapterName_name = "getAdapterName";
 
-            private void _iceI_getAdapterName(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getAdapterName(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
@@ -204,7 +206,7 @@ namespace Ice.binding
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret = default;
+                        string ret;
                         ret = istr.readString();
                         return ret;
                     });
@@ -217,7 +219,7 @@ namespace Ice.binding
             public static TestIntfPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -228,9 +230,9 @@ namespace Ice.binding
                 return null;
             }
 
-            public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -246,23 +248,27 @@ namespace Ice.binding
                 return null;
             }
 
-            public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                    var prx = new TestIntfPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new TestIntfPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -281,17 +287,17 @@ namespace Ice.binding
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, TestIntfPrx v)
+            public static void write(global::Ice.OutputStream ostr, TestIntfPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static TestIntfPrx read(global::Ice.InputStream istr)
+            public static TestIntfPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    TestIntfPrxHelper result = new TestIntfPrxHelper();
+                     var result = new TestIntfPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -311,27 +317,27 @@ namespace Ice.binding
 
             #region Synchronous operations
 
-            public TestIntfPrx getTestIntf(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public TestIntfPrx? getTestIntf(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_getTestIntfAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void deactivate(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void deactivate(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_deactivateAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -339,24 +345,24 @@ namespace Ice.binding
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task<TestIntfPrx> getTestIntfAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<TestIntfPrx?> getTestIntfAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getTestIntfAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<TestIntfPrx> _iceI_getTestIntfAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<TestIntfPrx?> _iceI_getTestIntfAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getTestIntf_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntfPrx>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntfPrx?>(progress, cancel);
                 _iceI_getTestIntf(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getTestIntf_name = "getTestIntf";
 
-            private void _iceI_getTestIntf(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getTestIntf(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<TestIntfPrx>(completed);
+                var outAsync = getOutgoingAsync<TestIntfPrx?>(completed);
                 outAsync.invoke(
                     _getTestIntf_name,
                     global::Ice.OperationMode.Normal,
@@ -365,18 +371,18 @@ namespace Ice.binding
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        TestIntfPrx ret = default;
+                        TestIntfPrx? ret;
                         ret = TestIntfPrxHelper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task deactivateAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task deactivateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_deactivateAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_deactivateAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_deactivateAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_deactivate(context, synchronous, completed);
@@ -385,7 +391,7 @@ namespace Ice.binding
 
             private const string _deactivate_name = "deactivate";
 
-            private void _iceI_deactivate(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_deactivate(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -403,7 +409,7 @@ namespace Ice.binding
             public static RemoteObjectAdapterPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static RemoteObjectAdapterPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static RemoteObjectAdapterPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -414,9 +420,9 @@ namespace Ice.binding
                 return null;
             }
 
-            public static RemoteObjectAdapterPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static RemoteObjectAdapterPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -432,23 +438,27 @@ namespace Ice.binding
                 return null;
             }
 
-            public static RemoteObjectAdapterPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static RemoteObjectAdapterPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    RemoteObjectAdapterPrxHelper prx = new RemoteObjectAdapterPrxHelper();
+                    var prx = new RemoteObjectAdapterPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static RemoteObjectAdapterPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static RemoteObjectAdapterPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    RemoteObjectAdapterPrxHelper prx = new RemoteObjectAdapterPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new RemoteObjectAdapterPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -467,17 +477,17 @@ namespace Ice.binding
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, RemoteObjectAdapterPrx v)
+            public static void write(global::Ice.OutputStream ostr, RemoteObjectAdapterPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static RemoteObjectAdapterPrx read(global::Ice.InputStream istr)
+            public static RemoteObjectAdapterPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    RemoteObjectAdapterPrxHelper result = new RemoteObjectAdapterPrxHelper();
+                     var result = new RemoteObjectAdapterPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -497,39 +507,39 @@ namespace Ice.binding
 
             #region Synchronous operations
 
-            public RemoteObjectAdapterPrx createObjectAdapter(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public RemoteObjectAdapterPrx? createObjectAdapter(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_createObjectAdapterAsync(name, endpoints, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void deactivateObjectAdapter(RemoteObjectAdapterPrx adapter, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void deactivateObjectAdapter(RemoteObjectAdapterPrx? adapter, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_deactivateObjectAdapterAsync(adapter, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -537,24 +547,24 @@ namespace Ice.binding
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task<RemoteObjectAdapterPrx> createObjectAdapterAsync(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<RemoteObjectAdapterPrx?> createObjectAdapterAsync(string name, string endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_createObjectAdapterAsync(name, endpoints, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<RemoteObjectAdapterPrx> _iceI_createObjectAdapterAsync(string iceP_name, string iceP_endpoints, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<RemoteObjectAdapterPrx?> _iceI_createObjectAdapterAsync(string iceP_name, string iceP_endpoints, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_createObjectAdapter_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<RemoteObjectAdapterPrx>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<RemoteObjectAdapterPrx?>(progress, cancel);
                 _iceI_createObjectAdapter(iceP_name, iceP_endpoints, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _createObjectAdapter_name = "createObjectAdapter";
 
-            private void _iceI_createObjectAdapter(string iceP_name, string iceP_endpoints, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_createObjectAdapter(string iceP_name, string iceP_endpoints, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<RemoteObjectAdapterPrx>(completed);
+                var outAsync = getOutgoingAsync<RemoteObjectAdapterPrx?>(completed);
                 outAsync.invoke(
                     _createObjectAdapter_name,
                     global::Ice.OperationMode.Normal,
@@ -568,18 +578,18 @@ namespace Ice.binding
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        RemoteObjectAdapterPrx ret = default;
+                        RemoteObjectAdapterPrx? ret;
                         ret = RemoteObjectAdapterPrxHelper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task deactivateObjectAdapterAsync(RemoteObjectAdapterPrx adapter, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task deactivateObjectAdapterAsync(RemoteObjectAdapterPrx? adapter, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_deactivateObjectAdapterAsync(adapter, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_deactivateObjectAdapterAsync(RemoteObjectAdapterPrx iceP_adapter, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_deactivateObjectAdapterAsync(RemoteObjectAdapterPrx? iceP_adapter, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_deactivateObjectAdapter(iceP_adapter, context, synchronous, completed);
@@ -588,7 +598,7 @@ namespace Ice.binding
 
             private const string _deactivateObjectAdapter_name = "deactivateObjectAdapter";
 
-            private void _iceI_deactivateObjectAdapter(RemoteObjectAdapterPrx iceP_adapter, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_deactivateObjectAdapter(RemoteObjectAdapterPrx? iceP_adapter, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -603,12 +613,12 @@ namespace Ice.binding
                     });
             }
 
-            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_shutdownAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
@@ -617,7 +627,7 @@ namespace Ice.binding
 
             private const string _shutdown_name = "shutdown";
 
-            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -635,7 +645,7 @@ namespace Ice.binding
             public static RemoteCommunicatorPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static RemoteCommunicatorPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static RemoteCommunicatorPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -646,9 +656,9 @@ namespace Ice.binding
                 return null;
             }
 
-            public static RemoteCommunicatorPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static RemoteCommunicatorPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -664,23 +674,27 @@ namespace Ice.binding
                 return null;
             }
 
-            public static RemoteCommunicatorPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static RemoteCommunicatorPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    RemoteCommunicatorPrxHelper prx = new RemoteCommunicatorPrxHelper();
+                    var prx = new RemoteCommunicatorPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static RemoteCommunicatorPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static RemoteCommunicatorPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    RemoteCommunicatorPrxHelper prx = new RemoteCommunicatorPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new RemoteCommunicatorPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -699,17 +713,17 @@ namespace Ice.binding
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, RemoteCommunicatorPrx v)
+            public static void write(global::Ice.OutputStream ostr, RemoteCommunicatorPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static RemoteCommunicatorPrx read(global::Ice.InputStream istr)
+            public static RemoteCommunicatorPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    RemoteCommunicatorPrxHelper result = new RemoteCommunicatorPrxHelper();
+                     var result = new RemoteCommunicatorPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -731,7 +745,7 @@ namespace Ice.binding
         {
             #region Slice operations
 
-            public abstract string getAdapterName(global::Ice.Current current = null);
+            public abstract string getAdapterName(global::Ice.Current? current = null);
 
             #endregion
 
@@ -743,17 +757,17 @@ namespace Ice.binding
                 "::Test::TestIntf"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -835,9 +849,9 @@ namespace Ice.binding
         {
             #region Slice operations
 
-            public abstract TestIntfPrx getTestIntf(global::Ice.Current current = null);
+            public abstract TestIntfPrx? getTestIntf(global::Ice.Current? current = null);
 
-            public abstract void deactivate(global::Ice.Current current = null);
+            public abstract void deactivate(global::Ice.Current? current = null);
 
             #endregion
 
@@ -849,17 +863,17 @@ namespace Ice.binding
                 "::Test::RemoteObjectAdapter"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -956,11 +970,11 @@ namespace Ice.binding
         {
             #region Slice operations
 
-            public abstract RemoteObjectAdapterPrx createObjectAdapter(string name, string endpoints, global::Ice.Current current = null);
+            public abstract RemoteObjectAdapterPrx? createObjectAdapter(string name, string endpoints, global::Ice.Current? current = null);
 
-            public abstract void deactivateObjectAdapter(RemoteObjectAdapterPrx adapter, global::Ice.Current current = null);
+            public abstract void deactivateObjectAdapter(RemoteObjectAdapterPrx? adapter, global::Ice.Current? current = null);
 
-            public abstract void shutdown(global::Ice.Current current = null);
+            public abstract void shutdown(global::Ice.Current? current = null);
 
             #endregion
 
@@ -972,17 +986,17 @@ namespace Ice.binding
                 "::Test::RemoteCommunicator"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -1002,8 +1016,8 @@ namespace Ice.binding
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_name = default;
-                string iceP_endpoints = default;
+                string iceP_name;
+                string iceP_endpoints;
                 iceP_name = istr.readString();
                 iceP_endpoints = istr.readString();
                 inS.endReadParams();
@@ -1020,7 +1034,7 @@ namespace Ice.binding
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                RemoteObjectAdapterPrx iceP_adapter = default;
+                RemoteObjectAdapterPrx? iceP_adapter;
                 iceP_adapter = RemoteObjectAdapterPrxHelper.read(istr);
                 inS.endReadParams();
                 obj.deactivateObjectAdapter(iceP_adapter, current);

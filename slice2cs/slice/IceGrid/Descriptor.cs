@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Descriptor.ice")]
@@ -90,10 +92,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as PropertyDescriptor);
+        public override bool Equals(object? other) => Equals(other as PropertyDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(PropertyDescriptor other)
+        public bool Equals(PropertyDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -109,10 +111,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(PropertyDescriptor lhs, PropertyDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(PropertyDescriptor? lhs, PropertyDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(PropertyDescriptor lhs, PropertyDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(PropertyDescriptor? lhs, PropertyDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -200,10 +202,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as PropertySetDescriptor);
+        public override bool Equals(object? other) => Equals(other as PropertySetDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(PropertySetDescriptor other)
+        public bool Equals(PropertySetDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -219,10 +221,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(PropertySetDescriptor lhs, PropertySetDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(PropertySetDescriptor? lhs, PropertySetDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(PropertySetDescriptor lhs, PropertySetDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(PropertySetDescriptor? lhs, PropertySetDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -323,10 +325,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as ObjectDescriptor);
+        public override bool Equals(object? other) => Equals(other as ObjectDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ObjectDescriptor other)
+        public bool Equals(ObjectDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -343,10 +345,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ObjectDescriptor lhs, ObjectDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(ObjectDescriptor? lhs, ObjectDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ObjectDescriptor lhs, ObjectDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(ObjectDescriptor? lhs, ObjectDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -485,10 +487,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as AdapterDescriptor);
+        public override bool Equals(object? other) => Equals(other as AdapterDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(AdapterDescriptor other)
+        public bool Equals(AdapterDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -511,10 +513,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(AdapterDescriptor lhs, AdapterDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(AdapterDescriptor? lhs, AdapterDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(AdapterDescriptor lhs, AdapterDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(AdapterDescriptor? lhs, AdapterDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -603,9 +605,9 @@ namespace IceGrid
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public CommunicatorDescriptor()
         {
-            this.adapters = null;
-            this.propertySet = null;
-            this.logs = null;
+            this.adapters = null!;
+            this.propertySet = null!;
+            this.logs = null!;
             ice_initialize();
         }
 
@@ -721,10 +723,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as DistributionDescriptor);
+        public override bool Equals(object? other) => Equals(other as DistributionDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(DistributionDescriptor other)
+        public bool Equals(DistributionDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -740,10 +742,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(DistributionDescriptor lhs, DistributionDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(DistributionDescriptor? lhs, DistributionDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(DistributionDescriptor lhs, DistributionDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(DistributionDescriptor? lhs, DistributionDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -861,9 +863,9 @@ namespace IceGrid
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public ServerDescriptor()
         {
-            this.options = null;
-            this.envs = null;
-            this.distrib = null;
+            this.options = null!;
+            this.envs = null!;
+            this.distrib = null!;
             ice_initialize();
         }
 
@@ -1102,10 +1104,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as ServerInstanceDescriptor);
+        public override bool Equals(object? other) => Equals(other as ServerInstanceDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ServerInstanceDescriptor other)
+        public bool Equals(ServerInstanceDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -1123,10 +1125,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ServerInstanceDescriptor lhs, ServerInstanceDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(ServerInstanceDescriptor? lhs, ServerInstanceDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ServerInstanceDescriptor lhs, ServerInstanceDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(ServerInstanceDescriptor? lhs, ServerInstanceDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -1168,7 +1170,7 @@ namespace IceGrid
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CommunicatorDescriptor descriptor;
+        public CommunicatorDescriptor? descriptor;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string[] parameters;
@@ -1191,7 +1193,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TemplateDescriptor(CommunicatorDescriptor descriptor, string[] parameters, global::System.Collections.Generic.Dictionary<string, string> parameterDefaults)
+        public TemplateDescriptor(CommunicatorDescriptor? descriptor, string[] parameters, global::System.Collections.Generic.Dictionary<string, string> parameterDefaults)
         {
             this.descriptor = descriptor;
             this.parameters = parameters;
@@ -1202,7 +1204,7 @@ namespace IceGrid
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public TemplateDescriptor(global::Ice.InputStream istr)
         {
-            istr.readValue((CommunicatorDescriptor v) => { this.descriptor = v; });
+            istr.readValue((CommunicatorDescriptor? v) => { this.descriptor = v; });
             this.parameters = global::Ice.StringSeqHelper.read(istr);
             this.parameterDefaults = StringStringDictHelper.read(istr);
             ice_initialize();
@@ -1230,10 +1232,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as TemplateDescriptor);
+        public override bool Equals(object? other) => Equals(other as TemplateDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(TemplateDescriptor other)
+        public bool Equals(TemplateDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -1250,10 +1252,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(TemplateDescriptor lhs, TemplateDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(TemplateDescriptor? lhs, TemplateDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(TemplateDescriptor lhs, TemplateDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(TemplateDescriptor? lhs, TemplateDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -1300,7 +1302,7 @@ namespace IceGrid
         public global::System.Collections.Generic.Dictionary<string, string> parameterValues;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServiceDescriptor descriptor;
+        public ServiceDescriptor? descriptor;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public PropertySetDescriptor propertySet;
@@ -1320,7 +1322,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServiceInstanceDescriptor(string template, global::System.Collections.Generic.Dictionary<string, string> parameterValues, ServiceDescriptor descriptor, PropertySetDescriptor propertySet)
+        public ServiceInstanceDescriptor(string template, global::System.Collections.Generic.Dictionary<string, string> parameterValues, ServiceDescriptor? descriptor, PropertySetDescriptor propertySet)
         {
             this.template = template;
             this.parameterValues = parameterValues;
@@ -1334,7 +1336,7 @@ namespace IceGrid
         {
             this.template = istr.readString();
             this.parameterValues = StringStringDictHelper.read(istr);
-            istr.readValue((ServiceDescriptor v) => { this.descriptor = v; });
+            istr.readValue((ServiceDescriptor? v) => { this.descriptor = v; });
             this.propertySet = new PropertySetDescriptor(istr);
             ice_initialize();
         }
@@ -1362,10 +1364,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as ServiceInstanceDescriptor);
+        public override bool Equals(object? other) => Equals(other as ServiceInstanceDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ServiceInstanceDescriptor other)
+        public bool Equals(ServiceInstanceDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -1383,10 +1385,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ServiceInstanceDescriptor lhs, ServiceInstanceDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(ServiceInstanceDescriptor? lhs, ServiceInstanceDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ServiceInstanceDescriptor lhs, ServiceInstanceDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(ServiceInstanceDescriptor? lhs, ServiceInstanceDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -1456,7 +1458,7 @@ namespace IceGrid
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public IceBoxDescriptor()
         {
-            this.services = null;
+            this.services = null!;
             ice_initialize();
         }
 
@@ -1519,7 +1521,7 @@ namespace IceGrid
         public ServerInstanceDescriptor[] serverInstances;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerDescriptor[] servers;
+        public ServerDescriptor?[] servers;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string loadFactor = "";
@@ -1537,7 +1539,7 @@ namespace IceGrid
         #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, ServerInstanceDescriptor[] serverInstances, ServerDescriptor[] servers, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
+        public NodeDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, ServerInstanceDescriptor[] serverInstances, ServerDescriptor?[] servers, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
         {
             this.variables = variables;
             this.serverInstances = serverInstances;
@@ -1547,7 +1549,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, ServerInstanceDescriptor[] serverInstances, ServerDescriptor[] servers, string loadFactor, string description, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
+        public NodeDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, ServerInstanceDescriptor[] serverInstances, ServerDescriptor?[] servers, string loadFactor, string description, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets)
         {
             this.variables = variables;
             this.serverInstances = serverInstances;
@@ -1595,10 +1597,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as NodeDescriptor);
+        public override bool Equals(object? other) => Equals(other as NodeDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(NodeDescriptor other)
+        public bool Equals(NodeDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -1618,10 +1620,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(NodeDescriptor lhs, NodeDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(NodeDescriptor? lhs, NodeDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(NodeDescriptor lhs, NodeDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(NodeDescriptor? lhs, NodeDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -2016,7 +2018,7 @@ namespace IceGrid
         public string id = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LoadBalancingPolicy loadBalancing;
+        public LoadBalancingPolicy? loadBalancing;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string proxyOptions = "";
@@ -2044,7 +2046,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ReplicaGroupDescriptor(string id, LoadBalancingPolicy loadBalancing, string proxyOptions, ObjectDescriptor[] objects, string description, string filter)
+        public ReplicaGroupDescriptor(string id, LoadBalancingPolicy? loadBalancing, string proxyOptions, ObjectDescriptor[] objects, string description, string filter)
         {
             this.id = id;
             this.loadBalancing = loadBalancing;
@@ -2059,7 +2061,7 @@ namespace IceGrid
         public ReplicaGroupDescriptor(global::Ice.InputStream istr)
         {
             this.id = istr.readString();
-            istr.readValue((LoadBalancingPolicy v) => { this.loadBalancing = v; });
+            istr.readValue((LoadBalancingPolicy? v) => { this.loadBalancing = v; });
             this.proxyOptions = istr.readString();
             this.objects = ObjectDescriptorSeqHelper.read(istr);
             this.description = istr.readString();
@@ -2092,10 +2094,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as ReplicaGroupDescriptor);
+        public override bool Equals(object? other) => Equals(other as ReplicaGroupDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ReplicaGroupDescriptor other)
+        public bool Equals(ReplicaGroupDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -2115,10 +2117,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ReplicaGroupDescriptor lhs, ReplicaGroupDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(ReplicaGroupDescriptor? lhs, ReplicaGroupDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ReplicaGroupDescriptor lhs, ReplicaGroupDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(ReplicaGroupDescriptor? lhs, ReplicaGroupDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -2265,10 +2267,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as ApplicationDescriptor);
+        public override bool Equals(object? other) => Equals(other as ApplicationDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ApplicationDescriptor other)
+        public bool Equals(ApplicationDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -2291,10 +2293,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ApplicationDescriptor lhs, ApplicationDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(ApplicationDescriptor? lhs, ApplicationDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ApplicationDescriptor lhs, ApplicationDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(ApplicationDescriptor? lhs, ApplicationDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -2418,7 +2420,7 @@ namespace IceGrid
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BoxedString description;
+        public BoxedString? description;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, string> variables;
@@ -2436,13 +2438,13 @@ namespace IceGrid
         public ServerInstanceDescriptor[] serverInstances;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerDescriptor[] servers;
+        public ServerDescriptor?[] servers;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string[] removeServers;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BoxedString loadFactor;
+        public BoxedString? loadFactor;
 
         #endregion
 
@@ -2451,7 +2453,7 @@ namespace IceGrid
         #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeUpdateDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ServerInstanceDescriptor[] serverInstances, ServerDescriptor[] servers, string[] removeServers)
+        public NodeUpdateDescriptor(global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ServerInstanceDescriptor[] serverInstances, ServerDescriptor?[] servers, string[] removeServers)
         {
             this.variables = variables;
             this.removeVariables = removeVariables;
@@ -2464,7 +2466,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeUpdateDescriptor(string name, BoxedString description, global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ServerInstanceDescriptor[] serverInstances, ServerDescriptor[] servers, string[] removeServers, BoxedString loadFactor)
+        public NodeUpdateDescriptor(string name, BoxedString? description, global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ServerInstanceDescriptor[] serverInstances, ServerDescriptor?[] servers, string[] removeServers, BoxedString? loadFactor)
         {
             this.name = name;
             this.description = description;
@@ -2483,7 +2485,7 @@ namespace IceGrid
         public NodeUpdateDescriptor(global::Ice.InputStream istr)
         {
             this.name = istr.readString();
-            istr.readValue((BoxedString v) => { this.description = v; });
+            istr.readValue((BoxedString? v) => { this.description = v; });
             this.variables = StringStringDictHelper.read(istr);
             this.removeVariables = global::Ice.StringSeqHelper.read(istr);
             this.propertySets = PropertySetDescriptorDictHelper.read(istr);
@@ -2491,7 +2493,7 @@ namespace IceGrid
             this.serverInstances = ServerInstanceDescriptorSeqHelper.read(istr);
             this.servers = ServerDescriptorSeqHelper.read(istr);
             this.removeServers = global::Ice.StringSeqHelper.read(istr);
-            istr.readValue((BoxedString v) => { this.loadFactor = v; });
+            istr.readValue((BoxedString? v) => { this.loadFactor = v; });
             ice_initialize();
         }
 
@@ -2524,10 +2526,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as NodeUpdateDescriptor);
+        public override bool Equals(object? other) => Equals(other as NodeUpdateDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(NodeUpdateDescriptor other)
+        public bool Equals(NodeUpdateDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -2551,10 +2553,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(NodeUpdateDescriptor lhs, NodeUpdateDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(NodeUpdateDescriptor? lhs, NodeUpdateDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(NodeUpdateDescriptor lhs, NodeUpdateDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(NodeUpdateDescriptor? lhs, NodeUpdateDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -2623,7 +2625,7 @@ namespace IceGrid
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public BoxedDistributionDescriptor()
         {
-            this.value = null;
+            this.value = null!;
             ice_initialize();
         }
 
@@ -2681,10 +2683,10 @@ namespace IceGrid
         public string name = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BoxedString description;
+        public BoxedString? description;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public BoxedDistributionDescriptor distrib;
+        public BoxedDistributionDescriptor? distrib;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, string> variables;
@@ -2747,7 +2749,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ApplicationUpdateDescriptor(string name, BoxedString description, BoxedDistributionDescriptor distrib, global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ReplicaGroupDescriptor[] replicaGroups, string[] removeReplicaGroups, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serverTemplates, string[] removeServerTemplates, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serviceTemplates, string[] removeServiceTemplates, NodeUpdateDescriptor[] nodes, string[] removeNodes)
+        public ApplicationUpdateDescriptor(string name, BoxedString? description, BoxedDistributionDescriptor? distrib, global::System.Collections.Generic.Dictionary<string, string> variables, string[] removeVariables, global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> propertySets, string[] removePropertySets, ReplicaGroupDescriptor[] replicaGroups, string[] removeReplicaGroups, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serverTemplates, string[] removeServerTemplates, global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> serviceTemplates, string[] removeServiceTemplates, NodeUpdateDescriptor[] nodes, string[] removeNodes)
         {
             this.name = name;
             this.description = description;
@@ -2771,8 +2773,8 @@ namespace IceGrid
         public ApplicationUpdateDescriptor(global::Ice.InputStream istr)
         {
             this.name = istr.readString();
-            istr.readValue((BoxedString v) => { this.description = v; });
-            istr.readValue((BoxedDistributionDescriptor v) => { this.distrib = v; });
+            istr.readValue((BoxedString? v) => { this.description = v; });
+            istr.readValue((BoxedDistributionDescriptor? v) => { this.distrib = v; });
             this.variables = StringStringDictHelper.read(istr);
             this.removeVariables = global::Ice.StringSeqHelper.read(istr);
             this.propertySets = PropertySetDescriptorDictHelper.read(istr);
@@ -2822,10 +2824,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as ApplicationUpdateDescriptor);
+        public override bool Equals(object? other) => Equals(other as ApplicationUpdateDescriptor);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ApplicationUpdateDescriptor other)
+        public bool Equals(ApplicationUpdateDescriptor? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -2854,10 +2856,10 @@ namespace IceGrid
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ApplicationUpdateDescriptor lhs, ApplicationUpdateDescriptor rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(ApplicationUpdateDescriptor? lhs, ApplicationUpdateDescriptor? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ApplicationUpdateDescriptor lhs, ApplicationUpdateDescriptor rhs) => !(lhs == rhs);
+        public static bool operator !=(ApplicationUpdateDescriptor? lhs, ApplicationUpdateDescriptor? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -2925,9 +2927,9 @@ namespace IceGrid
             global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                string v = default;
+                string v;
                 v = istr.readString();
                 r[k] = v;
             }
@@ -2996,9 +2998,9 @@ namespace IceGrid
             global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor> r = new global::System.Collections.Generic.Dictionary<string, PropertySetDescriptor>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                PropertySetDescriptor v = default;
+                PropertySetDescriptor v;
                 v = new PropertySetDescriptor(istr);
                 r[k] = v;
             }
@@ -3077,7 +3079,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServerDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ServerDescriptor[] v)
+        public static void write(global::Ice.OutputStream ostr, ServerDescriptor?[] v)
         {
             if (v is null)
             {
@@ -3093,13 +3095,13 @@ namespace IceGrid
             }
         }
 
-        public static ServerDescriptor[] read(global::Ice.InputStream istr)
+        public static ServerDescriptor?[] read(global::Ice.InputStream istr)
         {
-            ServerDescriptor[] v;
+            ServerDescriptor?[] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new ServerDescriptor[szx];
-                for(int ix = 0; ix < szx; ++ix)
+                v = new ServerDescriptor?[szx];
+                for (int ix = 0; ix < szx; ++ix)
                 {
                     istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<ServerDescriptor>(v, ix));
                 }
@@ -3111,7 +3113,7 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServiceDescriptorSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, ServiceDescriptor[] v)
+        public static void write(global::Ice.OutputStream ostr, ServiceDescriptor?[] v)
         {
             if (v is null)
             {
@@ -3127,13 +3129,13 @@ namespace IceGrid
             }
         }
 
-        public static ServiceDescriptor[] read(global::Ice.InputStream istr)
+        public static ServiceDescriptor?[] read(global::Ice.InputStream istr)
         {
-            ServiceDescriptor[] v;
+            ServiceDescriptor?[] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new ServiceDescriptor[szx];
-                for(int ix = 0; ix < szx; ++ix)
+                v = new ServiceDescriptor?[szx];
+                for (int ix = 0; ix < szx; ++ix)
                 {
                     istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<ServiceDescriptor>(v, ix));
                 }
@@ -3203,9 +3205,9 @@ namespace IceGrid
             global::System.Collections.Generic.Dictionary<string, TemplateDescriptor> r = new global::System.Collections.Generic.Dictionary<string, TemplateDescriptor>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                TemplateDescriptor v = default;
+                TemplateDescriptor v;
                 v = new TemplateDescriptor(istr);
                 r[k] = v;
             }
@@ -3274,9 +3276,9 @@ namespace IceGrid
             global::System.Collections.Generic.Dictionary<string, NodeDescriptor> r = new global::System.Collections.Generic.Dictionary<string, NodeDescriptor>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                NodeDescriptor v = default;
+                NodeDescriptor v;
                 v = new NodeDescriptor(istr);
                 r[k] = v;
             }

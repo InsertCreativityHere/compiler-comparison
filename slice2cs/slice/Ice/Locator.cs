@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Locator.ice")]
@@ -43,7 +45,7 @@ namespace Ice
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterNotFoundException(global::System.Exception innerException) : base(innerException)
+        public AdapterNotFoundException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -101,7 +103,7 @@ namespace Ice
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InvalidReplicaGroupIdException(global::System.Exception innerException) : base(innerException)
+        public InvalidReplicaGroupIdException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -159,7 +161,7 @@ namespace Ice
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AdapterAlreadyActiveException(global::System.Exception innerException) : base(innerException)
+        public AdapterAlreadyActiveException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -217,7 +219,7 @@ namespace Ice
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObjectNotFoundException(global::System.Exception innerException) : base(innerException)
+        public ObjectNotFoundException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -275,7 +277,7 @@ namespace Ice
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ServerNotFoundException(global::System.Exception innerException) : base(innerException)
+        public ServerNotFoundException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -381,7 +383,7 @@ namespace Ice
         /// <exception name="ObjectNotFoundException">Raised if the object cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ObjectPrx findObjectById(Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        ObjectPrx? findObjectById(Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
@@ -393,7 +395,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<ObjectPrx> findObjectByIdAsync(Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Find an adapter by id and return a proxy that contains its endpoints.
@@ -405,7 +407,7 @@ namespace Ice
         /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ObjectPrx findAdapterById(string id, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        ObjectPrx? findAdapterById(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Find an adapter by id and return a proxy that contains its endpoints.
@@ -416,7 +418,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<ObjectPrx> findAdapterByIdAsync(string id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the locator registry.
@@ -424,7 +426,7 @@ namespace Ice
         /// <returns>The locator registry.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        LocatorRegistryPrx getRegistry(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        LocatorRegistryPrx? getRegistry(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the locator registry.
@@ -433,7 +435,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<LocatorRegistryPrx> getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<LocatorRegistryPrx?> getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -461,7 +463,7 @@ namespace Ice
         /// <exception name="AdapterAlreadyActiveException">Raised if an adapter with the same id is already active.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void setAdapterDirectProxy(string id, ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void setAdapterDirectProxy(string id, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
@@ -475,7 +477,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
@@ -496,7 +498,7 @@ namespace Ice
         ///  with the locator registry for this object adapter.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
@@ -512,7 +514,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Set the process proxy for a server.
@@ -524,7 +526,7 @@ namespace Ice
         /// <exception name="ServerNotFoundException">Raised if the server cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void setServerProcessProxy(string id, ProcessPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void setServerProcessProxy(string id, ProcessPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Set the process proxy for a server.
@@ -537,7 +539,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -558,7 +560,7 @@ namespace Ice
         ///  <returns>The locator proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        LocatorPrx getLocator(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        LocatorPrx? getLocator(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the locator proxy implemented by the process hosting this finder object.
@@ -568,7 +570,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<LocatorPrx> getLocatorAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<LocatorPrx?> getLocatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -594,7 +596,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<ObjectPrx> findObjectByIdAsync(Identity id, Current current = null);
+        global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Current? current = null);
 
         /// <summary>
         /// Find an adapter by id and return a proxy that contains its endpoints.
@@ -604,7 +606,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<ObjectPrx> findAdapterByIdAsync(string id, Current current = null);
+        global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Current? current = null);
 
         /// <summary>
         /// Get the locator registry.
@@ -613,7 +615,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LocatorRegistryPrx getRegistry(Current current = null);
+        LocatorRegistryPrx? getRegistry(Current? current = null);
     }
 
     /// <summary>
@@ -638,7 +640,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx proxy, Current current = null);
+        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Current? current = null);
 
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
@@ -653,7 +655,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx proxy, Current current = null);
+        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Current? current = null);
 
         /// <summary>
         /// Set the process proxy for a server.
@@ -665,7 +667,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx proxy, Current current = null);
+        global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Current? current = null);
     }
 
     /// <summary>
@@ -687,7 +689,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LocatorPrx getLocator(Current current = null);
+        LocatorPrx? getLocator(Current? current = null);
     }
 }
 
@@ -703,39 +705,39 @@ namespace Ice
 
         #region Synchronous operations
 
-        public ObjectPrx findObjectById(Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public ObjectPrx? findObjectById(Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_findObjectByIdAsync(id, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public ObjectPrx findAdapterById(string id, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public ObjectPrx? findAdapterById(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_findAdapterByIdAsync(id, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public LocatorRegistryPrx getRegistry(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public LocatorRegistryPrx? getRegistry(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getRegistryAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -743,24 +745,24 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<ObjectPrx> findObjectByIdAsync(Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_findObjectByIdAsync(id, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<ObjectPrx> _iceI_findObjectByIdAsync(Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<ObjectPrx?> _iceI_findObjectByIdAsync(Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_findObjectById_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?>(progress, cancel);
             _iceI_findObjectById(iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _findObjectById_name = "findObjectById";
 
-        private void _iceI_findObjectById(Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_findObjectById(Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<ObjectPrx>(completed);
+            var outAsync = getOutgoingAsync<ObjectPrx?>(completed);
             outAsync.invoke(
                 _findObjectById_name,
                 global::Ice.OperationMode.Idempotent,
@@ -787,30 +789,30 @@ namespace Ice
                 },
                 read: (InputStream istr) =>
                 {
-                    ObjectPrx ret = default;
+                    ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<ObjectPrx> findAdapterByIdAsync(string id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_findAdapterByIdAsync(id, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<ObjectPrx> _iceI_findAdapterByIdAsync(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<ObjectPrx?> _iceI_findAdapterByIdAsync(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_findAdapterById_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?>(progress, cancel);
             _iceI_findAdapterById(iceP_id, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _findAdapterById_name = "findAdapterById";
 
-        private void _iceI_findAdapterById(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_findAdapterById(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<ObjectPrx>(completed);
+            var outAsync = getOutgoingAsync<ObjectPrx?>(completed);
             outAsync.invoke(
                 _findAdapterById_name,
                 global::Ice.OperationMode.Idempotent,
@@ -837,30 +839,30 @@ namespace Ice
                 },
                 read: (InputStream istr) =>
                 {
-                    ObjectPrx ret = default;
+                    ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<LocatorRegistryPrx> getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<LocatorRegistryPrx?> getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getRegistryAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<LocatorRegistryPrx> _iceI_getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<LocatorRegistryPrx?> _iceI_getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getRegistry_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LocatorRegistryPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LocatorRegistryPrx?>(progress, cancel);
             _iceI_getRegistry(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getRegistry_name = "getRegistry";
 
-        private void _iceI_getRegistry(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getRegistry(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<LocatorRegistryPrx>(completed);
+            var outAsync = getOutgoingAsync<LocatorRegistryPrx?>(completed);
             outAsync.invoke(
                 _getRegistry_name,
                 global::Ice.OperationMode.Idempotent,
@@ -869,7 +871,7 @@ namespace Ice
                 synchronous,
                 read: (InputStream istr) =>
                 {
-                    LocatorRegistryPrx ret = default;
+                    LocatorRegistryPrx? ret;
                     ret = LocatorRegistryPrxHelper.read(istr);
                     return ret;
                 });
@@ -882,7 +884,7 @@ namespace Ice
         public static LocatorPrx createProxy(Communicator communicator, string proxyString) =>
             uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LocatorPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static LocatorPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -893,9 +895,9 @@ namespace Ice
             return null;
         }
 
-        public static LocatorPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static LocatorPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx bb = b?.ice_facet(f);
+            ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -911,23 +913,27 @@ namespace Ice
             return null;
         }
 
-        public static LocatorPrx uncheckedCast(ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static LocatorPrx? uncheckedCast(ObjectPrx? b)
         {
             if (b is not null)
             {
-                LocatorPrxHelper prx = new LocatorPrxHelper();
+                var prx = new LocatorPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static LocatorPrx uncheckedCast(ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static LocatorPrx? uncheckedCast(ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx bb = b.ice_facet(f);
-                LocatorPrxHelper prx = new LocatorPrxHelper();
+                ObjectPrx? bb = b.ice_facet(f);
+                var prx = new LocatorPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -946,17 +952,17 @@ namespace Ice
 
         #region Marshaling support
 
-        public static void write(OutputStream ostr, LocatorPrx v)
+        public static void write(OutputStream ostr, LocatorPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static LocatorPrx read(InputStream istr)
+        public static LocatorPrx? read(InputStream istr)
         {
-            ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                LocatorPrxHelper result = new LocatorPrxHelper();
+                 var result = new LocatorPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -976,39 +982,39 @@ namespace Ice
 
         #region Synchronous operations
 
-        public void setAdapterDirectProxy(string id, ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void setAdapterDirectProxy(string id, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_setAdapterDirectProxyAsync(id, proxy, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, proxy, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void setServerProcessProxy(string id, ProcessPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void setServerProcessProxy(string id, ProcessPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_setServerProcessProxyAsync(id, proxy, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -1016,12 +1022,12 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_setAdapterDirectProxyAsync(id, proxy, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_setAdapterDirectProxyAsync(string iceP_id, ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_setAdapterDirectProxyAsync(string iceP_id, ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setAdapterDirectProxy_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1031,7 +1037,7 @@ namespace Ice
 
         private const string _setAdapterDirectProxy_name = "setAdapterDirectProxy";
 
-        private void _iceI_setAdapterDirectProxy(string iceP_id, ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setAdapterDirectProxy(string iceP_id, ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1065,12 +1071,12 @@ namespace Ice
                 });
         }
 
-        public global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, proxy, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_setReplicatedAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_setReplicatedAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setReplicatedAdapterDirectProxy_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1080,7 +1086,7 @@ namespace Ice
 
         private const string _setReplicatedAdapterDirectProxy_name = "setReplicatedAdapterDirectProxy";
 
-        private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1119,12 +1125,12 @@ namespace Ice
                 });
         }
 
-        public global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_setServerProcessProxyAsync(id, proxy, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_setServerProcessProxyAsync(string iceP_id, ProcessPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_setServerProcessProxyAsync(string iceP_id, ProcessPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setServerProcessProxy_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1134,7 +1140,7 @@ namespace Ice
 
         private const string _setServerProcessProxy_name = "setServerProcessProxy";
 
-        private void _iceI_setServerProcessProxy(string iceP_id, ProcessPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setServerProcessProxy(string iceP_id, ProcessPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1171,7 +1177,7 @@ namespace Ice
         public static LocatorRegistryPrx createProxy(Communicator communicator, string proxyString) =>
             uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LocatorRegistryPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static LocatorRegistryPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1182,9 +1188,9 @@ namespace Ice
             return null;
         }
 
-        public static LocatorRegistryPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static LocatorRegistryPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx bb = b?.ice_facet(f);
+            ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1200,23 +1206,27 @@ namespace Ice
             return null;
         }
 
-        public static LocatorRegistryPrx uncheckedCast(ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static LocatorRegistryPrx? uncheckedCast(ObjectPrx? b)
         {
             if (b is not null)
             {
-                LocatorRegistryPrxHelper prx = new LocatorRegistryPrxHelper();
+                var prx = new LocatorRegistryPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static LocatorRegistryPrx uncheckedCast(ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static LocatorRegistryPrx? uncheckedCast(ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx bb = b.ice_facet(f);
-                LocatorRegistryPrxHelper prx = new LocatorRegistryPrxHelper();
+                ObjectPrx? bb = b.ice_facet(f);
+                var prx = new LocatorRegistryPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -1235,17 +1245,17 @@ namespace Ice
 
         #region Marshaling support
 
-        public static void write(OutputStream ostr, LocatorRegistryPrx v)
+        public static void write(OutputStream ostr, LocatorRegistryPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static LocatorRegistryPrx read(InputStream istr)
+        public static LocatorRegistryPrx? read(InputStream istr)
         {
-            ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                LocatorRegistryPrxHelper result = new LocatorRegistryPrxHelper();
+                 var result = new LocatorRegistryPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -1265,15 +1275,15 @@ namespace Ice
 
         #region Synchronous operations
 
-        public LocatorPrx getLocator(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public LocatorPrx? getLocator(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getLocatorAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -1281,24 +1291,24 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<LocatorPrx> getLocatorAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<LocatorPrx?> getLocatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getLocatorAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<LocatorPrx> _iceI_getLocatorAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<LocatorPrx?> _iceI_getLocatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getLocator_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LocatorPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<LocatorPrx?>(progress, cancel);
             _iceI_getLocator(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getLocator_name = "getLocator";
 
-        private void _iceI_getLocator(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getLocator(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<LocatorPrx>(completed);
+            var outAsync = getOutgoingAsync<LocatorPrx?>(completed);
             outAsync.invoke(
                 _getLocator_name,
                 global::Ice.OperationMode.Normal,
@@ -1307,7 +1317,7 @@ namespace Ice
                 synchronous,
                 read: (InputStream istr) =>
                 {
-                    LocatorPrx ret = default;
+                    LocatorPrx? ret;
                     ret = LocatorPrxHelper.read(istr);
                     return ret;
                 });
@@ -1320,7 +1330,7 @@ namespace Ice
         public static LocatorFinderPrx createProxy(Communicator communicator, string proxyString) =>
             uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LocatorFinderPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static LocatorFinderPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1331,9 +1341,9 @@ namespace Ice
             return null;
         }
 
-        public static LocatorFinderPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static LocatorFinderPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx bb = b?.ice_facet(f);
+            ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1349,23 +1359,27 @@ namespace Ice
             return null;
         }
 
-        public static LocatorFinderPrx uncheckedCast(ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static LocatorFinderPrx? uncheckedCast(ObjectPrx? b)
         {
             if (b is not null)
             {
-                LocatorFinderPrxHelper prx = new LocatorFinderPrxHelper();
+                var prx = new LocatorFinderPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static LocatorFinderPrx uncheckedCast(ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static LocatorFinderPrx? uncheckedCast(ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx bb = b.ice_facet(f);
-                LocatorFinderPrxHelper prx = new LocatorFinderPrxHelper();
+                ObjectPrx? bb = b.ice_facet(f);
+                var prx = new LocatorFinderPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -1384,17 +1398,17 @@ namespace Ice
 
         #region Marshaling support
 
-        public static void write(OutputStream ostr, LocatorFinderPrx v)
+        public static void write(OutputStream ostr, LocatorFinderPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static LocatorFinderPrx read(InputStream istr)
+        public static LocatorFinderPrx? read(InputStream istr)
         {
-            ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                LocatorFinderPrxHelper result = new LocatorFinderPrxHelper();
+                 var result = new LocatorFinderPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -1413,11 +1427,11 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<ObjectPrx> findObjectByIdAsync(Identity id, Current current = null);
+        public abstract global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task<ObjectPrx> findAdapterByIdAsync(string id, Current current = null);
+        public abstract global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Current? current = null);
 
-        public abstract LocatorRegistryPrx getRegistry(Current current = null);
+        public abstract LocatorRegistryPrx? getRegistry(Current? current = null);
 
         #endregion
 
@@ -1429,17 +1443,17 @@ namespace Ice
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, Current current = null)
+        public override bool ice_isA(string s, Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current current = null)
+        public override string[] ice_ids(Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(Current current = null)
+        public override string ice_id(Current? current = null)
         {
             return ice_staticId();
         }
@@ -1459,10 +1473,10 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            Identity iceP_id = default;
+            Identity iceP_id;
             iceP_id = new Identity(istr);
             inS.endReadParams();
-            return inS.setResultTask<ObjectPrx>(obj.findObjectByIdAsync(iceP_id, current),
+            return inS.setResultTask<ObjectPrx?>(obj.findObjectByIdAsync(iceP_id, current),
                 (ostr, ret) =>
                 {
                     ostr.writeProxy(ret);
@@ -1475,10 +1489,10 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id = default;
+            string iceP_id;
             iceP_id = istr.readString();
             inS.endReadParams();
-            return inS.setResultTask<ObjectPrx>(obj.findAdapterByIdAsync(iceP_id, current),
+            return inS.setResultTask<ObjectPrx?>(obj.findAdapterByIdAsync(iceP_id, current),
                 (ostr, ret) =>
                 {
                     ostr.writeProxy(ret);
@@ -1563,11 +1577,11 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx proxy, Current current = null);
+        public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx proxy, Current current = null);
+        public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Current? current = null);
 
-        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx proxy, Current current = null);
+        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Current? current = null);
 
         #endregion
 
@@ -1579,17 +1593,17 @@ namespace Ice
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, Current current = null)
+        public override bool ice_isA(string s, Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current current = null)
+        public override string[] ice_ids(Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(Current current = null)
+        public override string ice_id(Current? current = null)
         {
             return ice_staticId();
         }
@@ -1609,8 +1623,8 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id = default;
-            ObjectPrx iceP_proxy = default;
+            string iceP_id;
+            ObjectPrx? iceP_proxy;
             iceP_id = istr.readString();
             iceP_proxy = istr.readProxy();
             inS.endReadParams();
@@ -1623,9 +1637,9 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_adapterId = default;
-            string iceP_replicaGroupId = default;
-            ObjectPrx iceP_proxy = default;
+            string iceP_adapterId;
+            string iceP_replicaGroupId;
+            ObjectPrx? iceP_proxy;
             iceP_adapterId = istr.readString();
             iceP_replicaGroupId = istr.readString();
             iceP_proxy = istr.readProxy();
@@ -1639,8 +1653,8 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id = default;
-            ProcessPrx iceP_proxy = default;
+            string iceP_id;
+            ProcessPrx? iceP_proxy;
             iceP_id = istr.readString();
             iceP_proxy = ProcessPrxHelper.read(istr);
             inS.endReadParams();
@@ -1712,7 +1726,7 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract LocatorPrx getLocator(Current current = null);
+        public abstract LocatorPrx? getLocator(Current? current = null);
 
         #endregion
 
@@ -1724,17 +1738,17 @@ namespace Ice
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, Current current = null)
+        public override bool ice_isA(string s, Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current current = null)
+        public override string[] ice_ids(Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(Current current = null)
+        public override string ice_id(Current? current = null)
         {
             return ice_staticId();
         }

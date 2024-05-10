@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("ServerPrivate.ice")]
@@ -46,13 +48,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerived(string b, string ud, global::System.Exception innerException = null) : base(b, innerException)
+        public UnknownDerived(string b, string ud, global::System.Exception? innerException = null) : base(b, innerException)
         {
             this.ud = ud;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownDerived(global::System.Exception innerException) : base(innerException)
+        public UnknownDerived(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -117,13 +119,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownIntermediate(string b, string ui, global::System.Exception innerException = null) : base(b, innerException)
+        public UnknownIntermediate(string b, string ui, global::System.Exception? innerException = null) : base(b, innerException)
         {
             this.ui = ui;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownIntermediate(global::System.Exception innerException) : base(innerException)
+        public UnknownIntermediate(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -188,13 +190,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived1(string b, string ki, string umd1, global::System.Exception innerException = null) : base(b, ki, innerException)
+        public UnknownMostDerived1(string b, string ki, string umd1, global::System.Exception? innerException = null) : base(b, ki, innerException)
         {
             this.umd1 = umd1;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived1(global::System.Exception innerException) : base(innerException)
+        public UnknownMostDerived1(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -259,13 +261,13 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived2(string b, string ui, string umd2, global::System.Exception innerException = null) : base(b, ui, innerException)
+        public UnknownMostDerived2(string b, string ui, string umd2, global::System.Exception? innerException = null) : base(b, ui, innerException)
         {
             this.umd2 = umd2;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMostDerived2(global::System.Exception innerException) : base(innerException)
+        public UnknownMostDerived2(global::System.Exception? innerException) : base(innerException)
         {
         }
 

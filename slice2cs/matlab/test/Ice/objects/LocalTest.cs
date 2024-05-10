@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("LocalTest.ice")]
@@ -110,7 +112,7 @@ namespace LocalTest
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C1 c1;
+        public C1? c1;
 
         #endregion
 
@@ -125,7 +127,7 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S1(C1 c1)
+        public S1(C1? c1)
         {
             this.c1 = c1;
             ice_initialize();
@@ -134,7 +136,7 @@ namespace LocalTest
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public S1(global::Ice.InputStream istr)
         {
-            istr.readValue((C1 v) => { this.c1 = v; });
+            istr.readValue((C1? v) => { this.c1 = v; });
             ice_initialize();
         }
 
@@ -158,10 +160,10 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as S1);
+        public override bool Equals(object? other) => Equals(other as S1);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S1 other)
+        public bool Equals(S1? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -176,10 +178,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S1 lhs, S1 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(S1? lhs, S1? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S1 lhs, S1 rhs) => !(lhs == rhs);
+        public static bool operator !=(S1? lhs, S1? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -260,10 +262,10 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as S2);
+        public override bool Equals(object? other) => Equals(other as S2);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S2 other)
+        public bool Equals(S2? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -278,10 +280,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S2 lhs, S2 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(S2? lhs, S2? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S2 lhs, S2 rhs) => !(lhs == rhs);
+        public static bool operator !=(S2? lhs, S2? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -320,7 +322,7 @@ namespace LocalTest
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C1[] c1seq;
+        public C1?[] c1seq;
 
         #endregion
 
@@ -329,7 +331,7 @@ namespace LocalTest
         #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S3(C1[] c1seq)
+        public S3(C1?[] c1seq)
         {
             this.c1seq = c1seq;
             ice_initialize();
@@ -362,10 +364,10 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as S3);
+        public override bool Equals(object? other) => Equals(other as S3);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S3 other)
+        public bool Equals(S3? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -380,10 +382,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S3 lhs, S3 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(S3? lhs, S3? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S3 lhs, S3 rhs) => !(lhs == rhs);
+        public static bool operator !=(S3? lhs, S3? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -464,10 +466,10 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as S4);
+        public override bool Equals(object? other) => Equals(other as S4);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S4 other)
+        public bool Equals(S4? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -482,10 +484,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S4 lhs, S4 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(S4? lhs, S4? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S4 lhs, S4 rhs) => !(lhs == rhs);
+        public static bool operator !=(S4? lhs, S4? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -524,7 +526,7 @@ namespace LocalTest
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::System.Collections.Generic.Dictionary<int, C1> c1dict;
+        public global::System.Collections.Generic.Dictionary<int, C1?> c1dict;
 
         #endregion
 
@@ -533,7 +535,7 @@ namespace LocalTest
         #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S5(global::System.Collections.Generic.Dictionary<int, C1> c1dict)
+        public S5(global::System.Collections.Generic.Dictionary<int, C1?> c1dict)
         {
             this.c1dict = c1dict;
             ice_initialize();
@@ -566,10 +568,10 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as S5);
+        public override bool Equals(object? other) => Equals(other as S5);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S5 other)
+        public bool Equals(S5? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -584,10 +586,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S5 lhs, S5 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(S5? lhs, S5? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S5 lhs, S5 rhs) => !(lhs == rhs);
+        public static bool operator !=(S5? lhs, S5? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -668,10 +670,10 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as S6);
+        public override bool Equals(object? other) => Equals(other as S6);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S6 other)
+        public bool Equals(S6? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -686,10 +688,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S6 lhs, S6 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(S6? lhs, S6? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S6 lhs, S6 rhs) => !(lhs == rhs);
+        public static bool operator !=(S6? lhs, S6? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -728,7 +730,7 @@ namespace LocalTest
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C1[][] c1seqseq;
+        public C1?[][] c1seqseq;
 
         #endregion
 
@@ -737,7 +739,7 @@ namespace LocalTest
         #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S7(C1[][] c1seqseq)
+        public S7(C1?[][] c1seqseq)
         {
             this.c1seqseq = c1seqseq;
             ice_initialize();
@@ -770,10 +772,10 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as S7);
+        public override bool Equals(object? other) => Equals(other as S7);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S7 other)
+        public bool Equals(S7? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -788,10 +790,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S7 lhs, S7 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(S7? lhs, S7? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S7 lhs, S7 rhs) => !(lhs == rhs);
+        public static bool operator !=(S7? lhs, S7? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -872,10 +874,10 @@ namespace LocalTest
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as S8);
+        public override bool Equals(object? other) => Equals(other as S8);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(S8 other)
+        public bool Equals(S8? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -890,10 +892,10 @@ namespace LocalTest
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(S8 lhs, S8 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(S8? lhs, S8? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(S8 lhs, S8 rhs) => !(lhs == rhs);
+        public static bool operator !=(S8? lhs, S8? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -953,7 +955,7 @@ namespace LocalTest
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public CB1()
         {
-            this.s1 = null;
+            this.s1 = null!;
             ice_initialize();
         }
 
@@ -1010,7 +1012,7 @@ namespace LocalTest
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C1[] c1seq;
+        public C1?[] c1seq;
 
         #endregion
 
@@ -1019,7 +1021,7 @@ namespace LocalTest
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CB2(C1[] c1seq)
+        public CB2(C1?[] c1seq)
         {
             this.c1seq = c1seq;
             ice_initialize();
@@ -1029,7 +1031,7 @@ namespace LocalTest
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public CB2()
         {
-            this.c1seq = null;
+            this.c1seq = null!;
             ice_initialize();
         }
 
@@ -1105,7 +1107,7 @@ namespace LocalTest
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public CB3()
         {
-            this.s1seq = null;
+            this.s1seq = null!;
             ice_initialize();
         }
 
@@ -1162,7 +1164,7 @@ namespace LocalTest
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::System.Collections.Generic.Dictionary<int, C1> c1dict;
+        public global::System.Collections.Generic.Dictionary<int, C1?> c1dict;
 
         #endregion
 
@@ -1171,7 +1173,7 @@ namespace LocalTest
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CB4(global::System.Collections.Generic.Dictionary<int, C1> c1dict)
+        public CB4(global::System.Collections.Generic.Dictionary<int, C1?> c1dict)
         {
             this.c1dict = c1dict;
             ice_initialize();
@@ -1181,7 +1183,7 @@ namespace LocalTest
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public CB4()
         {
-            this.c1dict = null;
+            this.c1dict = null!;
             ice_initialize();
         }
 
@@ -1257,7 +1259,7 @@ namespace LocalTest
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public CB5()
         {
-            this.s1dict = null;
+            this.s1dict = null!;
             ice_initialize();
         }
 
@@ -1314,7 +1316,7 @@ namespace LocalTest
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C1[][] c1seqseq;
+        public C1?[][] c1seqseq;
 
         #endregion
 
@@ -1323,7 +1325,7 @@ namespace LocalTest
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CB6(C1[][] c1seqseq)
+        public CB6(C1?[][] c1seqseq)
         {
             this.c1seqseq = c1seqseq;
             ice_initialize();
@@ -1333,7 +1335,7 @@ namespace LocalTest
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public CB6()
         {
-            this.c1seqseq = null;
+            this.c1seqseq = null!;
             ice_initialize();
         }
 
@@ -1409,7 +1411,7 @@ namespace LocalTest
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public CB7()
         {
-            this.s1seqseq = null;
+            this.s1seqseq = null!;
             ice_initialize();
         }
 
@@ -1469,7 +1471,7 @@ namespace LocalTest
         public S1 s1;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C1[] c1seq;
+        public C1?[] c1seq;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<int, S1> s1dict;
@@ -1481,7 +1483,7 @@ namespace LocalTest
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public CB8(S1 s1, C1[] c1seq, global::System.Collections.Generic.Dictionary<int, S1> s1dict)
+        public CB8(S1 s1, C1?[] c1seq, global::System.Collections.Generic.Dictionary<int, S1> s1dict)
         {
             this.s1 = s1;
             this.c1seq = c1seq;
@@ -1493,9 +1495,9 @@ namespace LocalTest
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public CB8()
         {
-            this.s1 = null;
-            this.c1seq = null;
-            this.s1dict = null;
+            this.s1 = null!;
+            this.c1seq = null!;
+            this.s1dict = null!;
             ice_initialize();
         }
 
@@ -1621,13 +1623,13 @@ namespace LocalTest
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public S1 s1;
+        public S1? s1;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public C1[] c1seq;
+        public C1?[]? c1seq;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::System.Collections.Generic.Dictionary<int, S1> s1dict;
+        public global::System.Collections.Generic.Dictionary<int, S1>? s1dict;
 
         #endregion
 
@@ -1636,7 +1638,7 @@ namespace LocalTest
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Opt(S1 s1, C1[] c1seq, global::System.Collections.Generic.Dictionary<int, S1> s1dict)
+        public Opt(S1? s1, C1?[]? c1seq, global::System.Collections.Generic.Dictionary<int, S1>? s1dict)
         {
             this.s1 = s1;
             this.c1seq = c1seq;
@@ -1699,7 +1701,7 @@ namespace LocalTest
             if (istr_.readOptional(1, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                S1 tmpVal = default;
+                S1 tmpVal;
                 tmpVal = new S1(istr_);
                 s1 = tmpVal;
             }
@@ -1710,7 +1712,7 @@ namespace LocalTest
             if (istr_.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                C1[] tmpVal;
+                C1?[] tmpVal;
                 tmpVal = C1SeqHelper.read(istr_);
                 c1seq = tmpVal;
             }
@@ -1741,7 +1743,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class C1SeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, C1[] v)
+        public static void write(global::Ice.OutputStream ostr, C1?[] v)
         {
             if (v is null)
             {
@@ -1757,13 +1759,13 @@ namespace LocalTest
             }
         }
 
-        public static C1[] read(global::Ice.InputStream istr)
+        public static C1?[] read(global::Ice.InputStream istr)
         {
-            C1[] v;
+            C1?[] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new C1[szx];
-                for(int ix = 0; ix < szx; ++ix)
+                v = new C1?[szx];
+                for (int ix = 0; ix < szx; ++ix)
                 {
                     istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<C1>(v, ix));
                 }
@@ -1810,7 +1812,7 @@ namespace LocalTest
     public sealed class C1DictHelper
     {
         public static void write(global::Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, C1> v)
+                                 global::System.Collections.Generic.Dictionary<int, C1?> v)
         {
             if(v == null)
             {
@@ -1819,7 +1821,7 @@ namespace LocalTest
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, C1> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<int, C1?> e in v)
                 {
                     ostr.writeInt(e.Key);
                     ostr.writeValue(e.Value);
@@ -1827,15 +1829,15 @@ namespace LocalTest
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<int, C1> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<int, C1?> read(global::Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, C1> r = new global::System.Collections.Generic.Dictionary<int, C1>();
+            global::System.Collections.Generic.Dictionary<int, C1?> r = new global::System.Collections.Generic.Dictionary<int, C1?>();
             for(int i = 0; i < sz; ++i)
             {
-                int k = default;
+                int k;
                 k = istr.readInt();
-                istr.readValue((C1 v) => { r[k] = v; });
+                istr.readValue((C1? v) => { r[k] = v; });
             }
             return r;
         }
@@ -1868,9 +1870,9 @@ namespace LocalTest
             global::System.Collections.Generic.Dictionary<int, S1> r = new global::System.Collections.Generic.Dictionary<int, S1>();
             for(int i = 0; i < sz; ++i)
             {
-                int k = default;
+                int k;
                 k = istr.readInt();
-                S1 v = default;
+                S1 v;
                 v = new S1(istr);
                 r[k] = v;
             }
@@ -1881,7 +1883,7 @@ namespace LocalTest
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class C1SeqSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, C1[][] v)
+        public static void write(global::Ice.OutputStream ostr, C1?[][] v)
         {
             if (v is null)
             {
@@ -1897,12 +1899,12 @@ namespace LocalTest
             }
         }
 
-        public static C1[][] read(global::Ice.InputStream istr)
+        public static C1?[][] read(global::Ice.InputStream istr)
         {
-            C1[][] v;
+            C1?[][] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new C1[szx][];
+                v = new C1?[szx][];
                 for(int ix = 0; ix < szx; ++ix)
                 {
                     v[ix] = C1SeqHelper.read(istr);
@@ -1950,7 +1952,7 @@ namespace LocalTest
     public sealed class StructDict1Helper
     {
         public static void write(global::Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<StructKey, C1> v)
+                                 global::System.Collections.Generic.Dictionary<StructKey, C1?> v)
         {
             if(v == null)
             {
@@ -1959,7 +1961,7 @@ namespace LocalTest
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<StructKey, C1> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<StructKey, C1?> e in v)
                 {
                     e.Key.ice_writeMembers(ostr);
                     ostr.writeValue(e.Value);
@@ -1967,15 +1969,15 @@ namespace LocalTest
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<StructKey, C1> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<StructKey, C1?> read(global::Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<StructKey, C1> r = new global::System.Collections.Generic.Dictionary<StructKey, C1>();
+            global::System.Collections.Generic.Dictionary<StructKey, C1?> r = new global::System.Collections.Generic.Dictionary<StructKey, C1?>();
             for(int i = 0; i < sz; ++i)
             {
-                StructKey k = default;
+                StructKey k;
                 k = new StructKey(istr);
-                istr.readValue((C1 v) => { r[k] = v; });
+                istr.readValue((C1? v) => { r[k] = v; });
             }
             return r;
         }
@@ -2008,9 +2010,9 @@ namespace LocalTest
             global::System.Collections.Generic.Dictionary<StructKey, S1> r = new global::System.Collections.Generic.Dictionary<StructKey, S1>();
             for(int i = 0; i < sz; ++i)
             {
-                StructKey k = default;
+                StructKey k;
                 k = new StructKey(istr);
-                S1 v = default;
+                S1 v;
                 v = new S1(istr);
                 r[k] = v;
             }
@@ -2022,7 +2024,7 @@ namespace LocalTest
     public sealed class C1DictDictHelper
     {
         public static void write(global::Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1>> v)
+                                 global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1?>> v)
         {
             if(v == null)
             {
@@ -2031,7 +2033,7 @@ namespace LocalTest
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, global::System.Collections.Generic.Dictionary<int, C1>> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<int, global::System.Collections.Generic.Dictionary<int, C1?>> e in v)
                 {
                     ostr.writeInt(e.Key);
                     C1DictHelper.write(ostr, e.Value);
@@ -2039,15 +2041,15 @@ namespace LocalTest
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1>> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1?>> read(global::Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1>> r = new global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1>>();
+            global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1?>> r = new global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, C1?>>();
             for(int i = 0; i < sz; ++i)
             {
-                int k = default;
+                int k;
                 k = istr.readInt();
-                global::System.Collections.Generic.Dictionary<int, C1> v = default;
+                global::System.Collections.Generic.Dictionary<int, C1?> v;
                 v = C1DictHelper.read(istr);
                 r[k] = v;
             }
@@ -2082,9 +2084,9 @@ namespace LocalTest
             global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, S1>> r = new global::System.Collections.Generic.Dictionary<int, global::System.Collections.Generic.Dictionary<int, S1>>();
             for(int i = 0; i < sz; ++i)
             {
-                int k = default;
+                int k;
                 k = istr.readInt();
-                global::System.Collections.Generic.Dictionary<int, S1> v = default;
+                global::System.Collections.Generic.Dictionary<int, S1> v;
                 v = S1DictHelper.read(istr);
                 r[k] = v;
             }

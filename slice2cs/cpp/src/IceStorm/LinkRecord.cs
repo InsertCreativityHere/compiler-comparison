@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("LinkRecord.ice")]
@@ -36,13 +38,13 @@ namespace IceStorm
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TopicLinkPrx obj;
+        public TopicLinkPrx? obj;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public int cost;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public TopicPrx theTopic;
+        public TopicPrx? theTopic;
 
         #endregion
 
@@ -57,7 +59,7 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public LinkRecord(TopicLinkPrx obj, int cost, TopicPrx theTopic)
+        public LinkRecord(TopicLinkPrx? obj, int cost, TopicPrx? theTopic)
         {
             this.obj = obj;
             this.cost = cost;
@@ -96,19 +98,19 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as LinkRecord);
+        public override bool Equals(object? other) => Equals(other as LinkRecord);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(LinkRecord other)
+        public bool Equals(LinkRecord? other)
         {
             if (ReferenceEquals(this, other))
             {
                 return true;
             }
             return other is not null && 
-                (Ice.ObjectPrxHelperBase)this.obj == (Ice.ObjectPrxHelperBase)other.obj && 
+                (Ice.ObjectPrxHelperBase?)this.obj == (Ice.ObjectPrxHelperBase?)other.obj && 
                 this.cost == other.cost && 
-                (Ice.ObjectPrxHelperBase)this.theTopic == (Ice.ObjectPrxHelperBase)other.theTopic;
+                (Ice.ObjectPrxHelperBase?)this.theTopic == (Ice.ObjectPrxHelperBase?)other.theTopic;
         }
 
         #endregion
@@ -116,10 +118,10 @@ namespace IceStorm
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(LinkRecord lhs, LinkRecord rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(LinkRecord? lhs, LinkRecord? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(LinkRecord lhs, LinkRecord rhs) => !(lhs == rhs);
+        public static bool operator !=(LinkRecord? lhs, LinkRecord? rhs) => !(lhs == rhs);
 
         #endregion
 

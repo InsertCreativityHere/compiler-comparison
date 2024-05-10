@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("PropertiesAdmin.ice")]
@@ -55,7 +57,7 @@ namespace Ice
         /// <returns>The property value.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        string getProperty(string key, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        string getProperty(string key, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get a property by key.
@@ -67,7 +69,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<string> getPropertyAsync(string key, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<string> getPropertyAsync(string key, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
@@ -79,7 +81,7 @@ namespace Ice
         /// <returns>The matching property set.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
@@ -91,7 +93,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getPropertiesForPrefixAsync(string prefix, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getPropertiesForPrefixAsync(string prefix, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
@@ -103,7 +105,7 @@ namespace Ice
         ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
@@ -114,7 +116,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -137,7 +139,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getProperty(string key, Current current = null);
+        string getProperty(string key, Current? current = null);
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
@@ -150,7 +152,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current current = null);
+        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current? current = null);
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
@@ -163,7 +165,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current current = null);
+        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current? current = null);
     }
 }
 
@@ -179,39 +181,39 @@ namespace Ice
 
         #region Synchronous operations
 
-        public string getProperty(string key, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public string getProperty(string key, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getPropertyAsync(key, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getPropertiesForPrefixAsync(prefix, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_setPropertiesAsync(newProperties, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -219,12 +221,12 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<string> getPropertyAsync(string key, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<string> getPropertyAsync(string key, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getPropertyAsync(key, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<string> _iceI_getPropertyAsync(string iceP_key, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<string> _iceI_getPropertyAsync(string iceP_key, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getProperty_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
@@ -234,7 +236,7 @@ namespace Ice
 
         private const string _getProperty_name = "getProperty";
 
-        private void _iceI_getProperty(string iceP_key, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getProperty(string iceP_key, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
@@ -249,18 +251,18 @@ namespace Ice
                 },
                 read: (InputStream istr) =>
                 {
-                    string ret = default;
+                    string ret;
                     ret = istr.readString();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getPropertiesForPrefixAsync(string prefix, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getPropertiesForPrefixAsync(string prefix, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getPropertiesForPrefixAsync(prefix, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_getPropertiesForPrefixAsync(string iceP_prefix, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_getPropertiesForPrefixAsync(string iceP_prefix, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getPropertiesForPrefix_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
@@ -270,7 +272,7 @@ namespace Ice
 
         private const string _getPropertiesForPrefix_name = "getPropertiesForPrefix";
 
-        private void _iceI_getPropertiesForPrefix(string iceP_prefix, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getPropertiesForPrefix(string iceP_prefix, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<global::System.Collections.Generic.Dictionary<string, string>>(completed);
             outAsync.invoke(
@@ -285,18 +287,18 @@ namespace Ice
                 },
                 read: (InputStream istr) =>
                 {
-                    global::System.Collections.Generic.Dictionary<string, string> ret = default;
+                    global::System.Collections.Generic.Dictionary<string, string> ret;
                     ret = PropertyDictHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_setPropertiesAsync(newProperties, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_setProperties(iceP_newProperties, context, synchronous, completed);
@@ -305,7 +307,7 @@ namespace Ice
 
         private const string _setProperties_name = "setProperties";
 
-        private void _iceI_setProperties(global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setProperties(global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -327,7 +329,7 @@ namespace Ice
         public static PropertiesAdminPrx createProxy(Communicator communicator, string proxyString) =>
             uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static PropertiesAdminPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static PropertiesAdminPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -338,9 +340,9 @@ namespace Ice
             return null;
         }
 
-        public static PropertiesAdminPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static PropertiesAdminPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx bb = b?.ice_facet(f);
+            ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -356,23 +358,27 @@ namespace Ice
             return null;
         }
 
-        public static PropertiesAdminPrx uncheckedCast(ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static PropertiesAdminPrx? uncheckedCast(ObjectPrx? b)
         {
             if (b is not null)
             {
-                PropertiesAdminPrxHelper prx = new PropertiesAdminPrxHelper();
+                var prx = new PropertiesAdminPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static PropertiesAdminPrx uncheckedCast(ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static PropertiesAdminPrx? uncheckedCast(ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx bb = b.ice_facet(f);
-                PropertiesAdminPrxHelper prx = new PropertiesAdminPrxHelper();
+                ObjectPrx? bb = b.ice_facet(f);
+                var prx = new PropertiesAdminPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -391,17 +397,17 @@ namespace Ice
 
         #region Marshaling support
 
-        public static void write(OutputStream ostr, PropertiesAdminPrx v)
+        public static void write(OutputStream ostr, PropertiesAdminPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static PropertiesAdminPrx read(InputStream istr)
+        public static PropertiesAdminPrx? read(InputStream istr)
         {
-            ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                PropertiesAdminPrxHelper result = new PropertiesAdminPrxHelper();
+                 var result = new PropertiesAdminPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -420,11 +426,11 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract string getProperty(string key, Current current = null);
+        public abstract string getProperty(string key, Current? current = null);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current current = null);
+        public abstract global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current? current = null);
 
-        public abstract void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current current = null);
+        public abstract void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current? current = null);
 
         #endregion
 
@@ -436,17 +442,17 @@ namespace Ice
             "::Ice::PropertiesAdmin"
         };
 
-        public override bool ice_isA(string s, Current current = null)
+        public override bool ice_isA(string s, Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current current = null)
+        public override string[] ice_ids(Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(Current current = null)
+        public override string ice_id(Current? current = null)
         {
             return ice_staticId();
         }
@@ -466,7 +472,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_key = default;
+            string iceP_key;
             iceP_key = istr.readString();
             inS.endReadParams();
             var ret = obj.getProperty(iceP_key, current);
@@ -482,7 +488,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_prefix = default;
+            string iceP_prefix;
             iceP_prefix = istr.readString();
             inS.endReadParams();
             var ret = obj.getPropertiesForPrefix(iceP_prefix, current);
@@ -498,7 +504,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties = default;
+            global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties;
             iceP_newProperties = PropertyDictHelper.read(istr);
             inS.endReadParams();
             obj.setProperties(iceP_newProperties, current);

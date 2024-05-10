@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("ServiceManager.ice")]
@@ -43,7 +45,7 @@ namespace IceBox
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadyStartedException(global::System.Exception innerException) : base(innerException)
+        public AlreadyStartedException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -101,7 +103,7 @@ namespace IceBox
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public AlreadyStoppedException(global::System.Exception innerException) : base(innerException)
+        public AlreadyStoppedException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -159,7 +161,7 @@ namespace IceBox
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NoSuchServiceException(global::System.Exception innerException) : base(innerException)
+        public NoSuchServiceException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -241,7 +243,7 @@ namespace IceBox
         /// <param name="services">The names of the services.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void servicesStarted(string[] services, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void servicesStarted(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Receives the names of the services that were started.
@@ -251,7 +253,7 @@ namespace IceBox
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task servicesStartedAsync(string[] services, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task servicesStartedAsync(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Receives the names of the services that were stopped.
@@ -259,7 +261,7 @@ namespace IceBox
         /// <param name="services">The names of the services.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void servicesStopped(string[] services, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void servicesStopped(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Receives the names of the services that were stopped.
@@ -269,7 +271,7 @@ namespace IceBox
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task servicesStoppedAsync(string[] services, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task servicesStoppedAsync(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -289,7 +291,7 @@ namespace IceBox
         /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void startService(string service, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void startService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Start an individual service.
@@ -300,7 +302,7 @@ namespace IceBox
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task startServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task startServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Stop an individual service.
@@ -312,7 +314,7 @@ namespace IceBox
         /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void stopService(string service, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void stopService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Stop an individual service.
@@ -323,7 +325,7 @@ namespace IceBox
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task stopServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task stopServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Registers a new observer with the ServiceManager.
@@ -331,7 +333,7 @@ namespace IceBox
         /// <param name="observer">The new observer</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void addObserver(ServiceObserverPrx observer, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void addObserver(ServiceObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Registers a new observer with the ServiceManager.
@@ -341,7 +343,7 @@ namespace IceBox
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task addObserverAsync(ServiceObserverPrx observer, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task addObserverAsync(ServiceObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Shut down all services.
@@ -349,7 +351,7 @@ namespace IceBox
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Shut down all services.
@@ -359,7 +361,7 @@ namespace IceBox
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -379,7 +381,7 @@ namespace IceBox
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void servicesStarted(string[] services, global::Ice.Current current = null);
+        void servicesStarted(string[] services, global::Ice.Current? current = null);
 
         /// <summary>
         /// Receives the names of the services that were stopped.
@@ -388,7 +390,7 @@ namespace IceBox
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void servicesStopped(string[] services, global::Ice.Current current = null);
+        void servicesStopped(string[] services, global::Ice.Current? current = null);
     }
 
     /// <summary>
@@ -409,7 +411,7 @@ namespace IceBox
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void startService(string service, global::Ice.Current current = null);
+        void startService(string service, global::Ice.Current? current = null);
 
         /// <summary>
         /// Stop an individual service.
@@ -422,7 +424,7 @@ namespace IceBox
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void stopService(string service, global::Ice.Current current = null);
+        void stopService(string service, global::Ice.Current? current = null);
 
         /// <summary>
         /// Registers a new observer with the ServiceManager.
@@ -431,7 +433,7 @@ namespace IceBox
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void addObserver(ServiceObserverPrx observer, global::Ice.Current current = null);
+        void addObserver(ServiceObserverPrx? observer, global::Ice.Current? current = null);
 
         /// <summary>
         /// Shut down all services.
@@ -440,7 +442,7 @@ namespace IceBox
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current = null);
+        void shutdown(global::Ice.Current? current = null);
     }
 }
 
@@ -456,27 +458,27 @@ namespace IceBox
 
         #region Synchronous operations
 
-        public void servicesStarted(string[] services, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void servicesStarted(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_servicesStartedAsync(services, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void servicesStopped(string[] services, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void servicesStopped(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_servicesStoppedAsync(services, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -484,12 +486,12 @@ namespace IceBox
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task servicesStartedAsync(string[] services, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task servicesStartedAsync(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_servicesStartedAsync(services, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_servicesStartedAsync(string[] iceP_services, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_servicesStartedAsync(string[] iceP_services, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_servicesStarted(iceP_services, context, synchronous, completed);
@@ -498,7 +500,7 @@ namespace IceBox
 
         private const string _servicesStarted_name = "servicesStarted";
 
-        private void _iceI_servicesStarted(string[] iceP_services, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_servicesStarted(string[] iceP_services, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -513,12 +515,12 @@ namespace IceBox
                 });
         }
 
-        public global::System.Threading.Tasks.Task servicesStoppedAsync(string[] services, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task servicesStoppedAsync(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_servicesStoppedAsync(services, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_servicesStoppedAsync(string[] iceP_services, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_servicesStoppedAsync(string[] iceP_services, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_servicesStopped(iceP_services, context, synchronous, completed);
@@ -527,7 +529,7 @@ namespace IceBox
 
         private const string _servicesStopped_name = "servicesStopped";
 
-        private void _iceI_servicesStopped(string[] iceP_services, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_servicesStopped(string[] iceP_services, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -549,7 +551,7 @@ namespace IceBox
         public static ServiceObserverPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static ServiceObserverPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static ServiceObserverPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -560,9 +562,9 @@ namespace IceBox
             return null;
         }
 
-        public static ServiceObserverPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static ServiceObserverPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -578,23 +580,27 @@ namespace IceBox
             return null;
         }
 
-        public static ServiceObserverPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static ServiceObserverPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                ServiceObserverPrxHelper prx = new ServiceObserverPrxHelper();
+                var prx = new ServiceObserverPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static ServiceObserverPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static ServiceObserverPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                ServiceObserverPrxHelper prx = new ServiceObserverPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new ServiceObserverPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -613,17 +619,17 @@ namespace IceBox
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, ServiceObserverPrx v)
+        public static void write(global::Ice.OutputStream ostr, ServiceObserverPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static ServiceObserverPrx read(global::Ice.InputStream istr)
+        public static ServiceObserverPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                ServiceObserverPrxHelper result = new ServiceObserverPrxHelper();
+                 var result = new ServiceObserverPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -643,51 +649,51 @@ namespace IceBox
 
         #region Synchronous operations
 
-        public void startService(string service, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void startService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_startServiceAsync(service, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void stopService(string service, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void stopService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_stopServiceAsync(service, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void addObserver(ServiceObserverPrx observer, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void addObserver(ServiceObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_addObserverAsync(observer, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -695,12 +701,12 @@ namespace IceBox
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task startServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task startServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_startServiceAsync(service, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_startServiceAsync(string iceP_service, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_startServiceAsync(string iceP_service, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_startService_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -710,7 +716,7 @@ namespace IceBox
 
         private const string _startService_name = "startService";
 
-        private void _iceI_startService(string iceP_service, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_startService(string iceP_service, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -743,12 +749,12 @@ namespace IceBox
                 });
         }
 
-        public global::System.Threading.Tasks.Task stopServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task stopServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_stopServiceAsync(service, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_stopServiceAsync(string iceP_service, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_stopServiceAsync(string iceP_service, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_stopService_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -758,7 +764,7 @@ namespace IceBox
 
         private const string _stopService_name = "stopService";
 
-        private void _iceI_stopService(string iceP_service, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_stopService(string iceP_service, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -791,12 +797,12 @@ namespace IceBox
                 });
         }
 
-        public global::System.Threading.Tasks.Task addObserverAsync(ServiceObserverPrx observer, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task addObserverAsync(ServiceObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_addObserverAsync(observer, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_addObserverAsync(ServiceObserverPrx iceP_observer, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_addObserverAsync(ServiceObserverPrx? iceP_observer, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_addObserver(iceP_observer, context, synchronous, completed);
@@ -805,7 +811,7 @@ namespace IceBox
 
         private const string _addObserver_name = "addObserver";
 
-        private void _iceI_addObserver(ServiceObserverPrx iceP_observer, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_addObserver(ServiceObserverPrx? iceP_observer, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -820,12 +826,12 @@ namespace IceBox
                 });
         }
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -834,7 +840,7 @@ namespace IceBox
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -852,7 +858,7 @@ namespace IceBox
         public static ServiceManagerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static ServiceManagerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static ServiceManagerPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -863,9 +869,9 @@ namespace IceBox
             return null;
         }
 
-        public static ServiceManagerPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static ServiceManagerPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -881,23 +887,27 @@ namespace IceBox
             return null;
         }
 
-        public static ServiceManagerPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static ServiceManagerPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                ServiceManagerPrxHelper prx = new ServiceManagerPrxHelper();
+                var prx = new ServiceManagerPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static ServiceManagerPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static ServiceManagerPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                ServiceManagerPrxHelper prx = new ServiceManagerPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new ServiceManagerPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -916,17 +926,17 @@ namespace IceBox
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, ServiceManagerPrx v)
+        public static void write(global::Ice.OutputStream ostr, ServiceManagerPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static ServiceManagerPrx read(global::Ice.InputStream istr)
+        public static ServiceManagerPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                ServiceManagerPrxHelper result = new ServiceManagerPrxHelper();
+                 var result = new ServiceManagerPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -945,9 +955,9 @@ namespace IceBox
     {
         #region Slice operations
 
-        public abstract void servicesStarted(string[] services, global::Ice.Current current = null);
+        public abstract void servicesStarted(string[] services, global::Ice.Current? current = null);
 
-        public abstract void servicesStopped(string[] services, global::Ice.Current current = null);
+        public abstract void servicesStopped(string[] services, global::Ice.Current? current = null);
 
         #endregion
 
@@ -959,17 +969,17 @@ namespace IceBox
             "::IceBox::ServiceObserver"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -989,7 +999,7 @@ namespace IceBox
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_services = default;
+            string[] iceP_services;
             iceP_services = global::Ice.StringSeqHelper.read(istr);
             inS.endReadParams();
             obj.servicesStarted(iceP_services, current);
@@ -1002,7 +1012,7 @@ namespace IceBox
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string[] iceP_services = default;
+            string[] iceP_services;
             iceP_services = global::Ice.StringSeqHelper.read(istr);
             inS.endReadParams();
             obj.servicesStopped(iceP_services, current);
@@ -1069,13 +1079,13 @@ namespace IceBox
     {
         #region Slice operations
 
-        public abstract void startService(string service, global::Ice.Current current = null);
+        public abstract void startService(string service, global::Ice.Current? current = null);
 
-        public abstract void stopService(string service, global::Ice.Current current = null);
+        public abstract void stopService(string service, global::Ice.Current? current = null);
 
-        public abstract void addObserver(ServiceObserverPrx observer, global::Ice.Current current = null);
+        public abstract void addObserver(ServiceObserverPrx? observer, global::Ice.Current? current = null);
 
-        public abstract void shutdown(global::Ice.Current current = null);
+        public abstract void shutdown(global::Ice.Current? current = null);
 
         #endregion
 
@@ -1087,17 +1097,17 @@ namespace IceBox
             "::IceBox::ServiceManager"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -1117,7 +1127,7 @@ namespace IceBox
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_service = default;
+            string iceP_service;
             iceP_service = istr.readString();
             inS.endReadParams();
             obj.startService(iceP_service, current);
@@ -1130,7 +1140,7 @@ namespace IceBox
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_service = default;
+            string iceP_service;
             iceP_service = istr.readString();
             inS.endReadParams();
             obj.stopService(iceP_service, current);
@@ -1143,7 +1153,7 @@ namespace IceBox
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            ServiceObserverPrx iceP_observer = default;
+            ServiceObserverPrx? iceP_observer;
             iceP_observer = ServiceObserverPrxHelper.read(istr);
             inS.endReadParams();
             obj.addObserver(iceP_observer, current);

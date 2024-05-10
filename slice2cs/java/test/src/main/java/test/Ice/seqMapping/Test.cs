@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -99,10 +101,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as Foo);
+        public override bool Equals(object? other) => Equals(other as Foo);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(Foo other)
+        public bool Equals(Foo? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -118,10 +120,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(Foo lhs, Foo rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(Foo? lhs, Foo? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(Foo lhs, Foo rhs) => !(lhs == rhs);
+        public static bool operator !=(Foo? lhs, Foo? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -174,7 +176,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Bar(byte[] SLmem, byte[][] SLSmem, global::System.Exception innerException = null) : base(innerException)
+        public Bar(byte[] SLmem, byte[][] SLSmem, global::System.Exception? innerException = null) : base(innerException)
         {
             this.SLmem = SLmem;
             this.SLSmem = SLSmem;
@@ -184,8 +186,8 @@ namespace Test
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public Bar()
         {
-            this.SLmem = null;
-            this.SLSmem = null;
+            this.SLmem = null!;
+            this.SLSmem = null!;
         }
 
         #endregion
@@ -259,8 +261,8 @@ namespace Test
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public Baz()
         {
-            this.SLmem = null;
-            this.SLSmem = null;
+            this.SLmem = null!;
+            this.SLSmem = null!;
             ice_initialize();
         }
 
@@ -317,21 +319,21 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface MyClassPrx : global::Ice.ObjectPrx
     {
-        void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] opSerialSmallJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        byte[] opSerialSmallJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> opSerialSmallJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> opSerialSmallJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] opSerialLargeJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        byte[] opSerialLargeJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> opSerialLargeJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> opSerialLargeJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        byte[] opSerialStructJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        byte[] opSerialStructJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> opSerialStructJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> opSerialStructJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -341,16 +343,16 @@ namespace Test
     public interface MyClassOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current = null);
+        void shutdown(global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] opSerialSmallJava(byte[] i, out byte[] o, global::Ice.Current current = null);
+        byte[] opSerialSmallJava(byte[] i, out byte[] o, global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] opSerialLargeJava(byte[] i, out byte[] o, global::Ice.Current current = null);
+        byte[] opSerialLargeJava(byte[] i, out byte[] o, global::Ice.Current? current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] opSerialStructJava(byte[] i, out byte[] o, global::Ice.Current current = null);
+        byte[] opSerialStructJava(byte[] i, out byte[] o, global::Ice.Current? current = null);
     }
 }
 
@@ -414,19 +416,19 @@ namespace Test
 
         #region Synchronous operations
 
-        public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public byte[] opSerialSmallJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public byte[] opSerialSmallJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -434,13 +436,13 @@ namespace Test
                 o = result_.o;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public byte[] opSerialLargeJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public byte[] opSerialLargeJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -448,13 +450,13 @@ namespace Test
                 o = result_.o;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public byte[] opSerialStructJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public byte[] opSerialStructJava(byte[] i, out byte[] o, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -462,9 +464,9 @@ namespace Test
                 o = result_.o;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -472,12 +474,12 @@ namespace Test
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_shutdown(context, synchronous, completed);
@@ -486,7 +488,7 @@ namespace Test
 
         private const string _shutdown_name = "shutdown";
 
-        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -497,12 +499,12 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> opSerialSmallJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> opSerialSmallJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opSerialSmallJavaAsync(i, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> _iceI_opSerialSmallJavaAsync(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpSerialSmallJavaResult> _iceI_opSerialSmallJavaAsync(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSerialSmallJava_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSerialSmallJavaResult>(progress, cancel);
@@ -512,7 +514,7 @@ namespace Test
 
         private const string _opSerialSmallJava_name = "opSerialSmallJava";
 
-        private void _iceI_opSerialSmallJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opSerialSmallJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MyClass_OpSerialSmallJavaResult>(completed);
             outAsync.invoke(
@@ -527,19 +529,19 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    MyClass_OpSerialSmallJavaResult ret = new MyClass_OpSerialSmallJavaResult();
+                    var ret = new MyClass_OpSerialSmallJavaResult();
                     ret.o = SerialSmallHelper.read(istr);
                     ret.returnValue = SerialSmallHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> opSerialLargeJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> opSerialLargeJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opSerialLargeJavaAsync(i, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> _iceI_opSerialLargeJavaAsync(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpSerialLargeJavaResult> _iceI_opSerialLargeJavaAsync(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSerialLargeJava_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSerialLargeJavaResult>(progress, cancel);
@@ -549,7 +551,7 @@ namespace Test
 
         private const string _opSerialLargeJava_name = "opSerialLargeJava";
 
-        private void _iceI_opSerialLargeJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opSerialLargeJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MyClass_OpSerialLargeJavaResult>(completed);
             outAsync.invoke(
@@ -564,19 +566,19 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    MyClass_OpSerialLargeJavaResult ret = new MyClass_OpSerialLargeJavaResult();
+                    var ret = new MyClass_OpSerialLargeJavaResult();
                     ret.o = SerialLargeHelper.read(istr);
                     ret.returnValue = SerialLargeHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> opSerialStructJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> opSerialStructJavaAsync(byte[] i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opSerialStructJavaAsync(i, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> _iceI_opSerialStructJavaAsync(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MyClass_OpSerialStructJavaResult> _iceI_opSerialStructJavaAsync(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSerialStructJava_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MyClass_OpSerialStructJavaResult>(progress, cancel);
@@ -586,7 +588,7 @@ namespace Test
 
         private const string _opSerialStructJava_name = "opSerialStructJava";
 
-        private void _iceI_opSerialStructJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opSerialStructJava(byte[] iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MyClass_OpSerialStructJavaResult>(completed);
             outAsync.invoke(
@@ -601,7 +603,7 @@ namespace Test
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    MyClass_OpSerialStructJavaResult ret = new MyClass_OpSerialStructJavaResult();
+                    var ret = new MyClass_OpSerialStructJavaResult();
                     ret.o = SerialStructHelper.read(istr);
                     ret.returnValue = SerialStructHelper.read(istr);
                     return ret;
@@ -615,7 +617,7 @@ namespace Test
         public static MyClassPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static MyClassPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -626,9 +628,9 @@ namespace Test
             return null;
         }
 
-        public static MyClassPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static MyClassPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -644,23 +646,27 @@ namespace Test
             return null;
         }
 
-        public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static MyClassPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                MyClassPrxHelper prx = new MyClassPrxHelper();
+                var prx = new MyClassPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static MyClassPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static MyClassPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                MyClassPrxHelper prx = new MyClassPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new MyClassPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -679,17 +685,17 @@ namespace Test
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, MyClassPrx v)
+        public static void write(global::Ice.OutputStream ostr, MyClassPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static MyClassPrx read(global::Ice.InputStream istr)
+        public static MyClassPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                MyClassPrxHelper result = new MyClassPrxHelper();
+                 var result = new MyClassPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -794,9 +800,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, byte[]> r = new global::System.Collections.Generic.Dictionary<int, byte[]>();
             for(int i = 0; i < sz; ++i)
             {
-                int k = default;
+                int k;
                 k = istr.readInt();
-                byte[] v = default;
+                byte[] v;
                 v = SerialLargeHelper.read(istr);
                 r[k] = v;
             }
@@ -831,9 +837,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, byte[][]> r = new global::System.Collections.Generic.Dictionary<int, byte[][]>();
             for(int i = 0; i < sz; ++i)
             {
-                int k = default;
+                int k;
                 k = istr.readInt();
-                byte[][] v = default;
+                byte[][] v;
                 v = SLSHelper.read(istr);
                 r[k] = v;
             }
@@ -850,13 +856,13 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void shutdown(global::Ice.Current current = null);
+        public abstract void shutdown(global::Ice.Current? current = null);
 
-        public abstract byte[] opSerialSmallJava(byte[] i, out byte[] o, global::Ice.Current current = null);
+        public abstract byte[] opSerialSmallJava(byte[] i, out byte[] o, global::Ice.Current? current = null);
 
-        public abstract byte[] opSerialLargeJava(byte[] i, out byte[] o, global::Ice.Current current = null);
+        public abstract byte[] opSerialLargeJava(byte[] i, out byte[] o, global::Ice.Current? current = null);
 
-        public abstract byte[] opSerialStructJava(byte[] i, out byte[] o, global::Ice.Current current = null);
+        public abstract byte[] opSerialStructJava(byte[] i, out byte[] o, global::Ice.Current? current = null);
 
         #endregion
 
@@ -868,17 +874,17 @@ namespace Test
             "::Test::MyClass"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -908,7 +914,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_i = default;
+            byte[] iceP_i;
             iceP_i = SerialSmallHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_o;
@@ -926,7 +932,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_i = default;
+            byte[] iceP_i;
             iceP_i = SerialLargeHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_o;
@@ -944,7 +950,7 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            byte[] iceP_i = default;
+            byte[] iceP_i;
             iceP_i = SerialStructHelper.read(istr);
             inS.endReadParams();
             byte[] iceP_o;

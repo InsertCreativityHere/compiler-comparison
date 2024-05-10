@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -88,7 +90,7 @@ namespace Test
         public MyEnum e;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyInterfacePrx p;
+        public MyInterfacePrx? p;
 
         #endregion
 
@@ -103,7 +105,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public SmallStruct(bool bo, byte by, short sh, int i, long l, float f, double d, string str, MyEnum e, MyInterfacePrx p)
+        public SmallStruct(bool bo, byte by, short sh, int i, long l, float f, double d, string str, MyEnum e, MyInterfacePrx? p)
         {
             this.bo = bo;
             this.by = by;
@@ -163,10 +165,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as SmallStruct);
+        public override bool Equals(object? other) => Equals(other as SmallStruct);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(SmallStruct other)
+        public bool Equals(SmallStruct? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -182,7 +184,7 @@ namespace Test
                 this.d == other.d && 
                 this.str == other.str && 
                 this.e == other.e && 
-                (Ice.ObjectPrxHelperBase)this.p == (Ice.ObjectPrxHelperBase)other.p;
+                (Ice.ObjectPrxHelperBase?)this.p == (Ice.ObjectPrxHelperBase?)other.p;
         }
 
         #endregion
@@ -190,10 +192,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(SmallStruct lhs, SmallStruct rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(SmallStruct? lhs, SmallStruct? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(SmallStruct lhs, SmallStruct rhs) => !(lhs == rhs);
+        public static bool operator !=(SmallStruct? lhs, SmallStruct? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -335,10 +337,10 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass c;
+        public MyClass? c;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.Value o;
+        public global::Ice.Value? o;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public SmallStruct s;
@@ -371,10 +373,10 @@ namespace Test
         public MyEnum[] seq9;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass[] seq10;
+        public MyClass?[] seq10;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::System.Collections.Generic.Dictionary<string, MyClass> d;
+        public global::System.Collections.Generic.Dictionary<string, MyClass?> d;
 
         #endregion
 
@@ -383,7 +385,7 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass(MyClass c, global::Ice.Value o, SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass> d)
+        public MyClass(MyClass? c, global::Ice.Value? o, SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
         {
             this.c = c;
             this.o = o;
@@ -403,7 +405,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass(SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass> d)
+        public MyClass(SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass?[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass?> d)
         {
             this.s = s;
             this.seq1 = seq1;
@@ -424,18 +426,18 @@ namespace Test
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public MyClass()
         {
-            this.s = null;
-            this.seq1 = null;
-            this.seq2 = null;
-            this.seq3 = null;
-            this.seq4 = null;
-            this.seq5 = null;
-            this.seq6 = null;
-            this.seq7 = null;
-            this.seq8 = null;
-            this.seq9 = null;
-            this.seq10 = null;
-            this.d = null;
+            this.s = null!;
+            this.seq1 = null!;
+            this.seq2 = null!;
+            this.seq3 = null!;
+            this.seq4 = null!;
+            this.seq5 = null!;
+            this.seq6 = null!;
+            this.seq7 = null!;
+            this.seq8 = null!;
+            this.seq9 = null!;
+            this.seq10 = null!;
+            this.d = null!;
             ice_initialize();
         }
 
@@ -481,8 +483,8 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((MyClass v) => { this.c = v; });
-            istr_.readValue((global::Ice.Value v) => { this.o = v; });
+            istr_.readValue((MyClass? v) => { this.c = v; });
+            istr_.readValue((global::Ice.Value? v) => { this.o = v; });
             s = new SmallStruct(istr_);
             seq1 = global::Ice.BoolSeqHelper.read(istr_);
             seq2 = global::Ice.ByteSeqHelper.read(istr_);
@@ -519,20 +521,20 @@ namespace Test
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyClass c;
+        public MyClass? c;
 
         #endregion
 
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyException(MyClass c, global::System.Exception innerException = null) : base(innerException)
+        public MyException(MyClass? c, global::System.Exception? innerException = null) : base(innerException)
         {
             this.c = c;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public MyException(global::System.Exception innerException) : base(innerException)
+        public MyException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -563,7 +565,7 @@ namespace Test
         protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((MyClass v) => { this.c = v; });
+            istr_.readValue((MyClass? v) => { this.c = v; });
             istr_.endSlice();
         }
 
@@ -647,7 +649,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MyClassSHelper
     {
-        public static void write(global::Ice.OutputStream ostr, MyClass[] v)
+        public static void write(global::Ice.OutputStream ostr, MyClass?[] v)
         {
             if (v is null)
             {
@@ -663,13 +665,13 @@ namespace Test
             }
         }
 
-        public static MyClass[] read(global::Ice.InputStream istr)
+        public static MyClass?[] read(global::Ice.InputStream istr)
         {
-            MyClass[] v;
+            MyClass?[] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new MyClass[szx];
-                for(int ix = 0; ix < szx; ++ix)
+                v = new MyClass?[szx];
+                for (int ix = 0; ix < szx; ++ix)
                 {
                     istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<MyClass>(v, ix));
                 }
@@ -987,7 +989,7 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MyClassSSHelper
     {
-        public static void write(global::Ice.OutputStream ostr, MyClass[][] v)
+        public static void write(global::Ice.OutputStream ostr, MyClass?[][] v)
         {
             if (v is null)
             {
@@ -1003,12 +1005,12 @@ namespace Test
             }
         }
 
-        public static MyClass[][] read(global::Ice.InputStream istr)
+        public static MyClass?[][] read(global::Ice.InputStream istr)
         {
-            MyClass[][] v;
+            MyClass?[][] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new MyClass[szx][];
+                v = new MyClass?[szx][];
                 for(int ix = 0; ix < szx; ++ix)
                 {
                     v[ix] = MyClassSHelper.read(istr);
@@ -1045,9 +1047,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<byte, bool> r = new global::System.Collections.Generic.Dictionary<byte, bool>();
             for(int i = 0; i < sz; ++i)
             {
-                byte k = default;
+                byte k;
                 k = istr.readByte();
-                bool v = default;
+                bool v;
                 v = istr.readBool();
                 r[k] = v;
             }
@@ -1082,9 +1084,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<short, int> r = new global::System.Collections.Generic.Dictionary<short, int>();
             for(int i = 0; i < sz; ++i)
             {
-                short k = default;
+                short k;
                 k = istr.readShort();
-                int v = default;
+                int v;
                 v = istr.readInt();
                 r[k] = v;
             }
@@ -1119,9 +1121,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<long, float> r = new global::System.Collections.Generic.Dictionary<long, float>();
             for(int i = 0; i < sz; ++i)
             {
-                long k = default;
+                long k;
                 k = istr.readLong();
-                float v = default;
+                float v;
                 v = istr.readFloat();
                 r[k] = v;
             }
@@ -1156,9 +1158,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                string v = default;
+                string v;
                 v = istr.readString();
                 r[k] = v;
             }
@@ -1170,7 +1172,7 @@ namespace Test
     public sealed class StringMyClassDHelper
     {
         public static void write(global::Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, MyClass> v)
+                                 global::System.Collections.Generic.Dictionary<string, MyClass?> v)
         {
             if(v == null)
             {
@@ -1179,7 +1181,7 @@ namespace Test
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, MyClass> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<string, MyClass?> e in v)
                 {
                     ostr.writeString(e.Key);
                     ostr.writeValue(e.Value);
@@ -1187,15 +1189,15 @@ namespace Test
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, MyClass> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, MyClass?> read(global::Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, MyClass> r = new global::System.Collections.Generic.Dictionary<string, MyClass>();
+            global::System.Collections.Generic.Dictionary<string, MyClass?> r = new global::System.Collections.Generic.Dictionary<string, MyClass?>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                istr.readValue((MyClass v) => { r[k] = v; });
+                istr.readValue((MyClass? v) => { r[k] = v; });
             }
             return r;
         }
@@ -1218,7 +1220,7 @@ namespace Test
         public static MyInterfacePrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static MyInterfacePrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1229,9 +1231,9 @@ namespace Test
             return null;
         }
 
-        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static MyInterfacePrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1247,23 +1249,27 @@ namespace Test
             return null;
         }
 
-        public static MyInterfacePrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static MyInterfacePrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                MyInterfacePrxHelper prx = new MyInterfacePrxHelper();
+                var prx = new MyInterfacePrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static MyInterfacePrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static MyInterfacePrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                MyInterfacePrxHelper prx = new MyInterfacePrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new MyInterfacePrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -1282,17 +1288,17 @@ namespace Test
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, MyInterfacePrx v)
+        public static void write(global::Ice.OutputStream ostr, MyInterfacePrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static MyInterfacePrx read(global::Ice.InputStream istr)
+        public static MyInterfacePrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                MyInterfacePrxHelper result = new MyInterfacePrxHelper();
+                 var result = new MyInterfacePrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -1317,17 +1323,17 @@ namespace Test
             "::Test::MyInterface"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }

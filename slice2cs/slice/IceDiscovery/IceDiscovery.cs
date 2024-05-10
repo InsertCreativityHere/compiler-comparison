@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("IceDiscovery.ice")]
@@ -69,7 +71,7 @@ namespace IceDiscovery
         /// <param name="prx">The proxy of the object. This proxy is never null.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Reply to the findObjectById request.
@@ -81,7 +83,7 @@ namespace IceDiscovery
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task foundObjectByIdAsync(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task foundObjectByIdAsync(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Reply to the findAdpaterById request.
@@ -94,7 +96,7 @@ namespace IceDiscovery
         /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void foundAdapterById(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Reply to the findAdpaterById request.
@@ -109,7 +111,7 @@ namespace IceDiscovery
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task foundAdapterByIdAsync(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task foundAdapterByIdAsync(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -131,7 +133,7 @@ namespace IceDiscovery
         ///  object is found. The reply proxy is never null.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Request to find an Ice object
@@ -147,7 +149,7 @@ namespace IceDiscovery
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task findObjectByIdAsync(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task findObjectByIdAsync(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Request to find an object adapter
@@ -161,7 +163,7 @@ namespace IceDiscovery
         ///  adapter is found. The reply proxy is never null.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void findAdapterById(string domainId, string id, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void findAdapterById(string domainId, string id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Request to find an object adapter
@@ -177,7 +179,7 @@ namespace IceDiscovery
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task findAdapterByIdAsync(string domainId, string id, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task findAdapterByIdAsync(string domainId, string id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -199,7 +201,7 @@ namespace IceDiscovery
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::Ice.Current current = null);
+        void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::Ice.Current? current = null);
 
         /// <summary>
         /// Reply to the findAdpaterById request.
@@ -213,7 +215,7 @@ namespace IceDiscovery
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::Ice.Current current = null);
+        void foundAdapterById(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::Ice.Current? current = null);
     }
 
     /// <summary>
@@ -236,7 +238,7 @@ namespace IceDiscovery
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.Current current = null);
+        void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::Ice.Current? current = null);
 
         /// <summary>
         /// Request to find an object adapter
@@ -251,7 +253,7 @@ namespace IceDiscovery
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void findAdapterById(string domainId, string id, LookupReplyPrx reply, global::Ice.Current current = null);
+        void findAdapterById(string domainId, string id, LookupReplyPrx? reply, global::Ice.Current? current = null);
     }
 }
 
@@ -267,27 +269,27 @@ namespace IceDiscovery
 
         #region Synchronous operations
 
-        public void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_foundObjectByIdAsync(id, prx, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void foundAdapterById(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_foundAdapterByIdAsync(id, prx, isReplicaGroup, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -295,12 +297,12 @@ namespace IceDiscovery
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task foundObjectByIdAsync(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task foundObjectByIdAsync(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_foundObjectByIdAsync(id, prx, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_foundObjectByIdAsync(global::Ice.Identity iceP_id, global::Ice.ObjectPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_foundObjectByIdAsync(global::Ice.Identity iceP_id, global::Ice.ObjectPrx? iceP_prx, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_foundObjectById(iceP_id, iceP_prx, context, synchronous, completed);
@@ -309,7 +311,7 @@ namespace IceDiscovery
 
         private const string _foundObjectById_name = "foundObjectById";
 
-        private void _iceI_foundObjectById(global::Ice.Identity iceP_id, global::Ice.ObjectPrx iceP_prx, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_foundObjectById(global::Ice.Identity iceP_id, global::Ice.ObjectPrx? iceP_prx, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -325,12 +327,12 @@ namespace IceDiscovery
                 });
         }
 
-        public global::System.Threading.Tasks.Task foundAdapterByIdAsync(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task foundAdapterByIdAsync(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_foundAdapterByIdAsync(id, prx, isReplicaGroup, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_foundAdapterByIdAsync(string iceP_id, global::Ice.ObjectPrx iceP_prx, bool iceP_isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_foundAdapterByIdAsync(string iceP_id, global::Ice.ObjectPrx? iceP_prx, bool iceP_isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_foundAdapterById(iceP_id, iceP_prx, iceP_isReplicaGroup, context, synchronous, completed);
@@ -339,7 +341,7 @@ namespace IceDiscovery
 
         private const string _foundAdapterById_name = "foundAdapterById";
 
-        private void _iceI_foundAdapterById(string iceP_id, global::Ice.ObjectPrx iceP_prx, bool iceP_isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_foundAdapterById(string iceP_id, global::Ice.ObjectPrx? iceP_prx, bool iceP_isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -363,7 +365,7 @@ namespace IceDiscovery
         public static LookupReplyPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LookupReplyPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static LookupReplyPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -374,9 +376,9 @@ namespace IceDiscovery
             return null;
         }
 
-        public static LookupReplyPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static LookupReplyPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -392,23 +394,27 @@ namespace IceDiscovery
             return null;
         }
 
-        public static LookupReplyPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static LookupReplyPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                LookupReplyPrxHelper prx = new LookupReplyPrxHelper();
+                var prx = new LookupReplyPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static LookupReplyPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static LookupReplyPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                LookupReplyPrxHelper prx = new LookupReplyPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new LookupReplyPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -427,17 +433,17 @@ namespace IceDiscovery
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, LookupReplyPrx v)
+        public static void write(global::Ice.OutputStream ostr, LookupReplyPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static LookupReplyPrx read(global::Ice.InputStream istr)
+        public static LookupReplyPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                LookupReplyPrxHelper result = new LookupReplyPrxHelper();
+                 var result = new LookupReplyPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -457,27 +463,27 @@ namespace IceDiscovery
 
         #region Synchronous operations
 
-        public void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_findObjectByIdAsync(domainId, id, reply, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void findAdapterById(string domainId, string id, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void findAdapterById(string domainId, string id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_findAdapterByIdAsync(domainId, id, reply, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -485,12 +491,12 @@ namespace IceDiscovery
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task findObjectByIdAsync(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task findObjectByIdAsync(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_findObjectByIdAsync(domainId, id, reply, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_findObjectByIdAsync(string iceP_domainId, global::Ice.Identity iceP_id, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_findObjectByIdAsync(string iceP_domainId, global::Ice.Identity iceP_id, LookupReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_findObjectById(iceP_domainId, iceP_id, iceP_reply, context, synchronous, completed);
@@ -499,7 +505,7 @@ namespace IceDiscovery
 
         private const string _findObjectById_name = "findObjectById";
 
-        private void _iceI_findObjectById(string iceP_domainId, global::Ice.Identity iceP_id, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_findObjectById(string iceP_domainId, global::Ice.Identity iceP_id, LookupReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -516,12 +522,12 @@ namespace IceDiscovery
                 });
         }
 
-        public global::System.Threading.Tasks.Task findAdapterByIdAsync(string domainId, string id, LookupReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task findAdapterByIdAsync(string domainId, string id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_findAdapterByIdAsync(domainId, id, reply, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_findAdapterByIdAsync(string iceP_domainId, string iceP_id, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_findAdapterByIdAsync(string iceP_domainId, string iceP_id, LookupReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_findAdapterById(iceP_domainId, iceP_id, iceP_reply, context, synchronous, completed);
@@ -530,7 +536,7 @@ namespace IceDiscovery
 
         private const string _findAdapterById_name = "findAdapterById";
 
-        private void _iceI_findAdapterById(string iceP_domainId, string iceP_id, LookupReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_findAdapterById(string iceP_domainId, string iceP_id, LookupReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -554,7 +560,7 @@ namespace IceDiscovery
         public static LookupPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static LookupPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static LookupPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -565,9 +571,9 @@ namespace IceDiscovery
             return null;
         }
 
-        public static LookupPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static LookupPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -583,23 +589,27 @@ namespace IceDiscovery
             return null;
         }
 
-        public static LookupPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static LookupPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                LookupPrxHelper prx = new LookupPrxHelper();
+                var prx = new LookupPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static LookupPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static LookupPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                LookupPrxHelper prx = new LookupPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new LookupPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -618,17 +628,17 @@ namespace IceDiscovery
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, LookupPrx v)
+        public static void write(global::Ice.OutputStream ostr, LookupPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static LookupPrx read(global::Ice.InputStream istr)
+        public static LookupPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                LookupPrxHelper result = new LookupPrxHelper();
+                 var result = new LookupPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -647,9 +657,9 @@ namespace IceDiscovery
     {
         #region Slice operations
 
-        public abstract void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::Ice.Current current = null);
+        public abstract void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::Ice.Current? current = null);
 
-        public abstract void foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::Ice.Current current = null);
+        public abstract void foundAdapterById(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::Ice.Current? current = null);
 
         #endregion
 
@@ -661,17 +671,17 @@ namespace IceDiscovery
             "::IceDiscovery::LookupReply"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -691,8 +701,8 @@ namespace IceDiscovery
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id = default;
-            global::Ice.ObjectPrx iceP_prx = default;
+            global::Ice.Identity iceP_id;
+            global::Ice.ObjectPrx? iceP_prx;
             iceP_id = new global::Ice.Identity(istr);
             iceP_prx = istr.readProxy();
             inS.endReadParams();
@@ -706,9 +716,9 @@ namespace IceDiscovery
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_id = default;
-            global::Ice.ObjectPrx iceP_prx = default;
-            bool iceP_isReplicaGroup = default;
+            string iceP_id;
+            global::Ice.ObjectPrx? iceP_prx;
+            bool iceP_isReplicaGroup;
             iceP_id = istr.readString();
             iceP_prx = istr.readProxy();
             iceP_isReplicaGroup = istr.readBool();
@@ -777,9 +787,9 @@ namespace IceDiscovery
     {
         #region Slice operations
 
-        public abstract void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.Current current = null);
+        public abstract void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::Ice.Current? current = null);
 
-        public abstract void findAdapterById(string domainId, string id, LookupReplyPrx reply, global::Ice.Current current = null);
+        public abstract void findAdapterById(string domainId, string id, LookupReplyPrx? reply, global::Ice.Current? current = null);
 
         #endregion
 
@@ -791,17 +801,17 @@ namespace IceDiscovery
             "::IceDiscovery::Lookup"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -821,9 +831,9 @@ namespace IceDiscovery
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_domainId = default;
-            global::Ice.Identity iceP_id = default;
-            LookupReplyPrx iceP_reply = default;
+            string iceP_domainId;
+            global::Ice.Identity iceP_id;
+            LookupReplyPrx? iceP_reply;
             iceP_domainId = istr.readString();
             iceP_id = new global::Ice.Identity(istr);
             iceP_reply = LookupReplyPrxHelper.read(istr);
@@ -838,9 +848,9 @@ namespace IceDiscovery
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_domainId = default;
-            string iceP_id = default;
-            LookupReplyPrx iceP_reply = default;
+            string iceP_domainId;
+            string iceP_id;
+            LookupReplyPrx? iceP_reply;
             iceP_domainId = istr.readString();
             iceP_id = istr.readString();
             iceP_reply = LookupReplyPrxHelper.read(istr);

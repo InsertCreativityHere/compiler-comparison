@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -285,10 +287,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as Polyline);
+        public override bool Equals(object? other) => Equals(other as Polyline);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(Polyline other)
+        public bool Equals(Polyline? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -303,10 +305,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(Polyline lhs, Polyline rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(Polyline? lhs, Polyline? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(Polyline lhs, Polyline rhs) => !(lhs == rhs);
+        public static bool operator !=(Polyline? lhs, Polyline? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -464,10 +466,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as ColorPalette);
+        public override bool Equals(object? other) => Equals(other as ColorPalette);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(ColorPalette other)
+        public bool Equals(ColorPalette? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -482,10 +484,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(ColorPalette lhs, ColorPalette rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(ColorPalette? lhs, ColorPalette? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(ColorPalette lhs, ColorPalette rhs) => !(lhs == rhs);
+        public static bool operator !=(ColorPalette? lhs, ColorPalette? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -607,7 +609,7 @@ namespace Test
         public Color backgroundColor;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Pen pen;
+        public Pen? pen;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool shared;
@@ -625,7 +627,7 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Draw(Color backgroundColor, Pen pen, bool shared)
+        public Draw(Color backgroundColor, Pen? pen, bool shared)
         {
             this.backgroundColor = backgroundColor;
             this.pen = pen;
@@ -637,7 +639,7 @@ namespace Test
         public Draw(global::Ice.InputStream istr)
         {
             this.backgroundColor = new Color(istr);
-            istr.readValue((Pen v) => { this.pen = v; });
+            istr.readValue((Pen? v) => { this.pen = v; });
             this.shared = istr.readBool();
             ice_initialize();
         }
@@ -664,10 +666,10 @@ namespace Test
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as Draw);
+        public override bool Equals(object? other) => Equals(other as Draw);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(Draw other)
+        public bool Equals(Draw? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -684,10 +686,10 @@ namespace Test
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(Draw lhs, Draw rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(Draw? lhs, Draw? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(Draw lhs, Draw rhs) => !(lhs == rhs);
+        public static bool operator !=(Draw? lhs, Draw? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -777,9 +779,9 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, Color> r = new global::System.Collections.Generic.Dictionary<int, Color>();
             for(int i = 0; i < sz; ++i)
             {
-                int k = default;
+                int k;
                 k = istr.readInt();
-                Color v = default;
+                Color v;
                 v = new Color(istr);
                 r[k] = v;
             }

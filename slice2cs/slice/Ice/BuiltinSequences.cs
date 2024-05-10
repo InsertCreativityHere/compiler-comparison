@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("BuiltinSequences.ice")]
@@ -156,7 +158,7 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ObjectSeqHelper
     {
-        public static void write(OutputStream ostr, Value[] v)
+        public static void write(OutputStream ostr, Value?[] v)
         {
             if (v is null)
             {
@@ -165,18 +167,18 @@ namespace Ice
             else
             {
                 ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
+                for (int ix = 0; ix < v.Length; ++ix)
                 {
                     ostr.writeValue(v[ix]);
                 }
             }
         }
 
-        public static Value[] read(InputStream istr)
+        public static Value?[] read(InputStream istr)
         {
-            Value[] v;
+            Value?[] v;
             int v_lenx = istr.readAndCheckSeqSize(1);
-            v = new Value[v_lenx];
+            v = new Value?[v_lenx];
             for(int ix = 0; ix < v_lenx; ++ix)
             {
                 istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<Value>(v, ix));
@@ -188,7 +190,7 @@ namespace Ice
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ObjectProxySeqHelper
     {
-        public static void write(OutputStream ostr, ObjectPrx[] v)
+        public static void write(OutputStream ostr, ObjectPrx?[] v)
         {
             if (v is null)
             {
@@ -197,19 +199,19 @@ namespace Ice
             else
             {
                 ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
+                for (int ix = 0; ix < v.Length; ++ix)
                 {
                     ostr.writeProxy(v[ix]);
                 }
             }
         }
 
-        public static ObjectPrx[] read(InputStream istr)
+        public static ObjectPrx?[] read(InputStream istr)
         {
-            ObjectPrx[] v;
+            ObjectPrx?[] v;
             int v_lenx = istr.readAndCheckSeqSize(2);
-            v = new ObjectPrx[v_lenx];
-            for(int ix = 0; ix < v_lenx; ++ix)
+            v = new ObjectPrx?[v_lenx];
+            for (int ix = 0; ix < v_lenx; ++ix)
             {
                 v[ix] = istr.readProxy();
             }

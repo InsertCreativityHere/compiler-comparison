@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Canvas.ice")]
@@ -62,21 +64,21 @@ namespace Demo
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface CanvasPrx : global::Ice.ObjectPrx
         {
-            void paintSquare(Square square, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void paintSquare(Square square, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task paintSquareAsync(Square square, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task paintSquareAsync(Square square, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void paintCircle(Circle circle, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void paintCircle(Circle circle, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task paintCircleAsync(Circle circle, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task paintCircleAsync(Circle circle, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface SessionPrx : global::Glacier2.SessionPrx
         {
-            void destroySession(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void destroySession(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -89,17 +91,17 @@ namespace Demo
         public interface CanvasOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void paintSquare(Square square, global::Ice.Current current = null);
+            void paintSquare(Square square, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void paintCircle(Circle circle, global::Ice.Current current = null);
+            void paintCircle(Circle circle, global::Ice.Current? current = null);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface SessionOperations_ : global::Glacier2.SessionOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void destroySession(global::Ice.Current current = null);
+            void destroySession(global::Ice.Current? current = null);
         }
     }
 }
@@ -118,27 +120,27 @@ namespace Demo
 
             #region Synchronous operations
 
-            public void paintSquare(Square square, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void paintSquare(Square square, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_paintSquareAsync(square, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void paintCircle(Circle circle, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void paintCircle(Circle circle, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_paintCircleAsync(circle, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -146,12 +148,12 @@ namespace Demo
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task paintSquareAsync(Square square, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task paintSquareAsync(Square square, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_paintSquareAsync(square, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_paintSquareAsync(Square iceP_square, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_paintSquareAsync(Square iceP_square, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_paintSquare(iceP_square, context, synchronous, completed);
@@ -160,7 +162,7 @@ namespace Demo
 
             private const string _paintSquare_name = "paintSquare";
 
-            private void _iceI_paintSquare(Square iceP_square, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_paintSquare(Square iceP_square, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -175,12 +177,12 @@ namespace Demo
                     });
             }
 
-            public global::System.Threading.Tasks.Task paintCircleAsync(Circle circle, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task paintCircleAsync(Circle circle, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_paintCircleAsync(circle, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_paintCircleAsync(Circle iceP_circle, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_paintCircleAsync(Circle iceP_circle, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_paintCircle(iceP_circle, context, synchronous, completed);
@@ -189,7 +191,7 @@ namespace Demo
 
             private const string _paintCircle_name = "paintCircle";
 
-            private void _iceI_paintCircle(Circle iceP_circle, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_paintCircle(Circle iceP_circle, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -211,7 +213,7 @@ namespace Demo
             public static CanvasPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static CanvasPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static CanvasPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -222,9 +224,9 @@ namespace Demo
                 return null;
             }
 
-            public static CanvasPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static CanvasPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -240,23 +242,27 @@ namespace Demo
                 return null;
             }
 
-            public static CanvasPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static CanvasPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    CanvasPrxHelper prx = new CanvasPrxHelper();
+                    var prx = new CanvasPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static CanvasPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static CanvasPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    CanvasPrxHelper prx = new CanvasPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new CanvasPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -275,17 +281,17 @@ namespace Demo
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, CanvasPrx v)
+            public static void write(global::Ice.OutputStream ostr, CanvasPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static CanvasPrx read(global::Ice.InputStream istr)
+            public static CanvasPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    CanvasPrxHelper result = new CanvasPrxHelper();
+                     var result = new CanvasPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -305,27 +311,27 @@ namespace Demo
 
             #region Synchronous operations
 
-            public void destroy(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_destroyAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void destroySession(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void destroySession(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_destroySessionAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -333,12 +339,12 @@ namespace Demo
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_destroyAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_destroyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_destroy(context, synchronous, completed);
@@ -347,7 +353,7 @@ namespace Demo
 
             private const string _destroy_name = "destroy";
 
-            private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_destroy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -358,12 +364,12 @@ namespace Demo
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_destroySessionAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_destroySession(context, synchronous, completed);
@@ -372,7 +378,7 @@ namespace Demo
 
             private const string _destroySession_name = "destroySession";
 
-            private void _iceI_destroySession(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_destroySession(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -390,7 +396,7 @@ namespace Demo
             public static SessionPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static SessionPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static SessionPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -401,9 +407,9 @@ namespace Demo
                 return null;
             }
 
-            public static SessionPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static SessionPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -419,23 +425,27 @@ namespace Demo
                 return null;
             }
 
-            public static SessionPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static SessionPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    SessionPrxHelper prx = new SessionPrxHelper();
+                    var prx = new SessionPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static SessionPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static SessionPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    SessionPrxHelper prx = new SessionPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new SessionPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -455,17 +465,17 @@ namespace Demo
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, SessionPrx v)
+            public static void write(global::Ice.OutputStream ostr, SessionPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static SessionPrx read(global::Ice.InputStream istr)
+            public static SessionPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    SessionPrxHelper result = new SessionPrxHelper();
+                     var result = new SessionPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -487,9 +497,9 @@ namespace Demo
         {
             #region Slice operations
 
-            public abstract void paintSquare(Square square, global::Ice.Current current = null);
+            public abstract void paintSquare(Square square, global::Ice.Current? current = null);
 
-            public abstract void paintCircle(Circle circle, global::Ice.Current current = null);
+            public abstract void paintCircle(Circle circle, global::Ice.Current? current = null);
 
             #endregion
 
@@ -501,17 +511,17 @@ namespace Demo
                 "::Ice::Object"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -531,7 +541,7 @@ namespace Demo
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                Square iceP_square = default;
+                Square iceP_square;
                 iceP_square = new Square(istr);
                 inS.endReadParams();
                 obj.paintSquare(iceP_square, current);
@@ -544,7 +554,7 @@ namespace Demo
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                Circle iceP_circle = default;
+                Circle iceP_circle;
                 iceP_circle = new Circle(istr);
                 inS.endReadParams();
                 obj.paintCircle(iceP_circle, current);
@@ -611,13 +621,13 @@ namespace Demo
         {
             #region Slice operations
 
-            public abstract void destroySession(global::Ice.Current current = null);
+            public abstract void destroySession(global::Ice.Current? current = null);
 
             #endregion
 
             #region Inherited Slice operations
 
-            public abstract void destroy(global::Ice.Current current = null);
+            public abstract void destroy(global::Ice.Current? current = null);
 
             #endregion
 
@@ -630,17 +640,17 @@ namespace Demo
                 "::Ice::Object"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }

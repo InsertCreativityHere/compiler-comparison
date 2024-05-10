@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("DerivedEx.ice")]
@@ -39,12 +41,12 @@ namespace Test
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedEx(string reason, global::System.Exception innerException = null) : base(reason, innerException)
+        public DerivedEx(string reason, global::System.Exception? innerException = null) : base(reason, innerException)
         {
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public DerivedEx(global::System.Exception innerException) : base(innerException)
+        public DerivedEx(global::System.Exception? innerException) : base(innerException)
         {
         }
 

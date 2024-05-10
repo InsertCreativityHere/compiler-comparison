@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -107,57 +109,57 @@ namespace Ice.location
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface TestLocatorRegistryPrx : global::Ice.LocatorRegistryPrx
         {
-            void addObject(global::Ice.ObjectPrx obj, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void addObject(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task addObjectAsync(global::Ice.ObjectPrx obj, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task addObjectAsync(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface TestLocatorPrx : global::Ice.LocatorPrx
         {
-            int getRequestCount(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            int getRequestCount(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<int> getRequestCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<int> getRequestCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface ServerManagerPrx : global::Ice.ObjectPrx
         {
-            void startServer(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void startServer(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task startServerAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task startServerAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface HelloPrx : global::Ice.ObjectPrx
         {
-            void sayHello(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void sayHello(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task sayHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task sayHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface TestIntfPrx : global::Ice.ObjectPrx
         {
-            void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            HelloPrx getHello(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            HelloPrx? getHello(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<HelloPrx> getHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<HelloPrx?> getHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            HelloPrx getReplicatedHello(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            HelloPrx? getReplicatedHello(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<HelloPrx> getReplicatedHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<HelloPrx?> getReplicatedHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void migrateHello(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void migrateHello(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task migrateHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task migrateHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -170,47 +172,47 @@ namespace Ice.location
         public interface TestLocatorRegistryOperations_ : global::Ice.LocatorRegistryOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void addObject(global::Ice.ObjectPrx obj, global::Ice.Current current = null);
+            void addObject(global::Ice.ObjectPrx? obj, global::Ice.Current? current = null);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface TestLocatorOperations_ : global::Ice.LocatorOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int getRequestCount(global::Ice.Current current = null);
+            int getRequestCount(global::Ice.Current? current = null);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface ServerManagerOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void startServer(global::Ice.Current current = null);
+            void startServer(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current = null);
+            void shutdown(global::Ice.Current? current = null);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface HelloOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void sayHello(global::Ice.Current current = null);
+            void sayHello(global::Ice.Current? current = null);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface TestIntfOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current = null);
+            void shutdown(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            HelloPrx getHello(global::Ice.Current current = null);
+            HelloPrx? getHello(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            HelloPrx getReplicatedHello(global::Ice.Current current = null);
+            HelloPrx? getReplicatedHello(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void migrateHello(global::Ice.Current current = null);
+            void migrateHello(global::Ice.Current? current = null);
         }
     }
 }
@@ -229,51 +231,51 @@ namespace Ice.location
 
             #region Synchronous operations
 
-            public void setAdapterDirectProxy(string id, global::Ice.ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void setAdapterDirectProxy(string id, global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_setAdapterDirectProxyAsync(id, proxy, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, proxy, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void setServerProcessProxy(string id, global::Ice.ProcessPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void setServerProcessProxy(string id, global::Ice.ProcessPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_setServerProcessProxyAsync(id, proxy, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void addObject(global::Ice.ObjectPrx obj, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void addObject(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_addObjectAsync(obj, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -281,12 +283,12 @@ namespace Ice.location
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, global::Ice.ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_setAdapterDirectProxyAsync(id, proxy, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_setAdapterDirectProxyAsync(string iceP_id, global::Ice.ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_setAdapterDirectProxyAsync(string iceP_id, global::Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_setAdapterDirectProxy_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -296,7 +298,7 @@ namespace Ice.location
 
             private const string _setAdapterDirectProxy_name = "setAdapterDirectProxy";
 
-            private void _iceI_setAdapterDirectProxy(string iceP_id, global::Ice.ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_setAdapterDirectProxy(string iceP_id, global::Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -330,12 +332,12 @@ namespace Ice.location
                     });
             }
 
-            public global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, proxy, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_setReplicatedAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_setReplicatedAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_setReplicatedAdapterDirectProxy_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -345,7 +347,7 @@ namespace Ice.location
 
             private const string _setReplicatedAdapterDirectProxy_name = "setReplicatedAdapterDirectProxy";
 
-            private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -384,12 +386,12 @@ namespace Ice.location
                     });
             }
 
-            public global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx proxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_setServerProcessProxyAsync(id, proxy, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_setServerProcessProxyAsync(string iceP_id, global::Ice.ProcessPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_setServerProcessProxyAsync(string iceP_id, global::Ice.ProcessPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_setServerProcessProxy_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -399,7 +401,7 @@ namespace Ice.location
 
             private const string _setServerProcessProxy_name = "setServerProcessProxy";
 
-            private void _iceI_setServerProcessProxy(string iceP_id, global::Ice.ProcessPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_setServerProcessProxy(string iceP_id, global::Ice.ProcessPrx? iceP_proxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -429,12 +431,12 @@ namespace Ice.location
                     });
             }
 
-            public global::System.Threading.Tasks.Task addObjectAsync(global::Ice.ObjectPrx obj, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task addObjectAsync(global::Ice.ObjectPrx? obj, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_addObjectAsync(obj, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_addObjectAsync(global::Ice.ObjectPrx iceP_obj, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_addObjectAsync(global::Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_addObject(iceP_obj, context, synchronous, completed);
@@ -443,7 +445,7 @@ namespace Ice.location
 
             private const string _addObject_name = "addObject";
 
-            private void _iceI_addObject(global::Ice.ObjectPrx iceP_obj, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_addObject(global::Ice.ObjectPrx? iceP_obj, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -465,7 +467,7 @@ namespace Ice.location
             public static TestLocatorRegistryPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static TestLocatorRegistryPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestLocatorRegistryPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -476,9 +478,9 @@ namespace Ice.location
                 return null;
             }
 
-            public static TestLocatorRegistryPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestLocatorRegistryPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -494,23 +496,27 @@ namespace Ice.location
                 return null;
             }
 
-            public static TestLocatorRegistryPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestLocatorRegistryPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    TestLocatorRegistryPrxHelper prx = new TestLocatorRegistryPrxHelper();
+                    var prx = new TestLocatorRegistryPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static TestLocatorRegistryPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestLocatorRegistryPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    TestLocatorRegistryPrxHelper prx = new TestLocatorRegistryPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new TestLocatorRegistryPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -530,17 +536,17 @@ namespace Ice.location
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, TestLocatorRegistryPrx v)
+            public static void write(global::Ice.OutputStream ostr, TestLocatorRegistryPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static TestLocatorRegistryPrx read(global::Ice.InputStream istr)
+            public static TestLocatorRegistryPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    TestLocatorRegistryPrxHelper result = new TestLocatorRegistryPrxHelper();
+                     var result = new TestLocatorRegistryPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -560,51 +566,51 @@ namespace Ice.location
 
             #region Synchronous operations
 
-            public global::Ice.ObjectPrx findObjectById(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_findObjectByIdAsync(id, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public global::Ice.ObjectPrx findAdapterById(string id, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public global::Ice.ObjectPrx? findAdapterById(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_findAdapterByIdAsync(id, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public global::Ice.LocatorRegistryPrx getRegistry(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public global::Ice.LocatorRegistryPrx? getRegistry(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_getRegistryAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public int getRequestCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public int getRequestCount(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_getRequestCountAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -612,24 +618,24 @@ namespace Ice.location
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findObjectByIdAsync(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_findObjectByIdAsync(id, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_findObjectByIdAsync(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_findObjectByIdAsync(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_findObjectById_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
                 _iceI_findObjectById(iceP_id, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _findObjectById_name = "findObjectById";
 
-            private void _iceI_findObjectById(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_findObjectById(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
+                var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
                 outAsync.invoke(
                     _findObjectById_name,
                     global::Ice.OperationMode.Idempotent,
@@ -656,30 +662,30 @@ namespace Ice.location
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Ice.ObjectPrx ret = default;
+                        global::Ice.ObjectPrx? ret;
                         ret = istr.readProxy();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findAdapterByIdAsync(string id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findAdapterByIdAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_findAdapterByIdAsync(id, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_findAdapterByIdAsync(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_findAdapterByIdAsync(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_findAdapterById_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
                 _iceI_findAdapterById(iceP_id, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _findAdapterById_name = "findAdapterById";
 
-            private void _iceI_findAdapterById(string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_findAdapterById(string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
+                var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
                 outAsync.invoke(
                     _findAdapterById_name,
                     global::Ice.OperationMode.Idempotent,
@@ -706,30 +712,30 @@ namespace Ice.location
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Ice.ObjectPrx ret = default;
+                        global::Ice.ObjectPrx? ret;
                         ret = istr.readProxy();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<global::Ice.LocatorRegistryPrx> getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<global::Ice.LocatorRegistryPrx?> getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getRegistryAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<global::Ice.LocatorRegistryPrx> _iceI_getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<global::Ice.LocatorRegistryPrx?> _iceI_getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getRegistry_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.LocatorRegistryPrx>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.LocatorRegistryPrx?>(progress, cancel);
                 _iceI_getRegistry(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getRegistry_name = "getRegistry";
 
-            private void _iceI_getRegistry(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getRegistry(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<global::Ice.LocatorRegistryPrx>(completed);
+                var outAsync = getOutgoingAsync<global::Ice.LocatorRegistryPrx?>(completed);
                 outAsync.invoke(
                     _getRegistry_name,
                     global::Ice.OperationMode.Idempotent,
@@ -738,18 +744,18 @@ namespace Ice.location
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Ice.LocatorRegistryPrx ret = default;
+                        global::Ice.LocatorRegistryPrx? ret;
                         ret = global::Ice.LocatorRegistryPrxHelper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int> getRequestCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<int> getRequestCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getRequestCountAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_getRequestCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_getRequestCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getRequestCount_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -759,7 +765,7 @@ namespace Ice.location
 
             private const string _getRequestCount_name = "getRequestCount";
 
-            private void _iceI_getRequestCount(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getRequestCount(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<int>(completed);
                 outAsync.invoke(
@@ -770,7 +776,7 @@ namespace Ice.location
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        int ret = default;
+                        int ret;
                         ret = istr.readInt();
                         return ret;
                     });
@@ -783,7 +789,7 @@ namespace Ice.location
             public static TestLocatorPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static TestLocatorPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestLocatorPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -794,9 +800,9 @@ namespace Ice.location
                 return null;
             }
 
-            public static TestLocatorPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestLocatorPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -812,23 +818,27 @@ namespace Ice.location
                 return null;
             }
 
-            public static TestLocatorPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestLocatorPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    TestLocatorPrxHelper prx = new TestLocatorPrxHelper();
+                    var prx = new TestLocatorPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static TestLocatorPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestLocatorPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    TestLocatorPrxHelper prx = new TestLocatorPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new TestLocatorPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -848,17 +858,17 @@ namespace Ice.location
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, TestLocatorPrx v)
+            public static void write(global::Ice.OutputStream ostr, TestLocatorPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static TestLocatorPrx read(global::Ice.InputStream istr)
+            public static TestLocatorPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    TestLocatorPrxHelper result = new TestLocatorPrxHelper();
+                     var result = new TestLocatorPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -878,27 +888,27 @@ namespace Ice.location
 
             #region Synchronous operations
 
-            public void startServer(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void startServer(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_startServerAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -906,12 +916,12 @@ namespace Ice.location
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task startServerAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task startServerAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_startServerAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_startServerAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_startServerAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_startServer(context, synchronous, completed);
@@ -920,7 +930,7 @@ namespace Ice.location
 
             private const string _startServer_name = "startServer";
 
-            private void _iceI_startServer(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_startServer(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -931,12 +941,12 @@ namespace Ice.location
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_shutdownAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
@@ -945,7 +955,7 @@ namespace Ice.location
 
             private const string _shutdown_name = "shutdown";
 
-            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -963,7 +973,7 @@ namespace Ice.location
             public static ServerManagerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static ServerManagerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static ServerManagerPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -974,9 +984,9 @@ namespace Ice.location
                 return null;
             }
 
-            public static ServerManagerPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static ServerManagerPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -992,23 +1002,27 @@ namespace Ice.location
                 return null;
             }
 
-            public static ServerManagerPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static ServerManagerPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    ServerManagerPrxHelper prx = new ServerManagerPrxHelper();
+                    var prx = new ServerManagerPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static ServerManagerPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static ServerManagerPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    ServerManagerPrxHelper prx = new ServerManagerPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new ServerManagerPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -1027,17 +1041,17 @@ namespace Ice.location
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, ServerManagerPrx v)
+            public static void write(global::Ice.OutputStream ostr, ServerManagerPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static ServerManagerPrx read(global::Ice.InputStream istr)
+            public static ServerManagerPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    ServerManagerPrxHelper result = new ServerManagerPrxHelper();
+                     var result = new ServerManagerPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -1057,15 +1071,15 @@ namespace Ice.location
 
             #region Synchronous operations
 
-            public void sayHello(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void sayHello(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_sayHelloAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -1073,12 +1087,12 @@ namespace Ice.location
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task sayHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task sayHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_sayHelloAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_sayHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_sayHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_sayHello(context, synchronous, completed);
@@ -1087,7 +1101,7 @@ namespace Ice.location
 
             private const string _sayHello_name = "sayHello";
 
-            private void _iceI_sayHello(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_sayHello(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1105,7 +1119,7 @@ namespace Ice.location
             public static HelloPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static HelloPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static HelloPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -1116,9 +1130,9 @@ namespace Ice.location
                 return null;
             }
 
-            public static HelloPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static HelloPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1134,23 +1148,27 @@ namespace Ice.location
                 return null;
             }
 
-            public static HelloPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static HelloPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    HelloPrxHelper prx = new HelloPrxHelper();
+                    var prx = new HelloPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static HelloPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static HelloPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    HelloPrxHelper prx = new HelloPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new HelloPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -1169,17 +1187,17 @@ namespace Ice.location
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, HelloPrx v)
+            public static void write(global::Ice.OutputStream ostr, HelloPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static HelloPrx read(global::Ice.InputStream istr)
+            public static HelloPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    HelloPrxHelper result = new HelloPrxHelper();
+                     var result = new HelloPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -1199,51 +1217,51 @@ namespace Ice.location
 
             #region Synchronous operations
 
-            public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public HelloPrx getHello(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public HelloPrx? getHello(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_getHelloAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public HelloPrx getReplicatedHello(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public HelloPrx? getReplicatedHello(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_getReplicatedHelloAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void migrateHello(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void migrateHello(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_migrateHelloAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -1251,12 +1269,12 @@ namespace Ice.location
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_shutdownAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
@@ -1265,7 +1283,7 @@ namespace Ice.location
 
             private const string _shutdown_name = "shutdown";
 
-            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1276,24 +1294,24 @@ namespace Ice.location
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task<HelloPrx> getHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<HelloPrx?> getHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getHelloAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<HelloPrx> _iceI_getHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<HelloPrx?> _iceI_getHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getHello_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<HelloPrx>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<HelloPrx?>(progress, cancel);
                 _iceI_getHello(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getHello_name = "getHello";
 
-            private void _iceI_getHello(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getHello(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<HelloPrx>(completed);
+                var outAsync = getOutgoingAsync<HelloPrx?>(completed);
                 outAsync.invoke(
                     _getHello_name,
                     global::Ice.OperationMode.Normal,
@@ -1302,30 +1320,30 @@ namespace Ice.location
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        HelloPrx ret = default;
+                        HelloPrx? ret;
                         ret = HelloPrxHelper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<HelloPrx> getReplicatedHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<HelloPrx?> getReplicatedHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getReplicatedHelloAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<HelloPrx> _iceI_getReplicatedHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<HelloPrx?> _iceI_getReplicatedHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getReplicatedHello_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<HelloPrx>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<HelloPrx?>(progress, cancel);
                 _iceI_getReplicatedHello(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getReplicatedHello_name = "getReplicatedHello";
 
-            private void _iceI_getReplicatedHello(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getReplicatedHello(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<HelloPrx>(completed);
+                var outAsync = getOutgoingAsync<HelloPrx?>(completed);
                 outAsync.invoke(
                     _getReplicatedHello_name,
                     global::Ice.OperationMode.Normal,
@@ -1334,18 +1352,18 @@ namespace Ice.location
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        HelloPrx ret = default;
+                        HelloPrx? ret;
                         ret = HelloPrxHelper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task migrateHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task migrateHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_migrateHelloAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_migrateHelloAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_migrateHelloAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_migrateHello(context, synchronous, completed);
@@ -1354,7 +1372,7 @@ namespace Ice.location
 
             private const string _migrateHello_name = "migrateHello";
 
-            private void _iceI_migrateHello(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_migrateHello(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1372,7 +1390,7 @@ namespace Ice.location
             public static TestIntfPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -1383,9 +1401,9 @@ namespace Ice.location
                 return null;
             }
 
-            public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1401,23 +1419,27 @@ namespace Ice.location
                 return null;
             }
 
-            public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                    var prx = new TestIntfPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new TestIntfPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -1436,17 +1458,17 @@ namespace Ice.location
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, TestIntfPrx v)
+            public static void write(global::Ice.OutputStream ostr, TestIntfPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static TestIntfPrx read(global::Ice.InputStream istr)
+            public static TestIntfPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    TestIntfPrxHelper result = new TestIntfPrxHelper();
+                     var result = new TestIntfPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -1468,17 +1490,17 @@ namespace Ice.location
         {
             #region Slice operations
 
-            public abstract void addObject(global::Ice.ObjectPrx obj, global::Ice.Current current = null);
+            public abstract void addObject(global::Ice.ObjectPrx? obj, global::Ice.Current? current = null);
 
             #endregion
 
             #region Inherited Slice operations
 
-            public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, global::Ice.ObjectPrx proxy, global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, global::Ice.ObjectPrx? proxy, global::Ice.Current? current = null);
 
-            public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx proxy, global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::Ice.Current? current = null);
 
-            public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx proxy, global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx? proxy, global::Ice.Current? current = null);
 
             #endregion
 
@@ -1491,17 +1513,17 @@ namespace Ice.location
                 "::Test::TestLocatorRegistry"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -1521,7 +1543,7 @@ namespace Ice.location
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                global::Ice.ObjectPrx iceP_obj = default;
+                global::Ice.ObjectPrx? iceP_obj;
                 iceP_obj = istr.readProxy();
                 inS.endReadParams();
                 obj.addObject(iceP_obj, current);
@@ -1598,17 +1620,17 @@ namespace Ice.location
         {
             #region Slice operations
 
-            public abstract int getRequestCount(global::Ice.Current current = null);
+            public abstract int getRequestCount(global::Ice.Current? current = null);
 
             #endregion
 
             #region Inherited Slice operations
 
-            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current? current = null);
 
-            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findAdapterByIdAsync(string id, global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findAdapterByIdAsync(string id, global::Ice.Current? current = null);
 
-            public abstract global::Ice.LocatorRegistryPrx getRegistry(global::Ice.Current current = null);
+            public abstract global::Ice.LocatorRegistryPrx? getRegistry(global::Ice.Current? current = null);
 
             #endregion
 
@@ -1621,17 +1643,17 @@ namespace Ice.location
                 "::Test::TestLocator"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -1728,9 +1750,9 @@ namespace Ice.location
         {
             #region Slice operations
 
-            public abstract void startServer(global::Ice.Current current = null);
+            public abstract void startServer(global::Ice.Current? current = null);
 
-            public abstract void shutdown(global::Ice.Current current = null);
+            public abstract void shutdown(global::Ice.Current? current = null);
 
             #endregion
 
@@ -1742,17 +1764,17 @@ namespace Ice.location
                 "::Test::ServerManager"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -1846,7 +1868,7 @@ namespace Ice.location
         {
             #region Slice operations
 
-            public abstract void sayHello(global::Ice.Current current = null);
+            public abstract void sayHello(global::Ice.Current? current = null);
 
             #endregion
 
@@ -1858,17 +1880,17 @@ namespace Ice.location
                 "::Test::Hello"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -1947,13 +1969,13 @@ namespace Ice.location
         {
             #region Slice operations
 
-            public abstract void shutdown(global::Ice.Current current = null);
+            public abstract void shutdown(global::Ice.Current? current = null);
 
-            public abstract HelloPrx getHello(global::Ice.Current current = null);
+            public abstract HelloPrx? getHello(global::Ice.Current? current = null);
 
-            public abstract HelloPrx getReplicatedHello(global::Ice.Current current = null);
+            public abstract HelloPrx? getReplicatedHello(global::Ice.Current? current = null);
 
-            public abstract void migrateHello(global::Ice.Current current = null);
+            public abstract void migrateHello(global::Ice.Current? current = null);
 
             #endregion
 
@@ -1965,17 +1987,17 @@ namespace Ice.location
                 "::Test::TestIntf"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }

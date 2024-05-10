@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -47,9 +49,9 @@ namespace Ice.defaultServant
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface MyObjectPrx : global::Ice.ObjectPrx
         {
-            string getName(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<string> getNameAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<string> getNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -62,7 +64,7 @@ namespace Ice.defaultServant
         public interface MyObjectOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string getName(global::Ice.Current current = null);
+            string getName(global::Ice.Current? current = null);
         }
     }
 }
@@ -81,15 +83,15 @@ namespace Ice.defaultServant
 
             #region Synchronous operations
 
-            public string getName(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_getNameAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -97,12 +99,12 @@ namespace Ice.defaultServant
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task<string> getNameAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<string> getNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getNameAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<string> _iceI_getNameAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<string> _iceI_getNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getName_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<string>(progress, cancel);
@@ -112,7 +114,7 @@ namespace Ice.defaultServant
 
             private const string _getName_name = "getName";
 
-            private void _iceI_getName(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getName(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<string>(completed);
                 outAsync.invoke(
@@ -123,7 +125,7 @@ namespace Ice.defaultServant
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        string ret = default;
+                        string ret;
                         ret = istr.readString();
                         return ret;
                     });
@@ -136,7 +138,7 @@ namespace Ice.defaultServant
             public static MyObjectPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static MyObjectPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static MyObjectPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -147,9 +149,9 @@ namespace Ice.defaultServant
                 return null;
             }
 
-            public static MyObjectPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static MyObjectPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -165,23 +167,27 @@ namespace Ice.defaultServant
                 return null;
             }
 
-            public static MyObjectPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static MyObjectPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    MyObjectPrxHelper prx = new MyObjectPrxHelper();
+                    var prx = new MyObjectPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static MyObjectPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static MyObjectPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    MyObjectPrxHelper prx = new MyObjectPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new MyObjectPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -200,17 +206,17 @@ namespace Ice.defaultServant
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, MyObjectPrx v)
+            public static void write(global::Ice.OutputStream ostr, MyObjectPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static MyObjectPrx read(global::Ice.InputStream istr)
+            public static MyObjectPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    MyObjectPrxHelper result = new MyObjectPrxHelper();
+                     var result = new MyObjectPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -232,7 +238,7 @@ namespace Ice.defaultServant
         {
             #region Slice operations
 
-            public abstract string getName(global::Ice.Current current = null);
+            public abstract string getName(global::Ice.Current? current = null);
 
             #endregion
 
@@ -244,17 +250,17 @@ namespace Ice.defaultServant
                 "::Test::MyObject"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }

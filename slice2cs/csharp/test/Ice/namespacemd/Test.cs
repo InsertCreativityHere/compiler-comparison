@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -47,45 +49,45 @@ namespace Ice.namespacemd
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface InitialPrx : global::Ice.ObjectPrx
         {
-            global::NoNamespace.C1 getNoNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            global::NoNamespace.C1? getNoNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<global::NoNamespace.C1> getNoNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<global::NoNamespace.C1?> getNoNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::NoNamespace.C2 getNoNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            global::NoNamespace.C2? getNoNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<global::NoNamespace.C2> getNoNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<global::NoNamespace.C2?> getNoNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void throwNoNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void throwNoNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task throwNoNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task throwNoNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void throwNoNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void throwNoNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task throwNoNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task throwNoNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void throwNoNamespaceNotify(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void throwNoNamespaceNotify(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task throwNoNamespaceNotifyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task throwNoNamespaceNotifyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::Ice.namespacemd.WithNamespace.C1 getWithNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C1> getWithNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C1?> getWithNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            global::Ice.namespacemd.WithNamespace.C2 getWithNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C2> getWithNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C2?> getWithNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void throwWithNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void throwWithNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task throwWithNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task throwWithNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void throwWithNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void throwWithNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task throwWithNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task throwWithNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -98,34 +100,34 @@ namespace Ice.namespacemd
         public interface InitialOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::NoNamespace.C1 getNoNamespaceC2AsC1(global::Ice.Current current = null);
+            global::NoNamespace.C1? getNoNamespaceC2AsC1(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::NoNamespace.C2 getNoNamespaceC2AsC2(global::Ice.Current current = null);
+            global::NoNamespace.C2? getNoNamespaceC2AsC2(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwNoNamespaceE2AsE1(global::Ice.Current current = null);
+            void throwNoNamespaceE2AsE1(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwNoNamespaceE2AsE2(global::Ice.Current current = null);
+            void throwNoNamespaceE2AsE2(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwNoNamespaceNotify(global::Ice.Current current = null);
+            void throwNoNamespaceNotify(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.namespacemd.WithNamespace.C1 getWithNamespaceC2AsC1(global::Ice.Current current = null);
+            global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.namespacemd.WithNamespace.C2 getWithNamespaceC2AsC2(global::Ice.Current current = null);
+            global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwWithNamespaceE2AsE1(global::Ice.Current current = null);
+            void throwWithNamespaceE2AsE1(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwWithNamespaceE2AsE2(global::Ice.Current current = null);
+            void throwWithNamespaceE2AsE2(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current = null);
+            void shutdown(global::Ice.Current? current = null);
         }
     }
 }
@@ -144,123 +146,123 @@ namespace Ice.namespacemd
 
             #region Synchronous operations
 
-            public global::NoNamespace.C1 getNoNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public global::NoNamespace.C1? getNoNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_getNoNamespaceC2AsC1Async(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public global::NoNamespace.C2 getNoNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public global::NoNamespace.C2? getNoNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_getNoNamespaceC2AsC2Async(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void throwNoNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void throwNoNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_throwNoNamespaceE2AsE1Async(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void throwNoNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void throwNoNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_throwNoNamespaceE2AsE2Async(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void throwNoNamespaceNotify(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void throwNoNamespaceNotify(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_throwNoNamespaceNotifyAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public global::Ice.namespacemd.WithNamespace.C1 getWithNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_getWithNamespaceC2AsC1Async(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public global::Ice.namespacemd.WithNamespace.C2 getWithNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_getWithNamespaceC2AsC2Async(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void throwWithNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void throwWithNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_throwWithNamespaceE2AsE1Async(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void throwWithNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void throwWithNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_throwWithNamespaceE2AsE2Async(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -268,24 +270,24 @@ namespace Ice.namespacemd
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task<global::NoNamespace.C1> getNoNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<global::NoNamespace.C1?> getNoNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getNoNamespaceC2AsC1Async(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<global::NoNamespace.C1> _iceI_getNoNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<global::NoNamespace.C1?> _iceI_getNoNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getNoNamespaceC2AsC1_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::NoNamespace.C1>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::NoNamespace.C1?>(progress, cancel);
                 _iceI_getNoNamespaceC2AsC1(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getNoNamespaceC2AsC1_name = "getNoNamespaceC2AsC1";
 
-            private void _iceI_getNoNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getNoNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<global::NoNamespace.C1>(completed);
+                var outAsync = getOutgoingAsync<global::NoNamespace.C1?>(completed);
                 outAsync.invoke(
                     _getNoNamespaceC2AsC1_name,
                     global::Ice.OperationMode.Normal,
@@ -294,31 +296,31 @@ namespace Ice.namespacemd
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::NoNamespace.C1 ret = default;
-                        istr.readValue((global::NoNamespace.C1 v) => {ret = v; });
+                        global::NoNamespace.C1? ret = null;
+                        istr.readValue((global::NoNamespace.C1? v) => {ret = v; });
                         istr.readPendingValues();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<global::NoNamespace.C2> getNoNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<global::NoNamespace.C2?> getNoNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getNoNamespaceC2AsC2Async(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<global::NoNamespace.C2> _iceI_getNoNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<global::NoNamespace.C2?> _iceI_getNoNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getNoNamespaceC2AsC2_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::NoNamespace.C2>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::NoNamespace.C2?>(progress, cancel);
                 _iceI_getNoNamespaceC2AsC2(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getNoNamespaceC2AsC2_name = "getNoNamespaceC2AsC2";
 
-            private void _iceI_getNoNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getNoNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<global::NoNamespace.C2>(completed);
+                var outAsync = getOutgoingAsync<global::NoNamespace.C2?>(completed);
                 outAsync.invoke(
                     _getNoNamespaceC2AsC2_name,
                     global::Ice.OperationMode.Normal,
@@ -327,19 +329,19 @@ namespace Ice.namespacemd
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::NoNamespace.C2 ret = default;
-                        istr.readValue((global::NoNamespace.C2 v) => {ret = v; });
+                        global::NoNamespace.C2? ret = null;
+                        istr.readValue((global::NoNamespace.C2? v) => {ret = v; });
                         istr.readPendingValues();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task throwNoNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task throwNoNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_throwNoNamespaceE2AsE1Async(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_throwNoNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_throwNoNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_throwNoNamespaceE2AsE1_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -349,7 +351,7 @@ namespace Ice.namespacemd
 
             private const string _throwNoNamespaceE2AsE1_name = "throwNoNamespaceE2AsE1";
 
-            private void _iceI_throwNoNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_throwNoNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -374,12 +376,12 @@ namespace Ice.namespacemd
                     });
             }
 
-            public global::System.Threading.Tasks.Task throwNoNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task throwNoNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_throwNoNamespaceE2AsE2Async(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_throwNoNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_throwNoNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_throwNoNamespaceE2AsE2_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -389,7 +391,7 @@ namespace Ice.namespacemd
 
             private const string _throwNoNamespaceE2AsE2_name = "throwNoNamespaceE2AsE2";
 
-            private void _iceI_throwNoNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_throwNoNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -414,12 +416,12 @@ namespace Ice.namespacemd
                     });
             }
 
-            public global::System.Threading.Tasks.Task throwNoNamespaceNotifyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task throwNoNamespaceNotifyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_throwNoNamespaceNotifyAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_throwNoNamespaceNotifyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_throwNoNamespaceNotifyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_throwNoNamespaceNotify_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -429,7 +431,7 @@ namespace Ice.namespacemd
 
             private const string _throwNoNamespaceNotify_name = "throwNoNamespaceNotify";
 
-            private void _iceI_throwNoNamespaceNotify(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_throwNoNamespaceNotify(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -454,24 +456,24 @@ namespace Ice.namespacemd
                     });
             }
 
-            public global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C1> getWithNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C1?> getWithNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getWithNamespaceC2AsC1Async(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C1> _iceI_getWithNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C1?> _iceI_getWithNamespaceC2AsC1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getWithNamespaceC2AsC1_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.namespacemd.WithNamespace.C1>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.namespacemd.WithNamespace.C1?>(progress, cancel);
                 _iceI_getWithNamespaceC2AsC1(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getWithNamespaceC2AsC1_name = "getWithNamespaceC2AsC1";
 
-            private void _iceI_getWithNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getWithNamespaceC2AsC1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<global::Ice.namespacemd.WithNamespace.C1>(completed);
+                var outAsync = getOutgoingAsync<global::Ice.namespacemd.WithNamespace.C1?>(completed);
                 outAsync.invoke(
                     _getWithNamespaceC2AsC1_name,
                     global::Ice.OperationMode.Normal,
@@ -480,31 +482,31 @@ namespace Ice.namespacemd
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Ice.namespacemd.WithNamespace.C1 ret = default;
-                        istr.readValue((global::Ice.namespacemd.WithNamespace.C1 v) => {ret = v; });
+                        global::Ice.namespacemd.WithNamespace.C1? ret = null;
+                        istr.readValue((global::Ice.namespacemd.WithNamespace.C1? v) => {ret = v; });
                         istr.readPendingValues();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C2> getWithNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C2?> getWithNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_getWithNamespaceC2AsC2Async(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C2> _iceI_getWithNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<global::Ice.namespacemd.WithNamespace.C2?> _iceI_getWithNamespaceC2AsC2Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_getWithNamespaceC2AsC2_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.namespacemd.WithNamespace.C2>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.namespacemd.WithNamespace.C2?>(progress, cancel);
                 _iceI_getWithNamespaceC2AsC2(context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _getWithNamespaceC2AsC2_name = "getWithNamespaceC2AsC2";
 
-            private void _iceI_getWithNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_getWithNamespaceC2AsC2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<global::Ice.namespacemd.WithNamespace.C2>(completed);
+                var outAsync = getOutgoingAsync<global::Ice.namespacemd.WithNamespace.C2?>(completed);
                 outAsync.invoke(
                     _getWithNamespaceC2AsC2_name,
                     global::Ice.OperationMode.Normal,
@@ -513,19 +515,19 @@ namespace Ice.namespacemd
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        global::Ice.namespacemd.WithNamespace.C2 ret = default;
-                        istr.readValue((global::Ice.namespacemd.WithNamespace.C2 v) => {ret = v; });
+                        global::Ice.namespacemd.WithNamespace.C2? ret = null;
+                        istr.readValue((global::Ice.namespacemd.WithNamespace.C2? v) => {ret = v; });
                         istr.readPendingValues();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task throwWithNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task throwWithNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_throwWithNamespaceE2AsE1Async(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_throwWithNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_throwWithNamespaceE2AsE1Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_throwWithNamespaceE2AsE1_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -535,7 +537,7 @@ namespace Ice.namespacemd
 
             private const string _throwWithNamespaceE2AsE1_name = "throwWithNamespaceE2AsE1";
 
-            private void _iceI_throwWithNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_throwWithNamespaceE2AsE1(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -560,12 +562,12 @@ namespace Ice.namespacemd
                     });
             }
 
-            public global::System.Threading.Tasks.Task throwWithNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task throwWithNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_throwWithNamespaceE2AsE2Async(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_throwWithNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_throwWithNamespaceE2AsE2Async(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_throwWithNamespaceE2AsE2_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -575,7 +577,7 @@ namespace Ice.namespacemd
 
             private const string _throwWithNamespaceE2AsE2_name = "throwWithNamespaceE2AsE2";
 
-            private void _iceI_throwWithNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_throwWithNamespaceE2AsE2(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -600,12 +602,12 @@ namespace Ice.namespacemd
                     });
             }
 
-            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_shutdownAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
@@ -614,7 +616,7 @@ namespace Ice.namespacemd
 
             private const string _shutdown_name = "shutdown";
 
-            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -632,7 +634,7 @@ namespace Ice.namespacemd
             public static InitialPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static InitialPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static InitialPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -643,9 +645,9 @@ namespace Ice.namespacemd
                 return null;
             }
 
-            public static InitialPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static InitialPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -661,23 +663,27 @@ namespace Ice.namespacemd
                 return null;
             }
 
-            public static InitialPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static InitialPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    InitialPrxHelper prx = new InitialPrxHelper();
+                    var prx = new InitialPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static InitialPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static InitialPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    InitialPrxHelper prx = new InitialPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new InitialPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -696,17 +702,17 @@ namespace Ice.namespacemd
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, InitialPrx v)
+            public static void write(global::Ice.OutputStream ostr, InitialPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static InitialPrx read(global::Ice.InputStream istr)
+            public static InitialPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    InitialPrxHelper result = new InitialPrxHelper();
+                     var result = new InitialPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -728,25 +734,25 @@ namespace Ice.namespacemd
         {
             #region Slice operations
 
-            public abstract global::NoNamespace.C1 getNoNamespaceC2AsC1(global::Ice.Current current = null);
+            public abstract global::NoNamespace.C1? getNoNamespaceC2AsC1(global::Ice.Current? current = null);
 
-            public abstract global::NoNamespace.C2 getNoNamespaceC2AsC2(global::Ice.Current current = null);
+            public abstract global::NoNamespace.C2? getNoNamespaceC2AsC2(global::Ice.Current? current = null);
 
-            public abstract void throwNoNamespaceE2AsE1(global::Ice.Current current = null);
+            public abstract void throwNoNamespaceE2AsE1(global::Ice.Current? current = null);
 
-            public abstract void throwNoNamespaceE2AsE2(global::Ice.Current current = null);
+            public abstract void throwNoNamespaceE2AsE2(global::Ice.Current? current = null);
 
-            public abstract void throwNoNamespaceNotify(global::Ice.Current current = null);
+            public abstract void throwNoNamespaceNotify(global::Ice.Current? current = null);
 
-            public abstract global::Ice.namespacemd.WithNamespace.C1 getWithNamespaceC2AsC1(global::Ice.Current current = null);
+            public abstract global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(global::Ice.Current? current = null);
 
-            public abstract global::Ice.namespacemd.WithNamespace.C2 getWithNamespaceC2AsC2(global::Ice.Current current = null);
+            public abstract global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(global::Ice.Current? current = null);
 
-            public abstract void throwWithNamespaceE2AsE1(global::Ice.Current current = null);
+            public abstract void throwWithNamespaceE2AsE1(global::Ice.Current? current = null);
 
-            public abstract void throwWithNamespaceE2AsE2(global::Ice.Current current = null);
+            public abstract void throwWithNamespaceE2AsE2(global::Ice.Current? current = null);
 
-            public abstract void shutdown(global::Ice.Current current = null);
+            public abstract void shutdown(global::Ice.Current? current = null);
 
             #endregion
 
@@ -758,17 +764,17 @@ namespace Ice.namespacemd
                 "::Test::Initial"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }

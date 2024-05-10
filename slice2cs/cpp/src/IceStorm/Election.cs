@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Election.ice")]
@@ -84,10 +86,10 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as TopicContent);
+        public override bool Equals(object? other) => Equals(other as TopicContent);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(TopicContent other)
+        public bool Equals(TopicContent? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -103,10 +105,10 @@ namespace IceStormElection
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(TopicContent lhs, TopicContent rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(TopicContent? lhs, TopicContent? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(TopicContent lhs, TopicContent rhs) => !(lhs == rhs);
+        public static bool operator !=(TopicContent? lhs, TopicContent? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -160,13 +162,13 @@ namespace IceStormElection
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObserverInconsistencyException(string reason, global::System.Exception innerException = null) : base(innerException)
+        public ObserverInconsistencyException(string reason, global::System.Exception? innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ObserverInconsistencyException(global::System.Exception innerException) : base(innerException)
+        public ObserverInconsistencyException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -298,7 +300,7 @@ namespace IceStormElection
         public int id;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodePrx n;
+        public NodePrx? n;
 
         #endregion
 
@@ -313,7 +315,7 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public NodeInfo(int id, NodePrx n)
+        public NodeInfo(int id, NodePrx? n)
         {
             this.id = id;
             this.n = n;
@@ -349,10 +351,10 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as NodeInfo);
+        public override bool Equals(object? other) => Equals(other as NodeInfo);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(NodeInfo other)
+        public bool Equals(NodeInfo? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -360,7 +362,7 @@ namespace IceStormElection
             }
             return other is not null && 
                 this.id == other.id && 
-                (Ice.ObjectPrxHelperBase)this.n == (Ice.ObjectPrxHelperBase)other.n;
+                (Ice.ObjectPrxHelperBase?)this.n == (Ice.ObjectPrxHelperBase?)other.n;
         }
 
         #endregion
@@ -368,10 +370,10 @@ namespace IceStormElection
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(NodeInfo lhs, NodeInfo rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(NodeInfo? lhs, NodeInfo? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(NodeInfo lhs, NodeInfo rhs) => !(lhs == rhs);
+        public static bool operator !=(NodeInfo? lhs, NodeInfo? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -485,7 +487,7 @@ namespace IceStormElection
         public string group = "";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public global::Ice.ObjectPrx replica;
+        public global::Ice.ObjectPrx? replica;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public NodeState state;
@@ -510,7 +512,7 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public QueryInfo(int id, int coord, string group, global::Ice.ObjectPrx replica, NodeState state, GroupInfo[] up, int max)
+        public QueryInfo(int id, int coord, string group, global::Ice.ObjectPrx? replica, NodeState state, GroupInfo[] up, int max)
         {
             this.id = id;
             this.coord = coord;
@@ -561,10 +563,10 @@ namespace IceStormElection
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as QueryInfo);
+        public override bool Equals(object? other) => Equals(other as QueryInfo);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(QueryInfo other)
+        public bool Equals(QueryInfo? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -574,7 +576,7 @@ namespace IceStormElection
                 this.id == other.id && 
                 this.coord == other.coord && 
                 this.group == other.group && 
-                (Ice.ObjectPrxHelperBase)this.replica == (Ice.ObjectPrxHelperBase)other.replica && 
+                (Ice.ObjectPrxHelperBase?)this.replica == (Ice.ObjectPrxHelperBase?)other.replica && 
                 this.state == other.state && 
                 Ice.UtilInternal.Collections.NullableSequenceEqual(this.up, other.up) && 
                 this.max == other.max;
@@ -585,10 +587,10 @@ namespace IceStormElection
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(QueryInfo lhs, QueryInfo rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(QueryInfo? lhs, QueryInfo? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(QueryInfo lhs, QueryInfo rhs) => !(lhs == rhs);
+        public static bool operator !=(QueryInfo? lhs, QueryInfo? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -659,7 +661,7 @@ namespace IceStormElection
         ///  inconsisency was detected.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void init(LogUpdate llu, TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void init(LogUpdate llu, TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Initialize the observer.
@@ -672,7 +674,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task initAsync(LogUpdate llu, TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task initAsync(LogUpdate llu, TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Create the topic with the given name.
@@ -685,7 +687,7 @@ namespace IceStormElection
         ///  inconsisency was detected.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void createTopic(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void createTopic(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Create the topic with the given name.
@@ -698,7 +700,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task createTopicAsync(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task createTopicAsync(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Destroy the topic with the given name.
@@ -711,7 +713,7 @@ namespace IceStormElection
         ///  inconsisency was detected.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void destroyTopic(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void destroyTopic(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Destroy the topic with the given name.
@@ -724,7 +726,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task destroyTopicAsync(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task destroyTopicAsync(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Add a subscriber to a topic.
@@ -739,7 +741,7 @@ namespace IceStormElection
         ///  inconsisency was detected.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Add a subscriber to a topic.
@@ -754,7 +756,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Remove a subscriber from a topic.
@@ -768,7 +770,7 @@ namespace IceStormElection
         /// <exception name="ObserverInconsistencyException">Raised if an inconsisency was detected.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Remove a subscriber from a topic.
@@ -781,7 +783,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task removeSubscriberAsync(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task removeSubscriberAsync(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -799,7 +801,7 @@ namespace IceStormElection
         /// <param name="content">The topic content.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void getContent(out LogUpdate llu, out TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void getContent(out LogUpdate llu, out TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Retrieve the topic content.
@@ -808,7 +810,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<TopicManagerSync_GetContentResult> getContentAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TopicManagerSync_GetContentResult> getContentAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -826,7 +828,7 @@ namespace IceStormElection
         /// <param name="j">The group coordinator.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void invitation(int j, string gn, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void invitation(int j, string gn, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Invite the node into a group with the given coordinator and group name.
@@ -838,7 +840,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task invitationAsync(int j, string gn, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task invitationAsync(int j, string gn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -854,7 +856,7 @@ namespace IceStormElection
         /// <param name="generation">The current generation count.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void ready(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -872,7 +874,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task readyAsync(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task readyAsync(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Called to accept an invitation into the given group.
@@ -890,7 +892,7 @@ namespace IceStormElection
         /// <param name="max">The highest priority node seen by this replica group.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Called to accept an invitation into the given group.
@@ -910,7 +912,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task acceptAsync(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task acceptAsync(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Determine if this node is a coordinator.
@@ -918,7 +920,7 @@ namespace IceStormElection
         /// <returns>True if the node is a coordinator, false otherwise.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        bool areYouCoordinator(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        bool areYouCoordinator(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Determine if this node is a coordinator.
@@ -927,7 +929,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<bool> areYouCoordinatorAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<bool> areYouCoordinatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Determine if the node is a member of the given group with the given coordinator.
@@ -939,7 +941,7 @@ namespace IceStormElection
         /// <returns>True if the node is a member, false otherwise.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        bool areYouThere(string gn, int j, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        bool areYouThere(string gn, int j, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Determine if the node is a member of the given group with the given coordinator.
@@ -952,7 +954,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<bool> areYouThereAsync(string gn, int j, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<bool> areYouThereAsync(string gn, int j, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the sync object for the replica hosted by this node.
@@ -960,7 +962,7 @@ namespace IceStormElection
         /// <returns>The sync object.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        global::Ice.ObjectPrx sync(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        global::Ice.ObjectPrx? sync(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the sync object for the replica hosted by this node.
@@ -969,7 +971,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> syncAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> syncAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the replication group information.
@@ -977,7 +979,7 @@ namespace IceStormElection
         /// <returns>The set of configured nodes and the associated priority.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        NodeInfo[] nodes(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        NodeInfo[] nodes(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the replication group information.
@@ -986,7 +988,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<NodeInfo[]> nodesAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<NodeInfo[]> nodesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the query information for the given node.
@@ -994,7 +996,7 @@ namespace IceStormElection
         /// <returns>The query information.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        QueryInfo query(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        QueryInfo query(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the query information for the given node.
@@ -1003,7 +1005,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<QueryInfo> queryAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<QueryInfo> queryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -1028,7 +1030,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void init(LogUpdate llu, TopicContent[] content, global::Ice.Current current = null);
+        void init(LogUpdate llu, TopicContent[] content, global::Ice.Current? current = null);
 
         /// <summary>
         /// Create the topic with the given name.
@@ -1042,7 +1044,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void createTopic(LogUpdate llu, string name, global::Ice.Current current = null);
+        void createTopic(LogUpdate llu, string name, global::Ice.Current? current = null);
 
         /// <summary>
         /// Destroy the topic with the given name.
@@ -1056,7 +1058,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroyTopic(LogUpdate llu, string name, global::Ice.Current current = null);
+        void destroyTopic(LogUpdate llu, string name, global::Ice.Current? current = null);
 
         /// <summary>
         /// Add a subscriber to a topic.
@@ -1072,7 +1074,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.Current current = null);
+        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.Current? current = null);
 
         /// <summary>
         /// Remove a subscriber from a topic.
@@ -1087,7 +1089,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.Current current = null);
+        void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.Current? current = null);
     }
 
     /// <summary>
@@ -1106,7 +1108,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void getContent(out LogUpdate llu, out TopicContent[] content, global::Ice.Current current = null);
+        void getContent(out LogUpdate llu, out TopicContent[] content, global::Ice.Current? current = null);
     }
 
     /// <summary>
@@ -1125,7 +1127,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void invitation(int j, string gn, global::Ice.Current current = null);
+        void invitation(int j, string gn, global::Ice.Current? current = null);
 
         /// <summary>
         /// Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -1142,7 +1144,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void ready(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::Ice.Current current = null);
+        void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::Ice.Current? current = null);
 
         /// <summary>
         /// Called to accept an invitation into the given group.
@@ -1161,7 +1163,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx observer, LogUpdate llu, int max, global::Ice.Current current = null);
+        void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::Ice.Current? current = null);
 
         /// <summary>
         /// Determine if this node is a coordinator.
@@ -1170,7 +1172,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool areYouCoordinator(global::Ice.Current current = null);
+        bool areYouCoordinator(global::Ice.Current? current = null);
 
         /// <summary>
         /// Determine if the node is a member of the given group with the given coordinator.
@@ -1183,7 +1185,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool areYouThere(string gn, int j, global::Ice.Current current = null);
+        bool areYouThere(string gn, int j, global::Ice.Current? current = null);
 
         /// <summary>
         /// Get the sync object for the replica hosted by this node.
@@ -1192,7 +1194,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx sync(global::Ice.Current current = null);
+        global::Ice.ObjectPrx? sync(global::Ice.Current? current = null);
 
         /// <summary>
         /// Get the replication group information.
@@ -1201,7 +1203,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        NodeInfo[] nodes(global::Ice.Current current = null);
+        NodeInfo[] nodes(global::Ice.Current? current = null);
 
         /// <summary>
         /// Get the query information for the given node.
@@ -1210,7 +1212,7 @@ namespace IceStormElection
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        QueryInfo query(global::Ice.Current current = null);
+        QueryInfo query(global::Ice.Current? current = null);
     }
 }
 
@@ -1260,63 +1262,63 @@ namespace IceStormElection
 
         #region Synchronous operations
 
-        public void init(LogUpdate llu, TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void init(LogUpdate llu, TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_initAsync(llu, content, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void createTopic(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void createTopic(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_createTopicAsync(llu, name, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void destroyTopic(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void destroyTopic(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_destroyTopicAsync(llu, name, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_addSubscriberAsync(llu, topic, record, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_removeSubscriberAsync(llu, topic, subscribers, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -1324,12 +1326,12 @@ namespace IceStormElection
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task initAsync(LogUpdate llu, TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task initAsync(LogUpdate llu, TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_initAsync(llu, content, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_initAsync(LogUpdate iceP_llu, TopicContent[] iceP_content, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_initAsync(LogUpdate iceP_llu, TopicContent[] iceP_content, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_init_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1339,7 +1341,7 @@ namespace IceStormElection
 
         private const string _init_name = "init";
 
-        private void _iceI_init(LogUpdate iceP_llu, TopicContent[] iceP_content, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_init(LogUpdate iceP_llu, TopicContent[] iceP_content, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1369,12 +1371,12 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task createTopicAsync(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task createTopicAsync(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_createTopicAsync(llu, name, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_createTopicAsync(LogUpdate iceP_llu, string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_createTopicAsync(LogUpdate iceP_llu, string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_createTopic_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1384,7 +1386,7 @@ namespace IceStormElection
 
         private const string _createTopic_name = "createTopic";
 
-        private void _iceI_createTopic(LogUpdate iceP_llu, string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_createTopic(LogUpdate iceP_llu, string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1414,12 +1416,12 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task destroyTopicAsync(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task destroyTopicAsync(LogUpdate llu, string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_destroyTopicAsync(llu, name, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_destroyTopicAsync(LogUpdate iceP_llu, string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_destroyTopicAsync(LogUpdate iceP_llu, string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_destroyTopic_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1429,7 +1431,7 @@ namespace IceStormElection
 
         private const string _destroyTopic_name = "destroyTopic";
 
-        private void _iceI_destroyTopic(LogUpdate iceP_llu, string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_destroyTopic(LogUpdate iceP_llu, string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1459,12 +1461,12 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_addSubscriberAsync(llu, topic, record, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_addSubscriberAsync(LogUpdate iceP_llu, string iceP_topic, global::IceStorm.SubscriberRecord iceP_record, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_addSubscriberAsync(LogUpdate iceP_llu, string iceP_topic, global::IceStorm.SubscriberRecord iceP_record, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_addSubscriber_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1474,7 +1476,7 @@ namespace IceStormElection
 
         private const string _addSubscriber_name = "addSubscriber";
 
-        private void _iceI_addSubscriber(LogUpdate iceP_llu, string iceP_topic, global::IceStorm.SubscriberRecord iceP_record, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_addSubscriber(LogUpdate iceP_llu, string iceP_topic, global::IceStorm.SubscriberRecord iceP_record, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1505,12 +1507,12 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task removeSubscriberAsync(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task removeSubscriberAsync(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_removeSubscriberAsync(llu, topic, subscribers, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_removeSubscriberAsync(LogUpdate iceP_llu, string iceP_topic, global::Ice.Identity[] iceP_subscribers, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_removeSubscriberAsync(LogUpdate iceP_llu, string iceP_topic, global::Ice.Identity[] iceP_subscribers, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_removeSubscriber_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1520,7 +1522,7 @@ namespace IceStormElection
 
         private const string _removeSubscriber_name = "removeSubscriber";
 
-        private void _iceI_removeSubscriber(LogUpdate iceP_llu, string iceP_topic, global::Ice.Identity[] iceP_subscribers, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_removeSubscriber(LogUpdate iceP_llu, string iceP_topic, global::Ice.Identity[] iceP_subscribers, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1558,7 +1560,7 @@ namespace IceStormElection
         public static ReplicaObserverPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static ReplicaObserverPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static ReplicaObserverPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1569,9 +1571,9 @@ namespace IceStormElection
             return null;
         }
 
-        public static ReplicaObserverPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static ReplicaObserverPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1587,23 +1589,27 @@ namespace IceStormElection
             return null;
         }
 
-        public static ReplicaObserverPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static ReplicaObserverPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                ReplicaObserverPrxHelper prx = new ReplicaObserverPrxHelper();
+                var prx = new ReplicaObserverPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static ReplicaObserverPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static ReplicaObserverPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                ReplicaObserverPrxHelper prx = new ReplicaObserverPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new ReplicaObserverPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -1622,17 +1628,17 @@ namespace IceStormElection
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, ReplicaObserverPrx v)
+        public static void write(global::Ice.OutputStream ostr, ReplicaObserverPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static ReplicaObserverPrx read(global::Ice.InputStream istr)
+        public static ReplicaObserverPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                ReplicaObserverPrxHelper result = new ReplicaObserverPrxHelper();
+                 var result = new ReplicaObserverPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -1652,7 +1658,7 @@ namespace IceStormElection
 
         #region Synchronous operations
 
-        public void getContent(out LogUpdate llu, out TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void getContent(out LogUpdate llu, out TopicContent[] content, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -1660,9 +1666,9 @@ namespace IceStormElection
                 llu = result_.llu;
                 content = result_.content;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -1670,12 +1676,12 @@ namespace IceStormElection
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<TopicManagerSync_GetContentResult> getContentAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TopicManagerSync_GetContentResult> getContentAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getContentAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TopicManagerSync_GetContentResult> _iceI_getContentAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TopicManagerSync_GetContentResult> _iceI_getContentAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getContent_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TopicManagerSync_GetContentResult>(progress, cancel);
@@ -1685,7 +1691,7 @@ namespace IceStormElection
 
         private const string _getContent_name = "getContent";
 
-        private void _iceI_getContent(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getContent(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TopicManagerSync_GetContentResult>(completed);
             outAsync.invoke(
@@ -1696,7 +1702,7 @@ namespace IceStormElection
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    TopicManagerSync_GetContentResult ret = new TopicManagerSync_GetContentResult();
+                    var ret = new TopicManagerSync_GetContentResult();
                     ret.llu = new LogUpdate(istr);
                     ret.content = TopicContentSeqHelper.read(istr);
                     return ret;
@@ -1710,7 +1716,7 @@ namespace IceStormElection
         public static TopicManagerSyncPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static TopicManagerSyncPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static TopicManagerSyncPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1721,9 +1727,9 @@ namespace IceStormElection
             return null;
         }
 
-        public static TopicManagerSyncPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static TopicManagerSyncPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1739,23 +1745,27 @@ namespace IceStormElection
             return null;
         }
 
-        public static TopicManagerSyncPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static TopicManagerSyncPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                TopicManagerSyncPrxHelper prx = new TopicManagerSyncPrxHelper();
+                var prx = new TopicManagerSyncPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static TopicManagerSyncPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static TopicManagerSyncPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                TopicManagerSyncPrxHelper prx = new TopicManagerSyncPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new TopicManagerSyncPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -1774,17 +1784,17 @@ namespace IceStormElection
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, TopicManagerSyncPrx v)
+        public static void write(global::Ice.OutputStream ostr, TopicManagerSyncPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static TopicManagerSyncPrx read(global::Ice.InputStream istr)
+        public static TopicManagerSyncPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                TopicManagerSyncPrxHelper result = new TopicManagerSyncPrxHelper();
+                 var result = new TopicManagerSyncPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -1872,99 +1882,99 @@ namespace IceStormElection
 
         #region Synchronous operations
 
-        public void invitation(int j, string gn, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void invitation(int j, string gn, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_invitationAsync(j, gn, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void ready(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_readyAsync(j, gn, coordinator, max, generation, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_acceptAsync(j, gn, forwardedInvites, observer, llu, max, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public bool areYouCoordinator(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public bool areYouCoordinator(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_areYouCoordinatorAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public bool areYouThere(string gn, int j, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public bool areYouThere(string gn, int j, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_areYouThereAsync(gn, j, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public global::Ice.ObjectPrx sync(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public global::Ice.ObjectPrx? sync(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_syncAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public NodeInfo[] nodes(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public NodeInfo[] nodes(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_nodesAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public QueryInfo query(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public QueryInfo query(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_queryAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -1972,12 +1982,12 @@ namespace IceStormElection
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task invitationAsync(int j, string gn, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task invitationAsync(int j, string gn, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_invitationAsync(j, gn, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_invitationAsync(int iceP_j, string iceP_gn, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_invitationAsync(int iceP_j, string iceP_gn, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_invitation(iceP_j, iceP_gn, context, synchronous, completed);
@@ -1986,7 +1996,7 @@ namespace IceStormElection
 
         private const string _invitation_name = "invitation";
 
-        private void _iceI_invitation(int iceP_j, string iceP_gn, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_invitation(int iceP_j, string iceP_gn, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2002,12 +2012,12 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task readyAsync(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task readyAsync(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_readyAsync(j, gn, coordinator, max, generation, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_readyAsync(int iceP_j, string iceP_gn, global::Ice.ObjectPrx iceP_coordinator, int iceP_max, long iceP_generation, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_readyAsync(int iceP_j, string iceP_gn, global::Ice.ObjectPrx? iceP_coordinator, int iceP_max, long iceP_generation, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_ready(iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation, context, synchronous, completed);
@@ -2016,7 +2026,7 @@ namespace IceStormElection
 
         private const string _ready_name = "ready";
 
-        private void _iceI_ready(int iceP_j, string iceP_gn, global::Ice.ObjectPrx iceP_coordinator, int iceP_max, long iceP_generation, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_ready(int iceP_j, string iceP_gn, global::Ice.ObjectPrx? iceP_coordinator, int iceP_max, long iceP_generation, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2035,12 +2045,12 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task acceptAsync(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task acceptAsync(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_acceptAsync(j, gn, forwardedInvites, observer, llu, max, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_acceptAsync(int iceP_j, string iceP_gn, int[] iceP_forwardedInvites, global::Ice.ObjectPrx iceP_observer, LogUpdate iceP_llu, int iceP_max, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_acceptAsync(int iceP_j, string iceP_gn, int[] iceP_forwardedInvites, global::Ice.ObjectPrx? iceP_observer, LogUpdate iceP_llu, int iceP_max, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
             _iceI_accept(iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, context, synchronous, completed);
@@ -2049,7 +2059,7 @@ namespace IceStormElection
 
         private const string _accept_name = "accept";
 
-        private void _iceI_accept(int iceP_j, string iceP_gn, int[] iceP_forwardedInvites, global::Ice.ObjectPrx iceP_observer, LogUpdate iceP_llu, int iceP_max, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_accept(int iceP_j, string iceP_gn, int[] iceP_forwardedInvites, global::Ice.ObjectPrx? iceP_observer, LogUpdate iceP_llu, int iceP_max, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2069,12 +2079,12 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task<bool> areYouCoordinatorAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<bool> areYouCoordinatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_areYouCoordinatorAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<bool> _iceI_areYouCoordinatorAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<bool> _iceI_areYouCoordinatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_areYouCoordinator_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
@@ -2084,7 +2094,7 @@ namespace IceStormElection
 
         private const string _areYouCoordinator_name = "areYouCoordinator";
 
-        private void _iceI_areYouCoordinator(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_areYouCoordinator(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<bool>(completed);
             outAsync.invoke(
@@ -2095,18 +2105,18 @@ namespace IceStormElection
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret = default;
+                    bool ret;
                     ret = istr.readBool();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<bool> areYouThereAsync(string gn, int j, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<bool> areYouThereAsync(string gn, int j, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_areYouThereAsync(gn, j, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<bool> _iceI_areYouThereAsync(string iceP_gn, int iceP_j, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<bool> _iceI_areYouThereAsync(string iceP_gn, int iceP_j, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_areYouThere_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
@@ -2116,7 +2126,7 @@ namespace IceStormElection
 
         private const string _areYouThere_name = "areYouThere";
 
-        private void _iceI_areYouThere(string iceP_gn, int iceP_j, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_areYouThere(string iceP_gn, int iceP_j, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<bool>(completed);
             outAsync.invoke(
@@ -2132,30 +2142,30 @@ namespace IceStormElection
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    bool ret = default;
+                    bool ret;
                     ret = istr.readBool();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> syncAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> syncAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_syncAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> _iceI_syncAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> _iceI_syncAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_sync_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<global::Ice.ObjectPrx?>(progress, cancel);
             _iceI_sync(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _sync_name = "sync";
 
-        private void _iceI_sync(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_sync(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
+            var outAsync = getOutgoingAsync<global::Ice.ObjectPrx?>(completed);
             outAsync.invoke(
                 _sync_name,
                 global::Ice.OperationMode.Idempotent,
@@ -2164,18 +2174,18 @@ namespace IceStormElection
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    global::Ice.ObjectPrx ret = default;
+                    global::Ice.ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<NodeInfo[]> nodesAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<NodeInfo[]> nodesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_nodesAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<NodeInfo[]> _iceI_nodesAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<NodeInfo[]> _iceI_nodesAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_nodes_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<NodeInfo[]>(progress, cancel);
@@ -2185,7 +2195,7 @@ namespace IceStormElection
 
         private const string _nodes_name = "nodes";
 
-        private void _iceI_nodes(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_nodes(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<NodeInfo[]>(completed);
             outAsync.invoke(
@@ -2196,18 +2206,18 @@ namespace IceStormElection
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    NodeInfo[] ret = default;
+                    NodeInfo[] ret;
                     ret = NodeInfoSeqHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<QueryInfo> queryAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<QueryInfo> queryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_queryAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<QueryInfo> _iceI_queryAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<QueryInfo> _iceI_queryAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_query_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<QueryInfo>(progress, cancel);
@@ -2217,7 +2227,7 @@ namespace IceStormElection
 
         private const string _query_name = "query";
 
-        private void _iceI_query(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_query(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<QueryInfo>(completed);
             outAsync.invoke(
@@ -2228,7 +2238,7 @@ namespace IceStormElection
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    QueryInfo ret = default;
+                    QueryInfo ret;
                     ret = new QueryInfo(istr);
                     return ret;
                 });
@@ -2241,7 +2251,7 @@ namespace IceStormElection
         public static NodePrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static NodePrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static NodePrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -2252,9 +2262,9 @@ namespace IceStormElection
             return null;
         }
 
-        public static NodePrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static NodePrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -2270,23 +2280,27 @@ namespace IceStormElection
             return null;
         }
 
-        public static NodePrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static NodePrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                NodePrxHelper prx = new NodePrxHelper();
+                var prx = new NodePrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static NodePrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static NodePrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                NodePrxHelper prx = new NodePrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new NodePrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -2305,17 +2319,17 @@ namespace IceStormElection
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, NodePrx v)
+        public static void write(global::Ice.OutputStream ostr, NodePrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static NodePrx read(global::Ice.InputStream istr)
+        public static NodePrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                NodePrxHelper result = new NodePrxHelper();
+                 var result = new NodePrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -2334,15 +2348,15 @@ namespace IceStormElection
     {
         #region Slice operations
 
-        public abstract void init(LogUpdate llu, TopicContent[] content, global::Ice.Current current = null);
+        public abstract void init(LogUpdate llu, TopicContent[] content, global::Ice.Current? current = null);
 
-        public abstract void createTopic(LogUpdate llu, string name, global::Ice.Current current = null);
+        public abstract void createTopic(LogUpdate llu, string name, global::Ice.Current? current = null);
 
-        public abstract void destroyTopic(LogUpdate llu, string name, global::Ice.Current current = null);
+        public abstract void destroyTopic(LogUpdate llu, string name, global::Ice.Current? current = null);
 
-        public abstract void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.Current current = null);
+        public abstract void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.Current? current = null);
 
-        public abstract void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.Current current = null);
+        public abstract void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.Current? current = null);
 
         #endregion
 
@@ -2354,17 +2368,17 @@ namespace IceStormElection
             "::IceStormElection::ReplicaObserver"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -2384,8 +2398,8 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogUpdate iceP_llu = default;
-            TopicContent[] iceP_content = default;
+            LogUpdate iceP_llu;
+            TopicContent[] iceP_content;
             iceP_llu = new LogUpdate(istr);
             iceP_content = TopicContentSeqHelper.read(istr);
             inS.endReadParams();
@@ -2399,8 +2413,8 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogUpdate iceP_llu = default;
-            string iceP_name = default;
+            LogUpdate iceP_llu;
+            string iceP_name;
             iceP_llu = new LogUpdate(istr);
             iceP_name = istr.readString();
             inS.endReadParams();
@@ -2414,8 +2428,8 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogUpdate iceP_llu = default;
-            string iceP_name = default;
+            LogUpdate iceP_llu;
+            string iceP_name;
             iceP_llu = new LogUpdate(istr);
             iceP_name = istr.readString();
             inS.endReadParams();
@@ -2429,9 +2443,9 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogUpdate iceP_llu = default;
-            string iceP_topic = default;
-            global::IceStorm.SubscriberRecord iceP_record = default;
+            LogUpdate iceP_llu;
+            string iceP_topic;
+            global::IceStorm.SubscriberRecord iceP_record;
             iceP_llu = new LogUpdate(istr);
             iceP_topic = istr.readString();
             iceP_record = new global::IceStorm.SubscriberRecord(istr);
@@ -2446,9 +2460,9 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            LogUpdate iceP_llu = default;
-            string iceP_topic = default;
-            global::Ice.Identity[] iceP_subscribers = default;
+            LogUpdate iceP_llu;
+            string iceP_topic;
+            global::Ice.Identity[] iceP_subscribers;
             iceP_llu = new LogUpdate(istr);
             iceP_topic = istr.readString();
             iceP_subscribers = global::Ice.IdentitySeqHelper.read(istr);
@@ -2532,7 +2546,7 @@ namespace IceStormElection
     {
         #region Slice operations
 
-        public abstract void getContent(out LogUpdate llu, out TopicContent[] content, global::Ice.Current current = null);
+        public abstract void getContent(out LogUpdate llu, out TopicContent[] content, global::Ice.Current? current = null);
 
         #endregion
 
@@ -2544,17 +2558,17 @@ namespace IceStormElection
             "::IceStormElection::TopicManagerSync"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -2639,21 +2653,21 @@ namespace IceStormElection
     {
         #region Slice operations
 
-        public abstract void invitation(int j, string gn, global::Ice.Current current = null);
+        public abstract void invitation(int j, string gn, global::Ice.Current? current = null);
 
-        public abstract void ready(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::Ice.Current current = null);
+        public abstract void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::Ice.Current? current = null);
 
-        public abstract void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx observer, LogUpdate llu, int max, global::Ice.Current current = null);
+        public abstract void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::Ice.Current? current = null);
 
-        public abstract bool areYouCoordinator(global::Ice.Current current = null);
+        public abstract bool areYouCoordinator(global::Ice.Current? current = null);
 
-        public abstract bool areYouThere(string gn, int j, global::Ice.Current current = null);
+        public abstract bool areYouThere(string gn, int j, global::Ice.Current? current = null);
 
-        public abstract global::Ice.ObjectPrx sync(global::Ice.Current current = null);
+        public abstract global::Ice.ObjectPrx? sync(global::Ice.Current? current = null);
 
-        public abstract NodeInfo[] nodes(global::Ice.Current current = null);
+        public abstract NodeInfo[] nodes(global::Ice.Current? current = null);
 
-        public abstract QueryInfo query(global::Ice.Current current = null);
+        public abstract QueryInfo query(global::Ice.Current? current = null);
 
         #endregion
 
@@ -2665,17 +2679,17 @@ namespace IceStormElection
             "::IceStormElection::Node"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -2695,8 +2709,8 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_j = default;
-            string iceP_gn = default;
+            int iceP_j;
+            string iceP_gn;
             iceP_j = istr.readInt();
             iceP_gn = istr.readString();
             inS.endReadParams();
@@ -2710,11 +2724,11 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_j = default;
-            string iceP_gn = default;
-            global::Ice.ObjectPrx iceP_coordinator = default;
-            int iceP_max = default;
-            long iceP_generation = default;
+            int iceP_j;
+            string iceP_gn;
+            global::Ice.ObjectPrx? iceP_coordinator;
+            int iceP_max;
+            long iceP_generation;
             iceP_j = istr.readInt();
             iceP_gn = istr.readString();
             iceP_coordinator = istr.readProxy();
@@ -2731,12 +2745,12 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            int iceP_j = default;
-            string iceP_gn = default;
-            int[] iceP_forwardedInvites = default;
-            global::Ice.ObjectPrx iceP_observer = default;
-            LogUpdate iceP_llu = default;
-            int iceP_max = default;
+            int iceP_j;
+            string iceP_gn;
+            int[] iceP_forwardedInvites;
+            global::Ice.ObjectPrx? iceP_observer;
+            LogUpdate iceP_llu;
+            int iceP_max;
             iceP_j = istr.readInt();
             iceP_gn = istr.readString();
             iceP_forwardedInvites = global::Ice.IntSeqHelper.read(istr);
@@ -2767,8 +2781,8 @@ namespace IceStormElection
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_gn = default;
-            int iceP_j = default;
+            string iceP_gn;
+            int iceP_j;
             iceP_gn = istr.readString();
             iceP_j = istr.readInt();
             inS.endReadParams();

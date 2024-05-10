@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -265,10 +267,10 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other) => Equals(other as Struct1);
+            public override bool Equals(object? other) => Equals(other as Struct1);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(Struct1 other)
+            public bool Equals(Struct1? other)
             {
                 if (ReferenceEquals(this, other))
                 {
@@ -304,10 +306,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(Struct1 lhs, Struct1 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+            public static bool operator ==(Struct1? lhs, Struct1? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(Struct1 lhs, Struct1 rhs) => !(lhs == rhs);
+            public static bool operator !=(Struct1? lhs, Struct1? rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -649,10 +651,10 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other) => Equals(other as Struct2);
+            public override bool Equals(object? other) => Equals(other as Struct2);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(Struct2 other)
+            public bool Equals(Struct2? other)
             {
                 if (ReferenceEquals(this, other))
                 {
@@ -686,10 +688,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(Struct2 lhs, Struct2 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+            public static bool operator ==(Struct2? lhs, Struct2? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(Struct2 lhs, Struct2 rhs) => !(lhs == rhs);
+            public static bool operator !=(Struct2? lhs, Struct2? rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -909,10 +911,10 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other) => Equals(other as Struct3);
+            public override bool Equals(object? other) => Equals(other as Struct3);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(Struct3 other)
+            public bool Equals(Struct3? other)
             {
                 if (ReferenceEquals(this, other))
                 {
@@ -946,10 +948,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(Struct3 lhs, Struct3 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+            public static bool operator ==(Struct3? lhs, Struct3? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(Struct3 lhs, Struct3 rhs) => !(lhs == rhs);
+            public static bool operator !=(Struct3? lhs, Struct3? rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -1169,10 +1171,10 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other) => Equals(other as Struct4);
+            public override bool Equals(object? other) => Equals(other as Struct4);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(Struct4 other)
+            public bool Equals(Struct4? other)
             {
                 if (ReferenceEquals(this, other))
                 {
@@ -1206,10 +1208,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(Struct4 lhs, Struct4 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+            public static bool operator ==(Struct4? lhs, Struct4? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(Struct4 lhs, Struct4 rhs) => !(lhs == rhs);
+            public static bool operator !=(Struct4? lhs, Struct4? rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -1592,7 +1594,7 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public BaseEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, global::System.Exception innerException = null) : base(innerException)
+            public BaseEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, global::System.Exception? innerException = null) : base(innerException)
             {
                 this.boolFalse = boolFalse;
                 this.boolTrue = boolTrue;
@@ -1613,7 +1615,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public BaseEx(global::System.Exception innerException) : base(innerException)
+            public BaseEx(global::System.Exception? innerException) : base(innerException)
             {
             }
 
@@ -1721,7 +1723,7 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public DerivedEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, global::Ice.defaultValue.Test.Nested.Color nc1, global::Ice.defaultValue.Test.Nested.Color nc2, global::Ice.defaultValue.Test.Nested.Color nc3, global::System.Exception innerException = null) : base(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, innerException)
+            public DerivedEx(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, global::Ice.defaultValue.Test.Nested.Color nc1, global::Ice.defaultValue.Test.Nested.Color nc2, global::Ice.defaultValue.Test.Nested.Color nc3, global::System.Exception? innerException = null) : base(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, innerException)
             {
                 this.c1 = c1;
                 this.c2 = c2;
@@ -1732,7 +1734,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public DerivedEx(global::System.Exception innerException) : base(innerException)
+            public DerivedEx(global::System.Exception? innerException) : base(innerException)
             {
             }
 
@@ -2099,10 +2101,10 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other) => Equals(other as StructProperty);
+            public override bool Equals(object? other) => Equals(other as StructProperty);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(StructProperty other)
+            public bool Equals(StructProperty? other)
             {
                 if (ReferenceEquals(this, other))
                 {
@@ -2132,10 +2134,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(StructProperty lhs, StructProperty rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+            public static bool operator ==(StructProperty? lhs, StructProperty? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(StructProperty lhs, StructProperty rhs) => !(lhs == rhs);
+            public static bool operator !=(StructProperty? lhs, StructProperty? rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -2244,7 +2246,7 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionProperty(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, global::System.Exception innerException = null) : base(innerException)
+            public ExceptionProperty(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, global::System.Exception? innerException = null) : base(innerException)
             {
                 this.boolFalse = boolFalse;
                 this.boolTrue = boolTrue;
@@ -2265,7 +2267,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionProperty(global::System.Exception innerException) : base(innerException)
+            public ExceptionProperty(global::System.Exception? innerException) : base(innerException)
             {
             }
 
@@ -2455,10 +2457,10 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other) => Equals(other as InnerStruct2);
+            public override bool Equals(object? other) => Equals(other as InnerStruct2);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(InnerStruct2 other)
+            public bool Equals(InnerStruct2? other)
             {
                 if (ReferenceEquals(this, other))
                 {
@@ -2473,10 +2475,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(InnerStruct2 lhs, InnerStruct2 rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+            public static bool operator ==(InnerStruct2? lhs, InnerStruct2? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(InnerStruct2 lhs, InnerStruct2 rhs) => !(lhs == rhs);
+            public static bool operator !=(InnerStruct2? lhs, InnerStruct2? rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -2645,10 +2647,10 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override bool Equals(object other) => Equals(other as StructNoDefaults);
+            public override bool Equals(object? other) => Equals(other as StructNoDefaults);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool Equals(StructNoDefaults other)
+            public bool Equals(StructNoDefaults? other)
             {
                 if (ReferenceEquals(this, other))
                 {
@@ -2676,10 +2678,10 @@ namespace Ice.defaultValue
             #region Comparison members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator ==(StructNoDefaults lhs, StructNoDefaults rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+            public static bool operator ==(StructNoDefaults? lhs, StructNoDefaults? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static bool operator !=(StructNoDefaults lhs, StructNoDefaults rhs) => !(lhs == rhs);
+            public static bool operator !=(StructNoDefaults? lhs, StructNoDefaults? rhs) => !(lhs == rhs);
 
             #endregion
 
@@ -2747,7 +2749,7 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaultsBase(string str, Color c1, byte[] bs, global::System.Exception innerException = null) : base(innerException)
+            public ExceptionNoDefaultsBase(string str, Color c1, byte[] bs, global::System.Exception? innerException = null) : base(innerException)
             {
                 this.str = str;
                 this.c1 = c1;
@@ -2755,7 +2757,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaultsBase(byte[] bs, global::System.Exception innerException = null) : base(innerException)
+            public ExceptionNoDefaultsBase(byte[] bs, global::System.Exception? innerException = null) : base(innerException)
             {
                 this.bs = bs;
             }
@@ -2764,7 +2766,7 @@ namespace Ice.defaultValue
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             public ExceptionNoDefaultsBase()
             {
-                this.bs = null;
+                this.bs = null!;
             }
 
             #endregion
@@ -2831,7 +2833,7 @@ namespace Ice.defaultValue
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaults(string str, Color c1, byte[] bs, InnerStruct st, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict, global::System.Exception innerException = null) : base(str, c1, bs, innerException)
+            public ExceptionNoDefaults(string str, Color c1, byte[] bs, InnerStruct st, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict, global::System.Exception? innerException = null) : base(str, c1, bs, innerException)
             {
                 this.st = st;
                 this.st2 = st2;
@@ -2839,7 +2841,7 @@ namespace Ice.defaultValue
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public ExceptionNoDefaults(byte[] bs, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict, global::System.Exception innerException = null) : base(bs, innerException)
+            public ExceptionNoDefaults(byte[] bs, InnerStruct2 st2, global::System.Collections.Generic.Dictionary<int, string> dict, global::System.Exception? innerException = null) : base(bs, innerException)
             {
                 this.st2 = st2;
                 this.dict = dict;
@@ -2849,8 +2851,8 @@ namespace Ice.defaultValue
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             public ExceptionNoDefaults()
             {
-                this.st2 = null;
-                this.dict = null;
+                this.st2 = null!;
+                this.dict = null!;
             }
 
             #endregion
@@ -2939,7 +2941,7 @@ namespace Ice.defaultValue
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             public ClassNoDefaultsBase()
             {
-                this.bs = null;
+                this.bs = null!;
                 ice_initialize();
             }
 
@@ -3035,8 +3037,8 @@ namespace Ice.defaultValue
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             public ClassNoDefaults()
             {
-                this.st2 = null;
-                this.dict = null;
+                this.st2 = null!;
+                this.dict = null!;
                 ice_initialize();
             }
 
@@ -3147,9 +3149,9 @@ namespace Ice.defaultValue
                 global::System.Collections.Generic.Dictionary<int, string> r = new global::System.Collections.Generic.Dictionary<int, string>();
                 for(int i = 0; i < sz; ++i)
                 {
-                    int k = default;
+                    int k;
                     k = istr.readInt();
-                    string v = default;
+                    string v;
                     v = istr.readString();
                     r[k] = v;
                 }

@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("FileParser.ice")]
@@ -50,13 +52,13 @@ namespace IceGrid
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ParseException(string reason, global::System.Exception innerException = null) : base(innerException)
+        public ParseException(string reason, global::System.Exception? innerException = null) : base(innerException)
         {
             this.reason = reason;
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ParseException(global::System.Exception innerException) : base(innerException)
+        public ParseException(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -132,7 +134,7 @@ namespace IceGrid
         /// <exception name="ParseException">Raised if an error occurred during parsing.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ApplicationDescriptor parse(string xmlFile, AdminPrx adminProxy, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Parse a file.
@@ -145,7 +147,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx adminProxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -172,7 +174,7 @@ namespace IceGrid
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ApplicationDescriptor parse(string xmlFile, AdminPrx adminProxy, global::Ice.Current current = null);
+        ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::Ice.Current? current = null);
     }
 }
 
@@ -188,15 +190,15 @@ namespace IceGrid
 
         #region Synchronous operations
 
-        public ApplicationDescriptor parse(string xmlFile, AdminPrx adminProxy, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_parseAsync(xmlFile, adminProxy, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -204,12 +206,12 @@ namespace IceGrid
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx adminProxy, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_parseAsync(xmlFile, adminProxy, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<ApplicationDescriptor> _iceI_parseAsync(string iceP_xmlFile, AdminPrx iceP_adminProxy, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<ApplicationDescriptor> _iceI_parseAsync(string iceP_xmlFile, AdminPrx? iceP_adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_parse_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ApplicationDescriptor>(progress, cancel);
@@ -219,7 +221,7 @@ namespace IceGrid
 
         private const string _parse_name = "parse";
 
-        private void _iceI_parse(string iceP_xmlFile, AdminPrx iceP_adminProxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_parse(string iceP_xmlFile, AdminPrx? iceP_adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<ApplicationDescriptor>(completed);
             outAsync.invoke(
@@ -249,7 +251,7 @@ namespace IceGrid
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    ApplicationDescriptor ret = default;
+                    ApplicationDescriptor ret;
                     ret = new ApplicationDescriptor(istr);
                     istr.readPendingValues();
                     return ret;
@@ -263,7 +265,7 @@ namespace IceGrid
         public static FileParserPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static FileParserPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static FileParserPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -274,9 +276,9 @@ namespace IceGrid
             return null;
         }
 
-        public static FileParserPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static FileParserPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -292,23 +294,27 @@ namespace IceGrid
             return null;
         }
 
-        public static FileParserPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static FileParserPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                FileParserPrxHelper prx = new FileParserPrxHelper();
+                var prx = new FileParserPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static FileParserPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static FileParserPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                FileParserPrxHelper prx = new FileParserPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new FileParserPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -327,17 +333,17 @@ namespace IceGrid
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, FileParserPrx v)
+        public static void write(global::Ice.OutputStream ostr, FileParserPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static FileParserPrx read(global::Ice.InputStream istr)
+        public static FileParserPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                FileParserPrxHelper result = new FileParserPrxHelper();
+                 var result = new FileParserPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -356,7 +362,7 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract ApplicationDescriptor parse(string xmlFile, AdminPrx adminProxy, global::Ice.Current current = null);
+        public abstract ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::Ice.Current? current = null);
 
         #endregion
 
@@ -368,17 +374,17 @@ namespace IceGrid
             "::IceGrid::FileParser"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -398,8 +404,8 @@ namespace IceGrid
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            string iceP_xmlFile = default;
-            AdminPrx iceP_adminProxy = default;
+            string iceP_xmlFile;
+            AdminPrx? iceP_adminProxy;
             iceP_xmlFile = istr.readString();
             iceP_adminProxy = AdminPrxHelper.read(istr);
             inS.endReadParams();

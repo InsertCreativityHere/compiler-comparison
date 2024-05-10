@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Router.ice")]
@@ -54,7 +56,7 @@ namespace Ice
 
 namespace Ice
 {
-    public record struct Router_GetClientProxyResult(ObjectPrx returnValue, bool? hasRoutingTable);
+    public record struct Router_GetClientProxyResult(ObjectPrx? returnValue, bool? hasRoutingTable);
 }
 
 namespace Ice
@@ -80,7 +82,7 @@ namespace Ice
         /// <returns>The router's client proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ObjectPrx getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -90,7 +92,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<Router_GetClientProxyResult> getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Router_GetClientProxyResult> getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
@@ -98,7 +100,7 @@ namespace Ice
         /// <returns>The router's server proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ObjectPrx getServerProxy(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        ObjectPrx? getServerProxy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
@@ -107,7 +109,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<ObjectPrx> getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<ObjectPrx?> getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Add new proxy information to the router's routing table.
@@ -117,7 +119,7 @@ namespace Ice
         /// <returns>Proxies discarded by the router. These proxies are all non-null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ObjectPrx[] addProxies(ObjectPrx[] proxies, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        ObjectPrx?[] addProxies(ObjectPrx?[] proxies, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Add new proxy information to the router's routing table.
@@ -128,7 +130,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<ObjectPrx[]> addProxiesAsync(ObjectPrx[] proxies, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<ObjectPrx?[]> addProxiesAsync(ObjectPrx?[] proxies, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -149,7 +151,7 @@ namespace Ice
         ///  <returns>The router proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        RouterPrx getRouter(global::System.Collections.Generic.Dictionary<string, string> context = null);
+        RouterPrx? getRouter(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the router proxy implemented by the process hosting this finder object.
@@ -159,7 +161,7 @@ namespace Ice
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<RouterPrx> getRouterAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<RouterPrx?> getRouterAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -187,7 +189,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx getClientProxy(out bool? hasRoutingTable, Current current = null);
+        ObjectPrx? getClientProxy(out bool? hasRoutingTable, Current? current = null);
 
         /// <summary>
         /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
@@ -196,7 +198,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx getServerProxy(Current current = null);
+        ObjectPrx? getServerProxy(Current? current = null);
 
         /// <summary>
         /// Add new proxy information to the router's routing table.
@@ -207,7 +209,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx[] addProxies(ObjectPrx[] proxies, Current current = null);
+        ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Current? current = null);
     }
 
     /// <summary>
@@ -229,7 +231,7 @@ namespace Ice
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        RouterPrx getRouter(Current current = null);
+        RouterPrx? getRouter(Current? current = null);
     }
 }
 
@@ -245,7 +247,7 @@ namespace Ice
 
         #region Synchronous operations
 
-        public ObjectPrx getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -253,33 +255,33 @@ namespace Ice
                 hasRoutingTable = result_.hasRoutingTable;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public ObjectPrx getServerProxy(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public ObjectPrx? getServerProxy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getServerProxyAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public ObjectPrx[] addProxies(ObjectPrx[] proxies, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public ObjectPrx?[] addProxies(ObjectPrx?[] proxies, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_addProxiesAsync(proxies, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -287,12 +289,12 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<Router_GetClientProxyResult> getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Router_GetClientProxyResult> getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getClientProxyAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Router_GetClientProxyResult> _iceI_getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Router_GetClientProxyResult> _iceI_getClientProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getClientProxy_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Router_GetClientProxyResult>(progress, cancel);
@@ -302,7 +304,7 @@ namespace Ice
 
         private const string _getClientProxy_name = "getClientProxy";
 
-        private void _iceI_getClientProxy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getClientProxy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Router_GetClientProxyResult>(completed);
             outAsync.invoke(
@@ -313,7 +315,7 @@ namespace Ice
                 synchronous,
                 read: (InputStream istr) =>
                 {
-                    Router_GetClientProxyResult ret = new Router_GetClientProxyResult();
+                    var ret = new Router_GetClientProxyResult();
                     ret.returnValue = istr.readProxy();
                     {
                         var tmp = istr.readBool(1);
@@ -323,24 +325,24 @@ namespace Ice
                 });
         }
 
-        public global::System.Threading.Tasks.Task<ObjectPrx> getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<ObjectPrx?> getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getServerProxyAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<ObjectPrx> _iceI_getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<ObjectPrx?> _iceI_getServerProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getServerProxy_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?>(progress, cancel);
             _iceI_getServerProxy(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getServerProxy_name = "getServerProxy";
 
-        private void _iceI_getServerProxy(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getServerProxy(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<ObjectPrx>(completed);
+            var outAsync = getOutgoingAsync<ObjectPrx?>(completed);
             outAsync.invoke(
                 _getServerProxy_name,
                 global::Ice.OperationMode.Idempotent,
@@ -349,30 +351,30 @@ namespace Ice
                 synchronous,
                 read: (InputStream istr) =>
                 {
-                    ObjectPrx ret = default;
+                    ObjectPrx? ret;
                     ret = istr.readProxy();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<ObjectPrx[]> addProxiesAsync(ObjectPrx[] proxies, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<ObjectPrx?[]> addProxiesAsync(ObjectPrx?[] proxies, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_addProxiesAsync(proxies, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<ObjectPrx[]> _iceI_addProxiesAsync(ObjectPrx[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<ObjectPrx?[]> _iceI_addProxiesAsync(ObjectPrx?[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_addProxies_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx[]>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<ObjectPrx?[]>(progress, cancel);
             _iceI_addProxies(iceP_proxies, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _addProxies_name = "addProxies";
 
-        private void _iceI_addProxies(ObjectPrx[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_addProxies(ObjectPrx?[] iceP_proxies, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<ObjectPrx[]>(completed);
+            var outAsync = getOutgoingAsync<ObjectPrx?[]>(completed);
             outAsync.invoke(
                 _addProxies_name,
                 global::Ice.OperationMode.Idempotent,
@@ -385,7 +387,7 @@ namespace Ice
                 },
                 read: (InputStream istr) =>
                 {
-                    ObjectPrx[] ret = default;
+                    ObjectPrx?[] ret;
                     ret = ObjectProxySeqHelper.read(istr);
                     return ret;
                 });
@@ -398,7 +400,7 @@ namespace Ice
         public static RouterPrx createProxy(Communicator communicator, string proxyString) =>
             uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static RouterPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static RouterPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -409,9 +411,9 @@ namespace Ice
             return null;
         }
 
-        public static RouterPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static RouterPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx bb = b?.ice_facet(f);
+            ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -427,23 +429,27 @@ namespace Ice
             return null;
         }
 
-        public static RouterPrx uncheckedCast(ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static RouterPrx? uncheckedCast(ObjectPrx? b)
         {
             if (b is not null)
             {
-                RouterPrxHelper prx = new RouterPrxHelper();
+                var prx = new RouterPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static RouterPrx uncheckedCast(ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static RouterPrx? uncheckedCast(ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx bb = b.ice_facet(f);
-                RouterPrxHelper prx = new RouterPrxHelper();
+                ObjectPrx? bb = b.ice_facet(f);
+                var prx = new RouterPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -462,17 +468,17 @@ namespace Ice
 
         #region Marshaling support
 
-        public static void write(OutputStream ostr, RouterPrx v)
+        public static void write(OutputStream ostr, RouterPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static RouterPrx read(InputStream istr)
+        public static RouterPrx? read(InputStream istr)
         {
-            ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                RouterPrxHelper result = new RouterPrxHelper();
+                 var result = new RouterPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -492,15 +498,15 @@ namespace Ice
 
         #region Synchronous operations
 
-        public RouterPrx getRouter(global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public RouterPrx? getRouter(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getRouterAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -508,24 +514,24 @@ namespace Ice
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<RouterPrx> getRouterAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<RouterPrx?> getRouterAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getRouterAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<RouterPrx> _iceI_getRouterAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<RouterPrx?> _iceI_getRouterAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getRouter_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<RouterPrx>(progress, cancel);
+            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<RouterPrx?>(progress, cancel);
             _iceI_getRouter(context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _getRouter_name = "getRouter";
 
-        private void _iceI_getRouter(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getRouter(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<RouterPrx>(completed);
+            var outAsync = getOutgoingAsync<RouterPrx?>(completed);
             outAsync.invoke(
                 _getRouter_name,
                 global::Ice.OperationMode.Normal,
@@ -534,7 +540,7 @@ namespace Ice
                 synchronous,
                 read: (InputStream istr) =>
                 {
-                    RouterPrx ret = default;
+                    RouterPrx? ret;
                     ret = RouterPrxHelper.read(istr);
                     return ret;
                 });
@@ -547,7 +553,7 @@ namespace Ice
         public static RouterFinderPrx createProxy(Communicator communicator, string proxyString) =>
             uncheckedCast(ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static RouterFinderPrx checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static RouterFinderPrx? checkedCast(ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -558,9 +564,9 @@ namespace Ice
             return null;
         }
 
-        public static RouterFinderPrx checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static RouterFinderPrx? checkedCast(ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            ObjectPrx bb = b?.ice_facet(f);
+            ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -576,23 +582,27 @@ namespace Ice
             return null;
         }
 
-        public static RouterFinderPrx uncheckedCast(ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static RouterFinderPrx? uncheckedCast(ObjectPrx? b)
         {
             if (b is not null)
             {
-                RouterFinderPrxHelper prx = new RouterFinderPrxHelper();
+                var prx = new RouterFinderPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static RouterFinderPrx uncheckedCast(ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static RouterFinderPrx? uncheckedCast(ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                ObjectPrx bb = b.ice_facet(f);
-                RouterFinderPrxHelper prx = new RouterFinderPrxHelper();
+                ObjectPrx? bb = b.ice_facet(f);
+                var prx = new RouterFinderPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -611,17 +621,17 @@ namespace Ice
 
         #region Marshaling support
 
-        public static void write(OutputStream ostr, RouterFinderPrx v)
+        public static void write(OutputStream ostr, RouterFinderPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static RouterFinderPrx read(InputStream istr)
+        public static RouterFinderPrx? read(InputStream istr)
         {
-            ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                RouterFinderPrxHelper result = new RouterFinderPrxHelper();
+                 var result = new RouterFinderPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -640,11 +650,11 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract ObjectPrx getClientProxy(out bool? hasRoutingTable, Current current = null);
+        public abstract ObjectPrx? getClientProxy(out bool? hasRoutingTable, Current? current = null);
 
-        public abstract ObjectPrx getServerProxy(Current current = null);
+        public abstract ObjectPrx? getServerProxy(Current? current = null);
 
-        public abstract ObjectPrx[] addProxies(ObjectPrx[] proxies, Current current = null);
+        public abstract ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Current? current = null);
 
         #endregion
 
@@ -656,17 +666,17 @@ namespace Ice
             "::Ice::Router"
         };
 
-        public override bool ice_isA(string s, Current current = null)
+        public override bool ice_isA(string s, Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current current = null)
+        public override string[] ice_ids(Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(Current current = null)
+        public override string ice_id(Current? current = null)
         {
             return ice_staticId();
         }
@@ -714,7 +724,7 @@ namespace Ice
         {
             ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
             var istr = inS.startReadParams();
-            ObjectPrx[] iceP_proxies = default;
+            ObjectPrx?[] iceP_proxies;
             iceP_proxies = ObjectProxySeqHelper.read(istr);
             inS.endReadParams();
             var ret = obj.addProxies(iceP_proxies, current);
@@ -789,7 +799,7 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract RouterPrx getRouter(Current current = null);
+        public abstract RouterPrx? getRouter(Current? current = null);
 
         #endregion
 
@@ -801,17 +811,17 @@ namespace Ice
             "::Ice::RouterFinder"
         };
 
-        public override bool ice_isA(string s, Current current = null)
+        public override bool ice_isA(string s, Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current current = null)
+        public override string[] ice_ids(Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(Current current = null)
+        public override string ice_id(Current? current = null)
         {
             return ice_staticId();
         }

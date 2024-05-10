@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Metrics.ice")]
@@ -189,10 +191,10 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as MetricsFailures);
+        public override bool Equals(object? other) => Equals(other as MetricsFailures);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(MetricsFailures other)
+        public bool Equals(MetricsFailures? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -208,10 +210,10 @@ namespace IceMX
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(MetricsFailures lhs, MetricsFailures rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(MetricsFailures? lhs, MetricsFailures? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(MetricsFailures lhs, MetricsFailures rhs) => !(lhs == rhs);
+        public static bool operator !=(MetricsFailures? lhs, MetricsFailures? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -258,7 +260,7 @@ namespace IceMX
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public UnknownMetricsView(global::System.Exception innerException) : base(innerException)
+        public UnknownMetricsView(global::System.Exception? innerException) : base(innerException)
         {
         }
 
@@ -722,10 +724,10 @@ namespace IceMX
         public int userException = 0;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Metrics[] remotes;
+        public Metrics?[] remotes;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public Metrics[] collocated;
+        public Metrics?[] collocated;
 
         #endregion
 
@@ -734,7 +736,7 @@ namespace IceMX
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InvocationMetrics(string id, long total, int current, long totalLifetime, int failures, int retry, int userException, Metrics[] remotes, Metrics[] collocated) : base(id, total, current, totalLifetime, failures)
+        public InvocationMetrics(string id, long total, int current, long totalLifetime, int failures, int retry, int userException, Metrics?[] remotes, Metrics?[] collocated) : base(id, total, current, totalLifetime, failures)
         {
             this.retry = retry;
             this.userException = userException;
@@ -744,7 +746,7 @@ namespace IceMX
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InvocationMetrics(Metrics[] remotes, Metrics[] collocated)
+        public InvocationMetrics(Metrics?[] remotes, Metrics?[] collocated)
         {
             this.remotes = remotes;
             this.collocated = collocated;
@@ -755,8 +757,8 @@ namespace IceMX
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public InvocationMetrics()
         {
-            this.remotes = null;
-            this.collocated = null;
+            this.remotes = null!;
+            this.collocated = null!;
             ice_initialize();
         }
 
@@ -891,7 +893,7 @@ namespace IceMX
 {
     public record struct MetricsAdmin_GetMetricsViewNamesResult(string[] returnValue, string[] disabledViews);
 
-    public record struct MetricsAdmin_GetMetricsViewResult(global::System.Collections.Generic.Dictionary<string, Metrics[]> returnValue, long timestamp);
+    public record struct MetricsAdmin_GetMetricsViewResult(global::System.Collections.Generic.Dictionary<string, Metrics?[]> returnValue, long timestamp);
 }
 
 namespace IceMX
@@ -913,7 +915,7 @@ namespace IceMX
         /// <returns>The name of the enabled views.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        string[] getMetricsViewNames(out string[] disabledViews, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        string[] getMetricsViewNames(out string[] disabledViews, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the names of enabled and disabled metrics.
@@ -922,7 +924,7 @@ namespace IceMX
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewNamesResult> getMetricsViewNamesAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewNamesResult> getMetricsViewNamesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Enables a metrics view.
@@ -932,7 +934,7 @@ namespace IceMX
         /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void enableMetricsView(string name, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void enableMetricsView(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Enables a metrics view.
@@ -943,7 +945,7 @@ namespace IceMX
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task enableMetricsViewAsync(string name, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task enableMetricsViewAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Disable a metrics view.
@@ -953,7 +955,7 @@ namespace IceMX
         /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void disableMetricsView(string name, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        void disableMetricsView(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Disable a metrics view.
@@ -964,7 +966,7 @@ namespace IceMX
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task disableMetricsViewAsync(string name, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task disableMetricsViewAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
@@ -981,7 +983,7 @@ namespace IceMX
         /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        global::System.Collections.Generic.Dictionary<string, Metrics[]> getMetricsView(string view, out long timestamp, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
@@ -993,7 +995,7 @@ namespace IceMX
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewResult> getMetricsViewAsync(string view, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewResult> getMetricsViewAsync(string view, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the metrics failures associated with the given view and map.
@@ -1007,7 +1009,7 @@ namespace IceMX
         /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        MetricsFailures[] getMapMetricsFailures(string view, string map, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        MetricsFailures[] getMapMetricsFailures(string view, string map, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the metrics failures associated with the given view and map.
@@ -1020,7 +1022,7 @@ namespace IceMX
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<MetricsFailures[]> getMapMetricsFailuresAsync(string view, string map, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<MetricsFailures[]> getMapMetricsFailuresAsync(string view, string map, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the metrics failure associated for the given metrics.
@@ -1036,7 +1038,7 @@ namespace IceMX
         /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        MetricsFailures getMetricsFailures(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string> context = null);
+        MetricsFailures getMetricsFailures(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the metrics failure associated for the given metrics.
@@ -1051,7 +1053,7 @@ namespace IceMX
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<MetricsFailures> getMetricsFailuresAsync(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<MetricsFailures> getMetricsFailuresAsync(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -1075,7 +1077,7 @@ namespace IceMX
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current current = null);
+        string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current? current = null);
 
         /// <summary>
         /// Enables a metrics view.
@@ -1086,7 +1088,7 @@ namespace IceMX
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void enableMetricsView(string name, global::Ice.Current current = null);
+        void enableMetricsView(string name, global::Ice.Current? current = null);
 
         /// <summary>
         /// Disable a metrics view.
@@ -1097,7 +1099,7 @@ namespace IceMX
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void disableMetricsView(string name, global::Ice.Current current = null);
+        void disableMetricsView(string name, global::Ice.Current? current = null);
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
@@ -1115,7 +1117,7 @@ namespace IceMX
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, Metrics[]> getMetricsView(string view, out long timestamp, global::Ice.Current current = null);
+        global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::Ice.Current? current = null);
 
         /// <summary>
         /// Get the metrics failures associated with the given view and map.
@@ -1130,7 +1132,7 @@ namespace IceMX
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current current = null);
+        MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current? current = null);
 
         /// <summary>
         /// Get the metrics failure associated for the given metrics.
@@ -1147,7 +1149,7 @@ namespace IceMX
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current current = null);
+        MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current? current = null);
     }
 }
 
@@ -1180,9 +1182,9 @@ namespace IceMX
             global::System.Collections.Generic.Dictionary<string, int> r = new global::System.Collections.Generic.Dictionary<string, int>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                int v = default;
+                int v;
                 v = istr.readInt();
                 r[k] = v;
             }
@@ -1227,7 +1229,7 @@ namespace IceMX
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class MetricsMapHelper
     {
-        public static void write(global::Ice.OutputStream ostr, Metrics[] v)
+        public static void write(global::Ice.OutputStream ostr, Metrics?[] v)
         {
             if (v is null)
             {
@@ -1243,13 +1245,13 @@ namespace IceMX
             }
         }
 
-        public static Metrics[] read(global::Ice.InputStream istr)
+        public static Metrics?[] read(global::Ice.InputStream istr)
         {
-            Metrics[] v;
+            Metrics?[] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new Metrics[szx];
-                for(int ix = 0; ix < szx; ++ix)
+                v = new Metrics?[szx];
+                for (int ix = 0; ix < szx; ++ix)
                 {
                     istr.readValue(global::Ice.Internal.Patcher.arrayReadValue<Metrics>(v, ix));
                 }
@@ -1262,7 +1264,7 @@ namespace IceMX
     public sealed class MetricsViewHelper
     {
         public static void write(global::Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, Metrics[]> v)
+                                 global::System.Collections.Generic.Dictionary<string, Metrics?[]> v)
         {
             if(v == null)
             {
@@ -1271,7 +1273,7 @@ namespace IceMX
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, Metrics[]> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<string, Metrics?[]> e in v)
                 {
                     ostr.writeString(e.Key);
                     MetricsMapHelper.write(ostr, e.Value);
@@ -1279,15 +1281,15 @@ namespace IceMX
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, Metrics[]> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, Metrics?[]> read(global::Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, Metrics[]> r = new global::System.Collections.Generic.Dictionary<string, Metrics[]>();
+            global::System.Collections.Generic.Dictionary<string, Metrics?[]> r = new global::System.Collections.Generic.Dictionary<string, Metrics?[]>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                Metrics[] v = default;
+                Metrics?[] v;
                 v = MetricsMapHelper.read(istr);
                 r[k] = v;
             }
@@ -1305,7 +1307,7 @@ namespace IceMX
 
         #region Synchronous operations
 
-        public string[] getMetricsViewNames(out string[] disabledViews, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public string[] getMetricsViewNames(out string[] disabledViews, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -1313,37 +1315,37 @@ namespace IceMX
                 disabledViews = result_.disabledViews;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void enableMetricsView(string name, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void enableMetricsView(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_enableMetricsViewAsync(name, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public void disableMetricsView(string name, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public void disableMetricsView(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 _iceI_disableMetricsViewAsync(name, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, Metrics[]> getMetricsView(string view, out long timestamp, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -1351,33 +1353,33 @@ namespace IceMX
                 timestamp = result_.timestamp;
                 return result_.returnValue;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public MetricsFailures[] getMapMetricsFailures(string view, string map, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public MetricsFailures[] getMapMetricsFailures(string view, string map, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getMapMetricsFailuresAsync(view, map, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
-        public MetricsFailures getMetricsFailures(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string> context = null)
+        public MetricsFailures getMetricsFailures(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
                 return _iceI_getMetricsFailuresAsync(view, map, id, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
-            catch(global::System.AggregateException ex_)
+            catch (global::System.AggregateException ex_)
             {
-                throw ex_.InnerException;
+                throw ex_.InnerException!;
             }
         }
 
@@ -1385,12 +1387,12 @@ namespace IceMX
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewNamesResult> getMetricsViewNamesAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewNamesResult> getMetricsViewNamesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getMetricsViewNamesAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewNamesResult> _iceI_getMetricsViewNamesAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewNamesResult> _iceI_getMetricsViewNamesAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMetricsViewNames_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsAdmin_GetMetricsViewNamesResult>(progress, cancel);
@@ -1400,7 +1402,7 @@ namespace IceMX
 
         private const string _getMetricsViewNames_name = "getMetricsViewNames";
 
-        private void _iceI_getMetricsViewNames(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMetricsViewNames(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsAdmin_GetMetricsViewNamesResult>(completed);
             outAsync.invoke(
@@ -1411,19 +1413,19 @@ namespace IceMX
                 synchronous,
                 read: (global::Ice.InputStream istr) =>
                 {
-                    MetricsAdmin_GetMetricsViewNamesResult ret = new MetricsAdmin_GetMetricsViewNamesResult();
+                    var ret = new MetricsAdmin_GetMetricsViewNamesResult();
                     ret.disabledViews = global::Ice.StringSeqHelper.read(istr);
                     ret.returnValue = global::Ice.StringSeqHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task enableMetricsViewAsync(string name, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task enableMetricsViewAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_enableMetricsViewAsync(name, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_enableMetricsViewAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_enableMetricsViewAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_enableMetricsView_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1433,7 +1435,7 @@ namespace IceMX
 
         private const string _enableMetricsView_name = "enableMetricsView";
 
-        private void _iceI_enableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_enableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1462,12 +1464,12 @@ namespace IceMX
                 });
         }
 
-        public global::System.Threading.Tasks.Task disableMetricsViewAsync(string name, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task disableMetricsViewAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_disableMetricsViewAsync(name, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_disableMetricsViewAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_disableMetricsViewAsync(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_disableMetricsView_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1477,7 +1479,7 @@ namespace IceMX
 
         private const string _disableMetricsView_name = "disableMetricsView";
 
-        private void _iceI_disableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_disableMetricsView(string iceP_name, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1506,12 +1508,12 @@ namespace IceMX
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewResult> getMetricsViewAsync(string view, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewResult> getMetricsViewAsync(string view, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getMetricsViewAsync(view, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewResult> _iceI_getMetricsViewAsync(string iceP_view, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewResult> _iceI_getMetricsViewAsync(string iceP_view, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMetricsView_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsAdmin_GetMetricsViewResult>(progress, cancel);
@@ -1521,7 +1523,7 @@ namespace IceMX
 
         private const string _getMetricsView_name = "getMetricsView";
 
-        private void _iceI_getMetricsView(string iceP_view, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMetricsView(string iceP_view, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsAdmin_GetMetricsViewResult>(completed);
             outAsync.invoke(
@@ -1550,7 +1552,7 @@ namespace IceMX
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    MetricsAdmin_GetMetricsViewResult ret = new MetricsAdmin_GetMetricsViewResult();
+                    var ret = new MetricsAdmin_GetMetricsViewResult();
                     ret.timestamp = istr.readLong();
                     ret.returnValue = MetricsViewHelper.read(istr);
                     istr.readPendingValues();
@@ -1558,12 +1560,12 @@ namespace IceMX
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MetricsFailures[]> getMapMetricsFailuresAsync(string view, string map, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<MetricsFailures[]> getMapMetricsFailuresAsync(string view, string map, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getMapMetricsFailuresAsync(view, map, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MetricsFailures[]> _iceI_getMapMetricsFailuresAsync(string iceP_view, string iceP_map, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MetricsFailures[]> _iceI_getMapMetricsFailuresAsync(string iceP_view, string iceP_map, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMapMetricsFailures_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsFailures[]>(progress, cancel);
@@ -1573,7 +1575,7 @@ namespace IceMX
 
         private const string _getMapMetricsFailures_name = "getMapMetricsFailures";
 
-        private void _iceI_getMapMetricsFailures(string iceP_view, string iceP_map, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMapMetricsFailures(string iceP_view, string iceP_map, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsFailures[]>(completed);
             outAsync.invoke(
@@ -1603,18 +1605,18 @@ namespace IceMX
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    MetricsFailures[] ret = default;
+                    MetricsFailures[] ret;
                     ret = MetricsFailuresSeqHelper.read(istr);
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<MetricsFailures> getMetricsFailuresAsync(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<MetricsFailures> getMetricsFailuresAsync(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_getMetricsFailuresAsync(view, map, id, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<MetricsFailures> _iceI_getMetricsFailuresAsync(string iceP_view, string iceP_map, string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<MetricsFailures> _iceI_getMetricsFailuresAsync(string iceP_view, string iceP_map, string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_getMetricsFailures_name);
             var completed = new global::Ice.Internal.OperationTaskCompletionCallback<MetricsFailures>(progress, cancel);
@@ -1624,7 +1626,7 @@ namespace IceMX
 
         private const string _getMetricsFailures_name = "getMetricsFailures";
 
-        private void _iceI_getMetricsFailures(string iceP_view, string iceP_map, string iceP_id, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_getMetricsFailures(string iceP_view, string iceP_map, string iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<MetricsFailures>(completed);
             outAsync.invoke(
@@ -1655,7 +1657,7 @@ namespace IceMX
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    MetricsFailures ret = default;
+                    MetricsFailures ret;
                     ret = new MetricsFailures(istr);
                     return ret;
                 });
@@ -1668,7 +1670,7 @@ namespace IceMX
         public static MetricsAdminPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
             uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-        public static MetricsAdminPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static MetricsAdminPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
             if (b is not null && b.ice_isA(ice_staticId(), ctx))
             {
@@ -1679,9 +1681,9 @@ namespace IceMX
             return null;
         }
 
-        public static MetricsAdminPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+        public static MetricsAdminPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
         {
-            global::Ice.ObjectPrx bb = b?.ice_facet(f);
+            global::Ice.ObjectPrx? bb = b?.ice_facet(f);
             try
             {
                 if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1697,23 +1699,27 @@ namespace IceMX
             return null;
         }
 
-        public static MetricsAdminPrx uncheckedCast(global::Ice.ObjectPrx b)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static MetricsAdminPrx? uncheckedCast(global::Ice.ObjectPrx? b)
         {
             if (b is not null)
             {
-                MetricsAdminPrxHelper prx = new MetricsAdminPrxHelper();
+                var prx = new MetricsAdminPrxHelper();
                 prx.iceCopyFrom(b);
                 return prx;
             }
             return null;
         }
 
-        public static MetricsAdminPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static MetricsAdminPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
         {
             if (b is not null)
             {
-                global::Ice.ObjectPrx bb = b.ice_facet(f);
-                MetricsAdminPrxHelper prx = new MetricsAdminPrxHelper();
+                global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                var prx = new MetricsAdminPrxHelper();
                 prx.iceCopyFrom(bb);
                 return prx;
             }
@@ -1732,17 +1738,17 @@ namespace IceMX
 
         #region Marshaling support
 
-        public static void write(global::Ice.OutputStream ostr, MetricsAdminPrx v)
+        public static void write(global::Ice.OutputStream ostr, MetricsAdminPrx? v)
         {
             ostr.writeProxy(v);
         }
 
-        public static MetricsAdminPrx read(global::Ice.InputStream istr)
+        public static MetricsAdminPrx? read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
+            global::Ice.ObjectPrx? proxy = istr.readProxy();
+            if (proxy is not null)
             {
-                MetricsAdminPrxHelper result = new MetricsAdminPrxHelper();
+                 var result = new MetricsAdminPrxHelper();
                 result.iceCopyFrom(proxy);
                 return result;
             }
@@ -1761,17 +1767,17 @@ namespace IceMX
     {
         #region Slice operations
 
-        public abstract string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current current = null);
+        public abstract string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current? current = null);
 
-        public abstract void enableMetricsView(string name, global::Ice.Current current = null);
+        public abstract void enableMetricsView(string name, global::Ice.Current? current = null);
 
-        public abstract void disableMetricsView(string name, global::Ice.Current current = null);
+        public abstract void disableMetricsView(string name, global::Ice.Current? current = null);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, Metrics[]> getMetricsView(string view, out long timestamp, global::Ice.Current current = null);
+        public abstract global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::Ice.Current? current = null);
 
-        public abstract MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current current = null);
+        public abstract MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current? current = null);
 
-        public abstract MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current current = null);
+        public abstract MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current? current = null);
 
         #endregion
 
@@ -1783,17 +1789,17 @@ namespace IceMX
             "::IceMX::MetricsAdmin"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current current = null)
+        public override bool ice_isA(string s, global::Ice.Current? current = null)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current current = null)
+        public override string[] ice_ids(global::Ice.Current? current = null)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current current = null)
+        public override string ice_id(global::Ice.Current? current = null)
         {
             return ice_staticId();
         }
@@ -1829,7 +1835,7 @@ namespace IceMX
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name = default;
+            string iceP_name;
             iceP_name = istr.readString();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
@@ -1843,7 +1849,7 @@ namespace IceMX
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_name = default;
+            string iceP_name;
             iceP_name = istr.readString();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
@@ -1857,7 +1863,7 @@ namespace IceMX
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_view = default;
+            string iceP_view;
             iceP_view = istr.readString();
             inS.endReadParams();
             inS.setFormat(global::Ice.FormatType.SlicedFormat);
@@ -1877,8 +1883,8 @@ namespace IceMX
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_view = default;
-            string iceP_map = default;
+            string iceP_view;
+            string iceP_map;
             iceP_view = istr.readString();
             iceP_map = istr.readString();
             inS.endReadParams();
@@ -1896,9 +1902,9 @@ namespace IceMX
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_view = default;
-            string iceP_map = default;
-            string iceP_id = default;
+            string iceP_view;
+            string iceP_map;
+            string iceP_id;
             iceP_view = istr.readString();
             iceP_map = istr.readString();
             iceP_id = istr.readString();

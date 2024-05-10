@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("TestNumPy.ice")]
@@ -40,25 +42,25 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public bool[] boolSeq;
+            public bool[]? boolSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public byte[] byteSeq;
+            public byte[]? byteSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public short[] shortSeq;
+            public short[]? shortSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public int[] intSeq;
+            public int[]? intSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public long[] longSeq;
+            public long[]? longSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public float[] floatSeq;
+            public float[]? floatSeq;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public double[] doubleSeq;
+            public double[]? doubleSeq;
 
             #endregion
 
@@ -67,7 +69,7 @@ namespace Test
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public D(bool[] boolSeq, byte[] byteSeq, short[] shortSeq, int[] intSeq, long[] longSeq, float[] floatSeq, double[] doubleSeq)
+            public D(bool[]? boolSeq, byte[]? byteSeq, short[]? shortSeq, int[]? intSeq, long[]? longSeq, float[]? floatSeq, double[]? doubleSeq)
             {
                 this.boolSeq = boolSeq;
                 this.byteSeq = byteSeq;
@@ -245,77 +247,77 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface CustomPrx : global::Ice.ObjectPrx
         {
-            bool[] opBoolSeq(bool[] v1, out bool[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            bool[] opBoolSeq(bool[] v1, out bool[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<Custom_OpBoolSeqResult> opBoolSeqAsync(bool[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<Custom_OpBoolSeqResult> opBoolSeqAsync(bool[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            byte[] opByteSeq(byte[] v1, out byte[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            byte[] opByteSeq(byte[] v1, out byte[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<Custom_OpByteSeqResult> opByteSeqAsync(byte[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<Custom_OpByteSeqResult> opByteSeqAsync(byte[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            short[] opShortSeq(short[] v1, out short[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            short[] opShortSeq(short[] v1, out short[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<Custom_OpShortSeqResult> opShortSeqAsync(short[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<Custom_OpShortSeqResult> opShortSeqAsync(short[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int[] opIntSeq(int[] v1, out int[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            int[] opIntSeq(int[] v1, out int[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<Custom_OpIntSeqResult> opIntSeqAsync(int[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<Custom_OpIntSeqResult> opIntSeqAsync(int[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            long[] opLongSeq(long[] v1, out long[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            long[] opLongSeq(long[] v1, out long[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<Custom_OpLongSeqResult> opLongSeqAsync(long[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<Custom_OpLongSeqResult> opLongSeqAsync(long[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            float[] opFloatSeq(float[] v1, out float[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            float[] opFloatSeq(float[] v1, out float[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<Custom_OpFloatSeqResult> opFloatSeqAsync(float[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<Custom_OpFloatSeqResult> opFloatSeqAsync(float[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            double[] opDoubleSeq(double[] v1, out double[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            double[] opDoubleSeq(double[] v1, out double[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<Custom_OpDoubleSeqResult> opDoubleSeqAsync(double[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<Custom_OpDoubleSeqResult> opDoubleSeqAsync(double[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            byte[] opComplex128Seq(byte[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            byte[] opComplex128Seq(byte[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<byte[]> opComplex128SeqAsync(byte[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<byte[]> opComplex128SeqAsync(byte[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            bool[] opBoolMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            bool[] opBoolMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<bool[]> opBoolMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<bool[]> opBoolMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            byte[] opByteMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            byte[] opByteMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<byte[]> opByteMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<byte[]> opByteMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            short[] opShortMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            short[] opShortMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<short[]> opShortMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<short[]> opShortMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int[] opIntMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            int[] opIntMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<int[]> opIntMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<int[]> opIntMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            long[] opLongMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            long[] opLongMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<long[]> opLongMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<long[]> opLongMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            float[] opFloatMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            float[] opFloatMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<float[]> opFloatMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<float[]> opFloatMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            double[] opDoubleMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            double[] opDoubleMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<double[]> opDoubleMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<double[]> opDoubleMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            bool[] opBogusNumpyArrayType(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            bool[] opBogusNumpyArrayType(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<bool[]> opBogusNumpyArrayTypeAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<bool[]> opBogusNumpyArrayTypeAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            D opD(D d, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            D? opD(D? d, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<D> opDAsync(D d, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<D?> opDAsync(D? d, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -328,58 +330,58 @@ namespace Test
         public interface CustomOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool[] opBoolSeq(bool[] v1, out bool[] v2, global::Ice.Current current = null);
+            bool[] opBoolSeq(bool[] v1, out bool[] v2, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            byte[] opByteSeq(byte[] v1, out byte[] v2, global::Ice.Current current = null);
+            byte[] opByteSeq(byte[] v1, out byte[] v2, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            short[] opShortSeq(short[] v1, out short[] v2, global::Ice.Current current = null);
+            short[] opShortSeq(short[] v1, out short[] v2, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int[] opIntSeq(int[] v1, out int[] v2, global::Ice.Current current = null);
+            int[] opIntSeq(int[] v1, out int[] v2, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            long[] opLongSeq(long[] v1, out long[] v2, global::Ice.Current current = null);
+            long[] opLongSeq(long[] v1, out long[] v2, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            float[] opFloatSeq(float[] v1, out float[] v2, global::Ice.Current current = null);
+            float[] opFloatSeq(float[] v1, out float[] v2, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            double[] opDoubleSeq(double[] v1, out double[] v2, global::Ice.Current current = null);
+            double[] opDoubleSeq(double[] v1, out double[] v2, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            byte[] opComplex128Seq(byte[] v1, global::Ice.Current current = null);
+            byte[] opComplex128Seq(byte[] v1, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool[] opBoolMatrix(global::Ice.Current current = null);
+            bool[] opBoolMatrix(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            byte[] opByteMatrix(global::Ice.Current current = null);
+            byte[] opByteMatrix(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            short[] opShortMatrix(global::Ice.Current current = null);
+            short[] opShortMatrix(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int[] opIntMatrix(global::Ice.Current current = null);
+            int[] opIntMatrix(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            long[] opLongMatrix(global::Ice.Current current = null);
+            long[] opLongMatrix(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            float[] opFloatMatrix(global::Ice.Current current = null);
+            float[] opFloatMatrix(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            double[] opDoubleMatrix(global::Ice.Current current = null);
+            double[] opDoubleMatrix(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool[] opBogusNumpyArrayType(global::Ice.Current current = null);
+            bool[] opBogusNumpyArrayType(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            D opD(D d, global::Ice.Current current = null);
+            D? opD(D? d, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current = null);
+            void shutdown(global::Ice.Current? current = null);
         }
     }
 }
@@ -638,7 +640,7 @@ namespace Test
 
             #region Synchronous operations
 
-            public bool[] opBoolSeq(bool[] v1, out bool[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public bool[] opBoolSeq(bool[] v1, out bool[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -646,13 +648,13 @@ namespace Test
                     v2 = result_.v2;
                     return result_.returnValue;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public byte[] opByteSeq(byte[] v1, out byte[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public byte[] opByteSeq(byte[] v1, out byte[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -660,13 +662,13 @@ namespace Test
                     v2 = result_.v2;
                     return result_.returnValue;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public short[] opShortSeq(short[] v1, out short[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public short[] opShortSeq(short[] v1, out short[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -674,13 +676,13 @@ namespace Test
                     v2 = result_.v2;
                     return result_.returnValue;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public int[] opIntSeq(int[] v1, out int[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public int[] opIntSeq(int[] v1, out int[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -688,13 +690,13 @@ namespace Test
                     v2 = result_.v2;
                     return result_.returnValue;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public long[] opLongSeq(long[] v1, out long[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public long[] opLongSeq(long[] v1, out long[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -702,13 +704,13 @@ namespace Test
                     v2 = result_.v2;
                     return result_.returnValue;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public float[] opFloatSeq(float[] v1, out float[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public float[] opFloatSeq(float[] v1, out float[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -716,13 +718,13 @@ namespace Test
                     v2 = result_.v2;
                     return result_.returnValue;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public double[] opDoubleSeq(double[] v1, out double[] v2, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public double[] opDoubleSeq(double[] v1, out double[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -730,141 +732,141 @@ namespace Test
                     v2 = result_.v2;
                     return result_.returnValue;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public byte[] opComplex128Seq(byte[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public byte[] opComplex128Seq(byte[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opComplex128SeqAsync(v1, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public bool[] opBoolMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public bool[] opBoolMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opBoolMatrixAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public byte[] opByteMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public byte[] opByteMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opByteMatrixAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public short[] opShortMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public short[] opShortMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opShortMatrixAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public int[] opIntMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public int[] opIntMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opIntMatrixAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public long[] opLongMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public long[] opLongMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opLongMatrixAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public float[] opFloatMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public float[] opFloatMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opFloatMatrixAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public double[] opDoubleMatrix(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public double[] opDoubleMatrix(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opDoubleMatrixAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public bool[] opBogusNumpyArrayType(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public bool[] opBogusNumpyArrayType(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opBogusNumpyArrayTypeAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public D opD(D d, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public D? opD(D? d, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opDAsync(d, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -872,12 +874,12 @@ namespace Test
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task<Custom_OpBoolSeqResult> opBoolSeqAsync(bool[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<Custom_OpBoolSeqResult> opBoolSeqAsync(bool[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opBoolSeqAsync(v1, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<Custom_OpBoolSeqResult> _iceI_opBoolSeqAsync(bool[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<Custom_OpBoolSeqResult> _iceI_opBoolSeqAsync(bool[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opBoolSeq_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpBoolSeqResult>(progress, cancel);
@@ -887,7 +889,7 @@ namespace Test
 
             private const string _opBoolSeq_name = "opBoolSeq";
 
-            private void _iceI_opBoolSeq(bool[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opBoolSeq(bool[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<Custom_OpBoolSeqResult>(completed);
                 outAsync.invoke(
@@ -902,19 +904,19 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        Custom_OpBoolSeqResult ret = new Custom_OpBoolSeqResult();
+                        var ret = new Custom_OpBoolSeqResult();
                         ret.v2 = BoolSeq2Helper.read(istr);
                         ret.returnValue = BoolSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<Custom_OpByteSeqResult> opByteSeqAsync(byte[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<Custom_OpByteSeqResult> opByteSeqAsync(byte[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opByteSeqAsync(v1, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<Custom_OpByteSeqResult> _iceI_opByteSeqAsync(byte[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<Custom_OpByteSeqResult> _iceI_opByteSeqAsync(byte[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opByteSeq_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpByteSeqResult>(progress, cancel);
@@ -924,7 +926,7 @@ namespace Test
 
             private const string _opByteSeq_name = "opByteSeq";
 
-            private void _iceI_opByteSeq(byte[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opByteSeq(byte[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<Custom_OpByteSeqResult>(completed);
                 outAsync.invoke(
@@ -939,19 +941,19 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        Custom_OpByteSeqResult ret = new Custom_OpByteSeqResult();
+                        var ret = new Custom_OpByteSeqResult();
                         ret.v2 = ByteSeq2Helper.read(istr);
                         ret.returnValue = ByteSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<Custom_OpShortSeqResult> opShortSeqAsync(short[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<Custom_OpShortSeqResult> opShortSeqAsync(short[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opShortSeqAsync(v1, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<Custom_OpShortSeqResult> _iceI_opShortSeqAsync(short[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<Custom_OpShortSeqResult> _iceI_opShortSeqAsync(short[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opShortSeq_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpShortSeqResult>(progress, cancel);
@@ -961,7 +963,7 @@ namespace Test
 
             private const string _opShortSeq_name = "opShortSeq";
 
-            private void _iceI_opShortSeq(short[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opShortSeq(short[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<Custom_OpShortSeqResult>(completed);
                 outAsync.invoke(
@@ -976,19 +978,19 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        Custom_OpShortSeqResult ret = new Custom_OpShortSeqResult();
+                        var ret = new Custom_OpShortSeqResult();
                         ret.v2 = ShortSeq2Helper.read(istr);
                         ret.returnValue = ShortSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<Custom_OpIntSeqResult> opIntSeqAsync(int[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<Custom_OpIntSeqResult> opIntSeqAsync(int[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opIntSeqAsync(v1, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<Custom_OpIntSeqResult> _iceI_opIntSeqAsync(int[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<Custom_OpIntSeqResult> _iceI_opIntSeqAsync(int[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opIntSeq_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpIntSeqResult>(progress, cancel);
@@ -998,7 +1000,7 @@ namespace Test
 
             private const string _opIntSeq_name = "opIntSeq";
 
-            private void _iceI_opIntSeq(int[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opIntSeq(int[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<Custom_OpIntSeqResult>(completed);
                 outAsync.invoke(
@@ -1013,19 +1015,19 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        Custom_OpIntSeqResult ret = new Custom_OpIntSeqResult();
+                        var ret = new Custom_OpIntSeqResult();
                         ret.v2 = IntSeq2Helper.read(istr);
                         ret.returnValue = IntSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<Custom_OpLongSeqResult> opLongSeqAsync(long[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<Custom_OpLongSeqResult> opLongSeqAsync(long[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLongSeqAsync(v1, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<Custom_OpLongSeqResult> _iceI_opLongSeqAsync(long[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<Custom_OpLongSeqResult> _iceI_opLongSeqAsync(long[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLongSeq_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpLongSeqResult>(progress, cancel);
@@ -1035,7 +1037,7 @@ namespace Test
 
             private const string _opLongSeq_name = "opLongSeq";
 
-            private void _iceI_opLongSeq(long[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLongSeq(long[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<Custom_OpLongSeqResult>(completed);
                 outAsync.invoke(
@@ -1050,19 +1052,19 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        Custom_OpLongSeqResult ret = new Custom_OpLongSeqResult();
+                        var ret = new Custom_OpLongSeqResult();
                         ret.v2 = LongSeq2Helper.read(istr);
                         ret.returnValue = LongSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<Custom_OpFloatSeqResult> opFloatSeqAsync(float[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<Custom_OpFloatSeqResult> opFloatSeqAsync(float[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opFloatSeqAsync(v1, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<Custom_OpFloatSeqResult> _iceI_opFloatSeqAsync(float[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<Custom_OpFloatSeqResult> _iceI_opFloatSeqAsync(float[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opFloatSeq_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpFloatSeqResult>(progress, cancel);
@@ -1072,7 +1074,7 @@ namespace Test
 
             private const string _opFloatSeq_name = "opFloatSeq";
 
-            private void _iceI_opFloatSeq(float[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opFloatSeq(float[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<Custom_OpFloatSeqResult>(completed);
                 outAsync.invoke(
@@ -1087,19 +1089,19 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        Custom_OpFloatSeqResult ret = new Custom_OpFloatSeqResult();
+                        var ret = new Custom_OpFloatSeqResult();
                         ret.v2 = FloatSeq2Helper.read(istr);
                         ret.returnValue = FloatSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<Custom_OpDoubleSeqResult> opDoubleSeqAsync(double[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<Custom_OpDoubleSeqResult> opDoubleSeqAsync(double[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opDoubleSeqAsync(v1, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<Custom_OpDoubleSeqResult> _iceI_opDoubleSeqAsync(double[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<Custom_OpDoubleSeqResult> _iceI_opDoubleSeqAsync(double[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opDoubleSeq_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<Custom_OpDoubleSeqResult>(progress, cancel);
@@ -1109,7 +1111,7 @@ namespace Test
 
             private const string _opDoubleSeq_name = "opDoubleSeq";
 
-            private void _iceI_opDoubleSeq(double[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opDoubleSeq(double[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<Custom_OpDoubleSeqResult>(completed);
                 outAsync.invoke(
@@ -1124,19 +1126,19 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        Custom_OpDoubleSeqResult ret = new Custom_OpDoubleSeqResult();
+                        var ret = new Custom_OpDoubleSeqResult();
                         ret.v2 = DoubleSeq2Helper.read(istr);
                         ret.returnValue = DoubleSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<byte[]> opComplex128SeqAsync(byte[] v1, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<byte[]> opComplex128SeqAsync(byte[] v1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opComplex128SeqAsync(v1, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<byte[]> _iceI_opComplex128SeqAsync(byte[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<byte[]> _iceI_opComplex128SeqAsync(byte[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opComplex128Seq_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
@@ -1146,7 +1148,7 @@ namespace Test
 
             private const string _opComplex128Seq_name = "opComplex128Seq";
 
-            private void _iceI_opComplex128Seq(byte[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opComplex128Seq(byte[] iceP_v1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<byte[]>(completed);
                 outAsync.invoke(
@@ -1161,18 +1163,18 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        byte[] ret = default;
+                        byte[] ret;
                         ret = Complex128SeqHelper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<bool[]> opBoolMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<bool[]> opBoolMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opBoolMatrixAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<bool[]> _iceI_opBoolMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<bool[]> _iceI_opBoolMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opBoolMatrix_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
@@ -1182,7 +1184,7 @@ namespace Test
 
             private const string _opBoolMatrix_name = "opBoolMatrix";
 
-            private void _iceI_opBoolMatrix(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opBoolMatrix(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<bool[]>(completed);
                 outAsync.invoke(
@@ -1193,18 +1195,18 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        bool[] ret = default;
+                        bool[] ret;
                         ret = BoolSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<byte[]> opByteMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<byte[]> opByteMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opByteMatrixAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<byte[]> _iceI_opByteMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<byte[]> _iceI_opByteMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opByteMatrix_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
@@ -1214,7 +1216,7 @@ namespace Test
 
             private const string _opByteMatrix_name = "opByteMatrix";
 
-            private void _iceI_opByteMatrix(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opByteMatrix(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<byte[]>(completed);
                 outAsync.invoke(
@@ -1225,18 +1227,18 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        byte[] ret = default;
+                        byte[] ret;
                         ret = ByteSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<short[]> opShortMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<short[]> opShortMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opShortMatrixAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<short[]> _iceI_opShortMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<short[]> _iceI_opShortMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opShortMatrix_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<short[]>(progress, cancel);
@@ -1246,7 +1248,7 @@ namespace Test
 
             private const string _opShortMatrix_name = "opShortMatrix";
 
-            private void _iceI_opShortMatrix(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opShortMatrix(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<short[]>(completed);
                 outAsync.invoke(
@@ -1257,18 +1259,18 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        short[] ret = default;
+                        short[] ret;
                         ret = ShortSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int[]> opIntMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<int[]> opIntMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opIntMatrixAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int[]> _iceI_opIntMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int[]> _iceI_opIntMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opIntMatrix_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int[]>(progress, cancel);
@@ -1278,7 +1280,7 @@ namespace Test
 
             private const string _opIntMatrix_name = "opIntMatrix";
 
-            private void _iceI_opIntMatrix(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opIntMatrix(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<int[]>(completed);
                 outAsync.invoke(
@@ -1289,18 +1291,18 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        int[] ret = default;
+                        int[] ret;
                         ret = IntSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<long[]> opLongMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<long[]> opLongMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opLongMatrixAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<long[]> _iceI_opLongMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<long[]> _iceI_opLongMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opLongMatrix_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<long[]>(progress, cancel);
@@ -1310,7 +1312,7 @@ namespace Test
 
             private const string _opLongMatrix_name = "opLongMatrix";
 
-            private void _iceI_opLongMatrix(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opLongMatrix(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<long[]>(completed);
                 outAsync.invoke(
@@ -1321,18 +1323,18 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        long[] ret = default;
+                        long[] ret;
                         ret = LongSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<float[]> opFloatMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<float[]> opFloatMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opFloatMatrixAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<float[]> _iceI_opFloatMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<float[]> _iceI_opFloatMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opFloatMatrix_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<float[]>(progress, cancel);
@@ -1342,7 +1344,7 @@ namespace Test
 
             private const string _opFloatMatrix_name = "opFloatMatrix";
 
-            private void _iceI_opFloatMatrix(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opFloatMatrix(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<float[]>(completed);
                 outAsync.invoke(
@@ -1353,18 +1355,18 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        float[] ret = default;
+                        float[] ret;
                         ret = FloatSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<double[]> opDoubleMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<double[]> opDoubleMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opDoubleMatrixAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<double[]> _iceI_opDoubleMatrixAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<double[]> _iceI_opDoubleMatrixAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opDoubleMatrix_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<double[]>(progress, cancel);
@@ -1374,7 +1376,7 @@ namespace Test
 
             private const string _opDoubleMatrix_name = "opDoubleMatrix";
 
-            private void _iceI_opDoubleMatrix(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opDoubleMatrix(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<double[]>(completed);
                 outAsync.invoke(
@@ -1385,18 +1387,18 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        double[] ret = default;
+                        double[] ret;
                         ret = DoubleSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<bool[]> opBogusNumpyArrayTypeAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<bool[]> opBogusNumpyArrayTypeAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opBogusNumpyArrayTypeAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<bool[]> _iceI_opBogusNumpyArrayTypeAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<bool[]> _iceI_opBogusNumpyArrayTypeAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opBogusNumpyArrayType_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool[]>(progress, cancel);
@@ -1406,7 +1408,7 @@ namespace Test
 
             private const string _opBogusNumpyArrayType_name = "opBogusNumpyArrayType";
 
-            private void _iceI_opBogusNumpyArrayType(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opBogusNumpyArrayType(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<bool[]>(completed);
                 outAsync.invoke(
@@ -1417,30 +1419,30 @@ namespace Test
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        bool[] ret = default;
+                        bool[] ret;
                         ret = BoolSeq1Helper.read(istr);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<D> opDAsync(D d, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<D?> opDAsync(D? d, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opDAsync(d, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<D> _iceI_opDAsync(D iceP_d, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<D?> _iceI_opDAsync(D? iceP_d, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opD_name);
-                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<D>(progress, cancel);
+                var completed = new global::Ice.Internal.OperationTaskCompletionCallback<D?>(progress, cancel);
                 _iceI_opD(iceP_d, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _opD_name = "opD";
 
-            private void _iceI_opD(D iceP_d, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opD(D? iceP_d, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<D>(completed);
+                var outAsync = getOutgoingAsync<D?>(completed);
                 outAsync.invoke(
                     _opD_name,
                     global::Ice.OperationMode.Normal,
@@ -1454,19 +1456,19 @@ namespace Test
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        D ret = default;
-                        istr.readValue((D v) => {ret = v; });
+                        D? ret = null;
+                        istr.readValue((D? v) => {ret = v; });
                         istr.readPendingValues();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_shutdownAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
@@ -1475,7 +1477,7 @@ namespace Test
 
             private const string _shutdown_name = "shutdown";
 
-            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1493,7 +1495,7 @@ namespace Test
             public static CustomPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static CustomPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static CustomPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -1504,9 +1506,9 @@ namespace Test
                 return null;
             }
 
-            public static CustomPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static CustomPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1522,23 +1524,27 @@ namespace Test
                 return null;
             }
 
-            public static CustomPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static CustomPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    CustomPrxHelper prx = new CustomPrxHelper();
+                    var prx = new CustomPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static CustomPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static CustomPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    CustomPrxHelper prx = new CustomPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new CustomPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -1557,17 +1563,17 @@ namespace Test
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, CustomPrx v)
+            public static void write(global::Ice.OutputStream ostr, CustomPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static CustomPrx read(global::Ice.InputStream istr)
+            public static CustomPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    CustomPrxHelper result = new CustomPrxHelper();
+                     var result = new CustomPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -1589,41 +1595,41 @@ namespace Test
         {
             #region Slice operations
 
-            public abstract bool[] opBoolSeq(bool[] v1, out bool[] v2, global::Ice.Current current = null);
+            public abstract bool[] opBoolSeq(bool[] v1, out bool[] v2, global::Ice.Current? current = null);
 
-            public abstract byte[] opByteSeq(byte[] v1, out byte[] v2, global::Ice.Current current = null);
+            public abstract byte[] opByteSeq(byte[] v1, out byte[] v2, global::Ice.Current? current = null);
 
-            public abstract short[] opShortSeq(short[] v1, out short[] v2, global::Ice.Current current = null);
+            public abstract short[] opShortSeq(short[] v1, out short[] v2, global::Ice.Current? current = null);
 
-            public abstract int[] opIntSeq(int[] v1, out int[] v2, global::Ice.Current current = null);
+            public abstract int[] opIntSeq(int[] v1, out int[] v2, global::Ice.Current? current = null);
 
-            public abstract long[] opLongSeq(long[] v1, out long[] v2, global::Ice.Current current = null);
+            public abstract long[] opLongSeq(long[] v1, out long[] v2, global::Ice.Current? current = null);
 
-            public abstract float[] opFloatSeq(float[] v1, out float[] v2, global::Ice.Current current = null);
+            public abstract float[] opFloatSeq(float[] v1, out float[] v2, global::Ice.Current? current = null);
 
-            public abstract double[] opDoubleSeq(double[] v1, out double[] v2, global::Ice.Current current = null);
+            public abstract double[] opDoubleSeq(double[] v1, out double[] v2, global::Ice.Current? current = null);
 
-            public abstract byte[] opComplex128Seq(byte[] v1, global::Ice.Current current = null);
+            public abstract byte[] opComplex128Seq(byte[] v1, global::Ice.Current? current = null);
 
-            public abstract bool[] opBoolMatrix(global::Ice.Current current = null);
+            public abstract bool[] opBoolMatrix(global::Ice.Current? current = null);
 
-            public abstract byte[] opByteMatrix(global::Ice.Current current = null);
+            public abstract byte[] opByteMatrix(global::Ice.Current? current = null);
 
-            public abstract short[] opShortMatrix(global::Ice.Current current = null);
+            public abstract short[] opShortMatrix(global::Ice.Current? current = null);
 
-            public abstract int[] opIntMatrix(global::Ice.Current current = null);
+            public abstract int[] opIntMatrix(global::Ice.Current? current = null);
 
-            public abstract long[] opLongMatrix(global::Ice.Current current = null);
+            public abstract long[] opLongMatrix(global::Ice.Current? current = null);
 
-            public abstract float[] opFloatMatrix(global::Ice.Current current = null);
+            public abstract float[] opFloatMatrix(global::Ice.Current? current = null);
 
-            public abstract double[] opDoubleMatrix(global::Ice.Current current = null);
+            public abstract double[] opDoubleMatrix(global::Ice.Current? current = null);
 
-            public abstract bool[] opBogusNumpyArrayType(global::Ice.Current current = null);
+            public abstract bool[] opBogusNumpyArrayType(global::Ice.Current? current = null);
 
-            public abstract D opD(D d, global::Ice.Current current = null);
+            public abstract D? opD(D? d, global::Ice.Current? current = null);
 
-            public abstract void shutdown(global::Ice.Current current = null);
+            public abstract void shutdown(global::Ice.Current? current = null);
 
             #endregion
 
@@ -1635,17 +1641,17 @@ namespace Test
                 "::Test::NumPy::Custom"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -1665,7 +1671,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                bool[] iceP_v1 = default;
+                bool[] iceP_v1;
                 iceP_v1 = BoolSeq1Helper.read(istr);
                 inS.endReadParams();
                 bool[] iceP_v2;
@@ -1683,7 +1689,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                byte[] iceP_v1 = default;
+                byte[] iceP_v1;
                 iceP_v1 = ByteSeq1Helper.read(istr);
                 inS.endReadParams();
                 byte[] iceP_v2;
@@ -1701,7 +1707,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                short[] iceP_v1 = default;
+                short[] iceP_v1;
                 iceP_v1 = ShortSeq1Helper.read(istr);
                 inS.endReadParams();
                 short[] iceP_v2;
@@ -1719,7 +1725,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int[] iceP_v1 = default;
+                int[] iceP_v1;
                 iceP_v1 = IntSeq1Helper.read(istr);
                 inS.endReadParams();
                 int[] iceP_v2;
@@ -1737,7 +1743,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                long[] iceP_v1 = default;
+                long[] iceP_v1;
                 iceP_v1 = LongSeq1Helper.read(istr);
                 inS.endReadParams();
                 long[] iceP_v2;
@@ -1755,7 +1761,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                float[] iceP_v1 = default;
+                float[] iceP_v1;
                 iceP_v1 = FloatSeq1Helper.read(istr);
                 inS.endReadParams();
                 float[] iceP_v2;
@@ -1773,7 +1779,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                double[] iceP_v1 = default;
+                double[] iceP_v1;
                 iceP_v1 = DoubleSeq1Helper.read(istr);
                 inS.endReadParams();
                 double[] iceP_v2;
@@ -1791,7 +1797,7 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                byte[] iceP_v1 = default;
+                byte[] iceP_v1;
                 iceP_v1 = Complex128SeqHelper.read(istr);
                 inS.endReadParams();
                 var ret = obj.opComplex128Seq(iceP_v1, current);
@@ -1911,8 +1917,8 @@ namespace Test
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                D iceP_d = default;
-                istr.readValue((D v) => {iceP_d = v; });
+                D? iceP_d = null;
+                istr.readValue((D? v) => { iceP_d = v; });
                 istr.readPendingValues();
                 inS.endReadParams();
                 var ret = obj.opD(iceP_d, current);

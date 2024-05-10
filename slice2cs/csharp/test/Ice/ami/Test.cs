@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Test.ice")]
@@ -41,7 +43,7 @@ namespace Ice.ami
             #region Constructors
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public TestIntfException(global::System.Exception innerException) : base(innerException)
+            public TestIntfException(global::System.Exception? innerException) : base(innerException)
             {
             }
 
@@ -191,97 +193,97 @@ namespace Ice.ami
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface PingReplyPrx : global::Ice.ObjectPrx
         {
-            void reply(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void reply(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task replyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task replyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface TestIntfPrx : global::Ice.ObjectPrx
         {
-            void op(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void op(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void opWithPayload(byte[] seq, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void opWithPayload(byte[] seq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task opWithPayloadAsync(byte[] seq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task opWithPayloadAsync(byte[] seq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int opWithResult(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            int opWithResult(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<int> opWithResultAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<int> opWithResultAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void opWithUE(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void opWithUE(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task opWithUEAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task opWithUEAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void opBatch(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void opBatch(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task opBatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task opBatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int opBatchCount(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            int opBatchCount(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<int> opBatchCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<int> opBatchCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            bool waitForBatch(int count, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            bool waitForBatch(int count, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<bool> waitForBatchAsync(int count, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<bool> waitForBatchAsync(int count, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void close(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void close(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task closeAsync(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task closeAsync(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void sleep(int ms, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void sleep(int ms, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task sleepAsync(int ms, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task sleepAsync(int ms, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void startDispatch(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void startDispatch(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task startDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task startDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void finishDispatch(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void finishDispatch(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task finishDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task finishDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            bool supportsAMD(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            bool supportsAMD(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<bool> supportsAMDAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<bool> supportsAMDAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            bool supportsFunctionalTests(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            bool supportsFunctionalTests(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<bool> supportsFunctionalTestsAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<bool> supportsFunctionalTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void opAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void opAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task opAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task opAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int opWithResultAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            int opWithResultAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<int> opWithResultAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<int> opWithResultAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void opWithUEAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void opWithUEAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task opWithUEAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task opWithUEAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void pingBiDir(PingReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void pingBiDir(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task pingBiDirAsync(PingReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task pingBiDirAsync(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface TestIntfControllerPrx : global::Ice.ObjectPrx
         {
-            void holdAdapter(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void holdAdapter(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task holdAdapterAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task holdAdapterAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            void resumeAdapter(global::System.Collections.Generic.Dictionary<string, string> context = null);
+            void resumeAdapter(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task resumeAdapterAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task resumeAdapterAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
 
         namespace Outer
@@ -291,9 +293,9 @@ namespace Ice.ami
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public interface TestIntfPrx : global::Ice.ObjectPrx
                 {
-                    int op(int i, out int j, global::System.Collections.Generic.Dictionary<string, string> context = null);
+                    int op(int i, out int j, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-                    global::System.Threading.Tasks.Task<TestIntf_OpResult> opAsync(int i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default);
+                    global::System.Threading.Tasks.Task<TestIntf_OpResult> opAsync(int i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
                 }
             }
         }
@@ -308,75 +310,75 @@ namespace Ice.ami
         public interface PingReplyOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void reply(global::Ice.Current current = null);
+            void reply(global::Ice.Current? current = null);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface TestIntfOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void op(global::Ice.Current current = null);
+            void op(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void opWithPayload(byte[] seq, global::Ice.Current current = null);
+            void opWithPayload(byte[] seq, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int opWithResult(global::Ice.Current current = null);
+            int opWithResult(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void opWithUE(global::Ice.Current current = null);
+            void opWithUE(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void opBatch(global::Ice.Current current = null);
+            void opBatch(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int opBatchCount(global::Ice.Current current = null);
+            int opBatchCount(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool waitForBatch(int count, global::Ice.Current current = null);
+            bool waitForBatch(int count, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void close(CloseMode mode, global::Ice.Current current = null);
+            void close(CloseMode mode, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void sleep(int ms, global::Ice.Current current = null);
+            void sleep(int ms, global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task startDispatchAsync(global::Ice.Current current = null);
+            global::System.Threading.Tasks.Task startDispatchAsync(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void finishDispatch(global::Ice.Current current = null);
+            void finishDispatch(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current = null);
+            void shutdown(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool supportsAMD(global::Ice.Current current = null);
+            bool supportsAMD(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool supportsFunctionalTests(global::Ice.Current current = null);
+            bool supportsFunctionalTests(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task opAsyncDispatchAsync(global::Ice.Current current = null);
+            global::System.Threading.Tasks.Task opAsyncDispatchAsync(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<int> opWithResultAsyncDispatchAsync(global::Ice.Current current = null);
+            global::System.Threading.Tasks.Task<int> opWithResultAsyncDispatchAsync(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task opWithUEAsyncDispatchAsync(global::Ice.Current current = null);
+            global::System.Threading.Tasks.Task opWithUEAsyncDispatchAsync(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void pingBiDir(PingReplyPrx reply, global::Ice.Current current = null);
+            void pingBiDir(PingReplyPrx? reply, global::Ice.Current? current = null);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface TestIntfControllerOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void holdAdapter(global::Ice.Current current = null);
+            void holdAdapter(global::Ice.Current? current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void resumeAdapter(global::Ice.Current current = null);
+            void resumeAdapter(global::Ice.Current? current = null);
         }
 
         namespace Outer
@@ -387,7 +389,7 @@ namespace Ice.ami
                 public interface TestIntfOperations_
                 {
                     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                    int op(int i, out int j, global::Ice.Current current = null);
+                    int op(int i, out int j, global::Ice.Current? current = null);
                 }
             }
         }
@@ -408,15 +410,15 @@ namespace Ice.ami
 
             #region Synchronous operations
 
-            public void reply(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void reply(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_replyAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -424,12 +426,12 @@ namespace Ice.ami
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task replyAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task replyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_replyAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_replyAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_replyAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_reply(context, synchronous, completed);
@@ -438,7 +440,7 @@ namespace Ice.ami
 
             private const string _reply_name = "reply";
 
-            private void _iceI_reply(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_reply(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -456,7 +458,7 @@ namespace Ice.ami
             public static PingReplyPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static PingReplyPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static PingReplyPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -467,9 +469,9 @@ namespace Ice.ami
                 return null;
             }
 
-            public static PingReplyPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static PingReplyPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -485,23 +487,27 @@ namespace Ice.ami
                 return null;
             }
 
-            public static PingReplyPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static PingReplyPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    PingReplyPrxHelper prx = new PingReplyPrxHelper();
+                    var prx = new PingReplyPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static PingReplyPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static PingReplyPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    PingReplyPrxHelper prx = new PingReplyPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new PingReplyPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -520,17 +526,17 @@ namespace Ice.ami
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, PingReplyPrx v)
+            public static void write(global::Ice.OutputStream ostr, PingReplyPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static PingReplyPrx read(global::Ice.InputStream istr)
+            public static PingReplyPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    PingReplyPrxHelper result = new PingReplyPrxHelper();
+                     var result = new PingReplyPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -550,219 +556,219 @@ namespace Ice.ami
 
             #region Synchronous operations
 
-            public void op(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void op(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_opAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void opWithPayload(byte[] seq, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void opWithPayload(byte[] seq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_opWithPayloadAsync(seq, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public int opWithResult(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public int opWithResult(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opWithResultAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void opWithUE(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void opWithUE(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_opWithUEAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void opBatch(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void opBatch(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_opBatchAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public int opBatchCount(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public int opBatchCount(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opBatchCountAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public bool waitForBatch(int count, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public bool waitForBatch(int count, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_waitForBatchAsync(count, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void close(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void close(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_closeAsync(mode, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void sleep(int ms, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void sleep(int ms, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_sleepAsync(ms, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void startDispatch(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void startDispatch(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_startDispatchAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void finishDispatch(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void finishDispatch(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_finishDispatchAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void shutdown(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public bool supportsAMD(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public bool supportsAMD(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_supportsAMDAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public bool supportsFunctionalTests(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public bool supportsFunctionalTests(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_supportsFunctionalTestsAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void opAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void opAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_opAsyncDispatchAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public int opWithResultAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public int opWithResultAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     return _iceI_opWithResultAsyncDispatchAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void opWithUEAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void opWithUEAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_opWithUEAsyncDispatchAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void pingBiDir(PingReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void pingBiDir(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_pingBiDirAsync(reply, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -770,12 +776,12 @@ namespace Ice.ami
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task opAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_opAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_opAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_op(context, synchronous, completed);
@@ -784,7 +790,7 @@ namespace Ice.ami
 
             private const string _op_name = "op";
 
-            private void _iceI_op(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_op(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -795,12 +801,12 @@ namespace Ice.ami
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task opWithPayloadAsync(byte[] seq, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task opWithPayloadAsync(byte[] seq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opWithPayloadAsync(seq, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_opWithPayloadAsync(byte[] iceP_seq, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_opWithPayloadAsync(byte[] iceP_seq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_opWithPayload(iceP_seq, context, synchronous, completed);
@@ -809,7 +815,7 @@ namespace Ice.ami
 
             private const string _opWithPayload_name = "opWithPayload";
 
-            private void _iceI_opWithPayload(byte[] iceP_seq, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opWithPayload(byte[] iceP_seq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -824,12 +830,12 @@ namespace Ice.ami
                     });
             }
 
-            public global::System.Threading.Tasks.Task<int> opWithResultAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<int> opWithResultAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opWithResultAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_opWithResultAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_opWithResultAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opWithResult_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -839,7 +845,7 @@ namespace Ice.ami
 
             private const string _opWithResult_name = "opWithResult";
 
-            private void _iceI_opWithResult(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opWithResult(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<int>(completed);
                 outAsync.invoke(
@@ -850,18 +856,18 @@ namespace Ice.ami
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        int ret = default;
+                        int ret;
                         ret = istr.readInt();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task opWithUEAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task opWithUEAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opWithUEAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_opWithUEAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_opWithUEAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opWithUE_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -871,7 +877,7 @@ namespace Ice.ami
 
             private const string _opWithUE_name = "opWithUE";
 
-            private void _iceI_opWithUE(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opWithUE(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -896,12 +902,12 @@ namespace Ice.ami
                     });
             }
 
-            public global::System.Threading.Tasks.Task opBatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task opBatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opBatchAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_opBatchAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_opBatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_opBatch(context, synchronous, completed);
@@ -910,7 +916,7 @@ namespace Ice.ami
 
             private const string _opBatch_name = "opBatch";
 
-            private void _iceI_opBatch(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opBatch(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -921,12 +927,12 @@ namespace Ice.ami
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task<int> opBatchCountAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<int> opBatchCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opBatchCountAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_opBatchCountAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_opBatchCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opBatchCount_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -936,7 +942,7 @@ namespace Ice.ami
 
             private const string _opBatchCount_name = "opBatchCount";
 
-            private void _iceI_opBatchCount(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opBatchCount(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<int>(completed);
                 outAsync.invoke(
@@ -947,18 +953,18 @@ namespace Ice.ami
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        int ret = default;
+                        int ret;
                         ret = istr.readInt();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<bool> waitForBatchAsync(int count, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<bool> waitForBatchAsync(int count, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_waitForBatchAsync(count, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<bool> _iceI_waitForBatchAsync(int iceP_count, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<bool> _iceI_waitForBatchAsync(int iceP_count, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_waitForBatch_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
@@ -968,7 +974,7 @@ namespace Ice.ami
 
             private const string _waitForBatch_name = "waitForBatch";
 
-            private void _iceI_waitForBatch(int iceP_count, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_waitForBatch(int iceP_count, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<bool>(completed);
                 outAsync.invoke(
@@ -983,18 +989,18 @@ namespace Ice.ami
                     },
                     read: (global::Ice.InputStream istr) =>
                     {
-                        bool ret = default;
+                        bool ret;
                         ret = istr.readBool();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task closeAsync(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task closeAsync(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_closeAsync(mode, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_closeAsync(CloseMode iceP_mode, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_closeAsync(CloseMode iceP_mode, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_close(iceP_mode, context, synchronous, completed);
@@ -1003,7 +1009,7 @@ namespace Ice.ami
 
             private const string _close_name = "close";
 
-            private void _iceI_close(CloseMode iceP_mode, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_close(CloseMode iceP_mode, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1018,12 +1024,12 @@ namespace Ice.ami
                     });
             }
 
-            public global::System.Threading.Tasks.Task sleepAsync(int ms, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task sleepAsync(int ms, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_sleepAsync(ms, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_sleepAsync(int iceP_ms, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_sleepAsync(int iceP_ms, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_sleep(iceP_ms, context, synchronous, completed);
@@ -1032,7 +1038,7 @@ namespace Ice.ami
 
             private const string _sleep_name = "sleep";
 
-            private void _iceI_sleep(int iceP_ms, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_sleep(int iceP_ms, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1047,12 +1053,12 @@ namespace Ice.ami
                     });
             }
 
-            public global::System.Threading.Tasks.Task startDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task startDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_startDispatchAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_startDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_startDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_startDispatch(context, synchronous, completed);
@@ -1061,7 +1067,7 @@ namespace Ice.ami
 
             private const string _startDispatch_name = "startDispatch";
 
-            private void _iceI_startDispatch(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_startDispatch(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1072,12 +1078,12 @@ namespace Ice.ami
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task finishDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task finishDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_finishDispatchAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_finishDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_finishDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_finishDispatch(context, synchronous, completed);
@@ -1086,7 +1092,7 @@ namespace Ice.ami
 
             private const string _finishDispatch_name = "finishDispatch";
 
-            private void _iceI_finishDispatch(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_finishDispatch(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1097,12 +1103,12 @@ namespace Ice.ami
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_shutdownAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_shutdown(context, synchronous, completed);
@@ -1111,7 +1117,7 @@ namespace Ice.ami
 
             private const string _shutdown_name = "shutdown";
 
-            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_shutdown(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1122,12 +1128,12 @@ namespace Ice.ami
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task<bool> supportsAMDAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<bool> supportsAMDAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_supportsAMDAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<bool> _iceI_supportsAMDAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<bool> _iceI_supportsAMDAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_supportsAMD_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
@@ -1137,7 +1143,7 @@ namespace Ice.ami
 
             private const string _supportsAMD_name = "supportsAMD";
 
-            private void _iceI_supportsAMD(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_supportsAMD(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<bool>(completed);
                 outAsync.invoke(
@@ -1148,18 +1154,18 @@ namespace Ice.ami
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        bool ret = default;
+                        bool ret;
                         ret = istr.readBool();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<bool> supportsFunctionalTestsAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<bool> supportsFunctionalTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_supportsFunctionalTestsAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<bool> _iceI_supportsFunctionalTestsAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<bool> _iceI_supportsFunctionalTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_supportsFunctionalTests_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
@@ -1169,7 +1175,7 @@ namespace Ice.ami
 
             private const string _supportsFunctionalTests_name = "supportsFunctionalTests";
 
-            private void _iceI_supportsFunctionalTests(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_supportsFunctionalTests(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<bool>(completed);
                 outAsync.invoke(
@@ -1180,18 +1186,18 @@ namespace Ice.ami
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        bool ret = default;
+                        bool ret;
                         ret = istr.readBool();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task opAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task opAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAsyncDispatchAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_opAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_opAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_opAsyncDispatch(context, synchronous, completed);
@@ -1200,7 +1206,7 @@ namespace Ice.ami
 
             private const string _opAsyncDispatch_name = "opAsyncDispatch";
 
-            private void _iceI_opAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1211,12 +1217,12 @@ namespace Ice.ami
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task<int> opWithResultAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<int> opWithResultAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opWithResultAsyncDispatchAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<int> _iceI_opWithResultAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<int> _iceI_opWithResultAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opWithResultAsyncDispatch_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
@@ -1226,7 +1232,7 @@ namespace Ice.ami
 
             private const string _opWithResultAsyncDispatch_name = "opWithResultAsyncDispatch";
 
-            private void _iceI_opWithResultAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opWithResultAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<int>(completed);
                 outAsync.invoke(
@@ -1237,18 +1243,18 @@ namespace Ice.ami
                     synchronous,
                     read: (global::Ice.InputStream istr) =>
                     {
-                        int ret = default;
+                        int ret;
                         ret = istr.readInt();
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task opWithUEAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task opWithUEAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opWithUEAsyncDispatchAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_opWithUEAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_opWithUEAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opWithUEAsyncDispatch_name);
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
@@ -1258,7 +1264,7 @@ namespace Ice.ami
 
             private const string _opWithUEAsyncDispatch_name = "opWithUEAsyncDispatch";
 
-            private void _iceI_opWithUEAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opWithUEAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1283,12 +1289,12 @@ namespace Ice.ami
                     });
             }
 
-            public global::System.Threading.Tasks.Task pingBiDirAsync(PingReplyPrx reply, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task pingBiDirAsync(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_pingBiDirAsync(reply, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_pingBiDirAsync(PingReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_pingBiDirAsync(PingReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_pingBiDir(iceP_reply, context, synchronous, completed);
@@ -1297,7 +1303,7 @@ namespace Ice.ami
 
             private const string _pingBiDir_name = "pingBiDir";
 
-            private void _iceI_pingBiDir(PingReplyPrx iceP_reply, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_pingBiDir(PingReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1319,7 +1325,7 @@ namespace Ice.ami
             public static TestIntfPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -1330,9 +1336,9 @@ namespace Ice.ami
                 return null;
             }
 
-            public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1348,23 +1354,27 @@ namespace Ice.ami
                 return null;
             }
 
-            public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                    var prx = new TestIntfPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new TestIntfPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -1383,17 +1393,17 @@ namespace Ice.ami
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, TestIntfPrx v)
+            public static void write(global::Ice.OutputStream ostr, TestIntfPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static TestIntfPrx read(global::Ice.InputStream istr)
+            public static TestIntfPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    TestIntfPrxHelper result = new TestIntfPrxHelper();
+                     var result = new TestIntfPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -1413,27 +1423,27 @@ namespace Ice.ami
 
             #region Synchronous operations
 
-            public void holdAdapter(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void holdAdapter(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_holdAdapterAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
-            public void resumeAdapter(global::System.Collections.Generic.Dictionary<string, string> context = null)
+            public void resumeAdapter(global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
                     _iceI_resumeAdapterAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
-                catch(global::System.AggregateException ex_)
+                catch (global::System.AggregateException ex_)
                 {
-                    throw ex_.InnerException;
+                    throw ex_.InnerException!;
                 }
             }
 
@@ -1441,12 +1451,12 @@ namespace Ice.ami
 
             #region Async Task operations
 
-            public global::System.Threading.Tasks.Task holdAdapterAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task holdAdapterAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_holdAdapterAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_holdAdapterAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_holdAdapterAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_holdAdapter(context, synchronous, completed);
@@ -1455,7 +1465,7 @@ namespace Ice.ami
 
             private const string _holdAdapter_name = "holdAdapter";
 
-            private void _iceI_holdAdapter(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_holdAdapter(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1466,12 +1476,12 @@ namespace Ice.ami
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task resumeAdapterAsync(global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task resumeAdapterAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_resumeAdapterAsync(context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_resumeAdapterAsync(global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_resumeAdapterAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_resumeAdapter(context, synchronous, completed);
@@ -1480,7 +1490,7 @@ namespace Ice.ami
 
             private const string _resumeAdapter_name = "resumeAdapter";
 
-            private void _iceI_resumeAdapter(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_resumeAdapter(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -1498,7 +1508,7 @@ namespace Ice.ami
             public static TestIntfControllerPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                 uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-            public static TestIntfControllerPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestIntfControllerPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
                 if (b is not null && b.ice_isA(ice_staticId(), ctx))
                 {
@@ -1509,9 +1519,9 @@ namespace Ice.ami
                 return null;
             }
 
-            public static TestIntfControllerPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+            public static TestIntfControllerPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
             {
-                global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                 try
                 {
                     if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1527,23 +1537,27 @@ namespace Ice.ami
                 return null;
             }
 
-            public static TestIntfControllerPrx uncheckedCast(global::Ice.ObjectPrx b)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestIntfControllerPrx? uncheckedCast(global::Ice.ObjectPrx? b)
             {
                 if (b is not null)
                 {
-                    TestIntfControllerPrxHelper prx = new TestIntfControllerPrxHelper();
+                    var prx = new TestIntfControllerPrxHelper();
                     prx.iceCopyFrom(b);
                     return prx;
                 }
                 return null;
             }
 
-            public static TestIntfControllerPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static TestIntfControllerPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
             {
                 if (b is not null)
                 {
-                    global::Ice.ObjectPrx bb = b.ice_facet(f);
-                    TestIntfControllerPrxHelper prx = new TestIntfControllerPrxHelper();
+                    global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                    var prx = new TestIntfControllerPrxHelper();
                     prx.iceCopyFrom(bb);
                     return prx;
                 }
@@ -1562,17 +1576,17 @@ namespace Ice.ami
 
             #region Marshaling support
 
-            public static void write(global::Ice.OutputStream ostr, TestIntfControllerPrx v)
+            public static void write(global::Ice.OutputStream ostr, TestIntfControllerPrx? v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static TestIntfControllerPrx read(global::Ice.InputStream istr)
+            public static TestIntfControllerPrx? read(global::Ice.InputStream istr)
             {
-                global::Ice.ObjectPrx proxy = istr.readProxy();
-                if(proxy != null)
+                global::Ice.ObjectPrx? proxy = istr.readProxy();
+                if (proxy is not null)
                 {
-                    TestIntfControllerPrxHelper result = new TestIntfControllerPrxHelper();
+                     var result = new TestIntfControllerPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -1596,7 +1610,7 @@ namespace Ice.ami
 
                     #region Synchronous operations
 
-                    public int op(int i, out int j, global::System.Collections.Generic.Dictionary<string, string> context = null)
+                    public int op(int i, out int j, global::System.Collections.Generic.Dictionary<string, string>? context = null)
                     {
                         try
                         {
@@ -1604,9 +1618,9 @@ namespace Ice.ami
                             j = result_.j;
                             return result_.returnValue;
                         }
-                        catch(global::System.AggregateException ex_)
+                        catch (global::System.AggregateException ex_)
                         {
-                            throw ex_.InnerException;
+                            throw ex_.InnerException!;
                         }
                     }
 
@@ -1614,12 +1628,12 @@ namespace Ice.ami
 
                     #region Async Task operations
 
-                    public global::System.Threading.Tasks.Task<TestIntf_OpResult> opAsync(int i, global::System.Collections.Generic.Dictionary<string, string> context = null, global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = default)
+                    public global::System.Threading.Tasks.Task<TestIntf_OpResult> opAsync(int i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
                     {
                         return _iceI_opAsync(i, context, progress, cancel, false);
                     }
 
-                    private global::System.Threading.Tasks.Task<TestIntf_OpResult> _iceI_opAsync(int iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+                    private global::System.Threading.Tasks.Task<TestIntf_OpResult> _iceI_opAsync(int iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
                     {
                         iceCheckTwowayOnly(_op_name);
                         var completed = new global::Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpResult>(progress, cancel);
@@ -1629,7 +1643,7 @@ namespace Ice.ami
 
                     private const string _op_name = "op";
 
-                    private void _iceI_op(int iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
+                    private void _iceI_op(int iceP_i, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
                     {
                         var outAsync = getOutgoingAsync<TestIntf_OpResult>(completed);
                         outAsync.invoke(
@@ -1644,7 +1658,7 @@ namespace Ice.ami
                             },
                             read: (global::Ice.InputStream istr) =>
                             {
-                                TestIntf_OpResult ret = new TestIntf_OpResult();
+                                var ret = new TestIntf_OpResult();
                                 ret.j = istr.readInt();
                                 ret.returnValue = istr.readInt();
                                 return ret;
@@ -1658,7 +1672,7 @@ namespace Ice.ami
                     public static TestIntfPrx createProxy(global::Ice.Communicator communicator, string proxyString) =>
                         uncheckedCast(global::Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
-                    public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+                    public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
                     {
                         if (b is not null && b.ice_isA(ice_staticId(), ctx))
                         {
@@ -1669,9 +1683,9 @@ namespace Ice.ami
                         return null;
                     }
 
-                    public static TestIntfPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx = null)
+                    public static TestIntfPrx? checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null)
                     {
-                        global::Ice.ObjectPrx bb = b?.ice_facet(f);
+                        global::Ice.ObjectPrx? bb = b?.ice_facet(f);
                         try
                         {
                             if (bb is not null && bb.ice_isA(ice_staticId(), ctx))
@@ -1687,23 +1701,27 @@ namespace Ice.ami
                         return null;
                     }
 
-                    public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b)
+                    [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+                    public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b)
                     {
                         if (b is not null)
                         {
-                            TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                            var prx = new TestIntfPrxHelper();
                             prx.iceCopyFrom(b);
                             return prx;
                         }
                         return null;
                     }
 
-                    public static TestIntfPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+                    [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+                    public static TestIntfPrx? uncheckedCast(global::Ice.ObjectPrx? b, string f)
                     {
                         if (b is not null)
                         {
-                            global::Ice.ObjectPrx bb = b.ice_facet(f);
-                            TestIntfPrxHelper prx = new TestIntfPrxHelper();
+                            global::Ice.ObjectPrx? bb = b.ice_facet(f);
+                            var prx = new TestIntfPrxHelper();
                             prx.iceCopyFrom(bb);
                             return prx;
                         }
@@ -1722,17 +1740,17 @@ namespace Ice.ami
 
                     #region Marshaling support
 
-                    public static void write(global::Ice.OutputStream ostr, TestIntfPrx v)
+                    public static void write(global::Ice.OutputStream ostr, TestIntfPrx? v)
                     {
                         ostr.writeProxy(v);
                     }
 
-                    public static TestIntfPrx read(global::Ice.InputStream istr)
+                    public static TestIntfPrx? read(global::Ice.InputStream istr)
                     {
-                        global::Ice.ObjectPrx proxy = istr.readProxy();
-                        if(proxy != null)
+                        global::Ice.ObjectPrx? proxy = istr.readProxy();
+                        if (proxy is not null)
                         {
-                            TestIntfPrxHelper result = new TestIntfPrxHelper();
+                             var result = new TestIntfPrxHelper();
                             result.iceCopyFrom(proxy);
                             return result;
                         }
@@ -1756,7 +1774,7 @@ namespace Ice.ami
         {
             #region Slice operations
 
-            public abstract void reply(global::Ice.Current current = null);
+            public abstract void reply(global::Ice.Current? current = null);
 
             #endregion
 
@@ -1768,17 +1786,17 @@ namespace Ice.ami
                 "::Test::PingReply"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -1857,41 +1875,41 @@ namespace Ice.ami
         {
             #region Slice operations
 
-            public abstract void op(global::Ice.Current current = null);
+            public abstract void op(global::Ice.Current? current = null);
 
-            public abstract void opWithPayload(byte[] seq, global::Ice.Current current = null);
+            public abstract void opWithPayload(byte[] seq, global::Ice.Current? current = null);
 
-            public abstract int opWithResult(global::Ice.Current current = null);
+            public abstract int opWithResult(global::Ice.Current? current = null);
 
-            public abstract void opWithUE(global::Ice.Current current = null);
+            public abstract void opWithUE(global::Ice.Current? current = null);
 
-            public abstract void opBatch(global::Ice.Current current = null);
+            public abstract void opBatch(global::Ice.Current? current = null);
 
-            public abstract int opBatchCount(global::Ice.Current current = null);
+            public abstract int opBatchCount(global::Ice.Current? current = null);
 
-            public abstract bool waitForBatch(int count, global::Ice.Current current = null);
+            public abstract bool waitForBatch(int count, global::Ice.Current? current = null);
 
-            public abstract void close(CloseMode mode, global::Ice.Current current = null);
+            public abstract void close(CloseMode mode, global::Ice.Current? current = null);
 
-            public abstract void sleep(int ms, global::Ice.Current current = null);
+            public abstract void sleep(int ms, global::Ice.Current? current = null);
 
-            public abstract global::System.Threading.Tasks.Task startDispatchAsync(global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task startDispatchAsync(global::Ice.Current? current = null);
 
-            public abstract void finishDispatch(global::Ice.Current current = null);
+            public abstract void finishDispatch(global::Ice.Current? current = null);
 
-            public abstract void shutdown(global::Ice.Current current = null);
+            public abstract void shutdown(global::Ice.Current? current = null);
 
-            public abstract bool supportsAMD(global::Ice.Current current = null);
+            public abstract bool supportsAMD(global::Ice.Current? current = null);
 
-            public abstract bool supportsFunctionalTests(global::Ice.Current current = null);
+            public abstract bool supportsFunctionalTests(global::Ice.Current? current = null);
 
-            public abstract global::System.Threading.Tasks.Task opAsyncDispatchAsync(global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task opAsyncDispatchAsync(global::Ice.Current? current = null);
 
-            public abstract global::System.Threading.Tasks.Task<int> opWithResultAsyncDispatchAsync(global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task<int> opWithResultAsyncDispatchAsync(global::Ice.Current? current = null);
 
-            public abstract global::System.Threading.Tasks.Task opWithUEAsyncDispatchAsync(global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task opWithUEAsyncDispatchAsync(global::Ice.Current? current = null);
 
-            public abstract void pingBiDir(PingReplyPrx reply, global::Ice.Current current = null);
+            public abstract void pingBiDir(PingReplyPrx? reply, global::Ice.Current? current = null);
 
             #endregion
 
@@ -1903,17 +1921,17 @@ namespace Ice.ami
                 "::Test::TestIntf"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -1943,7 +1961,7 @@ namespace Ice.ami
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                byte[] iceP_seq = default;
+                byte[] iceP_seq;
                 iceP_seq = global::Ice.ByteSeqHelper.read(istr);
                 inS.endReadParams();
                 obj.opWithPayload(iceP_seq, current);
@@ -2002,7 +2020,7 @@ namespace Ice.ami
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_count = default;
+                int iceP_count;
                 iceP_count = istr.readInt();
                 inS.endReadParams();
                 var ret = obj.waitForBatch(iceP_count, current);
@@ -2018,7 +2036,7 @@ namespace Ice.ami
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                CloseMode iceP_mode = default;
+                CloseMode iceP_mode;
                 iceP_mode = (CloseMode)istr.readEnum(2);
                 inS.endReadParams();
                 obj.close(iceP_mode, current);
@@ -2031,7 +2049,7 @@ namespace Ice.ami
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                int iceP_ms = default;
+                int iceP_ms;
                 iceP_ms = istr.readInt();
                 inS.endReadParams();
                 obj.sleep(iceP_ms, current);
@@ -2130,7 +2148,7 @@ namespace Ice.ami
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                PingReplyPrx iceP_reply = default;
+                PingReplyPrx? iceP_reply;
                 iceP_reply = PingReplyPrxHelper.read(istr);
                 inS.endReadParams();
                 obj.pingBiDir(iceP_reply, current);
@@ -2277,9 +2295,9 @@ namespace Ice.ami
         {
             #region Slice operations
 
-            public abstract void holdAdapter(global::Ice.Current current = null);
+            public abstract void holdAdapter(global::Ice.Current? current = null);
 
-            public abstract void resumeAdapter(global::Ice.Current current = null);
+            public abstract void resumeAdapter(global::Ice.Current? current = null);
 
             #endregion
 
@@ -2291,17 +2309,17 @@ namespace Ice.ami
                 "::Test::TestIntfController"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current current = null)
+            public override bool ice_isA(string s, global::Ice.Current? current = null)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current current = null)
+            public override string[] ice_ids(global::Ice.Current? current = null)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current current = null)
+            public override string ice_id(global::Ice.Current? current = null)
             {
                 return ice_staticId();
             }
@@ -2399,7 +2417,7 @@ namespace Ice.ami
                 {
                     #region Slice operations
 
-                    public abstract int op(int i, out int j, global::Ice.Current current = null);
+                    public abstract int op(int i, out int j, global::Ice.Current? current = null);
 
                     #endregion
 
@@ -2411,17 +2429,17 @@ namespace Ice.ami
                         "::Test::Outer::Inner::TestIntf"
                     };
 
-                    public override bool ice_isA(string s, global::Ice.Current current = null)
+                    public override bool ice_isA(string s, global::Ice.Current? current = null)
                     {
                         return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
                     }
 
-                    public override string[] ice_ids(global::Ice.Current current = null)
+                    public override string[] ice_ids(global::Ice.Current? current = null)
                     {
                         return _ids;
                     }
 
-                    public override string ice_id(global::Ice.Current current = null)
+                    public override string ice_id(global::Ice.Current? current = null)
                     {
                         return ice_staticId();
                     }
@@ -2441,7 +2459,7 @@ namespace Ice.ami
                     {
                         global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
                         var istr = inS.startReadParams();
-                        int iceP_i = default;
+                        int iceP_i;
                         iceP_i = istr.readInt();
                         inS.endReadParams();
                         int iceP_j;

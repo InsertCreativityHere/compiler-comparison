@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("DBTypes.ice")]
@@ -88,10 +90,10 @@ namespace IceStorm
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as AllData);
+        public override bool Equals(object? other) => Equals(other as AllData);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(AllData other)
+        public bool Equals(AllData? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -107,10 +109,10 @@ namespace IceStorm
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(AllData lhs, AllData rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(AllData? lhs, AllData? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(AllData lhs, AllData rhs) => !(lhs == rhs);
+        public static bool operator !=(AllData? lhs, AllData? rhs) => !(lhs == rhs);
 
         #endregion
 
@@ -165,9 +167,9 @@ namespace IceStormElection
             global::System.Collections.Generic.Dictionary<string, LogUpdate> r = new global::System.Collections.Generic.Dictionary<string, LogUpdate>();
             for(int i = 0; i < sz; ++i)
             {
-                string k = default;
+                string k;
                 k = istr.readString();
-                LogUpdate v = default;
+                LogUpdate v;
                 v = new LogUpdate(istr);
                 r[k] = v;
             }
@@ -205,9 +207,9 @@ namespace IceStorm
             global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord> r = new global::System.Collections.Generic.Dictionary<SubscriberRecordKey, SubscriberRecord>();
             for(int i = 0; i < sz; ++i)
             {
-                SubscriberRecordKey k = default;
+                SubscriberRecordKey k;
                 k = new SubscriberRecordKey(istr);
-                SubscriberRecord v = default;
+                SubscriberRecord v;
                 v = new SubscriberRecord(istr);
                 r[k] = v;
             }

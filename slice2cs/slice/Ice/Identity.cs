@@ -13,6 +13,8 @@
 // </auto-generated>
 //
 
+#nullable enable
+
 using _System = global::System;
 
 [assembly:Ice.Slice("Identity.ice")]
@@ -90,10 +92,10 @@ namespace Ice
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other) => Equals(other as Identity);
+        public override bool Equals(object? other) => Equals(other as Identity);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool Equals(Identity other)
+        public bool Equals(Identity? other)
         {
             if (ReferenceEquals(this, other))
             {
@@ -109,10 +111,10 @@ namespace Ice
         #region Comparison members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator ==(Identity lhs, Identity rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
+        public static bool operator ==(Identity? lhs, Identity? rhs) => lhs is not null ? lhs.Equals(rhs) : rhs is null;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator !=(Identity lhs, Identity rhs) => !(lhs == rhs);
+        public static bool operator !=(Identity? lhs, Identity? rhs) => !(lhs == rhs);
 
         #endregion
 
