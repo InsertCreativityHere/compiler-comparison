@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Wstring.ice")]
 
 #pragma warning disable 1591
@@ -469,13 +467,13 @@ namespace Test1
     public interface WstringClassOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string opString(string s1, out string s2, global::Ice.Current? current = null);
+        string opString(string s1, out string s2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.Current? current = null);
+        WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void throwExcept(string reason, global::Ice.Current? current = null);
+        void throwExcept(string reason, global::Ice.Current current);
     }
 }
 
@@ -485,13 +483,13 @@ namespace Test2
     public interface WstringClassOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string opString(string s1, out string s2, global::Ice.Current? current = null);
+        string opString(string s1, out string s2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.Current? current = null);
+        WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void throwExcept(string reason, global::Ice.Current? current = null);
+        void throwExcept(string reason, global::Ice.Current current);
     }
 }
 
@@ -1149,11 +1147,11 @@ namespace Test1
     {
         #region Slice operations
 
-        public abstract string opString(string s1, out string s2, global::Ice.Current? current = null);
+        public abstract string opString(string s1, out string s2, global::Ice.Current current);
 
-        public abstract WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.Current? current = null);
+        public abstract WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.Current current);
 
-        public abstract void throwExcept(string reason, global::Ice.Current? current = null);
+        public abstract void throwExcept(string reason, global::Ice.Current current);
 
         #endregion
 
@@ -1165,17 +1163,17 @@ namespace Test1
             "::Test1::WstringClass"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1249,7 +1247,7 @@ namespace Test1
             "throwExcept"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1306,11 +1304,11 @@ namespace Test2
     {
         #region Slice operations
 
-        public abstract string opString(string s1, out string s2, global::Ice.Current? current = null);
+        public abstract string opString(string s1, out string s2, global::Ice.Current current);
 
-        public abstract WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.Current? current = null);
+        public abstract WstringStruct opStruct(WstringStruct s1, out WstringStruct s2, global::Ice.Current current);
 
-        public abstract void throwExcept(string reason, global::Ice.Current? current = null);
+        public abstract void throwExcept(string reason, global::Ice.Current current);
 
         #endregion
 
@@ -1322,17 +1320,17 @@ namespace Test2
             "::Test2::WstringClass"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1406,7 +1404,7 @@ namespace Test2
             "throwExcept"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

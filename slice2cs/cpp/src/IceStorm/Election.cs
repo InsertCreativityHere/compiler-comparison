@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Election.ice")]
 
 #pragma warning disable 1591
@@ -1027,10 +1025,10 @@ namespace IceStormElection
         ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
         ///  inconsisency was detected.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void init(LogUpdate llu, TopicContent[] content, global::Ice.Current? current = null);
+        void init(LogUpdate llu, TopicContent[] content, global::Ice.Current current);
 
         /// <summary>
         /// Create the topic with the given name.
@@ -1041,10 +1039,10 @@ namespace IceStormElection
         ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
         ///  inconsisency was detected.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void createTopic(LogUpdate llu, string name, global::Ice.Current? current = null);
+        void createTopic(LogUpdate llu, string name, global::Ice.Current current);
 
         /// <summary>
         /// Destroy the topic with the given name.
@@ -1055,10 +1053,10 @@ namespace IceStormElection
         ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
         ///  inconsisency was detected.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroyTopic(LogUpdate llu, string name, global::Ice.Current? current = null);
+        void destroyTopic(LogUpdate llu, string name, global::Ice.Current current);
 
         /// <summary>
         /// Add a subscriber to a topic.
@@ -1071,10 +1069,10 @@ namespace IceStormElection
         ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
         ///  inconsisency was detected.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.Current? current = null);
+        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.Current current);
 
         /// <summary>
         /// Remove a subscriber from a topic.
@@ -1086,10 +1084,10 @@ namespace IceStormElection
         /// <param name="subscribers">The identities of the subscribers to remove.
         ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an inconsisency was detected.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.Current? current = null);
+        void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.Current current);
     }
 
     /// <summary>
@@ -1105,10 +1103,10 @@ namespace IceStormElection
         /// <param name="llu">The last log update token.
         ///  </param>
         /// <param name="content">The topic content.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void getContent(out LogUpdate llu, out TopicContent[] content, global::Ice.Current? current = null);
+        void getContent(out LogUpdate llu, out TopicContent[] content, global::Ice.Current current);
     }
 
     /// <summary>
@@ -1124,10 +1122,10 @@ namespace IceStormElection
         /// <param name="gn">The group name.
         ///  </param>
         /// <param name="j">The group coordinator.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void invitation(int j, string gn, global::Ice.Current? current = null);
+        void invitation(int j, string gn, global::Ice.Current current);
 
         /// <summary>
         /// Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -1141,10 +1139,10 @@ namespace IceStormElection
         /// <param name="max">The highest priority node seen by this replica group.
         ///  </param>
         /// <param name="generation">The current generation count.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::Ice.Current? current = null);
+        void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::Ice.Current current);
 
         /// <summary>
         /// Called to accept an invitation into the given group.
@@ -1160,19 +1158,19 @@ namespace IceStormElection
         /// <param name="llu">The last log update for the given node.
         ///  </param>
         /// <param name="max">The highest priority node seen by this replica group.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::Ice.Current? current = null);
+        void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::Ice.Current current);
 
         /// <summary>
         /// Determine if this node is a coordinator.
         /// </summary>
         /// <returns>True if the node is a coordinator, false otherwise.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool areYouCoordinator(global::Ice.Current? current = null);
+        bool areYouCoordinator(global::Ice.Current current);
 
         /// <summary>
         /// Determine if the node is a member of the given group with the given coordinator.
@@ -1182,37 +1180,37 @@ namespace IceStormElection
         /// <param name="j">The group coordinator.
         ///  </param>
         /// <returns>True if the node is a member, false otherwise.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool areYouThere(string gn, int j, global::Ice.Current? current = null);
+        bool areYouThere(string gn, int j, global::Ice.Current current);
 
         /// <summary>
         /// Get the sync object for the replica hosted by this node.
         /// </summary>
         /// <returns>The sync object.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? sync(global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? sync(global::Ice.Current current);
 
         /// <summary>
         /// Get the replication group information.
         /// </summary>
         /// <returns>The set of configured nodes and the associated priority.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        NodeInfo[] nodes(global::Ice.Current? current = null);
+        NodeInfo[] nodes(global::Ice.Current current);
 
         /// <summary>
         /// Get the query information for the given node.
         /// </summary>
         /// <returns>The query information.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        QueryInfo query(global::Ice.Current? current = null);
+        QueryInfo query(global::Ice.Current current);
     }
 }
 
@@ -2348,15 +2346,15 @@ namespace IceStormElection
     {
         #region Slice operations
 
-        public abstract void init(LogUpdate llu, TopicContent[] content, global::Ice.Current? current = null);
+        public abstract void init(LogUpdate llu, TopicContent[] content, global::Ice.Current current);
 
-        public abstract void createTopic(LogUpdate llu, string name, global::Ice.Current? current = null);
+        public abstract void createTopic(LogUpdate llu, string name, global::Ice.Current current);
 
-        public abstract void destroyTopic(LogUpdate llu, string name, global::Ice.Current? current = null);
+        public abstract void destroyTopic(LogUpdate llu, string name, global::Ice.Current current);
 
-        public abstract void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.Current? current = null);
+        public abstract void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.Current current);
 
-        public abstract void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.Current? current = null);
+        public abstract void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.Current current);
 
         #endregion
 
@@ -2368,17 +2366,17 @@ namespace IceStormElection
             "::IceStormElection::ReplicaObserver"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2484,7 +2482,7 @@ namespace IceStormElection
             "removeSubscriber"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2546,7 +2544,7 @@ namespace IceStormElection
     {
         #region Slice operations
 
-        public abstract void getContent(out LogUpdate llu, out TopicContent[] content, global::Ice.Current? current = null);
+        public abstract void getContent(out LogUpdate llu, out TopicContent[] content, global::Ice.Current current);
 
         #endregion
 
@@ -2558,17 +2556,17 @@ namespace IceStormElection
             "::IceStormElection::TopicManagerSync"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2607,7 +2605,7 @@ namespace IceStormElection
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2653,21 +2651,21 @@ namespace IceStormElection
     {
         #region Slice operations
 
-        public abstract void invitation(int j, string gn, global::Ice.Current? current = null);
+        public abstract void invitation(int j, string gn, global::Ice.Current current);
 
-        public abstract void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::Ice.Current? current = null);
+        public abstract void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::Ice.Current current);
 
-        public abstract void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::Ice.Current? current = null);
+        public abstract void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::Ice.Current current);
 
-        public abstract bool areYouCoordinator(global::Ice.Current? current = null);
+        public abstract bool areYouCoordinator(global::Ice.Current current);
 
-        public abstract bool areYouThere(string gn, int j, global::Ice.Current? current = null);
+        public abstract bool areYouThere(string gn, int j, global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? sync(global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? sync(global::Ice.Current current);
 
-        public abstract NodeInfo[] nodes(global::Ice.Current? current = null);
+        public abstract NodeInfo[] nodes(global::Ice.Current current);
 
-        public abstract QueryInfo query(global::Ice.Current? current = null);
+        public abstract QueryInfo query(global::Ice.Current current);
 
         #endregion
 
@@ -2679,17 +2677,17 @@ namespace IceStormElection
             "::IceStormElection::Node"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2848,7 +2846,7 @@ namespace IceStormElection
             "sync"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Session.ice")]
 
 #pragma warning disable 1591
@@ -193,10 +191,10 @@ namespace IceGrid
         /// This operation is provided for backwards compatibility. As of Ice 3.8, there is no
         ///  need to call this operation and its implementation does nothing.
         /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void keepAlive(global::Ice.Current? current = null);
+        void keepAlive(global::Ice.Current current);
 
         /// <summary>
         /// Allocate an object.
@@ -204,10 +202,10 @@ namespace IceGrid
         /// </summary>
         ///  <param name="id">The identity of the object to allocate.
         ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current);
 
         /// <summary>
         /// Allocate an object with the given type.
@@ -215,10 +213,10 @@ namespace IceGrid
         /// </summary>
         ///  <param name="type">The type of the object.
         ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByTypeAsync(string type, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByTypeAsync(string type, global::Ice.Current current);
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
@@ -231,10 +229,10 @@ namespace IceGrid
         ///  </exception>
         /// <exception name="AllocationException">Raised if the given object can't be released. This might happen if the object
         ///  isn't allocatable or isn't allocated by the session.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void releaseObject(global::Ice.Identity id, global::Ice.Current? current = null);
+        void releaseObject(global::Ice.Identity id, global::Ice.Current current);
 
         /// <summary>
         /// Set the allocation timeout.
@@ -243,10 +241,10 @@ namespace IceGrid
         ///  timeout.
         /// </summary>
         ///  <param name="timeout">The timeout in milliseconds.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setAllocationTimeout(int timeout, global::Ice.Current? current = null);
+        void setAllocationTimeout(int timeout, global::Ice.Current current);
     }
 }
 
@@ -674,21 +672,21 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract void keepAlive(global::Ice.Current? current = null);
+        public abstract void keepAlive(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByTypeAsync(string type, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByTypeAsync(string type, global::Ice.Current current);
 
-        public abstract void releaseObject(global::Ice.Identity id, global::Ice.Current? current = null);
+        public abstract void releaseObject(global::Ice.Identity id, global::Ice.Current current);
 
-        public abstract void setAllocationTimeout(int timeout, global::Ice.Current? current = null);
+        public abstract void setAllocationTimeout(int timeout, global::Ice.Current current);
 
         #endregion
 
         #region Inherited Slice operations
 
-        public abstract void destroy(global::Ice.Current? current = null);
+        public abstract void destroy(global::Ice.Current current);
 
         #endregion
 
@@ -701,17 +699,17 @@ namespace IceGrid
             "::IceGrid::Session"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -807,7 +805,7 @@ namespace IceGrid
             "setAllocationTimeout"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

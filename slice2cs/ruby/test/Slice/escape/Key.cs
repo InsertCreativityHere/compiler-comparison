@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Key.ice")]
 
 #pragma warning disable 1591
@@ -437,16 +435,16 @@ namespace BEGIN
     public interface breakOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void @case(int clone, int def, global::Ice.Current? current = null);
+        void @case(int clone, int def, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void to_a(global::Ice.Current? current = null);
+        void to_a(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void instance_variable_set(global::Ice.Current? current = null);
+        void instance_variable_set(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void instance_variables(global::Ice.Current? current = null);
+        void instance_variables(global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -458,7 +456,7 @@ namespace BEGIN
     public interface extendOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        END @for(display? freeze, elsifPrx? hash, breakPrx? @if, display? inspect, elsifPrx? method, int methods, global::Ice.Current? current = null);
+        END @for(display? freeze, elsifPrx? hash, breakPrx? @if, display? inspect, elsifPrx? method, int methods, global::Ice.Current current);
     }
 }
 
@@ -1246,13 +1244,13 @@ namespace BEGIN
     {
         #region Slice operations
 
-        public abstract void @case(int clone, int def, global::Ice.Current? current = null);
+        public abstract void @case(int clone, int def, global::Ice.Current current);
 
-        public abstract void to_a(global::Ice.Current? current = null);
+        public abstract void to_a(global::Ice.Current current);
 
-        public abstract void instance_variable_set(global::Ice.Current? current = null);
+        public abstract void instance_variable_set(global::Ice.Current current);
 
-        public abstract void instance_variables(global::Ice.Current? current = null);
+        public abstract void instance_variables(global::Ice.Current current);
 
         #endregion
 
@@ -1264,17 +1262,17 @@ namespace BEGIN
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1345,7 +1343,7 @@ namespace BEGIN
             "to_a"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1403,13 +1401,13 @@ namespace BEGIN
     {
         #region Inherited Slice operations
 
-        public abstract void @case(int clone, int def, global::Ice.Current? current = null);
+        public abstract void @case(int clone, int def, global::Ice.Current current);
 
-        public abstract void to_a(global::Ice.Current? current = null);
+        public abstract void to_a(global::Ice.Current current);
 
-        public abstract void instance_variable_set(global::Ice.Current? current = null);
+        public abstract void instance_variable_set(global::Ice.Current current);
 
-        public abstract void instance_variables(global::Ice.Current? current = null);
+        public abstract void instance_variables(global::Ice.Current current);
 
         #endregion
 
@@ -1422,17 +1420,17 @@ namespace BEGIN
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1456,7 +1454,7 @@ namespace BEGIN
             "to_a"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1512,7 +1510,7 @@ namespace BEGIN
     {
         #region Slice operations
 
-        public abstract END @for(display? freeze, elsifPrx? hash, breakPrx? @if, display? inspect, elsifPrx? method, int methods, global::Ice.Current? current = null);
+        public abstract END @for(display? freeze, elsifPrx? hash, breakPrx? @if, display? inspect, elsifPrx? method, int methods, global::Ice.Current current);
 
         #endregion
 
@@ -1524,17 +1522,17 @@ namespace BEGIN
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1584,7 +1582,7 @@ namespace BEGIN
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

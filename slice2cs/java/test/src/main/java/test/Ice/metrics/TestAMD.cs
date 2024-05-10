@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("TestAMD.ice")]
 
 #pragma warning disable 1591
@@ -169,41 +167,41 @@ namespace Test
     public interface MetricsOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task opAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task opAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task failAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task failAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task opWithUserExceptionAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task opWithUserExceptionAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task opWithRequestFailedExceptionAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task opWithRequestFailedExceptionAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task opWithLocalExceptionAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task opWithLocalExceptionAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task opWithUnknownExceptionAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task opWithUnknownExceptionAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task opByteSAsync(byte[] bs, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task opByteSAsync(byte[] bs, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getAdmin(global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? getAdmin(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current? current = null);
+        void shutdown(global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface ControllerOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void hold(global::Ice.Current? current = null);
+        void hold(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void resume(global::Ice.Current? current = null);
+        void resume(global::Ice.Current current);
     }
 }
 
@@ -885,23 +883,23 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract global::System.Threading.Tasks.Task opAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task opAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task failAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task failAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task opWithUserExceptionAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task opWithUserExceptionAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task opWithRequestFailedExceptionAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task opWithRequestFailedExceptionAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task opWithLocalExceptionAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task opWithLocalExceptionAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task opWithUnknownExceptionAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task opWithUnknownExceptionAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task opByteSAsync(byte[] bs, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task opByteSAsync(byte[] bs, global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getAdmin(global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? getAdmin(global::Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current? current = null);
+        public abstract void shutdown(global::Ice.Current current);
 
         #endregion
 
@@ -913,17 +911,17 @@ namespace Test
             "::Test::Metrics"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1043,7 +1041,7 @@ namespace Test
             "shutdown"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1121,9 +1119,9 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void hold(global::Ice.Current? current = null);
+        public abstract void hold(global::Ice.Current current);
 
-        public abstract void resume(global::Ice.Current? current = null);
+        public abstract void resume(global::Ice.Current current);
 
         #endregion
 
@@ -1135,17 +1133,17 @@ namespace Test
             "::Test::Controller"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1189,7 +1187,7 @@ namespace Test
             "resume"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -91,23 +89,23 @@ namespace Test
     public interface ServerOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void noCert(global::Ice.Current? current = null);
+        void noCert(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void checkCert(string subjectDN, string issuerDN, global::Ice.Current? current = null);
+        void checkCert(string subjectDN, string issuerDN, global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface ServerFactoryOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ServerPrx? createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::Ice.Current? current = null);
+        ServerPrx? createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroyServer(ServerPrx? srv, global::Ice.Current? current = null);
+        void destroyServer(ServerPrx? srv, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current? current = null);
+        void shutdown(global::Ice.Current current);
     }
 }
 
@@ -582,9 +580,9 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void noCert(global::Ice.Current? current = null);
+        public abstract void noCert(global::Ice.Current current);
 
-        public abstract void checkCert(string subjectDN, string issuerDN, global::Ice.Current? current = null);
+        public abstract void checkCert(string subjectDN, string issuerDN, global::Ice.Current current);
 
         #endregion
 
@@ -596,17 +594,17 @@ namespace Test
             "::Test::Server"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -655,7 +653,7 @@ namespace Test
             "noCert"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -705,11 +703,11 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract ServerPrx? createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::Ice.Current? current = null);
+        public abstract ServerPrx? createServer(global::System.Collections.Generic.Dictionary<string, string> props, global::Ice.Current current);
 
-        public abstract void destroyServer(ServerPrx? srv, global::Ice.Current? current = null);
+        public abstract void destroyServer(ServerPrx? srv, global::Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current? current = null);
+        public abstract void shutdown(global::Ice.Current current);
 
         #endregion
 
@@ -721,17 +719,17 @@ namespace Test
             "::Test::ServerFactory"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -795,7 +793,7 @@ namespace Test
             "shutdown"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

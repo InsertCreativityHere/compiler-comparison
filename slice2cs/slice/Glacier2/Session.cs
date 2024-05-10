@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Session.ice")]
 
 #pragma warning disable 1591
@@ -537,10 +535,10 @@ namespace Glacier2
         /// Destroy the session.
         /// This is called automatically when the router is destroyed.
         /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current? current = null);
+        void destroy(global::Ice.Current current);
     }
 
     /// <summary>
@@ -557,29 +555,29 @@ namespace Glacier2
         ///  removed.
         /// </summary>
         ///  <param name="additions">The sequence of strings to be added.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void add(string[] additions, global::Ice.Current? current = null);
+        void add(string[] additions, global::Ice.Current current);
 
         /// <summary>
         /// Remove a sequence of strings from this set of constraints.
         /// No errors are returned if an entry is not found.
         /// </summary>
         ///  <param name="deletions">The sequence of strings to be removed.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void remove(string[] deletions, global::Ice.Current? current = null);
+        void remove(string[] deletions, global::Ice.Current current);
 
         /// <summary>
         /// Returns a sequence of strings describing the constraints in this set.
         /// </summary>
         /// <returns>The sequence of strings for this set.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] get(global::Ice.Current? current = null);
+        string[] get(global::Ice.Current current);
     }
 
     /// <summary>
@@ -595,10 +593,10 @@ namespace Glacier2
         ///  implicitly removed.
         /// </summary>
         ///  <param name="additions">The sequence of Ice identities to be added.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void add(global::Ice.Identity[] additions, global::Ice.Current? current = null);
+        void add(global::Ice.Identity[] additions, global::Ice.Current current);
 
         /// <summary>
         /// Remove a sequence of identities from this set of constraints.
@@ -606,19 +604,19 @@ namespace Glacier2
         ///  found.
         /// </summary>
         ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void remove(global::Ice.Identity[] deletions, global::Ice.Current? current = null);
+        void remove(global::Ice.Identity[] deletions, global::Ice.Current current);
 
         /// <summary>
         /// Returns a sequence of identities describing the constraints in this set.
         /// </summary>
         /// <returns>The sequence of Ice identities for this set.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Identity[] get(global::Ice.Current? current = null);
+        global::Ice.Identity[] get(global::Ice.Current current);
     }
 
     /// <summary>
@@ -632,45 +630,45 @@ namespace Glacier2
         /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
         /// <returns>A StringSet object. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        StringSetPrx? categories(global::Ice.Current? current = null);
+        StringSetPrx? categories(global::Ice.Current current);
 
         /// <summary>
         /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
         /// <returns>A StringSet object. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        StringSetPrx? adapterIds(global::Ice.Current? current = null);
+        StringSetPrx? adapterIds(global::Ice.Current current);
 
         /// <summary>
         /// Access the object that manages the allowable object identities for this session.
         /// </summary>
         /// <returns>An IdentitySet object. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        IdentitySetPrx? identities(global::Ice.Current? current = null);
+        IdentitySetPrx? identities(global::Ice.Current current);
 
         /// <summary>
         /// Get the session timeout.
         /// </summary>
         /// <returns>The timeout.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getSessionTimeout(global::Ice.Current? current = null);
+        int getSessionTimeout(global::Ice.Current current);
 
         /// <summary>
         /// Destroy the associated session.
         /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current? current = null);
+        void destroy(global::Ice.Current current);
     }
 
     /// <summary>
@@ -697,10 +695,10 @@ namespace Glacier2
         /// <returns>A proxy to the newly created session.
         ///  </returns>
         /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SessionPrx? create(string userId, SessionControlPrx? control, global::Ice.Current? current = null);
+        SessionPrx? create(string userId, SessionControlPrx? control, global::Ice.Current current);
     }
 
     /// <summary>
@@ -723,10 +721,10 @@ namespace Glacier2
         /// <returns>A proxy to the newly created session.
         ///  </returns>
         /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SessionPrx? create(SSLInfo info, SessionControlPrx? control, global::Ice.Current? current = null);
+        SessionPrx? create(SSLInfo info, SessionControlPrx? control, global::Ice.Current current);
     }
 }
 
@@ -2023,7 +2021,7 @@ namespace Glacier2
     {
         #region Slice operations
 
-        public abstract void destroy(global::Ice.Current? current = null);
+        public abstract void destroy(global::Ice.Current current);
 
         #endregion
 
@@ -2035,17 +2033,17 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2078,7 +2076,7 @@ namespace Glacier2
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2124,11 +2122,11 @@ namespace Glacier2
     {
         #region Slice operations
 
-        public abstract void add(string[] additions, global::Ice.Current? current = null);
+        public abstract void add(string[] additions, global::Ice.Current current);
 
-        public abstract void remove(string[] deletions, global::Ice.Current? current = null);
+        public abstract void remove(string[] deletions, global::Ice.Current current);
 
-        public abstract string[] get(global::Ice.Current? current = null);
+        public abstract string[] get(global::Ice.Current current);
 
         #endregion
 
@@ -2140,17 +2138,17 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2214,7 +2212,7 @@ namespace Glacier2
             "remove"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2268,11 +2266,11 @@ namespace Glacier2
     {
         #region Slice operations
 
-        public abstract void add(global::Ice.Identity[] additions, global::Ice.Current? current = null);
+        public abstract void add(global::Ice.Identity[] additions, global::Ice.Current current);
 
-        public abstract void remove(global::Ice.Identity[] deletions, global::Ice.Current? current = null);
+        public abstract void remove(global::Ice.Identity[] deletions, global::Ice.Current current);
 
-        public abstract global::Ice.Identity[] get(global::Ice.Current? current = null);
+        public abstract global::Ice.Identity[] get(global::Ice.Current current);
 
         #endregion
 
@@ -2284,17 +2282,17 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2358,7 +2356,7 @@ namespace Glacier2
             "remove"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2412,15 +2410,15 @@ namespace Glacier2
     {
         #region Slice operations
 
-        public abstract StringSetPrx? categories(global::Ice.Current? current = null);
+        public abstract StringSetPrx? categories(global::Ice.Current current);
 
-        public abstract StringSetPrx? adapterIds(global::Ice.Current? current = null);
+        public abstract StringSetPrx? adapterIds(global::Ice.Current current);
 
-        public abstract IdentitySetPrx? identities(global::Ice.Current? current = null);
+        public abstract IdentitySetPrx? identities(global::Ice.Current current);
 
-        public abstract int getSessionTimeout(global::Ice.Current? current = null);
+        public abstract int getSessionTimeout(global::Ice.Current current);
 
-        public abstract void destroy(global::Ice.Current? current = null);
+        public abstract void destroy(global::Ice.Current current);
 
         #endregion
 
@@ -2432,17 +2430,17 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2531,7 +2529,7 @@ namespace Glacier2
             "identities"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2593,7 +2591,7 @@ namespace Glacier2
     {
         #region Slice operations
 
-        public abstract SessionPrx? create(string userId, SessionControlPrx? control, global::Ice.Current? current = null);
+        public abstract SessionPrx? create(string userId, SessionControlPrx? control, global::Ice.Current current);
 
         #endregion
 
@@ -2605,17 +2603,17 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2657,7 +2655,7 @@ namespace Glacier2
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2703,7 +2701,7 @@ namespace Glacier2
     {
         #region Slice operations
 
-        public abstract SessionPrx? create(SSLInfo info, SessionControlPrx? control, global::Ice.Current? current = null);
+        public abstract SessionPrx? create(SSLInfo info, SessionControlPrx? control, global::Ice.Current current);
 
         #endregion
 
@@ -2715,17 +2713,17 @@ namespace Glacier2
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2767,7 +2765,7 @@ namespace Glacier2
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

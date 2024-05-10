@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("TestAMD.ice")]
 
 #pragma warning disable 1591
@@ -1469,120 +1467,120 @@ namespace Test
     public interface TestIntfOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SBase?> SBaseAsSBaseAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<SBase?> SBaseAsSBaseAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SBase?> SBSKnownDerivedAsSBaseAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<SBase?> SBSKnownDerivedAsSBaseAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SBSKnownDerived?> SBSKnownDerivedAsSBSKnownDerivedAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<SBSKnownDerived?> SBSKnownDerivedAsSBSKnownDerivedAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseCompactAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseCompactAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<B?> oneElementCycleAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<B?> oneElementCycleAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<B?> twoElementCycleAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<B?> twoElementCycleAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<B?> D1AsBAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<B?> D1AsBAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<D1?> D1AsD1Async(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<D1?> D1AsD1Async(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<B?> D2AsBAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<B?> D2AsBAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<B?> returnTest3Async(B? p1, B? p2, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<B?> returnTest3Async(B? p1, B? p2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1? p1, SS2? p2, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1? p1, SS2? p2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B?> bin, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B?> bin, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<PBase?> exchangePBaseAsync(PBase? pb, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<PBase?> exchangePBaseAsync(PBase? pb, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved? p, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved? p, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved? p, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved? p, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved? p, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved? p, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<PNode?> exchangePNodeAsync(PNode? pn, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<PNode?> exchangePNodeAsync(PNode? pn, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.Current current);
 
         /// <summary>
         /// Use of forward-declared class to verify that code is generated correctly.
         /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Forward?> useForwardAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<Forward?> useForwardAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
     }
 }
 
@@ -3543,79 +3541,79 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<global::Ice.Value?> SBaseAsObjectAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<SBase?> SBaseAsSBaseAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<SBase?> SBaseAsSBaseAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<SBase?> SBSKnownDerivedAsSBaseAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<SBase?> SBSKnownDerivedAsSBaseAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<SBSKnownDerived?> SBSKnownDerivedAsSBSKnownDerivedAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<SBSKnownDerived?> SBSKnownDerivedAsSBSKnownDerivedAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseCompactAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<SBase?> SBSUnknownDerivedAsSBaseCompactAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<global::Ice.Value?> SUnknownAsObjectAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task checkSUnknownAsync(global::Ice.Value? o, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<B?> oneElementCycleAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<B?> oneElementCycleAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<B?> twoElementCycleAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<B?> twoElementCycleAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<B?> D1AsBAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<B?> D1AsBAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<D1?> D1AsD1Async(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<D1?> D1AsD1Async(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<B?> D2AsBAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<B?> D2AsBAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest1Result> paramTest1Async(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest2Result> paramTest2Async(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest3Result> paramTest3Async(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ParamTest4Result> paramTest4Async(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ReturnTest1Result> returnTest1Async(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_ReturnTest2Result> returnTest2Async(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<B?> returnTest3Async(B? p1, B? p2, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<B?> returnTest3Async(B? p1, B? p2, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1? p1, SS2? p2, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<SS3> sequenceTestAsync(SS1? p1, SS2? p2, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B?> bin, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<TestIntf_DictionaryTestResult> dictionaryTestAsync(global::System.Collections.Generic.Dictionary<int, B?> bin, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<PBase?> exchangePBaseAsync(PBase? pb, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<PBase?> exchangePBaseAsync(PBase? pb, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved? p, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task checkPBSUnknownAsync(Preserved? p, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved? p, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task checkPBSUnknownWithGraphAsync(Preserved? p, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved? p, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task checkPBSUnknown2WithGraphAsync(Preserved? p, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<PNode?> exchangePNodeAsync(PNode? pn, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<PNode?> exchangePNodeAsync(PNode? pn, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwBaseAsBaseAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwDerivedAsBaseAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwDerivedAsDerivedAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<Forward?> useForwardAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<Forward?> useForwardAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
 
         #endregion
 
@@ -3627,17 +3625,17 @@ namespace Test
             "::Test::TestIntf"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -4251,7 +4249,7 @@ namespace Test
             "useForward"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

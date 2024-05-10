@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -453,133 +451,133 @@ namespace Test
     public interface TestIntfOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[] opCSeq(C?[] inSeq, out C?[] outSeq, global::Ice.Current? current = null);
+        C?[] opCSeq(C?[] inSeq, out C?[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[] opCArray(C?[] inSeq, out C?[] outSeq, global::Ice.Current? current = null);
+        C?[] opCArray(C?[] inSeq, out C?[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[] opCList(C?[] inSeq, out C?[] outSeq, global::Ice.Current? current = null);
+        C?[] opCList(C?[] inSeq, out C?[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.Current? current = null);
+        bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current? current = null);
+        byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        short[] opShortSeq(short[] inSeq, out short[] outSeq, global::Ice.Current? current = null);
+        short[] opShortSeq(short[] inSeq, out short[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int[] opIntSeq(int[] inSeq, out int[] outSeq, global::Ice.Current? current = null);
+        int[] opIntSeq(int[] inSeq, out int[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        long[] opLongSeq(long[] inSeq, out long[] outSeq, global::Ice.Current? current = null);
+        long[] opLongSeq(long[] inSeq, out long[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        float[] opFloatSeq(float[] inSeq, out float[] outSeq, global::Ice.Current? current = null);
+        float[] opFloatSeq(float[] inSeq, out float[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        double[] opDoubleSeq(double[] inSeq, out double[] outSeq, global::Ice.Current? current = null);
+        double[] opDoubleSeq(double[] inSeq, out double[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] opStringSeq(string[] inSeq, out string[] outSeq, global::Ice.Current? current = null);
+        string[] opStringSeq(string[] inSeq, out string[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        E[] opESeq(E[] inSeq, out E[] outSeq, global::Ice.Current? current = null);
+        E[] opESeq(E[] inSeq, out E[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        S[] opSSeq(S[] inSeq, out S[] outSeq, global::Ice.Current? current = null);
+        S[] opSSeq(S[] inSeq, out S[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::Ice.Current? current = null);
+        string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current? current = null);
+        byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, global::Ice.Current? current = null);
+        short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, global::Ice.Current? current = null);
+        int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, global::Ice.Current? current = null);
+        long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, global::Ice.Current? current = null);
+        float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::Ice.Current? current = null);
+        double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[]? opOptCSeq(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current? current = null);
+        C?[]? opOptCSeq(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[]? opOptCArray(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current? current = null);
+        C?[]? opOptCArray(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[]? opOptCList(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current? current = null);
+        C?[]? opOptCList(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool[]? opOptBoolSeq(bool[]? inSeq, out bool[]? outSeq, global::Ice.Current? current = null);
+        bool[]? opOptBoolSeq(bool[]? inSeq, out bool[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[]? opOptByteSeq(byte[]? inSeq, out byte[]? outSeq, global::Ice.Current? current = null);
+        byte[]? opOptByteSeq(byte[]? inSeq, out byte[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        short[]? opOptShortSeq(short[]? inSeq, out short[]? outSeq, global::Ice.Current? current = null);
+        short[]? opOptShortSeq(short[]? inSeq, out short[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int[]? opOptIntSeq(int[]? inSeq, out int[]? outSeq, global::Ice.Current? current = null);
+        int[]? opOptIntSeq(int[]? inSeq, out int[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        long[]? opOptLongSeq(long[]? inSeq, out long[]? outSeq, global::Ice.Current? current = null);
+        long[]? opOptLongSeq(long[]? inSeq, out long[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        float[]? opOptFloatSeq(float[]? inSeq, out float[]? outSeq, global::Ice.Current? current = null);
+        float[]? opOptFloatSeq(float[]? inSeq, out float[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        double[]? opOptDoubleSeq(double[]? inSeq, out double[]? outSeq, global::Ice.Current? current = null);
+        double[]? opOptDoubleSeq(double[]? inSeq, out double[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[]? opOptStringSeq(string[]? inSeq, out string[]? outSeq, global::Ice.Current? current = null);
+        string[]? opOptStringSeq(string[]? inSeq, out string[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        E[]? opOptESeq(E[]? inSeq, out E[]? outSeq, global::Ice.Current? current = null);
+        E[]? opOptESeq(E[]? inSeq, out E[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        S[]? opOptSSeq(S[]? inSeq, out S[]? outSeq, global::Ice.Current? current = null);
+        S[]? opOptSSeq(S[]? inSeq, out S[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<int, string>[]? opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[]? inSeq, out global::System.Collections.Generic.Dictionary<int, string>[]? outSeq, global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<int, string>[]? opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[]? inSeq, out global::System.Collections.Generic.Dictionary<int, string>[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[][]? opOptStringSeqSeq(string[][]? inSeq, out string[][]? outSeq, global::Ice.Current? current = null);
+        string[][]? opOptStringSeqSeq(string[][]? inSeq, out string[][]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[]? opOptByteBufferSeq(byte[]? inSeq, out byte[]? outSeq, global::Ice.Current? current = null);
+        byte[]? opOptByteBufferSeq(byte[]? inSeq, out byte[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        short[]? opOptShortBufferSeq(short[]? inSeq, out short[]? outSeq, global::Ice.Current? current = null);
+        short[]? opOptShortBufferSeq(short[]? inSeq, out short[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int[]? opOptIntBufferSeq(int[]? inSeq, out int[]? outSeq, global::Ice.Current? current = null);
+        int[]? opOptIntBufferSeq(int[]? inSeq, out int[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        long[]? opOptLongBufferSeq(long[]? inSeq, out long[]? outSeq, global::Ice.Current? current = null);
+        long[]? opOptLongBufferSeq(long[]? inSeq, out long[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        float[]? opOptFloatBufferSeq(float[]? inSeq, out float[]? outSeq, global::Ice.Current? current = null);
+        float[]? opOptFloatBufferSeq(float[]? inSeq, out float[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        double[]? opOptDoubleBufferSeq(double[]? inSeq, out double[]? outSeq, global::Ice.Current? current = null);
+        double[]? opOptDoubleBufferSeq(double[]? inSeq, out double[]? outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current? current = null);
+        void shutdown(global::Ice.Current current);
     }
 }
 
@@ -3836,91 +3834,91 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract C?[] opCSeq(C?[] inSeq, out C?[] outSeq, global::Ice.Current? current = null);
+        public abstract C?[] opCSeq(C?[] inSeq, out C?[] outSeq, global::Ice.Current current);
 
-        public abstract C?[] opCArray(C?[] inSeq, out C?[] outSeq, global::Ice.Current? current = null);
+        public abstract C?[] opCArray(C?[] inSeq, out C?[] outSeq, global::Ice.Current current);
 
-        public abstract C?[] opCList(C?[] inSeq, out C?[] outSeq, global::Ice.Current? current = null);
+        public abstract C?[] opCList(C?[] inSeq, out C?[] outSeq, global::Ice.Current current);
 
-        public abstract bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.Current? current = null);
+        public abstract bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.Current current);
 
-        public abstract byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current? current = null);
+        public abstract byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current current);
 
-        public abstract short[] opShortSeq(short[] inSeq, out short[] outSeq, global::Ice.Current? current = null);
+        public abstract short[] opShortSeq(short[] inSeq, out short[] outSeq, global::Ice.Current current);
 
-        public abstract int[] opIntSeq(int[] inSeq, out int[] outSeq, global::Ice.Current? current = null);
+        public abstract int[] opIntSeq(int[] inSeq, out int[] outSeq, global::Ice.Current current);
 
-        public abstract long[] opLongSeq(long[] inSeq, out long[] outSeq, global::Ice.Current? current = null);
+        public abstract long[] opLongSeq(long[] inSeq, out long[] outSeq, global::Ice.Current current);
 
-        public abstract float[] opFloatSeq(float[] inSeq, out float[] outSeq, global::Ice.Current? current = null);
+        public abstract float[] opFloatSeq(float[] inSeq, out float[] outSeq, global::Ice.Current current);
 
-        public abstract double[] opDoubleSeq(double[] inSeq, out double[] outSeq, global::Ice.Current? current = null);
+        public abstract double[] opDoubleSeq(double[] inSeq, out double[] outSeq, global::Ice.Current current);
 
-        public abstract string[] opStringSeq(string[] inSeq, out string[] outSeq, global::Ice.Current? current = null);
+        public abstract string[] opStringSeq(string[] inSeq, out string[] outSeq, global::Ice.Current current);
 
-        public abstract E[] opESeq(E[] inSeq, out E[] outSeq, global::Ice.Current? current = null);
+        public abstract E[] opESeq(E[] inSeq, out E[] outSeq, global::Ice.Current current);
 
-        public abstract S[] opSSeq(S[] inSeq, out S[] outSeq, global::Ice.Current? current = null);
+        public abstract S[] opSSeq(S[] inSeq, out S[] outSeq, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<int, string>[] opDSeq(global::System.Collections.Generic.Dictionary<int, string>[] inSeq, out global::System.Collections.Generic.Dictionary<int, string>[] outSeq, global::Ice.Current current);
 
-        public abstract string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::Ice.Current? current = null);
+        public abstract string[][] opStringSeqSeq(string[][] inSeq, out string[][] outSeq, global::Ice.Current current);
 
-        public abstract byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current? current = null);
+        public abstract byte[] opByteBufferSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current current);
 
-        public abstract short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, global::Ice.Current? current = null);
+        public abstract short[] opShortBufferSeq(short[] inSeq, out short[] outSeq, global::Ice.Current current);
 
-        public abstract int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, global::Ice.Current? current = null);
+        public abstract int[] opIntBufferSeq(int[] inSeq, out int[] outSeq, global::Ice.Current current);
 
-        public abstract long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, global::Ice.Current? current = null);
+        public abstract long[] opLongBufferSeq(long[] inSeq, out long[] outSeq, global::Ice.Current current);
 
-        public abstract float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, global::Ice.Current? current = null);
+        public abstract float[] opFloatBufferSeq(float[] inSeq, out float[] outSeq, global::Ice.Current current);
 
-        public abstract double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::Ice.Current? current = null);
+        public abstract double[] opDoubleBufferSeq(double[] inSeq, out double[] outSeq, global::Ice.Current current);
 
-        public abstract C?[]? opOptCSeq(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current? current = null);
+        public abstract C?[]? opOptCSeq(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current current);
 
-        public abstract C?[]? opOptCArray(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current? current = null);
+        public abstract C?[]? opOptCArray(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current current);
 
-        public abstract C?[]? opOptCList(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current? current = null);
+        public abstract C?[]? opOptCList(C?[]? inSeq, out C?[]? outSeq, global::Ice.Current current);
 
-        public abstract bool[]? opOptBoolSeq(bool[]? inSeq, out bool[]? outSeq, global::Ice.Current? current = null);
+        public abstract bool[]? opOptBoolSeq(bool[]? inSeq, out bool[]? outSeq, global::Ice.Current current);
 
-        public abstract byte[]? opOptByteSeq(byte[]? inSeq, out byte[]? outSeq, global::Ice.Current? current = null);
+        public abstract byte[]? opOptByteSeq(byte[]? inSeq, out byte[]? outSeq, global::Ice.Current current);
 
-        public abstract short[]? opOptShortSeq(short[]? inSeq, out short[]? outSeq, global::Ice.Current? current = null);
+        public abstract short[]? opOptShortSeq(short[]? inSeq, out short[]? outSeq, global::Ice.Current current);
 
-        public abstract int[]? opOptIntSeq(int[]? inSeq, out int[]? outSeq, global::Ice.Current? current = null);
+        public abstract int[]? opOptIntSeq(int[]? inSeq, out int[]? outSeq, global::Ice.Current current);
 
-        public abstract long[]? opOptLongSeq(long[]? inSeq, out long[]? outSeq, global::Ice.Current? current = null);
+        public abstract long[]? opOptLongSeq(long[]? inSeq, out long[]? outSeq, global::Ice.Current current);
 
-        public abstract float[]? opOptFloatSeq(float[]? inSeq, out float[]? outSeq, global::Ice.Current? current = null);
+        public abstract float[]? opOptFloatSeq(float[]? inSeq, out float[]? outSeq, global::Ice.Current current);
 
-        public abstract double[]? opOptDoubleSeq(double[]? inSeq, out double[]? outSeq, global::Ice.Current? current = null);
+        public abstract double[]? opOptDoubleSeq(double[]? inSeq, out double[]? outSeq, global::Ice.Current current);
 
-        public abstract string[]? opOptStringSeq(string[]? inSeq, out string[]? outSeq, global::Ice.Current? current = null);
+        public abstract string[]? opOptStringSeq(string[]? inSeq, out string[]? outSeq, global::Ice.Current current);
 
-        public abstract E[]? opOptESeq(E[]? inSeq, out E[]? outSeq, global::Ice.Current? current = null);
+        public abstract E[]? opOptESeq(E[]? inSeq, out E[]? outSeq, global::Ice.Current current);
 
-        public abstract S[]? opOptSSeq(S[]? inSeq, out S[]? outSeq, global::Ice.Current? current = null);
+        public abstract S[]? opOptSSeq(S[]? inSeq, out S[]? outSeq, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<int, string>[]? opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[]? inSeq, out global::System.Collections.Generic.Dictionary<int, string>[]? outSeq, global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<int, string>[]? opOptDSeq(global::System.Collections.Generic.Dictionary<int, string>[]? inSeq, out global::System.Collections.Generic.Dictionary<int, string>[]? outSeq, global::Ice.Current current);
 
-        public abstract string[][]? opOptStringSeqSeq(string[][]? inSeq, out string[][]? outSeq, global::Ice.Current? current = null);
+        public abstract string[][]? opOptStringSeqSeq(string[][]? inSeq, out string[][]? outSeq, global::Ice.Current current);
 
-        public abstract byte[]? opOptByteBufferSeq(byte[]? inSeq, out byte[]? outSeq, global::Ice.Current? current = null);
+        public abstract byte[]? opOptByteBufferSeq(byte[]? inSeq, out byte[]? outSeq, global::Ice.Current current);
 
-        public abstract short[]? opOptShortBufferSeq(short[]? inSeq, out short[]? outSeq, global::Ice.Current? current = null);
+        public abstract short[]? opOptShortBufferSeq(short[]? inSeq, out short[]? outSeq, global::Ice.Current current);
 
-        public abstract int[]? opOptIntBufferSeq(int[]? inSeq, out int[]? outSeq, global::Ice.Current? current = null);
+        public abstract int[]? opOptIntBufferSeq(int[]? inSeq, out int[]? outSeq, global::Ice.Current current);
 
-        public abstract long[]? opOptLongBufferSeq(long[]? inSeq, out long[]? outSeq, global::Ice.Current? current = null);
+        public abstract long[]? opOptLongBufferSeq(long[]? inSeq, out long[]? outSeq, global::Ice.Current current);
 
-        public abstract float[]? opOptFloatBufferSeq(float[]? inSeq, out float[]? outSeq, global::Ice.Current? current = null);
+        public abstract float[]? opOptFloatBufferSeq(float[]? inSeq, out float[]? outSeq, global::Ice.Current current);
 
-        public abstract double[]? opOptDoubleBufferSeq(double[]? inSeq, out double[]? outSeq, global::Ice.Current? current = null);
+        public abstract double[]? opOptDoubleBufferSeq(double[]? inSeq, out double[]? outSeq, global::Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current? current = null);
+        public abstract void shutdown(global::Ice.Current current);
 
         #endregion
 
@@ -3932,17 +3930,17 @@ namespace Test
             "::Test::TestIntf"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -5056,7 +5054,7 @@ namespace Test
             "shutdown"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

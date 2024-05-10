@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -1488,117 +1486,117 @@ namespace Test
     public interface TestIntfOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Value? SBaseAsObject(global::Ice.Current? current = null);
+        global::Ice.Value? SBaseAsObject(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SBase? SBaseAsSBase(global::Ice.Current? current = null);
+        SBase? SBaseAsSBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SBase? SBSKnownDerivedAsSBase(global::Ice.Current? current = null);
+        SBase? SBSKnownDerivedAsSBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SBSKnownDerived? SBSKnownDerivedAsSBSKnownDerived(global::Ice.Current? current = null);
+        SBSKnownDerived? SBSKnownDerivedAsSBSKnownDerived(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SBase? SBSUnknownDerivedAsSBase(global::Ice.Current? current = null);
+        SBase? SBSUnknownDerivedAsSBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SBase? SBSUnknownDerivedAsSBaseCompact(global::Ice.Current? current = null);
+        SBase? SBSUnknownDerivedAsSBaseCompact(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Value? SUnknownAsObject(global::Ice.Current? current = null);
+        global::Ice.Value? SUnknownAsObject(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void checkSUnknown(global::Ice.Value? o, global::Ice.Current? current = null);
+        void checkSUnknown(global::Ice.Value? o, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        B? oneElementCycle(global::Ice.Current? current = null);
+        B? oneElementCycle(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        B? twoElementCycle(global::Ice.Current? current = null);
+        B? twoElementCycle(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        B? D1AsB(global::Ice.Current? current = null);
+        B? D1AsB(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        D1? D1AsD1(global::Ice.Current? current = null);
+        D1? D1AsD1(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        B? D2AsB(global::Ice.Current? current = null);
+        B? D2AsB(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void paramTest1(out B? p1, out B? p2, global::Ice.Current? current = null);
+        void paramTest1(out B? p1, out B? p2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void paramTest2(out B? p2, out B? p1, global::Ice.Current? current = null);
+        void paramTest2(out B? p2, out B? p1, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        B? paramTest3(out B? p1, out B? p2, global::Ice.Current? current = null);
+        B? paramTest3(out B? p1, out B? p2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        B? paramTest4(out B? p, global::Ice.Current? current = null);
+        B? paramTest4(out B? p, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        B? returnTest1(out B? p1, out B? p2, global::Ice.Current? current = null);
+        B? returnTest1(out B? p1, out B? p2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        B? returnTest2(out B? p2, out B? p1, global::Ice.Current? current = null);
+        B? returnTest2(out B? p2, out B? p1, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        B? returnTest3(B? p1, B? p2, global::Ice.Current? current = null);
+        B? returnTest3(B? p1, B? p2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SS3 sequenceTest(SS1? p1, SS2? p2, global::Ice.Current? current = null);
+        SS3 sequenceTest(SS1? p1, SS2? p2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<int, B?> dictionaryTest(global::System.Collections.Generic.Dictionary<int, B?> bin, out global::System.Collections.Generic.Dictionary<int, B?> bout, global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<int, B?> dictionaryTest(global::System.Collections.Generic.Dictionary<int, B?> bin, out global::System.Collections.Generic.Dictionary<int, B?> bout, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        PBase? exchangePBase(PBase? pb, global::Ice.Current? current = null);
+        PBase? exchangePBase(PBase? pb, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Preserved? PBSUnknownAsPreserved(global::Ice.Current? current = null);
+        Preserved? PBSUnknownAsPreserved(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void checkPBSUnknown(Preserved? p, global::Ice.Current? current = null);
+        void checkPBSUnknown(Preserved? p, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void checkPBSUnknownWithGraph(Preserved? p, global::Ice.Current? current = null);
+        void checkPBSUnknownWithGraph(Preserved? p, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void checkPBSUnknown2WithGraph(Preserved? p, global::Ice.Current? current = null);
+        void checkPBSUnknown2WithGraph(Preserved? p, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        PNode? exchangePNode(PNode? pn, global::Ice.Current? current = null);
+        PNode? exchangePNode(PNode? pn, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void throwBaseAsBase(global::Ice.Current? current = null);
+        void throwBaseAsBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void throwDerivedAsBase(global::Ice.Current? current = null);
+        void throwDerivedAsBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void throwDerivedAsDerived(global::Ice.Current? current = null);
+        void throwDerivedAsDerived(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void throwUnknownDerivedAsBase(global::Ice.Current? current = null);
+        void throwUnknownDerivedAsBase(global::Ice.Current current);
 
         /// <summary>
         /// Use of forward-declared class to verify that code is generated correctly.
         /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void useForward(out Forward? f, global::Ice.Current? current = null);
+        void useForward(out Forward? f, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current? current = null);
+        void shutdown(global::Ice.Current current);
     }
 }
 
@@ -3507,77 +3505,77 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract global::Ice.Value? SBaseAsObject(global::Ice.Current? current = null);
+        public abstract global::Ice.Value? SBaseAsObject(global::Ice.Current current);
 
-        public abstract SBase? SBaseAsSBase(global::Ice.Current? current = null);
+        public abstract SBase? SBaseAsSBase(global::Ice.Current current);
 
-        public abstract SBase? SBSKnownDerivedAsSBase(global::Ice.Current? current = null);
+        public abstract SBase? SBSKnownDerivedAsSBase(global::Ice.Current current);
 
-        public abstract SBSKnownDerived? SBSKnownDerivedAsSBSKnownDerived(global::Ice.Current? current = null);
+        public abstract SBSKnownDerived? SBSKnownDerivedAsSBSKnownDerived(global::Ice.Current current);
 
-        public abstract SBase? SBSUnknownDerivedAsSBase(global::Ice.Current? current = null);
+        public abstract SBase? SBSUnknownDerivedAsSBase(global::Ice.Current current);
 
-        public abstract SBase? SBSUnknownDerivedAsSBaseCompact(global::Ice.Current? current = null);
+        public abstract SBase? SBSUnknownDerivedAsSBaseCompact(global::Ice.Current current);
 
-        public abstract global::Ice.Value? SUnknownAsObject(global::Ice.Current? current = null);
+        public abstract global::Ice.Value? SUnknownAsObject(global::Ice.Current current);
 
-        public abstract void checkSUnknown(global::Ice.Value? o, global::Ice.Current? current = null);
+        public abstract void checkSUnknown(global::Ice.Value? o, global::Ice.Current current);
 
-        public abstract B? oneElementCycle(global::Ice.Current? current = null);
+        public abstract B? oneElementCycle(global::Ice.Current current);
 
-        public abstract B? twoElementCycle(global::Ice.Current? current = null);
+        public abstract B? twoElementCycle(global::Ice.Current current);
 
-        public abstract B? D1AsB(global::Ice.Current? current = null);
+        public abstract B? D1AsB(global::Ice.Current current);
 
-        public abstract D1? D1AsD1(global::Ice.Current? current = null);
+        public abstract D1? D1AsD1(global::Ice.Current current);
 
-        public abstract B? D2AsB(global::Ice.Current? current = null);
+        public abstract B? D2AsB(global::Ice.Current current);
 
-        public abstract void paramTest1(out B? p1, out B? p2, global::Ice.Current? current = null);
+        public abstract void paramTest1(out B? p1, out B? p2, global::Ice.Current current);
 
-        public abstract void paramTest2(out B? p2, out B? p1, global::Ice.Current? current = null);
+        public abstract void paramTest2(out B? p2, out B? p1, global::Ice.Current current);
 
-        public abstract B? paramTest3(out B? p1, out B? p2, global::Ice.Current? current = null);
+        public abstract B? paramTest3(out B? p1, out B? p2, global::Ice.Current current);
 
-        public abstract B? paramTest4(out B? p, global::Ice.Current? current = null);
+        public abstract B? paramTest4(out B? p, global::Ice.Current current);
 
-        public abstract B? returnTest1(out B? p1, out B? p2, global::Ice.Current? current = null);
+        public abstract B? returnTest1(out B? p1, out B? p2, global::Ice.Current current);
 
-        public abstract B? returnTest2(out B? p2, out B? p1, global::Ice.Current? current = null);
+        public abstract B? returnTest2(out B? p2, out B? p1, global::Ice.Current current);
 
-        public abstract B? returnTest3(B? p1, B? p2, global::Ice.Current? current = null);
+        public abstract B? returnTest3(B? p1, B? p2, global::Ice.Current current);
 
-        public abstract SS3 sequenceTest(SS1? p1, SS2? p2, global::Ice.Current? current = null);
+        public abstract SS3 sequenceTest(SS1? p1, SS2? p2, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<int, B?> dictionaryTest(global::System.Collections.Generic.Dictionary<int, B?> bin, out global::System.Collections.Generic.Dictionary<int, B?> bout, global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<int, B?> dictionaryTest(global::System.Collections.Generic.Dictionary<int, B?> bin, out global::System.Collections.Generic.Dictionary<int, B?> bout, global::Ice.Current current);
 
-        public abstract PBase? exchangePBase(PBase? pb, global::Ice.Current? current = null);
+        public abstract PBase? exchangePBase(PBase? pb, global::Ice.Current current);
 
-        public abstract Preserved? PBSUnknownAsPreserved(global::Ice.Current? current = null);
+        public abstract Preserved? PBSUnknownAsPreserved(global::Ice.Current current);
 
-        public abstract void checkPBSUnknown(Preserved? p, global::Ice.Current? current = null);
+        public abstract void checkPBSUnknown(Preserved? p, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknownAsPreservedWithGraphAsync(global::Ice.Current current);
 
-        public abstract void checkPBSUnknownWithGraph(Preserved? p, global::Ice.Current? current = null);
+        public abstract void checkPBSUnknownWithGraph(Preserved? p, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<Preserved?> PBSUnknown2AsPreservedWithGraphAsync(global::Ice.Current current);
 
-        public abstract void checkPBSUnknown2WithGraph(Preserved? p, global::Ice.Current? current = null);
+        public abstract void checkPBSUnknown2WithGraph(Preserved? p, global::Ice.Current current);
 
-        public abstract PNode? exchangePNode(PNode? pn, global::Ice.Current? current = null);
+        public abstract PNode? exchangePNode(PNode? pn, global::Ice.Current current);
 
-        public abstract void throwBaseAsBase(global::Ice.Current? current = null);
+        public abstract void throwBaseAsBase(global::Ice.Current current);
 
-        public abstract void throwDerivedAsBase(global::Ice.Current? current = null);
+        public abstract void throwDerivedAsBase(global::Ice.Current current);
 
-        public abstract void throwDerivedAsDerived(global::Ice.Current? current = null);
+        public abstract void throwDerivedAsDerived(global::Ice.Current current);
 
-        public abstract void throwUnknownDerivedAsBase(global::Ice.Current? current = null);
+        public abstract void throwUnknownDerivedAsBase(global::Ice.Current current);
 
-        public abstract void useForward(out Forward? f, global::Ice.Current? current = null);
+        public abstract void useForward(out Forward? f, global::Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current? current = null);
+        public abstract void shutdown(global::Ice.Current current);
 
         #endregion
 
@@ -3589,17 +3587,17 @@ namespace Test
             "::Test::TestIntf"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -4224,7 +4222,7 @@ namespace Test
             "useForward"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

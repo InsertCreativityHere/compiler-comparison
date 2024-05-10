@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -139,59 +137,59 @@ namespace Test
     public interface CallbackOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void ping(global::Ice.Current? current = null);
+        void ping(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getCount(global::Ice.Current? current = null);
+        int getCount(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void datagram(global::Ice.Current? current = null);
+        void datagram(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getDatagramCount(global::Ice.Current? current = null);
+        int getDatagramCount(global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface MyClassOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task callCallbackAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task callCallbackAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<int> getCallbackCountAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<int> getCallbackCountAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void incCounter(int expected, global::Ice.Current? current = null);
+        void incCounter(int expected, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void waitCounter(int value, global::Ice.Current? current = null);
+        void waitCounter(int value, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getConnectionCount(global::Ice.Current? current = null);
+        int getConnectionCount(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getConnectionInfo(global::Ice.Current? current = null);
+        string getConnectionInfo(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void closeConnection(bool force, global::Ice.Current? current = null);
+        void closeConnection(bool force, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void datagram(global::Ice.Current? current = null);
+        void datagram(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getDatagramCount(global::Ice.Current? current = null);
+        int getDatagramCount(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void callDatagramCallback(global::Ice.Current? current = null);
+        void callDatagramCallback(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<int> getCallbackDatagramCountAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<int> getCallbackDatagramCountAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getHeartbeatCount(global::Ice.Current? current = null);
+        int getHeartbeatCount(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current? current = null);
+        void shutdown(global::Ice.Current current);
     }
 }
 
@@ -1121,13 +1119,13 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void ping(global::Ice.Current? current = null);
+        public abstract void ping(global::Ice.Current current);
 
-        public abstract int getCount(global::Ice.Current? current = null);
+        public abstract int getCount(global::Ice.Current current);
 
-        public abstract void datagram(global::Ice.Current? current = null);
+        public abstract void datagram(global::Ice.Current current);
 
-        public abstract int getDatagramCount(global::Ice.Current? current = null);
+        public abstract int getDatagramCount(global::Ice.Current current);
 
         #endregion
 
@@ -1139,17 +1137,17 @@ namespace Test
             "::Test::Callback"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1221,7 +1219,7 @@ namespace Test
             "ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1279,31 +1277,31 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract global::System.Threading.Tasks.Task callCallbackAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task callCallbackAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<int> getCallbackCountAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<int> getCallbackCountAsync(global::Ice.Current current);
 
-        public abstract void incCounter(int expected, global::Ice.Current? current = null);
+        public abstract void incCounter(int expected, global::Ice.Current current);
 
-        public abstract void waitCounter(int value, global::Ice.Current? current = null);
+        public abstract void waitCounter(int value, global::Ice.Current current);
 
-        public abstract int getConnectionCount(global::Ice.Current? current = null);
+        public abstract int getConnectionCount(global::Ice.Current current);
 
-        public abstract string getConnectionInfo(global::Ice.Current? current = null);
+        public abstract string getConnectionInfo(global::Ice.Current current);
 
-        public abstract void closeConnection(bool force, global::Ice.Current? current = null);
+        public abstract void closeConnection(bool force, global::Ice.Current current);
 
-        public abstract void datagram(global::Ice.Current? current = null);
+        public abstract void datagram(global::Ice.Current current);
 
-        public abstract int getDatagramCount(global::Ice.Current? current = null);
+        public abstract int getDatagramCount(global::Ice.Current current);
 
-        public abstract void callDatagramCallback(global::Ice.Current? current = null);
+        public abstract void callDatagramCallback(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<int> getCallbackDatagramCountAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<int> getCallbackDatagramCountAsync(global::Ice.Current current);
 
-        public abstract int getHeartbeatCount(global::Ice.Current? current = null);
+        public abstract int getHeartbeatCount(global::Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current? current = null);
+        public abstract void shutdown(global::Ice.Current current);
 
         #endregion
 
@@ -1315,17 +1313,17 @@ namespace Test
             "::Test::MyClass"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1516,7 +1514,7 @@ namespace Test
             "waitCounter"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

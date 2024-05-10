@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -100,34 +98,34 @@ namespace Ice.namespacemd
         public interface InitialOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::NoNamespace.C1? getNoNamespaceC2AsC1(global::Ice.Current? current = null);
+            global::NoNamespace.C1? getNoNamespaceC2AsC1(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::NoNamespace.C2? getNoNamespaceC2AsC2(global::Ice.Current? current = null);
+            global::NoNamespace.C2? getNoNamespaceC2AsC2(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwNoNamespaceE2AsE1(global::Ice.Current? current = null);
+            void throwNoNamespaceE2AsE1(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwNoNamespaceE2AsE2(global::Ice.Current? current = null);
+            void throwNoNamespaceE2AsE2(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwNoNamespaceNotify(global::Ice.Current? current = null);
+            void throwNoNamespaceNotify(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(global::Ice.Current? current = null);
+            global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(global::Ice.Current? current = null);
+            global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwWithNamespaceE2AsE1(global::Ice.Current? current = null);
+            void throwWithNamespaceE2AsE1(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwWithNamespaceE2AsE2(global::Ice.Current? current = null);
+            void throwWithNamespaceE2AsE2(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current? current = null);
+            void shutdown(global::Ice.Current current);
         }
     }
 }
@@ -734,25 +732,25 @@ namespace Ice.namespacemd
         {
             #region Slice operations
 
-            public abstract global::NoNamespace.C1? getNoNamespaceC2AsC1(global::Ice.Current? current = null);
+            public abstract global::NoNamespace.C1? getNoNamespaceC2AsC1(global::Ice.Current current);
 
-            public abstract global::NoNamespace.C2? getNoNamespaceC2AsC2(global::Ice.Current? current = null);
+            public abstract global::NoNamespace.C2? getNoNamespaceC2AsC2(global::Ice.Current current);
 
-            public abstract void throwNoNamespaceE2AsE1(global::Ice.Current? current = null);
+            public abstract void throwNoNamespaceE2AsE1(global::Ice.Current current);
 
-            public abstract void throwNoNamespaceE2AsE2(global::Ice.Current? current = null);
+            public abstract void throwNoNamespaceE2AsE2(global::Ice.Current current);
 
-            public abstract void throwNoNamespaceNotify(global::Ice.Current? current = null);
+            public abstract void throwNoNamespaceNotify(global::Ice.Current current);
 
-            public abstract global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(global::Ice.Current? current = null);
+            public abstract global::Ice.namespacemd.WithNamespace.C1? getWithNamespaceC2AsC1(global::Ice.Current current);
 
-            public abstract global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(global::Ice.Current? current = null);
+            public abstract global::Ice.namespacemd.WithNamespace.C2? getWithNamespaceC2AsC2(global::Ice.Current current);
 
-            public abstract void throwWithNamespaceE2AsE1(global::Ice.Current? current = null);
+            public abstract void throwWithNamespaceE2AsE1(global::Ice.Current current);
 
-            public abstract void throwWithNamespaceE2AsE2(global::Ice.Current? current = null);
+            public abstract void throwWithNamespaceE2AsE2(global::Ice.Current current);
 
-            public abstract void shutdown(global::Ice.Current? current = null);
+            public abstract void shutdown(global::Ice.Current current);
 
             #endregion
 
@@ -764,17 +762,17 @@ namespace Ice.namespacemd
                 "::Test::Initial"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -922,7 +920,7 @@ namespace Ice.namespacemd
                 "throwWithNamespaceE2AsE2"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

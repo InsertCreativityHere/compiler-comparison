@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Router.ice")]
 
 #pragma warning disable 1591
@@ -186,19 +184,19 @@ namespace Ice
         ///  The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
         ///  </param>
         /// <returns>The router's client proxy.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx? getClientProxy(out bool? hasRoutingTable, Current? current = null);
+        ObjectPrx? getClientProxy(out bool? hasRoutingTable, Current current);
 
         /// <summary>
         /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
         /// </summary>
         /// <returns>The router's server proxy.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx? getServerProxy(Current? current = null);
+        ObjectPrx? getServerProxy(Current current);
 
         /// <summary>
         /// Add new proxy information to the router's routing table.
@@ -206,10 +204,10 @@ namespace Ice
         /// <param name="proxies">The proxies to add. Adding a null proxy is an error.
         ///  </param>
         /// <returns>Proxies discarded by the router. These proxies are all non-null.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Current? current = null);
+        ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Current current);
     }
 
     /// <summary>
@@ -228,10 +226,10 @@ namespace Ice
         ///  replicas. This proxy is never null.
         /// </summary>
         ///  <returns>The router proxy.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        RouterPrx? getRouter(Current? current = null);
+        RouterPrx? getRouter(Current current);
     }
 }
 
@@ -650,11 +648,11 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract ObjectPrx? getClientProxy(out bool? hasRoutingTable, Current? current = null);
+        public abstract ObjectPrx? getClientProxy(out bool? hasRoutingTable, Current current);
 
-        public abstract ObjectPrx? getServerProxy(Current? current = null);
+        public abstract ObjectPrx? getServerProxy(Current current);
 
-        public abstract ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Current? current = null);
+        public abstract ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Current current);
 
         #endregion
 
@@ -666,17 +664,17 @@ namespace Ice
             "::Ice::Router"
         };
 
-        public override bool ice_isA(string s, Current? current = null)
+        public override bool ice_isA(string s, Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current? current = null)
+        public override string[] ice_ids(Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(Current? current = null)
+        public override string ice_id(Current current)
         {
             return ice_staticId();
         }
@@ -745,7 +743,7 @@ namespace Ice
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<OutputStream>
+        public override global::System.Threading.Tasks.Task<OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -799,7 +797,7 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract RouterPrx? getRouter(Current? current = null);
+        public abstract RouterPrx? getRouter(Current current);
 
         #endregion
 
@@ -811,17 +809,17 @@ namespace Ice
             "::Ice::RouterFinder"
         };
 
-        public override bool ice_isA(string s, Current? current = null)
+        public override bool ice_isA(string s, Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current? current = null)
+        public override string[] ice_ids(Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(Current? current = null)
+        public override string ice_id(Current current)
         {
             return ice_staticId();
         }
@@ -857,7 +855,7 @@ namespace Ice
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<OutputStream>
+        public override global::System.Threading.Tasks.Task<OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

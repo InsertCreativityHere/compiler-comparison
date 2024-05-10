@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Clash.ice")]
 
 #pragma warning disable 1591
@@ -504,40 +502,40 @@ namespace Clash
     public interface IntfOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void context(global::Ice.Current? current = null);
+        void context(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void current(global::Ice.Current? current = null);
+        void current(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void response(global::Ice.Current? current = null);
+        void response(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void typeId(global::Ice.Current? current = null);
+        void typeId(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void del(global::Ice.Current? current = null);
+        void del(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void cookie(global::Ice.Current? current = null);
+        void cookie(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void sync(global::Ice.Current? current = null);
+        void sync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void inS(global::Ice.Current? current = null);
+        void inS(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void istr(global::Ice.Current? current = null);
+        void istr(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void obj(global::Ice.Current? current = null);
+        void obj(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string? proxy, int? obj, global::Ice.Current? current_ = null);
+        void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string? proxy, int? obj, global::Ice.Current current_);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string? proxy, out int? obj, global::Ice.Current? current_ = null);
+        void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string? proxy, out int? obj, global::Ice.Current current_);
     }
 }
 
@@ -1150,29 +1148,29 @@ namespace Clash
     {
         #region Slice operations
 
-        public abstract void context(global::Ice.Current? current = null);
+        public abstract void context(global::Ice.Current current);
 
-        public abstract void current(global::Ice.Current? current = null);
+        public abstract void current(global::Ice.Current current);
 
-        public abstract void response(global::Ice.Current? current = null);
+        public abstract void response(global::Ice.Current current);
 
-        public abstract void typeId(global::Ice.Current? current = null);
+        public abstract void typeId(global::Ice.Current current);
 
-        public abstract void del(global::Ice.Current? current = null);
+        public abstract void del(global::Ice.Current current);
 
-        public abstract void cookie(global::Ice.Current? current = null);
+        public abstract void cookie(global::Ice.Current current);
 
-        public abstract void sync(global::Ice.Current? current = null);
+        public abstract void sync(global::Ice.Current current);
 
-        public abstract void inS(global::Ice.Current? current = null);
+        public abstract void inS(global::Ice.Current current);
 
-        public abstract void istr(global::Ice.Current? current = null);
+        public abstract void istr(global::Ice.Current current);
 
-        public abstract void obj(global::Ice.Current? current = null);
+        public abstract void obj(global::Ice.Current current);
 
-        public abstract void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string? proxy, int? obj, global::Ice.Current? current_ = null);
+        public abstract void op(string context, string current, string response, string ex, string sent, string cookie, string sync, string result, string istr, string ostr, string? proxy, int? obj, global::Ice.Current current_);
 
-        public abstract void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string? proxy, out int? obj, global::Ice.Current? current_ = null);
+        public abstract void opOut(out string context, out string current, out string response, out string ex, out string sent, out string cookie, out string sync, out string result, out string istr, out string ostr, out string? proxy, out int? obj, global::Ice.Current current_);
 
         #endregion
 
@@ -1184,17 +1182,17 @@ namespace Clash
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1399,7 +1397,7 @@ namespace Clash
             "typeId"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

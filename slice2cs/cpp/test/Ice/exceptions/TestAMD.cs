@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("TestAMD.ice")]
 
 #pragma warning disable 1591
@@ -684,80 +682,80 @@ namespace Test
     public interface ThrowerOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<bool> supportsUndeclaredExceptionsAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<bool> supportsUndeclaredExceptionsAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<bool> supportsAssertExceptionAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<bool> supportsAssertExceptionAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwAasAAsync(int a, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwAasAAsync(int a, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwAorDasAorDAsync(int a, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwAorDasAorDAsync(int a, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwBasAAsync(int a, int b, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwBasAAsync(int a, int b, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwCasAAsync(int a, int b, int c, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwCasAAsync(int a, int b, int c, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwBasBAsync(int a, int b, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwBasBAsync(int a, int b, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwCasBAsync(int a, int b, int c, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwCasBAsync(int a, int b, int c, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwCasCAsync(int a, int b, int c, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwCasCAsync(int a, int b, int c, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwModAAsync(int a, int a2, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwModAAsync(int a, int a2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwUndeclaredAAsync(int a, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwUndeclaredAAsync(int a, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwUndeclaredBAsync(int a, int b, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwUndeclaredBAsync(int a, int b, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwUndeclaredCAsync(int a, int b, int c, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwUndeclaredCAsync(int a, int b, int c, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwLocalExceptionAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwLocalExceptionAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwNonIceExceptionAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwNonIceExceptionAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwAssertExceptionAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwAssertExceptionAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<byte[]> throwMemoryLimitExceptionAsync(byte[] seq, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<byte[]> throwMemoryLimitExceptionAsync(byte[] seq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwLocalExceptionIdempotentAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwLocalExceptionIdempotentAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwAfterResponseAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwAfterResponseAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwAfterExceptionAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwAfterExceptionAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwEAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwEAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwFAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task throwFAsync(global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface WrongOperationOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task noSuchOperationAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task noSuchOperationAsync(global::Ice.Current current);
     }
 }
 
@@ -2239,17 +2237,17 @@ namespace Test
             "::Test::Empty"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2268,51 +2266,51 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<bool> supportsUndeclaredExceptionsAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<bool> supportsUndeclaredExceptionsAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<bool> supportsAssertExceptionAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<bool> supportsAssertExceptionAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwAasAAsync(int a, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwAasAAsync(int a, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwAorDasAorDAsync(int a, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwAorDasAorDAsync(int a, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwBasAAsync(int a, int b, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwBasAAsync(int a, int b, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwCasAAsync(int a, int b, int c, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwCasAAsync(int a, int b, int c, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwBasBAsync(int a, int b, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwBasBAsync(int a, int b, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwCasBAsync(int a, int b, int c, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwCasBAsync(int a, int b, int c, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwCasCAsync(int a, int b, int c, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwCasCAsync(int a, int b, int c, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwModAAsync(int a, int a2, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwModAAsync(int a, int a2, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwUndeclaredAAsync(int a, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwUndeclaredAAsync(int a, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwUndeclaredBAsync(int a, int b, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwUndeclaredBAsync(int a, int b, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwUndeclaredCAsync(int a, int b, int c, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwUndeclaredCAsync(int a, int b, int c, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwLocalExceptionAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwLocalExceptionAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwNonIceExceptionAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwNonIceExceptionAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwAssertExceptionAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwAssertExceptionAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<byte[]> throwMemoryLimitExceptionAsync(byte[] seq, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<byte[]> throwMemoryLimitExceptionAsync(byte[] seq, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwLocalExceptionIdempotentAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwLocalExceptionIdempotentAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwAfterResponseAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwAfterResponseAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwAfterExceptionAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwAfterExceptionAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwEAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwEAsync(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwFAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task throwFAsync(global::Ice.Current current);
 
         #endregion
 
@@ -2324,17 +2322,17 @@ namespace Test
             "::Test::Thrower"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2658,7 +2656,7 @@ namespace Test
             "throwUndeclaredC"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2792,7 +2790,7 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract global::System.Threading.Tasks.Task noSuchOperationAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task noSuchOperationAsync(global::Ice.Current current);
 
         #endregion
 
@@ -2804,17 +2802,17 @@ namespace Test
             "::Test::WrongOperation"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2846,7 +2844,7 @@ namespace Test
             "noSuchOperation"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

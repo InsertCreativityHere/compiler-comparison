@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("ServerPrivate.ice")]
 
 #pragma warning disable 1591

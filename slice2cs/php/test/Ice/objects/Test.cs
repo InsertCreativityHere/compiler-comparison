@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -2540,92 +2538,92 @@ namespace Test
     public interface InitialOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current? current = null);
+        void shutdown(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        B? getB1(global::Ice.Current? current = null);
+        B? getB1(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        B? getB2(global::Ice.Current? current = null);
+        B? getB2(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C? getC(global::Ice.Current? current = null);
+        C? getC(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        D? getD(global::Ice.Current? current = null);
+        D? getD(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        E? getE(global::Ice.Current? current = null);
+        E? getE(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        F? getF(global::Ice.Current? current = null);
+        F? getF(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setRecursive(Recursive? p, global::Ice.Current? current = null);
+        void setRecursive(Recursive? p, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool supportsClassGraphDepthMax(global::Ice.Current? current = null);
+        bool supportsClassGraphDepthMax(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setCycle(Recursive? r, global::Ice.Current? current = null);
+        void setCycle(Recursive? r, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool acceptsClassCycles(global::Ice.Current? current = null);
+        bool acceptsClassCycles(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Initial_GetMBMarshaledResult getMB(global::Ice.Current? current = null);
+        Initial_GetMBMarshaledResult getMB(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Initial_GetAMDMBMarshaledResult> getAMDMBAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<Initial_GetAMDMBMarshaledResult> getAMDMBAsync(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void getAll(out B? b1, out B? b2, out C? theC, out D? theD, global::Ice.Current? current = null);
+        void getAll(out B? b1, out B? b2, out C? theC, out D? theD, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        K? getK(global::Ice.Current? current = null);
+        K? getK(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Value? opValue(global::Ice.Value? v1, out global::Ice.Value? v2, global::Ice.Current? current = null);
+        global::Ice.Value? opValue(global::Ice.Value? v1, out global::Ice.Value? v2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Value?[] opValueSeq(global::Ice.Value?[] v1, out global::Ice.Value?[] v2, global::Ice.Current? current = null);
+        global::Ice.Value?[] opValueSeq(global::Ice.Value?[] v1, out global::Ice.Value?[] v2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v2, global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        D1? getD1(D1? d1, global::Ice.Current? current = null);
+        D1? getD1(D1? d1, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void throwEDerived(global::Ice.Current? current = null);
+        void throwEDerived(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setG(G? theG, global::Ice.Current? current = null);
+        void setG(G? theG, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        @Base?[] opBaseSeq(@Base?[] inSeq, out @Base?[] outSeq, global::Ice.Current? current = null);
+        @Base?[] opBaseSeq(@Base?[] inSeq, out @Base?[] outSeq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Compact? getCompact(global::Ice.Current? current = null);
+        Compact? getCompact(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        F1? opF1(F1? f11, out F1? f12, global::Ice.Current? current = null);
+        F1? opF1(F1? f11, out F1? f12, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        F2Prx? opF2(F2Prx? f21, out F2Prx? f22, global::Ice.Current? current = null);
+        F2Prx? opF2(F2Prx? f21, out F2Prx? f22, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        F3? opF3(F3? f31, out F3? f32, global::Ice.Current? current = null);
+        F3? opF3(F3? f31, out F3? f32, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool hasF3(global::Ice.Current? current = null);
+        bool hasF3(global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface UnexpectedObjectExceptionTestOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Empty? op(global::Ice.Current? current = null);
+        Empty? op(global::Ice.Current current);
     }
 }
 
@@ -4559,17 +4557,17 @@ namespace Test
             "::Test::I"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -4599,17 +4597,17 @@ namespace Test
             "::Test::J"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -4628,59 +4626,59 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void shutdown(global::Ice.Current? current = null);
+        public abstract void shutdown(global::Ice.Current current);
 
-        public abstract B? getB1(global::Ice.Current? current = null);
+        public abstract B? getB1(global::Ice.Current current);
 
-        public abstract B? getB2(global::Ice.Current? current = null);
+        public abstract B? getB2(global::Ice.Current current);
 
-        public abstract C? getC(global::Ice.Current? current = null);
+        public abstract C? getC(global::Ice.Current current);
 
-        public abstract D? getD(global::Ice.Current? current = null);
+        public abstract D? getD(global::Ice.Current current);
 
-        public abstract E? getE(global::Ice.Current? current = null);
+        public abstract E? getE(global::Ice.Current current);
 
-        public abstract F? getF(global::Ice.Current? current = null);
+        public abstract F? getF(global::Ice.Current current);
 
-        public abstract void setRecursive(Recursive? p, global::Ice.Current? current = null);
+        public abstract void setRecursive(Recursive? p, global::Ice.Current current);
 
-        public abstract bool supportsClassGraphDepthMax(global::Ice.Current? current = null);
+        public abstract bool supportsClassGraphDepthMax(global::Ice.Current current);
 
-        public abstract void setCycle(Recursive? r, global::Ice.Current? current = null);
+        public abstract void setCycle(Recursive? r, global::Ice.Current current);
 
-        public abstract bool acceptsClassCycles(global::Ice.Current? current = null);
+        public abstract bool acceptsClassCycles(global::Ice.Current current);
 
-        public abstract Initial_GetMBMarshaledResult getMB(global::Ice.Current? current = null);
+        public abstract Initial_GetMBMarshaledResult getMB(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<Initial_GetAMDMBMarshaledResult> getAMDMBAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<Initial_GetAMDMBMarshaledResult> getAMDMBAsync(global::Ice.Current current);
 
-        public abstract void getAll(out B? b1, out B? b2, out C? theC, out D? theD, global::Ice.Current? current = null);
+        public abstract void getAll(out B? b1, out B? b2, out C? theC, out D? theD, global::Ice.Current current);
 
-        public abstract K? getK(global::Ice.Current? current = null);
+        public abstract K? getK(global::Ice.Current current);
 
-        public abstract global::Ice.Value? opValue(global::Ice.Value? v1, out global::Ice.Value? v2, global::Ice.Current? current = null);
+        public abstract global::Ice.Value? opValue(global::Ice.Value? v1, out global::Ice.Value? v2, global::Ice.Current current);
 
-        public abstract global::Ice.Value?[] opValueSeq(global::Ice.Value?[] v1, out global::Ice.Value?[] v2, global::Ice.Current? current = null);
+        public abstract global::Ice.Value?[] opValueSeq(global::Ice.Value?[] v1, out global::Ice.Value?[] v2, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v2, global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> opValueMap(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v1, out global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v2, global::Ice.Current current);
 
-        public abstract D1? getD1(D1? d1, global::Ice.Current? current = null);
+        public abstract D1? getD1(D1? d1, global::Ice.Current current);
 
-        public abstract void throwEDerived(global::Ice.Current? current = null);
+        public abstract void throwEDerived(global::Ice.Current current);
 
-        public abstract void setG(G? theG, global::Ice.Current? current = null);
+        public abstract void setG(G? theG, global::Ice.Current current);
 
-        public abstract @Base?[] opBaseSeq(@Base?[] inSeq, out @Base?[] outSeq, global::Ice.Current? current = null);
+        public abstract @Base?[] opBaseSeq(@Base?[] inSeq, out @Base?[] outSeq, global::Ice.Current current);
 
-        public abstract Compact? getCompact(global::Ice.Current? current = null);
+        public abstract Compact? getCompact(global::Ice.Current current);
 
-        public abstract F1? opF1(F1? f11, out F1? f12, global::Ice.Current? current = null);
+        public abstract F1? opF1(F1? f11, out F1? f12, global::Ice.Current current);
 
-        public abstract F2Prx? opF2(F2Prx? f21, out F2Prx? f22, global::Ice.Current? current = null);
+        public abstract F2Prx? opF2(F2Prx? f21, out F2Prx? f22, global::Ice.Current current);
 
-        public abstract F3? opF3(F3? f31, out F3? f32, global::Ice.Current? current = null);
+        public abstract F3? opF3(F3? f31, out F3? f32, global::Ice.Current current);
 
-        public abstract bool hasF3(global::Ice.Current? current = null);
+        public abstract bool hasF3(global::Ice.Current current);
 
         #endregion
 
@@ -4692,17 +4690,17 @@ namespace Test
             "::Test::Initial"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -5159,7 +5157,7 @@ namespace Test
             "throwEDerived"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -5309,7 +5307,7 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract Empty? op(global::Ice.Current? current = null);
+        public abstract Empty? op(global::Ice.Current current);
 
         #endregion
 
@@ -5321,17 +5319,17 @@ namespace Test
             "::Test::UnexpectedObjectExceptionTest"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -5368,7 +5366,7 @@ namespace Test
             "op"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

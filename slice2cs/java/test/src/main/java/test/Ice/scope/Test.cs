@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -1155,34 +1153,34 @@ namespace Test
     public interface IOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        S opS(S s1, out S s2, global::Ice.Current? current = null);
+        S opS(S s1, out S s2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current? current = null);
+        S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C? opC(C? c1, out C? c2, global::Ice.Current? current = null);
+        C? opC(C? c1, out C? c2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[] opCSeq(C?[] c1, out C?[] c2, global::Ice.Current? current = null);
+        C?[] opCSeq(C?[] c1, out C?[] c2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        E1 opE1(E1 E1, global::Ice.Current? current = null);
+        E1 opE1(E1 E1, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        S1 opS1(S1 S1, global::Ice.Current? current = null);
+        S1 opS1(S1 S1, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C1? opC1(C1? C1, global::Ice.Current? current = null);
+        C1? opC1(C1? C1, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current? current = null);
+        void shutdown(global::Ice.Current current);
     }
 
     namespace Inner
@@ -1193,25 +1191,25 @@ namespace Test
             public interface IOperations_
             {
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                S opS(S s1, out S s2, global::Ice.Current? current = null);
+                S opS(S s1, out S s2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current? current = null);
+                S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current? current = null);
+                global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                C? opC(C? c1, out C? c2, global::Ice.Current? current = null);
+                C? opC(C? c1, out C? c2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                C?[] opCSeq(C?[] c1, out C?[] c2, global::Ice.Current? current = null);
+                C?[] opCSeq(C?[] c1, out C?[] c2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current? current = null);
+                global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                void shutdown(global::Ice.Current? current = null);
+                void shutdown(global::Ice.Current current);
             }
         }
 
@@ -1219,25 +1217,25 @@ namespace Test
         public interface IOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Test.Inner.Inner2.S opS(global::Test.Inner.Inner2.S s1, out global::Test.Inner.Inner2.S s2, global::Ice.Current? current = null);
+            global::Test.Inner.Inner2.S opS(global::Test.Inner.Inner2.S s1, out global::Test.Inner.Inner2.S s2, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Test.Inner.Inner2.S[] opSSeq(global::Test.Inner.Inner2.S[] s1, out global::Test.Inner.Inner2.S[] s2, global::Ice.Current? current = null);
+            global::Test.Inner.Inner2.S[] opSSeq(global::Test.Inner.Inner2.S[] s1, out global::Test.Inner.Inner2.S[] s2, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s2, global::Ice.Current? current = null);
+            global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s2, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Test.Inner.Inner2.C? opC(global::Test.Inner.Inner2.C? c1, out global::Test.Inner.Inner2.C? c2, global::Ice.Current? current = null);
+            global::Test.Inner.Inner2.C? opC(global::Test.Inner.Inner2.C? c1, out global::Test.Inner.Inner2.C? c2, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Test.Inner.Inner2.C?[] opCSeq(global::Test.Inner.Inner2.C?[] c1, out global::Test.Inner.Inner2.C?[] c2, global::Ice.Current? current = null);
+            global::Test.Inner.Inner2.C?[] opCSeq(global::Test.Inner.Inner2.C?[] c1, out global::Test.Inner.Inner2.C?[] c2, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c2, global::Ice.Current? current = null);
+            global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c2, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current? current = null);
+            void shutdown(global::Ice.Current current);
         }
     }
 }
@@ -1252,25 +1250,25 @@ namespace Inner
             public interface IOperations_
             {
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::Test.S opS(global::Test.S s1, out global::Test.S s2, global::Ice.Current? current = null);
+                global::Test.S opS(global::Test.S s1, out global::Test.S s2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::Test.S[] opSSeq(global::Test.S[] s1, out global::Test.S[] s2, global::Ice.Current? current = null);
+                global::Test.S[] opSSeq(global::Test.S[] s1, out global::Test.S[] s2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::System.Collections.Generic.Dictionary<string, global::Test.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.S> s2, global::Ice.Current? current = null);
+                global::System.Collections.Generic.Dictionary<string, global::Test.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.S> s2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::Test.C? opC(global::Test.C? c1, out global::Test.C? c2, global::Ice.Current? current = null);
+                global::Test.C? opC(global::Test.C? c1, out global::Test.C? c2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::Test.C?[] opCSeq(global::Test.C?[] c1, out global::Test.C?[] c2, global::Ice.Current? current = null);
+                global::Test.C?[] opCSeq(global::Test.C?[] c1, out global::Test.C?[] c2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::System.Collections.Generic.Dictionary<string, global::Test.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.C?> c2, global::Ice.Current? current = null);
+                global::System.Collections.Generic.Dictionary<string, global::Test.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.C?> c2, global::Ice.Current current);
 
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                void shutdown(global::Ice.Current? current = null);
+                void shutdown(global::Ice.Current current);
             }
         }
     }
@@ -3913,25 +3911,25 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract S opS(S s1, out S s2, global::Ice.Current? current = null);
+        public abstract S opS(S s1, out S s2, global::Ice.Current current);
 
-        public abstract S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current? current = null);
+        public abstract S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current current);
 
-        public abstract C? opC(C? c1, out C? c2, global::Ice.Current? current = null);
+        public abstract C? opC(C? c1, out C? c2, global::Ice.Current current);
 
-        public abstract C?[] opCSeq(C?[] c1, out C?[] c2, global::Ice.Current? current = null);
+        public abstract C?[] opCSeq(C?[] c1, out C?[] c2, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current current);
 
-        public abstract E1 opE1(E1 E1, global::Ice.Current? current = null);
+        public abstract E1 opE1(E1 E1, global::Ice.Current current);
 
-        public abstract S1 opS1(S1 S1, global::Ice.Current? current = null);
+        public abstract S1 opS1(S1 S1, global::Ice.Current current);
 
-        public abstract C1? opC1(C1? C1, global::Ice.Current? current = null);
+        public abstract C1? opC1(C1? C1, global::Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current? current = null);
+        public abstract void shutdown(global::Ice.Current current);
 
         #endregion
 
@@ -3943,17 +3941,17 @@ namespace Test
             "::Test::I"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -4159,7 +4157,7 @@ namespace Test
             "shutdown"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -4245,19 +4243,19 @@ namespace Test
             {
                 #region Slice operations
 
-                public abstract S opS(S s1, out S s2, global::Ice.Current? current = null);
+                public abstract S opS(S s1, out S s2, global::Ice.Current current);
 
-                public abstract S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current? current = null);
+                public abstract S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current current);
 
-                public abstract global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current? current = null);
+                public abstract global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current current);
 
-                public abstract C? opC(C? c1, out C? c2, global::Ice.Current? current = null);
+                public abstract C? opC(C? c1, out C? c2, global::Ice.Current current);
 
-                public abstract C?[] opCSeq(C?[] c1, out C?[] c2, global::Ice.Current? current = null);
+                public abstract C?[] opCSeq(C?[] c1, out C?[] c2, global::Ice.Current current);
 
-                public abstract global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current? current = null);
+                public abstract global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current current);
 
-                public abstract void shutdown(global::Ice.Current? current = null);
+                public abstract void shutdown(global::Ice.Current current);
 
                 #endregion
 
@@ -4269,17 +4267,17 @@ namespace Test
                     "::Test::Inner::Inner2::I"
                 };
 
-                public override bool ice_isA(string s, global::Ice.Current? current = null)
+                public override bool ice_isA(string s, global::Ice.Current current)
                 {
                     return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
                 }
 
-                public override string[] ice_ids(global::Ice.Current? current = null)
+                public override string[] ice_ids(global::Ice.Current current)
                 {
                     return _ids;
                 }
 
-                public override string ice_id(global::Ice.Current? current = null)
+                public override string ice_id(global::Ice.Current current)
                 {
                     return ice_staticId();
                 }
@@ -4432,7 +4430,7 @@ namespace Test
                     "shutdown"
                 };
 
-                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
                 iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
                 {
                     int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -4503,19 +4501,19 @@ namespace Test
         {
             #region Slice operations
 
-            public abstract global::Test.Inner.Inner2.S opS(global::Test.Inner.Inner2.S s1, out global::Test.Inner.Inner2.S s2, global::Ice.Current? current = null);
+            public abstract global::Test.Inner.Inner2.S opS(global::Test.Inner.Inner2.S s1, out global::Test.Inner.Inner2.S s2, global::Ice.Current current);
 
-            public abstract global::Test.Inner.Inner2.S[] opSSeq(global::Test.Inner.Inner2.S[] s1, out global::Test.Inner.Inner2.S[] s2, global::Ice.Current? current = null);
+            public abstract global::Test.Inner.Inner2.S[] opSSeq(global::Test.Inner.Inner2.S[] s1, out global::Test.Inner.Inner2.S[] s2, global::Ice.Current current);
 
-            public abstract global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s2, global::Ice.Current? current = null);
+            public abstract global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s2, global::Ice.Current current);
 
-            public abstract global::Test.Inner.Inner2.C? opC(global::Test.Inner.Inner2.C? c1, out global::Test.Inner.Inner2.C? c2, global::Ice.Current? current = null);
+            public abstract global::Test.Inner.Inner2.C? opC(global::Test.Inner.Inner2.C? c1, out global::Test.Inner.Inner2.C? c2, global::Ice.Current current);
 
-            public abstract global::Test.Inner.Inner2.C?[] opCSeq(global::Test.Inner.Inner2.C?[] c1, out global::Test.Inner.Inner2.C?[] c2, global::Ice.Current? current = null);
+            public abstract global::Test.Inner.Inner2.C?[] opCSeq(global::Test.Inner.Inner2.C?[] c1, out global::Test.Inner.Inner2.C?[] c2, global::Ice.Current current);
 
-            public abstract global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c2, global::Ice.Current? current = null);
+            public abstract global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c2, global::Ice.Current current);
 
-            public abstract void shutdown(global::Ice.Current? current = null);
+            public abstract void shutdown(global::Ice.Current current);
 
             #endregion
 
@@ -4527,17 +4525,17 @@ namespace Test
                 "::Test::Inner::I"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -4690,7 +4688,7 @@ namespace Test
                 "shutdown"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -4768,19 +4766,19 @@ namespace Inner
             {
                 #region Slice operations
 
-                public abstract global::Test.S opS(global::Test.S s1, out global::Test.S s2, global::Ice.Current? current = null);
+                public abstract global::Test.S opS(global::Test.S s1, out global::Test.S s2, global::Ice.Current current);
 
-                public abstract global::Test.S[] opSSeq(global::Test.S[] s1, out global::Test.S[] s2, global::Ice.Current? current = null);
+                public abstract global::Test.S[] opSSeq(global::Test.S[] s1, out global::Test.S[] s2, global::Ice.Current current);
 
-                public abstract global::System.Collections.Generic.Dictionary<string, global::Test.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.S> s2, global::Ice.Current? current = null);
+                public abstract global::System.Collections.Generic.Dictionary<string, global::Test.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.S> s2, global::Ice.Current current);
 
-                public abstract global::Test.C? opC(global::Test.C? c1, out global::Test.C? c2, global::Ice.Current? current = null);
+                public abstract global::Test.C? opC(global::Test.C? c1, out global::Test.C? c2, global::Ice.Current current);
 
-                public abstract global::Test.C?[] opCSeq(global::Test.C?[] c1, out global::Test.C?[] c2, global::Ice.Current? current = null);
+                public abstract global::Test.C?[] opCSeq(global::Test.C?[] c1, out global::Test.C?[] c2, global::Ice.Current current);
 
-                public abstract global::System.Collections.Generic.Dictionary<string, global::Test.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.C?> c2, global::Ice.Current? current = null);
+                public abstract global::System.Collections.Generic.Dictionary<string, global::Test.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.C?> c2, global::Ice.Current current);
 
-                public abstract void shutdown(global::Ice.Current? current = null);
+                public abstract void shutdown(global::Ice.Current current);
 
                 #endregion
 
@@ -4792,17 +4790,17 @@ namespace Inner
                     "::Inner::Test::Inner2::I"
                 };
 
-                public override bool ice_isA(string s, global::Ice.Current? current = null)
+                public override bool ice_isA(string s, global::Ice.Current current)
                 {
                     return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
                 }
 
-                public override string[] ice_ids(global::Ice.Current? current = null)
+                public override string[] ice_ids(global::Ice.Current current)
                 {
                     return _ids;
                 }
 
-                public override string ice_id(global::Ice.Current? current = null)
+                public override string ice_id(global::Ice.Current current)
                 {
                     return ice_staticId();
                 }
@@ -4955,7 +4953,7 @@ namespace Inner
                     "shutdown"
                 };
 
-                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
                 iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
                 {
                     int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

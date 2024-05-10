@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("IceDiscovery.ice")]
 
 #pragma warning disable 1591
@@ -198,10 +196,10 @@ namespace IceDiscovery
         /// <param name="id">The identity of the object.
         ///  </param>
         /// <param name="prx">The proxy of the object. This proxy is never null.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::Ice.Current? current = null);
+        void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::Ice.Current current);
 
         /// <summary>
         /// Reply to the findAdpaterById request.
@@ -212,10 +210,10 @@ namespace IceDiscovery
         ///  endpoints. This proxy is never null.
         ///  </param>
         /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void foundAdapterById(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::Ice.Current? current = null);
+        void foundAdapterById(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::Ice.Current current);
     }
 
     /// <summary>
@@ -235,10 +233,10 @@ namespace IceDiscovery
         ///  </param>
         /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
         ///  object is found. The reply proxy is never null.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::Ice.Current? current = null);
+        void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::Ice.Current current);
 
         /// <summary>
         /// Request to find an object adapter
@@ -250,10 +248,10 @@ namespace IceDiscovery
         ///  </param>
         /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
         ///  adapter is found. The reply proxy is never null.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void findAdapterById(string domainId, string id, LookupReplyPrx? reply, global::Ice.Current? current = null);
+        void findAdapterById(string domainId, string id, LookupReplyPrx? reply, global::Ice.Current current);
     }
 }
 
@@ -657,9 +655,9 @@ namespace IceDiscovery
     {
         #region Slice operations
 
-        public abstract void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::Ice.Current? current = null);
+        public abstract void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::Ice.Current current);
 
-        public abstract void foundAdapterById(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::Ice.Current? current = null);
+        public abstract void foundAdapterById(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::Ice.Current current);
 
         #endregion
 
@@ -671,17 +669,17 @@ namespace IceDiscovery
             "::IceDiscovery::LookupReply"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -737,7 +735,7 @@ namespace IceDiscovery
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -787,9 +785,9 @@ namespace IceDiscovery
     {
         #region Slice operations
 
-        public abstract void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::Ice.Current? current = null);
+        public abstract void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::Ice.Current current);
 
-        public abstract void findAdapterById(string domainId, string id, LookupReplyPrx? reply, global::Ice.Current? current = null);
+        public abstract void findAdapterById(string domainId, string id, LookupReplyPrx? reply, global::Ice.Current current);
 
         #endregion
 
@@ -801,17 +799,17 @@ namespace IceDiscovery
             "::IceDiscovery::Lookup"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -869,7 +867,7 @@ namespace IceDiscovery
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

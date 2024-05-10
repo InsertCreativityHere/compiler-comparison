@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Locator.ice")]
 
 #pragma warning disable 1591
@@ -593,29 +591,29 @@ namespace Ice
         /// </summary>
         /// <param name="id">The identity.
         ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Current? current = null);
+        global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Current current);
 
         /// <summary>
         /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
         /// <param name="id">The adapter id.
         ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Current? current = null);
+        global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Current current);
 
         /// <summary>
         /// Get the locator registry.
         /// </summary>
         /// <returns>The locator registry.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LocatorRegistryPrx? getRegistry(Current? current = null);
+        LocatorRegistryPrx? getRegistry(Current current);
     }
 
     /// <summary>
@@ -637,10 +635,10 @@ namespace Ice
         /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
         ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
         ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Current? current = null);
+        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Current current);
 
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
@@ -652,10 +650,10 @@ namespace Ice
         /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
         ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
         ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Current? current = null);
+        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Current current);
 
         /// <summary>
         /// Set the process proxy for a server.
@@ -664,10 +662,10 @@ namespace Ice
         ///  </param>
         /// <param name="proxy">The process proxy. The proxy is never null.
         ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Current? current = null);
+        global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Current current);
     }
 
     /// <summary>
@@ -686,10 +684,10 @@ namespace Ice
         ///  several replicas. This proxy is never null.
         /// </summary>
         ///  <returns>The locator proxy.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LocatorPrx? getLocator(Current? current = null);
+        LocatorPrx? getLocator(Current current);
     }
 }
 
@@ -1427,11 +1425,11 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Current current);
 
-        public abstract global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Current current);
 
-        public abstract LocatorRegistryPrx? getRegistry(Current? current = null);
+        public abstract LocatorRegistryPrx? getRegistry(Current current);
 
         #endregion
 
@@ -1443,17 +1441,17 @@ namespace Ice
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, Current? current = null)
+        public override bool ice_isA(string s, Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current? current = null)
+        public override string[] ice_ids(Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(Current? current = null)
+        public override string ice_id(Current current)
         {
             return ice_staticId();
         }
@@ -1523,7 +1521,7 @@ namespace Ice
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<OutputStream>
+        public override global::System.Threading.Tasks.Task<OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1577,11 +1575,11 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Current? current = null);
+        public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Current current);
 
-        public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Current? current = null);
+        public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Current current);
 
-        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Current? current = null);
+        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Current current);
 
         #endregion
 
@@ -1593,17 +1591,17 @@ namespace Ice
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, Current? current = null)
+        public override bool ice_isA(string s, Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current? current = null)
+        public override string[] ice_ids(Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(Current? current = null)
+        public override string ice_id(Current current)
         {
             return ice_staticId();
         }
@@ -1672,7 +1670,7 @@ namespace Ice
             "setServerProcessProxy"
         };
 
-        public override global::System.Threading.Tasks.Task<OutputStream>
+        public override global::System.Threading.Tasks.Task<OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1726,7 +1724,7 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract LocatorPrx? getLocator(Current? current = null);
+        public abstract LocatorPrx? getLocator(Current current);
 
         #endregion
 
@@ -1738,17 +1736,17 @@ namespace Ice
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, Current? current = null)
+        public override bool ice_isA(string s, Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current? current = null)
+        public override string[] ice_ids(Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(Current? current = null)
+        public override string ice_id(Current current)
         {
             return ice_staticId();
         }
@@ -1784,7 +1782,7 @@ namespace Ice
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<OutputStream>
+        public override global::System.Threading.Tasks.Task<OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

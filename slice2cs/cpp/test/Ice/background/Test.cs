@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -127,50 +125,50 @@ namespace Test
     public interface BackgroundOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void op(global::Ice.Current? current = null);
+        void op(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opWithPayload(byte[] seq, global::Ice.Current? current = null);
+        void opWithPayload(byte[] seq, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current? current = null);
+        void shutdown(global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface BackgroundControllerOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void pauseCall(string call, global::Ice.Current? current = null);
+        void pauseCall(string call, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void resumeCall(string call, global::Ice.Current? current = null);
+        void resumeCall(string call, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void holdAdapter(global::Ice.Current? current = null);
+        void holdAdapter(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void resumeAdapter(global::Ice.Current? current = null);
+        void resumeAdapter(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void initializeSocketOperation(int status, global::Ice.Current? current = null);
+        void initializeSocketOperation(int status, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void initializeException(bool enable, global::Ice.Current? current = null);
+        void initializeException(bool enable, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void readReady(bool enable, global::Ice.Current? current = null);
+        void readReady(bool enable, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void readException(bool enable, global::Ice.Current? current = null);
+        void readException(bool enable, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void writeReady(bool enable, global::Ice.Current? current = null);
+        void writeReady(bool enable, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void writeException(bool enable, global::Ice.Current? current = null);
+        void writeException(bool enable, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void buffered(bool enable, global::Ice.Current? current = null);
+        void buffered(bool enable, global::Ice.Current current);
     }
 }
 
@@ -961,11 +959,11 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void op(global::Ice.Current? current = null);
+        public abstract void op(global::Ice.Current current);
 
-        public abstract void opWithPayload(byte[] seq, global::Ice.Current? current = null);
+        public abstract void opWithPayload(byte[] seq, global::Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current? current = null);
+        public abstract void shutdown(global::Ice.Current current);
 
         #endregion
 
@@ -977,17 +975,17 @@ namespace Test
             "::Test::Background"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1045,7 +1043,7 @@ namespace Test
             "shutdown"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1099,27 +1097,27 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void pauseCall(string call, global::Ice.Current? current = null);
+        public abstract void pauseCall(string call, global::Ice.Current current);
 
-        public abstract void resumeCall(string call, global::Ice.Current? current = null);
+        public abstract void resumeCall(string call, global::Ice.Current current);
 
-        public abstract void holdAdapter(global::Ice.Current? current = null);
+        public abstract void holdAdapter(global::Ice.Current current);
 
-        public abstract void resumeAdapter(global::Ice.Current? current = null);
+        public abstract void resumeAdapter(global::Ice.Current current);
 
-        public abstract void initializeSocketOperation(int status, global::Ice.Current? current = null);
+        public abstract void initializeSocketOperation(int status, global::Ice.Current current);
 
-        public abstract void initializeException(bool enable, global::Ice.Current? current = null);
+        public abstract void initializeException(bool enable, global::Ice.Current current);
 
-        public abstract void readReady(bool enable, global::Ice.Current? current = null);
+        public abstract void readReady(bool enable, global::Ice.Current current);
 
-        public abstract void readException(bool enable, global::Ice.Current? current = null);
+        public abstract void readException(bool enable, global::Ice.Current current);
 
-        public abstract void writeReady(bool enable, global::Ice.Current? current = null);
+        public abstract void writeReady(bool enable, global::Ice.Current current);
 
-        public abstract void writeException(bool enable, global::Ice.Current? current = null);
+        public abstract void writeException(bool enable, global::Ice.Current current);
 
-        public abstract void buffered(bool enable, global::Ice.Current? current = null);
+        public abstract void buffered(bool enable, global::Ice.Current current);
 
         #endregion
 
@@ -1131,17 +1129,17 @@ namespace Test
             "::Test::BackgroundController"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1311,7 +1309,7 @@ namespace Test
             "writeReady"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

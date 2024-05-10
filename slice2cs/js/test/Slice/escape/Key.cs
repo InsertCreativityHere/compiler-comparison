@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Key.ice")]
 
 #pragma warning disable 1591
@@ -876,14 +874,14 @@ namespace @await
     public interface caseOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface typeofOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void @default(global::Ice.Current? current = null);
+        void @default(global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -895,23 +893,23 @@ namespace @await
     public interface optionalParamsOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        @break? @for(var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::Ice.Current? current = null);
+        @break? @for(var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<@break?> continueAsync(var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<@break?> continueAsync(var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        @break? @in(out var? @goto, out explicitPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? @namespace, out explicitPrx? @null, global::Ice.Current? current = null);
+        @break? @in(out var? @goto, out explicitPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? @namespace, out explicitPrx? @null, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<optionalParams_ForeachResult> foreachAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<optionalParams_ForeachResult> foreachAsync(global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface implicitOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        var @in(@break @internal, delete? @is, explicitPrx? @lock, casePrx? @namespace, typeofPrx? @new, delete? @null, explicitPrx? @operator, int @override, int @params, int @private, global::Ice.Current? current = null);
+        var @in(@break @internal, delete? @is, explicitPrx? @lock, casePrx? @namespace, typeofPrx? @new, delete? @null, explicitPrx? @operator, int @override, int @params, int @private, global::Ice.Current current);
     }
 
     namespace System
@@ -920,7 +918,7 @@ namespace @await
         public interface TestOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void op(global::Ice.Current? current = null);
+            void op(global::Ice.Current current);
         }
     }
 }
@@ -931,7 +929,7 @@ namespace System
     public interface TestOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void op(global::Ice.Current? current = null);
+        void op(global::Ice.Current current);
     }
 }
 
@@ -2442,7 +2440,7 @@ namespace @await
     {
         #region Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.Current current);
 
         #endregion
 
@@ -2454,17 +2452,17 @@ namespace @await
             "::await::case"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2503,7 +2501,7 @@ namespace @await
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2549,7 +2547,7 @@ namespace @await
     {
         #region Slice operations
 
-        public abstract void @default(global::Ice.Current? current = null);
+        public abstract void @default(global::Ice.Current current);
 
         #endregion
 
@@ -2561,17 +2559,17 @@ namespace @await
             "::await::typeof"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2604,7 +2602,7 @@ namespace @await
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2650,9 +2648,9 @@ namespace @await
     {
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, global::Ice.Current current);
 
-        public abstract void @default(global::Ice.Current? current = null);
+        public abstract void @default(global::Ice.Current current);
 
         #endregion
 
@@ -2666,17 +2664,17 @@ namespace @await
             "::await::typeof"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2698,7 +2696,7 @@ namespace @await
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2746,13 +2744,13 @@ namespace @await
     {
         #region Slice operations
 
-        public abstract @break? @for(var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::Ice.Current? current = null);
+        public abstract @break? @for(var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<@break?> continueAsync(var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<@break?> continueAsync(var? @goto, explicitPrx? @if, global::System.Collections.Generic.Dictionary<string, @break>? @internal, string? @namespace, explicitPrx? @null, global::Ice.Current current);
 
-        public abstract @break? @in(out var? @goto, out explicitPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? @namespace, out explicitPrx? @null, global::Ice.Current? current = null);
+        public abstract @break? @in(out var? @goto, out explicitPrx? @if, out global::System.Collections.Generic.Dictionary<string, @break>? @internal, out string? @namespace, out explicitPrx? @null, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<optionalParams_ForeachResult> foreachAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<optionalParams_ForeachResult> foreachAsync(global::Ice.Current current);
 
         #endregion
 
@@ -2764,17 +2762,17 @@ namespace @await
             "::await::optionalParams"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -3019,7 +3017,7 @@ namespace @await
             "in"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -3077,7 +3075,7 @@ namespace @await
     {
         #region Slice operations
 
-        public abstract var @in(@break @internal, delete? @is, explicitPrx? @lock, casePrx? @namespace, typeofPrx? @new, delete? @null, explicitPrx? @operator, int @override, int @params, int @private, global::Ice.Current? current = null);
+        public abstract var @in(@break @internal, delete? @is, explicitPrx? @lock, casePrx? @namespace, typeofPrx? @new, delete? @null, explicitPrx? @operator, int @override, int @params, int @private, global::Ice.Current current);
 
         #endregion
 
@@ -3089,17 +3087,17 @@ namespace @await
             "::await::implicit"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -3157,7 +3155,7 @@ namespace @await
             "in"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -3205,7 +3203,7 @@ namespace @await
         {
             #region Slice operations
 
-            public abstract void op(global::Ice.Current? current = null);
+            public abstract void op(global::Ice.Current current);
 
             #endregion
 
@@ -3217,17 +3215,17 @@ namespace @await
                 "::await::System::Test"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -3260,7 +3258,7 @@ namespace @await
                 "op"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -3310,7 +3308,7 @@ namespace System
     {
         #region Slice operations
 
-        public abstract void op(global::Ice.Current? current = null);
+        public abstract void op(global::Ice.Current current);
 
         #endregion
 
@@ -3322,17 +3320,17 @@ namespace System
             "::System::Test"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -3365,7 +3363,7 @@ namespace System
             "op"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

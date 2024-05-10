@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("BuiltinSequences.ice")]
 
 #pragma warning disable 1591

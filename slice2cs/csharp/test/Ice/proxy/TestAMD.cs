@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("TestAMD.ice")]
 
 #pragma warning disable 1591
@@ -91,17 +89,17 @@ namespace Ice.proxy.AMD
         public interface MyClassOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::Ice.Current current);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface MyDerivedClassOperations_ : MyClassOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> echoAsync(global::Ice.ObjectPrx? obj, global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> echoAsync(global::Ice.ObjectPrx? obj, global::Ice.Current current);
         }
     }
 }
@@ -551,9 +549,9 @@ namespace Ice.proxy.AMD
         {
             #region Slice operations
 
-            public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::Ice.Current current);
 
             #endregion
 
@@ -565,17 +563,17 @@ namespace Ice.proxy.AMD
                 "::Test::MyClass"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -621,7 +619,7 @@ namespace Ice.proxy.AMD
                 "shutdown"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -671,15 +669,15 @@ namespace Ice.proxy.AMD
         {
             #region Slice operations
 
-            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> echoAsync(global::Ice.ObjectPrx? obj, global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> echoAsync(global::Ice.ObjectPrx? obj, global::Ice.Current current);
 
             #endregion
 
             #region Inherited Slice operations
 
-            public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::Ice.Current current);
 
             #endregion
 
@@ -692,17 +690,17 @@ namespace Ice.proxy.AMD
                 "::Test::MyDerivedClass"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -743,7 +741,7 @@ namespace Ice.proxy.AMD
                 "shutdown"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

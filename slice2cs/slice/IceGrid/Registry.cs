@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Registry.ice")]
 
 #pragma warning disable 1591
@@ -441,10 +439,10 @@ namespace IceGrid
         /// <param name="id">The identity.
         ///  </param>
         /// <returns>The proxy or null if no such object has been found.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, global::Ice.Current current);
 
         /// <summary>
         /// Find a well-known object by type.
@@ -454,10 +452,10 @@ namespace IceGrid
         ///  <param name="type">The object type.
         ///  </param>
         /// <returns>The proxy or null, if no such object has been found.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? findObjectByType(string type, global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? findObjectByType(string type, global::Ice.Current current);
 
         /// <summary>
         /// Find a well-known object by type on the least-loaded node.
@@ -470,10 +468,10 @@ namespace IceGrid
         /// <param name="sample">The sampling interval.
         ///  </param>
         /// <returns>The proxy or null, if no such object has been found.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? findObjectByTypeOnLeastLoadedNode(string type, LoadSample sample, global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? findObjectByTypeOnLeastLoadedNode(string type, LoadSample sample, global::Ice.Current current);
 
         /// <summary>
         /// Find all the well-known objects with the given type.
@@ -481,10 +479,10 @@ namespace IceGrid
         /// <param name="type">The object type.
         ///  </param>
         /// <returns>The proxies or an empty sequence, if no such objects have been found.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx?[] findAllObjectsByType(string type, global::Ice.Current? current = null);
+        global::Ice.ObjectPrx?[] findAllObjectsByType(string type, global::Ice.Current current);
 
         /// <summary>
         /// Find all the object replicas associated with the given proxy.
@@ -495,10 +493,10 @@ namespace IceGrid
         ///  </param>
         /// <returns>The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
         ///  group.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx?[] findAllReplicas(global::Ice.ObjectPrx? proxy, global::Ice.Current? current = null);
+        global::Ice.ObjectPrx?[] findAllReplicas(global::Ice.ObjectPrx? proxy, global::Ice.Current current);
     }
 
     /// <summary>
@@ -519,10 +517,10 @@ namespace IceGrid
         ///  </returns>
         /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
         ///  user is not allowed access.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SessionPrx? createSession(string userId, string password, global::Ice.Current? current = null);
+        SessionPrx? createSession(string userId, string password, global::Ice.Current current);
 
         /// <summary>
         /// Create an administrative session.
@@ -535,10 +533,10 @@ namespace IceGrid
         ///  </param>
         /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
         ///  user is not allowed access.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        AdminSessionPrx? createAdminSession(string userId, string password, global::Ice.Current? current = null);
+        AdminSessionPrx? createAdminSession(string userId, string password, global::Ice.Current current);
 
         /// <summary>
         /// Create a client session from a secure connection.
@@ -547,10 +545,10 @@ namespace IceGrid
         ///  </returns>
         /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
         ///  user is not allowed access.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SessionPrx? createSessionFromSecureConnection(global::Ice.Current? current = null);
+        SessionPrx? createSessionFromSecureConnection(global::Ice.Current current);
 
         /// <summary>
         /// Create an administrative session from a secure connection.
@@ -559,28 +557,28 @@ namespace IceGrid
         ///  </returns>
         /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
         ///  user is not allowed access.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        AdminSessionPrx? createAdminSessionFromSecureConnection(global::Ice.Current? current = null);
+        AdminSessionPrx? createAdminSessionFromSecureConnection(global::Ice.Current current);
 
         /// <summary>
         /// Get the idle timeout used by IceGrid for its side of the connection.
         /// </summary>
         /// <returns>The idle timeout (in seconds).</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getSessionTimeout(global::Ice.Current? current = null);
+        int getSessionTimeout(global::Ice.Current current);
 
         /// <summary>
         /// Get the idle timeout used by IceGrid for its side of the connection.
         /// </summary>
         /// <returns>The idle timeout (in seconds).</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getACMTimeout(global::Ice.Current? current = null);
+        int getACMTimeout(global::Ice.Current current);
     }
 
     /// <summary>
@@ -595,19 +593,19 @@ namespace IceGrid
         /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
         /// <returns>The proxy of the registry object. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        RegistryPrx? getLocalRegistry(global::Ice.Current? current = null);
+        RegistryPrx? getLocalRegistry(global::Ice.Current current);
 
         /// <summary>
         /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
         /// <returns>The proxy of the query object. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        QueryPrx? getLocalQuery(global::Ice.Current? current = null);
+        QueryPrx? getLocalQuery(global::Ice.Current current);
     }
 }
 
@@ -1777,15 +1775,15 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? findObjectByType(string type, global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? findObjectByType(string type, global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? findObjectByTypeOnLeastLoadedNode(string type, LoadSample sample, global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? findObjectByTypeOnLeastLoadedNode(string type, LoadSample sample, global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx?[] findAllObjectsByType(string type, global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx?[] findAllObjectsByType(string type, global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx?[] findAllReplicas(global::Ice.ObjectPrx? proxy, global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx?[] findAllReplicas(global::Ice.ObjectPrx? proxy, global::Ice.Current current);
 
         #endregion
 
@@ -1797,17 +1795,17 @@ namespace IceGrid
             "::IceGrid::Query"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1916,7 +1914,7 @@ namespace IceGrid
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1978,17 +1976,17 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract SessionPrx? createSession(string userId, string password, global::Ice.Current? current = null);
+        public abstract SessionPrx? createSession(string userId, string password, global::Ice.Current current);
 
-        public abstract AdminSessionPrx? createAdminSession(string userId, string password, global::Ice.Current? current = null);
+        public abstract AdminSessionPrx? createAdminSession(string userId, string password, global::Ice.Current current);
 
-        public abstract SessionPrx? createSessionFromSecureConnection(global::Ice.Current? current = null);
+        public abstract SessionPrx? createSessionFromSecureConnection(global::Ice.Current current);
 
-        public abstract AdminSessionPrx? createAdminSessionFromSecureConnection(global::Ice.Current? current = null);
+        public abstract AdminSessionPrx? createAdminSessionFromSecureConnection(global::Ice.Current current);
 
-        public abstract int getSessionTimeout(global::Ice.Current? current = null);
+        public abstract int getSessionTimeout(global::Ice.Current current);
 
-        public abstract int getACMTimeout(global::Ice.Current? current = null);
+        public abstract int getACMTimeout(global::Ice.Current current);
 
         #endregion
 
@@ -2000,17 +1998,17 @@ namespace IceGrid
             "::IceGrid::Registry"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2126,7 +2124,7 @@ namespace IceGrid
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2192,19 +2190,19 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract RegistryPrx? getLocalRegistry(global::Ice.Current? current = null);
+        public abstract RegistryPrx? getLocalRegistry(global::Ice.Current current);
 
-        public abstract QueryPrx? getLocalQuery(global::Ice.Current? current = null);
+        public abstract QueryPrx? getLocalQuery(global::Ice.Current current);
 
         #endregion
 
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findAdapterByIdAsync(string id, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findAdapterByIdAsync(string id, global::Ice.Current current);
 
-        public abstract global::Ice.LocatorRegistryPrx? getRegistry(global::Ice.Current? current = null);
+        public abstract global::Ice.LocatorRegistryPrx? getRegistry(global::Ice.Current current);
 
         #endregion
 
@@ -2217,17 +2215,17 @@ namespace IceGrid
             "::IceGrid::Locator"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2280,7 +2278,7 @@ namespace IceGrid
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

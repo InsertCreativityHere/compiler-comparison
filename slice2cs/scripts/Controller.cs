@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Controller.ice")]
 
 #pragma warning disable 1591
@@ -696,69 +694,69 @@ namespace Test
         public interface TestCaseOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string startServerSide(Config? config, global::Ice.Current? current = null);
+            string startServerSide(Config? config, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string stopServerSide(bool success, global::Ice.Current? current = null);
+            string stopServerSide(bool success, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string runClientSide(string host, Config? config, global::Ice.Current? current = null);
+            string runClientSide(string host, Config? config, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void destroy(global::Ice.Current? current = null);
+            void destroy(global::Ice.Current current);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface ControllerOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::Ice.Current? current = null);
+            TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            OptionOverrides? getOptionOverrides(global::Ice.Current? current = null);
+            OptionOverrides? getOptionOverrides(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string[] getTestSuites(string mapping, global::Ice.Current? current = null);
+            string[] getTestSuites(string mapping, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string getHost(string protocol, bool ipv6, global::Ice.Current? current = null);
+            string getHost(string protocol, bool ipv6, global::Ice.Current current);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface ProcessOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void waitReady(int timeout, global::Ice.Current? current = null);
+            void waitReady(int timeout, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int waitSuccess(int timeout, global::Ice.Current? current = null);
+            int waitSuccess(int timeout, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string terminate(global::Ice.Current? current = null);
+            string terminate(global::Ice.Current current);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface ProcessControllerOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            ProcessPrx? start(string testsuite, string exe, string[] args, global::Ice.Current? current = null);
+            ProcessPrx? start(string testsuite, string exe, string[] args, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string getHost(string protocol, bool ipv6, global::Ice.Current? current = null);
+            string getHost(string protocol, bool ipv6, global::Ice.Current current);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface BrowserProcessControllerOperations_ : ProcessControllerOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void redirect(string url, global::Ice.Current? current = null);
+            void redirect(string url, global::Ice.Current current);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface ProcessControllerRegistryOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void setProcessController(ProcessControllerPrx? controller, global::Ice.Current? current = null);
+            void setProcessController(ProcessControllerPrx? controller, global::Ice.Current current);
         }
     }
 }
@@ -2369,13 +2367,13 @@ namespace Test
         {
             #region Slice operations
 
-            public abstract string startServerSide(Config? config, global::Ice.Current? current = null);
+            public abstract string startServerSide(Config? config, global::Ice.Current current);
 
-            public abstract string stopServerSide(bool success, global::Ice.Current? current = null);
+            public abstract string stopServerSide(bool success, global::Ice.Current current);
 
-            public abstract string runClientSide(string host, Config? config, global::Ice.Current? current = null);
+            public abstract string runClientSide(string host, Config? config, global::Ice.Current current);
 
-            public abstract void destroy(global::Ice.Current? current = null);
+            public abstract void destroy(global::Ice.Current current);
 
             #endregion
 
@@ -2387,17 +2385,17 @@ namespace Test
                 "::Test::Common::TestCase"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -2485,7 +2483,7 @@ namespace Test
                 "stopServerSide"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2543,13 +2541,13 @@ namespace Test
         {
             #region Slice operations
 
-            public abstract TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::Ice.Current? current = null);
+            public abstract TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::Ice.Current current);
 
-            public abstract OptionOverrides? getOptionOverrides(global::Ice.Current? current = null);
+            public abstract OptionOverrides? getOptionOverrides(global::Ice.Current current);
 
-            public abstract string[] getTestSuites(string mapping, global::Ice.Current? current = null);
+            public abstract string[] getTestSuites(string mapping, global::Ice.Current current);
 
-            public abstract string getHost(string protocol, bool ipv6, global::Ice.Current? current = null);
+            public abstract string getHost(string protocol, bool ipv6, global::Ice.Current current);
 
             #endregion
 
@@ -2561,17 +2559,17 @@ namespace Test
                 "::Test::Common::Controller"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -2667,7 +2665,7 @@ namespace Test
                 "runTestCase"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2725,11 +2723,11 @@ namespace Test
         {
             #region Slice operations
 
-            public abstract void waitReady(int timeout, global::Ice.Current? current = null);
+            public abstract void waitReady(int timeout, global::Ice.Current current);
 
-            public abstract int waitSuccess(int timeout, global::Ice.Current? current = null);
+            public abstract int waitSuccess(int timeout, global::Ice.Current current);
 
-            public abstract string terminate(global::Ice.Current? current = null);
+            public abstract string terminate(global::Ice.Current current);
 
             #endregion
 
@@ -2741,17 +2739,17 @@ namespace Test
                 "::Test::Common::Process"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -2818,7 +2816,7 @@ namespace Test
                 "waitSuccess"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2872,9 +2870,9 @@ namespace Test
         {
             #region Slice operations
 
-            public abstract ProcessPrx? start(string testsuite, string exe, string[] args, global::Ice.Current? current = null);
+            public abstract ProcessPrx? start(string testsuite, string exe, string[] args, global::Ice.Current current);
 
-            public abstract string getHost(string protocol, bool ipv6, global::Ice.Current? current = null);
+            public abstract string getHost(string protocol, bool ipv6, global::Ice.Current current);
 
             #endregion
 
@@ -2886,17 +2884,17 @@ namespace Test
                 "::Test::Common::ProcessController"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -2958,7 +2956,7 @@ namespace Test
                 "start"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -3008,15 +3006,15 @@ namespace Test
         {
             #region Slice operations
 
-            public abstract void redirect(string url, global::Ice.Current? current = null);
+            public abstract void redirect(string url, global::Ice.Current current);
 
             #endregion
 
             #region Inherited Slice operations
 
-            public abstract ProcessPrx? start(string testsuite, string exe, string[] args, global::Ice.Current? current = null);
+            public abstract ProcessPrx? start(string testsuite, string exe, string[] args, global::Ice.Current current);
 
-            public abstract string getHost(string protocol, bool ipv6, global::Ice.Current? current = null);
+            public abstract string getHost(string protocol, bool ipv6, global::Ice.Current current);
 
             #endregion
 
@@ -3029,17 +3027,17 @@ namespace Test
                 "::Test::Common::ProcessController"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -3077,7 +3075,7 @@ namespace Test
                 "start"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -3131,7 +3129,7 @@ namespace Test
         {
             #region Slice operations
 
-            public abstract void setProcessController(ProcessControllerPrx? controller, global::Ice.Current? current = null);
+            public abstract void setProcessController(ProcessControllerPrx? controller, global::Ice.Current current);
 
             #endregion
 
@@ -3143,17 +3141,17 @@ namespace Test
                 "::Test::Common::ProcessControllerRegistry"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -3189,7 +3187,7 @@ namespace Test
                 "setProcessController"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

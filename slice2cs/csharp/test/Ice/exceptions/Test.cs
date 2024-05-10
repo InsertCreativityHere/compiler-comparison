@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -468,71 +466,71 @@ namespace Ice.exceptions
         public interface ThrowerOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current? current = null);
+            void shutdown(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool supportsUndeclaredExceptions(global::Ice.Current? current = null);
+            bool supportsUndeclaredExceptions(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool supportsAssertException(global::Ice.Current? current = null);
+            bool supportsAssertException(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwAasA(int a, global::Ice.Current? current = null);
+            void throwAasA(int a, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwAorDasAorD(int a, global::Ice.Current? current = null);
+            void throwAorDasAorD(int a, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwBasA(int a, int b, global::Ice.Current? current = null);
+            void throwBasA(int a, int b, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwCasA(int a, int b, int c, global::Ice.Current? current = null);
+            void throwCasA(int a, int b, int c, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwBasB(int a, int b, global::Ice.Current? current = null);
+            void throwBasB(int a, int b, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwCasB(int a, int b, int c, global::Ice.Current? current = null);
+            void throwCasB(int a, int b, int c, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwCasC(int a, int b, int c, global::Ice.Current? current = null);
+            void throwCasC(int a, int b, int c, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwUndeclaredA(int a, global::Ice.Current? current = null);
+            void throwUndeclaredA(int a, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwUndeclaredB(int a, int b, global::Ice.Current? current = null);
+            void throwUndeclaredB(int a, int b, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwUndeclaredC(int a, int b, int c, global::Ice.Current? current = null);
+            void throwUndeclaredC(int a, int b, int c, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwLocalException(global::Ice.Current? current = null);
+            void throwLocalException(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwNonIceException(global::Ice.Current? current = null);
+            void throwNonIceException(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwAssertException(global::Ice.Current? current = null);
+            void throwAssertException(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            byte[] throwMemoryLimitException(byte[] seq, global::Ice.Current? current = null);
+            byte[] throwMemoryLimitException(byte[] seq, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwLocalExceptionIdempotent(global::Ice.Current? current = null);
+            void throwLocalExceptionIdempotent(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwAfterResponse(global::Ice.Current? current = null);
+            void throwAfterResponse(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void throwAfterException(global::Ice.Current? current = null);
+            void throwAfterException(global::Ice.Current current);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface WrongOperationOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void noSuchOperation(global::Ice.Current? current = null);
+            void noSuchOperation(global::Ice.Current current);
         }
     }
 }
@@ -1859,17 +1857,17 @@ namespace Ice.exceptions
                 "::Test::Empty"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -1888,45 +1886,45 @@ namespace Ice.exceptions
         {
             #region Slice operations
 
-            public abstract void shutdown(global::Ice.Current? current = null);
+            public abstract void shutdown(global::Ice.Current current);
 
-            public abstract bool supportsUndeclaredExceptions(global::Ice.Current? current = null);
+            public abstract bool supportsUndeclaredExceptions(global::Ice.Current current);
 
-            public abstract bool supportsAssertException(global::Ice.Current? current = null);
+            public abstract bool supportsAssertException(global::Ice.Current current);
 
-            public abstract void throwAasA(int a, global::Ice.Current? current = null);
+            public abstract void throwAasA(int a, global::Ice.Current current);
 
-            public abstract void throwAorDasAorD(int a, global::Ice.Current? current = null);
+            public abstract void throwAorDasAorD(int a, global::Ice.Current current);
 
-            public abstract void throwBasA(int a, int b, global::Ice.Current? current = null);
+            public abstract void throwBasA(int a, int b, global::Ice.Current current);
 
-            public abstract void throwCasA(int a, int b, int c, global::Ice.Current? current = null);
+            public abstract void throwCasA(int a, int b, int c, global::Ice.Current current);
 
-            public abstract void throwBasB(int a, int b, global::Ice.Current? current = null);
+            public abstract void throwBasB(int a, int b, global::Ice.Current current);
 
-            public abstract void throwCasB(int a, int b, int c, global::Ice.Current? current = null);
+            public abstract void throwCasB(int a, int b, int c, global::Ice.Current current);
 
-            public abstract void throwCasC(int a, int b, int c, global::Ice.Current? current = null);
+            public abstract void throwCasC(int a, int b, int c, global::Ice.Current current);
 
-            public abstract void throwUndeclaredA(int a, global::Ice.Current? current = null);
+            public abstract void throwUndeclaredA(int a, global::Ice.Current current);
 
-            public abstract void throwUndeclaredB(int a, int b, global::Ice.Current? current = null);
+            public abstract void throwUndeclaredB(int a, int b, global::Ice.Current current);
 
-            public abstract void throwUndeclaredC(int a, int b, int c, global::Ice.Current? current = null);
+            public abstract void throwUndeclaredC(int a, int b, int c, global::Ice.Current current);
 
-            public abstract void throwLocalException(global::Ice.Current? current = null);
+            public abstract void throwLocalException(global::Ice.Current current);
 
-            public abstract void throwNonIceException(global::Ice.Current? current = null);
+            public abstract void throwNonIceException(global::Ice.Current current);
 
-            public abstract void throwAssertException(global::Ice.Current? current = null);
+            public abstract void throwAssertException(global::Ice.Current current);
 
-            public abstract byte[] throwMemoryLimitException(byte[] seq, global::Ice.Current? current = null);
+            public abstract byte[] throwMemoryLimitException(byte[] seq, global::Ice.Current current);
 
-            public abstract void throwLocalExceptionIdempotent(global::Ice.Current? current = null);
+            public abstract void throwLocalExceptionIdempotent(global::Ice.Current current);
 
-            public abstract void throwAfterResponse(global::Ice.Current? current = null);
+            public abstract void throwAfterResponse(global::Ice.Current current);
 
-            public abstract void throwAfterException(global::Ice.Current? current = null);
+            public abstract void throwAfterException(global::Ice.Current current);
 
             #endregion
 
@@ -1938,17 +1936,17 @@ namespace Ice.exceptions
                 "::Test::Thrower"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -2254,7 +2252,7 @@ namespace Ice.exceptions
                 "throwUndeclaredC"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2376,7 +2374,7 @@ namespace Ice.exceptions
         {
             #region Slice operations
 
-            public abstract void noSuchOperation(global::Ice.Current? current = null);
+            public abstract void noSuchOperation(global::Ice.Current current);
 
             #endregion
 
@@ -2388,17 +2386,17 @@ namespace Ice.exceptions
                 "::Test::WrongOperation"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -2431,7 +2429,7 @@ namespace Ice.exceptions
                 "noSuchOperation"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

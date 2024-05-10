@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Admin.ice")]
 
 #pragma warning disable 1591
@@ -3717,10 +3715,10 @@ namespace IceGrid
         ///  holding the lock.
         ///  </exception>
         /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void addApplication(ApplicationDescriptor descriptor, global::Ice.Current? current = null);
+        void addApplication(ApplicationDescriptor descriptor, global::Ice.Current current);
 
         /// <summary>
         /// Synchronize a deployed application with the given application descriptor.
@@ -3735,10 +3733,10 @@ namespace IceGrid
         /// <exception name="DeploymentException">Raised if application deployment failed.
         ///  </exception>
         /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void syncApplication(ApplicationDescriptor descriptor, global::Ice.Current? current = null);
+        void syncApplication(ApplicationDescriptor descriptor, global::Ice.Current current);
 
         /// <summary>
         /// Update a deployed application with the given update application descriptor.
@@ -3751,10 +3749,10 @@ namespace IceGrid
         /// <exception name="DeploymentException">Raised if application deployment failed.
         ///  </exception>
         /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.Current? current = null);
+        void updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.Current current);
 
         /// <summary>
         /// Synchronize a deployed application with the given application descriptor.
@@ -3771,10 +3769,10 @@ namespace IceGrid
         /// <exception name="DeploymentException">Raised if application deployment failed.
         ///  </exception>
         /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.Current? current = null);
+        void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.Current current);
 
         /// <summary>
         /// Update a deployed application with the given update application descriptor only if no server restarts are
@@ -3790,10 +3788,10 @@ namespace IceGrid
         /// <exception name="DeploymentException">Raised if application deployment failed.
         ///  </exception>
         /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.Current? current = null);
+        void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.Current current);
 
         /// <summary>
         /// Remove an application from IceGrid.
@@ -3806,10 +3804,10 @@ namespace IceGrid
         /// <exception name="DeploymentException">Raised if application deployment failed.
         ///  </exception>
         /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void removeApplication(string name, global::Ice.Current? current = null);
+        void removeApplication(string name, global::Ice.Current current);
 
         /// <summary>
         /// Instantiate a server template from an application on the given node.
@@ -3826,10 +3824,10 @@ namespace IceGrid
         /// <exception name="DeploymentException">Raised if server instantiation failed.
         ///  </exception>
         /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.Current? current = null);
+        void instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.Current current);
 
         /// <summary>
         /// Get an application descriptor.
@@ -3839,10 +3837,10 @@ namespace IceGrid
         /// <returns>The application descriptor.
         ///  </returns>
         /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ApplicationInfo getApplicationInfo(string name, global::Ice.Current? current = null);
+        ApplicationInfo getApplicationInfo(string name, global::Ice.Current current);
 
         /// <summary>
         /// Get the default application descriptor.
@@ -3850,19 +3848,19 @@ namespace IceGrid
         /// <returns>The default application descriptor.
         ///  </returns>
         /// <exception name="DeploymentException">Raised if the default application descriptor can't be accessed or is invalid.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ApplicationDescriptor getDefaultApplicationDescriptor(global::Ice.Current? current = null);
+        ApplicationDescriptor getDefaultApplicationDescriptor(global::Ice.Current current);
 
         /// <summary>
         /// Get all the IceGrid applications currently registered.
         /// </summary>
         /// <returns>The application names.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getAllApplicationNames(global::Ice.Current? current = null);
+        string[] getAllApplicationNames(global::Ice.Current current);
 
         /// <summary>
         /// Get the server information for the server with the given id.
@@ -3872,10 +3870,10 @@ namespace IceGrid
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
         ///  </exception>
         /// <returns>The server information.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ServerInfo getServerInfo(string id, global::Ice.Current? current = null);
+        ServerInfo getServerInfo(string id, global::Ice.Current current);
 
         /// <summary>
         /// Get a server's state.
@@ -3889,10 +3887,10 @@ namespace IceGrid
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
         ///  </exception>
         /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ServerState getServerState(string id, global::Ice.Current? current = null);
+        ServerState getServerState(string id, global::Ice.Current current);
 
         /// <summary>
         /// Get a server's system process id.
@@ -3907,10 +3905,10 @@ namespace IceGrid
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
         ///  </exception>
         /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getServerPid(string id, global::Ice.Current? current = null);
+        int getServerPid(string id, global::Ice.Current current);
 
         /// <summary>
         /// Get the category for server admin objects.
@@ -3918,10 +3916,10 @@ namespace IceGrid
         ///  changing its identity: use the server ID as name and the returned category as category.
         /// </summary>
         ///  <returns>The category for server admin objects.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getServerAdminCategory(global::Ice.Current? current = null);
+        string getServerAdminCategory(global::Ice.Current current);
 
         /// <summary>
         /// Get a proxy to the server's admin object.
@@ -3935,10 +3933,10 @@ namespace IceGrid
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
         ///  </exception>
         /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getServerAdmin(string id, global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? getServerAdmin(string id, global::Ice.Current current);
 
         /// <summary>
         /// Enable or disable a server.
@@ -3955,10 +3953,10 @@ namespace IceGrid
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
         ///  </exception>
         /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void enableServer(string id, bool enabled, global::Ice.Current? current = null);
+        void enableServer(string id, bool enabled, global::Ice.Current current);
 
         /// <summary>
         /// Check if the server is enabled or disabled.
@@ -3972,30 +3970,30 @@ namespace IceGrid
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
         ///  </exception>
         /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool isServerEnabled(string id, global::Ice.Current? current = null);
+        bool isServerEnabled(string id, global::Ice.Current current);
 
         /// <summary>
         /// Start a server and wait for its activation.
         /// </summary>
         /// <param name="id">The server id.
         ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task startServerAsync(string id, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task startServerAsync(string id, global::Ice.Current current);
 
         /// <summary>
         /// Stop a server.
         /// </summary>
         /// <param name="id">The server id.
         ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task stopServerAsync(string id, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task stopServerAsync(string id, global::Ice.Current current);
 
         /// <summary>
         /// Send signal to a server.
@@ -4011,19 +4009,19 @@ namespace IceGrid
         /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.
         ///  </exception>
         /// <exception name="BadSignalException">Raised if the signal is not recognized by the target server.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void sendSignal(string id, string signal, global::Ice.Current? current = null);
+        void sendSignal(string id, string signal, global::Ice.Current current);
 
         /// <summary>
         /// Get all the server ids registered with IceGrid.
         /// </summary>
         /// <returns>The server ids.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getAllServerIds(global::Ice.Current? current = null);
+        string[] getAllServerIds(global::Ice.Current current);
 
         /// <summary>
         /// Get the adapter information for the replica group or adapter with the given id.
@@ -4035,10 +4033,10 @@ namespace IceGrid
         ///  adapter information of each member of the replica group.
         ///  </returns>
         /// <exception name="AdapterNotExistException">Raised if the adapter or replica group doesn't exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        AdapterInfo[] getAdapterInfo(string id, global::Ice.Current? current = null);
+        AdapterInfo[] getAdapterInfo(string id, global::Ice.Current current);
 
         /// <summary>
         /// Remove the adapter with the given id.
@@ -4048,19 +4046,19 @@ namespace IceGrid
         /// <exception name="AdapterNotExistException">Raised if the adapter doesn't exist.
         ///  </exception>
         /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void removeAdapter(string id, global::Ice.Current? current = null);
+        void removeAdapter(string id, global::Ice.Current current);
 
         /// <summary>
         /// Get all the adapter ids registered with IceGrid.
         /// </summary>
         /// <returns>The adapter ids.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getAllAdapterIds(global::Ice.Current? current = null);
+        string[] getAllAdapterIds(global::Ice.Current current);
 
         /// <summary>
         /// Add an object to the object registry.
@@ -4073,10 +4071,10 @@ namespace IceGrid
         ///  </exception>
         /// <exception name="DeploymentException">Raised if the object can't be added. This might be raised if the invocation on
         ///  the proxy to get the object type failed.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void addObject(global::Ice.ObjectPrx? obj, global::Ice.Current? current = null);
+        void addObject(global::Ice.ObjectPrx? obj, global::Ice.Current current);
 
         /// <summary>
         /// Update an object in the object registry.
@@ -4089,10 +4087,10 @@ namespace IceGrid
         ///  </exception>
         /// <exception name="DeploymentException">Raised if the object can't be updated. This might happen if the object was added
         ///  with a deployment descriptor.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void updateObject(global::Ice.ObjectPrx? obj, global::Ice.Current? current = null);
+        void updateObject(global::Ice.ObjectPrx? obj, global::Ice.Current current);
 
         /// <summary>
         /// Add an object to the object registry and explicitly specify its type.
@@ -4104,10 +4102,10 @@ namespace IceGrid
         /// <exception name="ObjectExistsException">Raised if the object is already registered.
         ///  </exception>
         /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void addObjectWithType(global::Ice.ObjectPrx? obj, string type, global::Ice.Current? current = null);
+        void addObjectWithType(global::Ice.ObjectPrx? obj, string type, global::Ice.Current current);
 
         /// <summary>
         /// Remove an object from the object registry.
@@ -4120,10 +4118,10 @@ namespace IceGrid
         ///  </exception>
         /// <exception name="DeploymentException">Raised if the object can't be removed. This might happen if the object was added
         ///  with a deployment descriptor.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void removeObject(global::Ice.Identity id, global::Ice.Current? current = null);
+        void removeObject(global::Ice.Identity id, global::Ice.Current current);
 
         /// <summary>
         /// Get the object info for the object with the given identity.
@@ -4133,10 +4131,10 @@ namespace IceGrid
         /// <returns>The object info.
         ///  </returns>
         /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectInfo getObjectInfo(global::Ice.Identity id, global::Ice.Current? current = null);
+        ObjectInfo getObjectInfo(global::Ice.Identity id, global::Ice.Current current);
 
         /// <summary>
         /// Get the object info of all the registered objects with the given type.
@@ -4144,10 +4142,10 @@ namespace IceGrid
         /// <param name="type">The type of the object.
         ///  </param>
         /// <returns>The object infos.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectInfo[] getObjectInfosByType(string type, global::Ice.Current? current = null);
+        ObjectInfo[] getObjectInfosByType(string type, global::Ice.Current current);
 
         /// <summary>
         /// Get the object info of all the registered objects whose stringified identities match the given expression.
@@ -4156,10 +4154,10 @@ namespace IceGrid
         ///  may contain a trailing wildcard (*) character.
         ///  </param>
         /// <returns>All the object infos with a stringified identity matching the given expression.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectInfo[] getAllObjectInfos(string expr, global::Ice.Current? current = null);
+        ObjectInfo[] getAllObjectInfos(string expr, global::Ice.Current current);
 
         /// <summary>
         /// Ping an IceGrid node to see if it is active.
@@ -4169,10 +4167,10 @@ namespace IceGrid
         /// <returns>true if the node ping succeeded, false otherwise.
         ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool pingNode(string name, global::Ice.Current? current = null);
+        bool pingNode(string name, global::Ice.Current current);
 
         /// <summary>
         /// Get the load averages of the node.
@@ -4184,10 +4182,10 @@ namespace IceGrid
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
         ///  </exception>
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LoadInfo getNodeLoad(string name, global::Ice.Current? current = null);
+        LoadInfo getNodeLoad(string name, global::Ice.Current current);
 
         /// <summary>
         /// Get the node information for the node with the given name.
@@ -4199,10 +4197,10 @@ namespace IceGrid
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
         ///  </exception>
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        NodeInfo getNodeInfo(string name, global::Ice.Current? current = null);
+        NodeInfo getNodeInfo(string name, global::Ice.Current current);
 
         /// <summary>
         /// Get a proxy to the IceGrid node's admin object.
@@ -4214,10 +4212,10 @@ namespace IceGrid
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
         ///  </exception>
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getNodeAdmin(string name, global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? getNodeAdmin(string name, global::Ice.Current current);
 
         /// <summary>
         /// Get the number of physical processor sockets for the machine running the node with the given name.
@@ -4231,10 +4229,10 @@ namespace IceGrid
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
         ///  </exception>
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getNodeProcessorSocketCount(string name, global::Ice.Current? current = null);
+        int getNodeProcessorSocketCount(string name, global::Ice.Current current);
 
         /// <summary>
         /// Shutdown an IceGrid node.
@@ -4244,10 +4242,10 @@ namespace IceGrid
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
         ///  </exception>
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdownNode(string name, global::Ice.Current? current = null);
+        void shutdownNode(string name, global::Ice.Current current);
 
         /// <summary>
         /// Get the hostname of this node.
@@ -4259,19 +4257,19 @@ namespace IceGrid
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
         ///  </exception>
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getNodeHostname(string name, global::Ice.Current? current = null);
+        string getNodeHostname(string name, global::Ice.Current current);
 
         /// <summary>
         /// Get all the IceGrid nodes currently registered.
         /// </summary>
         /// <returns>The node names.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getAllNodeNames(global::Ice.Current? current = null);
+        string[] getAllNodeNames(global::Ice.Current current);
 
         /// <summary>
         /// Ping an IceGrid registry to see if it is active.
@@ -4281,10 +4279,10 @@ namespace IceGrid
         /// <returns>true if the registry ping succeeded, false otherwise.
         ///  </returns>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool pingRegistry(string name, global::Ice.Current? current = null);
+        bool pingRegistry(string name, global::Ice.Current current);
 
         /// <summary>
         /// Get the registry information for the registry with the given name.
@@ -4296,10 +4294,10 @@ namespace IceGrid
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
         ///  </exception>
         /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        RegistryInfo getRegistryInfo(string name, global::Ice.Current? current = null);
+        RegistryInfo getRegistryInfo(string name, global::Ice.Current current);
 
         /// <summary>
         /// Get a proxy to the IceGrid registry's admin object.
@@ -4309,10 +4307,10 @@ namespace IceGrid
         /// <returns>A proxy to the IceGrid registry's admin object. The returned proxy is never null.
         ///  </returns>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getRegistryAdmin(string name, global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? getRegistryAdmin(string name, global::Ice.Current current);
 
         /// <summary>
         /// Shutdown an IceGrid registry.
@@ -4322,27 +4320,27 @@ namespace IceGrid
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
         ///  </exception>
         /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdownRegistry(string name, global::Ice.Current? current = null);
+        void shutdownRegistry(string name, global::Ice.Current current);
 
         /// <summary>
         /// Get all the IceGrid registries currently registered.
         /// </summary>
         /// <returns>The registry names.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getAllRegistryNames(global::Ice.Current? current = null);
+        string[] getAllRegistryNames(global::Ice.Current current);
 
         /// <summary>
         /// Shut down the IceGrid registry.
         /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current? current = null);
+        void shutdown(global::Ice.Current current);
     }
 
     /// <summary>
@@ -4365,18 +4363,18 @@ namespace IceGrid
         /// <returns>True if EOF is encountered.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if there was a problem to read lines from the file.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool read(int size, out string[] lines, global::Ice.Current? current = null);
+        bool read(int size, out string[] lines, global::Ice.Current current);
 
         /// <summary>
         /// Destroy the iterator.
         /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current? current = null);
+        void destroy(global::Ice.Current current);
     }
 
     /// <summary>
@@ -4391,28 +4389,28 @@ namespace IceGrid
         ///  the registries.
         /// </summary>
         /// <param name="registries">The current state of the registries.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void registryInit(RegistryInfo[] registries, global::Ice.Current? current = null);
+        void registryInit(RegistryInfo[] registries, global::Ice.Current current);
 
         /// <summary>
         /// The registryUp operation is called to notify an observer that a registry replica came up.
         /// </summary>
         /// <param name="registryReplica">The registry state.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void registryUp(RegistryInfo registryReplica, global::Ice.Current? current = null);
+        void registryUp(RegistryInfo registryReplica, global::Ice.Current current);
 
         /// <summary>
         /// The registryDown operation is called to notify an observer that a registry replica went down.
         /// </summary>
         /// <param name="name">The registry name.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void registryDown(string name, global::Ice.Current? current = null);
+        void registryDown(string name, global::Ice.Current current);
     }
 
     /// <summary>
@@ -4430,28 +4428,28 @@ namespace IceGrid
         ///  registration of an observer.
         /// </summary>
         ///  <param name="nodes">The current state of the nodes.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void nodeInit(NodeDynamicInfo[] nodes, global::Ice.Current? current = null);
+        void nodeInit(NodeDynamicInfo[] nodes, global::Ice.Current current);
 
         /// <summary>
         /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void nodeUp(NodeDynamicInfo node, global::Ice.Current? current = null);
+        void nodeUp(NodeDynamicInfo node, global::Ice.Current current);
 
         /// <summary>
         /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void nodeDown(string name, global::Ice.Current? current = null);
+        void nodeDown(string name, global::Ice.Current current);
 
         /// <summary>
         /// The updateServer operation is called to notify an observer that the state of a server changed.
@@ -4459,10 +4457,10 @@ namespace IceGrid
         /// <param name="node">The node hosting the server.
         ///  </param>
         /// <param name="updatedInfo">The new server state.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.Current? current = null);
+        void updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.Current current);
 
         /// <summary>
         /// The updateAdapter operation is called to notify an observer that the state of an adapter
@@ -4471,10 +4469,10 @@ namespace IceGrid
         /// <param name="node">The node hosting the adapter.
         ///  </param>
         /// <param name="updatedInfo">The new adapter state.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.Current? current = null);
+        void updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.Current current);
     }
 
     /// <summary>
@@ -4494,10 +4492,10 @@ namespace IceGrid
         ///  make sure that their internal state is synchronized with the registry.
         ///  </param>
         /// <param name="applications">The applications currently registered with the registry.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current? current = null);
+        void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current);
 
         /// <summary>
         /// The applicationAdded operation is called to notify an observer that an application was added.
@@ -4505,10 +4503,10 @@ namespace IceGrid
         /// <param name="serial">The new serial number of the registry database.
         ///  </param>
         /// <param name="desc">The descriptor of the new application.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current? current = null);
+        void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current);
 
         /// <summary>
         /// The applicationRemoved operation is called to notify an observer that an application was
@@ -4517,10 +4515,10 @@ namespace IceGrid
         /// <param name="serial">The new serial number of the registry database.
         ///  </param>
         /// <param name="name">The name of the application that was removed.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void applicationRemoved(int serial, string name, global::Ice.Current? current = null);
+        void applicationRemoved(int serial, string name, global::Ice.Current current);
 
         /// <summary>
         /// The applicationUpdated operation is called to notify an observer that an application was
@@ -4529,10 +4527,10 @@ namespace IceGrid
         /// <param name="serial">The new serial number of the registry database.
         ///  </param>
         /// <param name="desc">The descriptor of the update.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.Current? current = null);
+        void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.Current current);
     }
 
     /// <summary>
@@ -4547,40 +4545,40 @@ namespace IceGrid
         /// </summary>
         /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
         ///  mechanism).</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void adapterInit(AdapterInfo[] adpts, global::Ice.Current? current = null);
+        void adapterInit(AdapterInfo[] adpts, global::Ice.Current current);
 
         /// <summary>
         /// The adapterAdded operation is called to notify an observer when a dynamically-registered
         ///  adapter was added.
         /// </summary>
         /// <param name="info">The details of the new adapter.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void adapterAdded(AdapterInfo info, global::Ice.Current? current = null);
+        void adapterAdded(AdapterInfo info, global::Ice.Current current);
 
         /// <summary>
         /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
         ///  updated.
         /// </summary>
         /// <param name="info">The details of the updated adapter.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void adapterUpdated(AdapterInfo info, global::Ice.Current? current = null);
+        void adapterUpdated(AdapterInfo info, global::Ice.Current current);
 
         /// <summary>
         /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
         ///  removed.
         /// </summary>
         /// <param name="id">The ID of the removed adapter.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void adapterRemoved(string id, global::Ice.Current? current = null);
+        void adapterRemoved(string id, global::Ice.Current current);
     }
 
     /// <summary>
@@ -4596,40 +4594,40 @@ namespace IceGrid
         /// </summary>
         /// <param name="objects">The objects registered with the Admin interface (not through the deployment
         ///  mechanism).</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void objectInit(ObjectInfo[] objects, global::Ice.Current? current = null);
+        void objectInit(ObjectInfo[] objects, global::Ice.Current current);
 
         /// <summary>
         /// The objectAdded operation is called to notify an observer when an object was added to the
         ///  Admin interface.
         /// </summary>
         /// <param name="info">The details of the added object.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void objectAdded(ObjectInfo info, global::Ice.Current? current = null);
+        void objectAdded(ObjectInfo info, global::Ice.Current current);
 
         /// <summary>
         /// objectUpdated is called to notify an observer when an object registered with the Admin
         ///  interface was updated.
         /// </summary>
         /// <param name="info">The details of the updated object.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void objectUpdated(ObjectInfo info, global::Ice.Current? current = null);
+        void objectUpdated(ObjectInfo info, global::Ice.Current current);
 
         /// <summary>
         /// objectRemoved is called to notify an observer when an object registered with the Admin
         ///  interface was removed.
         /// </summary>
         /// <param name="id">The identity of the removed object.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void objectRemoved(global::Ice.Identity id, global::Ice.Current? current = null);
+        void objectRemoved(global::Ice.Identity id, global::Ice.Current current);
     }
 
     /// <summary>
@@ -4647,20 +4645,20 @@ namespace IceGrid
         /// This operation is provided for backwards compatibility. As of Ice 3.8, there is no
         ///  need to call this operation and its implementation does nothing.
         /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void keepAlive(global::Ice.Current? current = null);
+        void keepAlive(global::Ice.Current current);
 
         /// <summary>
         /// Get the admin interface.
         /// The admin object returned by this operation can only be accessed by the session.
         /// </summary>
         ///  <returns>The admin interface proxy. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        AdminPrx? getAdmin(global::Ice.Current? current = null);
+        AdminPrx? getAdmin(global::Ice.Current current);
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
@@ -4668,10 +4666,10 @@ namespace IceGrid
         ///  its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
         /// </summary>
         ///  <returns>A template proxy. The returned proxy is null when the Admin session was established using Glacier2.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getAdminCallbackTemplate(global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? getAdminCallbackTemplate(global::Ice.Current current);
 
         /// <summary>
         /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -4687,10 +4685,10 @@ namespace IceGrid
         /// <param name="objObs">The object observer.
         ///  </param>
         /// <exception name="ObserverAlreadyRegisteredException">Raised if an observer is already registered with this registry.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setObservers(RegistryObserverPrx? registryObs, NodeObserverPrx? nodeObs, ApplicationObserverPrx? appObs, AdapterObserverPrx? adptObs, ObjectObserverPrx? objObs, global::Ice.Current? current = null);
+        void setObservers(RegistryObserverPrx? registryObs, NodeObserverPrx? nodeObs, ApplicationObserverPrx? appObs, AdapterObserverPrx? adptObs, ObjectObserverPrx? objObs, global::Ice.Current current);
 
         /// <summary>
         /// Set the observer identities that receive notifications the state of the registry or nodes changes.
@@ -4709,10 +4707,10 @@ namespace IceGrid
         /// <param name="objObs">The object observer.
         ///  </param>
         /// <exception name="ObserverAlreadyRegisteredException">Raised if an observer is already registered with this registry.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.Current? current = null);
+        void setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.Current current);
 
         /// <summary>
         /// Acquires an exclusive lock to start updating the registry applications.
@@ -4721,28 +4719,28 @@ namespace IceGrid
         ///  </returns>
         /// <exception name="AccessDeniedException">Raised if the exclusive lock can't be acquired. This might happen if the lock
         ///  is currently acquired by another session.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int startUpdate(global::Ice.Current? current = null);
+        int startUpdate(global::Ice.Current current);
 
         /// <summary>
         /// Finish updating the registry and release the exclusive lock.
         /// </summary>
         /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void finishUpdate(global::Ice.Current? current = null);
+        void finishUpdate(global::Ice.Current current);
 
         /// <summary>
         /// Get the name of the registry replica hosting this session.
         /// </summary>
         /// <returns>The replica name of the registry.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getReplicaName(global::Ice.Current? current = null);
+        string getReplicaName(global::Ice.Current current);
 
         /// <summary>
         /// Open the given server log file for reading.
@@ -4765,10 +4763,10 @@ namespace IceGrid
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
         ///  </exception>
         /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openServerLog(string id, string path, int count, global::Ice.Current? current = null);
+        FileIteratorPrx? openServerLog(string id, string path, int count, global::Ice.Current current);
 
         /// <summary>
         /// Open the given server stderr file for reading.
@@ -4788,10 +4786,10 @@ namespace IceGrid
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
         ///  </exception>
         /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openServerStdErr(string id, int count, global::Ice.Current? current = null);
+        FileIteratorPrx? openServerStdErr(string id, int count, global::Ice.Current current);
 
         /// <summary>
         /// Open the given server stdout file for reading.
@@ -4811,10 +4809,10 @@ namespace IceGrid
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
         ///  </exception>
         /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openServerStdOut(string id, int count, global::Ice.Current? current = null);
+        FileIteratorPrx? openServerStdOut(string id, int count, global::Ice.Current current);
 
         /// <summary>
         /// Open the given node stderr file for reading.
@@ -4832,10 +4830,10 @@ namespace IceGrid
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
         ///  </exception>
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openNodeStdErr(string name, int count, global::Ice.Current? current = null);
+        FileIteratorPrx? openNodeStdErr(string name, int count, global::Ice.Current current);
 
         /// <summary>
         /// Open the given node stdout file for reading.
@@ -4853,10 +4851,10 @@ namespace IceGrid
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
         ///  </exception>
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openNodeStdOut(string name, int count, global::Ice.Current? current = null);
+        FileIteratorPrx? openNodeStdOut(string name, int count, global::Ice.Current current);
 
         /// <summary>
         /// Open the given registry stderr file for reading.
@@ -4874,10 +4872,10 @@ namespace IceGrid
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
         ///  </exception>
         /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openRegistryStdErr(string name, int count, global::Ice.Current? current = null);
+        FileIteratorPrx? openRegistryStdErr(string name, int count, global::Ice.Current current);
 
         /// <summary>
         /// Open the given registry stdout file for reading.
@@ -4895,10 +4893,10 @@ namespace IceGrid
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
         ///  </exception>
         /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openRegistryStdOut(string name, int count, global::Ice.Current? current = null);
+        FileIteratorPrx? openRegistryStdOut(string name, int count, global::Ice.Current current);
     }
 }
 
@@ -10157,15 +10155,15 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(FileNotAvailableException)
-                    {
-                        throw;
-                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
+                    {
+                        throw;
+                    }
+                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -10220,15 +10218,15 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(FileNotAvailableException)
-                    {
-                        throw;
-                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
+                    {
+                        throw;
+                    }
+                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -10283,15 +10281,15 @@ namespace IceGrid
                     {
                         throw;
                     }
-                    catch(FileNotAvailableException)
-                    {
-                        throw;
-                    }
                     catch(DeploymentException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
+                    {
+                        throw;
+                    }
+                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -10342,15 +10340,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(FileNotAvailableException)
-                    {
-                        throw;
-                    }
                     catch(NodeNotExistException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
+                    {
+                        throw;
+                    }
+                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -10401,15 +10399,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(FileNotAvailableException)
-                    {
-                        throw;
-                    }
                     catch(NodeNotExistException)
                     {
                         throw;
                     }
                     catch(NodeUnreachableException)
+                    {
+                        throw;
+                    }
+                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -10460,15 +10458,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(FileNotAvailableException)
-                    {
-                        throw;
-                    }
                     catch(RegistryNotExistException)
                     {
                         throw;
                     }
                     catch(RegistryUnreachableException)
+                    {
+                        throw;
+                    }
+                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -10519,15 +10517,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(FileNotAvailableException)
-                    {
-                        throw;
-                    }
                     catch(RegistryNotExistException)
                     {
                         throw;
                     }
                     catch(RegistryUnreachableException)
+                    {
+                        throw;
+                    }
+                    catch(FileNotAvailableException)
                     {
                         throw;
                     }
@@ -10648,95 +10646,95 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract void addApplication(ApplicationDescriptor descriptor, global::Ice.Current? current = null);
+        public abstract void addApplication(ApplicationDescriptor descriptor, global::Ice.Current current);
 
-        public abstract void syncApplication(ApplicationDescriptor descriptor, global::Ice.Current? current = null);
+        public abstract void syncApplication(ApplicationDescriptor descriptor, global::Ice.Current current);
 
-        public abstract void updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.Current? current = null);
+        public abstract void updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.Current current);
 
-        public abstract void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.Current? current = null);
+        public abstract void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.Current current);
 
-        public abstract void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.Current? current = null);
+        public abstract void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.Current current);
 
-        public abstract void removeApplication(string name, global::Ice.Current? current = null);
+        public abstract void removeApplication(string name, global::Ice.Current current);
 
-        public abstract void instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.Current? current = null);
+        public abstract void instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.Current current);
 
-        public abstract ApplicationInfo getApplicationInfo(string name, global::Ice.Current? current = null);
+        public abstract ApplicationInfo getApplicationInfo(string name, global::Ice.Current current);
 
-        public abstract ApplicationDescriptor getDefaultApplicationDescriptor(global::Ice.Current? current = null);
+        public abstract ApplicationDescriptor getDefaultApplicationDescriptor(global::Ice.Current current);
 
-        public abstract string[] getAllApplicationNames(global::Ice.Current? current = null);
+        public abstract string[] getAllApplicationNames(global::Ice.Current current);
 
-        public abstract ServerInfo getServerInfo(string id, global::Ice.Current? current = null);
+        public abstract ServerInfo getServerInfo(string id, global::Ice.Current current);
 
-        public abstract ServerState getServerState(string id, global::Ice.Current? current = null);
+        public abstract ServerState getServerState(string id, global::Ice.Current current);
 
-        public abstract int getServerPid(string id, global::Ice.Current? current = null);
+        public abstract int getServerPid(string id, global::Ice.Current current);
 
-        public abstract string getServerAdminCategory(global::Ice.Current? current = null);
+        public abstract string getServerAdminCategory(global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getServerAdmin(string id, global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? getServerAdmin(string id, global::Ice.Current current);
 
-        public abstract void enableServer(string id, bool enabled, global::Ice.Current? current = null);
+        public abstract void enableServer(string id, bool enabled, global::Ice.Current current);
 
-        public abstract bool isServerEnabled(string id, global::Ice.Current? current = null);
+        public abstract bool isServerEnabled(string id, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task startServerAsync(string id, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task startServerAsync(string id, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task stopServerAsync(string id, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task stopServerAsync(string id, global::Ice.Current current);
 
-        public abstract void sendSignal(string id, string signal, global::Ice.Current? current = null);
+        public abstract void sendSignal(string id, string signal, global::Ice.Current current);
 
-        public abstract string[] getAllServerIds(global::Ice.Current? current = null);
+        public abstract string[] getAllServerIds(global::Ice.Current current);
 
-        public abstract AdapterInfo[] getAdapterInfo(string id, global::Ice.Current? current = null);
+        public abstract AdapterInfo[] getAdapterInfo(string id, global::Ice.Current current);
 
-        public abstract void removeAdapter(string id, global::Ice.Current? current = null);
+        public abstract void removeAdapter(string id, global::Ice.Current current);
 
-        public abstract string[] getAllAdapterIds(global::Ice.Current? current = null);
+        public abstract string[] getAllAdapterIds(global::Ice.Current current);
 
-        public abstract void addObject(global::Ice.ObjectPrx? obj, global::Ice.Current? current = null);
+        public abstract void addObject(global::Ice.ObjectPrx? obj, global::Ice.Current current);
 
-        public abstract void updateObject(global::Ice.ObjectPrx? obj, global::Ice.Current? current = null);
+        public abstract void updateObject(global::Ice.ObjectPrx? obj, global::Ice.Current current);
 
-        public abstract void addObjectWithType(global::Ice.ObjectPrx? obj, string type, global::Ice.Current? current = null);
+        public abstract void addObjectWithType(global::Ice.ObjectPrx? obj, string type, global::Ice.Current current);
 
-        public abstract void removeObject(global::Ice.Identity id, global::Ice.Current? current = null);
+        public abstract void removeObject(global::Ice.Identity id, global::Ice.Current current);
 
-        public abstract ObjectInfo getObjectInfo(global::Ice.Identity id, global::Ice.Current? current = null);
+        public abstract ObjectInfo getObjectInfo(global::Ice.Identity id, global::Ice.Current current);
 
-        public abstract ObjectInfo[] getObjectInfosByType(string type, global::Ice.Current? current = null);
+        public abstract ObjectInfo[] getObjectInfosByType(string type, global::Ice.Current current);
 
-        public abstract ObjectInfo[] getAllObjectInfos(string expr, global::Ice.Current? current = null);
+        public abstract ObjectInfo[] getAllObjectInfos(string expr, global::Ice.Current current);
 
-        public abstract bool pingNode(string name, global::Ice.Current? current = null);
+        public abstract bool pingNode(string name, global::Ice.Current current);
 
-        public abstract LoadInfo getNodeLoad(string name, global::Ice.Current? current = null);
+        public abstract LoadInfo getNodeLoad(string name, global::Ice.Current current);
 
-        public abstract NodeInfo getNodeInfo(string name, global::Ice.Current? current = null);
+        public abstract NodeInfo getNodeInfo(string name, global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getNodeAdmin(string name, global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? getNodeAdmin(string name, global::Ice.Current current);
 
-        public abstract int getNodeProcessorSocketCount(string name, global::Ice.Current? current = null);
+        public abstract int getNodeProcessorSocketCount(string name, global::Ice.Current current);
 
-        public abstract void shutdownNode(string name, global::Ice.Current? current = null);
+        public abstract void shutdownNode(string name, global::Ice.Current current);
 
-        public abstract string getNodeHostname(string name, global::Ice.Current? current = null);
+        public abstract string getNodeHostname(string name, global::Ice.Current current);
 
-        public abstract string[] getAllNodeNames(global::Ice.Current? current = null);
+        public abstract string[] getAllNodeNames(global::Ice.Current current);
 
-        public abstract bool pingRegistry(string name, global::Ice.Current? current = null);
+        public abstract bool pingRegistry(string name, global::Ice.Current current);
 
-        public abstract RegistryInfo getRegistryInfo(string name, global::Ice.Current? current = null);
+        public abstract RegistryInfo getRegistryInfo(string name, global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getRegistryAdmin(string name, global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? getRegistryAdmin(string name, global::Ice.Current current);
 
-        public abstract void shutdownRegistry(string name, global::Ice.Current? current = null);
+        public abstract void shutdownRegistry(string name, global::Ice.Current current);
 
-        public abstract string[] getAllRegistryNames(global::Ice.Current? current = null);
+        public abstract string[] getAllRegistryNames(global::Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current? current = null);
+        public abstract void shutdown(global::Ice.Current current);
 
         #endregion
 
@@ -10748,17 +10746,17 @@ namespace IceGrid
             "::IceGrid::Admin"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -11480,7 +11478,7 @@ namespace IceGrid
             "updateObject"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -11702,9 +11700,9 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract bool read(int size, out string[] lines, global::Ice.Current? current = null);
+        public abstract bool read(int size, out string[] lines, global::Ice.Current current);
 
-        public abstract void destroy(global::Ice.Current? current = null);
+        public abstract void destroy(global::Ice.Current current);
 
         #endregion
 
@@ -11716,17 +11714,17 @@ namespace IceGrid
             "::IceGrid::FileIterator"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -11778,7 +11776,7 @@ namespace IceGrid
             "read"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -11828,11 +11826,11 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract void registryInit(RegistryInfo[] registries, global::Ice.Current? current = null);
+        public abstract void registryInit(RegistryInfo[] registries, global::Ice.Current current);
 
-        public abstract void registryUp(RegistryInfo registryReplica, global::Ice.Current? current = null);
+        public abstract void registryUp(RegistryInfo registryReplica, global::Ice.Current current);
 
-        public abstract void registryDown(string name, global::Ice.Current? current = null);
+        public abstract void registryDown(string name, global::Ice.Current current);
 
         #endregion
 
@@ -11844,17 +11842,17 @@ namespace IceGrid
             "::IceGrid::RegistryObserver"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -11918,7 +11916,7 @@ namespace IceGrid
             "registryUp"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -11972,15 +11970,15 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract void nodeInit(NodeDynamicInfo[] nodes, global::Ice.Current? current = null);
+        public abstract void nodeInit(NodeDynamicInfo[] nodes, global::Ice.Current current);
 
-        public abstract void nodeUp(NodeDynamicInfo node, global::Ice.Current? current = null);
+        public abstract void nodeUp(NodeDynamicInfo node, global::Ice.Current current);
 
-        public abstract void nodeDown(string name, global::Ice.Current? current = null);
+        public abstract void nodeDown(string name, global::Ice.Current current);
 
-        public abstract void updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.Current? current = null);
+        public abstract void updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.Current current);
 
-        public abstract void updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.Current? current = null);
+        public abstract void updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.Current current);
 
         #endregion
 
@@ -11992,17 +11990,17 @@ namespace IceGrid
             "::IceGrid::NodeObserver"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -12098,7 +12096,7 @@ namespace IceGrid
             "updateServer"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -12160,13 +12158,13 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current? current = null);
+        public abstract void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current);
 
-        public abstract void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current? current = null);
+        public abstract void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current);
 
-        public abstract void applicationRemoved(int serial, string name, global::Ice.Current? current = null);
+        public abstract void applicationRemoved(int serial, string name, global::Ice.Current current);
 
-        public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.Current? current = null);
+        public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.Current current);
 
         #endregion
 
@@ -12178,17 +12176,17 @@ namespace IceGrid
             "::IceGrid::ApplicationObserver"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -12277,7 +12275,7 @@ namespace IceGrid
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -12335,13 +12333,13 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract void adapterInit(AdapterInfo[] adpts, global::Ice.Current? current = null);
+        public abstract void adapterInit(AdapterInfo[] adpts, global::Ice.Current current);
 
-        public abstract void adapterAdded(AdapterInfo info, global::Ice.Current? current = null);
+        public abstract void adapterAdded(AdapterInfo info, global::Ice.Current current);
 
-        public abstract void adapterUpdated(AdapterInfo info, global::Ice.Current? current = null);
+        public abstract void adapterUpdated(AdapterInfo info, global::Ice.Current current);
 
-        public abstract void adapterRemoved(string id, global::Ice.Current? current = null);
+        public abstract void adapterRemoved(string id, global::Ice.Current current);
 
         #endregion
 
@@ -12353,17 +12351,17 @@ namespace IceGrid
             "::IceGrid::AdapterObserver"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -12441,7 +12439,7 @@ namespace IceGrid
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -12499,13 +12497,13 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current? current = null);
+        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current);
 
-        public abstract void objectAdded(ObjectInfo info, global::Ice.Current? current = null);
+        public abstract void objectAdded(ObjectInfo info, global::Ice.Current current);
 
-        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current? current = null);
+        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current);
 
-        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current? current = null);
+        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current);
 
         #endregion
 
@@ -12517,17 +12515,17 @@ namespace IceGrid
             "::IceGrid::ObjectObserver"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -12605,7 +12603,7 @@ namespace IceGrid
             "objectUpdated"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -12663,41 +12661,41 @@ namespace IceGrid
     {
         #region Slice operations
 
-        public abstract void keepAlive(global::Ice.Current? current = null);
+        public abstract void keepAlive(global::Ice.Current current);
 
-        public abstract AdminPrx? getAdmin(global::Ice.Current? current = null);
+        public abstract AdminPrx? getAdmin(global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getAdminCallbackTemplate(global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? getAdminCallbackTemplate(global::Ice.Current current);
 
-        public abstract void setObservers(RegistryObserverPrx? registryObs, NodeObserverPrx? nodeObs, ApplicationObserverPrx? appObs, AdapterObserverPrx? adptObs, ObjectObserverPrx? objObs, global::Ice.Current? current = null);
+        public abstract void setObservers(RegistryObserverPrx? registryObs, NodeObserverPrx? nodeObs, ApplicationObserverPrx? appObs, AdapterObserverPrx? adptObs, ObjectObserverPrx? objObs, global::Ice.Current current);
 
-        public abstract void setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.Current? current = null);
+        public abstract void setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.Current current);
 
-        public abstract int startUpdate(global::Ice.Current? current = null);
+        public abstract int startUpdate(global::Ice.Current current);
 
-        public abstract void finishUpdate(global::Ice.Current? current = null);
+        public abstract void finishUpdate(global::Ice.Current current);
 
-        public abstract string getReplicaName(global::Ice.Current? current = null);
+        public abstract string getReplicaName(global::Ice.Current current);
 
-        public abstract FileIteratorPrx? openServerLog(string id, string path, int count, global::Ice.Current? current = null);
+        public abstract FileIteratorPrx? openServerLog(string id, string path, int count, global::Ice.Current current);
 
-        public abstract FileIteratorPrx? openServerStdErr(string id, int count, global::Ice.Current? current = null);
+        public abstract FileIteratorPrx? openServerStdErr(string id, int count, global::Ice.Current current);
 
-        public abstract FileIteratorPrx? openServerStdOut(string id, int count, global::Ice.Current? current = null);
+        public abstract FileIteratorPrx? openServerStdOut(string id, int count, global::Ice.Current current);
 
-        public abstract FileIteratorPrx? openNodeStdErr(string name, int count, global::Ice.Current? current = null);
+        public abstract FileIteratorPrx? openNodeStdErr(string name, int count, global::Ice.Current current);
 
-        public abstract FileIteratorPrx? openNodeStdOut(string name, int count, global::Ice.Current? current = null);
+        public abstract FileIteratorPrx? openNodeStdOut(string name, int count, global::Ice.Current current);
 
-        public abstract FileIteratorPrx? openRegistryStdErr(string name, int count, global::Ice.Current? current = null);
+        public abstract FileIteratorPrx? openRegistryStdErr(string name, int count, global::Ice.Current current);
 
-        public abstract FileIteratorPrx? openRegistryStdOut(string name, int count, global::Ice.Current? current = null);
+        public abstract FileIteratorPrx? openRegistryStdOut(string name, int count, global::Ice.Current current);
 
         #endregion
 
         #region Inherited Slice operations
 
-        public abstract void destroy(global::Ice.Current? current = null);
+        public abstract void destroy(global::Ice.Current current);
 
         #endregion
 
@@ -12710,17 +12708,17 @@ namespace IceGrid
             "::IceGrid::AdminSession"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -13000,7 +12998,7 @@ namespace IceGrid
             "startUpdate"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

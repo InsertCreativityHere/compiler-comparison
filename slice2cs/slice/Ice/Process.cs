@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Process.ice")]
 
 #pragma warning disable 1591
@@ -108,10 +106,10 @@ namespace Ice
         /// <summary>
         /// Initiate a graceful shut-down.
         /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(Current? current = null);
+        void shutdown(Current current);
 
         /// <summary>
         /// Write a message on the process' stdout or stderr.
@@ -119,10 +117,10 @@ namespace Ice
         /// <param name="message">The message.
         ///  </param>
         /// <param name="fd">1 for stdout, 2 for stderr.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void writeMessage(string message, int fd, Current? current = null);
+        void writeMessage(string message, int fd, Current current);
     }
 }
 
@@ -325,9 +323,9 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract void shutdown(Current? current = null);
+        public abstract void shutdown(Current current);
 
-        public abstract void writeMessage(string message, int fd, Current? current = null);
+        public abstract void writeMessage(string message, int fd, Current current);
 
         #endregion
 
@@ -339,17 +337,17 @@ namespace Ice
             "::Ice::Process"
         };
 
-        public override bool ice_isA(string s, Current? current = null)
+        public override bool ice_isA(string s, Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current? current = null)
+        public override string[] ice_ids(Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(Current? current = null)
+        public override string ice_id(Current current)
         {
             return ice_staticId();
         }
@@ -398,7 +396,7 @@ namespace Ice
             "writeMessage"
         };
 
-        public override global::System.Threading.Tasks.Task<OutputStream>
+        public override global::System.Threading.Tasks.Task<OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

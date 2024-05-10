@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Metrics.ice")]
 
 #pragma warning disable 1591
@@ -1074,10 +1072,10 @@ namespace IceMX
         /// <param name="disabledViews">The names of the disabled views.
         ///  </param>
         /// <returns>The name of the enabled views.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current? current = null);
+        string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current current);
 
         /// <summary>
         /// Enables a metrics view.
@@ -1085,10 +1083,10 @@ namespace IceMX
         /// <param name="name">The metrics view name.
         ///  </param>
         /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void enableMetricsView(string name, global::Ice.Current? current = null);
+        void enableMetricsView(string name, global::Ice.Current current);
 
         /// <summary>
         /// Disable a metrics view.
@@ -1096,10 +1094,10 @@ namespace IceMX
         /// <param name="name">The metrics view name.
         ///  </param>
         /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void disableMetricsView(string name, global::Ice.Current? current = null);
+        void disableMetricsView(string name, global::Ice.Current current);
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
@@ -1114,10 +1112,10 @@ namespace IceMX
         /// <returns>The metrics view data.
         ///  </returns>
         /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::Ice.Current current);
 
         /// <summary>
         /// Get the metrics failures associated with the given view and map.
@@ -1129,10 +1127,10 @@ namespace IceMX
         /// <returns>The metrics failures associated with the map.
         ///  </returns>
         /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current? current = null);
+        MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current current);
 
         /// <summary>
         /// Get the metrics failure associated for the given metrics.
@@ -1146,10 +1144,10 @@ namespace IceMX
         /// <returns>The metrics failures associated with the metrics.
         ///  </returns>
         /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current? current = null);
+        MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current current);
     }
 }
 
@@ -1767,17 +1765,17 @@ namespace IceMX
     {
         #region Slice operations
 
-        public abstract string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current? current = null);
+        public abstract string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current current);
 
-        public abstract void enableMetricsView(string name, global::Ice.Current? current = null);
+        public abstract void enableMetricsView(string name, global::Ice.Current current);
 
-        public abstract void disableMetricsView(string name, global::Ice.Current? current = null);
+        public abstract void disableMetricsView(string name, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::Ice.Current current);
 
-        public abstract MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current? current = null);
+        public abstract MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current current);
 
-        public abstract MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current? current = null);
+        public abstract MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current current);
 
         #endregion
 
@@ -1789,17 +1787,17 @@ namespace IceMX
             "::IceMX::MetricsAdmin"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1931,7 +1929,7 @@ namespace IceMX
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

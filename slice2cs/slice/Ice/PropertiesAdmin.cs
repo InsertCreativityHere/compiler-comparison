@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("PropertiesAdmin.ice")]
 
 #pragma warning disable 1591
@@ -136,10 +134,10 @@ namespace Ice
         ///  <param name="key">The property key.
         ///  </param>
         /// <returns>The property value.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getProperty(string key, Current? current = null);
+        string getProperty(string key, Current current);
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
@@ -149,10 +147,10 @@ namespace Ice
         ///  <param name="prefix">The prefix to search for (empty string if none).
         ///  </param>
         /// <returns>The matching property set.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current? current = null);
+        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current current);
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
@@ -162,10 +160,10 @@ namespace Ice
         ///  by the entries in newProperties are retained with their original values.
         /// </summary>
         ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current? current = null);
+        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current current);
     }
 }
 
@@ -426,11 +424,11 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract string getProperty(string key, Current? current = null);
+        public abstract string getProperty(string key, Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current current);
 
-        public abstract void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current? current = null);
+        public abstract void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current current);
 
         #endregion
 
@@ -442,17 +440,17 @@ namespace Ice
             "::Ice::PropertiesAdmin"
         };
 
-        public override bool ice_isA(string s, Current? current = null)
+        public override bool ice_isA(string s, Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current? current = null)
+        public override string[] ice_ids(Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(Current? current = null)
+        public override string ice_id(Current current)
         {
             return ice_staticId();
         }
@@ -522,7 +520,7 @@ namespace Ice
             "setProperties"
         };
 
-        public override global::System.Threading.Tasks.Task<OutputStream>
+        public override global::System.Threading.Tasks.Task<OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

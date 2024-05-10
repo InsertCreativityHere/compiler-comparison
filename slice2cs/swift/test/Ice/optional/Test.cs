@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -2474,161 +2472,161 @@ namespace Test
     public interface MyInterfaceOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void op(global::Ice.Current? current = null);
+        void op(global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface InitialOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current? current = null);
+        void shutdown(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Initial_PingPongMarshaledResult pingPong(global::Ice.Value? o, global::Ice.Current? current = null);
+        Initial_PingPongMarshaledResult pingPong(global::Ice.Value? o, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opOptionalException(int? a, string? b, global::Ice.Current? current = null);
+        void opOptionalException(int? a, string? b, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opDerivedException(int? a, string? b, global::Ice.Current? current = null);
+        void opDerivedException(int? a, string? b, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opRequiredException(int? a, string? b, global::Ice.Current? current = null);
+        void opRequiredException(int? a, string? b, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte? opByte(byte? p1, out byte? p3, global::Ice.Current? current = null);
+        byte? opByte(byte? p1, out byte? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool? opBool(bool? p1, out bool? p3, global::Ice.Current? current = null);
+        bool? opBool(bool? p1, out bool? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        short? opShort(short? p1, out short? p3, global::Ice.Current? current = null);
+        short? opShort(short? p1, out short? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int? opInt(int? p1, out int? p3, global::Ice.Current? current = null);
+        int? opInt(int? p1, out int? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        long? opLong(long? p1, out long? p3, global::Ice.Current? current = null);
+        long? opLong(long? p1, out long? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        float? opFloat(float? p1, out float? p3, global::Ice.Current? current = null);
+        float? opFloat(float? p1, out float? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        double? opDouble(double? p1, out double? p3, global::Ice.Current? current = null);
+        double? opDouble(double? p1, out double? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string? opString(string? p1, out string? p3, global::Ice.Current? current = null);
+        string? opString(string? p1, out string? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string? opCustomString(string? p1, out string? p3, global::Ice.Current? current = null);
+        string? opCustomString(string? p1, out string? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        MyEnum? opMyEnum(MyEnum? p1, out MyEnum? p3, global::Ice.Current? current = null);
+        MyEnum? opMyEnum(MyEnum? p1, out MyEnum? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SmallStruct? opSmallStruct(SmallStruct? p1, out SmallStruct? p3, global::Ice.Current? current = null);
+        SmallStruct? opSmallStruct(SmallStruct? p1, out SmallStruct? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FixedStruct? opFixedStruct(FixedStruct? p1, out FixedStruct? p3, global::Ice.Current? current = null);
+        FixedStruct? opFixedStruct(FixedStruct? p1, out FixedStruct? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        VarStruct? opVarStruct(VarStruct? p1, out VarStruct? p3, global::Ice.Current? current = null);
+        VarStruct? opVarStruct(VarStruct? p1, out VarStruct? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        MyInterfacePrx? opMyInterfaceProxy(MyInterfacePrx? p1, out MyInterfacePrx? p3, global::Ice.Current? current = null);
+        MyInterfacePrx? opMyInterfaceProxy(MyInterfacePrx? p1, out MyInterfacePrx? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        OneOptional? opOneOptional(OneOptional? p1, out OneOptional? p3, global::Ice.Current? current = null);
+        OneOptional? opOneOptional(OneOptional? p1, out OneOptional? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[]? opByteSeq(byte[]? p1, out byte[]? p3, global::Ice.Current? current = null);
+        byte[]? opByteSeq(byte[]? p1, out byte[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool[]? opBoolSeq(bool[]? p1, out bool[]? p3, global::Ice.Current? current = null);
+        bool[]? opBoolSeq(bool[]? p1, out bool[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        short[]? opShortSeq(short[]? p1, out short[]? p3, global::Ice.Current? current = null);
+        short[]? opShortSeq(short[]? p1, out short[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int[]? opIntSeq(int[]? p1, out int[]? p3, global::Ice.Current? current = null);
+        int[]? opIntSeq(int[]? p1, out int[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        long[]? opLongSeq(long[]? p1, out long[]? p3, global::Ice.Current? current = null);
+        long[]? opLongSeq(long[]? p1, out long[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        float[]? opFloatSeq(float[]? p1, out float[]? p3, global::Ice.Current? current = null);
+        float[]? opFloatSeq(float[]? p1, out float[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        double[]? opDoubleSeq(double[]? p1, out double[]? p3, global::Ice.Current? current = null);
+        double[]? opDoubleSeq(double[]? p1, out double[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[]? opStringSeq(string[]? p1, out string[]? p3, global::Ice.Current? current = null);
+        string[]? opStringSeq(string[]? p1, out string[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SmallStruct[]? opSmallStructSeq(SmallStruct[]? p1, out SmallStruct[]? p3, global::Ice.Current? current = null);
+        SmallStruct[]? opSmallStructSeq(SmallStruct[]? p1, out SmallStruct[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SmallStruct[]? opSmallStructList(SmallStruct[]? p1, out SmallStruct[]? p3, global::Ice.Current? current = null);
+        SmallStruct[]? opSmallStructList(SmallStruct[]? p1, out SmallStruct[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FixedStruct[]? opFixedStructSeq(FixedStruct[]? p1, out FixedStruct[]? p3, global::Ice.Current? current = null);
+        FixedStruct[]? opFixedStructSeq(FixedStruct[]? p1, out FixedStruct[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FixedStruct[]? opFixedStructList(FixedStruct[]? p1, out FixedStruct[]? p3, global::Ice.Current? current = null);
+        FixedStruct[]? opFixedStructList(FixedStruct[]? p1, out FixedStruct[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        VarStruct[]? opVarStructSeq(VarStruct[]? p1, out VarStruct[]? p3, global::Ice.Current? current = null);
+        VarStruct[]? opVarStructSeq(VarStruct[]? p1, out VarStruct[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[]? opSerializable(byte[]? p1, out byte[]? p3, global::Ice.Current? current = null);
+        byte[]? opSerializable(byte[]? p1, out byte[]? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<int, int>? opIntIntDict(global::System.Collections.Generic.Dictionary<int, int>? p1, out global::System.Collections.Generic.Dictionary<int, int>? p3, global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<int, int>? opIntIntDict(global::System.Collections.Generic.Dictionary<int, int>? p1, out global::System.Collections.Generic.Dictionary<int, int>? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, int>? opStringIntDict(global::System.Collections.Generic.Dictionary<string, int>? p1, out global::System.Collections.Generic.Dictionary<string, int>? p3, global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<string, int>? opStringIntDict(global::System.Collections.Generic.Dictionary<string, int>? p1, out global::System.Collections.Generic.Dictionary<string, int>? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<int, string>? opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string>? p1, out global::System.Collections.Generic.Dictionary<int, string>? p3, global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<int, string>? opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string>? p1, out global::System.Collections.Generic.Dictionary<int, string>? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<int, OneOptional?>? opIntOneOptionalDict(global::System.Collections.Generic.Dictionary<int, OneOptional?>? p1, out global::System.Collections.Generic.Dictionary<int, OneOptional?>? p3, global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<int, OneOptional?>? opIntOneOptionalDict(global::System.Collections.Generic.Dictionary<int, OneOptional?>? p1, out global::System.Collections.Generic.Dictionary<int, OneOptional?>? p3, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opClassAndUnknownOptional(A? p, global::Ice.Current? current = null);
+        void opClassAndUnknownOptional(A? p, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        G? opG(G? g, global::Ice.Current? current = null);
+        G? opG(G? g, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opVoid(global::Ice.Current? current = null);
+        void opVoid(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Initial_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current? current = null);
+        Initial_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Initial_OpMStruct2MarshaledResult opMStruct2(SmallStruct? p1, global::Ice.Current? current = null);
+        Initial_OpMStruct2MarshaledResult opMStruct2(SmallStruct? p1, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Initial_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current? current = null);
+        Initial_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Initial_OpMSeq2MarshaledResult opMSeq2(string[]? p1, global::Ice.Current? current = null);
+        Initial_OpMSeq2MarshaledResult opMSeq2(string[]? p1, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Initial_OpMDict1MarshaledResult opMDict1(global::Ice.Current? current = null);
+        Initial_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Initial_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, int>? p1, global::Ice.Current? current = null);
+        Initial_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, int>? p1, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool supportsRequiredParams(global::Ice.Current? current = null);
+        bool supportsRequiredParams(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool supportsJavaSerializable(global::Ice.Current? current = null);
+        bool supportsJavaSerializable(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool supportsCsharpSerializable(global::Ice.Current? current = null);
+        bool supportsCsharpSerializable(global::Ice.Current current);
     }
 }
 
@@ -6715,7 +6713,7 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void op(global::Ice.Current? current = null);
+        public abstract void op(global::Ice.Current current);
 
         #endregion
 
@@ -6727,17 +6725,17 @@ namespace Test
             "::Test::MyInterface"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -6770,7 +6768,7 @@ namespace Test
             "op"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -6816,105 +6814,105 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void shutdown(global::Ice.Current? current = null);
+        public abstract void shutdown(global::Ice.Current current);
 
-        public abstract Initial_PingPongMarshaledResult pingPong(global::Ice.Value? o, global::Ice.Current? current = null);
+        public abstract Initial_PingPongMarshaledResult pingPong(global::Ice.Value? o, global::Ice.Current current);
 
-        public abstract void opOptionalException(int? a, string? b, global::Ice.Current? current = null);
+        public abstract void opOptionalException(int? a, string? b, global::Ice.Current current);
 
-        public abstract void opDerivedException(int? a, string? b, global::Ice.Current? current = null);
+        public abstract void opDerivedException(int? a, string? b, global::Ice.Current current);
 
-        public abstract void opRequiredException(int? a, string? b, global::Ice.Current? current = null);
+        public abstract void opRequiredException(int? a, string? b, global::Ice.Current current);
 
-        public abstract byte? opByte(byte? p1, out byte? p3, global::Ice.Current? current = null);
+        public abstract byte? opByte(byte? p1, out byte? p3, global::Ice.Current current);
 
-        public abstract bool? opBool(bool? p1, out bool? p3, global::Ice.Current? current = null);
+        public abstract bool? opBool(bool? p1, out bool? p3, global::Ice.Current current);
 
-        public abstract short? opShort(short? p1, out short? p3, global::Ice.Current? current = null);
+        public abstract short? opShort(short? p1, out short? p3, global::Ice.Current current);
 
-        public abstract int? opInt(int? p1, out int? p3, global::Ice.Current? current = null);
+        public abstract int? opInt(int? p1, out int? p3, global::Ice.Current current);
 
-        public abstract long? opLong(long? p1, out long? p3, global::Ice.Current? current = null);
+        public abstract long? opLong(long? p1, out long? p3, global::Ice.Current current);
 
-        public abstract float? opFloat(float? p1, out float? p3, global::Ice.Current? current = null);
+        public abstract float? opFloat(float? p1, out float? p3, global::Ice.Current current);
 
-        public abstract double? opDouble(double? p1, out double? p3, global::Ice.Current? current = null);
+        public abstract double? opDouble(double? p1, out double? p3, global::Ice.Current current);
 
-        public abstract string? opString(string? p1, out string? p3, global::Ice.Current? current = null);
+        public abstract string? opString(string? p1, out string? p3, global::Ice.Current current);
 
-        public abstract string? opCustomString(string? p1, out string? p3, global::Ice.Current? current = null);
+        public abstract string? opCustomString(string? p1, out string? p3, global::Ice.Current current);
 
-        public abstract MyEnum? opMyEnum(MyEnum? p1, out MyEnum? p3, global::Ice.Current? current = null);
+        public abstract MyEnum? opMyEnum(MyEnum? p1, out MyEnum? p3, global::Ice.Current current);
 
-        public abstract SmallStruct? opSmallStruct(SmallStruct? p1, out SmallStruct? p3, global::Ice.Current? current = null);
+        public abstract SmallStruct? opSmallStruct(SmallStruct? p1, out SmallStruct? p3, global::Ice.Current current);
 
-        public abstract FixedStruct? opFixedStruct(FixedStruct? p1, out FixedStruct? p3, global::Ice.Current? current = null);
+        public abstract FixedStruct? opFixedStruct(FixedStruct? p1, out FixedStruct? p3, global::Ice.Current current);
 
-        public abstract VarStruct? opVarStruct(VarStruct? p1, out VarStruct? p3, global::Ice.Current? current = null);
+        public abstract VarStruct? opVarStruct(VarStruct? p1, out VarStruct? p3, global::Ice.Current current);
 
-        public abstract MyInterfacePrx? opMyInterfaceProxy(MyInterfacePrx? p1, out MyInterfacePrx? p3, global::Ice.Current? current = null);
+        public abstract MyInterfacePrx? opMyInterfaceProxy(MyInterfacePrx? p1, out MyInterfacePrx? p3, global::Ice.Current current);
 
-        public abstract OneOptional? opOneOptional(OneOptional? p1, out OneOptional? p3, global::Ice.Current? current = null);
+        public abstract OneOptional? opOneOptional(OneOptional? p1, out OneOptional? p3, global::Ice.Current current);
 
-        public abstract byte[]? opByteSeq(byte[]? p1, out byte[]? p3, global::Ice.Current? current = null);
+        public abstract byte[]? opByteSeq(byte[]? p1, out byte[]? p3, global::Ice.Current current);
 
-        public abstract bool[]? opBoolSeq(bool[]? p1, out bool[]? p3, global::Ice.Current? current = null);
+        public abstract bool[]? opBoolSeq(bool[]? p1, out bool[]? p3, global::Ice.Current current);
 
-        public abstract short[]? opShortSeq(short[]? p1, out short[]? p3, global::Ice.Current? current = null);
+        public abstract short[]? opShortSeq(short[]? p1, out short[]? p3, global::Ice.Current current);
 
-        public abstract int[]? opIntSeq(int[]? p1, out int[]? p3, global::Ice.Current? current = null);
+        public abstract int[]? opIntSeq(int[]? p1, out int[]? p3, global::Ice.Current current);
 
-        public abstract long[]? opLongSeq(long[]? p1, out long[]? p3, global::Ice.Current? current = null);
+        public abstract long[]? opLongSeq(long[]? p1, out long[]? p3, global::Ice.Current current);
 
-        public abstract float[]? opFloatSeq(float[]? p1, out float[]? p3, global::Ice.Current? current = null);
+        public abstract float[]? opFloatSeq(float[]? p1, out float[]? p3, global::Ice.Current current);
 
-        public abstract double[]? opDoubleSeq(double[]? p1, out double[]? p3, global::Ice.Current? current = null);
+        public abstract double[]? opDoubleSeq(double[]? p1, out double[]? p3, global::Ice.Current current);
 
-        public abstract string[]? opStringSeq(string[]? p1, out string[]? p3, global::Ice.Current? current = null);
+        public abstract string[]? opStringSeq(string[]? p1, out string[]? p3, global::Ice.Current current);
 
-        public abstract SmallStruct[]? opSmallStructSeq(SmallStruct[]? p1, out SmallStruct[]? p3, global::Ice.Current? current = null);
+        public abstract SmallStruct[]? opSmallStructSeq(SmallStruct[]? p1, out SmallStruct[]? p3, global::Ice.Current current);
 
-        public abstract SmallStruct[]? opSmallStructList(SmallStruct[]? p1, out SmallStruct[]? p3, global::Ice.Current? current = null);
+        public abstract SmallStruct[]? opSmallStructList(SmallStruct[]? p1, out SmallStruct[]? p3, global::Ice.Current current);
 
-        public abstract FixedStruct[]? opFixedStructSeq(FixedStruct[]? p1, out FixedStruct[]? p3, global::Ice.Current? current = null);
+        public abstract FixedStruct[]? opFixedStructSeq(FixedStruct[]? p1, out FixedStruct[]? p3, global::Ice.Current current);
 
-        public abstract FixedStruct[]? opFixedStructList(FixedStruct[]? p1, out FixedStruct[]? p3, global::Ice.Current? current = null);
+        public abstract FixedStruct[]? opFixedStructList(FixedStruct[]? p1, out FixedStruct[]? p3, global::Ice.Current current);
 
-        public abstract VarStruct[]? opVarStructSeq(VarStruct[]? p1, out VarStruct[]? p3, global::Ice.Current? current = null);
+        public abstract VarStruct[]? opVarStructSeq(VarStruct[]? p1, out VarStruct[]? p3, global::Ice.Current current);
 
-        public abstract byte[]? opSerializable(byte[]? p1, out byte[]? p3, global::Ice.Current? current = null);
+        public abstract byte[]? opSerializable(byte[]? p1, out byte[]? p3, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<int, int>? opIntIntDict(global::System.Collections.Generic.Dictionary<int, int>? p1, out global::System.Collections.Generic.Dictionary<int, int>? p3, global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<int, int>? opIntIntDict(global::System.Collections.Generic.Dictionary<int, int>? p1, out global::System.Collections.Generic.Dictionary<int, int>? p3, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, int>? opStringIntDict(global::System.Collections.Generic.Dictionary<string, int>? p1, out global::System.Collections.Generic.Dictionary<string, int>? p3, global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<string, int>? opStringIntDict(global::System.Collections.Generic.Dictionary<string, int>? p1, out global::System.Collections.Generic.Dictionary<string, int>? p3, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<int, string>? opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string>? p1, out global::System.Collections.Generic.Dictionary<int, string>? p3, global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<int, string>? opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string>? p1, out global::System.Collections.Generic.Dictionary<int, string>? p3, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<int, OneOptional?>? opIntOneOptionalDict(global::System.Collections.Generic.Dictionary<int, OneOptional?>? p1, out global::System.Collections.Generic.Dictionary<int, OneOptional?>? p3, global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<int, OneOptional?>? opIntOneOptionalDict(global::System.Collections.Generic.Dictionary<int, OneOptional?>? p1, out global::System.Collections.Generic.Dictionary<int, OneOptional?>? p3, global::Ice.Current current);
 
-        public abstract void opClassAndUnknownOptional(A? p, global::Ice.Current? current = null);
+        public abstract void opClassAndUnknownOptional(A? p, global::Ice.Current current);
 
-        public abstract G? opG(G? g, global::Ice.Current? current = null);
+        public abstract G? opG(G? g, global::Ice.Current current);
 
-        public abstract void opVoid(global::Ice.Current? current = null);
+        public abstract void opVoid(global::Ice.Current current);
 
-        public abstract Initial_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current? current = null);
+        public abstract Initial_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current);
 
-        public abstract Initial_OpMStruct2MarshaledResult opMStruct2(SmallStruct? p1, global::Ice.Current? current = null);
+        public abstract Initial_OpMStruct2MarshaledResult opMStruct2(SmallStruct? p1, global::Ice.Current current);
 
-        public abstract Initial_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current? current = null);
+        public abstract Initial_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current);
 
-        public abstract Initial_OpMSeq2MarshaledResult opMSeq2(string[]? p1, global::Ice.Current? current = null);
+        public abstract Initial_OpMSeq2MarshaledResult opMSeq2(string[]? p1, global::Ice.Current current);
 
-        public abstract Initial_OpMDict1MarshaledResult opMDict1(global::Ice.Current? current = null);
+        public abstract Initial_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
 
-        public abstract Initial_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, int>? p1, global::Ice.Current? current = null);
+        public abstract Initial_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, int>? p1, global::Ice.Current current);
 
-        public abstract bool supportsRequiredParams(global::Ice.Current? current = null);
+        public abstract bool supportsRequiredParams(global::Ice.Current current);
 
-        public abstract bool supportsJavaSerializable(global::Ice.Current? current = null);
+        public abstract bool supportsJavaSerializable(global::Ice.Current current);
 
-        public abstract bool supportsCsharpSerializable(global::Ice.Current? current = null);
+        public abstract bool supportsCsharpSerializable(global::Ice.Current current);
 
         #endregion
 
@@ -6926,17 +6924,17 @@ namespace Test
             "::Test::Initial"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -8188,7 +8186,7 @@ namespace Test
             "supportsRequiredParams"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

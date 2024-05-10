@@ -71,5 +71,5 @@ public class LinkExists extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 243151855106670194L;
+    public static final long serialVersionUID = 243152016449134062L;
 }

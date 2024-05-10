@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Router.ice")]
 
 #pragma warning disable 1591
@@ -285,10 +283,10 @@ namespace Glacier2
         ///  are not set, the returned category is an empty string.
         /// </summary>
         ///  <returns>The category.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getCategoryForClient(global::Ice.Current? current = null);
+        string getCategoryForClient(global::Ice.Current current);
 
         /// <summary>
         /// Create a per-client session with the router.
@@ -298,19 +296,19 @@ namespace Glacier2
         ///  </param>
         /// <param name="password">The password for the given user id.
         ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::Ice.Current current);
 
         /// <summary>
         /// Create a per-client session with the router.
         /// The user is authenticated through the SSL certificates that
         /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::Ice.Current? current = null);
+        global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::Ice.Current current);
 
         /// <summary>
         /// Keep the session with this router alive.
@@ -318,37 +316,37 @@ namespace Glacier2
         ///  and earlier and does nothing in newer versions of Glacier2.
         /// </summary>
         ///  <exception name="SessionNotExistException">Raised if no session exists for the caller (client).</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void refreshSession(global::Ice.Current? current = null);
+        void refreshSession(global::Ice.Current current);
 
         /// <summary>
         /// Destroy the calling client's session with this router.
         /// </summary>
         /// <exception name="SessionNotExistException">Raised if no session exists for the calling client.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroySession(global::Ice.Current? current = null);
+        void destroySession(global::Ice.Current current);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
         /// <returns>The idle timeout (in seconds).</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        long getSessionTimeout(global::Ice.Current? current = null);
+        long getSessionTimeout(global::Ice.Current current);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
         /// <returns>The idle timeout (in seconds).</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getACMTimeout(global::Ice.Current? current = null);
+        int getACMTimeout(global::Ice.Current current);
     }
 }
 
@@ -980,29 +978,29 @@ namespace Glacier2
     {
         #region Slice operations
 
-        public abstract string getCategoryForClient(global::Ice.Current? current = null);
+        public abstract string getCategoryForClient(global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::Ice.Current? current = null);
+        public abstract global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::Ice.Current current);
 
-        public abstract void refreshSession(global::Ice.Current? current = null);
+        public abstract void refreshSession(global::Ice.Current current);
 
-        public abstract void destroySession(global::Ice.Current? current = null);
+        public abstract void destroySession(global::Ice.Current current);
 
-        public abstract long getSessionTimeout(global::Ice.Current? current = null);
+        public abstract long getSessionTimeout(global::Ice.Current current);
 
-        public abstract int getACMTimeout(global::Ice.Current? current = null);
+        public abstract int getACMTimeout(global::Ice.Current current);
 
         #endregion
 
         #region Inherited Slice operations
 
-        public abstract global::Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getServerProxy(global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? getServerProxy(global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx?[] addProxies(global::Ice.ObjectPrx?[] proxies, global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx?[] addProxies(global::Ice.ObjectPrx?[] proxies, global::Ice.Current current);
 
         #endregion
 
@@ -1015,17 +1013,17 @@ namespace Glacier2
             "::Ice::Router"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1149,7 +1147,7 @@ namespace Glacier2
             "refreshSession"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("RemoteLogger.ice")]
 
 #pragma warning disable 1591
@@ -481,20 +479,20 @@ namespace Ice
         /// <param name="prefix">The prefix of the associated local Logger.
         ///  </param>
         /// <param name="logMessages">Old log messages generated before "now".</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void init(string prefix, LogMessage[] logMessages, Current? current = null);
+        void init(string prefix, LogMessage[] logMessages, Current current);
 
         /// <summary>
         /// Log a LogMessage.
         /// Note that log may be called by LoggerAdmin before init.
         /// </summary>
         ///  <param name="message">The message to log.</param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void log(LogMessage message, Current? current = null);
+        void log(LogMessage message, Current current);
     }
 
     /// <summary>
@@ -524,10 +522,10 @@ namespace Ice
         ///  </param>
         /// <exception name="RemoteLoggerAlreadyAttachedException">Raised if this remote logger is already attached to this admin
         ///  object.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void attachRemoteLogger(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, Current? current = null);
+        void attachRemoteLogger(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, Current current);
 
         /// <summary>
         /// Detaches a RemoteLogger object from the local logger.
@@ -535,10 +533,10 @@ namespace Ice
         /// <param name="prx">A proxy to the remote logger.
         ///  </param>
         /// <returns>True if the provided remote logger proxy was detached, and false otherwise.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool detachRemoteLogger(RemoteLoggerPrx? prx, Current? current = null);
+        bool detachRemoteLogger(RemoteLoggerPrx? prx, Current current);
 
         /// <summary>
         /// Retrieves log messages recently logged.
@@ -556,10 +554,10 @@ namespace Ice
         /// <param name="prefix">The prefix of the associated local logger.
         ///  </param>
         /// <returns>The Log messages.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, Current? current = null);
+        LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, Current current);
     }
 }
 
@@ -1103,9 +1101,9 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract void init(string prefix, LogMessage[] logMessages, Current? current = null);
+        public abstract void init(string prefix, LogMessage[] logMessages, Current current);
 
-        public abstract void log(LogMessage message, Current? current = null);
+        public abstract void log(LogMessage message, Current current);
 
         #endregion
 
@@ -1117,17 +1115,17 @@ namespace Ice
             "::Ice::RemoteLogger"
         };
 
-        public override bool ice_isA(string s, Current? current = null)
+        public override bool ice_isA(string s, Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current? current = null)
+        public override string[] ice_ids(Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(Current? current = null)
+        public override string ice_id(Current current)
         {
             return ice_staticId();
         }
@@ -1179,7 +1177,7 @@ namespace Ice
             "log"
         };
 
-        public override global::System.Threading.Tasks.Task<OutputStream>
+        public override global::System.Threading.Tasks.Task<OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1229,11 +1227,11 @@ namespace Ice
     {
         #region Slice operations
 
-        public abstract void attachRemoteLogger(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, Current? current = null);
+        public abstract void attachRemoteLogger(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, Current current);
 
-        public abstract bool detachRemoteLogger(RemoteLoggerPrx? prx, Current? current = null);
+        public abstract bool detachRemoteLogger(RemoteLoggerPrx? prx, Current current);
 
-        public abstract LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, Current? current = null);
+        public abstract LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, Current current);
 
         #endregion
 
@@ -1245,17 +1243,17 @@ namespace Ice
             "::Ice::Object"
         };
 
-        public override bool ice_isA(string s, Current? current = null)
+        public override bool ice_isA(string s, Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(Current? current = null)
+        public override string[] ice_ids(Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(Current? current = null)
+        public override string ice_id(Current current)
         {
             return ice_staticId();
         }
@@ -1337,7 +1335,7 @@ namespace Ice
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<OutputStream>
+        public override global::System.Threading.Tasks.Task<OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

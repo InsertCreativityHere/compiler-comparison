@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -390,46 +388,46 @@ namespace Test
     public interface TestIntfOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void baseAsBase(global::Ice.Current? current = null);
+        void baseAsBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unknownDerivedAsBase(global::Ice.Current? current = null);
+        void unknownDerivedAsBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownDerivedAsBase(global::Ice.Current? current = null);
+        void knownDerivedAsBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownDerivedAsKnownDerived(global::Ice.Current? current = null);
+        void knownDerivedAsKnownDerived(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unknownIntermediateAsBase(global::Ice.Current? current = null);
+        void unknownIntermediateAsBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownIntermediateAsBase(global::Ice.Current? current = null);
+        void knownIntermediateAsBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownMostDerivedAsBase(global::Ice.Current? current = null);
+        void knownMostDerivedAsBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownIntermediateAsKnownIntermediate(global::Ice.Current? current = null);
+        void knownIntermediateAsKnownIntermediate(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownMostDerivedAsKnownIntermediate(global::Ice.Current? current = null);
+        void knownMostDerivedAsKnownIntermediate(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void knownMostDerivedAsKnownMostDerived(global::Ice.Current? current = null);
+        void knownMostDerivedAsKnownMostDerived(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unknownMostDerived1AsBase(global::Ice.Current? current = null);
+        void unknownMostDerived1AsBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unknownMostDerived1AsKnownIntermediate(global::Ice.Current? current = null);
+        void unknownMostDerived1AsKnownIntermediate(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unknownMostDerived2AsBase(global::Ice.Current? current = null);
+        void unknownMostDerived2AsBase(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current? current = null);
+        void shutdown(global::Ice.Current current);
     }
 }
 
@@ -1266,33 +1264,33 @@ namespace Test
     {
         #region Slice operations
 
-        public abstract void baseAsBase(global::Ice.Current? current = null);
+        public abstract void baseAsBase(global::Ice.Current current);
 
-        public abstract void unknownDerivedAsBase(global::Ice.Current? current = null);
+        public abstract void unknownDerivedAsBase(global::Ice.Current current);
 
-        public abstract void knownDerivedAsBase(global::Ice.Current? current = null);
+        public abstract void knownDerivedAsBase(global::Ice.Current current);
 
-        public abstract void knownDerivedAsKnownDerived(global::Ice.Current? current = null);
+        public abstract void knownDerivedAsKnownDerived(global::Ice.Current current);
 
-        public abstract void unknownIntermediateAsBase(global::Ice.Current? current = null);
+        public abstract void unknownIntermediateAsBase(global::Ice.Current current);
 
-        public abstract void knownIntermediateAsBase(global::Ice.Current? current = null);
+        public abstract void knownIntermediateAsBase(global::Ice.Current current);
 
-        public abstract void knownMostDerivedAsBase(global::Ice.Current? current = null);
+        public abstract void knownMostDerivedAsBase(global::Ice.Current current);
 
-        public abstract void knownIntermediateAsKnownIntermediate(global::Ice.Current? current = null);
+        public abstract void knownIntermediateAsKnownIntermediate(global::Ice.Current current);
 
-        public abstract void knownMostDerivedAsKnownIntermediate(global::Ice.Current? current = null);
+        public abstract void knownMostDerivedAsKnownIntermediate(global::Ice.Current current);
 
-        public abstract void knownMostDerivedAsKnownMostDerived(global::Ice.Current? current = null);
+        public abstract void knownMostDerivedAsKnownMostDerived(global::Ice.Current current);
 
-        public abstract void unknownMostDerived1AsBase(global::Ice.Current? current = null);
+        public abstract void unknownMostDerived1AsBase(global::Ice.Current current);
 
-        public abstract void unknownMostDerived1AsKnownIntermediate(global::Ice.Current? current = null);
+        public abstract void unknownMostDerived1AsKnownIntermediate(global::Ice.Current current);
 
-        public abstract void unknownMostDerived2AsBase(global::Ice.Current? current = null);
+        public abstract void unknownMostDerived2AsBase(global::Ice.Current current);
 
-        public abstract void shutdown(global::Ice.Current? current = null);
+        public abstract void shutdown(global::Ice.Current current);
 
         #endregion
 
@@ -1304,17 +1302,17 @@ namespace Test
             "::Test::TestIntf"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -1504,7 +1502,7 @@ namespace Test
             "unknownMostDerived2AsBase"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

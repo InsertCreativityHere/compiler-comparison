@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Forward.ice")]
 
 #pragma warning disable 1591
@@ -138,7 +136,7 @@ namespace Ice.objects
         public interface F2Operations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void op(global::Ice.Current? current = null);
+            void op(global::Ice.Current current);
         }
     }
 }
@@ -305,7 +303,7 @@ namespace Ice.objects
         {
             #region Slice operations
 
-            public abstract void op(global::Ice.Current? current = null);
+            public abstract void op(global::Ice.Current current);
 
             #endregion
 
@@ -317,17 +315,17 @@ namespace Ice.objects
                 "::Test::F2"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -360,7 +358,7 @@ namespace Ice.objects
                 "op"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

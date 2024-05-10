@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("IceStorm.ice")]
 
 #pragma warning disable 1591
@@ -1030,10 +1028,10 @@ namespace IceStorm
         /// </summary>
         /// <returns>The name of the topic.
         ///  </returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getName(global::Ice.Current? current = null);
+        string getName(global::Ice.Current current);
 
         /// <summary>
         /// Get a proxy to a publisher object for this topic.
@@ -1042,10 +1040,10 @@ namespace IceStorm
         ///  deployment is used this call may return a replicated proxy. The returned proxy is never null.
         /// </summary>
         ///  <returns>A proxy to publish data on this topic.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getPublisher(global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? getPublisher(global::Ice.Current current);
 
         /// <summary>
         /// Get a non-replicated proxy to a publisher object for this topic.
@@ -1054,10 +1052,10 @@ namespace IceStorm
         ///  never null.
         /// </summary>
         ///  <returns>A proxy to publish data on this topic.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getNonReplicatedPublisher(global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? getNonReplicatedPublisher(global::Ice.Current current);
 
         /// <summary>
         /// Subscribe with the given qos to this topic.
@@ -1075,20 +1073,20 @@ namespace IceStorm
         ///  </exception>
         /// <exception name="BadQoS">Raised if the requested quality of service is unavailable or invalid.
         ///  </exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, global::Ice.Current? current = null);
+        global::Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, global::Ice.Current current);
 
         /// <summary>
         /// Unsubscribe the given subscriber.
         /// </summary>
         /// <param name="subscriber">The proxy of an existing subscriber. This proxy is never null.
         ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unsubscribe(global::Ice.ObjectPrx? subscriber, global::Ice.Current? current = null);
+        void unsubscribe(global::Ice.ObjectPrx? subscriber, global::Ice.Current current);
 
         /// <summary>
         /// Create a link to the given topic.
@@ -1100,10 +1098,10 @@ namespace IceStorm
         /// <param name="cost">The cost to the linked topic.
         ///  </param>
         /// <exception name="LinkExists">Raised if a link to the same topic already exists.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void link(TopicPrx? linkTo, int cost, global::Ice.Current? current = null);
+        void link(TopicPrx? linkTo, int cost, global::Ice.Current current);
 
         /// <summary>
         /// Destroy the link from this topic to the given topic linkTo.
@@ -1111,36 +1109,36 @@ namespace IceStorm
         /// <param name="linkTo">The topic to destroy the link to. This proxy is never null.
         ///  </param>
         /// <exception name="NoSuchLink">Raised if a link to the topic does not exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unlink(TopicPrx? linkTo, global::Ice.Current? current = null);
+        void unlink(TopicPrx? linkTo, global::Ice.Current current);
 
         /// <summary>
         /// Retrieve information on the current links.
         /// </summary>
         /// <returns>A sequence of LinkInfo objects.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LinkInfo[] getLinkInfoSeq(global::Ice.Current? current = null);
+        LinkInfo[] getLinkInfoSeq(global::Ice.Current current);
 
         /// <summary>
         /// Retrieve the list of subscribers for this topic.
         /// </summary>
         /// <returns>The sequence of Ice identities for the subscriber objects.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Identity[] getSubscribers(global::Ice.Current? current = null);
+        global::Ice.Identity[] getSubscribers(global::Ice.Current current);
 
         /// <summary>
         /// Destroy the topic.
         /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current? current = null);
+        void destroy(global::Ice.Current current);
     }
 
     /// <summary>
@@ -1159,10 +1157,10 @@ namespace IceStorm
         /// <returns>A proxy to the topic instance. The returned proxy is never null.
         ///  </returns>
         /// <exception name="TopicExists">Raised if a topic with the same name already exists.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        TopicPrx? create(string name, global::Ice.Current? current = null);
+        TopicPrx? create(string name, global::Ice.Current current);
 
         /// <summary>
         /// Retrieve a topic by name.
@@ -1172,19 +1170,19 @@ namespace IceStorm
         /// <returns>A proxy to the topic instance. The returned proxy is never null.
         ///  </returns>
         /// <exception name="NoSuchTopic">Raised if the topic does not exist.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        TopicPrx? retrieve(string name, global::Ice.Current? current = null);
+        TopicPrx? retrieve(string name, global::Ice.Current current);
 
         /// <summary>
         /// Retrieve all topics managed by this topic manager.
         /// </summary>
         /// <returns>A dictionary of string, topic proxy pairs.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(global::Ice.Current? current = null);
+        global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(global::Ice.Current current);
     }
 
     /// <summary>
@@ -1200,10 +1198,10 @@ namespace IceStorm
         /// The proxy might point to several replicas.
         /// </summary>
         ///  <returns>The topic manager proxy. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        TopicManagerPrx? getTopicManager(global::Ice.Current? current = null);
+        TopicManagerPrx? getTopicManager(global::Ice.Current current);
     }
 }
 
@@ -2347,25 +2345,25 @@ namespace IceStorm
     {
         #region Slice operations
 
-        public abstract string getName(global::Ice.Current? current = null);
+        public abstract string getName(global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getPublisher(global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? getPublisher(global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? getNonReplicatedPublisher(global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? getNonReplicatedPublisher(global::Ice.Current current);
 
-        public abstract global::Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, global::Ice.Current? current = null);
+        public abstract global::Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, global::Ice.Current current);
 
-        public abstract void unsubscribe(global::Ice.ObjectPrx? subscriber, global::Ice.Current? current = null);
+        public abstract void unsubscribe(global::Ice.ObjectPrx? subscriber, global::Ice.Current current);
 
-        public abstract void link(TopicPrx? linkTo, int cost, global::Ice.Current? current = null);
+        public abstract void link(TopicPrx? linkTo, int cost, global::Ice.Current current);
 
-        public abstract void unlink(TopicPrx? linkTo, global::Ice.Current? current = null);
+        public abstract void unlink(TopicPrx? linkTo, global::Ice.Current current);
 
-        public abstract LinkInfo[] getLinkInfoSeq(global::Ice.Current? current = null);
+        public abstract LinkInfo[] getLinkInfoSeq(global::Ice.Current current);
 
-        public abstract global::Ice.Identity[] getSubscribers(global::Ice.Current? current = null);
+        public abstract global::Ice.Identity[] getSubscribers(global::Ice.Current current);
 
-        public abstract void destroy(global::Ice.Current? current = null);
+        public abstract void destroy(global::Ice.Current current);
 
         #endregion
 
@@ -2377,17 +2375,17 @@ namespace IceStorm
             "::IceStorm::Topic"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2553,7 +2551,7 @@ namespace IceStorm
             "unsubscribe"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2635,11 +2633,11 @@ namespace IceStorm
     {
         #region Slice operations
 
-        public abstract TopicPrx? create(string name, global::Ice.Current? current = null);
+        public abstract TopicPrx? create(string name, global::Ice.Current current);
 
-        public abstract TopicPrx? retrieve(string name, global::Ice.Current? current = null);
+        public abstract TopicPrx? retrieve(string name, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(global::Ice.Current? current = null);
+        public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(global::Ice.Current current);
 
         #endregion
 
@@ -2651,17 +2649,17 @@ namespace IceStorm
             "::IceStorm::TopicManager"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2731,7 +2729,7 @@ namespace IceStorm
             "retrieveAll"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -2785,7 +2783,7 @@ namespace IceStorm
     {
         #region Slice operations
 
-        public abstract TopicManagerPrx? getTopicManager(global::Ice.Current? current = null);
+        public abstract TopicManagerPrx? getTopicManager(global::Ice.Current current);
 
         #endregion
 
@@ -2797,17 +2795,17 @@ namespace IceStorm
             "::IceStorm::Finder"
         };
 
-        public override bool ice_isA(string s, global::Ice.Current? current = null)
+        public override bool ice_isA(string s, global::Ice.Current current)
         {
             return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
         }
 
-        public override string[] ice_ids(global::Ice.Current? current = null)
+        public override string[] ice_ids(global::Ice.Current current)
         {
             return _ids;
         }
 
-        public override string ice_id(global::Ice.Current? current = null)
+        public override string ice_id(global::Ice.Current current)
         {
             return ice_staticId();
         }
@@ -2843,7 +2841,7 @@ namespace IceStorm
             "ice_ping"
         };
 
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
         iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

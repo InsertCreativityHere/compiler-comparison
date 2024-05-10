@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("Test.ice")]
 
 #pragma warning disable 1591
@@ -192,7 +190,7 @@ namespace Ice.inheritance
             public interface IAOperations_
             {
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                IAPrx? iaop(IAPrx? p, global::Ice.Current? current = null);
+                IAPrx? iaop(IAPrx? p, global::Ice.Current current);
             }
         }
 
@@ -202,14 +200,14 @@ namespace Ice.inheritance
             public interface IB1Operations_ : global::Ice.inheritance.Test.MA.IAOperations_
             {
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                IB1Prx? ib1op(IB1Prx? p, global::Ice.Current? current = null);
+                IB1Prx? ib1op(IB1Prx? p, global::Ice.Current current);
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public interface IB2Operations_ : global::Ice.inheritance.Test.MA.IAOperations_
             {
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                IB2Prx? ib2op(IB2Prx? p, global::Ice.Current? current = null);
+                IB2Prx? ib2op(IB2Prx? p, global::Ice.Current current);
             }
         }
 
@@ -219,7 +217,7 @@ namespace Ice.inheritance
             public interface ICOperations_ : global::Ice.inheritance.Test.MB.IB1Operations_, global::Ice.inheritance.Test.MB.IB2Operations_
             {
                 [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                ICPrx? icop(ICPrx? p, global::Ice.Current? current = null);
+                ICPrx? icop(ICPrx? p, global::Ice.Current current);
             }
         }
 
@@ -227,19 +225,19 @@ namespace Ice.inheritance
         public interface InitialOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current? current = null);
+            void shutdown(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.Current? current = null);
+            global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.inheritance.Test.MB.IB1Prx? ib1op(global::Ice.Current? current = null);
+            global::Ice.inheritance.Test.MB.IB1Prx? ib1op(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.Current? current = null);
+            global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.inheritance.Test.MA.ICPrx? icop(global::Ice.Current? current = null);
+            global::Ice.inheritance.Test.MA.ICPrx? icop(global::Ice.Current current);
         }
     }
 }
@@ -1466,7 +1464,7 @@ namespace Ice.inheritance
             {
                 #region Slice operations
 
-                public abstract IAPrx? iaop(IAPrx? p, global::Ice.Current? current = null);
+                public abstract IAPrx? iaop(IAPrx? p, global::Ice.Current current);
 
                 #endregion
 
@@ -1478,17 +1476,17 @@ namespace Ice.inheritance
                     "::Test::MA::IA"
                 };
 
-                public override bool ice_isA(string s, global::Ice.Current? current = null)
+                public override bool ice_isA(string s, global::Ice.Current current)
                 {
                     return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
                 }
 
-                public override string[] ice_ids(global::Ice.Current? current = null)
+                public override string[] ice_ids(global::Ice.Current current)
                 {
                     return _ids;
                 }
 
-                public override string ice_id(global::Ice.Current? current = null)
+                public override string ice_id(global::Ice.Current current)
                 {
                     return ice_staticId();
                 }
@@ -1527,7 +1525,7 @@ namespace Ice.inheritance
                     "ice_ping"
                 };
 
-                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
                 iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
                 {
                     int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1576,13 +1574,13 @@ namespace Ice.inheritance
             {
                 #region Slice operations
 
-                public abstract IB1Prx? ib1op(IB1Prx? p, global::Ice.Current? current = null);
+                public abstract IB1Prx? ib1op(IB1Prx? p, global::Ice.Current current);
 
                 #endregion
 
                 #region Inherited Slice operations
 
-                public abstract global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.inheritance.Test.MA.IAPrx? p, global::Ice.Current? current = null);
+                public abstract global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.inheritance.Test.MA.IAPrx? p, global::Ice.Current current);
 
                 #endregion
 
@@ -1595,17 +1593,17 @@ namespace Ice.inheritance
                     "::Test::MB::IB1"
                 };
 
-                public override bool ice_isA(string s, global::Ice.Current? current = null)
+                public override bool ice_isA(string s, global::Ice.Current current)
                 {
                     return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
                 }
 
-                public override string[] ice_ids(global::Ice.Current? current = null)
+                public override string[] ice_ids(global::Ice.Current current)
                 {
                     return _ids;
                 }
 
-                public override string ice_id(global::Ice.Current? current = null)
+                public override string ice_id(global::Ice.Current current)
                 {
                     return ice_staticId();
                 }
@@ -1645,7 +1643,7 @@ namespace Ice.inheritance
                     "ice_ping"
                 };
 
-                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
                 iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
                 {
                     int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1695,13 +1693,13 @@ namespace Ice.inheritance
             {
                 #region Slice operations
 
-                public abstract IB2Prx? ib2op(IB2Prx? p, global::Ice.Current? current = null);
+                public abstract IB2Prx? ib2op(IB2Prx? p, global::Ice.Current current);
 
                 #endregion
 
                 #region Inherited Slice operations
 
-                public abstract global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.inheritance.Test.MA.IAPrx? p, global::Ice.Current? current = null);
+                public abstract global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.inheritance.Test.MA.IAPrx? p, global::Ice.Current current);
 
                 #endregion
 
@@ -1714,17 +1712,17 @@ namespace Ice.inheritance
                     "::Test::MB::IB2"
                 };
 
-                public override bool ice_isA(string s, global::Ice.Current? current = null)
+                public override bool ice_isA(string s, global::Ice.Current current)
                 {
                     return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
                 }
 
-                public override string[] ice_ids(global::Ice.Current? current = null)
+                public override string[] ice_ids(global::Ice.Current current)
                 {
                     return _ids;
                 }
 
-                public override string ice_id(global::Ice.Current? current = null)
+                public override string ice_id(global::Ice.Current current)
                 {
                     return ice_staticId();
                 }
@@ -1764,7 +1762,7 @@ namespace Ice.inheritance
                     "ice_ping"
                 };
 
-                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
                 iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
                 {
                     int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1817,17 +1815,17 @@ namespace Ice.inheritance
             {
                 #region Slice operations
 
-                public abstract ICPrx? icop(ICPrx? p, global::Ice.Current? current = null);
+                public abstract ICPrx? icop(ICPrx? p, global::Ice.Current current);
 
                 #endregion
 
                 #region Inherited Slice operations
 
-                public abstract IAPrx? iaop(IAPrx? p, global::Ice.Current? current = null);
+                public abstract IAPrx? iaop(IAPrx? p, global::Ice.Current current);
 
-                public abstract global::Ice.inheritance.Test.MB.IB1Prx? ib1op(global::Ice.inheritance.Test.MB.IB1Prx? p, global::Ice.Current? current = null);
+                public abstract global::Ice.inheritance.Test.MB.IB1Prx? ib1op(global::Ice.inheritance.Test.MB.IB1Prx? p, global::Ice.Current current);
 
-                public abstract global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.inheritance.Test.MB.IB2Prx? p, global::Ice.Current? current = null);
+                public abstract global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.inheritance.Test.MB.IB2Prx? p, global::Ice.Current current);
 
                 #endregion
 
@@ -1842,17 +1840,17 @@ namespace Ice.inheritance
                     "::Test::MB::IB2"
                 };
 
-                public override bool ice_isA(string s, global::Ice.Current? current = null)
+                public override bool ice_isA(string s, global::Ice.Current current)
                 {
                     return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
                 }
 
-                public override string[] ice_ids(global::Ice.Current? current = null)
+                public override string[] ice_ids(global::Ice.Current current)
                 {
                     return _ids;
                 }
 
-                public override string ice_id(global::Ice.Current? current = null)
+                public override string ice_id(global::Ice.Current current)
                 {
                     return ice_staticId();
                 }
@@ -1894,7 +1892,7 @@ namespace Ice.inheritance
                     "icop"
                 };
 
-                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
                 iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
                 {
                     int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
@@ -1953,15 +1951,15 @@ namespace Ice.inheritance
         {
             #region Slice operations
 
-            public abstract void shutdown(global::Ice.Current? current = null);
+            public abstract void shutdown(global::Ice.Current current);
 
-            public abstract global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.Current? current = null);
+            public abstract global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.Current current);
 
-            public abstract global::Ice.inheritance.Test.MB.IB1Prx? ib1op(global::Ice.Current? current = null);
+            public abstract global::Ice.inheritance.Test.MB.IB1Prx? ib1op(global::Ice.Current current);
 
-            public abstract global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.Current? current = null);
+            public abstract global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.Current current);
 
-            public abstract global::Ice.inheritance.Test.MA.ICPrx? icop(global::Ice.Current? current = null);
+            public abstract global::Ice.inheritance.Test.MA.ICPrx? icop(global::Ice.Current current);
 
             #endregion
 
@@ -1973,17 +1971,17 @@ namespace Ice.inheritance
                 "::Test::Initial"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -2072,7 +2070,7 @@ namespace Ice.inheritance
                 "shutdown"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);

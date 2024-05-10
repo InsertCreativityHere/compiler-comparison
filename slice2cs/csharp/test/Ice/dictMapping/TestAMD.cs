@@ -15,8 +15,6 @@
 
 #nullable enable
 
-using _System = global::System;
-
 [assembly:Ice.Slice("TestAMD.ice")]
 
 #pragma warning disable 1591
@@ -118,31 +116,31 @@ namespace Ice.dictMapping.AMD
         public interface MyClassOperations_
         {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, global::Ice.Current current);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, global::Ice.Current? current = null);
+            global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, global::Ice.Current current);
         }
     }
 }
@@ -1077,23 +1075,23 @@ namespace Ice.dictMapping.AMD
         {
             #region Slice operations
 
-            public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, global::Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, global::Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, global::Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, global::Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, global::Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, global::Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, global::Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, global::Ice.Current? current = null);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, global::Ice.Current current);
 
             #endregion
 
@@ -1105,17 +1103,17 @@ namespace Ice.dictMapping.AMD
                 "::Test::MyClass"
             };
 
-            public override bool ice_isA(string s, global::Ice.Current? current = null)
+            public override bool ice_isA(string s, global::Ice.Current current)
             {
                 return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
             }
 
-            public override string[] ice_ids(global::Ice.Current? current = null)
+            public override string[] ice_ids(global::Ice.Current current)
             {
                 return _ids;
             }
 
-            public override string ice_id(global::Ice.Current? current = null)
+            public override string ice_id(global::Ice.Current current)
             {
                 return ice_staticId();
             }
@@ -1291,7 +1289,7 @@ namespace Ice.dictMapping.AMD
                 "shutdown"
             };
 
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
             iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
             {
                 int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
