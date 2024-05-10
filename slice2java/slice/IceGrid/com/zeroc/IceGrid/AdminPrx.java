@@ -29,8 +29,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void addApplication(ApplicationDescriptor descriptor)
-        throws AccessDeniedException,
-               DeploymentException
+        throws DeploymentException,
+               AccessDeniedException
     {
         addApplication(descriptor, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -44,18 +44,18 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void addApplication(ApplicationDescriptor descriptor, java.util.Map<String, String> context)
-        throws AccessDeniedException,
-               DeploymentException
+        throws DeploymentException,
+               AccessDeniedException
     {
         try
         {
             _iceI_addApplicationAsync(descriptor, context, true).waitForResponseOrUserEx();
         }
-        catch(AccessDeniedException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(AccessDeniedException ex)
         {
             throw ex;
         }
@@ -106,8 +106,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_addApplication =
     {
-        AccessDeniedException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        AccessDeniedException.class
     };
 
     /**
@@ -121,8 +121,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void syncApplication(ApplicationDescriptor descriptor)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         syncApplication(descriptor, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -139,8 +139,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void syncApplication(ApplicationDescriptor descriptor, java.util.Map<String, String> context)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
@@ -150,11 +150,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(AccessDeniedException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(AccessDeniedException ex)
         {
             throw ex;
         }
@@ -208,8 +208,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_syncApplication =
     {
         ApplicationNotExistException.class,
-        AccessDeniedException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        AccessDeniedException.class
     };
 
     /**
@@ -222,8 +222,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void updateApplication(ApplicationUpdateDescriptor descriptor)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         updateApplication(descriptor, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -239,8 +239,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void updateApplication(ApplicationUpdateDescriptor descriptor, java.util.Map<String, String> context)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
@@ -250,11 +250,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(AccessDeniedException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(AccessDeniedException ex)
         {
             throw ex;
         }
@@ -306,8 +306,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_updateApplication =
     {
         ApplicationNotExistException.class,
-        AccessDeniedException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        AccessDeniedException.class
     };
 
     /**
@@ -323,8 +323,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void syncApplicationWithoutRestart(ApplicationDescriptor descriptor)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         syncApplicationWithoutRestart(descriptor, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -343,8 +343,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, java.util.Map<String, String> context)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
@@ -354,11 +354,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(AccessDeniedException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(AccessDeniedException ex)
         {
             throw ex;
         }
@@ -416,8 +416,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_syncApplicationWithoutRestart =
     {
         ApplicationNotExistException.class,
-        AccessDeniedException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        AccessDeniedException.class
     };
 
     /**
@@ -432,8 +432,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         updateApplicationWithoutRestart(descriptor, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -451,8 +451,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, java.util.Map<String, String> context)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
@@ -462,11 +462,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(AccessDeniedException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(AccessDeniedException ex)
         {
             throw ex;
         }
@@ -522,8 +522,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_updateApplicationWithoutRestart =
     {
         ApplicationNotExistException.class,
-        AccessDeniedException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        AccessDeniedException.class
     };
 
     /**
@@ -536,8 +536,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void removeApplication(String name)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         removeApplication(name, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -553,8 +553,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void removeApplication(String name, java.util.Map<String, String> context)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
@@ -564,11 +564,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(AccessDeniedException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(AccessDeniedException ex)
         {
             throw ex;
         }
@@ -619,8 +619,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_removeApplication =
     {
         ApplicationNotExistException.class,
-        AccessDeniedException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        AccessDeniedException.class
     };
 
     /**
@@ -635,8 +635,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void instantiateServer(String application, String node, ServerInstanceDescriptor desc)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         instantiateServer(application, node, desc, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -654,8 +654,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void instantiateServer(String application, String node, ServerInstanceDescriptor desc, java.util.Map<String, String> context)
         throws ApplicationNotExistException,
-               AccessDeniedException,
-               DeploymentException
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
@@ -665,11 +665,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(AccessDeniedException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(AccessDeniedException ex)
         {
             throw ex;
         }
@@ -728,8 +728,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_instantiateServer =
     {
         ApplicationNotExistException.class,
-        AccessDeniedException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        AccessDeniedException.class
     };
 
     /**
@@ -1823,9 +1823,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void sendSignal(String id, String signal)
         throws ServerNotExistException,
-               BadSignalException,
                DeploymentException,
-               NodeUnreachableException
+               NodeUnreachableException,
+               BadSignalException
     {
         sendSignal(id, signal, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1842,9 +1842,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void sendSignal(String id, String signal, java.util.Map<String, String> context)
         throws ServerNotExistException,
-               BadSignalException,
                DeploymentException,
-               NodeUnreachableException
+               NodeUnreachableException,
+               BadSignalException
     {
         try
         {
@@ -1854,15 +1854,15 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(BadSignalException ex)
-        {
-            throw ex;
-        }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(NodeUnreachableException ex)
+        {
+            throw ex;
+        }
+        catch(BadSignalException ex)
         {
             throw ex;
         }
@@ -1917,9 +1917,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_sendSignal =
     {
         ServerNotExistException.class,
-        BadSignalException.class,
         DeploymentException.class,
-        NodeUnreachableException.class
+        NodeUnreachableException.class,
+        BadSignalException.class
     };
 
     /**
