@@ -87,7 +87,7 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public sealed partial class bitor : global::System.ICloneable, global::System.IEquatable<bitor>
+        public sealed partial class bitor : global::System.IEquatable<bitor>
         {
             #region Slice data members
 
@@ -137,10 +137,10 @@ namespace classdef
 
             #endregion
 
-            #region ICloneable members
+            #region Clone method
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public object Clone() => MemberwiseClone();
+            public bitor Clone() => (bitor)MemberwiseClone();
 
             #endregion
 

@@ -56,7 +56,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class AnotherStruct : global::System.ICloneable, global::System.IEquatable<AnotherStruct>
+    public sealed partial class AnotherStruct : global::System.IEquatable<AnotherStruct>
     {
         #region Slice data members
 
@@ -91,10 +91,10 @@ namespace Test
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public AnotherStruct Clone() => (AnotherStruct)MemberwiseClone();
 
         #endregion
 
@@ -164,7 +164,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class Structure : global::System.ICloneable, global::System.IEquatable<Structure>
+    public sealed partial class Structure : global::System.IEquatable<Structure>
     {
         #region Slice data members
 
@@ -210,10 +210,10 @@ namespace Test
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public Structure Clone() => (Structure)MemberwiseClone();
 
         #endregion
 
@@ -423,7 +423,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class MyStruct1 : global::System.ICloneable, global::System.IEquatable<MyStruct1>
+    public sealed partial class MyStruct1 : global::System.IEquatable<MyStruct1>
     {
         #region Slice data members
 
@@ -468,10 +468,10 @@ namespace Test
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public MyStruct1 Clone() => (MyStruct1)MemberwiseClone();
 
         #endregion
 
@@ -15631,36 +15631,6 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current);
-
-        public abstract bool supportsCompress(global::Ice.Current current);
-
-        public abstract void opVoid(global::Ice.Current current);
-
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
-
-        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current);
-
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current);
-
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current);
-
-        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current);
-
-        public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.Current current);
-
-        public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, global::Ice.Current current);
-
-        public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, global::Ice.Current current);
-
-        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current);
-
-        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current);
-
-        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
-
-        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current);
-
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current);
 
         public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current);
@@ -15768,6 +15738,36 @@ namespace Test
         public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
 
         public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
+
+        public abstract void shutdown(global::Ice.Current current);
+
+        public abstract bool supportsCompress(global::Ice.Current current);
+
+        public abstract void opVoid(global::Ice.Current current);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
+
+        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current);
+
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current);
+
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current);
+
+        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current);
+
+        public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.Current current);
+
+        public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, global::Ice.Current current);
+
+        public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, global::Ice.Current current);
+
+        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current);
+
+        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current);
+
+        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
+
+        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current);
 
         #endregion
 
@@ -16261,36 +16261,6 @@ namespace Test2
     {
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current);
-
-        public abstract bool supportsCompress(global::Ice.Current current);
-
-        public abstract void opVoid(global::Ice.Current current);
-
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
-
-        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current);
-
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current);
-
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current);
-
-        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current);
-
-        public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, global::Ice.Current current);
-
-        public abstract global::Test.MyClassPrx? opMyClass(global::Test.MyClassPrx? p1, out global::Test.MyClassPrx? p2, out global::Test.MyClassPrx? p3, global::Ice.Current current);
-
-        public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, global::Ice.Current current);
-
-        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current);
-
-        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current);
-
-        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
-
-        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current);
-
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current);
 
         public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current);
@@ -16398,6 +16368,36 @@ namespace Test2
         public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
 
         public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
+
+        public abstract void shutdown(global::Ice.Current current);
+
+        public abstract bool supportsCompress(global::Ice.Current current);
+
+        public abstract void opVoid(global::Ice.Current current);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
+
+        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current);
+
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current);
+
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current);
+
+        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current);
+
+        public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, global::Ice.Current current);
+
+        public abstract global::Test.MyClassPrx? opMyClass(global::Test.MyClassPrx? p1, out global::Test.MyClassPrx? p2, out global::Test.MyClassPrx? p3, global::Ice.Current current);
+
+        public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, global::Ice.Current current);
+
+        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current);
+
+        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current);
+
+        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
+
+        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current);
 
         #endregion
 

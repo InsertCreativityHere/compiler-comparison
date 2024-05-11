@@ -204,7 +204,7 @@ namespace Clash
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class St : global::System.ICloneable, global::System.IEquatable<St>
+    public sealed partial class St : global::System.IEquatable<St>
     {
         #region Slice data members
 
@@ -254,10 +254,10 @@ namespace Clash
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public St Clone() => (St)MemberwiseClone();
 
         #endregion
 

@@ -261,7 +261,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class VarStruct : global::System.ICloneable, global::System.IEquatable<VarStruct>
+    public sealed partial class VarStruct : global::System.IEquatable<VarStruct>
     {
         #region Slice data members
 
@@ -296,10 +296,10 @@ namespace Test
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public VarStruct Clone() => (VarStruct)MemberwiseClone();
 
         #endregion
 
@@ -1730,7 +1730,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class G1 : global::System.ICloneable, global::System.IEquatable<G1>
+    public sealed partial class G1 : global::System.IEquatable<G1>
     {
         #region Slice data members
 
@@ -1765,10 +1765,10 @@ namespace Test
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public G1 Clone() => (G1)MemberwiseClone();
 
         #endregion
 

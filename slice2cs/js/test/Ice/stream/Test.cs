@@ -56,7 +56,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class SmallStruct : global::System.ICloneable, global::System.IEquatable<SmallStruct>
+    public sealed partial class SmallStruct : global::System.IEquatable<SmallStruct>
     {
         #region Slice data members
 
@@ -136,10 +136,10 @@ namespace Test
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public SmallStruct Clone() => (SmallStruct)MemberwiseClone();
 
         #endregion
 

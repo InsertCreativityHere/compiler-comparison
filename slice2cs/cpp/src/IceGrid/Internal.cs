@@ -6977,11 +6977,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -7033,11 +7033,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -8136,9 +8136,9 @@ namespace IceGrid
 
         public abstract void replicaInit(InternalRegistryPrx?[] replicas, global::Ice.Current current);
 
-        public abstract void replicaAdded(InternalRegistryPrx? replica, global::Ice.Current current);
-
         public abstract void replicaRemoved(InternalRegistryPrx? replica, global::Ice.Current current);
+
+        public abstract void replicaAdded(InternalRegistryPrx? replica, global::Ice.Current current);
 
         #endregion
 

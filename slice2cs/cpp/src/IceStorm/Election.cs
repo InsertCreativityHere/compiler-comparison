@@ -31,7 +31,7 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class TopicContent : global::System.ICloneable, global::System.IEquatable<TopicContent>
+    public sealed partial class TopicContent : global::System.IEquatable<TopicContent>
     {
         #region Slice data members
 
@@ -65,10 +65,10 @@ namespace IceStormElection
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public TopicContent Clone() => (TopicContent)MemberwiseClone();
 
         #endregion
 
@@ -290,7 +290,7 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class NodeInfo : global::System.ICloneable, global::System.IEquatable<NodeInfo>
+    public sealed partial class NodeInfo : global::System.IEquatable<NodeInfo>
     {
         #region Slice data members
 
@@ -330,10 +330,10 @@ namespace IceStormElection
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public NodeInfo Clone() => (NodeInfo)MemberwiseClone();
 
         #endregion
 
@@ -471,7 +471,7 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class QueryInfo : global::System.ICloneable, global::System.IEquatable<QueryInfo>
+    public sealed partial class QueryInfo : global::System.IEquatable<QueryInfo>
     {
         #region Slice data members
 
@@ -537,10 +537,10 @@ namespace IceStormElection
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public QueryInfo Clone() => (QueryInfo)MemberwiseClone();
 
         #endregion
 

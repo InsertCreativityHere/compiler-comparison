@@ -495,7 +495,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class SS3 : global::System.ICloneable, global::System.IEquatable<SS3>
+    public sealed partial class SS3 : global::System.IEquatable<SS3>
     {
         #region Slice data members
 
@@ -535,10 +535,10 @@ namespace Test
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public SS3 Clone() => (SS3)MemberwiseClone();
 
         #endregion
 

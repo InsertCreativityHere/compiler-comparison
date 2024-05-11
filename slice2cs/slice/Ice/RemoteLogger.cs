@@ -77,7 +77,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class LogMessage : global::System.ICloneable, global::System.IEquatable<LogMessage>
+    public sealed partial class LogMessage : global::System.IEquatable<LogMessage>
     {
         #region Slice data members
 
@@ -127,10 +127,10 @@ namespace Ice
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public LogMessage Clone() => (LogMessage)MemberwiseClone();
 
         #endregion
 

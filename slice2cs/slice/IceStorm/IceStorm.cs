@@ -31,7 +31,7 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class LinkInfo : global::System.ICloneable, global::System.IEquatable<LinkInfo>
+    public sealed partial class LinkInfo : global::System.IEquatable<LinkInfo>
     {
         #region Slice data members
 
@@ -76,10 +76,10 @@ namespace IceStorm
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public LinkInfo Clone() => (LinkInfo)MemberwiseClone();
 
         #endregion
 

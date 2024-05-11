@@ -31,7 +31,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class PropertyDescriptor : global::System.ICloneable, global::System.IEquatable<PropertyDescriptor>
+    public sealed partial class PropertyDescriptor : global::System.IEquatable<PropertyDescriptor>
     {
         #region Slice data members
 
@@ -71,10 +71,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public PropertyDescriptor Clone() => (PropertyDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -147,7 +147,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class PropertySetDescriptor : global::System.ICloneable, global::System.IEquatable<PropertySetDescriptor>
+    public sealed partial class PropertySetDescriptor : global::System.IEquatable<PropertySetDescriptor>
     {
         #region Slice data members
 
@@ -181,10 +181,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public PropertySetDescriptor Clone() => (PropertySetDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -257,7 +257,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ObjectDescriptor : global::System.ICloneable, global::System.IEquatable<ObjectDescriptor>
+    public sealed partial class ObjectDescriptor : global::System.IEquatable<ObjectDescriptor>
     {
         #region Slice data members
 
@@ -303,10 +303,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public ObjectDescriptor Clone() => (ObjectDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -382,7 +382,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class AdapterDescriptor : global::System.ICloneable, global::System.IEquatable<AdapterDescriptor>
+    public sealed partial class AdapterDescriptor : global::System.IEquatable<AdapterDescriptor>
     {
         #region Slice data members
 
@@ -459,10 +459,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public AdapterDescriptor Clone() => (AdapterDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -661,7 +661,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class DistributionDescriptor : global::System.ICloneable, global::System.IEquatable<DistributionDescriptor>
+    public sealed partial class DistributionDescriptor : global::System.IEquatable<DistributionDescriptor>
     {
         #region Slice data members
 
@@ -702,10 +702,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public DistributionDescriptor Clone() => (DistributionDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -1028,7 +1028,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ServerInstanceDescriptor : global::System.ICloneable, global::System.IEquatable<ServerInstanceDescriptor>
+    public sealed partial class ServerInstanceDescriptor : global::System.IEquatable<ServerInstanceDescriptor>
     {
         #region Slice data members
 
@@ -1081,10 +1081,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public ServerInstanceDescriptor Clone() => (ServerInstanceDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -1163,7 +1163,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class TemplateDescriptor : global::System.ICloneable, global::System.IEquatable<TemplateDescriptor>
+    public sealed partial class TemplateDescriptor : global::System.IEquatable<TemplateDescriptor>
     {
         #region Slice data members
 
@@ -1210,10 +1210,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public TemplateDescriptor Clone() => (TemplateDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -1289,7 +1289,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ServiceInstanceDescriptor : global::System.ICloneable, global::System.IEquatable<ServiceInstanceDescriptor>
+    public sealed partial class ServiceInstanceDescriptor : global::System.IEquatable<ServiceInstanceDescriptor>
     {
         #region Slice data members
 
@@ -1341,10 +1341,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public ServiceInstanceDescriptor Clone() => (ServiceInstanceDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -1508,7 +1508,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class NodeDescriptor : global::System.ICloneable, global::System.IEquatable<NodeDescriptor>
+    public sealed partial class NodeDescriptor : global::System.IEquatable<NodeDescriptor>
     {
         #region Slice data members
 
@@ -1572,10 +1572,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public NodeDescriptor Clone() => (NodeDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -2008,7 +2008,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ReplicaGroupDescriptor : global::System.ICloneable, global::System.IEquatable<ReplicaGroupDescriptor>
+    public sealed partial class ReplicaGroupDescriptor : global::System.IEquatable<ReplicaGroupDescriptor>
     {
         #region Slice data members
 
@@ -2069,10 +2069,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public ReplicaGroupDescriptor Clone() => (ReplicaGroupDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -2157,7 +2157,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ApplicationDescriptor : global::System.ICloneable, global::System.IEquatable<ApplicationDescriptor>
+    public sealed partial class ApplicationDescriptor : global::System.IEquatable<ApplicationDescriptor>
     {
         #region Slice data members
 
@@ -2239,10 +2239,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public ApplicationDescriptor Clone() => (ApplicationDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -2410,7 +2410,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class NodeUpdateDescriptor : global::System.ICloneable, global::System.IEquatable<NodeUpdateDescriptor>
+    public sealed partial class NodeUpdateDescriptor : global::System.IEquatable<NodeUpdateDescriptor>
     {
         #region Slice data members
 
@@ -2497,10 +2497,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public NodeUpdateDescriptor Clone() => (NodeUpdateDescriptor)MemberwiseClone();
 
         #endregion
 
@@ -2673,7 +2673,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ApplicationUpdateDescriptor : global::System.ICloneable, global::System.IEquatable<ApplicationUpdateDescriptor>
+    public sealed partial class ApplicationUpdateDescriptor : global::System.IEquatable<ApplicationUpdateDescriptor>
     {
         #region Slice data members
 
@@ -2790,10 +2790,10 @@ namespace IceGrid
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public ApplicationUpdateDescriptor Clone() => (ApplicationUpdateDescriptor)MemberwiseClone();
 
         #endregion
 

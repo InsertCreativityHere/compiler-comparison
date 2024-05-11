@@ -238,7 +238,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class Polyline : global::System.ICloneable, global::System.IEquatable<Polyline>
+    public sealed partial class Polyline : global::System.IEquatable<Polyline>
     {
         #region Slice data members
 
@@ -267,10 +267,10 @@ namespace Test
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public Polyline Clone() => (Polyline)MemberwiseClone();
 
         #endregion
 
@@ -417,7 +417,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class ColorPalette : global::System.ICloneable, global::System.IEquatable<ColorPalette>
+    public sealed partial class ColorPalette : global::System.IEquatable<ColorPalette>
     {
         #region Slice data members
 
@@ -446,10 +446,10 @@ namespace Test
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public ColorPalette Clone() => (ColorPalette)MemberwiseClone();
 
         #endregion
 
@@ -599,7 +599,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class Draw : global::System.ICloneable, global::System.IEquatable<Draw>
+    public sealed partial class Draw : global::System.IEquatable<Draw>
     {
         #region Slice data members
 
@@ -644,10 +644,10 @@ namespace Test
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public Draw Clone() => (Draw)MemberwiseClone();
 
         #endregion
 

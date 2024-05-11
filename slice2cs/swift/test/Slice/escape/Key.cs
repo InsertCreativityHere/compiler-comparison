@@ -114,7 +114,7 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public sealed partial class defer : global::System.ICloneable, global::System.IEquatable<defer>
+    public sealed partial class defer : global::System.IEquatable<defer>
     {
         #region Slice data members
 
@@ -149,10 +149,10 @@ namespace and
 
         #endregion
 
-        #region ICloneable members
+        #region Clone method
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone() => MemberwiseClone();
+        public defer Clone() => (defer)MemberwiseClone();
 
         #endregion
 
