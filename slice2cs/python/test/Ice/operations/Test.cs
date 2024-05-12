@@ -15648,22 +15648,6 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current);
-
-        public abstract string[] opStringLiterals(global::Ice.Current current);
-
-        public abstract string[] opWStringLiterals(global::Ice.Current current);
-
-        public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current);
-
-        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current);
-
-        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current);
-
-        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current);
-
         public abstract void shutdown(global::Ice.Current current);
 
         public abstract bool supportsCompress(global::Ice.Current current);
@@ -15734,10 +15718,6 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, global::Ice.Current current);
 
-        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
-
-        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
-
         public abstract global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::Ice.Current current);
@@ -15787,6 +15767,26 @@ namespace Test
         public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current);
+
+        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current);
+
+        public abstract string[] opStringLiterals(global::Ice.Current current);
+
+        public abstract string[] opWStringLiterals(global::Ice.Current current);
+
+        public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current);
+
+        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current);
+
+        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current);
+
+        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current);
+
+        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
+
+        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
 
         #endregion
 
@@ -16285,22 +16285,6 @@ namespace Test2
     {
         #region Inherited Slice operations
 
-        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current);
-
-        public abstract string[] opStringLiterals(global::Ice.Current current);
-
-        public abstract string[] opWStringLiterals(global::Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current);
-
         public abstract void shutdown(global::Ice.Current current);
 
         public abstract bool supportsCompress(global::Ice.Current current);
@@ -16371,10 +16355,6 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p3, global::Ice.Current current);
 
-        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
-
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p3, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::Ice.Current current);
@@ -16424,6 +16404,26 @@ namespace Test2
         public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current);
+
+        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current);
+
+        public abstract string[] opStringLiterals(global::Ice.Current current);
+
+        public abstract string[] opWStringLiterals(global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
 
         #endregion
 
