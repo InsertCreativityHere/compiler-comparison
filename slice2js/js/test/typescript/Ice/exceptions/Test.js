@@ -197,8 +197,8 @@ Slice.defineOperations(Test.Thrower, Test.ThrowerPrx, iceC_Test_Thrower_ids, "::
     ], , ],
     "throwAorDasAorD": [, , , , [[3]], ,
     [
-        Test.A,
-        Test.D
+        Test.D,
+        Test.A
     ], , ],
     "throwBasA": [, , , , [[3], [3]], ,
     [
