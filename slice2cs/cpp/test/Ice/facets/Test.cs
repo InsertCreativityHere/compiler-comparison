@@ -2406,11 +2406,11 @@ namespace Test
 
         #region Inherited Slice operations
 
+        public abstract string callA(global::Ice.Current current);
+
         public abstract string callB(global::Ice.Current current);
 
         public abstract string callC(global::Ice.Current current);
-
-        public abstract string callA(global::Ice.Current current);
 
         #endregion
 
