@@ -114,6 +114,7 @@ namespace BEGIN
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::BEGIN::break")]
     public partial interface @break : global::Ice.Object, breakOperations_
     {
     }
@@ -221,6 +222,7 @@ namespace BEGIN
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::BEGIN::elsif")]
     public partial interface elsif : global::Ice.Object, elsifOperations_, @break
     {
     }
@@ -382,6 +384,7 @@ namespace BEGIN
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::BEGIN::extend")]
     public partial interface extend : global::Ice.Object, extendOperations_
     {
     }
@@ -1256,31 +1259,9 @@ namespace BEGIN
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::BEGIN::break",
-            "::Ice::Object"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::BEGIN::break";
-        }
+        public static new string ice_staticId() => "::BEGIN::break";
 
         #endregion
 
@@ -1413,32 +1394,9 @@ namespace BEGIN
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::BEGIN::break",
-            "::BEGIN::elsif",
-            "::Ice::Object"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::BEGIN::elsif";
-        }
+        public static new string ice_staticId() => "::BEGIN::elsif";
 
         #endregion
 
@@ -1516,31 +1474,9 @@ namespace BEGIN
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::BEGIN::extend",
-            "::Ice::Object"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::BEGIN::extend";
-        }
+        public static new string ice_staticId() => "::BEGIN::extend";
 
         #endregion
 

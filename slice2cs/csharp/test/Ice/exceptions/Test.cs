@@ -34,6 +34,7 @@ namespace Ice.exceptions
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::Empty")]
         public partial interface Empty : global::Ice.Object, EmptyOperations_
         {
         }
@@ -329,6 +330,7 @@ namespace Ice.exceptions
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::Thrower")]
         public partial interface Thrower : global::Ice.Object, ThrowerOperations_
         {
         }
@@ -344,6 +346,7 @@ namespace Ice.exceptions
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::WrongOperation")]
         public partial interface WrongOperation : global::Ice.Object, WrongOperationOperations_
         {
         }
@@ -1851,31 +1854,9 @@ namespace Ice.exceptions
         {
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Ice::Object",
-                "::Test::Empty"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Test::Empty";
-            }
+            public static new string ice_staticId() => "::Test::Empty";
 
             #endregion
         }
@@ -1930,31 +1911,9 @@ namespace Ice.exceptions
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Ice::Object",
-                "::Test::Thrower"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Test::Thrower";
-            }
+            public static new string ice_staticId() => "::Test::Thrower";
 
             #endregion
 
@@ -2380,31 +2339,9 @@ namespace Ice.exceptions
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Ice::Object",
-                "::Test::WrongOperation"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Test::WrongOperation";
-            }
+            public static new string ice_staticId() => "::Test::WrongOperation";
 
             #endregion
 

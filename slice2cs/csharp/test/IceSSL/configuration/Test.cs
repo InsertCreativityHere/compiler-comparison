@@ -32,6 +32,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::Server")]
     public partial interface Server : global::Ice.Object, ServerOperations_
     {
     }
@@ -47,6 +48,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::ServerFactory")]
     public partial interface ServerFactory : global::Ice.Object, ServerFactoryOperations_
     {
     }
@@ -62,6 +64,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::Pingable")]
     public partial interface Pingable : global::Ice.Object, PingableOperations_
     {
     }
@@ -814,31 +817,9 @@ namespace Test
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::Server"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Test::Server";
-        }
+        public static new string ice_staticId() => "::Test::Server";
 
         #endregion
 
@@ -957,31 +938,9 @@ namespace Test
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::ServerFactory"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Test::ServerFactory";
-        }
+        public static new string ice_staticId() => "::Test::ServerFactory";
 
         #endregion
 
@@ -1097,31 +1056,9 @@ namespace Test
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::Pingable"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Test::Pingable";
-        }
+        public static new string ice_staticId() => "::Test::Pingable";
 
         #endregion
 

@@ -215,6 +215,7 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceStormElection::ReplicaObserver")]
     public partial interface ReplicaObserver : global::Ice.Object, ReplicaObserverOperations_
     {
     }
@@ -230,6 +231,7 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceStormElection::TopicManagerSync")]
     public partial interface TopicManagerSync : global::Ice.Object, TopicManagerSyncOperations_
     {
     }
@@ -629,6 +631,7 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceStormElection::Node")]
     public partial interface Node : global::Ice.Object, NodeOperations_
     {
     }
@@ -2360,31 +2363,9 @@ namespace IceStormElection
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceStormElection::ReplicaObserver"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceStormElection::ReplicaObserver";
-        }
+        public static new string ice_staticId() => "::IceStormElection::ReplicaObserver";
 
         #endregion
 
@@ -2550,31 +2531,9 @@ namespace IceStormElection
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceStormElection::TopicManagerSync"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceStormElection::TopicManagerSync";
-        }
+        public static new string ice_staticId() => "::IceStormElection::TopicManagerSync";
 
         #endregion
 
@@ -2671,31 +2630,9 @@ namespace IceStormElection
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceStormElection::Node"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceStormElection::Node";
-        }
+        public static new string ice_staticId() => "::IceStormElection::Node";
 
         #endregion
 

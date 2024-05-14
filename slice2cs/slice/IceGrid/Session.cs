@@ -32,6 +32,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::Session")]
     public partial interface Session : global::Ice.Object, SessionOperations_, global::Glacier2.Session
     {
     }
@@ -420,11 +421,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ObjectNotRegisteredException)
+                    catch(AllocationException)
                     {
                         throw;
                     }
-                    catch(AllocationException)
+                    catch(ObjectNotRegisteredException)
                     {
                         throw;
                     }
@@ -524,11 +525,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ObjectNotRegisteredException)
+                    catch(AllocationException)
                     {
                         throw;
                     }
-                    catch(AllocationException)
+                    catch(ObjectNotRegisteredException)
                     {
                         throw;
                     }
@@ -692,32 +693,9 @@ namespace IceGrid
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Glacier2::Session",
-            "::Ice::Object",
-            "::IceGrid::Session"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceGrid::Session";
-        }
+        public static new string ice_staticId() => "::IceGrid::Session";
 
         #endregion
 

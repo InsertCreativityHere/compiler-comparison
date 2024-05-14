@@ -34,6 +34,7 @@ namespace Demo
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Demo::gx::Canvas")]
         public partial interface Canvas : global::Ice.Object, CanvasOperations_
         {
         }
@@ -49,6 +50,7 @@ namespace Demo
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Demo::gx::Session")]
         public partial interface Session : global::Ice.Object, SessionOperations_, global::Glacier2.Session
         {
         }
@@ -503,31 +505,9 @@ namespace Demo
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Demo::gx::Canvas",
-                "::Ice::Object"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Demo::gx::Canvas";
-            }
+            public static new string ice_staticId() => "::Demo::gx::Canvas";
 
             #endregion
 
@@ -631,32 +611,9 @@ namespace Demo
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Demo::gx::Session",
-                "::Glacier2::Session",
-                "::Ice::Object"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Demo::gx::Session";
-            }
+            public static new string ice_staticId() => "::Demo::gx::Session";
 
             #endregion
 

@@ -814,6 +814,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::I")]
     public partial interface I : global::Ice.Object, IOperations_
     {
     }
@@ -829,6 +830,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::J")]
     public partial interface J : global::Ice.Object, JOperations_, I
     {
     }
@@ -2150,6 +2152,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::Initial")]
     public partial interface Initial : global::Ice.Object, InitialOperations_
     {
     }
@@ -4450,31 +4453,9 @@ namespace Test
     {
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::I"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Test::I";
-        }
+        public static new string ice_staticId() => "::Test::I";
 
         #endregion
     }
@@ -4489,32 +4470,9 @@ namespace Test
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::I",
-            "::Test::J"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Test::J";
-        }
+        public static new string ice_staticId() => "::Test::J";
 
         #endregion
     }
@@ -4593,31 +4551,9 @@ namespace Test
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::Initial"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Test::Initial";
-        }
+        public static new string ice_staticId() => "::Test::Initial";
 
         #endregion
 

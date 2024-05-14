@@ -305,6 +305,7 @@ namespace IceMX
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceMX::MetricsAdmin")]
     public partial interface MetricsAdmin : global::Ice.Object, MetricsAdminOperations_
     {
     }
@@ -1781,31 +1782,9 @@ namespace IceMX
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceMX::MetricsAdmin"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceMX::MetricsAdmin";
-        }
+        public static new string ice_staticId() => "::IceMX::MetricsAdmin";
 
         #endregion
 

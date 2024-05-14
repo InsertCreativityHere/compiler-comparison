@@ -32,6 +32,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Ice::Router")]
     public partial interface Router : Object, RouterOperations_
     {
     }
@@ -47,6 +48,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Ice::RouterFinder")]
     public partial interface RouterFinder : Object, RouterFinderOperations_
     {
     }
@@ -658,31 +660,9 @@ namespace Ice
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Ice::Router"
-        };
+        public override string ice_id(Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Ice::Router";
-        }
+        public static new string ice_staticId() => "::Ice::Router";
 
         #endregion
 
@@ -803,31 +783,9 @@ namespace Ice
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Ice::RouterFinder"
-        };
+        public override string ice_id(Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Ice::RouterFinder";
-        }
+        public static new string ice_staticId() => "::Ice::RouterFinder";
 
         #endregion
 

@@ -105,6 +105,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Glacier2::PermissionsVerifier")]
     public partial interface PermissionsVerifier : global::Ice.Object, PermissionsVerifierOperations_
     {
     }
@@ -120,6 +121,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Glacier2::SSLPermissionsVerifier")]
     public partial interface SSLPermissionsVerifier : global::Ice.Object, SSLPermissionsVerifierOperations_
     {
     }
@@ -632,31 +634,9 @@ namespace Glacier2
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Glacier2::PermissionsVerifier",
-            "::Ice::Object"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Glacier2::PermissionsVerifier";
-        }
+        public static new string ice_staticId() => "::Glacier2::PermissionsVerifier";
 
         #endregion
 
@@ -744,31 +724,9 @@ namespace Glacier2
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Glacier2::SSLPermissionsVerifier",
-            "::Ice::Object"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Glacier2::SSLPermissionsVerifier";
-        }
+        public static new string ice_staticId() => "::Glacier2::SSLPermissionsVerifier";
 
         #endregion
 

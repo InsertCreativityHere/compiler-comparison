@@ -34,6 +34,7 @@ namespace Ice.location
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::TestLocatorRegistry")]
         public partial interface TestLocatorRegistry : global::Ice.Object, TestLocatorRegistryOperations_, global::Ice.LocatorRegistry
         {
         }
@@ -49,6 +50,7 @@ namespace Ice.location
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::TestLocator")]
         public partial interface TestLocator : global::Ice.Object, TestLocatorOperations_, global::Ice.Locator
         {
         }
@@ -64,6 +66,7 @@ namespace Ice.location
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::ServerManager")]
         public partial interface ServerManager : global::Ice.Object, ServerManagerOperations_
         {
         }
@@ -79,6 +82,7 @@ namespace Ice.location
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::Hello")]
         public partial interface Hello : global::Ice.Object, HelloOperations_
         {
         }
@@ -94,6 +98,7 @@ namespace Ice.location
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::TestIntf")]
         public partial interface TestIntf : global::Ice.Object, TestIntfOperations_
         {
         }
@@ -1504,32 +1509,9 @@ namespace Ice.location
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Ice::LocatorRegistry",
-                "::Ice::Object",
-                "::Test::TestLocatorRegistry"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Test::TestLocatorRegistry";
-            }
+            public static new string ice_staticId() => "::Test::TestLocatorRegistry";
 
             #endregion
 
@@ -1634,32 +1616,9 @@ namespace Ice.location
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Ice::Locator",
-                "::Ice::Object",
-                "::Test::TestLocator"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Test::TestLocator";
-            }
+            public static new string ice_staticId() => "::Test::TestLocator";
 
             #endregion
 
@@ -1756,31 +1715,9 @@ namespace Ice.location
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Ice::Object",
-                "::Test::ServerManager"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Test::ServerManager";
-            }
+            public static new string ice_staticId() => "::Test::ServerManager";
 
             #endregion
 
@@ -1872,31 +1809,9 @@ namespace Ice.location
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Ice::Object",
-                "::Test::Hello"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Test::Hello";
-            }
+            public static new string ice_staticId() => "::Test::Hello";
 
             #endregion
 
@@ -1979,31 +1894,9 @@ namespace Ice.location
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Ice::Object",
-                "::Test::TestIntf"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Test::TestIntf";
-            }
+            public static new string ice_staticId() => "::Test::TestIntf";
 
             #endregion
 

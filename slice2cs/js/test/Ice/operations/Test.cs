@@ -355,6 +355,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::MyClass")]
     public partial interface MyClass : global::Ice.Object, MyClassOperations_
     {
     }
@@ -580,6 +581,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::MyDerivedClass")]
     public partial interface MyDerivedClass : global::Ice.Object, MyDerivedClassOperations_, MyClass
     {
     }
@@ -595,6 +597,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test::Echo")]
     public partial interface Echo : global::Ice.Object, EchoOperations_
     {
     }
@@ -799,6 +802,7 @@ namespace Test2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Test2::MyDerivedClass")]
     public partial interface MyDerivedClass : global::Ice.Object, MyDerivedClassOperations_, global::Test.MyClass
     {
     }
@@ -14377,31 +14381,9 @@ namespace Test
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::MyClass"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Test::MyClass";
-        }
+        public static new string ice_staticId() => "::Test::MyClass";
 
         #endregion
 
@@ -16083,8 +16065,6 @@ namespace Test
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current);
 
-        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
-
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current);
 
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current);
@@ -16114,6 +16094,8 @@ namespace Test
         public abstract global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, global::Ice.Current current);
+
+        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.Current current);
 
@@ -16201,32 +16183,9 @@ namespace Test
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::MyClass",
-            "::Test::MyDerivedClass"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Test::MyDerivedClass";
-        }
+        public static new string ice_staticId() => "::Test::MyDerivedClass";
 
         #endregion
 
@@ -16705,31 +16664,9 @@ namespace Test
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test::Echo"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Test::Echo";
-        }
+        public static new string ice_staticId() => "::Test::Echo";
 
         #endregion
 
@@ -16892,8 +16829,6 @@ namespace Test2
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current);
 
-        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
-
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current);
 
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current);
@@ -16923,6 +16858,8 @@ namespace Test2
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p3, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p3, global::Ice.Current current);
+
+        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.Current current);
 
@@ -17010,32 +16947,9 @@ namespace Test2
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::Test2::MyDerivedClass",
-            "::Test::MyClass"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Test2::MyDerivedClass";
-        }
+        public static new string ice_staticId() => "::Test2::MyDerivedClass";
 
         #endregion
 

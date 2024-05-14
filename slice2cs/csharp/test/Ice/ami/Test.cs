@@ -113,6 +113,7 @@ namespace Ice.ami
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::PingReply")]
         public partial interface PingReply : global::Ice.Object, PingReplyOperations_
         {
         }
@@ -128,6 +129,7 @@ namespace Ice.ami
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::TestIntf")]
         public partial interface TestIntf : global::Ice.Object, TestIntfOperations_
         {
         }
@@ -143,6 +145,7 @@ namespace Ice.ami
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [Ice.SliceTypeId("::Test::TestIntfController")]
         public partial interface TestIntfController : global::Ice.Object, TestIntfControllerOperations_
         {
         }
@@ -162,6 +165,7 @@ namespace Ice.ami
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
                 [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+                [Ice.SliceTypeId("::Test::Outer::Inner::TestIntf")]
                 public partial interface TestIntf : global::Ice.Object, TestIntfOperations_
                 {
                 }
@@ -1778,31 +1782,9 @@ namespace Ice.ami
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Ice::Object",
-                "::Test::PingReply"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Test::PingReply";
-            }
+            public static new string ice_staticId() => "::Test::PingReply";
 
             #endregion
 
@@ -1913,31 +1895,9 @@ namespace Ice.ami
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Ice::Object",
-                "::Test::TestIntf"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Test::TestIntf";
-            }
+            public static new string ice_staticId() => "::Test::TestIntf";
 
             #endregion
 
@@ -2301,31 +2261,9 @@ namespace Ice.ami
 
             #region Slice type-related members
 
-            private static readonly string[] _ids =
-            {
-                "::Ice::Object",
-                "::Test::TestIntfController"
-            };
+            public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-            public override bool ice_isA(string s, global::Ice.Current current)
-            {
-                return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-            }
-
-            public override string[] ice_ids(global::Ice.Current current)
-            {
-                return _ids;
-            }
-
-            public override string ice_id(global::Ice.Current current)
-            {
-                return ice_staticId();
-            }
-
-            public static new string ice_staticId()
-            {
-                return "::Test::TestIntfController";
-            }
+            public static new string ice_staticId() => "::Test::TestIntfController";
 
             #endregion
 
@@ -2421,31 +2359,9 @@ namespace Ice.ami
 
                     #region Slice type-related members
 
-                    private static readonly string[] _ids =
-                    {
-                        "::Ice::Object",
-                        "::Test::Outer::Inner::TestIntf"
-                    };
+                    public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-                    public override bool ice_isA(string s, global::Ice.Current current)
-                    {
-                        return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-                    }
-
-                    public override string[] ice_ids(global::Ice.Current current)
-                    {
-                        return _ids;
-                    }
-
-                    public override string ice_id(global::Ice.Current current)
-                    {
-                        return ice_staticId();
-                    }
-
-                    public static new string ice_staticId()
-                    {
-                        return "::Test::Outer::Inner::TestIntf";
-                    }
+                    public static new string ice_staticId() => "::Test::Outer::Inner::TestIntf";
 
                     #endregion
 

@@ -539,6 +539,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::Adapter")]
     public partial interface Adapter : global::Ice.Object, AdapterOperations_
     {
     }
@@ -627,6 +628,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::FileReader")]
     public partial interface FileReader : global::Ice.Object, FileReaderOperations_
     {
     }
@@ -642,6 +644,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::Server")]
     public partial interface Server : global::Ice.Object, ServerOperations_, FileReader
     {
     }
@@ -657,6 +660,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::ReplicaObserver")]
     public partial interface ReplicaObserver : global::Ice.Object, ReplicaObserverOperations_
     {
     }
@@ -672,6 +676,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::Node")]
     public partial interface Node : global::Ice.Object, NodeOperations_, FileReader, ReplicaObserver
     {
     }
@@ -745,6 +750,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::NodeSession")]
     public partial interface NodeSession : global::Ice.Object, NodeSessionOperations_
     {
     }
@@ -845,6 +851,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::DatabaseObserver")]
     public partial interface DatabaseObserver : global::Ice.Object, DatabaseObserverOperations_, ApplicationObserver, ObjectObserver, AdapterObserver
     {
     }
@@ -860,6 +867,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::ReplicaSession")]
     public partial interface ReplicaSession : global::Ice.Object, ReplicaSessionOperations_
     {
     }
@@ -1071,6 +1079,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::IceGrid::InternalRegistry")]
     public partial interface InternalRegistry : global::Ice.Object, InternalRegistryOperations_, FileReader
     {
     }
@@ -6515,11 +6524,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
@@ -6977,11 +6986,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -7033,11 +7042,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -7386,31 +7395,9 @@ namespace IceGrid
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceGrid::Adapter"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceGrid::Adapter";
-        }
+        public static new string ice_staticId() => "::IceGrid::Adapter";
 
         #endregion
 
@@ -7528,31 +7515,9 @@ namespace IceGrid
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceGrid::FileReader"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceGrid::FileReader";
-        }
+        public static new string ice_staticId() => "::IceGrid::FileReader";
 
         #endregion
 
@@ -7684,40 +7649,17 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
-
         public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
 
         #endregion
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceGrid::FileReader",
-            "::IceGrid::Server"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceGrid::Server";
-        }
+        public static new string ice_staticId() => "::IceGrid::Server";
 
         #endregion
 
@@ -7972,31 +7914,9 @@ namespace IceGrid
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceGrid::ReplicaObserver"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceGrid::ReplicaObserver";
-        }
+        public static new string ice_staticId() => "::IceGrid::ReplicaObserver";
 
         #endregion
 
@@ -8130,6 +8050,8 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
+        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current);
+
         public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
 
         public abstract void replicaInit(InternalRegistryPrx?[] replicas, global::Ice.Current current);
@@ -8138,39 +8060,13 @@ namespace IceGrid
 
         public abstract void replicaRemoved(InternalRegistryPrx? replica, global::Ice.Current current);
 
-        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current);
-
         #endregion
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceGrid::FileReader",
-            "::IceGrid::Node",
-            "::IceGrid::ReplicaObserver"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceGrid::Node";
-        }
+        public static new string ice_staticId() => "::IceGrid::Node";
 
         #endregion
 
@@ -8476,31 +8372,9 @@ namespace IceGrid
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceGrid::NodeSession"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceGrid::NodeSession";
-        }
+        public static new string ice_staticId() => "::IceGrid::NodeSession";
 
         #endregion
 
@@ -8722,34 +8596,9 @@ namespace IceGrid
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceGrid::AdapterObserver",
-            "::IceGrid::ApplicationObserver",
-            "::IceGrid::DatabaseObserver",
-            "::IceGrid::ObjectObserver"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceGrid::DatabaseObserver";
-        }
+        public static new string ice_staticId() => "::IceGrid::DatabaseObserver";
 
         #endregion
 
@@ -8881,31 +8730,9 @@ namespace IceGrid
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceGrid::ReplicaSession"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceGrid::ReplicaSession";
-        }
+        public static new string ice_staticId() => "::IceGrid::ReplicaSession";
 
         #endregion
 
@@ -9141,40 +8968,17 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
-
         public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
 
         #endregion
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceGrid::FileReader",
-            "::IceGrid::InternalRegistry"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceGrid::InternalRegistry";
-        }
+        public static new string ice_staticId() => "::IceGrid::InternalRegistry";
 
         #endregion
 

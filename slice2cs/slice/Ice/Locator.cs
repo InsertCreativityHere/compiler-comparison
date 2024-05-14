@@ -322,6 +322,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Ice::Locator")]
     public partial interface Locator : Object, LocatorOperations_
     {
     }
@@ -337,6 +338,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Ice::LocatorRegistry")]
     public partial interface LocatorRegistry : Object, LocatorRegistryOperations_
     {
     }
@@ -352,6 +354,7 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Ice::LocatorFinder")]
     public partial interface LocatorFinder : Object, LocatorFinderOperations_
     {
     }
@@ -1435,31 +1438,9 @@ namespace Ice
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::Locator",
-            "::Ice::Object"
-        };
+        public override string ice_id(Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Ice::Locator";
-        }
+        public static new string ice_staticId() => "::Ice::Locator";
 
         #endregion
 
@@ -1585,31 +1566,9 @@ namespace Ice
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::LocatorRegistry",
-            "::Ice::Object"
-        };
+        public override string ice_id(Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Ice::LocatorRegistry";
-        }
+        public static new string ice_staticId() => "::Ice::LocatorRegistry";
 
         #endregion
 
@@ -1730,31 +1689,9 @@ namespace Ice
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Ice::LocatorFinder",
-            "::Ice::Object"
-        };
+        public override string ice_id(Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Ice::LocatorFinder";
-        }
+        public static new string ice_staticId() => "::Ice::LocatorFinder";
 
         #endregion
 

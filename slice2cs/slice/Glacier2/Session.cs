@@ -105,6 +105,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Glacier2::Session")]
     public partial interface Session : global::Ice.Object, SessionOperations_
     {
     }
@@ -120,6 +121,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Glacier2::StringSet")]
     public partial interface StringSet : global::Ice.Object, StringSetOperations_
     {
     }
@@ -135,6 +137,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Glacier2::IdentitySet")]
     public partial interface IdentitySet : global::Ice.Object, IdentitySetOperations_
     {
     }
@@ -150,6 +153,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Glacier2::SessionControl")]
     public partial interface SessionControl : global::Ice.Object, SessionControlOperations_
     {
     }
@@ -165,6 +169,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Glacier2::SessionManager")]
     public partial interface SessionManager : global::Ice.Object, SessionManagerOperations_
     {
     }
@@ -180,6 +185,7 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [Ice.SliceTypeId("::Glacier2::SSLSessionManager")]
     public partial interface SSLSessionManager : global::Ice.Object, SSLSessionManagerOperations_
     {
     }
@@ -2027,31 +2033,9 @@ namespace Glacier2
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Glacier2::Session",
-            "::Ice::Object"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Glacier2::Session";
-        }
+        public static new string ice_staticId() => "::Glacier2::Session";
 
         #endregion
 
@@ -2132,31 +2116,9 @@ namespace Glacier2
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Glacier2::StringSet",
-            "::Ice::Object"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Glacier2::StringSet";
-        }
+        public static new string ice_staticId() => "::Glacier2::StringSet";
 
         #endregion
 
@@ -2276,31 +2238,9 @@ namespace Glacier2
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Glacier2::IdentitySet",
-            "::Ice::Object"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Glacier2::IdentitySet";
-        }
+        public static new string ice_staticId() => "::Glacier2::IdentitySet";
 
         #endregion
 
@@ -2424,31 +2364,9 @@ namespace Glacier2
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Glacier2::SessionControl",
-            "::Ice::Object"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Glacier2::SessionControl";
-        }
+        public static new string ice_staticId() => "::Glacier2::SessionControl";
 
         #endregion
 
@@ -2597,31 +2515,9 @@ namespace Glacier2
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Glacier2::SessionManager",
-            "::Ice::Object"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Glacier2::SessionManager";
-        }
+        public static new string ice_staticId() => "::Glacier2::SessionManager";
 
         #endregion
 
@@ -2707,31 +2603,9 @@ namespace Glacier2
 
         #region Slice type-related members
 
-        private static readonly string[] _ids =
-        {
-            "::Glacier2::SSLSessionManager",
-            "::Ice::Object"
-        };
+        public override string ice_id(global::Ice.Current current) => ice_staticId();
 
-        public override bool ice_isA(string s, global::Ice.Current current)
-        {
-            return global::System.Array.BinarySearch(_ids, s, Ice.UtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::Glacier2::SSLSessionManager";
-        }
+        public static new string ice_staticId() => "::Glacier2::SSLSessionManager";
 
         #endregion
 
