@@ -15603,33 +15603,61 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current);
+        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current);
 
-        public abstract bool supportsCompress(global::Ice.Current current);
+        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current);
 
-        public abstract void opVoid(global::Ice.Current current);
+        public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.Current current);
 
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
+        public abstract int[] opIntS(int[] s, global::Ice.Current current);
 
-        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current);
+        public abstract void opByteSOneway(byte[] s, global::Ice.Current current);
 
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current);
+        public abstract int opByteSOnewayCallCount(global::Ice.Current current);
 
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current);
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current);
 
-        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current);
+        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current);
 
-        public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.Current current);
+        public abstract void opIdempotent(global::Ice.Current current);
 
-        public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, global::Ice.Current current);
+        public abstract byte opByte1(byte opByte1, global::Ice.Current current);
 
-        public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, global::Ice.Current current);
+        public abstract short opShort1(short opShort1, global::Ice.Current current);
 
-        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current);
+        public abstract int opInt1(int opInt1, global::Ice.Current current);
 
-        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current);
+        public abstract long opLong1(long opLong1, global::Ice.Current current);
 
-        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
+        public abstract float opFloat1(float opFloat1, global::Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, global::Ice.Current current);
+
+        public abstract string opString1(string opString1, global::Ice.Current current);
+
+        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current);
+
+        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current);
+
+        public abstract string[] opStringLiterals(global::Ice.Current current);
+
+        public abstract string[] opWStringLiterals(global::Ice.Current current);
+
+        public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current);
+
+        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current);
+
+        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current);
+
+        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current);
+
+        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
+
+        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
 
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current);
 
@@ -15681,67 +15709,39 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.Current current);
 
-        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current);
-
-        public abstract string[] opStringLiterals(global::Ice.Current current);
-
-        public abstract string[] opWStringLiterals(global::Ice.Current current);
-
-        public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current);
-
-        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current);
-
-        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current);
-
-        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current);
-
-        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
-
-        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
-
         public abstract global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current);
 
+        public abstract void shutdown(global::Ice.Current current);
+
+        public abstract bool supportsCompress(global::Ice.Current current);
+
+        public abstract void opVoid(global::Ice.Current current);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
+
+        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current);
+
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current);
+
+        public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, global::Ice.Current current);
+
+        public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, global::Ice.Current current);
+
+        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current);
+
         public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current);
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current);
+        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.Current current);
+        public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.Current current);
 
-        public abstract int[] opIntS(int[] s, global::Ice.Current current);
+        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current);
 
-        public abstract void opByteSOneway(byte[] s, global::Ice.Current current);
-
-        public abstract int opByteSOnewayCallCount(global::Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current);
-
-        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current);
-
-        public abstract void opIdempotent(global::Ice.Current current);
-
-        public abstract byte opByte1(byte opByte1, global::Ice.Current current);
-
-        public abstract short opShort1(short opShort1, global::Ice.Current current);
-
-        public abstract int opInt1(int opInt1, global::Ice.Current current);
-
-        public abstract long opLong1(long opLong1, global::Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, global::Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, global::Ice.Current current);
-
-        public abstract string opString1(string opString1, global::Ice.Current current);
-
-        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current);
+        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
 
         #endregion
 
@@ -16217,33 +16217,61 @@ namespace Test2
     {
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current);
+        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current);
 
-        public abstract bool supportsCompress(global::Ice.Current current);
+        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current);
 
-        public abstract void opVoid(global::Ice.Current current);
+        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p3, global::Ice.Current current);
 
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
+        public abstract int[] opIntS(int[] s, global::Ice.Current current);
 
-        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current);
+        public abstract void opByteSOneway(byte[] s, global::Ice.Current current);
 
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current);
+        public abstract int opByteSOnewayCallCount(global::Ice.Current current);
 
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current);
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current);
 
-        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current);
+        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current);
 
-        public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, global::Ice.Current current);
+        public abstract void opIdempotent(global::Ice.Current current);
 
-        public abstract global::Test.MyClassPrx? opMyClass(global::Test.MyClassPrx? p1, out global::Test.MyClassPrx? p2, out global::Test.MyClassPrx? p3, global::Ice.Current current);
+        public abstract byte opByte1(byte opByte1, global::Ice.Current current);
 
-        public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, global::Ice.Current current);
+        public abstract short opShort1(short opShort1, global::Ice.Current current);
 
-        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current);
+        public abstract int opInt1(int opInt1, global::Ice.Current current);
 
-        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current);
+        public abstract long opLong1(long opLong1, global::Ice.Current current);
 
-        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
+        public abstract float opFloat1(float opFloat1, global::Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, global::Ice.Current current);
+
+        public abstract string opString1(string opString1, global::Ice.Current current);
+
+        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current);
+
+        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current);
+
+        public abstract string[] opStringLiterals(global::Ice.Current current);
+
+        public abstract string[] opWStringLiterals(global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
 
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current);
 
@@ -16295,67 +16323,39 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.Current current);
 
-        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current);
-
-        public abstract string[] opStringLiterals(global::Ice.Current current);
-
-        public abstract string[] opWStringLiterals(global::Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
-
         public abstract global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current);
 
+        public abstract void shutdown(global::Ice.Current current);
+
+        public abstract bool supportsCompress(global::Ice.Current current);
+
+        public abstract void opVoid(global::Ice.Current current);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
+
+        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current);
+
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current);
+
+        public abstract global::Test.MyClassPrx? opMyClass(global::Test.MyClassPrx? p1, out global::Test.MyClassPrx? p2, out global::Test.MyClassPrx? p3, global::Ice.Current current);
+
+        public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, global::Ice.Current current);
+
+        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current);
+
         public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current);
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current);
+        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p3, global::Ice.Current current);
+        public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, global::Ice.Current current);
 
-        public abstract int[] opIntS(int[] s, global::Ice.Current current);
+        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current);
 
-        public abstract void opByteSOneway(byte[] s, global::Ice.Current current);
-
-        public abstract int opByteSOnewayCallCount(global::Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current);
-
-        public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current);
-
-        public abstract void opIdempotent(global::Ice.Current current);
-
-        public abstract byte opByte1(byte opByte1, global::Ice.Current current);
-
-        public abstract short opShort1(short opShort1, global::Ice.Current current);
-
-        public abstract int opInt1(int opInt1, global::Ice.Current current);
-
-        public abstract long opLong1(long opLong1, global::Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, global::Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, global::Ice.Current current);
-
-        public abstract string opString1(string opString1, global::Ice.Current current);
-
-        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current);
+        public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current);
 
         #endregion
 
