@@ -23,8 +23,6 @@ public interface Retry extends com.zeroc.Ice.Object
 
     void opNotIdempotent(com.zeroc.Ice.Current current);
 
-    void opSystemException(com.zeroc.Ice.Current current);
-
     void shutdown(com.zeroc.Ice.Current current);
 
     /** @hidden */
@@ -112,21 +110,6 @@ public interface Retry extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSystemException(Retry obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.opSystemException(current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_shutdown(Retry obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
@@ -145,7 +128,6 @@ public interface Retry extends com.zeroc.Ice.Object
         "op",
         "opIdempotent",
         "opNotIdempotent",
-        "opSystemException",
         "shutdown"
     };
 
@@ -191,10 +173,6 @@ public interface Retry extends com.zeroc.Ice.Object
                 return _iceD_opNotIdempotent(this, in, current);
             }
             case 7:
-            {
-                return _iceD_opSystemException(this, in, current);
-            }
-            case 8:
             {
                 return _iceD_shutdown(this, in, current);
             }

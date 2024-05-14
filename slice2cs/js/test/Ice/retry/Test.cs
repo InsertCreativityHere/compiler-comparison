@@ -54,10 +54,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task opNotIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void opSystemException(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task opSystemExceptionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
@@ -77,9 +73,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void opNotIdempotent(global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opSystemException(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void shutdown(global::Ice.Current current);
@@ -127,18 +120,6 @@ namespace Test
             try
             {
                 _iceI_opNotIdempotentAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public void opSystemException(global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                _iceI_opSystemExceptionAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -246,31 +227,6 @@ namespace Test
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
                 _opNotIdempotent_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous);
-        }
-
-        public global::System.Threading.Tasks.Task opSystemExceptionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_opSystemExceptionAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_opSystemExceptionAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_opSystemException(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opSystemException_name = "opSystemException";
-
-        private void _iceI_opSystemException(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _opSystemException_name,
                 global::Ice.OperationMode.Normal,
                 global::Ice.FormatType.DefaultFormat,
                 context,
@@ -412,8 +368,6 @@ namespace Test
 
         public abstract void opNotIdempotent(global::Ice.Current current);
 
-        public abstract void opSystemException(global::Ice.Current current);
-
         public abstract void shutdown(global::Ice.Current current);
 
         #endregion
@@ -491,16 +445,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opSystemException(Retry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            obj.opSystemException(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_shutdown(Retry obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
@@ -518,7 +462,6 @@ namespace Test
             "op",
             "opIdempotent",
             "opNotIdempotent",
-            "opSystemException",
             "shutdown"
         };
 
@@ -562,10 +505,6 @@ namespace Test
                     return iceD_opNotIdempotent(this, inS, current);
                 }
                 case 7:
-                {
-                    return iceD_opSystemException(this, inS, current);
-                }
-                case 8:
                 {
                     return iceD_shutdown(this, inS, current);
                 }

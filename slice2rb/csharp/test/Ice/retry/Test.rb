@@ -36,10 +36,6 @@ module ::Test
                 RetryPrx_mixin::OP_opNotIdempotent.invoke(self, [], context)
             end
 
-            def opSystemException(context=nil)
-                RetryPrx_mixin::OP_opSystemException.invoke(self, [], context)
-            end
-
             def sleep(delay, context=nil)
                 RetryPrx_mixin::OP_sleep.invoke(self, [delay], context)
             end
@@ -64,7 +60,6 @@ module ::Test
         RetryPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
         RetryPrx_mixin::OP_opIdempotent = ::Ice::__defineOperation('opIdempotent', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
         RetryPrx_mixin::OP_opNotIdempotent = ::Ice::__defineOperation('opNotIdempotent', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        RetryPrx_mixin::OP_opSystemException = ::Ice::__defineOperation('opSystemException', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         RetryPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
         RetryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
     end

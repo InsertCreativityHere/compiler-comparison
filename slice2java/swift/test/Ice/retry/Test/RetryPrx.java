@@ -126,39 +126,6 @@ public interface RetryPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void opSystemException()
-    {
-        opSystemException(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void opSystemException(java.util.Map<String, String> context)
-    {
-        _iceI_opSystemExceptionAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> opSystemExceptionAsync()
-    {
-        return _iceI_opSystemExceptionAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> opSystemExceptionAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_opSystemExceptionAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opSystemExceptionAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opSystemException", null, sync, null);
-        f.invoke(false, context, null, null, null);
-        return f;
-    }
-
     default void sleep(int delay)
     {
         sleep(delay, com.zeroc.Ice.ObjectPrx.noExplicitContext);

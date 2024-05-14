@@ -9,8 +9,6 @@
 %   badAddAsync
 %   notExistAdd
 %   notExistAddAsync
-%   badSystemAdd
-%   badSystemAddAsync
 %   amdAdd
 %   amdAddAsync
 %   amdAddWithRetry
@@ -19,8 +17,6 @@
 %   amdBadAddAsync
 %   amdNotExistAdd
 %   amdNotExistAddAsync
-%   amdBadSystemAdd
-%   amdBadSystemAddAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -193,47 +189,6 @@ classdef MyObjectPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('notExistAdd', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
-        function result = badSystemAdd(obj, x, y, varargin)
-            % badSystemAdd
-            %
-            % Parameters:
-            %   x (int32)
-            %   y (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(x);
-            os_.writeInt(y);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('badSystemAdd', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readInt();
-            is_.endEncapsulation();
-        end
-        function r_ = badSystemAddAsync(obj, x, y, varargin)
-            % badSystemAddAsync
-            %
-            % Parameters:
-            %   x (int32)
-            %   y (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(x);
-            os_.writeInt(y);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readInt();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('badSystemAdd', 0, true, os_, 1, @unmarshal, {}, varargin{:});
-        end
         function result = amdAdd(obj, x, y, varargin)
             % amdAdd
             %
@@ -397,47 +352,6 @@ classdef MyObjectPrx < Ice.ObjectPrx
                 varargout{1} = result;
             end
             r_ = obj.iceInvokeAsync('amdNotExistAdd', 0, true, os_, 1, @unmarshal, {}, varargin{:});
-        end
-        function result = amdBadSystemAdd(obj, x, y, varargin)
-            % amdBadSystemAdd
-            %
-            % Parameters:
-            %   x (int32)
-            %   y (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(x);
-            os_.writeInt(y);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('amdBadSystemAdd', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readInt();
-            is_.endEncapsulation();
-        end
-        function r_ = amdBadSystemAddAsync(obj, x, y, varargin)
-            % amdBadSystemAddAsync
-            %
-            % Parameters:
-            %   x (int32)
-            %   y (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(x);
-            os_.writeInt(y);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readInt();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('amdBadSystemAdd', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

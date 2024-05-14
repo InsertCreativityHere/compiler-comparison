@@ -82,17 +82,6 @@ public:
     void _iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t badSystemAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::int32_t> badSystemAddAsync(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    badSystemAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_badSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
-    /// \endcond
-
     ::std::int32_t amdAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<::std::int32_t> amdAddAsync(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -135,17 +124,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
-    /// \endcond
-
-    ::std::int32_t amdBadSystemAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::int32_t> amdBadSystemAddAsync(::std::int32_t x, ::std::int32_t y, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    amdBadSystemAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_amdBadSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -296,11 +274,6 @@ public:
     void _iceD_notExistAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::int32_t badSystemAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_badSystemAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
     virtual void amdAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_amdAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
@@ -319,11 +292,6 @@ public:
     virtual void amdNotExistAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_amdNotExistAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual void amdBadSystemAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_amdBadSystemAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL

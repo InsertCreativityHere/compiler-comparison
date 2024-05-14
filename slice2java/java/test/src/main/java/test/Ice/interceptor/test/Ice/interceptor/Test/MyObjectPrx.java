@@ -204,48 +204,6 @@ public interface MyObjectPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default int badSystemAdd(int x, int y)
-    {
-        return badSystemAdd(x, y, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default int badSystemAdd(int x, int y, java.util.Map<String, String> context)
-    {
-        return _iceI_badSystemAddAsync(x, y, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Integer> badSystemAddAsync(int x, int y)
-    {
-        return _iceI_badSystemAddAsync(x, y, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Integer> badSystemAddAsync(int x, int y, java.util.Map<String, String> context)
-    {
-        return _iceI_badSystemAddAsync(x, y, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_x -
-     * @param iceP_y -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_badSystemAddAsync(int iceP_x, int iceP_y, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "badSystemAdd", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeInt(iceP_x);
-                     ostr.writeInt(iceP_y);
-                 }, istr -> {
-                     int ret;
-                     ret = istr.readInt();
-                     return ret;
-                 });
-        return f;
-    }
-
     default int amdAdd(int x, int y)
     {
         return amdAdd(x, y, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -422,48 +380,6 @@ public interface MyObjectPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_amdNotExistAddAsync(int iceP_x, int iceP_y, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "amdNotExistAdd", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeInt(iceP_x);
-                     ostr.writeInt(iceP_y);
-                 }, istr -> {
-                     int ret;
-                     ret = istr.readInt();
-                     return ret;
-                 });
-        return f;
-    }
-
-    default int amdBadSystemAdd(int x, int y)
-    {
-        return amdBadSystemAdd(x, y, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default int amdBadSystemAdd(int x, int y, java.util.Map<String, String> context)
-    {
-        return _iceI_amdBadSystemAddAsync(x, y, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Integer> amdBadSystemAddAsync(int x, int y)
-    {
-        return _iceI_amdBadSystemAddAsync(x, y, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Integer> amdBadSystemAddAsync(int x, int y, java.util.Map<String, String> context)
-    {
-        return _iceI_amdBadSystemAddAsync(x, y, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_x -
-     * @param iceP_y -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_amdBadSystemAddAsync(int iceP_x, int iceP_y, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "amdBadSystemAdd", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(iceP_x);
                      ostr.writeInt(iceP_y);

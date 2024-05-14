@@ -142,5 +142,5 @@ public class SOneMember implements java.lang.Cloneable,
     private static final SOneMember _nullMarshalValue = new SOneMember();
 
     /** @hidden */
-    public static final long serialVersionUID = 6227748683568823203L;
+    public static final long serialVersionUID = 6227749184658646993L;
 }

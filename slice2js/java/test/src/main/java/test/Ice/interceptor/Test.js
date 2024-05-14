@@ -80,15 +80,13 @@
             Test.InvalidInputException
         ], , ],
         "notExistAdd": [, , , [3], [[3], [3]], , , , ],
-        "badSystemAdd": [, , , [3], [[3], [3]], , , , ],
         "amdAdd": [, , , [3], [[3], [3]], , , , ],
         "amdAddWithRetry": [, , , [3], [[3], [3]], , , , ],
         "amdBadAdd": [, , , [3], [[3], [3]], ,
         [
             Test.InvalidInputException
         ], , ],
-        "amdNotExistAdd": [, , , [3], [[3], [3]], , , , ],
-        "amdBadSystemAdd": [, , , [3], [[3], [3]], , , , ]
+        "amdNotExistAdd": [, , , [3], [[3], [3]], , , , ]
     });
     exports.Test = Test;
 }

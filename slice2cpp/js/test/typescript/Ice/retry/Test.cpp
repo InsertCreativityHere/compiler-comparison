@@ -125,34 +125,6 @@ Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::Out
 }
 
 void
-Test::RetryPrx::opSystemException(const ::Ice::Context& context) const
-{
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_opSystemException, context).get();
-}
-
-::std::future<void>
-Test::RetryPrx::opSystemExceptionAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_opSystemException, context);
-}
-
-::std::function<void()>
-Test::RetryPrx::opSystemExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_opSystemException, context);
-}
-
-void
-Test::RetryPrx::_iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opSystemException";
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-
-void
 Test::RetryPrx::shutdown(const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_shutdown, context).get();
@@ -254,17 +226,6 @@ Test::Retry::_iceD_opNotIdempotent(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-Test::Retry::_iceD_opSystemException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    request.inputStream().skipEmptyEncapsulation();
-    this->opSystemException(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::Retry::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
@@ -278,10 +239,10 @@ Test::Retry::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<voi
 void
 Test::Retry::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opNotIdempotent", "opSystemException", "shutdown"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opNotIdempotent", "shutdown"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -326,11 +287,6 @@ Test::Retry::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ic
             break;
         }
         case 7:
-        {
-            _iceD_opSystemException(request, ::std::move(sendResponse));
-            break;
-        }
-        case 8:
         {
             _iceD_shutdown(request, ::std::move(sendResponse));
             break;

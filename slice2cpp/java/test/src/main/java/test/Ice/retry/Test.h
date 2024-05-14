@@ -71,17 +71,6 @@ public:
     void _iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opSystemException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<void> opSystemExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opSystemExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
-    /// \endcond
-
     void sleep(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<void> sleepAsync(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -196,11 +185,6 @@ public:
     virtual void opNotIdempotent(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opNotIdempotent(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual void opSystemException(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opSystemException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void sleep(::std::int32_t delay, const ::Ice::Current& current) = 0;

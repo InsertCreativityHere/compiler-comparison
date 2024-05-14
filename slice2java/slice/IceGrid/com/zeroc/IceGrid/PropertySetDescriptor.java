@@ -161,5 +161,5 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
     private static final PropertySetDescriptor _nullMarshalValue = new PropertySetDescriptor();
 
     /** @hidden */
-    public static final long serialVersionUID = 5959166826075152996L;
+    public static final long serialVersionUID = 1920855250232598851L;
 }

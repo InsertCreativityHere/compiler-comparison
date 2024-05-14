@@ -75,11 +75,9 @@ namespace Test
     IcePHP_defineOperation($Test__t_MyObjectPrx, 'addWithRetry', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_MyObjectPrx, 'badAdd', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, array($IcePHP__t_int), array($Test__t_InvalidInputException));
     IcePHP_defineOperation($Test__t_MyObjectPrx, 'notExistAdd', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_MyObjectPrx, 'badSystemAdd', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_MyObjectPrx, 'amdAdd', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_MyObjectPrx, 'amdAddWithRetry', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_MyObjectPrx, 'amdBadAdd', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, array($IcePHP__t_int), array($Test__t_InvalidInputException));
     IcePHP_defineOperation($Test__t_MyObjectPrx, 'amdNotExistAdd', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_MyObjectPrx, 'amdBadSystemAdd', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
 }
 ?>

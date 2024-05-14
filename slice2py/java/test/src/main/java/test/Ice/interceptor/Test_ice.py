@@ -69,12 +69,6 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
         def notExistAddAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_notExistAdd.invokeAsync(self, ((x, y), context))
 
-        def badSystemAdd(self, x, y, context=None):
-            return _M_Test.MyObject._op_badSystemAdd.invoke(self, ((x, y), context))
-
-        def badSystemAddAsync(self, x, y, context=None):
-            return _M_Test.MyObject._op_badSystemAdd.invokeAsync(self, ((x, y), context))
-
         def amdAdd(self, x, y, context=None):
             return _M_Test.MyObject._op_amdAdd.invoke(self, ((x, y), context))
 
@@ -98,12 +92,6 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
 
         def amdNotExistAddAsync(self, x, y, context=None):
             return _M_Test.MyObject._op_amdNotExistAdd.invokeAsync(self, ((x, y), context))
-
-        def amdBadSystemAdd(self, x, y, context=None):
-            return _M_Test.MyObject._op_amdBadSystemAdd.invoke(self, ((x, y), context))
-
-        def amdBadSystemAddAsync(self, x, y, context=None):
-            return _M_Test.MyObject._op_amdBadSystemAdd.invokeAsync(self, ((x, y), context))
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -146,9 +134,6 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
         def notExistAdd(self, x, y, current=None):
             raise NotImplementedError("servant method 'notExistAdd' not implemented")
 
-        def badSystemAdd(self, x, y, current=None):
-            raise NotImplementedError("servant method 'badSystemAdd' not implemented")
-
         def amdAdd(self, x, y, current=None):
             raise NotImplementedError("servant method 'amdAdd' not implemented")
 
@@ -160,9 +145,6 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
 
         def amdNotExistAdd(self, x, y, current=None):
             raise NotImplementedError("servant method 'amdNotExistAdd' not implemented")
-
-        def amdBadSystemAdd(self, x, y, current=None):
-            raise NotImplementedError("servant method 'amdBadSystemAdd' not implemented")
 
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_MyObjectDisp)
@@ -176,12 +158,10 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
     MyObject._op_addWithRetry = IcePy.Operation('addWithRetry', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
     MyObject._op_badAdd = IcePy.Operation('badAdd', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), (_M_Test._t_InvalidInputException,))
     MyObject._op_notExistAdd = IcePy.Operation('notExistAdd', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
-    MyObject._op_badSystemAdd = IcePy.Operation('badSystemAdd', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
     MyObject._op_amdAdd = IcePy.Operation('amdAdd', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
     MyObject._op_amdAddWithRetry = IcePy.Operation('amdAddWithRetry', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
     MyObject._op_amdBadAdd = IcePy.Operation('amdBadAdd', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), (_M_Test._t_InvalidInputException,))
     MyObject._op_amdNotExistAdd = IcePy.Operation('amdNotExistAdd', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
-    MyObject._op_amdBadSystemAdd = IcePy.Operation('amdBadSystemAdd', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
 
     _M_Test.MyObject = MyObject
     del MyObject

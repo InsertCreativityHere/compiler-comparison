@@ -42,7 +42,6 @@
         "op": [, , , , [[1]], , , , ],
         "opIdempotent": [, 2, , [3], [[3]], , , , ],
         "opNotIdempotent": [, , , , , , , , ],
-        "opSystemException": [, , , , , , , , ],
         "shutdown": [, 2, , , , , , , ]
     });
     exports.Test = Test;

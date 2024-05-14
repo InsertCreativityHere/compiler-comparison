@@ -127,10 +127,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task<int> notExistAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        int badSystemAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<int> badSystemAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
         int amdAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<int> amdAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
@@ -146,10 +142,6 @@ namespace Test
         int amdNotExistAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<int> amdNotExistAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        int amdBadSystemAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<int> amdBadSystemAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -171,9 +163,6 @@ namespace Test
         int notExistAdd(int x, int y, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int badSystemAdd(int x, int y, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<int> amdAddAsync(int x, int y, global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -184,9 +173,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<int> amdNotExistAddAsync(int x, int y, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<int> amdBadSystemAddAsync(int x, int y, global::Ice.Current current);
     }
 }
 
@@ -250,18 +236,6 @@ namespace Test
             }
         }
 
-        public int badSystemAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                return _iceI_badSystemAddAsync(x, y, context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
         public int amdAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
@@ -303,18 +277,6 @@ namespace Test
             try
             {
                 return _iceI_amdNotExistAddAsync(x, y, context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public int amdBadSystemAdd(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                return _iceI_amdBadSystemAddAsync(x, y, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -471,43 +433,6 @@ namespace Test
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _notExistAdd_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeInt(iceP_x);
-                    ostr.writeInt(iceP_y);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    int ret;
-                    ret = istr.readInt();
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<int> badSystemAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_badSystemAddAsync(x, y, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<int> _iceI_badSystemAddAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_badSystemAdd_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
-            _iceI_badSystemAdd(iceP_x, iceP_y, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _badSystemAdd_name = "badSystemAdd";
-
-        private void _iceI_badSystemAdd(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<int>(completed);
-            outAsync.invoke(
-                _badSystemAdd_name,
                 global::Ice.OperationMode.Normal,
                 global::Ice.FormatType.DefaultFormat,
                 context,
@@ -687,43 +612,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<int> amdBadSystemAddAsync(int x, int y, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_amdBadSystemAddAsync(x, y, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<int> _iceI_amdBadSystemAddAsync(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_amdBadSystemAdd_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
-            _iceI_amdBadSystemAdd(iceP_x, iceP_y, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _amdBadSystemAdd_name = "amdBadSystemAdd";
-
-        private void _iceI_amdBadSystemAdd(int iceP_x, int iceP_y, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<int>(completed);
-            outAsync.invoke(
-                _amdBadSystemAdd_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeInt(iceP_x);
-                    ostr.writeInt(iceP_y);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    int ret;
-                    ret = istr.readInt();
-                    return ret;
-                });
-        }
-
         #endregion
 
         #region Factory operations
@@ -836,8 +724,6 @@ namespace Test
 
         public abstract int notExistAdd(int x, int y, global::Ice.Current current);
 
-        public abstract int badSystemAdd(int x, int y, global::Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task<int> amdAddAsync(int x, int y, global::Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<int> amdAddWithRetryAsync(int x, int y, global::Ice.Current current);
@@ -845,8 +731,6 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<int> amdBadAddAsync(int x, int y, global::Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<int> amdNotExistAddAsync(int x, int y, global::Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<int> amdBadSystemAddAsync(int x, int y, global::Ice.Current current);
 
         #endregion
 
@@ -956,24 +840,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_badSystemAdd(MyObject obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
-            iceP_x = istr.readInt();
-            iceP_y = istr.readInt();
-            inS.endReadParams();
-            var ret = obj.badSystemAdd(iceP_x, iceP_y, current);
-            var ostr = inS.startWriteParams();
-            ostr.writeInt(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_amdAdd(MyObject obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -1044,24 +910,6 @@ namespace Test
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_amdBadSystemAdd(MyObject obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
-            iceP_x = istr.readInt();
-            iceP_y = istr.readInt();
-            inS.endReadParams();
-            return inS.setResultTask<int>(obj.amdBadSystemAddAsync(iceP_x, iceP_y, current),
-                (ostr, ret) =>
-                {
-                    ostr.writeInt(ret);
-                });
-        }
-
         private static readonly string[] _all =
         {
             "add",
@@ -1069,10 +917,8 @@ namespace Test
             "amdAdd",
             "amdAddWithRetry",
             "amdBadAdd",
-            "amdBadSystemAdd",
             "amdNotExistAdd",
             "badAdd",
-            "badSystemAdd",
             "ice_id",
             "ice_ids",
             "ice_isA",
@@ -1113,37 +959,29 @@ namespace Test
                 }
                 case 5:
                 {
-                    return iceD_amdBadSystemAdd(this, inS, current);
+                    return iceD_amdNotExistAdd(this, inS, current);
                 }
                 case 6:
                 {
-                    return iceD_amdNotExistAdd(this, inS, current);
+                    return iceD_badAdd(this, inS, current);
                 }
                 case 7:
                 {
-                    return iceD_badAdd(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
                 }
                 case 8:
                 {
-                    return iceD_badSystemAdd(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
                 }
                 case 9:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
                 }
                 case 10:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 11:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 12:
-                {
                     return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
                 }
-                case 13:
+                case 11:
                 {
                     return iceD_notExistAdd(this, inS, current);
                 }

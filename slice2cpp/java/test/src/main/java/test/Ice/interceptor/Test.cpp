@@ -181,38 +181,6 @@ Test::MyObjectPrx::_iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::Outg
 }
 
 ::std::int32_t
-Test::MyObjectPrx::badSystemAdd(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_badSystemAdd, iceP_x, iceP_y, context).get();
-}
-
-::std::future<::std::int32_t>
-Test::MyObjectPrx::badSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_badSystemAdd, iceP_x, iceP_y, context);
-}
-
-::std::function<void()>
-Test::MyObjectPrx::badSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_badSystemAdd, iceP_x, iceP_y, context);
-}
-
-void
-Test::MyObjectPrx::_iceI_badSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "badSystemAdd";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_x, iceP_y);
-        },
-        nullptr);
-}
-
-::std::int32_t
 Test::MyObjectPrx::amdAdd(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context).get();
@@ -343,38 +311,6 @@ void
 Test::MyObjectPrx::_iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "amdNotExistAdd";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_x, iceP_y);
-        },
-        nullptr);
-}
-
-::std::int32_t
-Test::MyObjectPrx::amdBadSystemAdd(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdBadSystemAdd, iceP_x, iceP_y, context).get();
-}
-
-::std::future<::std::int32_t>
-Test::MyObjectPrx::amdBadSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_amdBadSystemAdd, iceP_x, iceP_y, context);
-}
-
-::std::function<void()>
-Test::MyObjectPrx::amdBadSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadSystemAdd, iceP_x, iceP_y, context);
-}
-
-void
-Test::MyObjectPrx::_iceI_amdBadSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "amdBadSystemAdd";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -529,26 +465,6 @@ Test::MyObject::_iceD_notExistAdd(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::MyObject::_iceD_badSystemAdd(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    ::std::int32_t iceP_x;
-    ::std::int32_t iceP_y;
-    istr->readAll(iceP_x, iceP_y);
-    istr->endEncapsulation();
-    ::std::int32_t ret = this->badSystemAdd(iceP_x, iceP_y, request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(ret);
-        },
-        request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::MyObject::_iceD_amdAdd(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
@@ -673,43 +589,12 @@ Test::MyObject::_iceD_amdNotExistAdd(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::MyObject::_iceD_amdBadSystemAdd(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    ::std::int32_t iceP_x;
-    ::std::int32_t iceP_y;
-    istr->readAll(iceP_x, iceP_y);
-    istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](::std::int32_t ret)
-    {
-        responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
-            {
-                ostr->writeAll(ret);
-            });
-    };
-    try
-    {
-        this->amdBadSystemAddAsync(iceP_x, iceP_y, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::MyObject::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"add", "addWithRetry", "amdAdd", "amdAddWithRetry", "amdBadAdd", "amdBadSystemAdd", "amdNotExistAdd", "badAdd", "badSystemAdd", "ice_id", "ice_ids", "ice_isA", "ice_ping", "notExistAdd"};
+    static constexpr ::std::string_view allOperations[] = {"add", "addWithRetry", "amdAdd", "amdAddWithRetry", "amdBadAdd", "amdNotExistAdd", "badAdd", "ice_id", "ice_ids", "ice_isA", "ice_ping", "notExistAdd"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 12, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -745,45 +630,35 @@ Test::MyObject::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
         }
         case 5:
         {
-            _iceD_amdBadSystemAdd(request, ::std::move(sendResponse));
+            _iceD_amdNotExistAdd(request, ::std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_amdNotExistAdd(request, ::std::move(sendResponse));
+            _iceD_badAdd(request, ::std::move(sendResponse));
             break;
         }
         case 7:
         {
-            _iceD_badAdd(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, ::std::move(sendResponse));
             break;
         }
         case 8:
         {
-            _iceD_badSystemAdd(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, ::std::move(sendResponse));
             break;
         }
         case 9:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, ::std::move(sendResponse));
             break;
         }
         case 10:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
-            break;
-        }
-        case 11:
-        {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
-            break;
-        }
-        case 12:
-        {
             _iceD_ice_ping(request, ::std::move(sendResponse));
             break;
         }
-        case 13:
+        case 11:
         {
             _iceD_notExistAdd(request, ::std::move(sendResponse));
             break;

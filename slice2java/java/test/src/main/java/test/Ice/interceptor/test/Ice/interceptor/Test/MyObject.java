@@ -26,8 +26,6 @@ public interface MyObject extends com.zeroc.Ice.Object
 
     int notExistAdd(int x, int y, com.zeroc.Ice.Current current);
 
-    int badSystemAdd(int x, int y, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<java.lang.Integer> amdAddAsync(int x, int y, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<java.lang.Integer> amdAddWithRetryAsync(int x, int y, com.zeroc.Ice.Current current);
@@ -36,8 +34,6 @@ public interface MyObject extends com.zeroc.Ice.Object
         throws InvalidInputException;
 
     java.util.concurrent.CompletionStage<java.lang.Integer> amdNotExistAddAsync(int x, int y, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<java.lang.Integer> amdBadSystemAddAsync(int x, int y, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -164,29 +160,6 @@ public interface MyObject extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_badSystemAdd(MyObject obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        int iceP_x;
-        int iceP_y;
-        iceP_x = istr.readInt();
-        iceP_y = istr.readInt();
-        inS.endReadParams();
-        int ret = obj.badSystemAdd(iceP_x, iceP_y, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeInt(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_amdAdd(MyObject obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -270,28 +243,6 @@ public interface MyObject extends com.zeroc.Ice.Object
             });
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_amdBadSystemAdd(MyObject obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        int iceP_x;
-        int iceP_y;
-        iceP_x = istr.readInt();
-        iceP_y = istr.readInt();
-        inS.endReadParams();
-        return inS.setResultFuture(obj.amdBadSystemAddAsync(iceP_x, iceP_y, current), (ostr, ret) ->
-            {
-                ostr.writeInt(ret);
-            });
-    }
-
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -300,10 +251,8 @@ public interface MyObject extends com.zeroc.Ice.Object
         "amdAdd",
         "amdAddWithRetry",
         "amdBadAdd",
-        "amdBadSystemAdd",
         "amdNotExistAdd",
         "badAdd",
-        "badSystemAdd",
         "ice_id",
         "ice_ids",
         "ice_isA",
@@ -346,37 +295,29 @@ public interface MyObject extends com.zeroc.Ice.Object
             }
             case 5:
             {
-                return _iceD_amdBadSystemAdd(this, in, current);
+                return _iceD_amdNotExistAdd(this, in, current);
             }
             case 6:
             {
-                return _iceD_amdNotExistAdd(this, in, current);
+                return _iceD_badAdd(this, in, current);
             }
             case 7:
             {
-                return _iceD_badAdd(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 8:
             {
-                return _iceD_badSystemAdd(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 9:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 10:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 11:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 12:
-            {
                 return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
-            case 13:
+            case 11:
             {
                 return _iceD_notExistAdd(this, in, current);
             }

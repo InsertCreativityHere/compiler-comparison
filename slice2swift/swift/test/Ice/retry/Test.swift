@@ -39,10 +39,6 @@ public struct RetryTraits: Ice.SliceTraits {
 ///
 ///  - opNotIdempotentAsync: 
 ///
-///  - opSystemException: 
-///
-///  - opSystemExceptionAsync: 
-///
 ///  - sleep: 
 ///
 ///  - sleepAsync: 
@@ -140,10 +136,6 @@ public extension Ice.InputStream {
 ///  - opNotIdempotent: 
 ///
 ///  - opNotIdempotentAsync: 
-///
-///  - opSystemException: 
-///
-///  - opSystemExceptionAsync: 
 ///
 ///  - sleep: 
 ///
@@ -271,35 +263,6 @@ public extension RetryPrx {
     }
 
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func opSystemException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "opSystemException",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opSystemExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "opSystemException",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
     /// - parameter _: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -395,8 +358,6 @@ public struct RetryDisp: Ice.Disp {
             return try servant._iceD_opIdempotent(incoming: request, current: current)
         case "opNotIdempotent":
             return try servant._iceD_opNotIdempotent(incoming: request, current: current)
-        case "opSystemException":
-            return try servant._iceD_opSystemException(incoming: request, current: current)
         case "shutdown":
             return try servant._iceD_shutdown(incoming: request, current: current)
         case "sleep":
@@ -427,10 +388,6 @@ public protocol Retry {
     func opNotIdempotent(current: Ice.Current) throws
 
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opSystemException(current: Ice.Current) throws
-
-    ///
     /// - parameter delay: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -450,8 +407,6 @@ public protocol Retry {
 ///  - opIdempotent: 
 ///
 ///  - opNotIdempotent: 
-///
-///  - opSystemException: 
 ///
 ///  - sleep: 
 ///
@@ -485,14 +440,6 @@ public extension Retry {
         try inS.readEmptyParams()
 
         try self.opNotIdempotent(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_opSystemException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        try self.opSystemException(current: current)
 
         return inS.setResult()
     }

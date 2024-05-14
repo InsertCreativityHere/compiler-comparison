@@ -40,7 +40,6 @@ Slice.defineOperations(Test.Retry, Test.RetryPrx, iceC_Test_Retry_ids, "::Test::
     "op": [, , , , [[1]], , , , ],
     "opIdempotent": [, 2, , [3], [[3]], , , , ],
     "opNotIdempotent": [, , , , , , , , ],
-    "opSystemException": [, , , , , , , , ],
     "shutdown": [, 2, , , , , , , ]
 });
 export { Test };

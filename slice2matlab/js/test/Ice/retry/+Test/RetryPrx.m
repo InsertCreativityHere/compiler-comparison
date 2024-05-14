@@ -7,8 +7,6 @@
 %   opIdempotentAsync
 %   opNotIdempotent
 %   opNotIdempotentAsync
-%   opSystemException
-%   opSystemExceptionAsync
 %   shutdown
 %   shutdownAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
@@ -99,24 +97,6 @@ classdef RetryPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             r_ = obj.iceInvokeAsync('opNotIdempotent', 0, false, [], 0, [], {}, varargin{:});
-        end
-        function opSystemException(obj, varargin)
-            % opSystemException
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
-            obj.iceInvoke('opSystemException', 0, false, [], false, {}, varargin{:});
-        end
-        function r_ = opSystemExceptionAsync(obj, varargin)
-            % opSystemExceptionAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            r_ = obj.iceInvokeAsync('opSystemException', 0, false, [], 0, [], {}, varargin{:});
         end
         function shutdown(obj, varargin)
             % shutdown

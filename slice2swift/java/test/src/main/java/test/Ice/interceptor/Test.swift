@@ -85,10 +85,6 @@ public struct MyObjectTraits: Ice.SliceTraits {
 ///
 ///  - notExistAddAsync: 
 ///
-///  - badSystemAdd: 
-///
-///  - badSystemAddAsync: 
-///
 ///  - amdAdd: 
 ///
 ///  - amdAddAsync: 
@@ -104,10 +100,6 @@ public struct MyObjectTraits: Ice.SliceTraits {
 ///  - amdNotExistAdd: 
 ///
 ///  - amdNotExistAddAsync: 
-///
-///  - amdBadSystemAdd: 
-///
-///  - amdBadSystemAddAsync: 
 public protocol MyObjectPrx: Ice.ObjectPrx {}
 
 private final class MyObjectPrxI: Ice.ObjectPrxI, MyObjectPrx {
@@ -203,10 +195,6 @@ public extension Ice.InputStream {
 ///
 ///  - notExistAddAsync: 
 ///
-///  - badSystemAdd: 
-///
-///  - badSystemAddAsync: 
-///
 ///  - amdAdd: 
 ///
 ///  - amdAddAsync: 
@@ -222,10 +210,6 @@ public extension Ice.InputStream {
 ///  - amdNotExistAdd: 
 ///
 ///  - amdNotExistAddAsync: 
-///
-///  - amdBadSystemAdd: 
-///
-///  - amdBadSystemAddAsync: 
 public extension MyObjectPrx {
     ///
     /// - parameter x: `Swift.Int32`
@@ -446,61 +430,6 @@ public extension MyObjectPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func notExistAddAsync(x iceP_x: Swift.Int32, y iceP_y: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "notExistAdd",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_x)
-                                      ostr.write(iceP_y)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter x: `Swift.Int32`
-    ///
-    /// - parameter y: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
-    func badSystemAdd(x iceP_x: Swift.Int32, y iceP_y: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "badSystemAdd",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_x)
-                                     ostr.write(iceP_y)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter x: `Swift.Int32`
-    ///
-    /// - parameter y: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func badSystemAddAsync(x iceP_x: Swift.Int32, y iceP_y: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "badSystemAdd",
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(iceP_x)
@@ -749,61 +678,6 @@ public extension MyObjectPrx {
                                   sentFlags: sentFlags,
                                   sent: sent)
     }
-
-    ///
-    /// - parameter x: `Swift.Int32`
-    ///
-    /// - parameter y: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
-    func amdBadSystemAdd(x iceP_x: Swift.Int32, y iceP_y: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "amdBadSystemAdd",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_x)
-                                     ostr.write(iceP_y)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter x: `Swift.Int32`
-    ///
-    /// - parameter y: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func amdBadSystemAddAsync(x iceP_x: Swift.Int32, y iceP_y: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "amdBadSystemAdd",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_x)
-                                      ostr.write(iceP_y)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
 }
 
 
@@ -829,14 +703,10 @@ public struct MyObjectDisp: Ice.Disp {
             return try servant._iceD_amdAddWithRetry(incoming: request, current: current)
         case "amdBadAdd":
             return try servant._iceD_amdBadAdd(incoming: request, current: current)
-        case "amdBadSystemAdd":
-            return try servant._iceD_amdBadSystemAdd(incoming: request, current: current)
         case "amdNotExistAdd":
             return try servant._iceD_amdNotExistAdd(incoming: request, current: current)
         case "badAdd":
             return try servant._iceD_badAdd(incoming: request, current: current)
-        case "badSystemAdd":
-            return try servant._iceD_badSystemAdd(incoming: request, current: current)
         case "ice_id":
             return try (servant as? Object ?? MyObjectDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
         case "ice_ids":
@@ -901,16 +771,6 @@ public protocol MyObject {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func badSystemAdd(x: Swift.Int32, y: Swift.Int32, current: Ice.Current) throws -> Swift.Int32
-
-    ///
-    /// - parameter x: `Swift.Int32`
-    ///
-    /// - parameter y: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func amdAddAsync(x: Swift.Int32, y: Swift.Int32, current: Ice.Current) -> PromiseKit.Promise<Swift.Int32>
 
@@ -943,16 +803,6 @@ public protocol MyObject {
     ///
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func amdNotExistAddAsync(x: Swift.Int32, y: Swift.Int32, current: Ice.Current) -> PromiseKit.Promise<Swift.Int32>
-
-    ///
-    /// - parameter x: `Swift.Int32`
-    ///
-    /// - parameter y: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func amdBadSystemAddAsync(x: Swift.Int32, y: Swift.Int32, current: Ice.Current) -> PromiseKit.Promise<Swift.Int32>
 }
 
 /// MyObject overview.
@@ -967,8 +817,6 @@ public protocol MyObject {
 ///
 ///  - notExistAdd: 
 ///
-///  - badSystemAdd: 
-///
 ///  - amdAdd: 
 ///
 ///  - amdAddWithRetry: 
@@ -976,8 +824,6 @@ public protocol MyObject {
 ///  - amdBadAdd: 
 ///
 ///  - amdNotExistAdd: 
-///
-///  - amdBadSystemAdd: 
 public extension MyObject {
     func _iceD_add(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
@@ -1035,20 +881,6 @@ public extension MyObject {
         }
     }
 
-    func _iceD_badSystemAdd(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
-            let iceP_x: Swift.Int32 = try istr.read()
-            let iceP_y: Swift.Int32 = try istr.read()
-            return (iceP_x, iceP_y)
-        }
-
-        let iceP_returnValue = try self.badSystemAdd(x: iceP_x, y: iceP_y, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-
     func _iceD_amdAdd(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
             let iceP_x: Swift.Int32 = try istr.read()
@@ -1096,19 +928,6 @@ public extension MyObject {
         }
 
         return inS.setResultPromise(amdNotExistAddAsync(x: iceP_x, y: iceP_y, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_amdBadSystemAdd(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_x, iceP_y): (Swift.Int32, Swift.Int32) = try inS.read { istr in
-            let iceP_x: Swift.Int32 = try istr.read()
-            let iceP_y: Swift.Int32 = try istr.read()
-            return (iceP_x, iceP_y)
-        }
-
-        return inS.setResultPromise(amdBadSystemAddAsync(x: iceP_x, y: iceP_y, current: current)) { (ostr, retVals) in
             let iceP_returnValue = retVals
             ostr.write(iceP_returnValue)
         }
