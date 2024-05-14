@@ -16059,11 +16059,11 @@ namespace Test
 
         public abstract void shutdown(global::Ice.Current current);
 
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
+        public abstract bool supportsCompress(global::Ice.Current current);
 
         public abstract void opVoid(global::Ice.Current current);
 
-        public abstract bool supportsCompress(global::Ice.Current current);
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
 
         public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current);
 
@@ -16868,11 +16868,11 @@ namespace Test2
 
         public abstract void shutdown(global::Ice.Current current);
 
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
+        public abstract bool supportsCompress(global::Ice.Current current);
 
         public abstract void opVoid(global::Ice.Current current);
 
-        public abstract bool supportsCompress(global::Ice.Current current);
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current);
 
         public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current);
 

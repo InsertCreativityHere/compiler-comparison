@@ -8130,15 +8130,15 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
-        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current);
-
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
-
         public abstract void replicaInit(InternalRegistryPrx?[] replicas, global::Ice.Current current);
 
         public abstract void replicaAdded(InternalRegistryPrx? replica, global::Ice.Current current);
 
         public abstract void replicaRemoved(InternalRegistryPrx? replica, global::Ice.Current current);
+
+        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
 
         #endregion
 
@@ -8694,6 +8694,8 @@ namespace IceGrid
     {
         #region Inherited Slice operations
 
+        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current);
+
         public abstract void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current);
 
         public abstract void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current);
@@ -8715,8 +8717,6 @@ namespace IceGrid
         public abstract void objectAdded(ObjectInfo info, global::Ice.Current current);
 
         public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current);
-
-        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current);
 
         #endregion
 
