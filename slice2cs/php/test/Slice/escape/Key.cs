@@ -163,8 +163,10 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::and::break")]
-    public partial interface @break : global::Ice.Object, breakOperations_
+    public partial interface @break : global::Ice.Object
     {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void @case(int @catch, out int @try, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -179,8 +181,10 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::and::function")]
-    public partial interface function : global::Ice.Object, functionOperations_
+    public partial interface function : global::Ice.Object
     {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void @continue(int declare, int @default, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -195,8 +199,10 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::and::die")]
-    public partial interface die : global::Ice.Object, dieOperations_
+    public partial interface die : global::Ice.Object
     {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void @do(global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -303,7 +309,7 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::and::enddeclare")]
-    public partial interface enddeclare : global::Ice.Object, enddeclareOperations_, die, function
+    public partial interface enddeclare : global::Ice.Object, die, function
     {
     }
 
@@ -465,8 +471,10 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::and::for")]
-    public partial interface @for : global::Ice.Object, forOperations_
+    public partial interface @for : global::Ice.Object
     {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        array @foreach(breakPrx? @if, echo? global, functionPrx? include, diePrx? @return, enddeclarePrx? list, int @new, int @static, global::Ice.Current current);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -525,42 +533,6 @@ namespace and
         array @foreach(breakPrx? @if, echo? global, functionPrx? include, diePrx? @return, enddeclarePrx? list, int @new, int @static, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<array> foreachAsync(breakPrx? @if, echo? global, functionPrx? include, diePrx? @return, enddeclarePrx? list, int @new, int @static, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace and
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface breakOperations_
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void @case(int @catch, out int @try, global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface functionOperations_
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void @continue(int declare, int @default, global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface dieOperations_
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void @do(global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface enddeclareOperations_ : dieOperations_, functionOperations_
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface forOperations_
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        array @foreach(breakPrx? @if, echo? global, functionPrx? include, diePrx? @return, enddeclarePrx? list, int @new, int @static, global::Ice.Current current);
     }
 }
 

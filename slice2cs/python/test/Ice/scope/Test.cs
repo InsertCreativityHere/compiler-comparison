@@ -593,8 +593,37 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Test::I")]
-    public partial interface I : global::Ice.Object, IOperations_
+    public partial interface I : global::Ice.Object
     {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        S opS(S s1, out S s2, global::Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        C? opC(C? c1, out C? c2, global::Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        C?[] opCSeq(C?[] s1, out C?[] s2, global::Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        E1 opE1(E1 E1, global::Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        S1 opS1(S1 S1, global::Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        C1? opC1(C1? C1, global::Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void shutdown(global::Ice.Current current);
     }
 
     namespace Inner
@@ -805,8 +834,28 @@ namespace Test
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
             [Ice.SliceTypeId("::Test::Inner::Inner2::I")]
-            public partial interface I : global::Ice.Object, IOperations_
+            public partial interface I : global::Ice.Object
             {
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                S opS(S s1, out S s2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                C? opC(C? c1, out C? c2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                C?[] opCSeq(C?[] c1, out C?[] c2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                void shutdown(global::Ice.Current current);
             }
         }
 
@@ -896,8 +945,28 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Inner::I")]
-        public partial interface I : global::Ice.Object, IOperations_
+        public partial interface I : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::Test.Inner.Inner2.S opS(global::Test.Inner.Inner2.S s1, out global::Test.Inner.Inner2.S s2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::Test.Inner.Inner2.S[] opSSeq(global::Test.Inner.Inner2.S[] s1, out global::Test.Inner.Inner2.S[] s2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::Test.Inner.Inner2.C? opC(global::Test.Inner.Inner2.C? c1, out global::Test.Inner.Inner2.C? c2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::Test.Inner.Inner2.C?[] opCSeq(global::Test.Inner.Inner2.C?[] c1, out global::Test.Inner.Inner2.C?[] c2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void shutdown(global::Ice.Current current);
         }
     }
 }
@@ -920,8 +989,28 @@ namespace Inner
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
             [Ice.SliceTypeId("::Inner::Test::Inner2::I")]
-            public partial interface I : global::Ice.Object, IOperations_
+            public partial interface I : global::Ice.Object
             {
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                global::Test.S opS(global::Test.S s1, out global::Test.S s2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                global::Test.S[] opSSeq(global::Test.S[] s1, out global::Test.S[] s2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                global::System.Collections.Generic.Dictionary<string, global::Test.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.S> s2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                global::Test.C? opC(global::Test.C? c1, out global::Test.C? c2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                global::Test.C?[] opCSeq(global::Test.C?[] c1, out global::Test.C?[] c2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                global::System.Collections.Generic.Dictionary<string, global::Test.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.C?> c2, global::Ice.Current current);
+
+                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+                void shutdown(global::Ice.Current current);
             }
         }
     }
@@ -1146,133 +1235,6 @@ namespace Inner
                 void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
                 global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-            }
-        }
-    }
-}
-
-namespace Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface IOperations_
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        S opS(S s1, out S s2, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C? opC(C? c1, out C? c2, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C?[] opCSeq(C?[] s1, out C?[] s2, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        E1 opE1(E1 E1, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        S1 opS1(S1 S1, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        C1? opC1(C1? C1, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current);
-    }
-
-    namespace Inner
-    {
-        namespace Inner2
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public interface IOperations_
-            {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                S opS(S s1, out S s2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                S[] opSSeq(S[] s1, out S[] s2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                C? opC(C? c1, out C? c2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                C?[] opCSeq(C?[] c1, out C?[] c2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                void shutdown(global::Ice.Current current);
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface IOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Test.Inner.Inner2.S opS(global::Test.Inner.Inner2.S s1, out global::Test.Inner.Inner2.S s2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Test.Inner.Inner2.S[] opSSeq(global::Test.Inner.Inner2.S[] s1, out global::Test.Inner.Inner2.S[] s2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.S> s2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Test.Inner.Inner2.C? opC(global::Test.Inner.Inner2.C? c1, out global::Test.Inner.Inner2.C? c2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Test.Inner.Inner2.C?[] opCSeq(global::Test.Inner.Inner2.C?[] c1, out global::Test.Inner.Inner2.C?[] c2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.Inner.Inner2.C?> c2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current);
-        }
-    }
-}
-
-namespace Inner
-{
-    namespace Test
-    {
-        namespace Inner2
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public interface IOperations_
-            {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::Test.S opS(global::Test.S s1, out global::Test.S s2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::Test.S[] opSSeq(global::Test.S[] s1, out global::Test.S[] s2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::System.Collections.Generic.Dictionary<string, global::Test.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Test.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Test.S> s2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::Test.C? opC(global::Test.C? c1, out global::Test.C? c2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::Test.C?[] opCSeq(global::Test.C?[] c1, out global::Test.C?[] c2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                global::System.Collections.Generic.Dictionary<string, global::Test.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Test.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Test.C?> c2, global::Ice.Current current);
-
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-                void shutdown(global::Ice.Current current);
             }
         }
     }

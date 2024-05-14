@@ -213,8 +213,61 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::NumPy::Custom")]
-        public partial interface Custom : global::Ice.Object, CustomOperations_
+        public partial interface Custom : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            bool[] opBoolSeq(bool[] v1, out bool[] v2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            byte[] opByteSeq(byte[] v1, out byte[] v2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            short[] opShortSeq(short[] v1, out short[] v2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            int[] opIntSeq(int[] v1, out int[] v2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            long[] opLongSeq(long[] v1, out long[] v2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            float[] opFloatSeq(float[] v1, out float[] v2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            double[] opDoubleSeq(double[] v1, out double[] v2, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            byte[] opComplex128Seq(byte[] v1, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            bool[] opBoolMatrix(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            byte[] opByteMatrix(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            short[] opShortMatrix(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            int[] opIntMatrix(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            long[] opLongMatrix(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            float[] opFloatMatrix(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            double[] opDoubleMatrix(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            bool[] opBogusNumpyArrayType(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            D? opD(D? d, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void shutdown(global::Ice.Current current);
         }
     }
 }
@@ -317,70 +370,6 @@ namespace Test
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Test
-{
-    namespace NumPy
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface CustomOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool[] opBoolSeq(bool[] v1, out bool[] v2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            byte[] opByteSeq(byte[] v1, out byte[] v2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            short[] opShortSeq(short[] v1, out short[] v2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int[] opIntSeq(int[] v1, out int[] v2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            long[] opLongSeq(long[] v1, out long[] v2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            float[] opFloatSeq(float[] v1, out float[] v2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            double[] opDoubleSeq(double[] v1, out double[] v2, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            byte[] opComplex128Seq(byte[] v1, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool[] opBoolMatrix(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            byte[] opByteMatrix(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            short[] opShortMatrix(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int[] opIntMatrix(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            long[] opLongMatrix(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            float[] opFloatMatrix(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            double[] opDoubleMatrix(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool[] opBogusNumpyArrayType(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            D? opD(D? d, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current);
         }
     }
 }

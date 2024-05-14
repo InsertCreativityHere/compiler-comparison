@@ -35,8 +35,10 @@ namespace Ice.udp
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::PingReply")]
-        public partial interface PingReply : global::Ice.Object, PingReplyOperations_
+        public partial interface PingReply : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void reply(global::Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -51,8 +53,19 @@ namespace Ice.udp
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::TestIntf")]
-        public partial interface TestIntf : global::Ice.Object, TestIntfOperations_
+        public partial interface TestIntf : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void ping(PingReplyPrx? reply, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void sendByteSeq(byte[] seq, PingReplyPrx? reply, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void pingBiDir(global::Ice.Identity id, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void shutdown(global::Ice.Current current);
         }
     }
 }
@@ -87,35 +100,6 @@ namespace Ice.udp
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Ice.udp
-{
-    namespace Test
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface PingReplyOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void reply(global::Ice.Current current);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface TestIntfOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void ping(PingReplyPrx? reply, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void sendByteSeq(byte[] seq, PingReplyPrx? reply, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void pingBiDir(global::Ice.Identity id, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current);
         }
     }
 }

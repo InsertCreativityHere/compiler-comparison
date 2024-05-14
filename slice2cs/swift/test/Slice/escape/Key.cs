@@ -224,8 +224,10 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::and::break")]
-    public partial interface @break : global::Ice.Object, breakOperations_
+    public partial interface @break : global::Ice.Object
     {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task<int> caseAsync(int @catch, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -240,8 +242,10 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::and::func")]
-    public partial interface func : global::Ice.Object, funcOperations_
+    public partial interface func : global::Ice.Object
     {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void @public(global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -342,7 +346,7 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::and::do")]
-    public partial interface @do : global::Ice.Object, doOperations_, func, @break
+    public partial interface @do : global::Ice.Object, func, @break
     {
     }
 
@@ -555,28 +559,6 @@ namespace and
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface doPrx : funcPrx, breakPrx
-    {
-    }
-}
-
-namespace and
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface breakOperations_
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<int> caseAsync(int @catch, global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface funcOperations_
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void @public(global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface doOperations_ : funcOperations_, breakOperations_
     {
     }
 }

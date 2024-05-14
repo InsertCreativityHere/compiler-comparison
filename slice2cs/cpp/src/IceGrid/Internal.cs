@@ -540,8 +540,40 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Adapter")]
-    public partial interface Adapter : global::Ice.Object, AdapterOperations_
+    public partial interface Adapter : global::Ice.Object
     {
+        /// <summary>
+        /// Activate this adapter.
+        /// If this adapter can be activated, this will activate the adapter and return the direct
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> activateAsync(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the adapter direct proxy.
+        /// The adapter direct proxy is a proxy created with the object adapter. The proxy
+        ///  contains the last known adapter endpoints.
+        /// </summary>
+        ///  <returns>A direct proxy containing the last known adapter endpoints if the adapter is already active.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? getDirectProxy(global::Ice.Current current);
+
+        /// <summary>
+        /// Set the direct proxy for this adapter.
+        /// </summary>
+        /// <param name="The">direct proxy. The direct proxy should be created with the object adapter and should contain the
+        ///  object adapter endpoints.
+        ///  </param>
+        /// <exception name="AdapterActiveException">The adapter is already active. It's not possible to override the direct proxy of
+        ///  an active adapter.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void setDirectProxy(global::Ice.ObjectPrx? proxy, global::Ice.Current current);
     }
 
     /// <summary>
@@ -629,8 +661,23 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::FileReader")]
-    public partial interface FileReader : global::Ice.Object, FileReaderOperations_
+    public partial interface FileReader : global::Ice.Object
     {
+        /// <summary>
+        /// Count the number of given lines from the end of the file and return the file offset.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        long getOffsetFromEnd(string filename, int lines, global::Ice.Current current);
+
+        /// <summary>
+        /// Read lines (or size bytes) at the specified position from the given file.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -645,8 +692,95 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Server")]
-    public partial interface Server : global::Ice.Object, ServerOperations_, FileReader
+    public partial interface Server : global::Ice.Object, FileReader
     {
+        /// <summary>
+        /// Start the server.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task startAsync(global::Ice.Current current);
+
+        /// <summary>
+        /// Stop the server.
+        /// This methods returns only when the server is deactivated. If the server doesn't stop after a
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task stopAsync(global::Ice.Current current);
+
+        /// <summary>
+        /// Check if the given server can be loaded on this node.
+        /// </summary>
+        /// <returns>True if the server is inactive.
+        ///  </returns>
+        /// <exception name="DeploymentException">Raised if the server can't be updated.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool checkUpdate(InternalServerDescriptor? svr, bool noRestart, global::Ice.Current current);
+
+        /// <summary>
+        /// Enable or disable the server.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void setEnabled(bool enable, global::Ice.Current current);
+
+        /// <summary>
+        /// Check if the server is enabled.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool isEnabled(global::Ice.Current current);
+
+        /// <summary>
+        /// Send signal to the server
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void sendSignal(string signal, global::Ice.Current current);
+
+        /// <summary>
+        /// Write message on servers' stdout or stderr.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void writeMessage(string message, int fd, global::Ice.Current current);
+
+        /// <summary>
+        /// Return the server state.
+        /// </summary>
+        /// <returns>The server state.
+        ///  </returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ServerState getState(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the server pid.
+        /// Note that the value returned by this method is system dependant. On Unix operating systems,
+        ///  it's the pid value returned by the fork() system call and converted to an integer.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        int getPid(global::Ice.Current current);
+
+        /// <summary>
+        /// Set the process proxy.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task setProcessAsync(global::Ice.ProcessPrx? proc, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -661,8 +795,33 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::ReplicaObserver")]
-    public partial interface ReplicaObserver : global::Ice.Object, ReplicaObserverOperations_
+    public partial interface ReplicaObserver : global::Ice.Object
     {
+        /// <summary>
+        /// Initialization of the replica observer.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void replicaInit(InternalRegistryPrx?[] replicas, global::Ice.Current current);
+
+        /// <summary>
+        /// Notification that a replica has been added.
+        /// The node should establish a session with this new replica.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void replicaAdded(InternalRegistryPrx? replica, global::Ice.Current current);
+
+        /// <summary>
+        /// Notification that a replica has been removed.
+        /// The node should destroy the session to this replica.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void replicaRemoved(InternalRegistryPrx? replica, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -677,8 +836,90 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Node")]
-    public partial interface Node : global::Ice.Object, NodeOperations_, FileReader, ReplicaObserver
+    public partial interface Node : global::Ice.Object, FileReader, ReplicaObserver
     {
+        /// <summary>
+        /// Load the given server.
+        /// If the server resources weren't already created (database environment directories,
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task<Node_LoadServerResult> loadServerAsync(InternalServerDescriptor? svr, string replicaName, global::Ice.Current current);
+
+        /// <summary>
+        /// Load the given server and ensure the server won't be restarted.
+        /// If the server resources weren't already created
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task<Node_LoadServerWithoutRestartResult> loadServerWithoutRestartAsync(InternalServerDescriptor? svr, string replicaName, global::Ice.Current current);
+
+        /// <summary>
+        /// Destroy the given server.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task destroyServerAsync(string name, string uuid, int revision, string replicaName, global::Ice.Current current);
+
+        /// <summary>
+        /// Destroy the server if it's not active.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task destroyServerWithoutRestartAsync(string name, string uuid, int revision, string replicaName, global::Ice.Current current);
+
+        /// <summary>
+        /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
+        ///  replicaAdded below).
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void registerWithReplica(InternalRegistryPrx? replica, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the node name.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string getName(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the node hostname.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string getHostname(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the node load.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        LoadInfo getLoad(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the number of processor sockets for the machine where this node is running.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        int getProcessorSocketCount(global::Ice.Current current);
+
+        /// <summary>
+        /// Shutdown the node.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void shutdown(global::Ice.Current current);
     }
 
     /// <summary>
@@ -751,8 +992,75 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::NodeSession")]
-    public partial interface NodeSession : global::Ice.Object, NodeSessionOperations_
+    public partial interface NodeSession : global::Ice.Object
     {
+        /// <summary>
+        /// The node call this method to keep the session alive.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void keepAlive(LoadInfo load, global::Ice.Current current);
+
+        /// <summary>
+        /// Set the replica observer.
+        /// The node calls this method when it's ready to receive notifications for the replicas.
+        ///  It only calls this for the session with the master.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void setReplicaObserver(ReplicaObserverPrx? observer, global::Ice.Current current);
+
+        /// <summary>
+        /// Return the node session timeout.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        int getTimeout(global::Ice.Current current);
+
+        /// <summary>
+        /// Return the node observer.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        NodeObserverPrx? getObserver(global::Ice.Current current);
+
+        /// <summary>
+        /// Ask the registry to load the servers on the node.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task loadServersAsync(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the name of the servers deployed on the node.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string[] getServers(global::Ice.Current current);
+
+        /// <summary>
+        /// Wait for the application update to complete (the application is completely updated once all the registry
+        ///  replicas have been updated).
+        /// This is used by the node to ensure that before to start a server all the
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task waitForApplicationUpdateAsync(string application, int revision, global::Ice.Current current);
+
+        /// <summary>
+        /// Destroy the session.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void destroy(global::Ice.Current current);
     }
 
     /// <summary>
@@ -852,7 +1160,7 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::DatabaseObserver")]
-    public partial interface DatabaseObserver : global::Ice.Object, DatabaseObserverOperations_, ApplicationObserver, ObjectObserver, AdapterObserver
+    public partial interface DatabaseObserver : global::Ice.Object, ApplicationObserver, ObjectObserver, AdapterObserver
     {
     }
 
@@ -868,8 +1176,78 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::ReplicaSession")]
-    public partial interface ReplicaSession : global::Ice.Object, ReplicaSessionOperations_
+    public partial interface ReplicaSession : global::Ice.Object
     {
+        /// <summary>
+        /// The replica call this method to keep the session alive.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void keepAlive(global::Ice.Current current);
+
+        /// <summary>
+        /// Return the replica session timeout.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        int getTimeout(global::Ice.Current current);
+
+        /// <summary>
+        /// Set the database observer.
+        /// Once the observer is subscribed, it will receive the database and database updates.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void setDatabaseObserver(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, global::Ice.Current current);
+
+        /// <summary>
+        /// This method sets the endpoints of the replica.
+        /// This allows the master to create proxies with multiple endpoints
+        ///  for replicated objects (e.g.: IceGrid::Query object).
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> endpoints, global::Ice.Current current);
+
+        /// <summary>
+        /// Registers the replica well-known objects with the master.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void registerWellKnownObjects(ObjectInfo[] objects, global::Ice.Current current);
+
+        /// <summary>
+        /// Set the adapter direct proxy of the given adapter in the master.
+        /// This is used to support dynamic registration
+        ///  with the locator registry interface.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void setAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::Ice.Current current);
+
+        /// <summary>
+        /// Notify the master that an update was received.
+        /// The master might wait for replication updates to be received by
+        ///  all the replicas before to continue.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void receivedUpdate(TopicName name, int serial, string failure, global::Ice.Current current);
+
+        /// <summary>
+        /// Destroy the session.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void destroy(global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1080,8 +1458,93 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::InternalRegistry")]
-    public partial interface InternalRegistry : global::Ice.Object, InternalRegistryOperations_, FileReader
+    public partial interface InternalRegistry : global::Ice.Object, FileReader
     {
+        /// <summary>
+        /// Register a node with the registry.
+        /// If a node with the same name is already registered,
+        ///  registerNode overrides the existing registration only when the previously
+        ///  registered node is not active.
+        /// </summary>
+        ///  <param name="info">Some information on the node.
+        ///  </param>
+        /// <param name="prx">The proxy of the node.
+        ///  </param>
+        /// <param name="loadInf">The load information of the node.
+        ///  </param>
+        /// <returns>The node session proxy.
+        ///  </returns>
+        /// <exception name="NodeActiveException">Raised if the node is already registered and currently active.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        NodeSessionPrx? registerNode(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, global::Ice.Current current);
+
+        /// <summary>
+        /// Register a replica with the registry.
+        /// If a replica with the same name is already registered,
+        ///  registerReplica overrides the existing registration only when the previously
+        ///  registered node is not active.
+        /// </summary>
+        ///  <param name="info">Some information on the replica.
+        ///  </param>
+        /// <param name="prx">The proxy of the replica.
+        ///  </param>
+        /// <returns>The replica session proxy.
+        ///  </returns>
+        /// <exception name="ReplicaActiveException">Raised if the replica is already registered and currently active.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ReplicaSessionPrx? registerReplica(InternalReplicaInfo? info, InternalRegistryPrx? prx, global::Ice.Current current);
+
+        /// <summary>
+        /// Create a session with the given registry replica.
+        /// This method returns only once the session creation has been
+        ///  attempted.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void registerWithReplica(InternalRegistryPrx? prx, global::Ice.Current current);
+
+        /// <summary>
+        /// Return the proxies of all the nodes known by this registry.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        NodePrx?[] getNodes(global::Ice.Current current);
+
+        /// <summary>
+        /// Return the proxies of all the registry replicas known by this registry.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        InternalRegistryPrx?[] getReplicas(global::Ice.Current current);
+
+        /// <summary>
+        /// Return applications, adapters, objects from this replica.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ApplicationInfo[] getApplications(out long serial, global::Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        AdapterInfo[] getAdapters(out long serial, global::Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ObjectInfo[] getObjects(out long serial, global::Ice.Current current);
+
+        /// <summary>
+        /// Shutdown this registry.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void shutdown(global::Ice.Current current);
     }
 }
 
@@ -2054,517 +2517,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceGrid
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface AdapterOperations_
-    {
-        /// <summary>
-        /// Activate this adapter.
-        /// If this adapter can be activated, this will activate the adapter and return the direct
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> activateAsync(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the adapter direct proxy.
-        /// The adapter direct proxy is a proxy created with the object adapter. The proxy
-        ///  contains the last known adapter endpoints.
-        /// </summary>
-        ///  <returns>A direct proxy containing the last known adapter endpoints if the adapter is already active.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getDirectProxy(global::Ice.Current current);
-
-        /// <summary>
-        /// Set the direct proxy for this adapter.
-        /// </summary>
-        /// <param name="The">direct proxy. The direct proxy should be created with the object adapter and should contain the
-        ///  object adapter endpoints.
-        ///  </param>
-        /// <exception name="AdapterActiveException">The adapter is already active. It's not possible to override the direct proxy of
-        ///  an active adapter.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setDirectProxy(global::Ice.ObjectPrx? proxy, global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface FileReaderOperations_
-    {
-        /// <summary>
-        /// Count the number of given lines from the end of the file and return the file offset.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        long getOffsetFromEnd(string filename, int lines, global::Ice.Current current);
-
-        /// <summary>
-        /// Read lines (or size bytes) at the specified position from the given file.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface ServerOperations_ : FileReaderOperations_
-    {
-        /// <summary>
-        /// Start the server.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task startAsync(global::Ice.Current current);
-
-        /// <summary>
-        /// Stop the server.
-        /// This methods returns only when the server is deactivated. If the server doesn't stop after a
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task stopAsync(global::Ice.Current current);
-
-        /// <summary>
-        /// Check if the given server can be loaded on this node.
-        /// </summary>
-        /// <returns>True if the server is inactive.
-        ///  </returns>
-        /// <exception name="DeploymentException">Raised if the server can't be updated.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool checkUpdate(InternalServerDescriptor? svr, bool noRestart, global::Ice.Current current);
-
-        /// <summary>
-        /// Enable or disable the server.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setEnabled(bool enable, global::Ice.Current current);
-
-        /// <summary>
-        /// Check if the server is enabled.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool isEnabled(global::Ice.Current current);
-
-        /// <summary>
-        /// Send signal to the server
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void sendSignal(string signal, global::Ice.Current current);
-
-        /// <summary>
-        /// Write message on servers' stdout or stderr.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void writeMessage(string message, int fd, global::Ice.Current current);
-
-        /// <summary>
-        /// Return the server state.
-        /// </summary>
-        /// <returns>The server state.
-        ///  </returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ServerState getState(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the server pid.
-        /// Note that the value returned by this method is system dependant. On Unix operating systems,
-        ///  it's the pid value returned by the fork() system call and converted to an integer.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getPid(global::Ice.Current current);
-
-        /// <summary>
-        /// Set the process proxy.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setProcessAsync(global::Ice.ProcessPrx? proc, global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface ReplicaObserverOperations_
-    {
-        /// <summary>
-        /// Initialization of the replica observer.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void replicaInit(InternalRegistryPrx?[] replicas, global::Ice.Current current);
-
-        /// <summary>
-        /// Notification that a replica has been added.
-        /// The node should establish a session with this new replica.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void replicaAdded(InternalRegistryPrx? replica, global::Ice.Current current);
-
-        /// <summary>
-        /// Notification that a replica has been removed.
-        /// The node should destroy the session to this replica.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void replicaRemoved(InternalRegistryPrx? replica, global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface NodeOperations_ : FileReaderOperations_, ReplicaObserverOperations_
-    {
-        /// <summary>
-        /// Load the given server.
-        /// If the server resources weren't already created (database environment directories,
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Node_LoadServerResult> loadServerAsync(InternalServerDescriptor? svr, string replicaName, global::Ice.Current current);
-
-        /// <summary>
-        /// Load the given server and ensure the server won't be restarted.
-        /// If the server resources weren't already created
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Node_LoadServerWithoutRestartResult> loadServerWithoutRestartAsync(InternalServerDescriptor? svr, string replicaName, global::Ice.Current current);
-
-        /// <summary>
-        /// Destroy the given server.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task destroyServerAsync(string name, string uuid, int revision, string replicaName, global::Ice.Current current);
-
-        /// <summary>
-        /// Destroy the server if it's not active.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task destroyServerWithoutRestartAsync(string name, string uuid, int revision, string replicaName, global::Ice.Current current);
-
-        /// <summary>
-        /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
-        ///  replicaAdded below).
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void registerWithReplica(InternalRegistryPrx? replica, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the node name.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getName(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the node hostname.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getHostname(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the node load.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LoadInfo getLoad(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the number of processor sockets for the machine where this node is running.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getProcessorSocketCount(global::Ice.Current current);
-
-        /// <summary>
-        /// Shutdown the node.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface NodeSessionOperations_
-    {
-        /// <summary>
-        /// The node call this method to keep the session alive.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void keepAlive(LoadInfo load, global::Ice.Current current);
-
-        /// <summary>
-        /// Set the replica observer.
-        /// The node calls this method when it's ready to receive notifications for the replicas.
-        ///  It only calls this for the session with the master.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setReplicaObserver(ReplicaObserverPrx? observer, global::Ice.Current current);
-
-        /// <summary>
-        /// Return the node session timeout.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getTimeout(global::Ice.Current current);
-
-        /// <summary>
-        /// Return the node observer.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        NodeObserverPrx? getObserver(global::Ice.Current current);
-
-        /// <summary>
-        /// Ask the registry to load the servers on the node.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task loadServersAsync(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the name of the servers deployed on the node.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getServers(global::Ice.Current current);
-
-        /// <summary>
-        /// Wait for the application update to complete (the application is completely updated once all the registry
-        ///  replicas have been updated).
-        /// This is used by the node to ensure that before to start a server all the
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task waitForApplicationUpdateAsync(string application, int revision, global::Ice.Current current);
-
-        /// <summary>
-        /// Destroy the session.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface DatabaseObserverOperations_ : ApplicationObserverOperations_, ObjectObserverOperations_, AdapterObserverOperations_
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface ReplicaSessionOperations_
-    {
-        /// <summary>
-        /// The replica call this method to keep the session alive.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void keepAlive(global::Ice.Current current);
-
-        /// <summary>
-        /// Return the replica session timeout.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getTimeout(global::Ice.Current current);
-
-        /// <summary>
-        /// Set the database observer.
-        /// Once the observer is subscribed, it will receive the database and database updates.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setDatabaseObserver(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, global::Ice.Current current);
-
-        /// <summary>
-        /// This method sets the endpoints of the replica.
-        /// This allows the master to create proxies with multiple endpoints
-        ///  for replicated objects (e.g.: IceGrid::Query object).
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> endpoints, global::Ice.Current current);
-
-        /// <summary>
-        /// Registers the replica well-known objects with the master.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void registerWellKnownObjects(ObjectInfo[] objects, global::Ice.Current current);
-
-        /// <summary>
-        /// Set the adapter direct proxy of the given adapter in the master.
-        /// This is used to support dynamic registration
-        ///  with the locator registry interface.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::Ice.Current current);
-
-        /// <summary>
-        /// Notify the master that an update was received.
-        /// The master might wait for replication updates to be received by
-        ///  all the replicas before to continue.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void receivedUpdate(TopicName name, int serial, string failure, global::Ice.Current current);
-
-        /// <summary>
-        /// Destroy the session.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current current);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface InternalRegistryOperations_ : FileReaderOperations_
-    {
-        /// <summary>
-        /// Register a node with the registry.
-        /// If a node with the same name is already registered,
-        ///  registerNode overrides the existing registration only when the previously
-        ///  registered node is not active.
-        /// </summary>
-        ///  <param name="info">Some information on the node.
-        ///  </param>
-        /// <param name="prx">The proxy of the node.
-        ///  </param>
-        /// <param name="loadInf">The load information of the node.
-        ///  </param>
-        /// <returns>The node session proxy.
-        ///  </returns>
-        /// <exception name="NodeActiveException">Raised if the node is already registered and currently active.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        NodeSessionPrx? registerNode(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, global::Ice.Current current);
-
-        /// <summary>
-        /// Register a replica with the registry.
-        /// If a replica with the same name is already registered,
-        ///  registerReplica overrides the existing registration only when the previously
-        ///  registered node is not active.
-        /// </summary>
-        ///  <param name="info">Some information on the replica.
-        ///  </param>
-        /// <param name="prx">The proxy of the replica.
-        ///  </param>
-        /// <returns>The replica session proxy.
-        ///  </returns>
-        /// <exception name="ReplicaActiveException">Raised if the replica is already registered and currently active.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ReplicaSessionPrx? registerReplica(InternalReplicaInfo? info, InternalRegistryPrx? prx, global::Ice.Current current);
-
-        /// <summary>
-        /// Create a session with the given registry replica.
-        /// This method returns only once the session creation has been
-        ///  attempted.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void registerWithReplica(InternalRegistryPrx? prx, global::Ice.Current current);
-
-        /// <summary>
-        /// Return the proxies of all the nodes known by this registry.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        NodePrx?[] getNodes(global::Ice.Current current);
-
-        /// <summary>
-        /// Return the proxies of all the registry replicas known by this registry.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        InternalRegistryPrx?[] getReplicas(global::Ice.Current current);
-
-        /// <summary>
-        /// Return applications, adapters, objects from this replica.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ApplicationInfo[] getApplications(out long serial, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        AdapterInfo[] getAdapters(out long serial, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectInfo[] getObjects(out long serial, global::Ice.Current current);
-
-        /// <summary>
-        /// Shutdown this registry.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current);
     }
 }
 
@@ -8050,15 +8002,15 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
+        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
+
         public abstract void replicaInit(InternalRegistryPrx?[] replicas, global::Ice.Current current);
 
         public abstract void replicaAdded(InternalRegistryPrx? replica, global::Ice.Current current);
 
         public abstract void replicaRemoved(InternalRegistryPrx? replica, global::Ice.Current current);
-
-        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current);
-
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
 
         #endregion
 

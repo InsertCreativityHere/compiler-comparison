@@ -35,8 +35,22 @@ namespace Ice.acm
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::TestIntf")]
-        public partial interface TestIntf : global::Ice.Object, TestIntfOperations_
+        public partial interface TestIntf : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void sleep(int seconds, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void sleepAndHold(int seconds, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void interruptSleep(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void startHeartbeatCount(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void waitForHeartbeatCount(int count, global::Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -51,8 +65,19 @@ namespace Ice.acm
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::RemoteObjectAdapter")]
-        public partial interface RemoteObjectAdapter : global::Ice.Object, RemoteObjectAdapterOperations_
+        public partial interface RemoteObjectAdapter : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            TestIntfPrx? getTestIntf(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void activate(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void hold(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void deactivate(global::Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -67,8 +92,13 @@ namespace Ice.acm
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::RemoteCommunicator")]
-        public partial interface RemoteCommunicator : global::Ice.Object, RemoteCommunicatorOperations_
+        public partial interface RemoteCommunicator : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            RemoteObjectAdapterPrx? createObjectAdapter(int acmTimeout, int close, int heartbeat, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void shutdown(global::Ice.Current current);
         }
     }
 }
@@ -131,57 +161,6 @@ namespace Ice.acm
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Ice.acm
-{
-    namespace Test
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface TestIntfOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void sleep(int seconds, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void sleepAndHold(int seconds, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void interruptSleep(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void startHeartbeatCount(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void waitForHeartbeatCount(int count, global::Ice.Current current);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface RemoteObjectAdapterOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            TestIntfPrx? getTestIntf(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void activate(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void hold(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void deactivate(global::Ice.Current current);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface RemoteCommunicatorOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            RemoteObjectAdapterPrx? createObjectAdapter(int acmTimeout, int close, int heartbeat, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current);
         }
     }
 }

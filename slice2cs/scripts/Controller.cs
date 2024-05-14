@@ -447,8 +447,19 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::TestCase")]
-        public partial interface TestCase : global::Ice.Object, TestCaseOperations_
+        public partial interface TestCase : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            string startServerSide(Config? config, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            string stopServerSide(bool success, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            string runClientSide(string host, Config? config, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void destroy(global::Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -463,8 +474,19 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::Controller")]
-        public partial interface Controller : global::Ice.Object, ControllerOperations_
+        public partial interface Controller : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            OptionOverrides? getOptionOverrides(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            string[] getTestSuites(string mapping, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            string getHost(string protocol, bool ipv6, global::Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -548,8 +570,16 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::Process")]
-        public partial interface Process : global::Ice.Object, ProcessOperations_
+        public partial interface Process : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void waitReady(int timeout, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            int waitSuccess(int timeout, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            string terminate(global::Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -564,8 +594,13 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::ProcessController")]
-        public partial interface ProcessController : global::Ice.Object, ProcessControllerOperations_
+        public partial interface ProcessController : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            ProcessPrx? start(string testsuite, string exe, string[] args, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            string getHost(string protocol, bool ipv6, global::Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -580,8 +615,10 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::BrowserProcessController")]
-        public partial interface BrowserProcessController : global::Ice.Object, BrowserProcessControllerOperations_, ProcessController
+        public partial interface BrowserProcessController : global::Ice.Object, ProcessController
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void redirect(string url, global::Ice.Current current);
         }
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -596,8 +633,10 @@ namespace Test
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Common::ProcessControllerRegistry")]
-        public partial interface ProcessControllerRegistry : global::Ice.Object, ProcessControllerRegistryOperations_
+        public partial interface ProcessControllerRegistry : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void setProcessController(ProcessControllerPrx? controller, global::Ice.Current current);
         }
     }
 }
@@ -688,81 +727,6 @@ namespace Test
             void setProcessController(ProcessControllerPrx? controller, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task setProcessControllerAsync(ProcessControllerPrx? controller, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Test
-{
-    namespace Common
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface TestCaseOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string startServerSide(Config? config, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string stopServerSide(bool success, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string runClientSide(string host, Config? config, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void destroy(global::Ice.Current current);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface ControllerOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            TestCasePrx? runTestCase(string mapping, string testsuite, string testcase, string cross, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            OptionOverrides? getOptionOverrides(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string[] getTestSuites(string mapping, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string getHost(string protocol, bool ipv6, global::Ice.Current current);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface ProcessOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void waitReady(int timeout, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int waitSuccess(int timeout, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string terminate(global::Ice.Current current);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface ProcessControllerOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            ProcessPrx? start(string testsuite, string exe, string[] args, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string getHost(string protocol, bool ipv6, global::Ice.Current current);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface BrowserProcessControllerOperations_ : ProcessControllerOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void redirect(string url, global::Ice.Current current);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface ProcessControllerRegistryOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void setProcessController(ProcessControllerPrx? controller, global::Ice.Current current);
         }
     }
 }

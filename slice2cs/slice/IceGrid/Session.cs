@@ -33,8 +33,67 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Session")]
-    public partial interface Session : global::Ice.Object, SessionOperations_, global::Glacier2.Session
+    public partial interface Session : global::Ice.Object, global::Glacier2.Session
     {
+        /// <summary>
+        /// Keep the session alive.
+        /// This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+        ///  need to call this operation and its implementation does nothing.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void keepAlive(global::Ice.Current current);
+
+        /// <summary>
+        /// Allocate an object.
+        /// Depending on the allocation timeout, this operation might hang until the object is
+        /// </summary>
+        ///  <param name="id">The identity of the object to allocate.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current);
+
+        /// <summary>
+        /// Allocate an object with the given type.
+        /// Depending on the allocation timeout, this operation can block until
+        /// </summary>
+        ///  <param name="type">The type of the object.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByTypeAsync(string type, global::Ice.Current current);
+
+        /// <summary>
+        /// Release an object that was allocated using allocateObjectById or
+        ///  allocateObjectByType.
+        /// </summary>
+        /// <param name="id">The identity of the object to release.
+        ///  </param>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object with the given identity is not registered with
+        ///  the registry.
+        ///  </exception>
+        /// <exception name="AllocationException">Raised if the given object can't be released. This might happen if the object
+        ///  isn't allocatable or isn't allocated by the session.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void releaseObject(global::Ice.Identity id, global::Ice.Current current);
+
+        /// <summary>
+        /// Set the allocation timeout.
+        /// If no objects are available for an allocation request, a call to
+        ///  allocateObjectById or allocateObjectByType will block for the duration of this
+        ///  timeout.
+        /// </summary>
+        ///  <param name="timeout">The timeout in milliseconds.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void setAllocationTimeout(int timeout, global::Ice.Current current);
     }
 }
 
@@ -173,79 +232,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setAllocationTimeoutAsync(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceGrid
-{
-    /// <summary>
-    /// A session object is used by IceGrid clients to allocate and release objects.
-    /// Client sessions are created either
-    ///  via the Registry object or via the registry client SessionManager object.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface SessionOperations_ : global::Glacier2.SessionOperations_
-    {
-        /// <summary>
-        /// Keep the session alive.
-        /// This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-        ///  need to call this operation and its implementation does nothing.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void keepAlive(global::Ice.Current current);
-
-        /// <summary>
-        /// Allocate an object.
-        /// Depending on the allocation timeout, this operation might hang until the object is
-        /// </summary>
-        ///  <param name="id">The identity of the object to allocate.
-        ///  </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current);
-
-        /// <summary>
-        /// Allocate an object with the given type.
-        /// Depending on the allocation timeout, this operation can block until
-        /// </summary>
-        ///  <param name="type">The type of the object.
-        ///  </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByTypeAsync(string type, global::Ice.Current current);
-
-        /// <summary>
-        /// Release an object that was allocated using allocateObjectById or
-        ///  allocateObjectByType.
-        /// </summary>
-        /// <param name="id">The identity of the object to release.
-        ///  </param>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object with the given identity is not registered with
-        ///  the registry.
-        ///  </exception>
-        /// <exception name="AllocationException">Raised if the given object can't be released. This might happen if the object
-        ///  isn't allocatable or isn't allocated by the session.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void releaseObject(global::Ice.Identity id, global::Ice.Current current);
-
-        /// <summary>
-        /// Set the allocation timeout.
-        /// If no objects are available for an allocation request, a call to
-        ///  allocateObjectById or allocateObjectByType will block for the duration of this
-        ///  timeout.
-        /// </summary>
-        ///  <param name="timeout">The timeout in milliseconds.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setAllocationTimeout(int timeout, global::Ice.Current current);
     }
 }
 

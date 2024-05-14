@@ -167,8 +167,16 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStorm::TopicLink")]
-    public partial interface TopicLink : global::Ice.Object, TopicLinkOperations_
+    public partial interface TopicLink : global::Ice.Object
     {
+        /// <summary>
+        /// Forward a sequence of events.
+        /// </summary>
+        /// <param name="events">The events to forward.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void forward(EventData[] events, global::Ice.Current current);
     }
 
     /// <summary>
@@ -241,8 +249,27 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStorm::TopicInternal")]
-    public partial interface TopicInternal : global::Ice.Object, TopicInternalOperations_, Topic
+    public partial interface TopicInternal : global::Ice.Object, Topic
     {
+        /// <summary>
+        /// Retrieve a proxy to the TopicLink interface.
+        /// </summary>
+        /// <returns>The TopicLink for the Topic.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        TopicLinkPrx? getLinkProxy(global::Ice.Current current);
+
+        /// <summary>
+        /// Reap the given identities.
+        /// </summary>
+        /// <param name="id">The sequence of identities.
+        ///  </param>
+        /// <exception name="ReapWouldBlock">Raised if the reap call would block.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void reap(global::Ice.Identity[] id, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -257,8 +284,16 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStorm::TopicManagerInternal")]
-    public partial interface TopicManagerInternal : global::Ice.Object, TopicManagerInternalOperations_, TopicManager
+    public partial interface TopicManagerInternal : global::Ice.Object, TopicManager
     {
+        /// <summary>
+        /// Return the replica node proxy for this topic manager.
+        /// </summary>
+        /// <returns>The replica proxy, or null if this instance is not replicated.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::IceStormElection.NodePrx? getReplicaNode(global::Ice.Current current);
     }
 }
 
@@ -360,72 +395,6 @@ namespace IceStorm
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::IceStormElection.NodePrx?> getReplicaNodeAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceStorm
-{
-    /// <summary>
-    /// The TopicLink interface.
-    /// This is used to forward events between federated Topic instances.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface TopicLinkOperations_
-    {
-        /// <summary>
-        /// Forward a sequence of events.
-        /// </summary>
-        /// <param name="events">The events to forward.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void forward(EventData[] events, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// Internal operations for a topic.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface TopicInternalOperations_ : TopicOperations_
-    {
-        /// <summary>
-        /// Retrieve a proxy to the TopicLink interface.
-        /// </summary>
-        /// <returns>The TopicLink for the Topic.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        TopicLinkPrx? getLinkProxy(global::Ice.Current current);
-
-        /// <summary>
-        /// Reap the given identities.
-        /// </summary>
-        /// <param name="id">The sequence of identities.
-        ///  </param>
-        /// <exception name="ReapWouldBlock">Raised if the reap call would block.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void reap(global::Ice.Identity[] id, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// Internal operations for a topic manager.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface TopicManagerInternalOperations_ : TopicManagerOperations_
-    {
-        /// <summary>
-        /// Return the replica node proxy for this topic manager.
-        /// </summary>
-        /// <returns>The replica proxy, or null if this instance is not replicated.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::IceStormElection.NodePrx? getReplicaNode(global::Ice.Current current);
     }
 }
 

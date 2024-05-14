@@ -33,8 +33,42 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::Router")]
-    public partial interface Router : Object, RouterOperations_
+    public partial interface Router : Object
     {
+        /// <summary>
+        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
+        /// </summary>
+        ///  <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If it is supported, the
+        ///  Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
+        ///  starting with Ice 3.7.
+        ///  The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
+        ///  </param>
+        /// <returns>The router's client proxy.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ObjectPrx? getClientProxy(out bool? hasRoutingTable, Current current);
+
+        /// <summary>
+        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
+        /// </summary>
+        /// <returns>The router's server proxy.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ObjectPrx? getServerProxy(Current current);
+
+        /// <summary>
+        /// Add new proxy information to the router's routing table.
+        /// </summary>
+        /// <param name="proxies">The proxies to add. Adding a null proxy is an error.
+        ///  </param>
+        /// <returns>Proxies discarded by the router. These proxies are all non-null.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -49,8 +83,18 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::RouterFinder")]
-    public partial interface RouterFinder : Object, RouterFinderOperations_
+    public partial interface RouterFinder : Object
     {
+        /// <summary>
+        /// Get the router proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
+        ///  replicas. This proxy is never null.
+        /// </summary>
+        ///  <returns>The router proxy.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        RouterPrx? getRouter(Current current);
     }
 }
 
@@ -162,76 +206,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<RouterPrx?> getRouterAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Ice
-{
-    /// <summary>
-    /// The Ice router interface.
-    /// Routers can be set either globally though the Communicator, or with
-    ///  ice_router on specific proxies.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface RouterOperations_
-    {
-        /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
-        /// </summary>
-        ///  <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If it is supported, the
-        ///  Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
-        ///  starting with Ice 3.7.
-        ///  The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
-        ///  </param>
-        /// <returns>The router's client proxy.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx? getClientProxy(out bool? hasRoutingTable, Current current);
-
-        /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-        /// </summary>
-        /// <returns>The router's server proxy.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx? getServerProxy(Current current);
-
-        /// <summary>
-        /// Add new proxy information to the router's routing table.
-        /// </summary>
-        /// <param name="proxies">The proxies to add. Adding a null proxy is an error.
-        ///  </param>
-        /// <returns>Proxies discarded by the router. These proxies are all non-null.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectPrx?[] addProxies(ObjectPrx?[] proxies, Current current);
-    }
-
-    /// <summary>
-    /// This interface should be implemented by services implementing the Ice::Router interface.
-    /// It should be advertised
-    ///  through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
-    ///  with just the endpoint information of the service.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface RouterFinderOperations_
-    {
-        /// <summary>
-        /// Get the router proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
-        ///  replicas. This proxy is never null.
-        /// </summary>
-        ///  <returns>The router proxy.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        RouterPrx? getRouter(Current current);
     }
 }
 

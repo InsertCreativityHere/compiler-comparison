@@ -92,8 +92,79 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::Router")]
-    public partial interface Router : global::Ice.Object, RouterOperations_, global::Ice.Router
+    public partial interface Router : global::Ice.Object, global::Ice.Router
     {
+        /// <summary>
+        /// This category must be used in the identities of all of the client's callback objects.
+        /// This is necessary in
+        ///  order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+        ///  are not set, the returned category is an empty string.
+        /// </summary>
+        ///  <returns>The category.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string getCategoryForClient(global::Ice.Current current);
+
+        /// <summary>
+        /// Create a per-client session with the router.
+        /// If a SessionManager has been installed, a proxy to a
+        /// </summary>
+        ///  <param name="userId">The user id for which to check the password.
+        ///  </param>
+        /// <param name="password">The password for the given user id.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::Ice.Current current);
+
+        /// <summary>
+        /// Create a per-client session with the router.
+        /// The user is authenticated through the SSL certificates that
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::Ice.Current current);
+
+        /// <summary>
+        /// Keep the session with this router alive.
+        /// This operation is provided for backward compatibility with Ice 3.7
+        ///  and earlier and does nothing in newer versions of Glacier2.
+        /// </summary>
+        ///  <exception name="SessionNotExistException">Raised if no session exists for the caller (client).</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void refreshSession(global::Ice.Current current);
+
+        /// <summary>
+        /// Destroy the calling client's session with this router.
+        /// </summary>
+        /// <exception name="SessionNotExistException">Raised if no session exists for the calling client.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void destroySession(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the idle timeout used by the server-side of the connection.
+        /// </summary>
+        /// <returns>The idle timeout (in seconds).</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        long getSessionTimeout(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the idle timeout used by the server-side of the connection.
+        /// </summary>
+        /// <returns>The idle timeout (in seconds).</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        int getACMTimeout(global::Ice.Current current);
     }
 }
 
@@ -265,89 +336,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<int> getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Glacier2
-{
-    /// <summary>
-    /// The Glacier2 specialization of the Ice::Router interface.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface RouterOperations_ : global::Ice.RouterOperations_
-    {
-        /// <summary>
-        /// This category must be used in the identities of all of the client's callback objects.
-        /// This is necessary in
-        ///  order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
-        ///  are not set, the returned category is an empty string.
-        /// </summary>
-        ///  <returns>The category.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getCategoryForClient(global::Ice.Current current);
-
-        /// <summary>
-        /// Create a per-client session with the router.
-        /// If a SessionManager has been installed, a proxy to a
-        /// </summary>
-        ///  <param name="userId">The user id for which to check the password.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::Ice.Current current);
-
-        /// <summary>
-        /// Create a per-client session with the router.
-        /// The user is authenticated through the SSL certificates that
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::Ice.Current current);
-
-        /// <summary>
-        /// Keep the session with this router alive.
-        /// This operation is provided for backward compatibility with Ice 3.7
-        ///  and earlier and does nothing in newer versions of Glacier2.
-        /// </summary>
-        ///  <exception name="SessionNotExistException">Raised if no session exists for the caller (client).</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void refreshSession(global::Ice.Current current);
-
-        /// <summary>
-        /// Destroy the calling client's session with this router.
-        /// </summary>
-        /// <exception name="SessionNotExistException">Raised if no session exists for the calling client.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroySession(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the idle timeout used by the server-side of the connection.
-        /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        long getSessionTimeout(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the idle timeout used by the server-side of the connection.
-        /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getACMTimeout(global::Ice.Current current);
     }
 }
 

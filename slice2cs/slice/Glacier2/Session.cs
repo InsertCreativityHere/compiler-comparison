@@ -106,8 +106,16 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::Session")]
-    public partial interface Session : global::Ice.Object, SessionOperations_
+    public partial interface Session : global::Ice.Object
     {
+        /// <summary>
+        /// Destroy the session.
+        /// This is called automatically when the router is destroyed.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void destroy(global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -122,8 +130,37 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::StringSet")]
-    public partial interface StringSet : global::Ice.Object, StringSetOperations_
+    public partial interface StringSet : global::Ice.Object
     {
+        /// <summary>
+        /// Add a sequence of strings to this set of constraints.
+        /// Order is not preserved and duplicates are implicitly
+        ///  removed.
+        /// </summary>
+        ///  <param name="additions">The sequence of strings to be added.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void add(string[] additions, global::Ice.Current current);
+
+        /// <summary>
+        /// Remove a sequence of strings from this set of constraints.
+        /// No errors are returned if an entry is not found.
+        /// </summary>
+        ///  <param name="deletions">The sequence of strings to be removed.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void remove(string[] deletions, global::Ice.Current current);
+
+        /// <summary>
+        /// Returns a sequence of strings describing the constraints in this set.
+        /// </summary>
+        /// <returns>The sequence of strings for this set.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string[] get(global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -138,8 +175,38 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::IdentitySet")]
-    public partial interface IdentitySet : global::Ice.Object, IdentitySetOperations_
+    public partial interface IdentitySet : global::Ice.Object
     {
+        /// <summary>
+        /// Add a sequence of Ice identities to this set of constraints.
+        /// Order is not preserved and duplicates are
+        ///  implicitly removed.
+        /// </summary>
+        ///  <param name="additions">The sequence of Ice identities to be added.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void add(global::Ice.Identity[] additions, global::Ice.Current current);
+
+        /// <summary>
+        /// Remove a sequence of identities from this set of constraints.
+        /// No errors are returned if an entry is not
+        ///  found.
+        /// </summary>
+        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void remove(global::Ice.Identity[] deletions, global::Ice.Current current);
+
+        /// <summary>
+        /// Returns a sequence of identities describing the constraints in this set.
+        /// </summary>
+        /// <returns>The sequence of Ice identities for this set.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.Identity[] get(global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -154,8 +221,51 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::SessionControl")]
-    public partial interface SessionControl : global::Ice.Object, SessionControlOperations_
+    public partial interface SessionControl : global::Ice.Object
     {
+        /// <summary>
+        /// Access the object that manages the allowable categories for object identities for this session.
+        /// </summary>
+        /// <returns>A StringSet object. The returned proxy is never null.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        StringSetPrx? categories(global::Ice.Current current);
+
+        /// <summary>
+        /// Access the object that manages the allowable adapter identities for objects for this session.
+        /// </summary>
+        /// <returns>A StringSet object. The returned proxy is never null.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        StringSetPrx? adapterIds(global::Ice.Current current);
+
+        /// <summary>
+        /// Access the object that manages the allowable object identities for this session.
+        /// </summary>
+        /// <returns>An IdentitySet object. The returned proxy is never null.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        IdentitySetPrx? identities(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the session timeout.
+        /// </summary>
+        /// <returns>The timeout.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        int getSessionTimeout(global::Ice.Current current);
+
+        /// <summary>
+        /// Destroy the associated session.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void destroy(global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -170,8 +280,25 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::SessionManager")]
-    public partial interface SessionManager : global::Ice.Object, SessionManagerOperations_
+    public partial interface SessionManager : global::Ice.Object
     {
+        /// <summary>
+        /// Create a new session.
+        /// The implementation must return a non-null proxy or raise
+        ///  CannotCreateSessionException if the session cannot be created.
+        /// </summary>
+        ///  <param name="userId">The user id for the session.
+        ///  </param>
+        /// <param name="control">A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+        ///  are not configured.
+        ///  </param>
+        /// <returns>A proxy to the newly created session.
+        ///  </returns>
+        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        SessionPrx? create(string userId, SessionControlPrx? control, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -186,8 +313,22 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::SSLSessionManager")]
-    public partial interface SSLSessionManager : global::Ice.Object, SSLSessionManagerOperations_
+    public partial interface SSLSessionManager : global::Ice.Object
     {
+        /// <summary>
+        /// Create a new session.
+        /// </summary>
+        /// <param name="info">The SSL info.
+        ///  </param>
+        /// <param name="control">A proxy to the session control object.
+        ///  </param>
+        /// <returns>A proxy to the newly created session.
+        ///  </returns>
+        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        SessionPrx? create(SSLInfo info, SessionControlPrx? control, global::Ice.Current current);
     }
 }
 
@@ -525,212 +666,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<SessionPrx?> createAsync(SSLInfo info, SessionControlPrx? control, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Glacier2
-{
-    /// <summary>
-    /// A client-visible session object, which is tied to the lifecycle of a Router.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface SessionOperations_
-    {
-        /// <summary>
-        /// Destroy the session.
-        /// This is called automatically when the router is destroyed.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// An object for managing the set of identity constraints for specific parts of object identity on a
-    ///  Session.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface StringSetOperations_
-    {
-        /// <summary>
-        /// Add a sequence of strings to this set of constraints.
-        /// Order is not preserved and duplicates are implicitly
-        ///  removed.
-        /// </summary>
-        ///  <param name="additions">The sequence of strings to be added.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void add(string[] additions, global::Ice.Current current);
-
-        /// <summary>
-        /// Remove a sequence of strings from this set of constraints.
-        /// No errors are returned if an entry is not found.
-        /// </summary>
-        ///  <param name="deletions">The sequence of strings to be removed.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void remove(string[] deletions, global::Ice.Current current);
-
-        /// <summary>
-        /// Returns a sequence of strings describing the constraints in this set.
-        /// </summary>
-        /// <returns>The sequence of strings for this set.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] get(global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// An object for managing the set of object identity constraints on a Session.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface IdentitySetOperations_
-    {
-        /// <summary>
-        /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is not preserved and duplicates are
-        ///  implicitly removed.
-        /// </summary>
-        ///  <param name="additions">The sequence of Ice identities to be added.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void add(global::Ice.Identity[] additions, global::Ice.Current current);
-
-        /// <summary>
-        /// Remove a sequence of identities from this set of constraints.
-        /// No errors are returned if an entry is not
-        ///  found.
-        /// </summary>
-        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void remove(global::Ice.Identity[] deletions, global::Ice.Current current);
-
-        /// <summary>
-        /// Returns a sequence of identities describing the constraints in this set.
-        /// </summary>
-        /// <returns>The sequence of Ice identities for this set.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Identity[] get(global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// An administrative session control object, which is tied to the lifecycle of a Session.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface SessionControlOperations_
-    {
-        /// <summary>
-        /// Access the object that manages the allowable categories for object identities for this session.
-        /// </summary>
-        /// <returns>A StringSet object. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        StringSetPrx? categories(global::Ice.Current current);
-
-        /// <summary>
-        /// Access the object that manages the allowable adapter identities for objects for this session.
-        /// </summary>
-        /// <returns>A StringSet object. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        StringSetPrx? adapterIds(global::Ice.Current current);
-
-        /// <summary>
-        /// Access the object that manages the allowable object identities for this session.
-        /// </summary>
-        /// <returns>An IdentitySet object. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        IdentitySetPrx? identities(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the session timeout.
-        /// </summary>
-        /// <returns>The timeout.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getSessionTimeout(global::Ice.Current current);
-
-        /// <summary>
-        /// Destroy the associated session.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// The session manager for username/password authenticated users that is responsible for managing Session
-    ///  objects.
-    /// New session objects are created by the Router object calling on an application-provided
-    ///  session manager. If no session manager is provided by the application, no client-visible sessions are passed to
-    ///  the client.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface SessionManagerOperations_
-    {
-        /// <summary>
-        /// Create a new session.
-        /// The implementation must return a non-null proxy or raise
-        ///  CannotCreateSessionException if the session cannot be created.
-        /// </summary>
-        ///  <param name="userId">The user id for the session.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
-        ///  are not configured.
-        ///  </param>
-        /// <returns>A proxy to the newly created session.
-        ///  </returns>
-        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SessionPrx? create(string userId, SessionControlPrx? control, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// The session manager for SSL authenticated users that is responsible for managing Session objects.
-    /// New
-    ///  session objects are created by the Router object calling on an application-provided session manager. If
-    ///  no session manager is provided by the application, no client-visible sessions are passed to the client.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface SSLSessionManagerOperations_
-    {
-        /// <summary>
-        /// Create a new session.
-        /// </summary>
-        /// <param name="info">The SSL info.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object.
-        ///  </param>
-        /// <returns>A proxy to the newly created session.
-        ///  </returns>
-        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SessionPrx? create(SSLInfo info, SessionControlPrx? control, global::Ice.Current current);
     }
 }
 

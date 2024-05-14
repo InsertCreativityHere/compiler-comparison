@@ -891,7 +891,7 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Test::MyInterface")]
-    public partial interface MyInterface : global::Ice.Object, MyInterfaceOperations_
+    public partial interface MyInterface : global::Ice.Object
     {
     }
 }
@@ -900,14 +900,6 @@ namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface MyInterfacePrx : global::Ice.ObjectPrx
-    {
-    }
-}
-
-namespace Test
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface MyInterfaceOperations_
     {
     }
 }

@@ -1124,8 +1124,643 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Admin")]
-    public partial interface Admin : global::Ice.Object, AdminOperations_
+    public partial interface Admin : global::Ice.Object
     {
+        /// <summary>
+        /// Add an application to IceGrid.
+        /// </summary>
+        /// <param name="descriptor">The application descriptor.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void addApplication(ApplicationDescriptor descriptor, global::Ice.Current current);
+
+        /// <summary>
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
+        ///  current descriptor with this new descriptor.
+        /// </summary>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void syncApplication(ApplicationDescriptor descriptor, global::Ice.Current current);
+
+        /// <summary>
+        /// Update a deployed application with the given update application descriptor.
+        /// </summary>
+        /// <param name="descriptor">The update descriptor.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.Current current);
+
+        /// <summary>
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
+        ///  current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+        ///  application. If some servers need to be restarted, the synchronization is rejected with a
+        ///  DeploymentException.
+        /// </summary>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.Current current);
+
+        /// <summary>
+        /// Update a deployed application with the given update application descriptor only if no server restarts are
+        ///  necessary for the update of the application.
+        /// If some servers need to be restarted, the synchronization is
+        ///  rejected with a DeploymentException.
+        /// </summary>
+        ///  <param name="descriptor">The update descriptor.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.Current current);
+
+        /// <summary>
+        /// Remove an application from IceGrid.
+        /// </summary>
+        /// <param name="name">The application name.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void removeApplication(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Instantiate a server template from an application on the given node.
+        /// </summary>
+        /// <param name="application">The application name.
+        ///  </param>
+        /// <param name="node">The name of the node where the server will be deployed.
+        ///  </param>
+        /// <param name="desc">The descriptor of the server instance to deploy.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if server instantiation failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.Current current);
+
+        /// <summary>
+        /// Get an application descriptor.
+        /// </summary>
+        /// <param name="name">The application name.
+        ///  </param>
+        /// <returns>The application descriptor.
+        ///  </returns>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ApplicationInfo getApplicationInfo(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the default application descriptor.
+        /// </summary>
+        /// <returns>The default application descriptor.
+        ///  </returns>
+        /// <exception name="DeploymentException">Raised if the default application descriptor can't be accessed or is invalid.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ApplicationDescriptor getDefaultApplicationDescriptor(global::Ice.Current current);
+
+        /// <summary>
+        /// Get all the IceGrid applications currently registered.
+        /// </summary>
+        /// <returns>The application names.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string[] getAllApplicationNames(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the server information for the server with the given id.
+        /// </summary>
+        /// <param name="id">The server id.
+        ///  </param>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <returns>The server information.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ServerInfo getServerInfo(string id, global::Ice.Current current);
+
+        /// <summary>
+        /// Get a server's state.
+        /// </summary>
+        /// <param name="id">The server id.
+        ///  </param>
+        /// <returns>The server state.
+        ///  </returns>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ServerState getServerState(string id, global::Ice.Current current);
+
+        /// <summary>
+        /// Get a server's system process id.
+        /// The process id is operating system dependent.
+        /// </summary>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <returns>The server's process id.
+        ///  </returns>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        int getServerPid(string id, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the category for server admin objects.
+        /// You can manufacture a server admin proxy from the admin proxy by
+        ///  changing its identity: use the server ID as name and the returned category as category.
+        /// </summary>
+        ///  <returns>The category for server admin objects.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string getServerAdminCategory(global::Ice.Current current);
+
+        /// <summary>
+        /// Get a proxy to the server's admin object.
+        /// </summary>
+        /// <param name="id">The server id.
+        ///  </param>
+        /// <returns>A proxy to the server's admin object. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? getServerAdmin(string id, global::Ice.Current current);
+
+        /// <summary>
+        /// Enable or disable a server.
+        /// A disabled server can't be started on demand or administratively. The enable
+        ///  state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+        ///  default.
+        /// </summary>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="enabled">True to enable the server, false to disable it.
+        ///  </param>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void enableServer(string id, bool enabled, global::Ice.Current current);
+
+        /// <summary>
+        /// Check if the server is enabled or disabled.
+        /// </summary>
+        /// <param name="id">The server id.
+        ///  </param>
+        /// <returns>True if the server is enabled.
+        ///  </returns>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool isServerEnabled(string id, global::Ice.Current current);
+
+        /// <summary>
+        /// Start a server and wait for its activation.
+        /// </summary>
+        /// <param name="id">The server id.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task startServerAsync(string id, global::Ice.Current current);
+
+        /// <summary>
+        /// Stop a server.
+        /// </summary>
+        /// <param name="id">The server id.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task stopServerAsync(string id, global::Ice.Current current);
+
+        /// <summary>
+        /// Send signal to a server.
+        /// </summary>
+        /// <param name="id">The server id.
+        ///  </param>
+        /// <param name="signal">The signal, for example SIGTERM or 15.
+        ///  </param>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.
+        ///  </exception>
+        /// <exception name="BadSignalException">Raised if the signal is not recognized by the target server.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void sendSignal(string id, string signal, global::Ice.Current current);
+
+        /// <summary>
+        /// Get all the server ids registered with IceGrid.
+        /// </summary>
+        /// <returns>The server ids.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string[] getAllServerIds(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the adapter information for the replica group or adapter with the given id.
+        /// </summary>
+        /// <param name="id">The adapter id.
+        ///  </param>
+        /// <returns>A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+        ///  will contain only one element. If the given id refers to a replica group, the sequence will contain the
+        ///  adapter information of each member of the replica group.
+        ///  </returns>
+        /// <exception name="AdapterNotExistException">Raised if the adapter or replica group doesn't exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        AdapterInfo[] getAdapterInfo(string id, global::Ice.Current current);
+
+        /// <summary>
+        /// Remove the adapter with the given id.
+        /// </summary>
+        /// <param name="id">The adapter id.
+        ///  </param>
+        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't exist.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void removeAdapter(string id, global::Ice.Current current);
+
+        /// <summary>
+        /// Get all the adapter ids registered with IceGrid.
+        /// </summary>
+        /// <returns>The adapter ids.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string[] getAllAdapterIds(global::Ice.Current current);
+
+        /// <summary>
+        /// Add an object to the object registry.
+        /// IceGrid will get the object type by calling ice_id on the
+        ///  given proxy. The object must be reachable.
+        /// </summary>
+        ///  <param name="obj">The object to be added to the registry.
+        ///  </param>
+        /// <exception name="ObjectExistsException">Raised if the object is already registered.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the object can't be added. This might be raised if the invocation on
+        ///  the proxy to get the object type failed.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void addObject(global::Ice.ObjectPrx? obj, global::Ice.Current current);
+
+        /// <summary>
+        /// Update an object in the object registry.
+        /// Only objects added with this interface can be updated with this
+        ///  operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
+        /// </summary>
+        ///  <param name="obj">The object to be updated to the registry.
+        ///  </param>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the object can't be updated. This might happen if the object was added
+        ///  with a deployment descriptor.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void updateObject(global::Ice.ObjectPrx? obj, global::Ice.Current current);
+
+        /// <summary>
+        /// Add an object to the object registry and explicitly specify its type.
+        /// </summary>
+        /// <param name="obj">The object to be added to the registry. The proxy is never null.
+        ///  </param>
+        /// <param name="type">The object type.
+        ///  </param>
+        /// <exception name="ObjectExistsException">Raised if the object is already registered.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void addObjectWithType(global::Ice.ObjectPrx? obj, string type, global::Ice.Current current);
+
+        /// <summary>
+        /// Remove an object from the object registry.
+        /// Only objects added with this interface can be removed with this
+        ///  operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+        /// </summary>
+        ///  <param name="id">The identity of the object to be removed from the registry.
+        ///  </param>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the object can't be removed. This might happen if the object was added
+        ///  with a deployment descriptor.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void removeObject(global::Ice.Identity id, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the object info for the object with the given identity.
+        /// </summary>
+        /// <param name="id">The identity of the object.
+        ///  </param>
+        /// <returns>The object info.
+        ///  </returns>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ObjectInfo getObjectInfo(global::Ice.Identity id, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the object info of all the registered objects with the given type.
+        /// </summary>
+        /// <param name="type">The type of the object.
+        ///  </param>
+        /// <returns>The object infos.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ObjectInfo[] getObjectInfosByType(string type, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the object info of all the registered objects whose stringified identities match the given expression.
+        /// </summary>
+        /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
+        ///  may contain a trailing wildcard (*) character.
+        ///  </param>
+        /// <returns>All the object infos with a stringified identity matching the given expression.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ObjectInfo[] getAllObjectInfos(string expr, global::Ice.Current current);
+
+        /// <summary>
+        /// Ping an IceGrid node to see if it is active.
+        /// </summary>
+        /// <param name="name">The node name.
+        ///  </param>
+        /// <returns>true if the node ping succeeded, false otherwise.
+        ///  </returns>
+        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool pingNode(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the load averages of the node.
+        /// </summary>
+        /// <param name="name">The node name.
+        ///  </param>
+        /// <returns>The node load information.
+        ///  </returns>
+        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        LoadInfo getNodeLoad(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the node information for the node with the given name.
+        /// </summary>
+        /// <param name="name">The node name.
+        ///  </param>
+        /// <returns>The node information.
+        ///  </returns>
+        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        NodeInfo getNodeInfo(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Get a proxy to the IceGrid node's admin object.
+        /// </summary>
+        /// <param name="name">The IceGrid node name
+        ///  </param>
+        /// <returns>A proxy to the IceGrid node's admin object. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? getNodeAdmin(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the number of physical processor sockets for the machine running the node with the given name.
+        /// Note that this method will return 1 on operating systems where this can't be automatically determined and
+        ///  where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+        /// </summary>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <returns>The number of processor sockets or 1 if the number of sockets can't determined.
+        ///  </returns>
+        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        int getNodeProcessorSocketCount(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Shutdown an IceGrid node.
+        /// </summary>
+        /// <param name="name">The node name.
+        ///  </param>
+        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void shutdownNode(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the hostname of this node.
+        /// </summary>
+        /// <param name="name">The node name.
+        ///  </param>
+        /// <returns>The node hostname.
+        ///  </returns>
+        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string getNodeHostname(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Get all the IceGrid nodes currently registered.
+        /// </summary>
+        /// <returns>The node names.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string[] getAllNodeNames(global::Ice.Current current);
+
+        /// <summary>
+        /// Ping an IceGrid registry to see if it is active.
+        /// </summary>
+        /// <param name="name">The registry name.
+        ///  </param>
+        /// <returns>true if the registry ping succeeded, false otherwise.
+        ///  </returns>
+        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool pingRegistry(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the registry information for the registry with the given name.
+        /// </summary>
+        /// <param name="name">The registry name.
+        ///  </param>
+        /// <returns>The registry information.
+        ///  </returns>
+        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        RegistryInfo getRegistryInfo(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Get a proxy to the IceGrid registry's admin object.
+        /// </summary>
+        /// <param name="name">The registry name
+        ///  </param>
+        /// <returns>A proxy to the IceGrid registry's admin object. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? getRegistryAdmin(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Shutdown an IceGrid registry.
+        /// </summary>
+        /// <param name="name">The registry name.
+        ///  </param>
+        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void shutdownRegistry(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Get all the IceGrid registries currently registered.
+        /// </summary>
+        /// <returns>The registry names.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string[] getAllRegistryNames(global::Ice.Current current);
+
+        /// <summary>
+        /// Shut down the IceGrid registry.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void shutdown(global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1140,8 +1775,33 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::FileIterator")]
-    public partial interface FileIterator : global::Ice.Object, FileIteratorOperations_
+    public partial interface FileIterator : global::Ice.Object
     {
+        /// <summary>
+        /// Read lines from the log file.
+        /// </summary>
+        /// <param name="size">Specifies the maximum number of bytes to be received. The server will ensure that the returned
+        ///  message doesn't exceed the given size.
+        ///  </param>
+        /// <param name="lines">The lines read from the file. If there was nothing to read from the file since the last call to
+        ///  read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+        ///  '\n' should be added when writing the last line to the to the output device).
+        ///  </param>
+        /// <returns>True if EOF is encountered.
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if there was a problem to read lines from the file.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool read(int size, out string[] lines, global::Ice.Current current);
+
+        /// <summary>
+        /// Destroy the iterator.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void destroy(global::Ice.Current current);
     }
 
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
@@ -1522,8 +2182,35 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::RegistryObserver")]
-    public partial interface RegistryObserver : global::Ice.Object, RegistryObserverOperations_
+    public partial interface RegistryObserver : global::Ice.Object
     {
+        /// <summary>
+        /// The registryInit operation is called after registration of an observer to indicate the state of
+        ///  the registries.
+        /// </summary>
+        /// <param name="registries">The current state of the registries.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void registryInit(RegistryInfo[] registries, global::Ice.Current current);
+
+        /// <summary>
+        /// The registryUp operation is called to notify an observer that a registry replica came up.
+        /// </summary>
+        /// <param name="registryReplica">The registry state.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void registryUp(RegistryInfo registryReplica, global::Ice.Current current);
+
+        /// <summary>
+        /// The registryDown operation is called to notify an observer that a registry replica went down.
+        /// </summary>
+        /// <param name="name">The registry name.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void registryDown(string name, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1538,8 +2225,59 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::NodeObserver")]
-    public partial interface NodeObserver : global::Ice.Object, NodeObserverOperations_
+    public partial interface NodeObserver : global::Ice.Object
     {
+        /// <summary>
+        /// The nodeInit operation indicates the current state of nodes.
+        /// It is called after the
+        ///  registration of an observer.
+        /// </summary>
+        ///  <param name="nodes">The current state of the nodes.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void nodeInit(NodeDynamicInfo[] nodes, global::Ice.Current current);
+
+        /// <summary>
+        /// The nodeUp operation is called to notify an observer that a node came up.
+        /// </summary>
+        /// <param name="node">The node state.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void nodeUp(NodeDynamicInfo node, global::Ice.Current current);
+
+        /// <summary>
+        /// The nodeDown operation is called to notify an observer that a node went down.
+        /// </summary>
+        /// <param name="name">The node name.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void nodeDown(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// The updateServer operation is called to notify an observer that the state of a server changed.
+        /// </summary>
+        /// <param name="node">The node hosting the server.
+        ///  </param>
+        /// <param name="updatedInfo">The new server state.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.Current current);
+
+        /// <summary>
+        /// The updateAdapter operation is called to notify an observer that the state of an adapter
+        ///  changed.
+        /// </summary>
+        /// <param name="node">The node hosting the adapter.
+        ///  </param>
+        /// <param name="updatedInfo">The new adapter state.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1554,8 +2292,55 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::ApplicationObserver")]
-    public partial interface ApplicationObserver : global::Ice.Object, ApplicationObserverOperations_
+    public partial interface ApplicationObserver : global::Ice.Object
     {
+        /// <summary>
+        /// applicationInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
+        /// </summary>
+        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to
+        ///  make sure that their internal state is synchronized with the registry.
+        ///  </param>
+        /// <param name="applications">The applications currently registered with the registry.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current);
+
+        /// <summary>
+        /// The applicationAdded operation is called to notify an observer that an application was added.
+        /// </summary>
+        /// <param name="serial">The new serial number of the registry database.
+        ///  </param>
+        /// <param name="desc">The descriptor of the new application.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current);
+
+        /// <summary>
+        /// The applicationRemoved operation is called to notify an observer that an application was
+        ///  removed.
+        /// </summary>
+        /// <param name="serial">The new serial number of the registry database.
+        ///  </param>
+        /// <param name="name">The name of the application that was removed.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void applicationRemoved(int serial, string name, global::Ice.Current current);
+
+        /// <summary>
+        /// The applicationUpdated operation is called to notify an observer that an application was
+        ///  updated.
+        /// </summary>
+        /// <param name="serial">The new serial number of the registry database.
+        ///  </param>
+        /// <param name="desc">The descriptor of the update.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1570,8 +2355,47 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::AdapterObserver")]
-    public partial interface AdapterObserver : global::Ice.Object, AdapterObserverOperations_
+    public partial interface AdapterObserver : global::Ice.Object
     {
+        /// <summary>
+        /// adapterInit is called after registration of an observer to indicate the state of the registry.
+        /// </summary>
+        /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
+        ///  mechanism).</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void adapterInit(AdapterInfo[] adpts, global::Ice.Current current);
+
+        /// <summary>
+        /// The adapterAdded operation is called to notify an observer when a dynamically-registered
+        ///  adapter was added.
+        /// </summary>
+        /// <param name="info">The details of the new adapter.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void adapterAdded(AdapterInfo info, global::Ice.Current current);
+
+        /// <summary>
+        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+        ///  updated.
+        /// </summary>
+        /// <param name="info">The details of the updated adapter.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void adapterUpdated(AdapterInfo info, global::Ice.Current current);
+
+        /// <summary>
+        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+        ///  removed.
+        /// </summary>
+        /// <param name="id">The ID of the removed adapter.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void adapterRemoved(string id, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1586,8 +2410,48 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::ObjectObserver")]
-    public partial interface ObjectObserver : global::Ice.Object, ObjectObserverOperations_
+    public partial interface ObjectObserver : global::Ice.Object
     {
+        /// <summary>
+        /// objectInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
+        /// </summary>
+        /// <param name="objects">The objects registered with the Admin interface (not through the deployment
+        ///  mechanism).</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void objectInit(ObjectInfo[] objects, global::Ice.Current current);
+
+        /// <summary>
+        /// The objectAdded operation is called to notify an observer when an object was added to the
+        ///  Admin interface.
+        /// </summary>
+        /// <param name="info">The details of the added object.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void objectAdded(ObjectInfo info, global::Ice.Current current);
+
+        /// <summary>
+        /// objectUpdated is called to notify an observer when an object registered with the Admin
+        ///  interface was updated.
+        /// </summary>
+        /// <param name="info">The details of the updated object.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void objectUpdated(ObjectInfo info, global::Ice.Current current);
+
+        /// <summary>
+        /// objectRemoved is called to notify an observer when an object registered with the Admin
+        ///  interface was removed.
+        /// </summary>
+        /// <param name="id">The identity of the removed object.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void objectRemoved(global::Ice.Identity id, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1602,8 +2466,265 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::AdminSession")]
-    public partial interface AdminSession : global::Ice.Object, AdminSessionOperations_, global::Glacier2.Session
+    public partial interface AdminSession : global::Ice.Object, global::Glacier2.Session
     {
+        /// <summary>
+        /// Keep the session alive.
+        /// This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+        ///  need to call this operation and its implementation does nothing.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void keepAlive(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the admin interface.
+        /// The admin object returned by this operation can only be accessed by the session.
+        /// </summary>
+        ///  <returns>The admin interface proxy. The returned proxy is never null.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        AdminPrx? getAdmin(global::Ice.Current current);
+
+        /// <summary>
+        /// Get a "template" proxy for admin callback objects.
+        /// An Admin client uses this proxy to set the category of
+        ///  its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+        /// </summary>
+        ///  <returns>A template proxy. The returned proxy is null when the Admin session was established using Glacier2.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? getAdminCallbackTemplate(global::Ice.Current current);
+
+        /// <summary>
+        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
+        /// </summary>
+        /// <param name="registryObs">The registry observer.
+        ///  </param>
+        /// <param name="nodeObs">The node observer.
+        ///  </param>
+        /// <param name="appObs">The application observer.
+        ///  </param>
+        /// <param name="adptObs">The adapter observer.
+        ///  </param>
+        /// <param name="objObs">The object observer.
+        ///  </param>
+        /// <exception name="ObserverAlreadyRegisteredException">Raised if an observer is already registered with this registry.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void setObservers(RegistryObserverPrx? registryObs, NodeObserverPrx? nodeObs, ApplicationObserverPrx? appObs, AdapterObserverPrx? adptObs, ObjectObserverPrx? objObs, global::Ice.Current current);
+
+        /// <summary>
+        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
+        /// This
+        ///  operation should be used by clients that are using a bidirectional connection to communicate with the
+        ///  session.
+        /// </summary>
+        ///  <param name="registryObs">The registry observer identity.
+        ///  </param>
+        /// <param name="nodeObs">The node observer identity.
+        ///  </param>
+        /// <param name="appObs">The application observer.
+        ///  </param>
+        /// <param name="adptObs">The adapter observer.
+        ///  </param>
+        /// <param name="objObs">The object observer.
+        ///  </param>
+        /// <exception name="ObserverAlreadyRegisteredException">Raised if an observer is already registered with this registry.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.Current current);
+
+        /// <summary>
+        /// Acquires an exclusive lock to start updating the registry applications.
+        /// </summary>
+        /// <returns>The current serial.
+        ///  </returns>
+        /// <exception name="AccessDeniedException">Raised if the exclusive lock can't be acquired. This might happen if the lock
+        ///  is currently acquired by another session.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        int startUpdate(global::Ice.Current current);
+
+        /// <summary>
+        /// Finish updating the registry and release the exclusive lock.
+        /// </summary>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void finishUpdate(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the name of the registry replica hosting this session.
+        /// </summary>
+        /// <returns>The replica name of the registry.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string getReplicaName(global::Ice.Current current);
+
+        /// <summary>
+        /// Open the given server log file for reading.
+        /// The file can be read with the returned file iterator.
+        /// </summary>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or
+        ///  service deployment descriptor.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
+        ///  </param>
+        /// <returns>An iterator to read the file. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        FileIteratorPrx? openServerLog(string id, string path, int count, global::Ice.Current current);
+
+        /// <summary>
+        /// Open the given server stderr file for reading.
+        /// The file can be read with the returned file iterator.
+        /// </summary>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
+        ///  </param>
+        /// <returns>An iterator to read the file. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        FileIteratorPrx? openServerStdErr(string id, int count, global::Ice.Current current);
+
+        /// <summary>
+        /// Open the given server stdout file for reading.
+        /// The file can be read with the returned file iterator.
+        /// </summary>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
+        ///  If 0 or positive, the file is read from the last count lines.
+        ///  </param>
+        /// <returns>An iterator to read the file. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///   </exception>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        FileIteratorPrx? openServerStdOut(string id, int count, global::Ice.Current current);
+
+        /// <summary>
+        /// Open the given node stderr file for reading.
+        /// The file can be read with the returned file iterator.
+        /// </summary>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
+        ///  </param>
+        /// <returns>An iterator to read the file. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        FileIteratorPrx? openNodeStdErr(string name, int count, global::Ice.Current current);
+
+        /// <summary>
+        /// Open the given node stdout file for reading.
+        /// The file can be read with the returned file iterator.
+        /// </summary>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
+        ///  </param>
+        /// <returns>An iterator to read the file. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        FileIteratorPrx? openNodeStdOut(string name, int count, global::Ice.Current current);
+
+        /// <summary>
+        /// Open the given registry stderr file for reading.
+        /// The file can be read with the returned file iterator.
+        /// </summary>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
+        ///  </param>
+        /// <returns>An iterator to read the file. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        FileIteratorPrx? openRegistryStdErr(string name, int count, global::Ice.Current current);
+
+        /// <summary>
+        /// Open the given registry stdout file for reading.
+        /// The file can be read with the returned file iterator.
+        /// </summary>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
+        ///  </param>
+        /// <returns>An iterator to read the file. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        FileIteratorPrx? openRegistryStdOut(string name, int count, global::Ice.Current current);
     }
 }
 
@@ -3700,1211 +4821,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<FileIteratorPrx?> openRegistryStdOutAsync(string name, int count, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceGrid
-{
-    /// <summary>
-    /// The IceGrid administrative interface.
-    /// &lt;p class="Warning"&gt;Allowing access to this interface is a security risk!
-    ///  Please see the IceGrid documentation for further information.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface AdminOperations_
-    {
-        /// <summary>
-        /// Add an application to IceGrid.
-        /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
-        ///  holding the lock.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void addApplication(ApplicationDescriptor descriptor, global::Ice.Current current);
-
-        /// <summary>
-        /// Synchronize a deployed application with the given application descriptor.
-        /// This operation will replace the
-        ///  current descriptor with this new descriptor.
-        /// </summary>
-        ///  <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
-        ///  holding the lock.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if application deployment failed.
-        ///  </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void syncApplication(ApplicationDescriptor descriptor, global::Ice.Current current);
-
-        /// <summary>
-        /// Update a deployed application with the given update application descriptor.
-        /// </summary>
-        /// <param name="descriptor">The update descriptor.
-        ///  </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
-        ///  holding the lock.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if application deployment failed.
-        ///  </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.Current current);
-
-        /// <summary>
-        /// Synchronize a deployed application with the given application descriptor.
-        /// This operation will replace the
-        ///  current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-        ///  application. If some servers need to be restarted, the synchronization is rejected with a
-        ///  DeploymentException.
-        /// </summary>
-        ///  <param name="descriptor">The application descriptor.
-        ///  </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
-        ///  holding the lock.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if application deployment failed.
-        ///  </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.Current current);
-
-        /// <summary>
-        /// Update a deployed application with the given update application descriptor only if no server restarts are
-        ///  necessary for the update of the application.
-        /// If some servers need to be restarted, the synchronization is
-        ///  rejected with a DeploymentException.
-        /// </summary>
-        ///  <param name="descriptor">The update descriptor.
-        ///  </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
-        ///  holding the lock.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if application deployment failed.
-        ///  </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.Current current);
-
-        /// <summary>
-        /// Remove an application from IceGrid.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
-        ///  holding the lock.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if application deployment failed.
-        ///  </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void removeApplication(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Instantiate a server template from an application on the given node.
-        /// </summary>
-        /// <param name="application">The application name.
-        ///  </param>
-        /// <param name="node">The name of the node where the server will be deployed.
-        ///  </param>
-        /// <param name="desc">The descriptor of the server instance to deploy.
-        ///  </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
-        ///  holding the lock.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if server instantiation failed.
-        ///  </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.Current current);
-
-        /// <summary>
-        /// Get an application descriptor.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <returns>The application descriptor.
-        ///  </returns>
-        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ApplicationInfo getApplicationInfo(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the default application descriptor.
-        /// </summary>
-        /// <returns>The default application descriptor.
-        ///  </returns>
-        /// <exception name="DeploymentException">Raised if the default application descriptor can't be accessed or is invalid.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ApplicationDescriptor getDefaultApplicationDescriptor(global::Ice.Current current);
-
-        /// <summary>
-        /// Get all the IceGrid applications currently registered.
-        /// </summary>
-        /// <returns>The application names.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getAllApplicationNames(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the server information for the server with the given id.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///  </exception>
-        /// <returns>The server information.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ServerInfo getServerInfo(string id, global::Ice.Current current);
-
-        /// <summary>
-        /// Get a server's state.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <returns>The server state.
-        ///  </returns>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ServerState getServerState(string id, global::Ice.Current current);
-
-        /// <summary>
-        /// Get a server's system process id.
-        /// The process id is operating system dependent.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <returns>The server's process id.
-        ///  </returns>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getServerPid(string id, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the category for server admin objects.
-        /// You can manufacture a server admin proxy from the admin proxy by
-        ///  changing its identity: use the server ID as name and the returned category as category.
-        /// </summary>
-        ///  <returns>The category for server admin objects.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getServerAdminCategory(global::Ice.Current current);
-
-        /// <summary>
-        /// Get a proxy to the server's admin object.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <returns>A proxy to the server's admin object. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getServerAdmin(string id, global::Ice.Current current);
-
-        /// <summary>
-        /// Enable or disable a server.
-        /// A disabled server can't be started on demand or administratively. The enable
-        ///  state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
-        ///  default.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="enabled">True to enable the server, false to disable it.
-        ///  </param>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void enableServer(string id, bool enabled, global::Ice.Current current);
-
-        /// <summary>
-        /// Check if the server is enabled or disabled.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <returns>True if the server is enabled.
-        ///  </returns>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool isServerEnabled(string id, global::Ice.Current current);
-
-        /// <summary>
-        /// Start a server and wait for its activation.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task startServerAsync(string id, global::Ice.Current current);
-
-        /// <summary>
-        /// Stop a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task stopServerAsync(string id, global::Ice.Current current);
-
-        /// <summary>
-        /// Send signal to a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="signal">The signal, for example SIGTERM or 15.
-        ///  </param>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.
-        ///  </exception>
-        /// <exception name="BadSignalException">Raised if the signal is not recognized by the target server.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void sendSignal(string id, string signal, global::Ice.Current current);
-
-        /// <summary>
-        /// Get all the server ids registered with IceGrid.
-        /// </summary>
-        /// <returns>The server ids.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getAllServerIds(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the adapter information for the replica group or adapter with the given id.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <returns>A sequence of adapter information structures. If the given id refers to an adapter, this sequence
-        ///  will contain only one element. If the given id refers to a replica group, the sequence will contain the
-        ///  adapter information of each member of the replica group.
-        ///  </returns>
-        /// <exception name="AdapterNotExistException">Raised if the adapter or replica group doesn't exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        AdapterInfo[] getAdapterInfo(string id, global::Ice.Current current);
-
-        /// <summary>
-        /// Remove the adapter with the given id.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't exist.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void removeAdapter(string id, global::Ice.Current current);
-
-        /// <summary>
-        /// Get all the adapter ids registered with IceGrid.
-        /// </summary>
-        /// <returns>The adapter ids.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getAllAdapterIds(global::Ice.Current current);
-
-        /// <summary>
-        /// Add an object to the object registry.
-        /// IceGrid will get the object type by calling ice_id on the
-        ///  given proxy. The object must be reachable.
-        /// </summary>
-        ///  <param name="obj">The object to be added to the registry.
-        ///  </param>
-        /// <exception name="ObjectExistsException">Raised if the object is already registered.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the object can't be added. This might be raised if the invocation on
-        ///  the proxy to get the object type failed.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void addObject(global::Ice.ObjectPrx? obj, global::Ice.Current current);
-
-        /// <summary>
-        /// Update an object in the object registry.
-        /// Only objects added with this interface can be updated with this
-        ///  operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
-        /// </summary>
-        ///  <param name="obj">The object to be updated to the registry.
-        ///  </param>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the object can't be updated. This might happen if the object was added
-        ///  with a deployment descriptor.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void updateObject(global::Ice.ObjectPrx? obj, global::Ice.Current current);
-
-        /// <summary>
-        /// Add an object to the object registry and explicitly specify its type.
-        /// </summary>
-        /// <param name="obj">The object to be added to the registry. The proxy is never null.
-        ///  </param>
-        /// <param name="type">The object type.
-        ///  </param>
-        /// <exception name="ObjectExistsException">Raised if the object is already registered.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void addObjectWithType(global::Ice.ObjectPrx? obj, string type, global::Ice.Current current);
-
-        /// <summary>
-        /// Remove an object from the object registry.
-        /// Only objects added with this interface can be removed with this
-        ///  operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
-        /// </summary>
-        ///  <param name="id">The identity of the object to be removed from the registry.
-        ///  </param>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the object can't be removed. This might happen if the object was added
-        ///  with a deployment descriptor.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void removeObject(global::Ice.Identity id, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the object info for the object with the given identity.
-        /// </summary>
-        /// <param name="id">The identity of the object.
-        ///  </param>
-        /// <returns>The object info.
-        ///  </returns>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectInfo getObjectInfo(global::Ice.Identity id, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the object info of all the registered objects with the given type.
-        /// </summary>
-        /// <param name="type">The type of the object.
-        ///  </param>
-        /// <returns>The object infos.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectInfo[] getObjectInfosByType(string type, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the object info of all the registered objects whose stringified identities match the given expression.
-        /// </summary>
-        /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
-        ///  may contain a trailing wildcard (*) character.
-        ///  </param>
-        /// <returns>All the object infos with a stringified identity matching the given expression.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ObjectInfo[] getAllObjectInfos(string expr, global::Ice.Current current);
-
-        /// <summary>
-        /// Ping an IceGrid node to see if it is active.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <returns>true if the node ping succeeded, false otherwise.
-        ///  </returns>
-        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool pingNode(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the load averages of the node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <returns>The node load information.
-        ///  </returns>
-        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LoadInfo getNodeLoad(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the node information for the node with the given name.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <returns>The node information.
-        ///  </returns>
-        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        NodeInfo getNodeInfo(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Get a proxy to the IceGrid node's admin object.
-        /// </summary>
-        /// <param name="name">The IceGrid node name
-        ///  </param>
-        /// <returns>A proxy to the IceGrid node's admin object. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getNodeAdmin(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the number of physical processor sockets for the machine running the node with the given name.
-        /// Note that this method will return 1 on operating systems where this can't be automatically determined and
-        ///  where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <returns>The number of processor sockets or 1 if the number of sockets can't determined.
-        ///  </returns>
-        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getNodeProcessorSocketCount(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Shutdown an IceGrid node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdownNode(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the hostname of this node.
-        /// </summary>
-        /// <param name="name">The node name.
-        ///  </param>
-        /// <returns>The node hostname.
-        ///  </returns>
-        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getNodeHostname(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Get all the IceGrid nodes currently registered.
-        /// </summary>
-        /// <returns>The node names.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getAllNodeNames(global::Ice.Current current);
-
-        /// <summary>
-        /// Ping an IceGrid registry to see if it is active.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <returns>true if the registry ping succeeded, false otherwise.
-        ///  </returns>
-        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool pingRegistry(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the registry information for the registry with the given name.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <returns>The registry information.
-        ///  </returns>
-        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
-        ///  </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        RegistryInfo getRegistryInfo(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Get a proxy to the IceGrid registry's admin object.
-        /// </summary>
-        /// <param name="name">The registry name
-        ///  </param>
-        /// <returns>A proxy to the IceGrid registry's admin object. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getRegistryAdmin(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Shutdown an IceGrid registry.
-        /// </summary>
-        /// <param name="name">The registry name.
-        ///  </param>
-        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
-        ///  </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdownRegistry(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Get all the IceGrid registries currently registered.
-        /// </summary>
-        /// <returns>The registry names.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getAllRegistryNames(global::Ice.Current current);
-
-        /// <summary>
-        /// Shut down the IceGrid registry.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// This interface provides access to IceGrid log file contents.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface FileIteratorOperations_
-    {
-        /// <summary>
-        /// Read lines from the log file.
-        /// </summary>
-        /// <param name="size">Specifies the maximum number of bytes to be received. The server will ensure that the returned
-        ///  message doesn't exceed the given size.
-        ///  </param>
-        /// <param name="lines">The lines read from the file. If there was nothing to read from the file since the last call to
-        ///  read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
-        ///  '\n' should be added when writing the last line to the to the output device).
-        ///  </param>
-        /// <returns>True if EOF is encountered.
-        ///  </returns>
-        /// <exception name="FileNotAvailableException">Raised if there was a problem to read lines from the file.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool read(int size, out string[] lines, global::Ice.Current current);
-
-        /// <summary>
-        /// Destroy the iterator.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// This interface allows applications to monitor changes the state of the registry.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface RegistryObserverOperations_
-    {
-        /// <summary>
-        /// The registryInit operation is called after registration of an observer to indicate the state of
-        ///  the registries.
-        /// </summary>
-        /// <param name="registries">The current state of the registries.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void registryInit(RegistryInfo[] registries, global::Ice.Current current);
-
-        /// <summary>
-        /// The registryUp operation is called to notify an observer that a registry replica came up.
-        /// </summary>
-        /// <param name="registryReplica">The registry state.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void registryUp(RegistryInfo registryReplica, global::Ice.Current current);
-
-        /// <summary>
-        /// The registryDown operation is called to notify an observer that a registry replica went down.
-        /// </summary>
-        /// <param name="name">The registry name.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void registryDown(string name, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// The node observer interface.
-    /// Observers should implement this interface to receive information about the state of
-    ///  the IceGrid nodes.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface NodeObserverOperations_
-    {
-        /// <summary>
-        /// The nodeInit operation indicates the current state of nodes.
-        /// It is called after the
-        ///  registration of an observer.
-        /// </summary>
-        ///  <param name="nodes">The current state of the nodes.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void nodeInit(NodeDynamicInfo[] nodes, global::Ice.Current current);
-
-        /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node came up.
-        /// </summary>
-        /// <param name="node">The node state.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void nodeUp(NodeDynamicInfo node, global::Ice.Current current);
-
-        /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node went down.
-        /// </summary>
-        /// <param name="name">The node name.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void nodeDown(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// The updateServer operation is called to notify an observer that the state of a server changed.
-        /// </summary>
-        /// <param name="node">The node hosting the server.
-        ///  </param>
-        /// <param name="updatedInfo">The new server state.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.Current current);
-
-        /// <summary>
-        /// The updateAdapter operation is called to notify an observer that the state of an adapter
-        ///  changed.
-        /// </summary>
-        /// <param name="node">The node hosting the adapter.
-        ///  </param>
-        /// <param name="updatedInfo">The new adapter state.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// The database observer interface.
-    /// Observers should implement this interface to receive information about the
-    ///  state of the IceGrid registry database.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface ApplicationObserverOperations_
-    {
-        /// <summary>
-        /// applicationInit is called after the registration of an observer to indicate the state of the
-        ///  registry.
-        /// </summary>
-        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to
-        ///  make sure that their internal state is synchronized with the registry.
-        ///  </param>
-        /// <param name="applications">The applications currently registered with the registry.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current);
-
-        /// <summary>
-        /// The applicationAdded operation is called to notify an observer that an application was added.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="desc">The descriptor of the new application.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current);
-
-        /// <summary>
-        /// The applicationRemoved operation is called to notify an observer that an application was
-        ///  removed.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="name">The name of the application that was removed.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void applicationRemoved(int serial, string name, global::Ice.Current current);
-
-        /// <summary>
-        /// The applicationUpdated operation is called to notify an observer that an application was
-        ///  updated.
-        /// </summary>
-        /// <param name="serial">The new serial number of the registry database.
-        ///  </param>
-        /// <param name="desc">The descriptor of the update.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface AdapterObserverOperations_
-    {
-        /// <summary>
-        /// adapterInit is called after registration of an observer to indicate the state of the registry.
-        /// </summary>
-        /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
-        ///  mechanism).</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void adapterInit(AdapterInfo[] adpts, global::Ice.Current current);
-
-        /// <summary>
-        /// The adapterAdded operation is called to notify an observer when a dynamically-registered
-        ///  adapter was added.
-        /// </summary>
-        /// <param name="info">The details of the new adapter.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void adapterAdded(AdapterInfo info, global::Ice.Current current);
-
-        /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
-        ///  updated.
-        /// </summary>
-        /// <param name="info">The details of the updated adapter.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void adapterUpdated(AdapterInfo info, global::Ice.Current current);
-
-        /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
-        ///  removed.
-        /// </summary>
-        /// <param name="id">The ID of the removed adapter.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void adapterRemoved(string id, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// This interface allows applications to monitor IceGrid well-known objects.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface ObjectObserverOperations_
-    {
-        /// <summary>
-        /// objectInit is called after the registration of an observer to indicate the state of the
-        ///  registry.
-        /// </summary>
-        /// <param name="objects">The objects registered with the Admin interface (not through the deployment
-        ///  mechanism).</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void objectInit(ObjectInfo[] objects, global::Ice.Current current);
-
-        /// <summary>
-        /// The objectAdded operation is called to notify an observer when an object was added to the
-        ///  Admin interface.
-        /// </summary>
-        /// <param name="info">The details of the added object.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void objectAdded(ObjectInfo info, global::Ice.Current current);
-
-        /// <summary>
-        /// objectUpdated is called to notify an observer when an object registered with the Admin
-        ///  interface was updated.
-        /// </summary>
-        /// <param name="info">The details of the updated object.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void objectUpdated(ObjectInfo info, global::Ice.Current current);
-
-        /// <summary>
-        /// objectRemoved is called to notify an observer when an object registered with the Admin
-        ///  interface was removed.
-        /// </summary>
-        /// <param name="id">The identity of the removed object.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void objectRemoved(global::Ice.Identity id, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry.
-    /// Admin
-    ///  sessions are created either via the Registry object or via the registry admin
-    ///  SessionManager object.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface AdminSessionOperations_ : global::Glacier2.SessionOperations_
-    {
-        /// <summary>
-        /// Keep the session alive.
-        /// This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-        ///  need to call this operation and its implementation does nothing.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void keepAlive(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the admin interface.
-        /// The admin object returned by this operation can only be accessed by the session.
-        /// </summary>
-        ///  <returns>The admin interface proxy. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        AdminPrx? getAdmin(global::Ice.Current current);
-
-        /// <summary>
-        /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of
-        ///  its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
-        /// </summary>
-        ///  <returns>A template proxy. The returned proxy is null when the Admin session was established using Glacier2.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getAdminCallbackTemplate(global::Ice.Current current);
-
-        /// <summary>
-        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-        /// </summary>
-        /// <param name="registryObs">The registry observer.
-        ///  </param>
-        /// <param name="nodeObs">The node observer.
-        ///  </param>
-        /// <param name="appObs">The application observer.
-        ///  </param>
-        /// <param name="adptObs">The adapter observer.
-        ///  </param>
-        /// <param name="objObs">The object observer.
-        ///  </param>
-        /// <exception name="ObserverAlreadyRegisteredException">Raised if an observer is already registered with this registry.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setObservers(RegistryObserverPrx? registryObs, NodeObserverPrx? nodeObs, ApplicationObserverPrx? appObs, AdapterObserverPrx? adptObs, ObjectObserverPrx? objObs, global::Ice.Current current);
-
-        /// <summary>
-        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
-        /// This
-        ///  operation should be used by clients that are using a bidirectional connection to communicate with the
-        ///  session.
-        /// </summary>
-        ///  <param name="registryObs">The registry observer identity.
-        ///  </param>
-        /// <param name="nodeObs">The node observer identity.
-        ///  </param>
-        /// <param name="appObs">The application observer.
-        ///  </param>
-        /// <param name="adptObs">The adapter observer.
-        ///  </param>
-        /// <param name="objObs">The object observer.
-        ///  </param>
-        /// <exception name="ObserverAlreadyRegisteredException">Raised if an observer is already registered with this registry.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.Current current);
-
-        /// <summary>
-        /// Acquires an exclusive lock to start updating the registry applications.
-        /// </summary>
-        /// <returns>The current serial.
-        ///  </returns>
-        /// <exception name="AccessDeniedException">Raised if the exclusive lock can't be acquired. This might happen if the lock
-        ///  is currently acquired by another session.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int startUpdate(global::Ice.Current current);
-
-        /// <summary>
-        /// Finish updating the registry and release the exclusive lock.
-        /// </summary>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void finishUpdate(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the name of the registry replica hosting this session.
-        /// </summary>
-        /// <returns>The replica name of the registry.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getReplicaName(global::Ice.Current current);
-
-        /// <summary>
-        /// Open the given server log file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or
-        ///  service deployment descriptor.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
-        ///  0 or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <returns>An iterator to read the file. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
-        ///  </exception>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openServerLog(string id, string path, int count, global::Ice.Current current);
-
-        /// <summary>
-        /// Open the given server stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
-        ///  0 or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <returns>An iterator to read the file. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
-        ///  </exception>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openServerStdErr(string id, int count, global::Ice.Current current);
-
-        /// <summary>
-        /// Open the given server stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="id">The server id.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
-        ///  If 0 or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <returns>An iterator to read the file. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
-        ///   </exception>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openServerStdOut(string id, int count, global::Ice.Current current);
-
-        /// <summary>
-        /// Open the given node stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
-        ///  0 or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <returns>An iterator to read the file. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
-        ///  </exception>
-        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openNodeStdErr(string name, int count, global::Ice.Current current);
-
-        /// <summary>
-        /// Open the given node stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The node name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
-        ///  0 or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <returns>An iterator to read the file. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
-        ///  </exception>
-        /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openNodeStdOut(string name, int count, global::Ice.Current current);
-
-        /// <summary>
-        /// Open the given registry stderr file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The registry name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
-        ///  0 or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <returns>An iterator to read the file. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
-        ///  </exception>
-        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
-        ///  </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openRegistryStdErr(string name, int count, global::Ice.Current current);
-
-        /// <summary>
-        /// Open the given registry stdout file for reading.
-        /// The file can be read with the returned file iterator.
-        /// </summary>
-        ///  <param name="name">The registry name.
-        ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
-        ///  0 or positive, the file is read from the last count lines.
-        ///  </param>
-        /// <returns>An iterator to read the file. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
-        ///  </exception>
-        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
-        ///  </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileIteratorPrx? openRegistryStdOut(string name, int count, global::Ice.Current current);
     }
 }
 

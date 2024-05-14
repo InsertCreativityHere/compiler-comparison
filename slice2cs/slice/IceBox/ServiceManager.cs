@@ -207,8 +207,25 @@ namespace IceBox
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceBox::ServiceObserver")]
-    public partial interface ServiceObserver : global::Ice.Object, ServiceObserverOperations_
+    public partial interface ServiceObserver : global::Ice.Object
     {
+        /// <summary>
+        /// Receives the names of the services that were started.
+        /// </summary>
+        /// <param name="services">The names of the services.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void servicesStarted(string[] services, global::Ice.Current current);
+
+        /// <summary>
+        /// Receives the names of the services that were stopped.
+        /// </summary>
+        /// <param name="services">The names of the services.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void servicesStopped(string[] services, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -223,8 +240,51 @@ namespace IceBox
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceBox::ServiceManager")]
-    public partial interface ServiceManager : global::Ice.Object, ServiceManagerOperations_
+    public partial interface ServiceManager : global::Ice.Object
     {
+        /// <summary>
+        /// Start an individual service.
+        /// </summary>
+        /// <param name="service">The service name.
+        ///  </param>
+        /// <exception name="AlreadyStartedException">If the service is already running.
+        ///  </exception>
+        /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void startService(string service, global::Ice.Current current);
+
+        /// <summary>
+        /// Stop an individual service.
+        /// </summary>
+        /// <param name="service">The service name.
+        ///  </param>
+        /// <exception name="AlreadyStoppedException">If the service is already stopped.
+        ///  </exception>
+        /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void stopService(string service, global::Ice.Current current);
+
+        /// <summary>
+        /// Registers a new observer with the ServiceManager.
+        /// </summary>
+        /// <param name="observer">The new observer</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void addObserver(ServiceObserverPrx? observer, global::Ice.Current current);
+
+        /// <summary>
+        /// Shut down all services.
+        /// This causes stop to be invoked on all configured services.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void shutdown(global::Ice.Current current);
     }
 }
 
@@ -362,87 +422,6 @@ namespace IceBox
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceBox
-{
-    /// <summary>
-    /// An Observer interface implemented by admin clients interested in the status of services.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface ServiceObserverOperations_
-    {
-        /// <summary>
-        /// Receives the names of the services that were started.
-        /// </summary>
-        /// <param name="services">The names of the services.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void servicesStarted(string[] services, global::Ice.Current current);
-
-        /// <summary>
-        /// Receives the names of the services that were stopped.
-        /// </summary>
-        /// <param name="services">The names of the services.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void servicesStopped(string[] services, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// Administers a set of IceBox Service instances.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface ServiceManagerOperations_
-    {
-        /// <summary>
-        /// Start an individual service.
-        /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <exception name="AlreadyStartedException">If the service is already running.
-        ///  </exception>
-        /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void startService(string service, global::Ice.Current current);
-
-        /// <summary>
-        /// Stop an individual service.
-        /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <exception name="AlreadyStoppedException">If the service is already stopped.
-        ///  </exception>
-        /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void stopService(string service, global::Ice.Current current);
-
-        /// <summary>
-        /// Registers a new observer with the ServiceManager.
-        /// </summary>
-        /// <param name="observer">The new observer</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void addObserver(ServiceObserverPrx? observer, global::Ice.Current current);
-
-        /// <summary>
-        /// Shut down all services.
-        /// This causes stop to be invoked on all configured services.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(global::Ice.Current current);
     }
 }
 

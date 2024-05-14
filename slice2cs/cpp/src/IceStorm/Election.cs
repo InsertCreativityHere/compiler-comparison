@@ -216,8 +216,80 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStormElection::ReplicaObserver")]
-    public partial interface ReplicaObserver : global::Ice.Object, ReplicaObserverOperations_
+    public partial interface ReplicaObserver : global::Ice.Object
     {
+        /// <summary>
+        /// Initialize the observer.
+        /// </summary>
+        /// <param name="llu">The last log update seen by the master.
+        ///  </param>
+        /// <param name="content">The topic content.
+        ///  </param>
+        /// <exception name="ObserverInconsistencyException">Raised if an
+        ///  inconsisency was detected.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void init(LogUpdate llu, TopicContent[] content, global::Ice.Current current);
+
+        /// <summary>
+        /// Create the topic with the given name.
+        /// </summary>
+        /// <param name="llu">The log update token.
+        ///  </param>
+        /// <param name="name">The topic name.
+        ///  </param>
+        /// <exception name="ObserverInconsistencyException">Raised if an
+        ///  inconsisency was detected.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void createTopic(LogUpdate llu, string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Destroy the topic with the given name.
+        /// </summary>
+        /// <param name="llu">The log update token.
+        ///  </param>
+        /// <param name="name">The topic name.
+        ///  </param>
+        /// <exception name="ObserverInconsistencyException">Raised if an
+        ///  inconsisency was detected.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void destroyTopic(LogUpdate llu, string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Add a subscriber to a topic.
+        /// </summary>
+        /// <param name="llu">The log update token.
+        ///  </param>
+        /// <param name="topic">The topic name to which to add the subscriber.
+        ///  </param>
+        /// <param name="record">The subscriber information.
+        ///  </param>
+        /// <exception name="ObserverInconsistencyException">Raised if an
+        ///  inconsisency was detected.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.Current current);
+
+        /// <summary>
+        /// Remove a subscriber from a topic.
+        /// </summary>
+        /// <param name="llu">The log update token.
+        ///  </param>
+        /// <param name="name">The topic name.
+        ///  </param>
+        /// <param name="subscribers">The identities of the subscribers to remove.
+        ///  </param>
+        /// <exception name="ObserverInconsistencyException">Raised if an inconsisency was detected.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -232,8 +304,18 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStormElection::TopicManagerSync")]
-    public partial interface TopicManagerSync : global::Ice.Object, TopicManagerSyncOperations_
+    public partial interface TopicManagerSync : global::Ice.Object
     {
+        /// <summary>
+        /// Retrieve the topic content.
+        /// </summary>
+        /// <param name="llu">The last log update token.
+        ///  </param>
+        /// <param name="content">The topic content.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void getContent(out LogUpdate llu, out TopicContent[] content, global::Ice.Current current);
     }
 
     /// <summary>
@@ -632,8 +714,103 @@ namespace IceStormElection
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStormElection::Node")]
-    public partial interface Node : global::Ice.Object, NodeOperations_
+    public partial interface Node : global::Ice.Object
     {
+        /// <summary>
+        /// Invite the node into a group with the given coordinator and group name.
+        /// </summary>
+        /// <param name="gn">The group name.
+        ///  </param>
+        /// <param name="j">The group coordinator.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void invitation(int j, string gn, global::Ice.Current current);
+
+        /// <summary>
+        /// Call from the group coordinator to a node to inform the node that the replica group is active.
+        /// </summary>
+        /// <param name="j">The group coordinator.
+        ///  </param>
+        /// <param name="gn">The group name.
+        ///  </param>
+        /// <param name="coordinator">The proxy to the coordinator.
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.
+        ///  </param>
+        /// <param name="generation">The current generation count.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::Ice.Current current);
+
+        /// <summary>
+        /// Called to accept an invitation into the given group.
+        /// </summary>
+        /// <param name="j">The id of the node accepting the invitation.
+        ///  </param>
+        /// <param name="observer">The observer.
+        ///  </param>
+        /// <param name="gn">The group name.
+        ///  </param>
+        /// <param name="forwardedInvites">The ids of the nodes to which invitations were forwarded.
+        ///  </param>
+        /// <param name="llu">The last log update for the given node.
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::Ice.Current current);
+
+        /// <summary>
+        /// Determine if this node is a coordinator.
+        /// </summary>
+        /// <returns>True if the node is a coordinator, false otherwise.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool areYouCoordinator(global::Ice.Current current);
+
+        /// <summary>
+        /// Determine if the node is a member of the given group with the given coordinator.
+        /// </summary>
+        /// <param name="gn">The group name.
+        ///  </param>
+        /// <param name="j">The group coordinator.
+        ///  </param>
+        /// <returns>True if the node is a member, false otherwise.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool areYouThere(string gn, int j, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the sync object for the replica hosted by this node.
+        /// </summary>
+        /// <returns>The sync object.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? sync(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the replication group information.
+        /// </summary>
+        /// <returns>The set of configured nodes and the associated priority.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        NodeInfo[] nodes(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the query information for the given node.
+        /// </summary>
+        /// <returns>The query information.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        QueryInfo query(global::Ice.Current current);
     }
 }
 
@@ -1007,213 +1184,6 @@ namespace IceStormElection
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<QueryInfo> queryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceStormElection
-{
-    /// <summary>
-    /// The replica observer.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface ReplicaObserverOperations_
-    {
-        /// <summary>
-        /// Initialize the observer.
-        /// </summary>
-        /// <param name="llu">The last log update seen by the master.
-        ///  </param>
-        /// <param name="content">The topic content.
-        ///  </param>
-        /// <exception name="ObserverInconsistencyException">Raised if an
-        ///  inconsisency was detected.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void init(LogUpdate llu, TopicContent[] content, global::Ice.Current current);
-
-        /// <summary>
-        /// Create the topic with the given name.
-        /// </summary>
-        /// <param name="llu">The log update token.
-        ///  </param>
-        /// <param name="name">The topic name.
-        ///  </param>
-        /// <exception name="ObserverInconsistencyException">Raised if an
-        ///  inconsisency was detected.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void createTopic(LogUpdate llu, string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Destroy the topic with the given name.
-        /// </summary>
-        /// <param name="llu">The log update token.
-        ///  </param>
-        /// <param name="name">The topic name.
-        ///  </param>
-        /// <exception name="ObserverInconsistencyException">Raised if an
-        ///  inconsisency was detected.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroyTopic(LogUpdate llu, string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Add a subscriber to a topic.
-        /// </summary>
-        /// <param name="llu">The log update token.
-        ///  </param>
-        /// <param name="topic">The topic name to which to add the subscriber.
-        ///  </param>
-        /// <param name="record">The subscriber information.
-        ///  </param>
-        /// <exception name="ObserverInconsistencyException">Raised if an
-        ///  inconsisency was detected.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.Current current);
-
-        /// <summary>
-        /// Remove a subscriber from a topic.
-        /// </summary>
-        /// <param name="llu">The log update token.
-        ///  </param>
-        /// <param name="name">The topic name.
-        ///  </param>
-        /// <param name="subscribers">The identities of the subscribers to remove.
-        ///  </param>
-        /// <exception name="ObserverInconsistencyException">Raised if an inconsisency was detected.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// Interface used to sync topics.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface TopicManagerSyncOperations_
-    {
-        /// <summary>
-        /// Retrieve the topic content.
-        /// </summary>
-        /// <param name="llu">The last log update token.
-        ///  </param>
-        /// <param name="content">The topic content.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void getContent(out LogUpdate llu, out TopicContent[] content, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// A replica node.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface NodeOperations_
-    {
-        /// <summary>
-        /// Invite the node into a group with the given coordinator and group name.
-        /// </summary>
-        /// <param name="gn">The group name.
-        ///  </param>
-        /// <param name="j">The group coordinator.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void invitation(int j, string gn, global::Ice.Current current);
-
-        /// <summary>
-        /// Call from the group coordinator to a node to inform the node that the replica group is active.
-        /// </summary>
-        /// <param name="j">The group coordinator.
-        ///  </param>
-        /// <param name="gn">The group name.
-        ///  </param>
-        /// <param name="coordinator">The proxy to the coordinator.
-        ///  </param>
-        /// <param name="max">The highest priority node seen by this replica group.
-        ///  </param>
-        /// <param name="generation">The current generation count.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void ready(int j, string gn, global::Ice.ObjectPrx? coordinator, int max, long generation, global::Ice.Current current);
-
-        /// <summary>
-        /// Called to accept an invitation into the given group.
-        /// </summary>
-        /// <param name="j">The id of the node accepting the invitation.
-        ///  </param>
-        /// <param name="observer">The observer.
-        ///  </param>
-        /// <param name="gn">The group name.
-        ///  </param>
-        /// <param name="forwardedInvites">The ids of the nodes to which invitations were forwarded.
-        ///  </param>
-        /// <param name="llu">The last log update for the given node.
-        ///  </param>
-        /// <param name="max">The highest priority node seen by this replica group.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx? observer, LogUpdate llu, int max, global::Ice.Current current);
-
-        /// <summary>
-        /// Determine if this node is a coordinator.
-        /// </summary>
-        /// <returns>True if the node is a coordinator, false otherwise.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool areYouCoordinator(global::Ice.Current current);
-
-        /// <summary>
-        /// Determine if the node is a member of the given group with the given coordinator.
-        /// </summary>
-        /// <param name="gn">The group name.
-        ///  </param>
-        /// <param name="j">The group coordinator.
-        ///  </param>
-        /// <returns>True if the node is a member, false otherwise.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool areYouThere(string gn, int j, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the sync object for the replica hosted by this node.
-        /// </summary>
-        /// <returns>The sync object.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? sync(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the replication group information.
-        /// </summary>
-        /// <returns>The set of configured nodes and the associated priority.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        NodeInfo[] nodes(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the query information for the given node.
-        /// </summary>
-        /// <returns>The query information.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        QueryInfo query(global::Ice.Current current);
     }
 }
 

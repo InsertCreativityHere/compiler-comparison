@@ -276,7 +276,7 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::I")]
-        public partial interface I : global::Ice.Object, IOperations_
+        public partial interface I : global::Ice.Object
         {
         }
 
@@ -391,8 +391,235 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::MyClass")]
-        public partial interface MyClass : global::Ice.Object, MyClassOperations_
+        public partial interface MyClass : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value?[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx?[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV?[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR?[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx?[] i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV?> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, global::Ice.Current current);
         }
     }
 }
@@ -868,249 +1095,6 @@ namespace Ice.seqMapping.AMD
             global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Ice.seqMapping.AMD
-{
-    namespace Test
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface IOperations_
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface MyClassOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAByteSResult> opAByteSAsync(byte[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLByteSResult> opLByteSAsync(global::System.Collections.Generic.List<byte> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKByteSResult> opKByteSAsync(global::System.Collections.Generic.LinkedList<byte> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQByteSResult> opQByteSAsync(global::System.Collections.Generic.Queue<byte> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSByteSResult> opSByteSAsync(global::System.Collections.Generic.Stack<byte> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpABoolSResult> opABoolSAsync(bool[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLBoolSResult> opLBoolSAsync(global::System.Collections.Generic.List<bool> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKBoolSResult> opKBoolSAsync(global::System.Collections.Generic.LinkedList<bool> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQBoolSResult> opQBoolSAsync(global::System.Collections.Generic.Queue<bool> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSBoolSResult> opSBoolSAsync(global::System.Collections.Generic.Stack<bool> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAShortSResult> opAShortSAsync(short[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLShortSResult> opLShortSAsync(global::System.Collections.Generic.List<short> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKShortSResult> opKShortSAsync(global::System.Collections.Generic.LinkedList<short> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQShortSResult> opQShortSAsync(global::System.Collections.Generic.Queue<short> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSShortSResult> opSShortSAsync(global::System.Collections.Generic.Stack<short> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAIntSResult> opAIntSAsync(int[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLIntSResult> opLIntSAsync(global::System.Collections.Generic.List<int> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKIntSResult> opKIntSAsync(global::System.Collections.Generic.LinkedList<int> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQIntSResult> opQIntSAsync(global::System.Collections.Generic.Queue<int> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSIntSResult> opSIntSAsync(global::System.Collections.Generic.Stack<int> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpALongSResult> opALongSAsync(long[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLLongSResult> opLLongSAsync(global::System.Collections.Generic.List<long> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKLongSResult> opKLongSAsync(global::System.Collections.Generic.LinkedList<long> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQLongSResult> opQLongSAsync(global::System.Collections.Generic.Queue<long> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSLongSResult> opSLongSAsync(global::System.Collections.Generic.Stack<long> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAFloatSResult> opAFloatSAsync(float[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLFloatSResult> opLFloatSAsync(global::System.Collections.Generic.List<float> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKFloatSResult> opKFloatSAsync(global::System.Collections.Generic.LinkedList<float> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQFloatSResult> opQFloatSAsync(global::System.Collections.Generic.Queue<float> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSFloatSResult> opSFloatSAsync(global::System.Collections.Generic.Stack<float> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpADoubleSResult> opADoubleSAsync(double[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLDoubleSResult> opLDoubleSAsync(global::System.Collections.Generic.List<double> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKDoubleSResult> opKDoubleSAsync(global::System.Collections.Generic.LinkedList<double> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQDoubleSResult> opQDoubleSAsync(global::System.Collections.Generic.Queue<double> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSDoubleSResult> opSDoubleSAsync(global::System.Collections.Generic.Stack<double> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAStringSResult> opAStringSAsync(string[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLStringSResult> opLStringSAsync(global::System.Collections.Generic.List<string> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKStringSResult> opKStringSAsync(global::System.Collections.Generic.LinkedList<string> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQStringSResult> opQStringSAsync(global::System.Collections.Generic.Queue<string> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSStringSResult> opSStringSAsync(global::System.Collections.Generic.Stack<string> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectSResult> opAObjectSAsync(global::Ice.Value?[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectSResult> opLObjectSAsync(global::System.Collections.Generic.List<global::Ice.Value?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAObjectPrxSResult> opAObjectPrxSAsync(global::Ice.ObjectPrx?[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLObjectPrxSResult> opLObjectPrxSAsync(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKObjectPrxSResult> opKObjectPrxSAsync(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQObjectPrxSResult> opQObjectPrxSAsync(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSObjectPrxSResult> opSObjectPrxSAsync(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAStructSResult> opAStructSAsync(S[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLStructSResult> opLStructSAsync(global::System.Collections.Generic.List<S> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKStructSResult> opKStructSAsync(global::System.Collections.Generic.LinkedList<S> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQStructSResult> opQStructSAsync(global::System.Collections.Generic.Queue<S> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSStructSResult> opSStructSAsync(global::System.Collections.Generic.Stack<S> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAStructSDResult> opAStructSDAsync(SD[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLStructSDResult> opLStructSDAsync(global::System.Collections.Generic.List<SD> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKStructSDResult> opKStructSDAsync(global::System.Collections.Generic.LinkedList<SD> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQStructSDResult> opQStructSDAsync(global::System.Collections.Generic.Queue<SD> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSStructSDResult> opSStructSDAsync(global::System.Collections.Generic.Stack<SD> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpACVSResult> opACVSAsync(CV?[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLCVSResult> opLCVSAsync(global::System.Collections.Generic.List<CV?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpACRSResult> opACRSAsync(CR?[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLCRSResult> opLCRSAsync(global::System.Collections.Generic.List<CR?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAEnSResult> opAEnSAsync(En[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLEnSResult> opLEnSAsync(global::System.Collections.Generic.List<En> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKEnSResult> opKEnSAsync(global::System.Collections.Generic.LinkedList<En> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQEnSResult> opQEnSAsync(global::System.Collections.Generic.Queue<En> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSEnSResult> opSEnSAsync(global::System.Collections.Generic.Stack<En> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpAIPrxSResult> opAIPrxSAsync(IPrx?[] i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpLIPrxSResult> opLIPrxSAsync(global::System.Collections.Generic.List<IPrx?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpKIPrxSResult> opKIPrxSAsync(global::System.Collections.Generic.LinkedList<IPrx?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpQIPrxSResult> opQIPrxSAsync(global::System.Collections.Generic.Queue<IPrx?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpSIPrxSResult> opSIPrxSAsync(global::System.Collections.Generic.Stack<IPrx?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSResult> opCustomIntSAsync(global::Ice.seqMapping.Custom<int> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSResult> opCustomCVSAsync(global::Ice.seqMapping.Custom<CV?> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, global::Ice.Current current);
         }
     }
 }

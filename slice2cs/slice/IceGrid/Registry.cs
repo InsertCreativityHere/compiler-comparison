@@ -74,8 +74,72 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Query")]
-    public partial interface Query : global::Ice.Object, QueryOperations_
+    public partial interface Query : global::Ice.Object
     {
+        /// <summary>
+        /// Find a well-known object by identity.
+        /// </summary>
+        /// <param name="id">The identity.
+        ///  </param>
+        /// <returns>The proxy or null if no such object has been found.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, global::Ice.Current current);
+
+        /// <summary>
+        /// Find a well-known object by type.
+        /// If there are several objects registered for the given type, the object is
+        ///  randomly selected.
+        /// </summary>
+        ///  <param name="type">The object type.
+        ///  </param>
+        /// <returns>The proxy or null, if no such object has been found.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? findObjectByType(string type, global::Ice.Current current);
+
+        /// <summary>
+        /// Find a well-known object by type on the least-loaded node.
+        /// If the registry does not know which node hosts
+        ///  the object (for example, because the object was registered with a direct proxy), the registry assumes the
+        ///  object is hosted on a node that has a load average of 1.0.
+        /// </summary>
+        ///  <param name="type">The object type.
+        ///  </param>
+        /// <param name="sample">The sampling interval.
+        ///  </param>
+        /// <returns>The proxy or null, if no such object has been found.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? findObjectByTypeOnLeastLoadedNode(string type, LoadSample sample, global::Ice.Current current);
+
+        /// <summary>
+        /// Find all the well-known objects with the given type.
+        /// </summary>
+        /// <param name="type">The object type.
+        ///  </param>
+        /// <returns>The proxies or an empty sequence, if no such objects have been found.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx?[] findAllObjectsByType(string type, global::Ice.Current current);
+
+        /// <summary>
+        /// Find all the object replicas associated with the given proxy.
+        /// If the given proxy is not an indirect proxy
+        ///  from a replica group, an empty sequence is returned.
+        /// </summary>
+        ///  <param name="proxy">The object proxy.
+        ///  </param>
+        /// <returns>The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+        ///  group.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx?[] findAllReplicas(global::Ice.ObjectPrx? proxy, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -90,8 +154,81 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Registry")]
-    public partial interface Registry : global::Ice.Object, RegistryOperations_
+    public partial interface Registry : global::Ice.Object
     {
+        /// <summary>
+        /// Create a client session.
+        /// </summary>
+        /// <param name="userId">The user id.
+        ///  </param>
+        /// <param name="password">The password for the given user id.
+        ///  </param>
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        SessionPrx? createSession(string userId, string password, global::Ice.Current current);
+
+        /// <summary>
+        /// Create an administrative session.
+        /// </summary>
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
+        ///  </returns>
+        /// <param name="userId">The user id.
+        ///  </param>
+        /// <param name="password">The password for the given user id.
+        ///  </param>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        AdminSessionPrx? createAdminSession(string userId, string password, global::Ice.Current current);
+
+        /// <summary>
+        /// Create a client session from a secure connection.
+        /// </summary>
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        SessionPrx? createSessionFromSecureConnection(global::Ice.Current current);
+
+        /// <summary>
+        /// Create an administrative session from a secure connection.
+        /// </summary>
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        AdminSessionPrx? createAdminSessionFromSecureConnection(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the idle timeout used by IceGrid for its side of the connection.
+        /// </summary>
+        /// <returns>The idle timeout (in seconds).</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        int getSessionTimeout(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the idle timeout used by IceGrid for its side of the connection.
+        /// </summary>
+        /// <returns>The idle timeout (in seconds).</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        int getACMTimeout(global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -106,8 +243,25 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Locator")]
-    public partial interface Locator : global::Ice.Object, LocatorOperations_, global::Ice.Locator
+    public partial interface Locator : global::Ice.Object, global::Ice.Locator
     {
+        /// <summary>
+        /// Get the proxy of the registry object hosted by this IceGrid registry.
+        /// </summary>
+        /// <returns>The proxy of the registry object. The returned proxy is never null.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        RegistryPrx? getLocalRegistry(global::Ice.Current current);
+
+        /// <summary>
+        /// Get the proxy of the query object hosted by this IceGrid registry.
+        /// </summary>
+        /// <returns>The proxy of the query object. The returned proxy is never null.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        QueryPrx? getLocalQuery(global::Ice.Current current);
     }
 }
 
@@ -422,193 +576,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<QueryPrx?> getLocalQueryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceGrid
-{
-    /// <summary>
-    /// The IceGrid query interface.
-    /// This interface is accessible to Ice clients who wish to look up well-known
-    ///  objects.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface QueryOperations_
-    {
-        /// <summary>
-        /// Find a well-known object by identity.
-        /// </summary>
-        /// <param name="id">The identity.
-        ///  </param>
-        /// <returns>The proxy or null if no such object has been found.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, global::Ice.Current current);
-
-        /// <summary>
-        /// Find a well-known object by type.
-        /// If there are several objects registered for the given type, the object is
-        ///  randomly selected.
-        /// </summary>
-        ///  <param name="type">The object type.
-        ///  </param>
-        /// <returns>The proxy or null, if no such object has been found.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? findObjectByType(string type, global::Ice.Current current);
-
-        /// <summary>
-        /// Find a well-known object by type on the least-loaded node.
-        /// If the registry does not know which node hosts
-        ///  the object (for example, because the object was registered with a direct proxy), the registry assumes the
-        ///  object is hosted on a node that has a load average of 1.0.
-        /// </summary>
-        ///  <param name="type">The object type.
-        ///  </param>
-        /// <param name="sample">The sampling interval.
-        ///  </param>
-        /// <returns>The proxy or null, if no such object has been found.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? findObjectByTypeOnLeastLoadedNode(string type, LoadSample sample, global::Ice.Current current);
-
-        /// <summary>
-        /// Find all the well-known objects with the given type.
-        /// </summary>
-        /// <param name="type">The object type.
-        ///  </param>
-        /// <returns>The proxies or an empty sequence, if no such objects have been found.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx?[] findAllObjectsByType(string type, global::Ice.Current current);
-
-        /// <summary>
-        /// Find all the object replicas associated with the given proxy.
-        /// If the given proxy is not an indirect proxy
-        ///  from a replica group, an empty sequence is returned.
-        /// </summary>
-        ///  <param name="proxy">The object proxy.
-        ///  </param>
-        /// <returns>The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
-        ///  group.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx?[] findAllReplicas(global::Ice.ObjectPrx? proxy, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// The IceGrid registry allows clients create sessions directly with the registry.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface RegistryOperations_
-    {
-        /// <summary>
-        /// Create a client session.
-        /// </summary>
-        /// <param name="userId">The user id.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SessionPrx? createSession(string userId, string password, global::Ice.Current current);
-
-        /// <summary>
-        /// Create an administrative session.
-        /// </summary>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <param name="userId">The user id.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        AdminSessionPrx? createAdminSession(string userId, string password, global::Ice.Current current);
-
-        /// <summary>
-        /// Create a client session from a secure connection.
-        /// </summary>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        SessionPrx? createSessionFromSecureConnection(global::Ice.Current current);
-
-        /// <summary>
-        /// Create an administrative session from a secure connection.
-        /// </summary>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        AdminSessionPrx? createAdminSessionFromSecureConnection(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the idle timeout used by IceGrid for its side of the connection.
-        /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getSessionTimeout(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the idle timeout used by IceGrid for its side of the connection.
-        /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        int getACMTimeout(global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
-    ///  registry.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface LocatorOperations_ : global::Ice.LocatorOperations_
-    {
-        /// <summary>
-        /// Get the proxy of the registry object hosted by this IceGrid registry.
-        /// </summary>
-        /// <returns>The proxy of the registry object. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        RegistryPrx? getLocalRegistry(global::Ice.Current current);
-
-        /// <summary>
-        /// Get the proxy of the query object hosted by this IceGrid registry.
-        /// </summary>
-        /// <returns>The proxy of the query object. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        QueryPrx? getLocalQuery(global::Ice.Current current);
     }
 }
 

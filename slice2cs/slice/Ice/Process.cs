@@ -33,8 +33,26 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::Process")]
-    public partial interface Process : Object, ProcessOperations_
+    public partial interface Process : Object
     {
+        /// <summary>
+        /// Initiate a graceful shut-down.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void shutdown(Current current);
+
+        /// <summary>
+        /// Write a message on the process' stdout or stderr.
+        /// </summary>
+        /// <param name="message">The message.
+        ///  </param>
+        /// <param name="fd">1 for stdout, 2 for stderr.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void writeMessage(string message, int fd, Current current);
     }
 }
 
@@ -88,40 +106,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Ice
-{
-    /// <summary>
-    /// An administrative interface for process management.
-    /// Managed servers must implement this interface.
-    ///  &lt;p class="Note"&gt;A servant implementing this interface is a potential target for denial-of-service attacks,
-    ///  therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
-    ///  identity harder to guess, and be registered in an object adapter with a secured endpoint.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface ProcessOperations_
-    {
-        /// <summary>
-        /// Initiate a graceful shut-down.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void shutdown(Current current);
-
-        /// <summary>
-        /// Write a message on the process' stdout or stderr.
-        /// </summary>
-        /// <param name="message">The message.
-        ///  </param>
-        /// <param name="fd">1 for stdout, 2 for stderr.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void writeMessage(string message, int fd, Current current);
     }
 }
 

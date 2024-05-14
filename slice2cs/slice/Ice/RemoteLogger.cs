@@ -211,8 +211,28 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::RemoteLogger")]
-    public partial interface RemoteLogger : Object, RemoteLoggerOperations_
+    public partial interface RemoteLogger : Object
     {
+        /// <summary>
+        /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
+        /// </summary>
+        /// <param name="prefix">The prefix of the associated local Logger.
+        ///  </param>
+        /// <param name="logMessages">Old log messages generated before "now".</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void init(string prefix, LogMessage[] logMessages, Current current);
+
+        /// <summary>
+        /// Log a LogMessage.
+        /// Note that log may be called by LoggerAdmin before init.
+        /// </summary>
+        ///  <param name="message">The message to log.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void log(LogMessage message, Current current);
     }
 
     /// <summary>
@@ -285,8 +305,63 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::LoggerAdmin")]
-    public partial interface LoggerAdmin : Object, LoggerAdminOperations_
+    public partial interface LoggerAdmin : Object
     {
+        /// <summary>
+        /// Attaches a RemoteLogger object to the local logger.
+        /// attachRemoteLogger calls init on the provided
+        ///  RemoteLogger proxy.
+        /// </summary>
+        ///  <param name="prx">A proxy to the remote logger.
+        ///  </param>
+        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
+        ///  no filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
+        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+        ///  trace categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
+        ///  value requests all messages available.
+        ///  </param>
+        /// <exception name="RemoteLoggerAlreadyAttachedException">Raised if this remote logger is already attached to this admin
+        ///  object.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void attachRemoteLogger(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, Current current);
+
+        /// <summary>
+        /// Detaches a RemoteLogger object from the local logger.
+        /// </summary>
+        /// <param name="prx">A proxy to the remote logger.
+        ///  </param>
+        /// <returns>True if the provided remote logger proxy was detached, and false otherwise.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool detachRemoteLogger(RemoteLoggerPrx? prx, Current current);
+
+        /// <summary>
+        /// Retrieves log messages recently logged.
+        /// </summary>
+        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
+        ///  filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
+        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+        ///  categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
+        ///  requests all messages available.
+        ///  </param>
+        /// <param name="prefix">The prefix of the associated local logger.
+        ///  </param>
+        /// <returns>The Log messages.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, Current current);
     }
 }
 
@@ -461,105 +536,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LoggerAdmin_GetLogResult> getLogAsync(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Ice
-{
-    /// <summary>
-    /// The Ice remote logger interface.
-    /// An application can implement a RemoteLogger to receive the log messages sent
-    ///  to the local RemoteLogger of another Ice application.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface RemoteLoggerOperations_
-    {
-        /// <summary>
-        /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-        /// </summary>
-        /// <param name="prefix">The prefix of the associated local Logger.
-        ///  </param>
-        /// <param name="logMessages">Old log messages generated before "now".</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void init(string prefix, LogMessage[] logMessages, Current current);
-
-        /// <summary>
-        /// Log a LogMessage.
-        /// Note that log may be called by LoggerAdmin before init.
-        /// </summary>
-        ///  <param name="message">The message to log.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void log(LogMessage message, Current current);
-    }
-
-    /// <summary>
-    /// The interface of the admin object that allows an Ice application the attach its
-    ///  RemoteLogger to the RemoteLogger of this admin object's Ice communicator.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface LoggerAdminOperations_
-    {
-        /// <summary>
-        /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided
-        ///  RemoteLogger proxy.
-        /// </summary>
-        ///  <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
-        ///  no filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
-        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
-        ///  trace categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
-        ///  value requests all messages available.
-        ///  </param>
-        /// <exception name="RemoteLoggerAlreadyAttachedException">Raised if this remote logger is already attached to this admin
-        ///  object.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void attachRemoteLogger(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, Current current);
-
-        /// <summary>
-        /// Detaches a RemoteLogger object from the local logger.
-        /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <returns>True if the provided remote logger proxy was detached, and false otherwise.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool detachRemoteLogger(RemoteLoggerPrx? prx, Current current);
-
-        /// <summary>
-        /// Retrieves log messages recently logged.
-        /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
-        ///  filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
-        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
-        ///  categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
-        ///  requests all messages available.
-        ///  </param>
-        /// <param name="prefix">The prefix of the associated local logger.
-        ///  </param>
-        /// <returns>The Log messages.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, Current current);
     }
 }
 

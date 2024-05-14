@@ -507,8 +507,124 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStorm::Topic")]
-    public partial interface Topic : global::Ice.Object, TopicOperations_
+    public partial interface Topic : global::Ice.Object
     {
+        /// <summary>
+        /// Get the name of this topic.
+        /// </summary>
+        /// <returns>The name of the topic.
+        ///  </returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string getName(global::Ice.Current current);
+
+        /// <summary>
+        /// Get a proxy to a publisher object for this topic.
+        /// To publish data to a topic, the publisher calls getPublisher
+        ///  and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+        ///  deployment is used this call may return a replicated proxy. The returned proxy is never null.
+        /// </summary>
+        ///  <returns>A proxy to publish data on this topic.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? getPublisher(global::Ice.Current current);
+
+        /// <summary>
+        /// Get a non-replicated proxy to a publisher object for this topic.
+        /// To publish data to a topic, the publisher
+        ///  calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+        ///  never null.
+        /// </summary>
+        ///  <returns>A proxy to publish data on this topic.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? getNonReplicatedPublisher(global::Ice.Current current);
+
+        /// <summary>
+        /// Subscribe with the given qos to this topic.
+        /// A per-subscriber publisher object is returned.
+        /// </summary>
+        ///  <param name="theQoS">The quality of service parameters for this subscription.
+        ///  </param>
+        /// <param name="subscriber">The subscriber's proxy. This proxy is never null.
+        ///  </param>
+        /// <returns>The per-subscriber publisher object. The returned object is never null.
+        ///  </returns>
+        /// <exception name="AlreadySubscribed">Raised if the subscriber object is already subscribed.
+        ///  </exception>
+        /// <exception name="InvalidSubscriber">Raised if the subscriber object is null.
+        ///  </exception>
+        /// <exception name="BadQoS">Raised if the requested quality of service is unavailable or invalid.
+        ///  </exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, global::Ice.Current current);
+
+        /// <summary>
+        /// Unsubscribe the given subscriber.
+        /// </summary>
+        /// <param name="subscriber">The proxy of an existing subscriber. This proxy is never null.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void unsubscribe(global::Ice.ObjectPrx? subscriber, global::Ice.Current current);
+
+        /// <summary>
+        /// Create a link to the given topic.
+        /// All events originating on this topic will also be sent to
+        ///  linkTo.
+        /// </summary>
+        ///  <param name="linkTo">The topic to link to. This proxy is never null.
+        ///  </param>
+        /// <param name="cost">The cost to the linked topic.
+        ///  </param>
+        /// <exception name="LinkExists">Raised if a link to the same topic already exists.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void link(TopicPrx? linkTo, int cost, global::Ice.Current current);
+
+        /// <summary>
+        /// Destroy the link from this topic to the given topic linkTo.
+        /// </summary>
+        /// <param name="linkTo">The topic to destroy the link to. This proxy is never null.
+        ///  </param>
+        /// <exception name="NoSuchLink">Raised if a link to the topic does not exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void unlink(TopicPrx? linkTo, global::Ice.Current current);
+
+        /// <summary>
+        /// Retrieve information on the current links.
+        /// </summary>
+        /// <returns>A sequence of LinkInfo objects.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        LinkInfo[] getLinkInfoSeq(global::Ice.Current current);
+
+        /// <summary>
+        /// Retrieve the list of subscribers for this topic.
+        /// </summary>
+        /// <returns>The sequence of Ice identities for the subscriber objects.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::Ice.Identity[] getSubscribers(global::Ice.Current current);
+
+        /// <summary>
+        /// Destroy the topic.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void destroy(global::Ice.Current current);
     }
 
     /// <summary>
@@ -669,8 +785,43 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStorm::TopicManager")]
-    public partial interface TopicManager : global::Ice.Object, TopicManagerOperations_
+    public partial interface TopicManager : global::Ice.Object
     {
+        /// <summary>
+        /// Create a new topic.
+        /// The topic name must be unique.
+        /// </summary>
+        ///  <param name="name">The name of the topic.
+        ///  </param>
+        /// <returns>A proxy to the topic instance. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="TopicExists">Raised if a topic with the same name already exists.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        TopicPrx? create(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Retrieve a topic by name.
+        /// </summary>
+        /// <param name="name">The name of the topic.
+        ///  </param>
+        /// <returns>A proxy to the topic instance. The returned proxy is never null.
+        ///  </returns>
+        /// <exception name="NoSuchTopic">Raised if the topic does not exist.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        TopicPrx? retrieve(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Retrieve all topics managed by this topic manager.
+        /// </summary>
+        /// <returns>A dictionary of string, topic proxy pairs.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -685,8 +836,17 @@ namespace IceStorm
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStorm::Finder")]
-    public partial interface Finder : global::Ice.Object, FinderOperations_
+    public partial interface Finder : global::Ice.Object
     {
+        /// <summary>
+        /// Get the topic manager proxy.
+        /// The proxy might point to several replicas.
+        /// </summary>
+        ///  <returns>The topic manager proxy. The returned proxy is never null.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        TopicManagerPrx? getTopicManager(global::Ice.Current current);
     }
 }
 
@@ -1013,198 +1173,6 @@ namespace IceStorm
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<TopicManagerPrx?> getTopicManagerAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceStorm
-{
-    /// <summary>
-    /// Publishers publish information on a particular topic.
-    /// A topic logically represents a type. A
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface TopicOperations_
-    {
-        /// <summary>
-        /// Get the name of this topic.
-        /// </summary>
-        /// <returns>The name of the topic.
-        ///  </returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getName(global::Ice.Current current);
-
-        /// <summary>
-        /// Get a proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher calls getPublisher
-        ///  and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
-        ///  deployment is used this call may return a replicated proxy. The returned proxy is never null.
-        /// </summary>
-        ///  <returns>A proxy to publish data on this topic.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getPublisher(global::Ice.Current current);
-
-        /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher
-        ///  calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
-        ///  never null.
-        /// </summary>
-        ///  <returns>A proxy to publish data on this topic.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? getNonReplicatedPublisher(global::Ice.Current current);
-
-        /// <summary>
-        /// Subscribe with the given qos to this topic.
-        /// A per-subscriber publisher object is returned.
-        /// </summary>
-        ///  <param name="theQoS">The quality of service parameters for this subscription.
-        ///  </param>
-        /// <param name="subscriber">The subscriber's proxy. This proxy is never null.
-        ///  </param>
-        /// <returns>The per-subscriber publisher object. The returned object is never null.
-        ///  </returns>
-        /// <exception name="AlreadySubscribed">Raised if the subscriber object is already subscribed.
-        ///  </exception>
-        /// <exception name="InvalidSubscriber">Raised if the subscriber object is null.
-        ///  </exception>
-        /// <exception name="BadQoS">Raised if the requested quality of service is unavailable or invalid.
-        ///  </exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, global::Ice.Current current);
-
-        /// <summary>
-        /// Unsubscribe the given subscriber.
-        /// </summary>
-        /// <param name="subscriber">The proxy of an existing subscriber. This proxy is never null.
-        ///  </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unsubscribe(global::Ice.ObjectPrx? subscriber, global::Ice.Current current);
-
-        /// <summary>
-        /// Create a link to the given topic.
-        /// All events originating on this topic will also be sent to
-        ///  linkTo.
-        /// </summary>
-        ///  <param name="linkTo">The topic to link to. This proxy is never null.
-        ///  </param>
-        /// <param name="cost">The cost to the linked topic.
-        ///  </param>
-        /// <exception name="LinkExists">Raised if a link to the same topic already exists.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void link(TopicPrx? linkTo, int cost, global::Ice.Current current);
-
-        /// <summary>
-        /// Destroy the link from this topic to the given topic linkTo.
-        /// </summary>
-        /// <param name="linkTo">The topic to destroy the link to. This proxy is never null.
-        ///  </param>
-        /// <exception name="NoSuchLink">Raised if a link to the topic does not exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void unlink(TopicPrx? linkTo, global::Ice.Current current);
-
-        /// <summary>
-        /// Retrieve information on the current links.
-        /// </summary>
-        /// <returns>A sequence of LinkInfo objects.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LinkInfo[] getLinkInfoSeq(global::Ice.Current current);
-
-        /// <summary>
-        /// Retrieve the list of subscribers for this topic.
-        /// </summary>
-        /// <returns>The sequence of Ice identities for the subscriber objects.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::Ice.Identity[] getSubscribers(global::Ice.Current current);
-
-        /// <summary>
-        /// Destroy the topic.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void destroy(global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// A topic manager manages topics, and subscribers to topics.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface TopicManagerOperations_
-    {
-        /// <summary>
-        /// Create a new topic.
-        /// The topic name must be unique.
-        /// </summary>
-        ///  <param name="name">The name of the topic.
-        ///  </param>
-        /// <returns>A proxy to the topic instance. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="TopicExists">Raised if a topic with the same name already exists.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        TopicPrx? create(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Retrieve a topic by name.
-        /// </summary>
-        /// <param name="name">The name of the topic.
-        ///  </param>
-        /// <returns>A proxy to the topic instance. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="NoSuchTopic">Raised if the topic does not exist.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        TopicPrx? retrieve(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Retrieve all topics managed by this topic manager.
-        /// </summary>
-        /// <returns>A dictionary of string, topic proxy pairs.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
-    /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface FinderOperations_
-    {
-        /// <summary>
-        /// Get the topic manager proxy.
-        /// The proxy might point to several replicas.
-        /// </summary>
-        ///  <returns>The topic manager proxy. The returned proxy is never null.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        TopicManagerPrx? getTopicManager(global::Ice.Current current);
     }
 }
 

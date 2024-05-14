@@ -306,8 +306,90 @@ namespace IceMX
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceMX::MetricsAdmin")]
-    public partial interface MetricsAdmin : global::Ice.Object, MetricsAdminOperations_
+    public partial interface MetricsAdmin : global::Ice.Object
     {
+        /// <summary>
+        /// Get the names of enabled and disabled metrics.
+        /// </summary>
+        /// <param name="disabledViews">The names of the disabled views.
+        ///  </param>
+        /// <returns>The name of the enabled views.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current current);
+
+        /// <summary>
+        /// Enables a metrics view.
+        /// </summary>
+        /// <param name="name">The metrics view name.
+        ///  </param>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void enableMetricsView(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Disable a metrics view.
+        /// </summary>
+        /// <param name="name">The metrics view name.
+        ///  </param>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void disableMetricsView(string name, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the metrics objects for the given metrics view.
+        /// This returns a dictionary of metric maps for each
+        ///  metrics class configured with the view. The timestamp allows the client to compute averages which are not
+        ///  dependent of the invocation latency for this operation.
+        /// </summary>
+        ///  <param name="view">The name of the metrics view.
+        ///  </param>
+        /// <param name="timestamp">The local time of the process when the metrics object were retrieved.
+        ///  </param>
+        /// <returns>The metrics view data.
+        ///  </returns>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the metrics failures associated with the given view and map.
+        /// </summary>
+        /// <param name="view">The name of the metrics view.
+        ///  </param>
+        /// <param name="map">The name of the metrics map.
+        ///  </param>
+        /// <returns>The metrics failures associated with the map.
+        ///  </returns>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current current);
+
+        /// <summary>
+        /// Get the metrics failure associated for the given metrics.
+        /// </summary>
+        /// <param name="view">The name of the metrics view.
+        ///  </param>
+        /// <param name="map">The name of the metrics map.
+        ///  </param>
+        /// <param name="id">The ID of the metrics.
+        ///  </param>
+        /// <returns>The metrics failures associated with the metrics.
+        ///  </returns>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1053,102 +1135,6 @@ namespace IceMX
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<MetricsFailures> getMetricsFailuresAsync(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceMX
-{
-    /// <summary>
-    /// The metrics administrative facet interface.
-    /// This interface allows remote administrative clients to access
-    ///  metrics of an application that enabled the Ice administrative facility and configured some metrics views.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface MetricsAdminOperations_
-    {
-        /// <summary>
-        /// Get the names of enabled and disabled metrics.
-        /// </summary>
-        /// <param name="disabledViews">The names of the disabled views.
-        ///  </param>
-        /// <returns>The name of the enabled views.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string[] getMetricsViewNames(out string[] disabledViews, global::Ice.Current current);
-
-        /// <summary>
-        /// Enables a metrics view.
-        /// </summary>
-        /// <param name="name">The metrics view name.
-        ///  </param>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void enableMetricsView(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Disable a metrics view.
-        /// </summary>
-        /// <param name="name">The metrics view name.
-        ///  </param>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void disableMetricsView(string name, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the metrics objects for the given metrics view.
-        /// This returns a dictionary of metric maps for each
-        ///  metrics class configured with the view. The timestamp allows the client to compute averages which are not
-        ///  dependent of the invocation latency for this operation.
-        /// </summary>
-        ///  <param name="view">The name of the metrics view.
-        ///  </param>
-        /// <param name="timestamp">The local time of the process when the metrics object were retrieved.
-        ///  </param>
-        /// <returns>The metrics view data.
-        ///  </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the metrics failures associated with the given view and map.
-        /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///  </param>
-        /// <param name="map">The name of the metrics map.
-        ///  </param>
-        /// <returns>The metrics failures associated with the map.
-        ///  </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.Current current);
-
-        /// <summary>
-        /// Get the metrics failure associated for the given metrics.
-        /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///  </param>
-        /// <param name="map">The name of the metrics map.
-        ///  </param>
-        /// <param name="id">The ID of the metrics.
-        ///  </param>
-        /// <returns>The metrics failures associated with the metrics.
-        ///  </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.Current current);
     }
 }
 

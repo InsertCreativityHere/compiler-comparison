@@ -33,8 +33,45 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::PropertiesAdmin")]
-    public partial interface PropertiesAdmin : Object, PropertiesAdminOperations_
+    public partial interface PropertiesAdmin : Object
     {
+        /// <summary>
+        /// Get a property by key.
+        /// If the property is not set, an empty string is returned.
+        /// </summary>
+        ///  <param name="key">The property key.
+        ///  </param>
+        /// <returns>The property value.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string getProperty(string key, Current current);
+
+        /// <summary>
+        /// Get all properties whose keys begin with prefix.
+        /// If prefix is an empty string then all
+        ///  properties are returned.
+        /// </summary>
+        ///  <param name="prefix">The prefix to search for (empty string if none).
+        ///  </param>
+        /// <returns>The matching property set.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current current);
+
+        /// <summary>
+        /// Update the communicator's properties with the given property set.
+        /// If an entry in newProperties
+        ///  matches the name of an existing property, that property's value is replaced with the new value. If the new
+        ///  value is an empty string, the property is removed. Any existing properties that are not modified or removed
+        ///  by the entries in newProperties are retained with their original values.
+        /// </summary>
+        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current current);
     }
 }
 
@@ -116,55 +153,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Ice
-{
-    /// <summary>
-    /// The PropertiesAdmin interface provides remote access to the properties of a communicator.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface PropertiesAdminOperations_
-    {
-        /// <summary>
-        /// Get a property by key.
-        /// If the property is not set, an empty string is returned.
-        /// </summary>
-        ///  <param name="key">The property key.
-        ///  </param>
-        /// <returns>The property value.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getProperty(string key, Current current);
-
-        /// <summary>
-        /// Get all properties whose keys begin with prefix.
-        /// If prefix is an empty string then all
-        ///  properties are returned.
-        /// </summary>
-        ///  <param name="prefix">The prefix to search for (empty string if none).
-        ///  </param>
-        /// <returns>The matching property set.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Current current);
-
-        /// <summary>
-        /// Update the communicator's properties with the given property set.
-        /// If an entry in newProperties
-        ///  matches the name of an existing property, that property's value is replaced with the new value. If the new
-        ///  value is an empty string, the property is removed. Any existing properties that are not modified or removed
-        ///  by the entries in newProperties are retained with their original values.
-        /// </summary>
-        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Current current);
     }
 }
 

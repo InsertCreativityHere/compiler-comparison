@@ -106,8 +106,22 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::FileParser")]
-    public partial interface FileParser : global::Ice.Object, FileParserOperations_
+    public partial interface FileParser : global::Ice.Object
     {
+        /// <summary>
+        /// Parse a file.
+        /// </summary>
+        /// <param name="xmlFile">Full pathname to the file.
+        ///  </param>
+        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
+        ///  </param>
+        /// <returns>The application descriptor.
+        ///  </returns>
+        /// <exception name="ParseException">Raised if an error occurred during parsing.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::Ice.Current current);
     }
 }
 
@@ -147,33 +161,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceGrid
-{
-    /// <summary>
-    /// icegridadmin provides a FileParser object to transform XML files into
-    ///  ApplicationDescriptor objects.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface FileParserOperations_
-    {
-        /// <summary>
-        /// Parse a file.
-        /// </summary>
-        /// <param name="xmlFile">Full pathname to the file.
-        ///  </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
-        ///  </param>
-        /// <returns>The application descriptor.
-        ///  </returns>
-        /// <exception name="ParseException">Raised if an error occurred during parsing.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::Ice.Current current);
     }
 }
 

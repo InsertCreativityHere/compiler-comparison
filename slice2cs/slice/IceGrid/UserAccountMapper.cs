@@ -91,8 +91,24 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::UserAccountMapper")]
-    public partial interface UserAccountMapper : global::Ice.Object, UserAccountMapperOperations_
+    public partial interface UserAccountMapper : global::Ice.Object
     {
+        /// <summary>
+        /// Get the name of the user account for the given user.
+        /// This is used by IceGrid nodes to figure out the user
+        ///  account to use to run servers.
+        /// </summary>
+        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
+        ///  defined, and the server's activation mode is session, the default value of user
+        ///  is the session identifier.
+        ///  </param>
+        /// <returns>The user account name.
+        ///  </returns>
+        /// <exception name="UserAccountNotFoundException">Raised if no user account is found for the given user.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        string getUserAccount(string user, global::Ice.Current current);
     }
 }
 
@@ -134,34 +150,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceGrid
-{
-    /// <summary>
-    /// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface UserAccountMapperOperations_
-    {
-        /// <summary>
-        /// Get the name of the user account for the given user.
-        /// This is used by IceGrid nodes to figure out the user
-        ///  account to use to run servers.
-        /// </summary>
-        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
-        ///  defined, and the server's activation mode is session, the default value of user
-        ///  is the session identifier.
-        ///  </param>
-        /// <returns>The user account name.
-        ///  </returns>
-        /// <exception name="UserAccountNotFoundException">Raised if no user account is found for the given user.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string getUserAccount(string user, global::Ice.Current current);
     }
 }
 

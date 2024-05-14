@@ -323,8 +323,37 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::Locator")]
-    public partial interface Locator : Object, LocatorOperations_
+    public partial interface Locator : Object
     {
+        /// <summary>
+        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+        ///  access the object.
+        /// </summary>
+        /// <param name="id">The identity.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Current current);
+
+        /// <summary>
+        /// Find an adapter by id and return a proxy that contains its endpoints.
+        /// </summary>
+        /// <param name="id">The adapter id.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Current current);
+
+        /// <summary>
+        /// Get the locator registry.
+        /// </summary>
+        /// <returns>The locator registry.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        LocatorRegistryPrx? getRegistry(Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -339,8 +368,47 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::LocatorRegistry")]
-    public partial interface LocatorRegistry : Object, LocatorRegistryOperations_
+    public partial interface LocatorRegistry : Object
     {
+        /// <summary>
+        /// Set the adapter endpoints with the locator registry.
+        /// </summary>
+        /// <param name="id">The adapter id.
+        ///  </param>
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Current current);
+
+        /// <summary>
+        /// Set the adapter endpoints with the locator registry.
+        /// </summary>
+        /// <param name="adapterId">The adapter id.
+        ///  </param>
+        /// <param name="replicaGroupId">The replica group id.
+        ///  </param>
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Current current);
+
+        /// <summary>
+        /// Set the process proxy for a server.
+        /// </summary>
+        /// <param name="id">The server id.
+        ///  </param>
+        /// <param name="proxy">The process proxy. The proxy is never null.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -355,8 +423,18 @@ namespace Ice
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::LocatorFinder")]
-    public partial interface LocatorFinder : Object, LocatorFinderOperations_
+    public partial interface LocatorFinder : Object
     {
+        /// <summary>
+        /// Get the locator proxy implemented by the process hosting this finder object.
+        /// The proxy might point to
+        ///  several replicas. This proxy is never null.
+        /// </summary>
+        ///  <returns>The locator proxy.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        LocatorPrx? getLocator(Current current);
     }
 }
 
@@ -572,125 +650,6 @@ namespace Ice
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LocatorPrx?> getLocatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Ice
-{
-    /// <summary>
-    /// The Ice locator interface.
-    /// This interface is used by clients to lookup adapters and objects. It is also used by
-    ///  servers to get the locator registry proxy. &lt;p class="Note"&gt;The Locator interface is intended to be used
-    ///  by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
-    ///  of this interface directly.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface LocatorOperations_
-    {
-        /// <summary>
-        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
-        ///  access the object.
-        /// </summary>
-        /// <param name="id">The identity.
-        ///  </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Current current);
-
-        /// <summary>
-        /// Find an adapter by id and return a proxy that contains its endpoints.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Current current);
-
-        /// <summary>
-        /// Get the locator registry.
-        /// </summary>
-        /// <returns>The locator registry.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LocatorRegistryPrx? getRegistry(Current current);
-    }
-
-    /// <summary>
-    /// The Ice locator registry interface.
-    /// This interface is used by servers to register adapter endpoints with the
-    ///  locator. &lt;p class="Note"&gt; The LocatorRegistry interface is intended to be used by Ice internals and by
-    ///  locator implementations. Regular user code should not attempt to use any functionality of this interface
-    ///  directly.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface LocatorRegistryOperations_
-    {
-        /// <summary>
-        /// Set the adapter endpoints with the locator registry.
-        /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        ///  </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Current current);
-
-        /// <summary>
-        /// Set the adapter endpoints with the locator registry.
-        /// </summary>
-        /// <param name="adapterId">The adapter id.
-        ///  </param>
-        /// <param name="replicaGroupId">The replica group id.
-        ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        ///  </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Current current);
-
-        /// <summary>
-        /// Set the process proxy for a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="proxy">The process proxy. The proxy is never null.
-        ///  </param>
-        /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Current current);
-    }
-
-    /// <summary>
-    /// This interface should be implemented by services implementing the Ice::Locator interface.
-    /// It should
-    ///  be advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
-    ///  retrieve the locator proxy with just the endpoint information of the service.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface LocatorFinderOperations_
-    {
-        /// <summary>
-        /// Get the locator proxy implemented by the process hosting this finder object.
-        /// The proxy might point to
-        ///  several replicas. This proxy is never null.
-        /// </summary>
-        ///  <returns>The locator proxy.</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        LocatorPrx? getLocator(Current current);
     }
 }
 

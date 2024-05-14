@@ -106,8 +106,25 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::PermissionsVerifier")]
-    public partial interface PermissionsVerifier : global::Ice.Object, PermissionsVerifierOperations_
+    public partial interface PermissionsVerifier : global::Ice.Object
     {
+        /// <summary>
+        /// Check whether a user has permission to access the router.
+        /// </summary>
+        /// <param name="userId">The user id for which to check permission.
+        ///  </param>
+        /// <param name="password">The user's password.
+        ///  </param>
+        /// <param name="reason">The reason why access was denied.
+        ///  </param>
+        /// <returns>True if access is granted, or false otherwise.
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the user access is denied. This can be raised in place of
+        ///  returning false with a reason set in the reason out parameter.</exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool checkPermissions(string userId, string password, out string reason, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -122,8 +139,24 @@ namespace Glacier2
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Glacier2::SSLPermissionsVerifier")]
-    public partial interface SSLPermissionsVerifier : global::Ice.Object, SSLPermissionsVerifierOperations_
+    public partial interface SSLPermissionsVerifier : global::Ice.Object
     {
+        /// <summary>
+        /// Check whether a user has permission to access the router.
+        /// </summary>
+        /// <param name="info">The SSL information.
+        ///  </param>
+        /// <param name="reason">The reason why access was denied.
+        ///  </param>
+        /// <returns>True if access is granted, or false otherwise.
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the user access is denied. This can be raised in place of
+        ///  returning false with a reason set in the reason out parameter.
+        ///  </exception>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        bool authorize(SSLInfo info, out string reason, global::Ice.Current current);
     }
 }
 
@@ -209,62 +242,6 @@ namespace Glacier2
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<SSLPermissionsVerifier_AuthorizeResult> authorizeAsync(SSLInfo info, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace Glacier2
-{
-    /// <summary>
-    /// The Glacier2 permissions verifier.
-    /// This is called through the process of establishing a session.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface PermissionsVerifierOperations_
-    {
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="userId">The user id for which to check permission.
-        ///  </param>
-        /// <param name="password">The user's password.
-        ///  </param>
-        /// <param name="reason">The reason why access was denied.
-        ///  </param>
-        /// <returns>True if access is granted, or false otherwise.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the user access is denied. This can be raised in place of
-        ///  returning false with a reason set in the reason out parameter.</exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool checkPermissions(string userId, string password, out string reason, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// The SSL Glacier2 permissions verifier.
-    /// This is called through the process of establishing a session.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface SSLPermissionsVerifierOperations_
-    {
-        /// <summary>
-        /// Check whether a user has permission to access the router.
-        /// </summary>
-        /// <param name="info">The SSL information.
-        ///  </param>
-        /// <param name="reason">The reason why access was denied.
-        ///  </param>
-        /// <returns>True if access is granted, or false otherwise.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the user access is denied. This can be raised in place of
-        ///  returning false with a reason set in the reason out parameter.
-        ///  </exception>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool authorize(SSLInfo info, out string reason, global::Ice.Current current);
     }
 }
 

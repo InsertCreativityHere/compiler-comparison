@@ -91,8 +91,10 @@ namespace User
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::User::Registry")]
-    public partial interface Registry : global::Ice.Object, RegistryOperations_
+    public partial interface Registry : global::Ice.Object
     {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        UserInfo? getUserInfo(string id, global::Ice.Current current);
     }
 }
 
@@ -104,16 +106,6 @@ namespace User
         UserInfo? getUserInfo(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<UserInfo?> getUserInfoAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace User
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface RegistryOperations_
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        UserInfo? getUserInfo(string id, global::Ice.Current current);
     }
 }
 

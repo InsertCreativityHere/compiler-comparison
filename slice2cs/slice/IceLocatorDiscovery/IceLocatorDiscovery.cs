@@ -33,8 +33,16 @@ namespace IceLocatorDiscovery
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceLocatorDiscovery::LookupReply")]
-    public partial interface LookupReply : global::Ice.Object, LookupReplyOperations_
+    public partial interface LookupReply : global::Ice.Object
     {
+        /// <summary>
+        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
+        /// </summary>
+        /// <param name="prx">The proxy of the locator.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void foundLocator(global::Ice.LocatorPrx? prx, global::Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -49,8 +57,19 @@ namespace IceLocatorDiscovery
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceLocatorDiscovery::Lookup")]
-    public partial interface Lookup : global::Ice.Object, LookupOperations_
+    public partial interface Lookup : global::Ice.Object
     {
+        /// <summary>
+        /// Find a locator proxy with the given instance name.
+        /// </summary>
+        /// <param name="instanceName">Restrict the search to Ice registries configured with the given instance name. If
+        ///  empty, all the available registries will reply.
+        ///  </param>
+        /// <param name="reply">The reply object to use to send the reply.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void findLocator(string instanceName, LookupReplyPrx? reply, global::Ice.Current current);
     }
 }
 
@@ -117,51 +136,6 @@ namespace IceLocatorDiscovery
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task findLocatorAsync(string instanceName, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-    }
-}
-
-namespace IceLocatorDiscovery
-{
-    /// <summary>
-    /// The Ice lookup reply interface must be implemented by clients which are searching for Ice locators.
-    /// Ice locator
-    ///  implementations invoke on this interface to provide their locator proxy.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface LookupReplyOperations_
-    {
-        /// <summary>
-        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-        /// </summary>
-        /// <param name="prx">The proxy of the locator.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void foundLocator(global::Ice.LocatorPrx? prx, global::Ice.Current current);
-    }
-
-    /// <summary>
-    /// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
-    ///  available Ice locators on the network.
-    /// Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
-    ///  Clients typically make a multicast findLocator request to find the locator proxy.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface LookupOperations_
-    {
-        /// <summary>
-        /// Find a locator proxy with the given instance name.
-        /// </summary>
-        /// <param name="instanceName">Restrict the search to Ice registries configured with the given instance name. If
-        ///  empty, all the available registries will reply.
-        ///  </param>
-        /// <param name="reply">The reply object to use to send the reply.</param>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void findLocator(string instanceName, LookupReplyPrx? reply, global::Ice.Current current);
     }
 }
 

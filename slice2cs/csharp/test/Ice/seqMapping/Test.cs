@@ -276,7 +276,7 @@ namespace Ice.seqMapping
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::I")]
-        public partial interface I : global::Ice.Object, IOperations_
+        public partial interface I : global::Ice.Object
         {
         }
 
@@ -391,8 +391,235 @@ namespace Ice.seqMapping
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::MyClass")]
-        public partial interface MyClass : global::Ice.Object, MyClassOperations_
+        public partial interface MyClass : global::Ice.Object
         {
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            void shutdown(global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            byte[] opAByteS(byte[] i, out byte[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<byte> opLByteS(global::System.Collections.Generic.List<byte> i, out global::System.Collections.Generic.List<byte> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<byte> opKByteS(global::System.Collections.Generic.LinkedList<byte> i, out global::System.Collections.Generic.LinkedList<byte> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<byte> opQByteS(global::System.Collections.Generic.Queue<byte> i, out global::System.Collections.Generic.Queue<byte> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<byte> opSByteS(global::System.Collections.Generic.Stack<byte> i, out global::System.Collections.Generic.Stack<byte> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            bool[] opABoolS(bool[] i, out bool[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<bool> opLBoolS(global::System.Collections.Generic.List<bool> i, out global::System.Collections.Generic.List<bool> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<bool> opKBoolS(global::System.Collections.Generic.LinkedList<bool> i, out global::System.Collections.Generic.LinkedList<bool> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<bool> opQBoolS(global::System.Collections.Generic.Queue<bool> i, out global::System.Collections.Generic.Queue<bool> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<bool> opSBoolS(global::System.Collections.Generic.Stack<bool> i, out global::System.Collections.Generic.Stack<bool> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            short[] opAShortS(short[] i, out short[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<short> opLShortS(global::System.Collections.Generic.List<short> i, out global::System.Collections.Generic.List<short> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<short> opKShortS(global::System.Collections.Generic.LinkedList<short> i, out global::System.Collections.Generic.LinkedList<short> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<short> opQShortS(global::System.Collections.Generic.Queue<short> i, out global::System.Collections.Generic.Queue<short> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<short> opSShortS(global::System.Collections.Generic.Stack<short> i, out global::System.Collections.Generic.Stack<short> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            int[] opAIntS(int[] i, out int[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<int> opLIntS(global::System.Collections.Generic.List<int> i, out global::System.Collections.Generic.List<int> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<int> opKIntS(global::System.Collections.Generic.LinkedList<int> i, out global::System.Collections.Generic.LinkedList<int> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<int> opQIntS(global::System.Collections.Generic.Queue<int> i, out global::System.Collections.Generic.Queue<int> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<int> opSIntS(global::System.Collections.Generic.Stack<int> i, out global::System.Collections.Generic.Stack<int> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            long[] opALongS(long[] i, out long[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<long> opLLongS(global::System.Collections.Generic.List<long> i, out global::System.Collections.Generic.List<long> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<long> opKLongS(global::System.Collections.Generic.LinkedList<long> i, out global::System.Collections.Generic.LinkedList<long> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<long> opQLongS(global::System.Collections.Generic.Queue<long> i, out global::System.Collections.Generic.Queue<long> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<long> opSLongS(global::System.Collections.Generic.Stack<long> i, out global::System.Collections.Generic.Stack<long> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            float[] opAFloatS(float[] i, out float[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<float> opLFloatS(global::System.Collections.Generic.List<float> i, out global::System.Collections.Generic.List<float> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<float> opKFloatS(global::System.Collections.Generic.LinkedList<float> i, out global::System.Collections.Generic.LinkedList<float> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<float> opQFloatS(global::System.Collections.Generic.Queue<float> i, out global::System.Collections.Generic.Queue<float> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<float> opSFloatS(global::System.Collections.Generic.Stack<float> i, out global::System.Collections.Generic.Stack<float> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            double[] opADoubleS(double[] i, out double[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<double> opLDoubleS(global::System.Collections.Generic.List<double> i, out global::System.Collections.Generic.List<double> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<double> opKDoubleS(global::System.Collections.Generic.LinkedList<double> i, out global::System.Collections.Generic.LinkedList<double> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<double> opQDoubleS(global::System.Collections.Generic.Queue<double> i, out global::System.Collections.Generic.Queue<double> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<double> opSDoubleS(global::System.Collections.Generic.Stack<double> i, out global::System.Collections.Generic.Stack<double> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            string[] opAStringS(string[] i, out string[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<string> opLStringS(global::System.Collections.Generic.List<string> i, out global::System.Collections.Generic.List<string> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<string> opKStringS(global::System.Collections.Generic.LinkedList<string> i, out global::System.Collections.Generic.LinkedList<string> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<string> opQStringS(global::System.Collections.Generic.Queue<string> i, out global::System.Collections.Generic.Queue<string> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<string> opSStringS(global::System.Collections.Generic.Stack<string> i, out global::System.Collections.Generic.Stack<string> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::Ice.Value?[] opAObjectS(global::Ice.Value?[] i, out global::Ice.Value?[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<global::Ice.Value?> opLObjectS(global::System.Collections.Generic.List<global::Ice.Value?> i, out global::System.Collections.Generic.List<global::Ice.Value?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::Ice.ObjectPrx?[] opAObjectPrxS(global::Ice.ObjectPrx?[] i, out global::Ice.ObjectPrx?[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<global::Ice.ObjectPrx?> opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.List<global::Ice.ObjectPrx?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            S[] opAStructS(S[] i, out S[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<S> opLStructS(global::System.Collections.Generic.List<S> i, out global::System.Collections.Generic.List<S> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<S> opKStructS(global::System.Collections.Generic.LinkedList<S> i, out global::System.Collections.Generic.LinkedList<S> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<S> opQStructS(global::System.Collections.Generic.Queue<S> i, out global::System.Collections.Generic.Queue<S> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<S> opSStructS(global::System.Collections.Generic.Stack<S> i, out global::System.Collections.Generic.Stack<S> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            SD[] opAStructSD(SD[] i, out SD[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<SD> opLStructSD(global::System.Collections.Generic.List<SD> i, out global::System.Collections.Generic.List<SD> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<SD> opKStructSD(global::System.Collections.Generic.LinkedList<SD> i, out global::System.Collections.Generic.LinkedList<SD> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<SD> opQStructSD(global::System.Collections.Generic.Queue<SD> i, out global::System.Collections.Generic.Queue<SD> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<SD> opSStructSD(global::System.Collections.Generic.Stack<SD> i, out global::System.Collections.Generic.Stack<SD> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            CV?[] opACVS(CV?[] i, out CV?[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<CV?> opLCVS(global::System.Collections.Generic.List<CV?> i, out global::System.Collections.Generic.List<CV?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            CR?[] opACRS(CR?[] i, out CR?[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<CR?> opLCRS(global::System.Collections.Generic.List<CR?> i, out global::System.Collections.Generic.List<CR?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            En[] opAEnS(En[] i, out En[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<En> opLEnS(global::System.Collections.Generic.List<En> i, out global::System.Collections.Generic.List<En> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<En> opKEnS(global::System.Collections.Generic.LinkedList<En> i, out global::System.Collections.Generic.LinkedList<En> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<En> opQEnS(global::System.Collections.Generic.Queue<En> i, out global::System.Collections.Generic.Queue<En> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<En> opSEnS(global::System.Collections.Generic.Stack<En> i, out global::System.Collections.Generic.Stack<En> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            IPrx?[] opAIPrxS(IPrx?[] i, out IPrx?[] o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.List<IPrx?> opLIPrxS(global::System.Collections.Generic.List<IPrx?> i, out global::System.Collections.Generic.List<IPrx?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.LinkedList<IPrx?> opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx?> i, out global::System.Collections.Generic.LinkedList<IPrx?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Queue<IPrx?> opQIPrxS(global::System.Collections.Generic.Queue<IPrx?> i, out global::System.Collections.Generic.Queue<IPrx?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::System.Collections.Generic.Stack<IPrx?> opSIPrxS(global::System.Collections.Generic.Stack<IPrx?> i, out global::System.Collections.Generic.Stack<IPrx?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::Ice.seqMapping.Custom<int> opCustomIntS(global::Ice.seqMapping.Custom<int> i, out global::Ice.seqMapping.Custom<int> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::Ice.seqMapping.Custom<CV?> opCustomCVS(global::Ice.seqMapping.Custom<CV?> i, out global::Ice.seqMapping.Custom<CV?> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o, global::Ice.Current current);
+
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> o, global::Ice.Current current);
         }
     }
 }
@@ -868,249 +1095,6 @@ namespace Ice.seqMapping
             global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> o, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-        }
-    }
-}
-
-namespace Ice.seqMapping
-{
-    namespace Test
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface IOperations_
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public interface MyClassOperations_
-        {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void shutdown(global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            byte[] opAByteS(byte[] i, out byte[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<byte> opLByteS(global::System.Collections.Generic.List<byte> i, out global::System.Collections.Generic.List<byte> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<byte> opKByteS(global::System.Collections.Generic.LinkedList<byte> i, out global::System.Collections.Generic.LinkedList<byte> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<byte> opQByteS(global::System.Collections.Generic.Queue<byte> i, out global::System.Collections.Generic.Queue<byte> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<byte> opSByteS(global::System.Collections.Generic.Stack<byte> i, out global::System.Collections.Generic.Stack<byte> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            bool[] opABoolS(bool[] i, out bool[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<bool> opLBoolS(global::System.Collections.Generic.List<bool> i, out global::System.Collections.Generic.List<bool> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<bool> opKBoolS(global::System.Collections.Generic.LinkedList<bool> i, out global::System.Collections.Generic.LinkedList<bool> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<bool> opQBoolS(global::System.Collections.Generic.Queue<bool> i, out global::System.Collections.Generic.Queue<bool> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<bool> opSBoolS(global::System.Collections.Generic.Stack<bool> i, out global::System.Collections.Generic.Stack<bool> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            short[] opAShortS(short[] i, out short[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<short> opLShortS(global::System.Collections.Generic.List<short> i, out global::System.Collections.Generic.List<short> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<short> opKShortS(global::System.Collections.Generic.LinkedList<short> i, out global::System.Collections.Generic.LinkedList<short> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<short> opQShortS(global::System.Collections.Generic.Queue<short> i, out global::System.Collections.Generic.Queue<short> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<short> opSShortS(global::System.Collections.Generic.Stack<short> i, out global::System.Collections.Generic.Stack<short> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            int[] opAIntS(int[] i, out int[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<int> opLIntS(global::System.Collections.Generic.List<int> i, out global::System.Collections.Generic.List<int> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<int> opKIntS(global::System.Collections.Generic.LinkedList<int> i, out global::System.Collections.Generic.LinkedList<int> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<int> opQIntS(global::System.Collections.Generic.Queue<int> i, out global::System.Collections.Generic.Queue<int> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<int> opSIntS(global::System.Collections.Generic.Stack<int> i, out global::System.Collections.Generic.Stack<int> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            long[] opALongS(long[] i, out long[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<long> opLLongS(global::System.Collections.Generic.List<long> i, out global::System.Collections.Generic.List<long> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<long> opKLongS(global::System.Collections.Generic.LinkedList<long> i, out global::System.Collections.Generic.LinkedList<long> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<long> opQLongS(global::System.Collections.Generic.Queue<long> i, out global::System.Collections.Generic.Queue<long> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<long> opSLongS(global::System.Collections.Generic.Stack<long> i, out global::System.Collections.Generic.Stack<long> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            float[] opAFloatS(float[] i, out float[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<float> opLFloatS(global::System.Collections.Generic.List<float> i, out global::System.Collections.Generic.List<float> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<float> opKFloatS(global::System.Collections.Generic.LinkedList<float> i, out global::System.Collections.Generic.LinkedList<float> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<float> opQFloatS(global::System.Collections.Generic.Queue<float> i, out global::System.Collections.Generic.Queue<float> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<float> opSFloatS(global::System.Collections.Generic.Stack<float> i, out global::System.Collections.Generic.Stack<float> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            double[] opADoubleS(double[] i, out double[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<double> opLDoubleS(global::System.Collections.Generic.List<double> i, out global::System.Collections.Generic.List<double> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<double> opKDoubleS(global::System.Collections.Generic.LinkedList<double> i, out global::System.Collections.Generic.LinkedList<double> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<double> opQDoubleS(global::System.Collections.Generic.Queue<double> i, out global::System.Collections.Generic.Queue<double> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<double> opSDoubleS(global::System.Collections.Generic.Stack<double> i, out global::System.Collections.Generic.Stack<double> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            string[] opAStringS(string[] i, out string[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<string> opLStringS(global::System.Collections.Generic.List<string> i, out global::System.Collections.Generic.List<string> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<string> opKStringS(global::System.Collections.Generic.LinkedList<string> i, out global::System.Collections.Generic.LinkedList<string> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<string> opQStringS(global::System.Collections.Generic.Queue<string> i, out global::System.Collections.Generic.Queue<string> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<string> opSStringS(global::System.Collections.Generic.Stack<string> i, out global::System.Collections.Generic.Stack<string> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.Value?[] opAObjectS(global::Ice.Value?[] i, out global::Ice.Value?[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<global::Ice.Value?> opLObjectS(global::System.Collections.Generic.List<global::Ice.Value?> i, out global::System.Collections.Generic.List<global::Ice.Value?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.ObjectPrx?[] opAObjectPrxS(global::Ice.ObjectPrx?[] i, out global::Ice.ObjectPrx?[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<global::Ice.ObjectPrx?> opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.List<global::Ice.ObjectPrx?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            S[] opAStructS(S[] i, out S[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<S> opLStructS(global::System.Collections.Generic.List<S> i, out global::System.Collections.Generic.List<S> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<S> opKStructS(global::System.Collections.Generic.LinkedList<S> i, out global::System.Collections.Generic.LinkedList<S> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<S> opQStructS(global::System.Collections.Generic.Queue<S> i, out global::System.Collections.Generic.Queue<S> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<S> opSStructS(global::System.Collections.Generic.Stack<S> i, out global::System.Collections.Generic.Stack<S> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            SD[] opAStructSD(SD[] i, out SD[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<SD> opLStructSD(global::System.Collections.Generic.List<SD> i, out global::System.Collections.Generic.List<SD> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<SD> opKStructSD(global::System.Collections.Generic.LinkedList<SD> i, out global::System.Collections.Generic.LinkedList<SD> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<SD> opQStructSD(global::System.Collections.Generic.Queue<SD> i, out global::System.Collections.Generic.Queue<SD> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<SD> opSStructSD(global::System.Collections.Generic.Stack<SD> i, out global::System.Collections.Generic.Stack<SD> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            CV?[] opACVS(CV?[] i, out CV?[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<CV?> opLCVS(global::System.Collections.Generic.List<CV?> i, out global::System.Collections.Generic.List<CV?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            CR?[] opACRS(CR?[] i, out CR?[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<CR?> opLCRS(global::System.Collections.Generic.List<CR?> i, out global::System.Collections.Generic.List<CR?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            En[] opAEnS(En[] i, out En[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<En> opLEnS(global::System.Collections.Generic.List<En> i, out global::System.Collections.Generic.List<En> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<En> opKEnS(global::System.Collections.Generic.LinkedList<En> i, out global::System.Collections.Generic.LinkedList<En> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<En> opQEnS(global::System.Collections.Generic.Queue<En> i, out global::System.Collections.Generic.Queue<En> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<En> opSEnS(global::System.Collections.Generic.Stack<En> i, out global::System.Collections.Generic.Stack<En> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            IPrx?[] opAIPrxS(IPrx?[] i, out IPrx?[] o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.List<IPrx?> opLIPrxS(global::System.Collections.Generic.List<IPrx?> i, out global::System.Collections.Generic.List<IPrx?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.LinkedList<IPrx?> opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx?> i, out global::System.Collections.Generic.LinkedList<IPrx?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Queue<IPrx?> opQIPrxS(global::System.Collections.Generic.Queue<IPrx?> i, out global::System.Collections.Generic.Queue<IPrx?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Collections.Generic.Stack<IPrx?> opSIPrxS(global::System.Collections.Generic.Stack<IPrx?> i, out global::System.Collections.Generic.Stack<IPrx?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.seqMapping.Custom<int> opCustomIntS(global::Ice.seqMapping.Custom<int> i, out global::Ice.seqMapping.Custom<int> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.seqMapping.Custom<CV?> opCustomCVS(global::Ice.seqMapping.Custom<CV?> i, out global::Ice.seqMapping.Custom<CV?> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o, global::Ice.Current current);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> o, global::Ice.Current current);
         }
     }
 }
