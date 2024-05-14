@@ -1168,11 +1168,11 @@ IceGrid::AdminPrx::_iceI_removeAdapter(const ::std::shared_ptr<::IceInternal::Ou
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
-            catch(const AdapterNotExistException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
@@ -1246,11 +1246,11 @@ IceGrid::AdminPrx::_iceI_addObject(const ::std::shared_ptr<::IceInternal::Outgoi
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
+            catch(const ObjectExistsException&)
             {
                 throw;
             }
-            catch(const ObjectExistsException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
@@ -1295,11 +1295,11 @@ IceGrid::AdminPrx::_iceI_updateObject(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
@@ -1344,11 +1344,11 @@ IceGrid::AdminPrx::_iceI_addObjectWithType(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
+            catch(const ObjectExistsException&)
             {
                 throw;
             }
-            catch(const ObjectExistsException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
@@ -1393,11 +1393,11 @@ IceGrid::AdminPrx::_iceI_removeObject(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
@@ -1596,11 +1596,11 @@ IceGrid::AdminPrx::_iceI_getNodeLoad(const ::std::shared_ptr<::IceInternal::Outg
             {
                 ex.ice_throw();
             }
-            catch(const NodeUnreachableException&)
+            catch(const NodeNotExistException&)
             {
                 throw;
             }
-            catch(const NodeNotExistException&)
+            catch(const NodeUnreachableException&)
             {
                 throw;
             }
@@ -1645,11 +1645,11 @@ IceGrid::AdminPrx::_iceI_getNodeInfo(const ::std::shared_ptr<::IceInternal::Outg
             {
                 ex.ice_throw();
             }
-            catch(const NodeUnreachableException&)
+            catch(const NodeNotExistException&)
             {
                 throw;
             }
-            catch(const NodeNotExistException&)
+            catch(const NodeUnreachableException&)
             {
                 throw;
             }
@@ -1694,11 +1694,11 @@ IceGrid::AdminPrx::_iceI_getNodeAdmin(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
-            catch(const NodeUnreachableException&)
+            catch(const NodeNotExistException&)
             {
                 throw;
             }
-            catch(const NodeNotExistException&)
+            catch(const NodeUnreachableException&)
             {
                 throw;
             }
@@ -1743,11 +1743,11 @@ IceGrid::AdminPrx::_iceI_getNodeProcessorSocketCount(const ::std::shared_ptr<::I
             {
                 ex.ice_throw();
             }
-            catch(const NodeUnreachableException&)
+            catch(const NodeNotExistException&)
             {
                 throw;
             }
-            catch(const NodeNotExistException&)
+            catch(const NodeUnreachableException&)
             {
                 throw;
             }
@@ -1792,11 +1792,11 @@ IceGrid::AdminPrx::_iceI_shutdownNode(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
-            catch(const NodeUnreachableException&)
+            catch(const NodeNotExistException&)
             {
                 throw;
             }
-            catch(const NodeNotExistException&)
+            catch(const NodeUnreachableException&)
             {
                 throw;
             }
@@ -1841,11 +1841,11 @@ IceGrid::AdminPrx::_iceI_getNodeHostname(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const NodeUnreachableException&)
+            catch(const NodeNotExistException&)
             {
                 throw;
             }
-            catch(const NodeNotExistException&)
+            catch(const NodeUnreachableException&)
             {
                 throw;
             }
@@ -3381,15 +3381,15 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdErr(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
+            catch(const NodeNotExistException&)
+            {
+                throw;
+            }
             catch(const NodeUnreachableException&)
             {
                 throw;
             }
             catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
-            catch(const NodeNotExistException&)
             {
                 throw;
             }
@@ -3434,15 +3434,15 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdOut(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
+            catch(const NodeNotExistException&)
+            {
+                throw;
+            }
             catch(const NodeUnreachableException&)
             {
                 throw;
             }
             catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
-            catch(const NodeNotExistException&)
             {
                 throw;
             }
