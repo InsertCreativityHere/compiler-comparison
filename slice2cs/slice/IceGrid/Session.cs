@@ -407,11 +407,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ObjectNotRegisteredException)
+                    catch(AllocationException)
                     {
                         throw;
                     }
-                    catch(AllocationException)
+                    catch(ObjectNotRegisteredException)
                     {
                         throw;
                     }
@@ -511,11 +511,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ObjectNotRegisteredException)
+                    catch(AllocationException)
                     {
                         throw;
                     }
-                    catch(AllocationException)
+                    catch(ObjectNotRegisteredException)
                     {
                         throw;
                     }

@@ -71,5 +71,5 @@ public class AccessDeniedException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 5447245336305289315L;
+    public static final long serialVersionUID = 5447245335074676789L;
 }
