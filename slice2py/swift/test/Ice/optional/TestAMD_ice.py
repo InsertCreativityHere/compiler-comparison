@@ -1256,12 +1256,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opMDict2Async(self, p1, context=None):
             return _M_Test.Initial._op_opMDict2.invokeAsync(self, ((p1, ), context))
 
-        def supportsRequiredParams(self, context=None):
-            return _M_Test.Initial._op_supportsRequiredParams.invoke(self, ((), context))
-
-        def supportsRequiredParamsAsync(self, context=None):
-            return _M_Test.Initial._op_supportsRequiredParams.invokeAsync(self, ((), context))
-
         def supportsJavaSerializable(self, context=None):
             return _M_Test.Initial._op_supportsJavaSerializable.invoke(self, ((), context))
 
@@ -1516,9 +1510,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opMDict2(self, p1, current=None):
             raise NotImplementedError("servant method 'opMDict2' not implemented")
 
-        def supportsRequiredParams(self, current=None):
-            raise NotImplementedError("servant method 'supportsRequiredParams' not implemented")
-
         def supportsJavaSerializable(self, current=None):
             raise NotImplementedError("servant method 'supportsJavaSerializable' not implemented")
 
@@ -1578,7 +1569,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opMSeq2 = IcePy.Operation('opMSeq2', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringSeq, True, 2),), (((), _M_Test._t_StringSeq, True, 3),), ((), _M_Test._t_StringSeq, True, 1), ())
     Initial._op_opMDict1 = IcePy.Operation('opMDict1', Ice.OperationMode.Normal, True, None, (), (), (), ((), _M_Test._t_StringIntDict, True, 1), ())
     Initial._op_opMDict2 = IcePy.Operation('opMDict2', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
-    Initial._op_supportsRequiredParams = IcePy.Operation('supportsRequiredParams', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsJavaSerializable = IcePy.Operation('supportsJavaSerializable', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsCsharpSerializable = IcePy.Operation('supportsCsharpSerializable', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
 

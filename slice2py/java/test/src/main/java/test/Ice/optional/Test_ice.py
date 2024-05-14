@@ -1022,23 +1022,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opByteAsync(self, p1, context=None):
             return _M_Test.Initial._op_opByte.invokeAsync(self, ((p1, ), context))
 
-        def opByteReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opByteReq.invoke(self, ((p1, ), context))
-
-        def opByteReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opByteReq.invokeAsync(self, ((p1, ), context))
-
         def opBool(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opBool.invoke(self, ((p1, ), context))
 
         def opBoolAsync(self, p1, context=None):
             return _M_Test.Initial._op_opBool.invokeAsync(self, ((p1, ), context))
-
-        def opBoolReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opBoolReq.invoke(self, ((p1, ), context))
-
-        def opBoolReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opBoolReq.invokeAsync(self, ((p1, ), context))
 
         def opShort(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opShort.invoke(self, ((p1, ), context))
@@ -1046,23 +1034,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opShortAsync(self, p1, context=None):
             return _M_Test.Initial._op_opShort.invokeAsync(self, ((p1, ), context))
 
-        def opShortReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opShortReq.invoke(self, ((p1, ), context))
-
-        def opShortReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opShortReq.invokeAsync(self, ((p1, ), context))
-
         def opInt(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opInt.invoke(self, ((p1, ), context))
 
         def opIntAsync(self, p1, context=None):
             return _M_Test.Initial._op_opInt.invokeAsync(self, ((p1, ), context))
-
-        def opIntReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opIntReq.invoke(self, ((p1, ), context))
-
-        def opIntReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opIntReq.invokeAsync(self, ((p1, ), context))
 
         def opLong(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opLong.invoke(self, ((p1, ), context))
@@ -1070,23 +1046,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opLongAsync(self, p1, context=None):
             return _M_Test.Initial._op_opLong.invokeAsync(self, ((p1, ), context))
 
-        def opLongReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opLongReq.invoke(self, ((p1, ), context))
-
-        def opLongReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opLongReq.invokeAsync(self, ((p1, ), context))
-
         def opFloat(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opFloat.invoke(self, ((p1, ), context))
 
         def opFloatAsync(self, p1, context=None):
             return _M_Test.Initial._op_opFloat.invokeAsync(self, ((p1, ), context))
-
-        def opFloatReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opFloatReq.invoke(self, ((p1, ), context))
-
-        def opFloatReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opFloatReq.invokeAsync(self, ((p1, ), context))
 
         def opDouble(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opDouble.invoke(self, ((p1, ), context))
@@ -1094,23 +1058,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opDoubleAsync(self, p1, context=None):
             return _M_Test.Initial._op_opDouble.invokeAsync(self, ((p1, ), context))
 
-        def opDoubleReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opDoubleReq.invoke(self, ((p1, ), context))
-
-        def opDoubleReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opDoubleReq.invokeAsync(self, ((p1, ), context))
-
         def opString(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opString.invoke(self, ((p1, ), context))
 
         def opStringAsync(self, p1, context=None):
             return _M_Test.Initial._op_opString.invokeAsync(self, ((p1, ), context))
-
-        def opStringReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opStringReq.invoke(self, ((p1, ), context))
-
-        def opStringReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opStringReq.invokeAsync(self, ((p1, ), context))
 
         def opMyEnum(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opMyEnum.invoke(self, ((p1, ), context))
@@ -1118,23 +1070,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opMyEnumAsync(self, p1, context=None):
             return _M_Test.Initial._op_opMyEnum.invokeAsync(self, ((p1, ), context))
 
-        def opMyEnumReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opMyEnumReq.invoke(self, ((p1, ), context))
-
-        def opMyEnumReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opMyEnumReq.invokeAsync(self, ((p1, ), context))
-
         def opSmallStruct(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opSmallStruct.invoke(self, ((p1, ), context))
 
         def opSmallStructAsync(self, p1, context=None):
             return _M_Test.Initial._op_opSmallStruct.invokeAsync(self, ((p1, ), context))
-
-        def opSmallStructReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opSmallStructReq.invoke(self, ((p1, ), context))
-
-        def opSmallStructReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opSmallStructReq.invokeAsync(self, ((p1, ), context))
 
         def opFixedStruct(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opFixedStruct.invoke(self, ((p1, ), context))
@@ -1142,35 +1082,17 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opFixedStructAsync(self, p1, context=None):
             return _M_Test.Initial._op_opFixedStruct.invokeAsync(self, ((p1, ), context))
 
-        def opFixedStructReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opFixedStructReq.invoke(self, ((p1, ), context))
-
-        def opFixedStructReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opFixedStructReq.invokeAsync(self, ((p1, ), context))
-
         def opVarStruct(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opVarStruct.invoke(self, ((p1, ), context))
 
         def opVarStructAsync(self, p1, context=None):
             return _M_Test.Initial._op_opVarStruct.invokeAsync(self, ((p1, ), context))
 
-        def opVarStructReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opVarStructReq.invoke(self, ((p1, ), context))
-
-        def opVarStructReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opVarStructReq.invokeAsync(self, ((p1, ), context))
-
         def opMyInterfaceProxy(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opMyInterfaceProxy.invoke(self, ((p1, ), context))
 
         def opMyInterfaceProxyAsync(self, p1, context=None):
             return _M_Test.Initial._op_opMyInterfaceProxy.invokeAsync(self, ((p1, ), context))
-
-        def opMyInterfaceProxyReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opMyInterfaceProxyReq.invoke(self, ((p1, ), context))
-
-        def opMyInterfaceProxyReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opMyInterfaceProxyReq.invokeAsync(self, ((p1, ), context))
 
         def opOneOptional(self, p1, context=None):
             return _M_Test.Initial._op_opOneOptional.invoke(self, ((p1, ), context))
@@ -1184,23 +1106,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opByteSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opByteSeq.invokeAsync(self, ((p1, ), context))
 
-        def opByteSeqReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opByteSeqReq.invoke(self, ((p1, ), context))
-
-        def opByteSeqReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opByteSeqReq.invokeAsync(self, ((p1, ), context))
-
         def opBoolSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opBoolSeq.invoke(self, ((p1, ), context))
 
         def opBoolSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opBoolSeq.invokeAsync(self, ((p1, ), context))
-
-        def opBoolSeqReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opBoolSeqReq.invoke(self, ((p1, ), context))
-
-        def opBoolSeqReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opBoolSeqReq.invokeAsync(self, ((p1, ), context))
 
         def opShortSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opShortSeq.invoke(self, ((p1, ), context))
@@ -1208,23 +1118,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opShortSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opShortSeq.invokeAsync(self, ((p1, ), context))
 
-        def opShortSeqReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opShortSeqReq.invoke(self, ((p1, ), context))
-
-        def opShortSeqReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opShortSeqReq.invokeAsync(self, ((p1, ), context))
-
         def opIntSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opIntSeq.invoke(self, ((p1, ), context))
 
         def opIntSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opIntSeq.invokeAsync(self, ((p1, ), context))
-
-        def opIntSeqReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opIntSeqReq.invoke(self, ((p1, ), context))
-
-        def opIntSeqReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opIntSeqReq.invokeAsync(self, ((p1, ), context))
 
         def opLongSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opLongSeq.invoke(self, ((p1, ), context))
@@ -1232,23 +1130,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opLongSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opLongSeq.invokeAsync(self, ((p1, ), context))
 
-        def opLongSeqReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opLongSeqReq.invoke(self, ((p1, ), context))
-
-        def opLongSeqReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opLongSeqReq.invokeAsync(self, ((p1, ), context))
-
         def opFloatSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opFloatSeq.invoke(self, ((p1, ), context))
 
         def opFloatSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opFloatSeq.invokeAsync(self, ((p1, ), context))
-
-        def opFloatSeqReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opFloatSeqReq.invoke(self, ((p1, ), context))
-
-        def opFloatSeqReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opFloatSeqReq.invokeAsync(self, ((p1, ), context))
 
         def opDoubleSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opDoubleSeq.invoke(self, ((p1, ), context))
@@ -1256,23 +1142,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opDoubleSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opDoubleSeq.invokeAsync(self, ((p1, ), context))
 
-        def opDoubleSeqReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opDoubleSeqReq.invoke(self, ((p1, ), context))
-
-        def opDoubleSeqReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opDoubleSeqReq.invokeAsync(self, ((p1, ), context))
-
         def opStringSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opStringSeq.invoke(self, ((p1, ), context))
 
         def opStringSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opStringSeq.invokeAsync(self, ((p1, ), context))
-
-        def opStringSeqReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opStringSeqReq.invoke(self, ((p1, ), context))
-
-        def opStringSeqReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opStringSeqReq.invokeAsync(self, ((p1, ), context))
 
         def opSmallStructSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opSmallStructSeq.invoke(self, ((p1, ), context))
@@ -1280,23 +1154,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opSmallStructSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opSmallStructSeq.invokeAsync(self, ((p1, ), context))
 
-        def opSmallStructSeqReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opSmallStructSeqReq.invoke(self, ((p1, ), context))
-
-        def opSmallStructSeqReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opSmallStructSeqReq.invokeAsync(self, ((p1, ), context))
-
         def opSmallStructList(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opSmallStructList.invoke(self, ((p1, ), context))
 
         def opSmallStructListAsync(self, p1, context=None):
             return _M_Test.Initial._op_opSmallStructList.invokeAsync(self, ((p1, ), context))
-
-        def opSmallStructListReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opSmallStructListReq.invoke(self, ((p1, ), context))
-
-        def opSmallStructListReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opSmallStructListReq.invokeAsync(self, ((p1, ), context))
 
         def opFixedStructSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opFixedStructSeq.invoke(self, ((p1, ), context))
@@ -1304,23 +1166,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opFixedStructSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opFixedStructSeq.invokeAsync(self, ((p1, ), context))
 
-        def opFixedStructSeqReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opFixedStructSeqReq.invoke(self, ((p1, ), context))
-
-        def opFixedStructSeqReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opFixedStructSeqReq.invokeAsync(self, ((p1, ), context))
-
         def opFixedStructList(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opFixedStructList.invoke(self, ((p1, ), context))
 
         def opFixedStructListAsync(self, p1, context=None):
             return _M_Test.Initial._op_opFixedStructList.invokeAsync(self, ((p1, ), context))
-
-        def opFixedStructListReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opFixedStructListReq.invoke(self, ((p1, ), context))
-
-        def opFixedStructListReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opFixedStructListReq.invokeAsync(self, ((p1, ), context))
 
         def opVarStructSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opVarStructSeq.invoke(self, ((p1, ), context))
@@ -1328,23 +1178,11 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opVarStructSeqAsync(self, p1, context=None):
             return _M_Test.Initial._op_opVarStructSeq.invokeAsync(self, ((p1, ), context))
 
-        def opVarStructSeqReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opVarStructSeqReq.invoke(self, ((p1, ), context))
-
-        def opVarStructSeqReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opVarStructSeqReq.invokeAsync(self, ((p1, ), context))
-
         def opSerializable(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opSerializable.invoke(self, ((p1, ), context))
 
         def opSerializableAsync(self, p1, context=None):
             return _M_Test.Initial._op_opSerializable.invokeAsync(self, ((p1, ), context))
-
-        def opSerializableReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opSerializableReq.invoke(self, ((p1, ), context))
-
-        def opSerializableReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opSerializableReq.invokeAsync(self, ((p1, ), context))
 
         def opIntIntDict(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opIntIntDict.invoke(self, ((p1, ), context))
@@ -1352,35 +1190,17 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opIntIntDictAsync(self, p1, context=None):
             return _M_Test.Initial._op_opIntIntDict.invokeAsync(self, ((p1, ), context))
 
-        def opIntIntDictReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opIntIntDictReq.invoke(self, ((p1, ), context))
-
-        def opIntIntDictReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opIntIntDictReq.invokeAsync(self, ((p1, ), context))
-
         def opStringIntDict(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opStringIntDict.invoke(self, ((p1, ), context))
 
         def opStringIntDictAsync(self, p1, context=None):
             return _M_Test.Initial._op_opStringIntDict.invokeAsync(self, ((p1, ), context))
 
-        def opStringIntDictReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opStringIntDictReq.invoke(self, ((p1, ), context))
-
-        def opStringIntDictReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opStringIntDictReq.invokeAsync(self, ((p1, ), context))
-
         def opIntOneOptionalDict(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opIntOneOptionalDict.invoke(self, ((p1, ), context))
 
         def opIntOneOptionalDictAsync(self, p1, context=None):
             return _M_Test.Initial._op_opIntOneOptionalDict.invokeAsync(self, ((p1, ), context))
-
-        def opIntOneOptionalDictReq(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opIntOneOptionalDictReq.invoke(self, ((p1, ), context))
-
-        def opIntOneOptionalDictReqAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opIntOneOptionalDictReq.invokeAsync(self, ((p1, ), context))
 
         def opClassAndUnknownOptional(self, p, context=None):
             return _M_Test.Initial._op_opClassAndUnknownOptional.invoke(self, ((p, ), context))
@@ -1435,12 +1255,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         def opMDict2Async(self, p1, context=None):
             return _M_Test.Initial._op_opMDict2.invokeAsync(self, ((p1, ), context))
-
-        def supportsRequiredParams(self, context=None):
-            return _M_Test.Initial._op_supportsRequiredParams.invoke(self, ((), context))
-
-        def supportsRequiredParamsAsync(self, context=None):
-            return _M_Test.Initial._op_supportsRequiredParams.invokeAsync(self, ((), context))
 
         def supportsJavaSerializable(self, context=None):
             return _M_Test.Initial._op_supportsJavaSerializable.invoke(self, ((), context))
@@ -1501,80 +1315,41 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opByte(self, p1, current=None):
             raise NotImplementedError("servant method 'opByte' not implemented")
 
-        def opByteReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opByteReq' not implemented")
-
         def opBool(self, p1, current=None):
             raise NotImplementedError("servant method 'opBool' not implemented")
-
-        def opBoolReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opBoolReq' not implemented")
 
         def opShort(self, p1, current=None):
             raise NotImplementedError("servant method 'opShort' not implemented")
 
-        def opShortReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opShortReq' not implemented")
-
         def opInt(self, p1, current=None):
             raise NotImplementedError("servant method 'opInt' not implemented")
-
-        def opIntReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opIntReq' not implemented")
 
         def opLong(self, p1, current=None):
             raise NotImplementedError("servant method 'opLong' not implemented")
 
-        def opLongReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opLongReq' not implemented")
-
         def opFloat(self, p1, current=None):
             raise NotImplementedError("servant method 'opFloat' not implemented")
-
-        def opFloatReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opFloatReq' not implemented")
 
         def opDouble(self, p1, current=None):
             raise NotImplementedError("servant method 'opDouble' not implemented")
 
-        def opDoubleReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opDoubleReq' not implemented")
-
         def opString(self, p1, current=None):
             raise NotImplementedError("servant method 'opString' not implemented")
-
-        def opStringReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opStringReq' not implemented")
 
         def opMyEnum(self, p1, current=None):
             raise NotImplementedError("servant method 'opMyEnum' not implemented")
 
-        def opMyEnumReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opMyEnumReq' not implemented")
-
         def opSmallStruct(self, p1, current=None):
             raise NotImplementedError("servant method 'opSmallStruct' not implemented")
-
-        def opSmallStructReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opSmallStructReq' not implemented")
 
         def opFixedStruct(self, p1, current=None):
             raise NotImplementedError("servant method 'opFixedStruct' not implemented")
 
-        def opFixedStructReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opFixedStructReq' not implemented")
-
         def opVarStruct(self, p1, current=None):
             raise NotImplementedError("servant method 'opVarStruct' not implemented")
 
-        def opVarStructReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opVarStructReq' not implemented")
-
         def opMyInterfaceProxy(self, p1, current=None):
             raise NotImplementedError("servant method 'opMyInterfaceProxy' not implemented")
-
-        def opMyInterfaceProxyReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opMyInterfaceProxyReq' not implemented")
 
         def opOneOptional(self, p1, current=None):
             raise NotImplementedError("servant method 'opOneOptional' not implemented")
@@ -1582,104 +1357,53 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opByteSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opByteSeq' not implemented")
 
-        def opByteSeqReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opByteSeqReq' not implemented")
-
         def opBoolSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opBoolSeq' not implemented")
-
-        def opBoolSeqReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opBoolSeqReq' not implemented")
 
         def opShortSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opShortSeq' not implemented")
 
-        def opShortSeqReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opShortSeqReq' not implemented")
-
         def opIntSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opIntSeq' not implemented")
-
-        def opIntSeqReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opIntSeqReq' not implemented")
 
         def opLongSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opLongSeq' not implemented")
 
-        def opLongSeqReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opLongSeqReq' not implemented")
-
         def opFloatSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opFloatSeq' not implemented")
-
-        def opFloatSeqReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opFloatSeqReq' not implemented")
 
         def opDoubleSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opDoubleSeq' not implemented")
 
-        def opDoubleSeqReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opDoubleSeqReq' not implemented")
-
         def opStringSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opStringSeq' not implemented")
-
-        def opStringSeqReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opStringSeqReq' not implemented")
 
         def opSmallStructSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opSmallStructSeq' not implemented")
 
-        def opSmallStructSeqReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opSmallStructSeqReq' not implemented")
-
         def opSmallStructList(self, p1, current=None):
             raise NotImplementedError("servant method 'opSmallStructList' not implemented")
-
-        def opSmallStructListReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opSmallStructListReq' not implemented")
 
         def opFixedStructSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opFixedStructSeq' not implemented")
 
-        def opFixedStructSeqReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opFixedStructSeqReq' not implemented")
-
         def opFixedStructList(self, p1, current=None):
             raise NotImplementedError("servant method 'opFixedStructList' not implemented")
-
-        def opFixedStructListReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opFixedStructListReq' not implemented")
 
         def opVarStructSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opVarStructSeq' not implemented")
 
-        def opVarStructSeqReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opVarStructSeqReq' not implemented")
-
         def opSerializable(self, p1, current=None):
             raise NotImplementedError("servant method 'opSerializable' not implemented")
-
-        def opSerializableReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opSerializableReq' not implemented")
 
         def opIntIntDict(self, p1, current=None):
             raise NotImplementedError("servant method 'opIntIntDict' not implemented")
 
-        def opIntIntDictReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opIntIntDictReq' not implemented")
-
         def opStringIntDict(self, p1, current=None):
             raise NotImplementedError("servant method 'opStringIntDict' not implemented")
 
-        def opStringIntDictReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opStringIntDictReq' not implemented")
-
         def opIntOneOptionalDict(self, p1, current=None):
             raise NotImplementedError("servant method 'opIntOneOptionalDict' not implemented")
-
-        def opIntOneOptionalDictReq(self, p1, current=None):
-            raise NotImplementedError("servant method 'opIntOneOptionalDictReq' not implemented")
 
         def opClassAndUnknownOptional(self, p, current=None):
             raise NotImplementedError("servant method 'opClassAndUnknownOptional' not implemented")
@@ -1786,9 +1510,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opMDict2(self, p1, current=None):
             raise NotImplementedError("servant method 'opMDict2' not implemented")
 
-        def supportsRequiredParams(self, current=None):
-            raise NotImplementedError("servant method 'supportsRequiredParams' not implemented")
-
         def supportsJavaSerializable(self, current=None):
             raise NotImplementedError("servant method 'supportsJavaSerializable' not implemented")
 
@@ -1809,66 +1530,36 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opDerivedException = IcePy.Operation('opDerivedException', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, (_M_Test._t_OptionalException,))
     Initial._op_opRequiredException = IcePy.Operation('opRequiredException', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, (_M_Test._t_OptionalException,))
     Initial._op_opByte = IcePy.Operation('opByte', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, True, 2),), (((), IcePy._t_byte, True, 3),), ((), IcePy._t_byte, True, 1), ())
-    Initial._op_opByteReq = IcePy.Operation('opByteReq', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, True, 2),), (((), IcePy._t_byte, True, 3),), ((), IcePy._t_byte, True, 1), ())
     Initial._op_opBool = IcePy.Operation('opBool', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, True, 2),), (((), IcePy._t_bool, True, 3),), ((), IcePy._t_bool, True, 1), ())
-    Initial._op_opBoolReq = IcePy.Operation('opBoolReq', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, True, 2),), (((), IcePy._t_bool, True, 3),), ((), IcePy._t_bool, True, 1), ())
     Initial._op_opShort = IcePy.Operation('opShort', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, True, 2),), (((), IcePy._t_short, True, 3),), ((), IcePy._t_short, True, 1), ())
-    Initial._op_opShortReq = IcePy.Operation('opShortReq', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, True, 2),), (((), IcePy._t_short, True, 3),), ((), IcePy._t_short, True, 1), ())
     Initial._op_opInt = IcePy.Operation('opInt', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 2),), (((), IcePy._t_int, True, 3),), ((), IcePy._t_int, True, 1), ())
-    Initial._op_opIntReq = IcePy.Operation('opIntReq', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 2),), (((), IcePy._t_int, True, 3),), ((), IcePy._t_int, True, 1), ())
     Initial._op_opLong = IcePy.Operation('opLong', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, True, 1),), (((), IcePy._t_long, True, 2),), ((), IcePy._t_long, True, 3), ())
-    Initial._op_opLongReq = IcePy.Operation('opLongReq', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, True, 1),), (((), IcePy._t_long, True, 2),), ((), IcePy._t_long, True, 3), ())
     Initial._op_opFloat = IcePy.Operation('opFloat', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_float, True, 2),), (((), IcePy._t_float, True, 3),), ((), IcePy._t_float, True, 1), ())
-    Initial._op_opFloatReq = IcePy.Operation('opFloatReq', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_float, True, 2),), (((), IcePy._t_float, True, 3),), ((), IcePy._t_float, True, 1), ())
     Initial._op_opDouble = IcePy.Operation('opDouble', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_double, True, 2),), (((), IcePy._t_double, True, 3),), ((), IcePy._t_double, True, 1), ())
-    Initial._op_opDoubleReq = IcePy.Operation('opDoubleReq', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_double, True, 2),), (((), IcePy._t_double, True, 3),), ((), IcePy._t_double, True, 1), ())
     Initial._op_opString = IcePy.Operation('opString', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, True, 2),), (((), IcePy._t_string, True, 3),), ((), IcePy._t_string, True, 1), ())
-    Initial._op_opStringReq = IcePy.Operation('opStringReq', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, True, 2),), (((), IcePy._t_string, True, 3),), ((), IcePy._t_string, True, 1), ())
     Initial._op_opMyEnum = IcePy.Operation('opMyEnum', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnum, True, 2),), (((), _M_Test._t_MyEnum, True, 3),), ((), _M_Test._t_MyEnum, True, 1), ())
-    Initial._op_opMyEnumReq = IcePy.Operation('opMyEnumReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnum, True, 2),), (((), _M_Test._t_MyEnum, True, 3),), ((), _M_Test._t_MyEnum, True, 1), ())
     Initial._op_opSmallStruct = IcePy.Operation('opSmallStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStruct, True, 2),), (((), _M_Test._t_SmallStruct, True, 3),), ((), _M_Test._t_SmallStruct, True, 1), ())
-    Initial._op_opSmallStructReq = IcePy.Operation('opSmallStructReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStruct, True, 2),), (((), _M_Test._t_SmallStruct, True, 3),), ((), _M_Test._t_SmallStruct, True, 1), ())
     Initial._op_opFixedStruct = IcePy.Operation('opFixedStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStruct, True, 2),), (((), _M_Test._t_FixedStruct, True, 3),), ((), _M_Test._t_FixedStruct, True, 1), ())
-    Initial._op_opFixedStructReq = IcePy.Operation('opFixedStructReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStruct, True, 2),), (((), _M_Test._t_FixedStruct, True, 3),), ((), _M_Test._t_FixedStruct, True, 1), ())
     Initial._op_opVarStruct = IcePy.Operation('opVarStruct', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VarStruct, True, 2),), (((), _M_Test._t_VarStruct, True, 3),), ((), _M_Test._t_VarStruct, True, 1), ())
-    Initial._op_opVarStructReq = IcePy.Operation('opVarStructReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VarStruct, True, 2),), (((), _M_Test._t_VarStruct, True, 3),), ((), _M_Test._t_VarStruct, True, 1), ())
     Initial._op_opMyInterfaceProxy = IcePy.Operation('opMyInterfaceProxy', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyInterfacePrx, True, 2),), (((), _M_Test._t_MyInterfacePrx, True, 3),), ((), _M_Test._t_MyInterfacePrx, True, 1), ())
-    Initial._op_opMyInterfaceProxyReq = IcePy.Operation('opMyInterfaceProxyReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyInterfacePrx, True, 2),), (((), _M_Test._t_MyInterfacePrx, True, 3),), ((), _M_Test._t_MyInterfacePrx, True, 1), ())
     Initial._op_opOneOptional = IcePy.Operation('opOneOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_OneOptional, False, 0),), (((), _M_Test._t_OneOptional, False, 0),), ((), _M_Test._t_OneOptional, False, 0), ())
     Initial._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, True, 2),), (((), _M_Test._t_ByteSeq, True, 3),), ((), _M_Test._t_ByteSeq, True, 1), ())
-    Initial._op_opByteSeqReq = IcePy.Operation('opByteSeqReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, True, 2),), (((), _M_Test._t_ByteSeq, True, 3),), ((), _M_Test._t_ByteSeq, True, 1), ())
     Initial._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, True, 2),), (((), _M_Test._t_BoolSeq, True, 3),), ((), _M_Test._t_BoolSeq, True, 1), ())
-    Initial._op_opBoolSeqReq = IcePy.Operation('opBoolSeqReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BoolSeq, True, 2),), (((), _M_Test._t_BoolSeq, True, 3),), ((), _M_Test._t_BoolSeq, True, 1), ())
     Initial._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq, True, 2),), (((), _M_Test._t_ShortSeq, True, 3),), ((), _M_Test._t_ShortSeq, True, 1), ())
-    Initial._op_opShortSeqReq = IcePy.Operation('opShortSeqReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq, True, 2),), (((), _M_Test._t_ShortSeq, True, 3),), ((), _M_Test._t_ShortSeq, True, 1), ())
     Initial._op_opIntSeq = IcePy.Operation('opIntSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntSeq, True, 2),), (((), _M_Test._t_IntSeq, True, 3),), ((), _M_Test._t_IntSeq, True, 1), ())
-    Initial._op_opIntSeqReq = IcePy.Operation('opIntSeqReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntSeq, True, 2),), (((), _M_Test._t_IntSeq, True, 3),), ((), _M_Test._t_IntSeq, True, 1), ())
     Initial._op_opLongSeq = IcePy.Operation('opLongSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongSeq, True, 2),), (((), _M_Test._t_LongSeq, True, 3),), ((), _M_Test._t_LongSeq, True, 1), ())
-    Initial._op_opLongSeqReq = IcePy.Operation('opLongSeqReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_LongSeq, True, 2),), (((), _M_Test._t_LongSeq, True, 3),), ((), _M_Test._t_LongSeq, True, 1), ())
     Initial._op_opFloatSeq = IcePy.Operation('opFloatSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSeq, True, 2),), (((), _M_Test._t_FloatSeq, True, 3),), ((), _M_Test._t_FloatSeq, True, 1), ())
-    Initial._op_opFloatSeqReq = IcePy.Operation('opFloatSeqReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FloatSeq, True, 2),), (((), _M_Test._t_FloatSeq, True, 3),), ((), _M_Test._t_FloatSeq, True, 1), ())
     Initial._op_opDoubleSeq = IcePy.Operation('opDoubleSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq, True, 2),), (((), _M_Test._t_DoubleSeq, True, 3),), ((), _M_Test._t_DoubleSeq, True, 1), ())
-    Initial._op_opDoubleSeqReq = IcePy.Operation('opDoubleSeqReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_DoubleSeq, True, 2),), (((), _M_Test._t_DoubleSeq, True, 3),), ((), _M_Test._t_DoubleSeq, True, 1), ())
     Initial._op_opStringSeq = IcePy.Operation('opStringSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, True, 2),), (((), _M_Test._t_StringSeq, True, 3),), ((), _M_Test._t_StringSeq, True, 1), ())
-    Initial._op_opStringSeqReq = IcePy.Operation('opStringSeqReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, True, 2),), (((), _M_Test._t_StringSeq, True, 3),), ((), _M_Test._t_StringSeq, True, 1), ())
     Initial._op_opSmallStructSeq = IcePy.Operation('opSmallStructSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStructSeq, True, 2),), (((), _M_Test._t_SmallStructSeq, True, 3),), ((), _M_Test._t_SmallStructSeq, True, 1), ())
-    Initial._op_opSmallStructSeqReq = IcePy.Operation('opSmallStructSeqReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStructSeq, True, 2),), (((), _M_Test._t_SmallStructSeq, True, 3),), ((), _M_Test._t_SmallStructSeq, True, 1), ())
     Initial._op_opSmallStructList = IcePy.Operation('opSmallStructList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStructList, True, 2),), (((), _M_Test._t_SmallStructList, True, 3),), ((), _M_Test._t_SmallStructList, True, 1), ())
-    Initial._op_opSmallStructListReq = IcePy.Operation('opSmallStructListReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStructList, True, 2),), (((), _M_Test._t_SmallStructList, True, 3),), ((), _M_Test._t_SmallStructList, True, 1), ())
     Initial._op_opFixedStructSeq = IcePy.Operation('opFixedStructSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStructSeq, True, 2),), (((), _M_Test._t_FixedStructSeq, True, 3),), ((), _M_Test._t_FixedStructSeq, True, 1), ())
-    Initial._op_opFixedStructSeqReq = IcePy.Operation('opFixedStructSeqReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStructSeq, True, 2),), (((), _M_Test._t_FixedStructSeq, True, 3),), ((), _M_Test._t_FixedStructSeq, True, 1), ())
     Initial._op_opFixedStructList = IcePy.Operation('opFixedStructList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStructList, True, 2),), (((), _M_Test._t_FixedStructList, True, 3),), ((), _M_Test._t_FixedStructList, True, 1), ())
-    Initial._op_opFixedStructListReq = IcePy.Operation('opFixedStructListReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStructList, True, 2),), (((), _M_Test._t_FixedStructList, True, 3),), ((), _M_Test._t_FixedStructList, True, 1), ())
     Initial._op_opVarStructSeq = IcePy.Operation('opVarStructSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VarStructSeq, True, 2),), (((), _M_Test._t_VarStructSeq, True, 3),), ((), _M_Test._t_VarStructSeq, True, 1), ())
-    Initial._op_opVarStructSeqReq = IcePy.Operation('opVarStructSeqReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VarStructSeq, True, 2),), (((), _M_Test._t_VarStructSeq, True, 3),), ((), _M_Test._t_VarStructSeq, True, 1), ())
     Initial._op_opSerializable = IcePy.Operation('opSerializable', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Serializable, True, 2),), (((), _M_Test._t_Serializable, True, 3),), ((), _M_Test._t_Serializable, True, 1), ())
-    Initial._op_opSerializableReq = IcePy.Operation('opSerializableReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Serializable, True, 2),), (((), _M_Test._t_Serializable, True, 3),), ((), _M_Test._t_Serializable, True, 1), ())
     Initial._op_opIntIntDict = IcePy.Operation('opIntIntDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntIntDict, True, 2),), (((), _M_Test._t_IntIntDict, True, 3),), ((), _M_Test._t_IntIntDict, True, 1), ())
-    Initial._op_opIntIntDictReq = IcePy.Operation('opIntIntDictReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntIntDict, True, 2),), (((), _M_Test._t_IntIntDict, True, 3),), ((), _M_Test._t_IntIntDict, True, 1), ())
     Initial._op_opStringIntDict = IcePy.Operation('opStringIntDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
-    Initial._op_opStringIntDictReq = IcePy.Operation('opStringIntDictReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
     Initial._op_opIntOneOptionalDict = IcePy.Operation('opIntOneOptionalDict', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntOneOptionalDict, True, 2),), (((), _M_Test._t_IntOneOptionalDict, True, 3),), ((), _M_Test._t_IntOneOptionalDict, True, 1), ())
-    Initial._op_opIntOneOptionalDictReq = IcePy.Operation('opIntOneOptionalDictReq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntOneOptionalDict, True, 2),), (((), _M_Test._t_IntOneOptionalDict, True, 3),), ((), _M_Test._t_IntOneOptionalDict, True, 1), ())
     Initial._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_A, False, 0),), (), None, ())
     Initial._op_opG = IcePy.Operation('opG', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_G, False, 0),), (), ((), _M_Test._t_G, False, 0), ())
     Initial._op_opVoid = IcePy.Operation('opVoid', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
@@ -1878,7 +1569,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opMSeq2 = IcePy.Operation('opMSeq2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringSeq, True, 2),), (((), _M_Test._t_StringSeq, True, 3),), ((), _M_Test._t_StringSeq, True, 1), ())
     Initial._op_opMDict1 = IcePy.Operation('opMDict1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_StringIntDict, True, 1), ())
     Initial._op_opMDict2 = IcePy.Operation('opMDict2', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
-    Initial._op_supportsRequiredParams = IcePy.Operation('supportsRequiredParams', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsJavaSerializable = IcePy.Operation('supportsJavaSerializable', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsCsharpSerializable = IcePy.Operation('supportsCsharpSerializable', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
 

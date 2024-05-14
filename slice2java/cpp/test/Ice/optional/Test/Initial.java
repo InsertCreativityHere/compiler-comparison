@@ -1652,8 +1652,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     Initial.OpMDict2MarshaledResult opMDict2(java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> p1, com.zeroc.Ice.Current current);
 
-    boolean supportsRequiredParams(com.zeroc.Ice.Current current);
-
     boolean supportsJavaSerializable(com.zeroc.Ice.Current current);
 
     boolean supportsCsharpSerializable(com.zeroc.Ice.Current current);
@@ -2602,24 +2600,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsRequiredParams(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        boolean ret = obj.supportsRequiredParams(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeBool(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsJavaSerializable(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -2702,8 +2682,7 @@ public interface Initial extends com.zeroc.Ice.Object
         "pingPong",
         "shutdown",
         "supportsCsharpSerializable",
-        "supportsJavaSerializable",
-        "supportsRequiredParams"
+        "supportsJavaSerializable"
     };
 
     /** @hidden */
@@ -2922,10 +2901,6 @@ public interface Initial extends com.zeroc.Ice.Object
             case 50:
             {
                 return _iceD_supportsJavaSerializable(this, in, current);
-            }
-            case 51:
-            {
-                return _iceD_supportsRequiredParams(this, in, current);
             }
         }
 

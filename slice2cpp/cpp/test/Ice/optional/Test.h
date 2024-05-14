@@ -739,17 +739,6 @@ public:
     void _iceI_opMDict2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringIntDict>, ::std::optional<StringIntDict>>>>&, const ::std::optional<StringIntDict>&, const ::Ice::Context&) const;
     /// \endcond
 
-    bool supportsRequiredParams(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<bool> supportsRequiredParamsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    supportsRequiredParamsAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_supportsRequiredParams(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
-    /// \endcond
-
     bool supportsJavaSerializable(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<bool> supportsJavaSerializableAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1994,11 +1983,6 @@ public:
     virtual OpMDict2MarshaledResult opMDict2(::std::optional<StringIntDict> p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opMDict2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual bool supportsRequiredParams(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_supportsRequiredParams(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual bool supportsJavaSerializable(const ::Ice::Current& current) = 0;

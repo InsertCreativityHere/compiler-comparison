@@ -95,8 +95,6 @@
 %   opMDict1Async
 %   opMDict2
 %   opMDict2Async
-%   supportsRequiredParams
-%   supportsRequiredParamsAsync
 %   supportsJavaSerializable
 %   supportsJavaSerializableAsync
 %   supportsCsharpSerializable
@@ -2005,35 +2003,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p2;
             end
             r_ = obj.iceInvokeAsync('opMDict2', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function result = supportsRequiredParams(obj, varargin)
-            % supportsRequiredParams
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
-            is_ = obj.iceInvoke('supportsRequiredParams', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readBool();
-            is_.endEncapsulation();
-        end
-        function r_ = supportsRequiredParamsAsync(obj, varargin)
-            % supportsRequiredParamsAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readBool();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('supportsRequiredParams', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = supportsJavaSerializable(obj, varargin)
             % supportsJavaSerializable

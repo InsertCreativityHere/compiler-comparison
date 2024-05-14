@@ -3481,43 +3481,6 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default boolean supportsRequiredParams()
-    {
-        return supportsRequiredParams(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default boolean supportsRequiredParams(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsRequiredParamsAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsRequiredParamsAsync()
-    {
-        return _iceI_supportsRequiredParamsAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsRequiredParamsAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsRequiredParamsAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_supportsRequiredParamsAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "supportsRequiredParams", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
-                     boolean ret;
-                     ret = istr.readBool();
-                     return ret;
-                 });
-        return f;
-    }
-
     default boolean supportsJavaSerializable()
     {
         return supportsJavaSerializable(com.zeroc.Ice.ObjectPrx.noExplicitContext);

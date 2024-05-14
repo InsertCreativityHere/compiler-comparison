@@ -1975,10 +1975,6 @@ public extension MyInterfacePrx {
 ///
 ///  - opMDict2Async: 
 ///
-///  - supportsRequiredParams: 
-///
-///  - supportsRequiredParamsAsync: 
-///
 ///  - supportsJavaSerializable: 
 ///
 ///  - supportsJavaSerializableAsync: 
@@ -2244,10 +2240,6 @@ public extension Ice.InputStream {
 ///  - opMDict2: 
 ///
 ///  - opMDict2Async: 
-///
-///  - supportsRequiredParams: 
-///
-///  - supportsRequiredParamsAsync: 
 ///
 ///  - supportsJavaSerializable: 
 ///
@@ -4642,45 +4634,6 @@ public extension InitialPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Bool`
-    func supportsRequiredParams(context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "supportsRequiredParams",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func supportsRequiredParamsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "supportsRequiredParams",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsJavaSerializable(context: Ice.Context? = nil) throws -> Swift.Bool {
         return try _impl._invoke(operation: "supportsJavaSerializable",
                                  mode: .Normal,
@@ -5563,8 +5516,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_supportsCsharpSerializable(incoming: request, current: current)
         case "supportsJavaSerializable":
             return try servant._iceD_supportsJavaSerializable(incoming: request, current: current)
-        case "supportsRequiredParams":
-            return try servant._iceD_supportsRequiredParams(incoming: request, current: current)
         default:
             throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
         }
@@ -6056,12 +6007,6 @@ public protocol Initial {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Bool`
-    func supportsRequiredParams(current: Ice.Current) throws -> Swift.Bool
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsJavaSerializable(current: Ice.Current) throws -> Swift.Bool
 
     ///
@@ -6179,8 +6124,6 @@ public extension MyInterface {
 ///  - opMDict1: 
 ///
 ///  - opMDict2: 
-///
-///  - supportsRequiredParams: 
 ///
 ///  - supportsJavaSerializable: 
 ///
@@ -6789,16 +6732,6 @@ public extension Initial {
         return inS.setResult{ ostr in
             StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
             StringIntDictHelper.write(to: ostr, tag: 3, value: iceP_p2)
-        }
-    }
-
-    func _iceD_supportsRequiredParams(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.supportsRequiredParams(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
         }
     }
 

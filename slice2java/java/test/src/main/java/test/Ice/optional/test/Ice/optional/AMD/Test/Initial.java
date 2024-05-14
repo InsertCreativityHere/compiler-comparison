@@ -58,46 +58,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opByteReq.
-     **/
-    public static class OpByteReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpByteReqResult()
-        {
-        }
-
-        public OpByteReqResult(java.util.Optional<java.lang.Byte> returnValue, java.util.Optional<java.lang.Byte> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpByteReqResult(byte returnValue, byte p3)
-        {
-            this.returnValue = java.util.Optional.of(returnValue);
-            this.p3 = java.util.Optional.of(p3);
-        }
-
-        public java.util.Optional<java.lang.Byte> returnValue;
-        public java.util.Optional<java.lang.Byte> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeByte(1, returnValue);
-            ostr.writeByte(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readByte(1);
-            this.p3 = istr.readByte(3);
-        }
-    }
-
-    /**
      * Holds the result of operation opBool.
      **/
     public static class OpBoolResult
@@ -116,46 +76,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpBoolResult(boolean returnValue, boolean p3)
-        {
-            this.returnValue = java.util.Optional.of(returnValue);
-            this.p3 = java.util.Optional.of(p3);
-        }
-
-        public java.util.Optional<java.lang.Boolean> returnValue;
-        public java.util.Optional<java.lang.Boolean> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeBool(1, returnValue);
-            ostr.writeBool(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readBool(1);
-            this.p3 = istr.readBool(3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opBoolReq.
-     **/
-    public static class OpBoolReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpBoolReqResult()
-        {
-        }
-
-        public OpBoolReqResult(java.util.Optional<java.lang.Boolean> returnValue, java.util.Optional<java.lang.Boolean> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpBoolReqResult(boolean returnValue, boolean p3)
         {
             this.returnValue = java.util.Optional.of(returnValue);
             this.p3 = java.util.Optional.of(p3);
@@ -218,46 +138,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opShortReq.
-     **/
-    public static class OpShortReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpShortReqResult()
-        {
-        }
-
-        public OpShortReqResult(java.util.Optional<java.lang.Short> returnValue, java.util.Optional<java.lang.Short> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpShortReqResult(short returnValue, short p3)
-        {
-            this.returnValue = java.util.Optional.of(returnValue);
-            this.p3 = java.util.Optional.of(p3);
-        }
-
-        public java.util.Optional<java.lang.Short> returnValue;
-        public java.util.Optional<java.lang.Short> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeShort(1, returnValue);
-            ostr.writeShort(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readShort(1);
-            this.p3 = istr.readShort(3);
-        }
-    }
-
-    /**
      * Holds the result of operation opInt.
      **/
     public static class OpIntResult
@@ -276,46 +156,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpIntResult(int returnValue, int p3)
-        {
-            this.returnValue = java.util.OptionalInt.of(returnValue);
-            this.p3 = java.util.OptionalInt.of(p3);
-        }
-
-        public java.util.OptionalInt returnValue;
-        public java.util.OptionalInt p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeInt(1, returnValue);
-            ostr.writeInt(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readInt(1);
-            this.p3 = istr.readInt(3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opIntReq.
-     **/
-    public static class OpIntReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpIntReqResult()
-        {
-        }
-
-        public OpIntReqResult(java.util.OptionalInt returnValue, java.util.OptionalInt p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpIntReqResult(int returnValue, int p3)
         {
             this.returnValue = java.util.OptionalInt.of(returnValue);
             this.p3 = java.util.OptionalInt.of(p3);
@@ -378,46 +218,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opLongReq.
-     **/
-    public static class OpLongReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpLongReqResult()
-        {
-        }
-
-        public OpLongReqResult(java.util.OptionalLong returnValue, java.util.OptionalLong p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpLongReqResult(long returnValue, long p3)
-        {
-            this.returnValue = java.util.OptionalLong.of(returnValue);
-            this.p3 = java.util.OptionalLong.of(p3);
-        }
-
-        public java.util.OptionalLong returnValue;
-        public java.util.OptionalLong p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeLong(2, this.p3);
-            ostr.writeLong(3, returnValue);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            this.p3 = istr.readLong(2);
-            returnValue = istr.readLong(3);
-        }
-    }
-
-    /**
      * Holds the result of operation opFloat.
      **/
     public static class OpFloatResult
@@ -436,46 +236,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpFloatResult(float returnValue, float p3)
-        {
-            this.returnValue = java.util.Optional.of(returnValue);
-            this.p3 = java.util.Optional.of(p3);
-        }
-
-        public java.util.Optional<java.lang.Float> returnValue;
-        public java.util.Optional<java.lang.Float> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeFloat(1, returnValue);
-            ostr.writeFloat(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readFloat(1);
-            this.p3 = istr.readFloat(3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opFloatReq.
-     **/
-    public static class OpFloatReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpFloatReqResult()
-        {
-        }
-
-        public OpFloatReqResult(java.util.Optional<java.lang.Float> returnValue, java.util.Optional<java.lang.Float> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpFloatReqResult(float returnValue, float p3)
         {
             this.returnValue = java.util.Optional.of(returnValue);
             this.p3 = java.util.Optional.of(p3);
@@ -538,46 +298,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opDoubleReq.
-     **/
-    public static class OpDoubleReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpDoubleReqResult()
-        {
-        }
-
-        public OpDoubleReqResult(java.util.OptionalDouble returnValue, java.util.OptionalDouble p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpDoubleReqResult(double returnValue, double p3)
-        {
-            this.returnValue = java.util.OptionalDouble.of(returnValue);
-            this.p3 = java.util.OptionalDouble.of(p3);
-        }
-
-        public java.util.OptionalDouble returnValue;
-        public java.util.OptionalDouble p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeDouble(1, returnValue);
-            ostr.writeDouble(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readDouble(1);
-            this.p3 = istr.readDouble(3);
-        }
-    }
-
-    /**
      * Holds the result of operation opString.
      **/
     public static class OpStringResult
@@ -596,46 +316,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpStringResult(String returnValue, String p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<java.lang.String> returnValue;
-        public java.util.Optional<java.lang.String> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeString(1, returnValue);
-            ostr.writeString(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readString(1);
-            this.p3 = istr.readString(3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opStringReq.
-     **/
-    public static class OpStringReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpStringReqResult()
-        {
-        }
-
-        public OpStringReqResult(java.util.Optional<java.lang.String> returnValue, java.util.Optional<java.lang.String> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpStringReqResult(String returnValue, String p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
@@ -698,46 +378,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opMyEnumReq.
-     **/
-    public static class OpMyEnumReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpMyEnumReqResult()
-        {
-        }
-
-        public OpMyEnumReqResult(java.util.Optional<MyEnum> returnValue, java.util.Optional<MyEnum> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpMyEnumReqResult(MyEnum returnValue, MyEnum p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<MyEnum> returnValue;
-        public java.util.Optional<MyEnum> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            MyEnum.ice_write(ostr, 1, returnValue);
-            MyEnum.ice_write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = MyEnum.ice_read(istr, 1);
-            this.p3 = MyEnum.ice_read(istr, 3);
-        }
-    }
-
-    /**
      * Holds the result of operation opSmallStruct.
      **/
     public static class OpSmallStructResult
@@ -756,46 +396,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpSmallStructResult(SmallStruct returnValue, SmallStruct p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<SmallStruct> returnValue;
-        public java.util.Optional<SmallStruct> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            SmallStruct.ice_write(ostr, 1, returnValue);
-            SmallStruct.ice_write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = SmallStruct.ice_read(istr, 1);
-            this.p3 = SmallStruct.ice_read(istr, 3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opSmallStructReq.
-     **/
-    public static class OpSmallStructReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpSmallStructReqResult()
-        {
-        }
-
-        public OpSmallStructReqResult(java.util.Optional<SmallStruct> returnValue, java.util.Optional<SmallStruct> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpSmallStructReqResult(SmallStruct returnValue, SmallStruct p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
@@ -858,46 +458,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opFixedStructReq.
-     **/
-    public static class OpFixedStructReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpFixedStructReqResult()
-        {
-        }
-
-        public OpFixedStructReqResult(java.util.Optional<FixedStruct> returnValue, java.util.Optional<FixedStruct> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpFixedStructReqResult(FixedStruct returnValue, FixedStruct p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<FixedStruct> returnValue;
-        public java.util.Optional<FixedStruct> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            FixedStruct.ice_write(ostr, 1, returnValue);
-            FixedStruct.ice_write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = FixedStruct.ice_read(istr, 1);
-            this.p3 = FixedStruct.ice_read(istr, 3);
-        }
-    }
-
-    /**
      * Holds the result of operation opVarStruct.
      **/
     public static class OpVarStructResult
@@ -938,46 +498,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opVarStructReq.
-     **/
-    public static class OpVarStructReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpVarStructReqResult()
-        {
-        }
-
-        public OpVarStructReqResult(java.util.Optional<VarStruct> returnValue, java.util.Optional<VarStruct> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpVarStructReqResult(VarStruct returnValue, VarStruct p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<VarStruct> returnValue;
-        public java.util.Optional<VarStruct> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            VarStruct.ice_write(ostr, 1, returnValue);
-            VarStruct.ice_write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = VarStruct.ice_read(istr, 1);
-            this.p3 = VarStruct.ice_read(istr, 3);
-        }
-    }
-
-    /**
      * Holds the result of operation opMyInterfaceProxy.
      **/
     public static class OpMyInterfaceProxyResult
@@ -996,46 +516,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpMyInterfaceProxyResult(MyInterfacePrx returnValue, MyInterfacePrx p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<MyInterfacePrx> returnValue;
-        public java.util.Optional<MyInterfacePrx> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeProxy(1, returnValue);
-            ostr.writeProxy(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readProxy(1, MyInterfacePrx::uncheckedCast);
-            this.p3 = istr.readProxy(3, MyInterfacePrx::uncheckedCast);
-        }
-    }
-
-    /**
-     * Holds the result of operation opMyInterfaceProxyReq.
-     **/
-    public static class OpMyInterfaceProxyReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpMyInterfaceProxyReqResult()
-        {
-        }
-
-        public OpMyInterfaceProxyReqResult(java.util.Optional<MyInterfacePrx> returnValue, java.util.Optional<MyInterfacePrx> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpMyInterfaceProxyReqResult(MyInterfacePrx returnValue, MyInterfacePrx p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
@@ -1132,46 +612,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opByteSeqReq.
-     **/
-    public static class OpByteSeqReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpByteSeqReqResult()
-        {
-        }
-
-        public OpByteSeqReqResult(java.util.Optional<byte[]> returnValue, java.util.Optional<byte[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpByteSeqReqResult(byte[] returnValue, byte[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<byte[]> returnValue;
-        public java.util.Optional<byte[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeByteSeq(1, returnValue);
-            ostr.writeByteSeq(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readByteSeq(1);
-            this.p3 = istr.readByteSeq(3);
-        }
-    }
-
-    /**
      * Holds the result of operation opBoolSeq.
      **/
     public static class OpBoolSeqResult
@@ -1190,46 +630,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpBoolSeqResult(boolean[] returnValue, boolean[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<boolean[]> returnValue;
-        public java.util.Optional<boolean[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeBoolSeq(1, returnValue);
-            ostr.writeBoolSeq(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readBoolSeq(1);
-            this.p3 = istr.readBoolSeq(3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opBoolSeqReq.
-     **/
-    public static class OpBoolSeqReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpBoolSeqReqResult()
-        {
-        }
-
-        public OpBoolSeqReqResult(java.util.Optional<boolean[]> returnValue, java.util.Optional<boolean[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpBoolSeqReqResult(boolean[] returnValue, boolean[] p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
@@ -1292,46 +692,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opShortSeqReq.
-     **/
-    public static class OpShortSeqReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpShortSeqReqResult()
-        {
-        }
-
-        public OpShortSeqReqResult(java.util.Optional<short[]> returnValue, java.util.Optional<short[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpShortSeqReqResult(short[] returnValue, short[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<short[]> returnValue;
-        public java.util.Optional<short[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeShortSeq(1, returnValue);
-            ostr.writeShortSeq(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readShortSeq(1);
-            this.p3 = istr.readShortSeq(3);
-        }
-    }
-
-    /**
      * Holds the result of operation opIntSeq.
      **/
     public static class OpIntSeqResult
@@ -1350,46 +710,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpIntSeqResult(int[] returnValue, int[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<int[]> returnValue;
-        public java.util.Optional<int[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeIntSeq(1, returnValue);
-            ostr.writeIntSeq(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readIntSeq(1);
-            this.p3 = istr.readIntSeq(3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opIntSeqReq.
-     **/
-    public static class OpIntSeqReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpIntSeqReqResult()
-        {
-        }
-
-        public OpIntSeqReqResult(java.util.Optional<int[]> returnValue, java.util.Optional<int[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpIntSeqReqResult(int[] returnValue, int[] p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
@@ -1452,46 +772,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opLongSeqReq.
-     **/
-    public static class OpLongSeqReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpLongSeqReqResult()
-        {
-        }
-
-        public OpLongSeqReqResult(java.util.Optional<long[]> returnValue, java.util.Optional<long[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpLongSeqReqResult(long[] returnValue, long[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<long[]> returnValue;
-        public java.util.Optional<long[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeLongSeq(1, returnValue);
-            ostr.writeLongSeq(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readLongSeq(1);
-            this.p3 = istr.readLongSeq(3);
-        }
-    }
-
-    /**
      * Holds the result of operation opFloatSeq.
      **/
     public static class OpFloatSeqResult
@@ -1510,46 +790,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpFloatSeqResult(float[] returnValue, float[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<float[]> returnValue;
-        public java.util.Optional<float[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeFloatSeq(1, returnValue);
-            ostr.writeFloatSeq(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readFloatSeq(1);
-            this.p3 = istr.readFloatSeq(3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opFloatSeqReq.
-     **/
-    public static class OpFloatSeqReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpFloatSeqReqResult()
-        {
-        }
-
-        public OpFloatSeqReqResult(java.util.Optional<float[]> returnValue, java.util.Optional<float[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpFloatSeqReqResult(float[] returnValue, float[] p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
@@ -1612,46 +852,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opDoubleSeqReq.
-     **/
-    public static class OpDoubleSeqReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpDoubleSeqReqResult()
-        {
-        }
-
-        public OpDoubleSeqReqResult(java.util.Optional<double[]> returnValue, java.util.Optional<double[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpDoubleSeqReqResult(double[] returnValue, double[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<double[]> returnValue;
-        public java.util.Optional<double[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeDoubleSeq(1, returnValue);
-            ostr.writeDoubleSeq(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readDoubleSeq(1);
-            this.p3 = istr.readDoubleSeq(3);
-        }
-    }
-
-    /**
      * Holds the result of operation opStringSeq.
      **/
     public static class OpStringSeqResult
@@ -1670,46 +870,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpStringSeqResult(String[] returnValue, String[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<String[]> returnValue;
-        public java.util.Optional<String[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeStringSeq(1, returnValue);
-            ostr.writeStringSeq(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readStringSeq(1);
-            this.p3 = istr.readStringSeq(3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opStringSeqReq.
-     **/
-    public static class OpStringSeqReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpStringSeqReqResult()
-        {
-        }
-
-        public OpStringSeqReqResult(java.util.Optional<String[]> returnValue, java.util.Optional<String[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpStringSeqReqResult(String[] returnValue, String[] p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
@@ -1772,46 +932,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opSmallStructSeqReq.
-     **/
-    public static class OpSmallStructSeqReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpSmallStructSeqReqResult()
-        {
-        }
-
-        public OpSmallStructSeqReqResult(java.util.Optional<SmallStruct[]> returnValue, java.util.Optional<SmallStruct[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpSmallStructSeqReqResult(SmallStruct[] returnValue, SmallStruct[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<SmallStruct[]> returnValue;
-        public java.util.Optional<SmallStruct[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            SmallStructSeqHelper.write(ostr, 1, returnValue);
-            SmallStructSeqHelper.write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = SmallStructSeqHelper.read(istr, 1);
-            this.p3 = SmallStructSeqHelper.read(istr, 3);
-        }
-    }
-
-    /**
      * Holds the result of operation opSmallStructList.
      **/
     public static class OpSmallStructListResult
@@ -1830,46 +950,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpSmallStructListResult(java.util.List<SmallStruct> returnValue, java.util.List<SmallStruct> p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<java.util.List<SmallStruct>> returnValue;
-        public java.util.Optional<java.util.List<SmallStruct>> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            SmallStructListHelper.write(ostr, 1, returnValue);
-            SmallStructListHelper.write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = SmallStructListHelper.read(istr, 1);
-            this.p3 = SmallStructListHelper.read(istr, 3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opSmallStructListReq.
-     **/
-    public static class OpSmallStructListReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpSmallStructListReqResult()
-        {
-        }
-
-        public OpSmallStructListReqResult(java.util.Optional<java.util.List<SmallStruct>> returnValue, java.util.Optional<java.util.List<SmallStruct>> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpSmallStructListReqResult(java.util.List<SmallStruct> returnValue, java.util.List<SmallStruct> p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
@@ -1932,46 +1012,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opFixedStructSeqReq.
-     **/
-    public static class OpFixedStructSeqReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpFixedStructSeqReqResult()
-        {
-        }
-
-        public OpFixedStructSeqReqResult(java.util.Optional<FixedStruct[]> returnValue, java.util.Optional<FixedStruct[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpFixedStructSeqReqResult(FixedStruct[] returnValue, FixedStruct[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<FixedStruct[]> returnValue;
-        public java.util.Optional<FixedStruct[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            FixedStructSeqHelper.write(ostr, 1, returnValue);
-            FixedStructSeqHelper.write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = FixedStructSeqHelper.read(istr, 1);
-            this.p3 = FixedStructSeqHelper.read(istr, 3);
-        }
-    }
-
-    /**
      * Holds the result of operation opFixedStructList.
      **/
     public static class OpFixedStructListResult
@@ -1990,46 +1030,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpFixedStructListResult(java.util.List<FixedStruct> returnValue, java.util.List<FixedStruct> p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<java.util.List<FixedStruct>> returnValue;
-        public java.util.Optional<java.util.List<FixedStruct>> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            FixedStructListHelper.write(ostr, 1, returnValue);
-            FixedStructListHelper.write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = FixedStructListHelper.read(istr, 1);
-            this.p3 = FixedStructListHelper.read(istr, 3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opFixedStructListReq.
-     **/
-    public static class OpFixedStructListReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpFixedStructListReqResult()
-        {
-        }
-
-        public OpFixedStructListReqResult(java.util.Optional<java.util.List<FixedStruct>> returnValue, java.util.Optional<java.util.List<FixedStruct>> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpFixedStructListReqResult(java.util.List<FixedStruct> returnValue, java.util.List<FixedStruct> p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
@@ -2092,46 +1092,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opVarStructSeqReq.
-     **/
-    public static class OpVarStructSeqReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpVarStructSeqReqResult()
-        {
-        }
-
-        public OpVarStructSeqReqResult(java.util.Optional<VarStruct[]> returnValue, java.util.Optional<VarStruct[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpVarStructSeqReqResult(VarStruct[] returnValue, VarStruct[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<VarStruct[]> returnValue;
-        public java.util.Optional<VarStruct[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            VarStructSeqHelper.write(ostr, 1, returnValue);
-            VarStructSeqHelper.write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = VarStructSeqHelper.read(istr, 1);
-            this.p3 = VarStructSeqHelper.read(istr, 3);
-        }
-    }
-
-    /**
      * Holds the result of operation opSerializable.
      **/
     public static class OpSerializableResult
@@ -2150,46 +1110,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpSerializableResult(test.Ice.optional.SerializableClass returnValue, test.Ice.optional.SerializableClass p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<test.Ice.optional.SerializableClass> returnValue;
-        public java.util.Optional<test.Ice.optional.SerializableClass> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeSerializable(1, returnValue);
-            ostr.writeSerializable(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readSerializable(1, test.Ice.optional.SerializableClass.class);
-            this.p3 = istr.readSerializable(3, test.Ice.optional.SerializableClass.class);
-        }
-    }
-
-    /**
-     * Holds the result of operation opSerializableReq.
-     **/
-    public static class OpSerializableReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpSerializableReqResult()
-        {
-        }
-
-        public OpSerializableReqResult(java.util.Optional<test.Ice.optional.SerializableClass> returnValue, java.util.Optional<test.Ice.optional.SerializableClass> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpSerializableReqResult(test.Ice.optional.SerializableClass returnValue, test.Ice.optional.SerializableClass p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
@@ -2252,46 +1172,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opIntIntDictReq.
-     **/
-    public static class OpIntIntDictReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpIntIntDictReqResult()
-        {
-        }
-
-        public OpIntIntDictReqResult(java.util.Optional<java.util.Map<java.lang.Integer, java.lang.Integer>> returnValue, java.util.Optional<java.util.Map<java.lang.Integer, java.lang.Integer>> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpIntIntDictReqResult(java.util.Map<java.lang.Integer, java.lang.Integer> returnValue, java.util.Map<java.lang.Integer, java.lang.Integer> p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<java.util.Map<java.lang.Integer, java.lang.Integer>> returnValue;
-        public java.util.Optional<java.util.Map<java.lang.Integer, java.lang.Integer>> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            IntIntDictHelper.write(ostr, 1, returnValue);
-            IntIntDictHelper.write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = IntIntDictHelper.read(istr, 1);
-            this.p3 = IntIntDictHelper.read(istr, 3);
-        }
-    }
-
-    /**
      * Holds the result of operation opStringIntDict.
      **/
     public static class OpStringIntDictResult
@@ -2332,46 +1212,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opStringIntDictReq.
-     **/
-    public static class OpStringIntDictReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpStringIntDictReqResult()
-        {
-        }
-
-        public OpStringIntDictReqResult(java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> returnValue, java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpStringIntDictReqResult(java.util.Map<java.lang.String, java.lang.Integer> returnValue, java.util.Map<java.lang.String, java.lang.Integer> p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> returnValue;
-        public java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            StringIntDictHelper.write(ostr, 1, returnValue);
-            StringIntDictHelper.write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = StringIntDictHelper.read(istr, 1);
-            this.p3 = StringIntDictHelper.read(istr, 3);
-        }
-    }
-
-    /**
      * Holds the result of operation opIntOneOptionalDict.
      **/
     public static class OpIntOneOptionalDictResult
@@ -2390,46 +1230,6 @@ public interface Initial extends com.zeroc.Ice.Object
         }
 
         public OpIntOneOptionalDictResult(java.util.Map<java.lang.Integer, OneOptional> returnValue, java.util.Map<java.lang.Integer, OneOptional> p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<java.util.Map<java.lang.Integer, OneOptional>> returnValue;
-        public java.util.Optional<java.util.Map<java.lang.Integer, OneOptional>> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            IntOneOptionalDictHelper.write(ostr, 1, returnValue);
-            IntOneOptionalDictHelper.write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = IntOneOptionalDictHelper.read(istr, 1);
-            this.p3 = IntOneOptionalDictHelper.read(istr, 3);
-        }
-    }
-
-    /**
-     * Holds the result of operation opIntOneOptionalDictReq.
-     **/
-    public static class OpIntOneOptionalDictReqResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpIntOneOptionalDictReqResult()
-        {
-        }
-
-        public OpIntOneOptionalDictReqResult(java.util.Optional<java.util.Map<java.lang.Integer, OneOptional>> returnValue, java.util.Optional<java.util.Map<java.lang.Integer, OneOptional>> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpIntOneOptionalDictReqResult(java.util.Map<java.lang.Integer, OneOptional> returnValue, java.util.Map<java.lang.Integer, OneOptional> p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
@@ -2751,125 +1551,65 @@ public interface Initial extends com.zeroc.Ice.Object
 
     java.util.concurrent.CompletionStage<Initial.OpByteResult> opByteAsync(java.util.Optional<java.lang.Byte> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpByteReqResult> opByteReqAsync(java.util.Optional<java.lang.Byte> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpBoolResult> opBoolAsync(java.util.Optional<java.lang.Boolean> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpBoolReqResult> opBoolReqAsync(java.util.Optional<java.lang.Boolean> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpShortResult> opShortAsync(java.util.Optional<java.lang.Short> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpShortReqResult> opShortReqAsync(java.util.Optional<java.lang.Short> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpIntResult> opIntAsync(java.util.OptionalInt p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpIntReqResult> opIntReqAsync(java.util.OptionalInt p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpLongResult> opLongAsync(java.util.OptionalLong p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpLongReqResult> opLongReqAsync(java.util.OptionalLong p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpFloatResult> opFloatAsync(java.util.Optional<java.lang.Float> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpFloatReqResult> opFloatReqAsync(java.util.Optional<java.lang.Float> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpDoubleResult> opDoubleAsync(java.util.OptionalDouble p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpDoubleReqResult> opDoubleReqAsync(java.util.OptionalDouble p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpStringResult> opStringAsync(java.util.Optional<java.lang.String> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpStringReqResult> opStringReqAsync(java.util.Optional<java.lang.String> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpMyEnumResult> opMyEnumAsync(java.util.Optional<MyEnum> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpMyEnumReqResult> opMyEnumReqAsync(java.util.Optional<MyEnum> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpSmallStructResult> opSmallStructAsync(java.util.Optional<SmallStruct> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpSmallStructReqResult> opSmallStructReqAsync(java.util.Optional<SmallStruct> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpFixedStructResult> opFixedStructAsync(java.util.Optional<FixedStruct> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpFixedStructReqResult> opFixedStructReqAsync(java.util.Optional<FixedStruct> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpVarStructResult> opVarStructAsync(java.util.Optional<VarStruct> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpVarStructReqResult> opVarStructReqAsync(java.util.Optional<VarStruct> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpMyInterfaceProxyResult> opMyInterfaceProxyAsync(java.util.Optional<MyInterfacePrx> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpMyInterfaceProxyReqResult> opMyInterfaceProxyReqAsync(java.util.Optional<MyInterfacePrx> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpOneOptionalResult> opOneOptionalAsync(OneOptional p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpByteSeqResult> opByteSeqAsync(java.util.Optional<byte[]> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpByteSeqReqResult> opByteSeqReqAsync(java.util.Optional<byte[]> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpBoolSeqResult> opBoolSeqAsync(java.util.Optional<boolean[]> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpBoolSeqReqResult> opBoolSeqReqAsync(java.util.Optional<boolean[]> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpShortSeqResult> opShortSeqAsync(java.util.Optional<short[]> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpShortSeqReqResult> opShortSeqReqAsync(java.util.Optional<short[]> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpIntSeqResult> opIntSeqAsync(java.util.Optional<int[]> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpIntSeqReqResult> opIntSeqReqAsync(java.util.Optional<int[]> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpLongSeqResult> opLongSeqAsync(java.util.Optional<long[]> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpLongSeqReqResult> opLongSeqReqAsync(java.util.Optional<long[]> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpFloatSeqResult> opFloatSeqAsync(java.util.Optional<float[]> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpFloatSeqReqResult> opFloatSeqReqAsync(java.util.Optional<float[]> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpDoubleSeqResult> opDoubleSeqAsync(java.util.Optional<double[]> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpDoubleSeqReqResult> opDoubleSeqReqAsync(java.util.Optional<double[]> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpStringSeqResult> opStringSeqAsync(java.util.Optional<String[]> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpStringSeqReqResult> opStringSeqReqAsync(java.util.Optional<String[]> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpSmallStructSeqResult> opSmallStructSeqAsync(java.util.Optional<SmallStruct[]> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpSmallStructSeqReqResult> opSmallStructSeqReqAsync(java.util.Optional<SmallStruct[]> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpSmallStructListResult> opSmallStructListAsync(java.util.Optional<java.util.List<SmallStruct>> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpSmallStructListReqResult> opSmallStructListReqAsync(java.util.Optional<java.util.List<SmallStruct>> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpFixedStructSeqResult> opFixedStructSeqAsync(java.util.Optional<FixedStruct[]> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpFixedStructSeqReqResult> opFixedStructSeqReqAsync(java.util.Optional<FixedStruct[]> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpFixedStructListResult> opFixedStructListAsync(java.util.Optional<java.util.List<FixedStruct>> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpFixedStructListReqResult> opFixedStructListReqAsync(java.util.Optional<java.util.List<FixedStruct>> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpVarStructSeqResult> opVarStructSeqAsync(java.util.Optional<VarStruct[]> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpVarStructSeqReqResult> opVarStructSeqReqAsync(java.util.Optional<VarStruct[]> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpSerializableResult> opSerializableAsync(java.util.Optional<test.Ice.optional.SerializableClass> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpSerializableReqResult> opSerializableReqAsync(java.util.Optional<test.Ice.optional.SerializableClass> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpIntIntDictResult> opIntIntDictAsync(java.util.Optional<java.util.Map<java.lang.Integer, java.lang.Integer>> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpIntIntDictReqResult> opIntIntDictReqAsync(java.util.Optional<java.util.Map<java.lang.Integer, java.lang.Integer>> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpStringIntDictResult> opStringIntDictAsync(java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> p1, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<Initial.OpStringIntDictReqResult> opStringIntDictReqAsync(java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> p1, com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<Initial.OpIntOneOptionalDictResult> opIntOneOptionalDictAsync(java.util.Optional<java.util.Map<java.lang.Integer, OneOptional>> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<Initial.OpIntOneOptionalDictReqResult> opIntOneOptionalDictReqAsync(java.util.Optional<java.util.Map<java.lang.Integer, OneOptional>> p1, com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Void> opClassAndUnknownOptionalAsync(A p, com.zeroc.Ice.Current current);
 
@@ -2888,8 +1628,6 @@ public interface Initial extends com.zeroc.Ice.Object
     java.util.concurrent.CompletionStage<Initial.OpMDict1MarshaledResult> opMDict1Async(com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<Initial.OpMDict2MarshaledResult> opMDict2Async(java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> p1, com.zeroc.Ice.Current current);
-
-    java.util.concurrent.CompletionStage<java.lang.Boolean> supportsRequiredParamsAsync(com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<java.lang.Boolean> supportsJavaSerializableAsync(com.zeroc.Ice.Current current);
 
@@ -3046,26 +1784,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opByteReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.lang.Byte> iceP_p1;
-        iceP_p1 = istr.readByte(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opByteReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opBool(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3074,26 +1792,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = istr.readBool(2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opBoolAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opBoolReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.lang.Boolean> iceP_p1;
-        iceP_p1 = istr.readBool(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opBoolReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -3126,26 +1824,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opShortReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.lang.Short> iceP_p1;
-        iceP_p1 = istr.readShort(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opShortReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opInt(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3154,26 +1832,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = istr.readInt(2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opIntAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opIntReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.OptionalInt iceP_p1;
-        iceP_p1 = istr.readInt(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opIntReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -3206,26 +1864,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opLongReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.OptionalLong iceP_p1;
-        iceP_p1 = istr.readLong(1);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opLongReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opFloat(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3234,26 +1872,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = istr.readFloat(2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opFloatAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opFloatReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.lang.Float> iceP_p1;
-        iceP_p1 = istr.readFloat(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opFloatReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -3286,26 +1904,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opDoubleReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.OptionalDouble iceP_p1;
-        iceP_p1 = istr.readDouble(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opDoubleReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opString(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3314,26 +1912,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = istr.readString(2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opStringAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opStringReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.lang.String> iceP_p1;
-        iceP_p1 = istr.readString(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opStringReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -3366,26 +1944,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opMyEnumReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<MyEnum> iceP_p1;
-        iceP_p1 = MyEnum.ice_read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opMyEnumReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSmallStruct(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3394,26 +1952,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = SmallStruct.ice_read(istr, 2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opSmallStructAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSmallStructReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<SmallStruct> iceP_p1;
-        iceP_p1 = SmallStruct.ice_read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opSmallStructReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -3446,26 +1984,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opFixedStructReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<FixedStruct> iceP_p1;
-        iceP_p1 = FixedStruct.ice_read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opFixedStructReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opVarStruct(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3486,26 +2004,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opVarStructReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<VarStruct> iceP_p1;
-        iceP_p1 = VarStruct.ice_read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opVarStructReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opMyInterfaceProxy(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3514,26 +2012,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = istr.readProxy(2, MyInterfacePrx::uncheckedCast);
         inS.endReadParams();
         return inS.setResultFuture(obj.opMyInterfaceProxyAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opMyInterfaceProxyReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<MyInterfacePrx> iceP_p1;
-        iceP_p1 = istr.readProxy(2, MyInterfacePrx::uncheckedCast);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opMyInterfaceProxyReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -3589,26 +2067,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opByteSeqReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<byte[]> iceP_p1;
-        iceP_p1 = istr.readByteSeq(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opByteSeqReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opBoolSeq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3617,26 +2075,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = istr.readBoolSeq(2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opBoolSeqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opBoolSeqReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<boolean[]> iceP_p1;
-        iceP_p1 = istr.readBoolSeq(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opBoolSeqReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -3669,26 +2107,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opShortSeqReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<short[]> iceP_p1;
-        iceP_p1 = istr.readShortSeq(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opShortSeqReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opIntSeq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3697,26 +2115,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = istr.readIntSeq(2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opIntSeqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opIntSeqReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<int[]> iceP_p1;
-        iceP_p1 = istr.readIntSeq(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opIntSeqReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -3749,26 +2147,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opLongSeqReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<long[]> iceP_p1;
-        iceP_p1 = istr.readLongSeq(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opLongSeqReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opFloatSeq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3777,26 +2155,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = istr.readFloatSeq(2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opFloatSeqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opFloatSeqReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<float[]> iceP_p1;
-        iceP_p1 = istr.readFloatSeq(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opFloatSeqReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -3829,26 +2187,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opDoubleSeqReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<double[]> iceP_p1;
-        iceP_p1 = istr.readDoubleSeq(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opDoubleSeqReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opStringSeq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3857,26 +2195,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = istr.readStringSeq(2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opStringSeqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opStringSeqReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<String[]> iceP_p1;
-        iceP_p1 = istr.readStringSeq(2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opStringSeqReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -3909,26 +2227,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSmallStructSeqReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<SmallStruct[]> iceP_p1;
-        iceP_p1 = SmallStructSeqHelper.read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opSmallStructSeqReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSmallStructList(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3937,26 +2235,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = SmallStructListHelper.read(istr, 2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opSmallStructListAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSmallStructListReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.util.List<SmallStruct>> iceP_p1;
-        iceP_p1 = SmallStructListHelper.read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opSmallStructListReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -3989,26 +2267,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opFixedStructSeqReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<FixedStruct[]> iceP_p1;
-        iceP_p1 = FixedStructSeqHelper.read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opFixedStructSeqReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opFixedStructList(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -4017,26 +2275,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = FixedStructListHelper.read(istr, 2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opFixedStructListAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opFixedStructListReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.util.List<FixedStruct>> iceP_p1;
-        iceP_p1 = FixedStructListHelper.read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opFixedStructListReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -4069,26 +2307,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opVarStructSeqReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<VarStruct[]> iceP_p1;
-        iceP_p1 = VarStructSeqHelper.read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opVarStructSeqReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSerializable(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -4097,26 +2315,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = istr.readSerializable(2, test.Ice.optional.SerializableClass.class);
         inS.endReadParams();
         return inS.setResultFuture(obj.opSerializableAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSerializableReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<test.Ice.optional.SerializableClass> iceP_p1;
-        iceP_p1 = istr.readSerializable(2, test.Ice.optional.SerializableClass.class);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opSerializableReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -4149,26 +2347,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opIntIntDictReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.util.Map<java.lang.Integer, java.lang.Integer>> iceP_p1;
-        iceP_p1 = IntIntDictHelper.read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opIntIntDictReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opStringIntDict(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -4189,26 +2367,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opStringIntDictReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> iceP_p1;
-        iceP_p1 = StringIntDictHelper.read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opStringIntDictReqAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opIntOneOptionalDict(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -4217,26 +2375,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = IntOneOptionalDictHelper.read(istr, 2);
         inS.endReadParams();
         return inS.setResultFuture(obj.opIntOneOptionalDictAsync(iceP_p1, current), (ostr, ret) ->
-            {
-                ret.write(ostr);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opIntOneOptionalDictReq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.util.Map<java.lang.Integer, OneOptional>> iceP_p1;
-        iceP_p1 = IntOneOptionalDictHelper.read(istr, 2);
-        inS.endReadParams();
-        return inS.setResultFuture(obj.opIntOneOptionalDictReqAsync(iceP_p1, current), (ostr, ret) ->
             {
                 ret.write(ostr);
             });
@@ -4398,23 +2536,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsRequiredParams(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        return inS.setResultFuture(obj.supportsRequiredParamsAsync(current), (ostr, ret) ->
-            {
-                ostr.writeBool(ret);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsJavaSerializable(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -4450,42 +2571,25 @@ public interface Initial extends com.zeroc.Ice.Object
         "ice_isA",
         "ice_ping",
         "opBool",
-        "opBoolReq",
         "opBoolSeq",
-        "opBoolSeqReq",
         "opByte",
-        "opByteReq",
         "opByteSeq",
-        "opByteSeqReq",
         "opClassAndUnknownOptional",
         "opDerivedException",
         "opDouble",
-        "opDoubleReq",
         "opDoubleSeq",
-        "opDoubleSeqReq",
         "opFixedStruct",
         "opFixedStructList",
-        "opFixedStructListReq",
-        "opFixedStructReq",
         "opFixedStructSeq",
-        "opFixedStructSeqReq",
         "opFloat",
-        "opFloatReq",
         "opFloatSeq",
-        "opFloatSeqReq",
         "opG",
         "opInt",
         "opIntIntDict",
-        "opIntIntDictReq",
         "opIntOneOptionalDict",
-        "opIntOneOptionalDictReq",
-        "opIntReq",
         "opIntSeq",
-        "opIntSeqReq",
         "opLong",
-        "opLongReq",
         "opLongSeq",
-        "opLongSeqReq",
         "opMDict1",
         "opMDict2",
         "opMSeq1",
@@ -4493,40 +2597,26 @@ public interface Initial extends com.zeroc.Ice.Object
         "opMStruct1",
         "opMStruct2",
         "opMyEnum",
-        "opMyEnumReq",
         "opMyInterfaceProxy",
-        "opMyInterfaceProxyReq",
         "opOneOptional",
         "opOptionalException",
         "opRequiredException",
         "opSerializable",
-        "opSerializableReq",
         "opShort",
-        "opShortReq",
         "opShortSeq",
-        "opShortSeqReq",
         "opSmallStruct",
         "opSmallStructList",
-        "opSmallStructListReq",
-        "opSmallStructReq",
         "opSmallStructSeq",
-        "opSmallStructSeqReq",
         "opString",
         "opStringIntDict",
-        "opStringIntDictReq",
-        "opStringReq",
         "opStringSeq",
-        "opStringSeqReq",
         "opVarStruct",
-        "opVarStructReq",
         "opVarStructSeq",
-        "opVarStructSeqReq",
         "opVoid",
         "pingPong",
         "shutdown",
         "supportsCsharpSerializable",
-        "supportsJavaSerializable",
-        "supportsRequiredParams"
+        "supportsJavaSerializable"
     };
 
     /** @hidden */
@@ -4564,311 +2654,187 @@ public interface Initial extends com.zeroc.Ice.Object
             }
             case 5:
             {
-                return _iceD_opBoolReq(this, in, current);
+                return _iceD_opBoolSeq(this, in, current);
             }
             case 6:
             {
-                return _iceD_opBoolSeq(this, in, current);
+                return _iceD_opByte(this, in, current);
             }
             case 7:
             {
-                return _iceD_opBoolSeqReq(this, in, current);
+                return _iceD_opByteSeq(this, in, current);
             }
             case 8:
             {
-                return _iceD_opByte(this, in, current);
+                return _iceD_opClassAndUnknownOptional(this, in, current);
             }
             case 9:
             {
-                return _iceD_opByteReq(this, in, current);
+                return _iceD_opDerivedException(this, in, current);
             }
             case 10:
             {
-                return _iceD_opByteSeq(this, in, current);
+                return _iceD_opDouble(this, in, current);
             }
             case 11:
             {
-                return _iceD_opByteSeqReq(this, in, current);
+                return _iceD_opDoubleSeq(this, in, current);
             }
             case 12:
             {
-                return _iceD_opClassAndUnknownOptional(this, in, current);
+                return _iceD_opFixedStruct(this, in, current);
             }
             case 13:
             {
-                return _iceD_opDerivedException(this, in, current);
+                return _iceD_opFixedStructList(this, in, current);
             }
             case 14:
             {
-                return _iceD_opDouble(this, in, current);
+                return _iceD_opFixedStructSeq(this, in, current);
             }
             case 15:
             {
-                return _iceD_opDoubleReq(this, in, current);
+                return _iceD_opFloat(this, in, current);
             }
             case 16:
             {
-                return _iceD_opDoubleSeq(this, in, current);
+                return _iceD_opFloatSeq(this, in, current);
             }
             case 17:
             {
-                return _iceD_opDoubleSeqReq(this, in, current);
+                return _iceD_opG(this, in, current);
             }
             case 18:
             {
-                return _iceD_opFixedStruct(this, in, current);
+                return _iceD_opInt(this, in, current);
             }
             case 19:
             {
-                return _iceD_opFixedStructList(this, in, current);
+                return _iceD_opIntIntDict(this, in, current);
             }
             case 20:
             {
-                return _iceD_opFixedStructListReq(this, in, current);
+                return _iceD_opIntOneOptionalDict(this, in, current);
             }
             case 21:
             {
-                return _iceD_opFixedStructReq(this, in, current);
+                return _iceD_opIntSeq(this, in, current);
             }
             case 22:
             {
-                return _iceD_opFixedStructSeq(this, in, current);
+                return _iceD_opLong(this, in, current);
             }
             case 23:
             {
-                return _iceD_opFixedStructSeqReq(this, in, current);
+                return _iceD_opLongSeq(this, in, current);
             }
             case 24:
             {
-                return _iceD_opFloat(this, in, current);
+                return _iceD_opMDict1(this, in, current);
             }
             case 25:
             {
-                return _iceD_opFloatReq(this, in, current);
+                return _iceD_opMDict2(this, in, current);
             }
             case 26:
             {
-                return _iceD_opFloatSeq(this, in, current);
+                return _iceD_opMSeq1(this, in, current);
             }
             case 27:
             {
-                return _iceD_opFloatSeqReq(this, in, current);
+                return _iceD_opMSeq2(this, in, current);
             }
             case 28:
             {
-                return _iceD_opG(this, in, current);
+                return _iceD_opMStruct1(this, in, current);
             }
             case 29:
             {
-                return _iceD_opInt(this, in, current);
+                return _iceD_opMStruct2(this, in, current);
             }
             case 30:
             {
-                return _iceD_opIntIntDict(this, in, current);
+                return _iceD_opMyEnum(this, in, current);
             }
             case 31:
             {
-                return _iceD_opIntIntDictReq(this, in, current);
+                return _iceD_opMyInterfaceProxy(this, in, current);
             }
             case 32:
             {
-                return _iceD_opIntOneOptionalDict(this, in, current);
+                return _iceD_opOneOptional(this, in, current);
             }
             case 33:
             {
-                return _iceD_opIntOneOptionalDictReq(this, in, current);
+                return _iceD_opOptionalException(this, in, current);
             }
             case 34:
             {
-                return _iceD_opIntReq(this, in, current);
+                return _iceD_opRequiredException(this, in, current);
             }
             case 35:
             {
-                return _iceD_opIntSeq(this, in, current);
+                return _iceD_opSerializable(this, in, current);
             }
             case 36:
             {
-                return _iceD_opIntSeqReq(this, in, current);
+                return _iceD_opShort(this, in, current);
             }
             case 37:
             {
-                return _iceD_opLong(this, in, current);
+                return _iceD_opShortSeq(this, in, current);
             }
             case 38:
             {
-                return _iceD_opLongReq(this, in, current);
+                return _iceD_opSmallStruct(this, in, current);
             }
             case 39:
             {
-                return _iceD_opLongSeq(this, in, current);
+                return _iceD_opSmallStructList(this, in, current);
             }
             case 40:
             {
-                return _iceD_opLongSeqReq(this, in, current);
+                return _iceD_opSmallStructSeq(this, in, current);
             }
             case 41:
             {
-                return _iceD_opMDict1(this, in, current);
+                return _iceD_opString(this, in, current);
             }
             case 42:
             {
-                return _iceD_opMDict2(this, in, current);
+                return _iceD_opStringIntDict(this, in, current);
             }
             case 43:
             {
-                return _iceD_opMSeq1(this, in, current);
+                return _iceD_opStringSeq(this, in, current);
             }
             case 44:
             {
-                return _iceD_opMSeq2(this, in, current);
+                return _iceD_opVarStruct(this, in, current);
             }
             case 45:
             {
-                return _iceD_opMStruct1(this, in, current);
+                return _iceD_opVarStructSeq(this, in, current);
             }
             case 46:
             {
-                return _iceD_opMStruct2(this, in, current);
+                return _iceD_opVoid(this, in, current);
             }
             case 47:
             {
-                return _iceD_opMyEnum(this, in, current);
+                return _iceD_pingPong(this, in, current);
             }
             case 48:
             {
-                return _iceD_opMyEnumReq(this, in, current);
+                return _iceD_shutdown(this, in, current);
             }
             case 49:
             {
-                return _iceD_opMyInterfaceProxy(this, in, current);
+                return _iceD_supportsCsharpSerializable(this, in, current);
             }
             case 50:
             {
-                return _iceD_opMyInterfaceProxyReq(this, in, current);
-            }
-            case 51:
-            {
-                return _iceD_opOneOptional(this, in, current);
-            }
-            case 52:
-            {
-                return _iceD_opOptionalException(this, in, current);
-            }
-            case 53:
-            {
-                return _iceD_opRequiredException(this, in, current);
-            }
-            case 54:
-            {
-                return _iceD_opSerializable(this, in, current);
-            }
-            case 55:
-            {
-                return _iceD_opSerializableReq(this, in, current);
-            }
-            case 56:
-            {
-                return _iceD_opShort(this, in, current);
-            }
-            case 57:
-            {
-                return _iceD_opShortReq(this, in, current);
-            }
-            case 58:
-            {
-                return _iceD_opShortSeq(this, in, current);
-            }
-            case 59:
-            {
-                return _iceD_opShortSeqReq(this, in, current);
-            }
-            case 60:
-            {
-                return _iceD_opSmallStruct(this, in, current);
-            }
-            case 61:
-            {
-                return _iceD_opSmallStructList(this, in, current);
-            }
-            case 62:
-            {
-                return _iceD_opSmallStructListReq(this, in, current);
-            }
-            case 63:
-            {
-                return _iceD_opSmallStructReq(this, in, current);
-            }
-            case 64:
-            {
-                return _iceD_opSmallStructSeq(this, in, current);
-            }
-            case 65:
-            {
-                return _iceD_opSmallStructSeqReq(this, in, current);
-            }
-            case 66:
-            {
-                return _iceD_opString(this, in, current);
-            }
-            case 67:
-            {
-                return _iceD_opStringIntDict(this, in, current);
-            }
-            case 68:
-            {
-                return _iceD_opStringIntDictReq(this, in, current);
-            }
-            case 69:
-            {
-                return _iceD_opStringReq(this, in, current);
-            }
-            case 70:
-            {
-                return _iceD_opStringSeq(this, in, current);
-            }
-            case 71:
-            {
-                return _iceD_opStringSeqReq(this, in, current);
-            }
-            case 72:
-            {
-                return _iceD_opVarStruct(this, in, current);
-            }
-            case 73:
-            {
-                return _iceD_opVarStructReq(this, in, current);
-            }
-            case 74:
-            {
-                return _iceD_opVarStructSeq(this, in, current);
-            }
-            case 75:
-            {
-                return _iceD_opVarStructSeqReq(this, in, current);
-            }
-            case 76:
-            {
-                return _iceD_opVoid(this, in, current);
-            }
-            case 77:
-            {
-                return _iceD_pingPong(this, in, current);
-            }
-            case 78:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-            case 79:
-            {
-                return _iceD_supportsCsharpSerializable(this, in, current);
-            }
-            case 80:
-            {
                 return _iceD_supportsJavaSerializable(this, in, current);
-            }
-            case 81:
-            {
-                return _iceD_supportsRequiredParams(this, in, current);
             }
         }
 

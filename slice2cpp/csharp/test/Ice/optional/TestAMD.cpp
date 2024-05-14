@@ -1905,35 +1905,6 @@ Test::InitialPrx::_iceI_opMDict2(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 
 bool
-Test::InitialPrx::supportsRequiredParams(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsRequiredParams, context).get();
-}
-
-::std::future<bool>
-Test::InitialPrx::supportsRequiredParamsAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &InitialPrx::_iceI_supportsRequiredParams, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::supportsRequiredParamsAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<bool>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_supportsRequiredParams, context);
-}
-
-void
-Test::InitialPrx::_iceI_supportsRequiredParams(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "supportsRequiredParams";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-
-bool
 Test::InitialPrx::supportsJavaSerializable(const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsJavaSerializable, context).get();
@@ -3775,32 +3746,6 @@ Test::Initial::_iceD_opMDict2(::Ice::IncomingRequest& request, ::std::function<v
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_supportsRequiredParams(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    request.inputStream().skipEmptyEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](bool ret)
-    {
-        responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
-            {
-                ostr->writeAll(ret);
-            });
-    };
-    try
-    {
-        this->supportsRequiredParamsAsync(::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::Initial::_iceD_supportsJavaSerializable(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
@@ -3829,10 +3774,10 @@ Test::Initial::_iceD_supportsJavaSerializable(::Ice::IncomingRequest& request, :
 void
 Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "shutdown", "supportsJavaSerializable", "supportsRequiredParams"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "shutdown", "supportsJavaSerializable"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 49, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 48, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -4079,11 +4024,6 @@ Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         case 47:
         {
             _iceD_supportsJavaSerializable(request, ::std::move(sendResponse));
-            break;
-        }
-        case 48:
-        {
-            _iceD_supportsRequiredParams(request, ::std::move(sendResponse));
             break;
         }
         default:

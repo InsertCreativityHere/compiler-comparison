@@ -2438,10 +2438,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task<Initial_OpMDict2Result> opMDict2Async(global::System.Collections.Generic.Dictionary<string, int>? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        bool supportsRequiredParams(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<bool> supportsRequiredParamsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
         bool supportsJavaSerializable(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
@@ -2618,9 +2614,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         Initial_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, int>? p1, global::Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool supportsRequiredParams(global::Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         bool supportsJavaSerializable(global::Ice.Current current);
@@ -4078,18 +4071,6 @@ namespace Test
                 var result_ = _iceI_opMDict2Async(p1, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 p2 = result_.p2;
                 return result_.returnValue;
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public bool supportsRequiredParams(global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                return _iceI_supportsRequiredParamsAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -6365,38 +6346,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<bool> supportsRequiredParamsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_supportsRequiredParamsAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<bool> _iceI_supportsRequiredParamsAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_supportsRequiredParams_name);
-            var completed = new global::Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
-            _iceI_supportsRequiredParams(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _supportsRequiredParams_name = "supportsRequiredParams";
-
-        private void _iceI_supportsRequiredParams(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, global::Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<bool>(completed);
-            outAsync.invoke(
-                _supportsRequiredParams_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                read: (global::Ice.InputStream istr) =>
-                {
-                    bool ret;
-                    ret = istr.readBool();
-                    return ret;
-                });
-        }
-
         public global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_supportsJavaSerializableAsync(context, progress, cancel, false);
@@ -7012,8 +6961,6 @@ namespace Test
         public abstract Initial_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
 
         public abstract Initial_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, int>? p1, global::Ice.Current current);
-
-        public abstract bool supportsRequiredParams(global::Ice.Current current);
 
         public abstract bool supportsJavaSerializable(global::Ice.Current current);
 
@@ -8145,19 +8092,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_supportsRequiredParams(Initial obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.supportsRequiredParams(current);
-            var ostr = inS.startWriteParams();
-            ostr.writeBool(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_supportsJavaSerializable(Initial obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -8234,8 +8168,7 @@ namespace Test
             "pingPong",
             "shutdown",
             "supportsCsharpSerializable",
-            "supportsJavaSerializable",
-            "supportsRequiredParams"
+            "supportsJavaSerializable"
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
@@ -8452,10 +8385,6 @@ namespace Test
                 case 50:
                 {
                     return iceD_supportsJavaSerializable(this, inS, current);
-                }
-                case 51:
-                {
-                    return iceD_supportsRequiredParams(this, inS, current);
                 }
             }
 

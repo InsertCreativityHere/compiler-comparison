@@ -13,126 +13,66 @@
 %   opRequiredExceptionAsync
 %   opByte
 %   opByteAsync
-%   opByteReq
-%   opByteReqAsync
 %   opBool
 %   opBoolAsync
-%   opBoolReq
-%   opBoolReqAsync
 %   opShort
 %   opShortAsync
-%   opShortReq
-%   opShortReqAsync
 %   opInt
 %   opIntAsync
-%   opIntReq
-%   opIntReqAsync
 %   opLong
 %   opLongAsync
-%   opLongReq
-%   opLongReqAsync
 %   opFloat
 %   opFloatAsync
-%   opFloatReq
-%   opFloatReqAsync
 %   opDouble
 %   opDoubleAsync
-%   opDoubleReq
-%   opDoubleReqAsync
 %   opString
 %   opStringAsync
-%   opStringReq
-%   opStringReqAsync
 %   opMyEnum
 %   opMyEnumAsync
-%   opMyEnumReq
-%   opMyEnumReqAsync
 %   opSmallStruct
 %   opSmallStructAsync
-%   opSmallStructReq
-%   opSmallStructReqAsync
 %   opFixedStruct
 %   opFixedStructAsync
-%   opFixedStructReq
-%   opFixedStructReqAsync
 %   opVarStruct
 %   opVarStructAsync
-%   opVarStructReq
-%   opVarStructReqAsync
 %   opMyInterfaceProxy
 %   opMyInterfaceProxyAsync
-%   opMyInterfaceProxyReq
-%   opMyInterfaceProxyReqAsync
 %   opOneOptional
 %   opOneOptionalAsync
 %   opByteSeq
 %   opByteSeqAsync
-%   opByteSeqReq
-%   opByteSeqReqAsync
 %   opBoolSeq
 %   opBoolSeqAsync
-%   opBoolSeqReq
-%   opBoolSeqReqAsync
 %   opShortSeq
 %   opShortSeqAsync
-%   opShortSeqReq
-%   opShortSeqReqAsync
 %   opIntSeq
 %   opIntSeqAsync
-%   opIntSeqReq
-%   opIntSeqReqAsync
 %   opLongSeq
 %   opLongSeqAsync
-%   opLongSeqReq
-%   opLongSeqReqAsync
 %   opFloatSeq
 %   opFloatSeqAsync
-%   opFloatSeqReq
-%   opFloatSeqReqAsync
 %   opDoubleSeq
 %   opDoubleSeqAsync
-%   opDoubleSeqReq
-%   opDoubleSeqReqAsync
 %   opStringSeq
 %   opStringSeqAsync
-%   opStringSeqReq
-%   opStringSeqReqAsync
 %   opSmallStructSeq
 %   opSmallStructSeqAsync
-%   opSmallStructSeqReq
-%   opSmallStructSeqReqAsync
 %   opSmallStructList
 %   opSmallStructListAsync
-%   opSmallStructListReq
-%   opSmallStructListReqAsync
 %   opFixedStructSeq
 %   opFixedStructSeqAsync
-%   opFixedStructSeqReq
-%   opFixedStructSeqReqAsync
 %   opFixedStructList
 %   opFixedStructListAsync
-%   opFixedStructListReq
-%   opFixedStructListReqAsync
 %   opVarStructSeq
 %   opVarStructSeqAsync
-%   opVarStructSeqReq
-%   opVarStructSeqReqAsync
 %   opSerializable
 %   opSerializableAsync
-%   opSerializableReq
-%   opSerializableReqAsync
 %   opIntIntDict
 %   opIntIntDictAsync
-%   opIntIntDictReq
-%   opIntIntDictReqAsync
 %   opStringIntDict
 %   opStringIntDictAsync
-%   opStringIntDictReq
-%   opStringIntDictReqAsync
 %   opIntOneOptionalDict
 %   opIntOneOptionalDictAsync
-%   opIntOneOptionalDictReq
-%   opIntOneOptionalDictReqAsync
 %   opClassAndUnknownOptional
 %   opClassAndUnknownOptionalAsync
 %   opG
@@ -151,8 +91,6 @@
 %   opMDict1Async
 %   opMDict2
 %   opMDict2Async
-%   supportsRequiredParams
-%   supportsRequiredParamsAsync
 %   supportsJavaSerializable
 %   supportsJavaSerializableAsync
 %   supportsCsharpSerializable
@@ -359,48 +297,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opByte', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opByteReq(obj, p1, varargin)
-            % opByteReq
-            %
-            % Parameters:
-            %   p1 (uint8)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (uint8)
-            %   p3 (uint8)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opByteReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readByteOpt(1);
-            p3 = is_.readByteOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opByteReqAsync(obj, p1, varargin)
-            % opByteReqAsync
-            %
-            % Parameters:
-            %   p1 (uint8)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readByteOpt(1);
-                p3 = is_.readByteOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opByteReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opBool(obj, p1, varargin)
             % opBool
             %
@@ -442,48 +338,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opBool', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opBoolReq(obj, p1, varargin)
-            % opBoolReq
-            %
-            % Parameters:
-            %   p1 (logical)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (logical)
-            %   p3 (logical)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeBoolOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opBoolReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readBoolOpt(1);
-            p3 = is_.readBoolOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opBoolReqAsync(obj, p1, varargin)
-            % opBoolReqAsync
-            %
-            % Parameters:
-            %   p1 (logical)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeBoolOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readBoolOpt(1);
-                p3 = is_.readBoolOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opBoolReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opShort(obj, p1, varargin)
             % opShort
@@ -527,48 +381,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opShort', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opShortReq(obj, p1, varargin)
-            % opShortReq
-            %
-            % Parameters:
-            %   p1 (int16)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (int16)
-            %   p3 (int16)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeShortOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opShortReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readShortOpt(1);
-            p3 = is_.readShortOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opShortReqAsync(obj, p1, varargin)
-            % opShortReqAsync
-            %
-            % Parameters:
-            %   p1 (int16)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeShortOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readShortOpt(1);
-                p3 = is_.readShortOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opShortReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opInt(obj, p1, varargin)
             % opInt
             %
@@ -610,48 +422,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opInt', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opIntReq(obj, p1, varargin)
-            % opIntReq
-            %
-            % Parameters:
-            %   p1 (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (int32)
-            %   p3 (int32)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeIntOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opIntReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readIntOpt(1);
-            p3 = is_.readIntOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opIntReqAsync(obj, p1, varargin)
-            % opIntReqAsync
-            %
-            % Parameters:
-            %   p1 (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeIntOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readIntOpt(1);
-                p3 = is_.readIntOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opIntReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opLong(obj, p1, varargin)
             % opLong
@@ -695,48 +465,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opLong', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opLongReq(obj, p1, varargin)
-            % opLongReq
-            %
-            % Parameters:
-            %   p1 (int64)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (int64)
-            %   p3 (int64)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeLongOpt(1, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opLongReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            p3 = is_.readLongOpt(2);
-            result = is_.readLongOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opLongReqAsync(obj, p1, varargin)
-            % opLongReqAsync
-            %
-            % Parameters:
-            %   p1 (int64)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeLongOpt(1, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                p3 = is_.readLongOpt(2);
-                result = is_.readLongOpt(3);
-                is_.endEncapsulation();
-                varargout{2} = p3;
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('opLongReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opFloat(obj, p1, varargin)
             % opFloat
             %
@@ -778,48 +506,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opFloat', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opFloatReq(obj, p1, varargin)
-            % opFloatReq
-            %
-            % Parameters:
-            %   p1 (single)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (single)
-            %   p3 (single)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeFloatOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opFloatReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readFloatOpt(1);
-            p3 = is_.readFloatOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opFloatReqAsync(obj, p1, varargin)
-            % opFloatReqAsync
-            %
-            % Parameters:
-            %   p1 (single)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeFloatOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readFloatOpt(1);
-                p3 = is_.readFloatOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opFloatReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opDouble(obj, p1, varargin)
             % opDouble
@@ -863,48 +549,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opDouble', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opDoubleReq(obj, p1, varargin)
-            % opDoubleReq
-            %
-            % Parameters:
-            %   p1 (double)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (double)
-            %   p3 (double)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeDoubleOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opDoubleReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readDoubleOpt(1);
-            p3 = is_.readDoubleOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opDoubleReqAsync(obj, p1, varargin)
-            % opDoubleReqAsync
-            %
-            % Parameters:
-            %   p1 (double)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeDoubleOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readDoubleOpt(1);
-                p3 = is_.readDoubleOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opDoubleReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opString(obj, p1, varargin)
             % opString
             %
@@ -946,48 +590,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opString', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opStringReq(obj, p1, varargin)
-            % opStringReq
-            %
-            % Parameters:
-            %   p1 (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (char)
-            %   p3 (char)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeStringOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opStringReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readStringOpt(1);
-            p3 = is_.readStringOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opStringReqAsync(obj, p1, varargin)
-            % opStringReqAsync
-            %
-            % Parameters:
-            %   p1 (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeStringOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readStringOpt(1);
-                p3 = is_.readStringOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opStringReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opMyEnum(obj, p1, varargin)
             % opMyEnum
@@ -1031,48 +633,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opMyEnum', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opMyEnumReq(obj, p1, varargin)
-            % opMyEnumReq
-            %
-            % Parameters:
-            %   p1 (Test.MyEnum)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.MyEnum)
-            %   p3 (Test.MyEnum)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.MyEnum.ice_writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opMyEnumReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.MyEnum.ice_readOpt(is_, 1);
-            p3 = Test.MyEnum.ice_readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opMyEnumReqAsync(obj, p1, varargin)
-            % opMyEnumReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.MyEnum)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.MyEnum.ice_writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.MyEnum.ice_readOpt(is_, 1);
-                p3 = Test.MyEnum.ice_readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opMyEnumReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opSmallStruct(obj, p1, varargin)
             % opSmallStruct
             %
@@ -1114,48 +674,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opSmallStruct', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opSmallStructReq(obj, p1, varargin)
-            % opSmallStructReq
-            %
-            % Parameters:
-            %   p1 (Test.SmallStruct)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.SmallStruct)
-            %   p3 (Test.SmallStruct)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.SmallStruct.ice_writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opSmallStructReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.SmallStruct.ice_readOpt(is_, 1);
-            p3 = Test.SmallStruct.ice_readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opSmallStructReqAsync(obj, p1, varargin)
-            % opSmallStructReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.SmallStruct)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.SmallStruct.ice_writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.SmallStruct.ice_readOpt(is_, 1);
-                p3 = Test.SmallStruct.ice_readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opSmallStructReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opFixedStruct(obj, p1, varargin)
             % opFixedStruct
@@ -1199,48 +717,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opFixedStruct', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opFixedStructReq(obj, p1, varargin)
-            % opFixedStructReq
-            %
-            % Parameters:
-            %   p1 (Test.FixedStruct)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.FixedStruct)
-            %   p3 (Test.FixedStruct)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.FixedStruct.ice_writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opFixedStructReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.FixedStruct.ice_readOpt(is_, 1);
-            p3 = Test.FixedStruct.ice_readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opFixedStructReqAsync(obj, p1, varargin)
-            % opFixedStructReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.FixedStruct)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.FixedStruct.ice_writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.FixedStruct.ice_readOpt(is_, 1);
-                p3 = Test.FixedStruct.ice_readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opFixedStructReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opVarStruct(obj, p1, varargin)
             % opVarStruct
             %
@@ -1282,48 +758,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opVarStruct', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opVarStructReq(obj, p1, varargin)
-            % opVarStructReq
-            %
-            % Parameters:
-            %   p1 (Test.VarStruct)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.VarStruct)
-            %   p3 (Test.VarStruct)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.VarStruct.ice_writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opVarStructReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.VarStruct.ice_readOpt(is_, 1);
-            p3 = Test.VarStruct.ice_readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opVarStructReqAsync(obj, p1, varargin)
-            % opVarStructReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.VarStruct)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.VarStruct.ice_writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.VarStruct.ice_readOpt(is_, 1);
-                p3 = Test.VarStruct.ice_readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opVarStructReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opMyInterfaceProxy(obj, p1, varargin)
             % opMyInterfaceProxy
@@ -1378,60 +812,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opMyInterfaceProxy', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opMyInterfaceProxyReq(obj, p1, varargin)
-            % opMyInterfaceProxyReq
-            %
-            % Parameters:
-            %   p1 (Test.MyInterfacePrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.MyInterfacePrx)
-            %   p3 (Test.MyInterfacePrx)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeProxyOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opMyInterfaceProxyReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            if is_.readOptional(1, Ice.OptionalFormat.FSize)
-                is_.skip(4);
-                result = Test.MyInterfacePrx.ice_read(is_);
-            end
-            if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                is_.skip(4);
-                p3 = Test.MyInterfacePrx.ice_read(is_);
-            end
-            is_.endEncapsulation();
-        end
-        function r_ = opMyInterfaceProxyReqAsync(obj, p1, varargin)
-            % opMyInterfaceProxyReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.MyInterfacePrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeProxyOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                if is_.readOptional(1, Ice.OptionalFormat.FSize)
-                    is_.skip(4);
-                    result = Test.MyInterfacePrx.ice_read(is_);
-                end
-                if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                    is_.skip(4);
-                    p3 = Test.MyInterfacePrx.ice_read(is_);
-                end
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opMyInterfaceProxyReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opOneOptional(obj, p1, varargin)
             % opOneOptional
@@ -1527,48 +907,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opByteSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opByteSeqReq(obj, p1, varargin)
-            % opByteSeqReq
-            %
-            % Parameters:
-            %   p1 (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ByteSeq)
-            %   p3 (Test.ByteSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opByteSeqReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readByteSeqOpt(1);
-            p3 = is_.readByteSeqOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opByteSeqReqAsync(obj, p1, varargin)
-            % opByteSeqReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readByteSeqOpt(1);
-                p3 = is_.readByteSeqOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opByteSeqReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opBoolSeq(obj, p1, varargin)
             % opBoolSeq
             %
@@ -1610,48 +948,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opBoolSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opBoolSeqReq(obj, p1, varargin)
-            % opBoolSeqReq
-            %
-            % Parameters:
-            %   p1 (Test.BoolSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.BoolSeq)
-            %   p3 (Test.BoolSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeBoolSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opBoolSeqReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readBoolSeqOpt(1);
-            p3 = is_.readBoolSeqOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opBoolSeqReqAsync(obj, p1, varargin)
-            % opBoolSeqReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.BoolSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeBoolSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readBoolSeqOpt(1);
-                p3 = is_.readBoolSeqOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opBoolSeqReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opShortSeq(obj, p1, varargin)
             % opShortSeq
@@ -1695,48 +991,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opShortSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opShortSeqReq(obj, p1, varargin)
-            % opShortSeqReq
-            %
-            % Parameters:
-            %   p1 (Test.ShortSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ShortSeq)
-            %   p3 (Test.ShortSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeShortSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opShortSeqReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readShortSeqOpt(1);
-            p3 = is_.readShortSeqOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opShortSeqReqAsync(obj, p1, varargin)
-            % opShortSeqReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.ShortSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeShortSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readShortSeqOpt(1);
-                p3 = is_.readShortSeqOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opShortSeqReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opIntSeq(obj, p1, varargin)
             % opIntSeq
             %
@@ -1778,48 +1032,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opIntSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opIntSeqReq(obj, p1, varargin)
-            % opIntSeqReq
-            %
-            % Parameters:
-            %   p1 (Test.IntSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.IntSeq)
-            %   p3 (Test.IntSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeIntSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opIntSeqReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readIntSeqOpt(1);
-            p3 = is_.readIntSeqOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opIntSeqReqAsync(obj, p1, varargin)
-            % opIntSeqReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.IntSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeIntSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readIntSeqOpt(1);
-                p3 = is_.readIntSeqOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opIntSeqReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opLongSeq(obj, p1, varargin)
             % opLongSeq
@@ -1863,48 +1075,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opLongSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opLongSeqReq(obj, p1, varargin)
-            % opLongSeqReq
-            %
-            % Parameters:
-            %   p1 (Test.LongSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.LongSeq)
-            %   p3 (Test.LongSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeLongSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opLongSeqReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readLongSeqOpt(1);
-            p3 = is_.readLongSeqOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opLongSeqReqAsync(obj, p1, varargin)
-            % opLongSeqReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.LongSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeLongSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readLongSeqOpt(1);
-                p3 = is_.readLongSeqOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opLongSeqReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opFloatSeq(obj, p1, varargin)
             % opFloatSeq
             %
@@ -1946,48 +1116,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opFloatSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opFloatSeqReq(obj, p1, varargin)
-            % opFloatSeqReq
-            %
-            % Parameters:
-            %   p1 (Test.FloatSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.FloatSeq)
-            %   p3 (Test.FloatSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeFloatSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opFloatSeqReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readFloatSeqOpt(1);
-            p3 = is_.readFloatSeqOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opFloatSeqReqAsync(obj, p1, varargin)
-            % opFloatSeqReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.FloatSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeFloatSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readFloatSeqOpt(1);
-                p3 = is_.readFloatSeqOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opFloatSeqReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opDoubleSeq(obj, p1, varargin)
             % opDoubleSeq
@@ -2031,48 +1159,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opDoubleSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opDoubleSeqReq(obj, p1, varargin)
-            % opDoubleSeqReq
-            %
-            % Parameters:
-            %   p1 (Test.DoubleSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.DoubleSeq)
-            %   p3 (Test.DoubleSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeDoubleSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opDoubleSeqReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readDoubleSeqOpt(1);
-            p3 = is_.readDoubleSeqOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opDoubleSeqReqAsync(obj, p1, varargin)
-            % opDoubleSeqReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.DoubleSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeDoubleSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readDoubleSeqOpt(1);
-                p3 = is_.readDoubleSeqOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opDoubleSeqReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opStringSeq(obj, p1, varargin)
             % opStringSeq
             %
@@ -2114,48 +1200,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opStringSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opStringSeqReq(obj, p1, varargin)
-            % opStringSeqReq
-            %
-            % Parameters:
-            %   p1 (Test.StringSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.StringSeq)
-            %   p3 (Test.StringSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeStringSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opStringSeqReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readStringSeqOpt(1);
-            p3 = is_.readStringSeqOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opStringSeqReqAsync(obj, p1, varargin)
-            % opStringSeqReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.StringSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeStringSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readStringSeqOpt(1);
-                p3 = is_.readStringSeqOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opStringSeqReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opSmallStructSeq(obj, p1, varargin)
             % opSmallStructSeq
@@ -2199,48 +1243,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opSmallStructSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opSmallStructSeqReq(obj, p1, varargin)
-            % opSmallStructSeqReq
-            %
-            % Parameters:
-            %   p1 (Test.SmallStructSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.SmallStructSeq)
-            %   p3 (Test.SmallStructSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.SmallStructSeq.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opSmallStructSeqReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.SmallStructSeq.readOpt(is_, 1);
-            p3 = Test.SmallStructSeq.readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opSmallStructSeqReqAsync(obj, p1, varargin)
-            % opSmallStructSeqReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.SmallStructSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.SmallStructSeq.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.SmallStructSeq.readOpt(is_, 1);
-                p3 = Test.SmallStructSeq.readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opSmallStructSeqReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opSmallStructList(obj, p1, varargin)
             % opSmallStructList
             %
@@ -2282,48 +1284,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opSmallStructList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opSmallStructListReq(obj, p1, varargin)
-            % opSmallStructListReq
-            %
-            % Parameters:
-            %   p1 (Test.SmallStructList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.SmallStructList)
-            %   p3 (Test.SmallStructList)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.SmallStructList.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opSmallStructListReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.SmallStructList.readOpt(is_, 1);
-            p3 = Test.SmallStructList.readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opSmallStructListReqAsync(obj, p1, varargin)
-            % opSmallStructListReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.SmallStructList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.SmallStructList.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.SmallStructList.readOpt(is_, 1);
-                p3 = Test.SmallStructList.readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opSmallStructListReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opFixedStructSeq(obj, p1, varargin)
             % opFixedStructSeq
@@ -2367,48 +1327,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opFixedStructSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opFixedStructSeqReq(obj, p1, varargin)
-            % opFixedStructSeqReq
-            %
-            % Parameters:
-            %   p1 (Test.FixedStructSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.FixedStructSeq)
-            %   p3 (Test.FixedStructSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.FixedStructSeq.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opFixedStructSeqReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.FixedStructSeq.readOpt(is_, 1);
-            p3 = Test.FixedStructSeq.readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opFixedStructSeqReqAsync(obj, p1, varargin)
-            % opFixedStructSeqReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.FixedStructSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.FixedStructSeq.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.FixedStructSeq.readOpt(is_, 1);
-                p3 = Test.FixedStructSeq.readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opFixedStructSeqReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opFixedStructList(obj, p1, varargin)
             % opFixedStructList
             %
@@ -2450,48 +1368,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opFixedStructList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opFixedStructListReq(obj, p1, varargin)
-            % opFixedStructListReq
-            %
-            % Parameters:
-            %   p1 (Test.FixedStructList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.FixedStructList)
-            %   p3 (Test.FixedStructList)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.FixedStructList.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opFixedStructListReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.FixedStructList.readOpt(is_, 1);
-            p3 = Test.FixedStructList.readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opFixedStructListReqAsync(obj, p1, varargin)
-            % opFixedStructListReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.FixedStructList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.FixedStructList.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.FixedStructList.readOpt(is_, 1);
-                p3 = Test.FixedStructList.readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opFixedStructListReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opVarStructSeq(obj, p1, varargin)
             % opVarStructSeq
@@ -2535,48 +1411,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opVarStructSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opVarStructSeqReq(obj, p1, varargin)
-            % opVarStructSeqReq
-            %
-            % Parameters:
-            %   p1 (Test.VarStructSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.VarStructSeq)
-            %   p3 (Test.VarStructSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.VarStructSeq.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opVarStructSeqReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.VarStructSeq.readOpt(is_, 1);
-            p3 = Test.VarStructSeq.readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opVarStructSeqReqAsync(obj, p1, varargin)
-            % opVarStructSeqReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.VarStructSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.VarStructSeq.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.VarStructSeq.readOpt(is_, 1);
-                p3 = Test.VarStructSeq.readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opVarStructSeqReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opSerializable(obj, p1, varargin)
             % opSerializable
             %
@@ -2618,48 +1452,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opSerializable', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opSerializableReq(obj, p1, varargin)
-            % opSerializableReq
-            %
-            % Parameters:
-            %   p1 (Test.Serializable)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.Serializable)
-            %   p3 (Test.Serializable)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opSerializableReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readByteSeqOpt(1);
-            p3 = is_.readByteSeqOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opSerializableReqAsync(obj, p1, varargin)
-            % opSerializableReqAsync
-            %
-            % Parameters:
-            %   p1 (Test.Serializable)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readByteSeqOpt(1);
-                p3 = is_.readByteSeqOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opSerializableReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opIntIntDict(obj, p1, varargin)
             % opIntIntDict
@@ -2703,48 +1495,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opIntIntDict', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opIntIntDictReq(obj, p1, varargin)
-            % opIntIntDictReq
-            %
-            % Parameters:
-            %   p1 (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (containers.Map)
-            %   p3 (containers.Map)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.IntIntDict.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opIntIntDictReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.IntIntDict.readOpt(is_, 1);
-            p3 = Test.IntIntDict.readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opIntIntDictReqAsync(obj, p1, varargin)
-            % opIntIntDictReqAsync
-            %
-            % Parameters:
-            %   p1 (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.IntIntDict.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.IntIntDict.readOpt(is_, 1);
-                p3 = Test.IntIntDict.readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opIntIntDictReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opStringIntDict(obj, p1, varargin)
             % opStringIntDict
             %
@@ -2786,48 +1536,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opStringIntDict', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opStringIntDictReq(obj, p1, varargin)
-            % opStringIntDictReq
-            %
-            % Parameters:
-            %   p1 (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (containers.Map)
-            %   p3 (containers.Map)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.StringIntDict.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opStringIntDictReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.StringIntDict.readOpt(is_, 1);
-            p3 = Test.StringIntDict.readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opStringIntDictReqAsync(obj, p1, varargin)
-            % opStringIntDictReqAsync
-            %
-            % Parameters:
-            %   p1 (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.StringIntDict.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.StringIntDict.readOpt(is_, 1);
-                p3 = Test.StringIntDict.readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opStringIntDictReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opIntOneOptionalDict(obj, p1, varargin)
             % opIntOneOptionalDict
@@ -2880,58 +1588,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 end
             end
             r_ = obj.iceInvokeAsync('opIntOneOptionalDict', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opIntOneOptionalDictReq(obj, p1, varargin)
-            % opIntOneOptionalDictReq
-            %
-            % Parameters:
-            %   p1 (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (containers.Map)
-            %   p3 (containers.Map)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.IntOneOptionalDict.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opIntOneOptionalDictReq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.IntOneOptionalDict.readOpt(is_, 1);
-            p3 = Test.IntOneOptionalDict.readOpt(is_, 3);
-            is_.endEncapsulation();
-            if result ~= Ice.Unset
-                result = Test.IntOneOptionalDict.convert(result);
-            end
-            if p3 ~= Ice.Unset
-                p3 = Test.IntOneOptionalDict.convert(p3);
-            end
-        end
-        function r_ = opIntOneOptionalDictReqAsync(obj, p1, varargin)
-            % opIntOneOptionalDictReqAsync
-            %
-            % Parameters:
-            %   p1 (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.IntOneOptionalDict.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.IntOneOptionalDict.readOpt(is_, 1);
-                p3 = Test.IntOneOptionalDict.readOpt(is_, 3);
-                is_.endEncapsulation();
-                if result ~= Ice.Unset
-                    varargout{1} = Test.IntOneOptionalDict.convert(result);
-                end
-                if p3 ~= Ice.Unset
-                    varargout{2} = Test.IntOneOptionalDict.convert(p3);
-                end
-            end
-            r_ = obj.iceInvokeAsync('opIntOneOptionalDictReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function opClassAndUnknownOptional(obj, p, varargin)
             % opClassAndUnknownOptional
@@ -3235,35 +1891,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p2;
             end
             r_ = obj.iceInvokeAsync('opMDict2', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function result = supportsRequiredParams(obj, varargin)
-            % supportsRequiredParams
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
-            is_ = obj.iceInvoke('supportsRequiredParams', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readBool();
-            is_.endEncapsulation();
-        end
-        function r_ = supportsRequiredParamsAsync(obj, varargin)
-            % supportsRequiredParamsAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readBool();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('supportsRequiredParams', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = supportsJavaSerializable(obj, varargin)
             % supportsJavaSerializable

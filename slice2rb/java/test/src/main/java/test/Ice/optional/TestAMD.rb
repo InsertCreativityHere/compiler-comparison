@@ -719,104 +719,52 @@ module ::Test
                 InitialPrx_mixin::OP_opByte.invoke(self, [p1], context)
             end
 
-            def opByteReq(p1, context=nil)
-                InitialPrx_mixin::OP_opByteReq.invoke(self, [p1], context)
-            end
-
             def opBool(p1, context=nil)
                 InitialPrx_mixin::OP_opBool.invoke(self, [p1], context)
-            end
-
-            def opBoolReq(p1, context=nil)
-                InitialPrx_mixin::OP_opBoolReq.invoke(self, [p1], context)
             end
 
             def opShort(p1, context=nil)
                 InitialPrx_mixin::OP_opShort.invoke(self, [p1], context)
             end
 
-            def opShortReq(p1, context=nil)
-                InitialPrx_mixin::OP_opShortReq.invoke(self, [p1], context)
-            end
-
             def opInt(p1, context=nil)
                 InitialPrx_mixin::OP_opInt.invoke(self, [p1], context)
-            end
-
-            def opIntReq(p1, context=nil)
-                InitialPrx_mixin::OP_opIntReq.invoke(self, [p1], context)
             end
 
             def opLong(p1, context=nil)
                 InitialPrx_mixin::OP_opLong.invoke(self, [p1], context)
             end
 
-            def opLongReq(p1, context=nil)
-                InitialPrx_mixin::OP_opLongReq.invoke(self, [p1], context)
-            end
-
             def opFloat(p1, context=nil)
                 InitialPrx_mixin::OP_opFloat.invoke(self, [p1], context)
-            end
-
-            def opFloatReq(p1, context=nil)
-                InitialPrx_mixin::OP_opFloatReq.invoke(self, [p1], context)
             end
 
             def opDouble(p1, context=nil)
                 InitialPrx_mixin::OP_opDouble.invoke(self, [p1], context)
             end
 
-            def opDoubleReq(p1, context=nil)
-                InitialPrx_mixin::OP_opDoubleReq.invoke(self, [p1], context)
-            end
-
             def opString(p1, context=nil)
                 InitialPrx_mixin::OP_opString.invoke(self, [p1], context)
-            end
-
-            def opStringReq(p1, context=nil)
-                InitialPrx_mixin::OP_opStringReq.invoke(self, [p1], context)
             end
 
             def opMyEnum(p1, context=nil)
                 InitialPrx_mixin::OP_opMyEnum.invoke(self, [p1], context)
             end
 
-            def opMyEnumReq(p1, context=nil)
-                InitialPrx_mixin::OP_opMyEnumReq.invoke(self, [p1], context)
-            end
-
             def opSmallStruct(p1, context=nil)
                 InitialPrx_mixin::OP_opSmallStruct.invoke(self, [p1], context)
-            end
-
-            def opSmallStructReq(p1, context=nil)
-                InitialPrx_mixin::OP_opSmallStructReq.invoke(self, [p1], context)
             end
 
             def opFixedStruct(p1, context=nil)
                 InitialPrx_mixin::OP_opFixedStruct.invoke(self, [p1], context)
             end
 
-            def opFixedStructReq(p1, context=nil)
-                InitialPrx_mixin::OP_opFixedStructReq.invoke(self, [p1], context)
-            end
-
             def opVarStruct(p1, context=nil)
                 InitialPrx_mixin::OP_opVarStruct.invoke(self, [p1], context)
             end
 
-            def opVarStructReq(p1, context=nil)
-                InitialPrx_mixin::OP_opVarStructReq.invoke(self, [p1], context)
-            end
-
             def opMyInterfaceProxy(p1, context=nil)
                 InitialPrx_mixin::OP_opMyInterfaceProxy.invoke(self, [p1], context)
-            end
-
-            def opMyInterfaceProxyReq(p1, context=nil)
-                InitialPrx_mixin::OP_opMyInterfaceProxyReq.invoke(self, [p1], context)
             end
 
             def opOneOptional(p1, context=nil)
@@ -827,136 +775,68 @@ module ::Test
                 InitialPrx_mixin::OP_opByteSeq.invoke(self, [p1], context)
             end
 
-            def opByteSeqReq(p1, context=nil)
-                InitialPrx_mixin::OP_opByteSeqReq.invoke(self, [p1], context)
-            end
-
             def opBoolSeq(p1, context=nil)
                 InitialPrx_mixin::OP_opBoolSeq.invoke(self, [p1], context)
-            end
-
-            def opBoolSeqReq(p1, context=nil)
-                InitialPrx_mixin::OP_opBoolSeqReq.invoke(self, [p1], context)
             end
 
             def opShortSeq(p1, context=nil)
                 InitialPrx_mixin::OP_opShortSeq.invoke(self, [p1], context)
             end
 
-            def opShortSeqReq(p1, context=nil)
-                InitialPrx_mixin::OP_opShortSeqReq.invoke(self, [p1], context)
-            end
-
             def opIntSeq(p1, context=nil)
                 InitialPrx_mixin::OP_opIntSeq.invoke(self, [p1], context)
-            end
-
-            def opIntSeqReq(p1, context=nil)
-                InitialPrx_mixin::OP_opIntSeqReq.invoke(self, [p1], context)
             end
 
             def opLongSeq(p1, context=nil)
                 InitialPrx_mixin::OP_opLongSeq.invoke(self, [p1], context)
             end
 
-            def opLongSeqReq(p1, context=nil)
-                InitialPrx_mixin::OP_opLongSeqReq.invoke(self, [p1], context)
-            end
-
             def opFloatSeq(p1, context=nil)
                 InitialPrx_mixin::OP_opFloatSeq.invoke(self, [p1], context)
-            end
-
-            def opFloatSeqReq(p1, context=nil)
-                InitialPrx_mixin::OP_opFloatSeqReq.invoke(self, [p1], context)
             end
 
             def opDoubleSeq(p1, context=nil)
                 InitialPrx_mixin::OP_opDoubleSeq.invoke(self, [p1], context)
             end
 
-            def opDoubleSeqReq(p1, context=nil)
-                InitialPrx_mixin::OP_opDoubleSeqReq.invoke(self, [p1], context)
-            end
-
             def opStringSeq(p1, context=nil)
                 InitialPrx_mixin::OP_opStringSeq.invoke(self, [p1], context)
-            end
-
-            def opStringSeqReq(p1, context=nil)
-                InitialPrx_mixin::OP_opStringSeqReq.invoke(self, [p1], context)
             end
 
             def opSmallStructSeq(p1, context=nil)
                 InitialPrx_mixin::OP_opSmallStructSeq.invoke(self, [p1], context)
             end
 
-            def opSmallStructSeqReq(p1, context=nil)
-                InitialPrx_mixin::OP_opSmallStructSeqReq.invoke(self, [p1], context)
-            end
-
             def opSmallStructList(p1, context=nil)
                 InitialPrx_mixin::OP_opSmallStructList.invoke(self, [p1], context)
-            end
-
-            def opSmallStructListReq(p1, context=nil)
-                InitialPrx_mixin::OP_opSmallStructListReq.invoke(self, [p1], context)
             end
 
             def opFixedStructSeq(p1, context=nil)
                 InitialPrx_mixin::OP_opFixedStructSeq.invoke(self, [p1], context)
             end
 
-            def opFixedStructSeqReq(p1, context=nil)
-                InitialPrx_mixin::OP_opFixedStructSeqReq.invoke(self, [p1], context)
-            end
-
             def opFixedStructList(p1, context=nil)
                 InitialPrx_mixin::OP_opFixedStructList.invoke(self, [p1], context)
-            end
-
-            def opFixedStructListReq(p1, context=nil)
-                InitialPrx_mixin::OP_opFixedStructListReq.invoke(self, [p1], context)
             end
 
             def opVarStructSeq(p1, context=nil)
                 InitialPrx_mixin::OP_opVarStructSeq.invoke(self, [p1], context)
             end
 
-            def opVarStructSeqReq(p1, context=nil)
-                InitialPrx_mixin::OP_opVarStructSeqReq.invoke(self, [p1], context)
-            end
-
             def opSerializable(p1, context=nil)
                 InitialPrx_mixin::OP_opSerializable.invoke(self, [p1], context)
-            end
-
-            def opSerializableReq(p1, context=nil)
-                InitialPrx_mixin::OP_opSerializableReq.invoke(self, [p1], context)
             end
 
             def opIntIntDict(p1, context=nil)
                 InitialPrx_mixin::OP_opIntIntDict.invoke(self, [p1], context)
             end
 
-            def opIntIntDictReq(p1, context=nil)
-                InitialPrx_mixin::OP_opIntIntDictReq.invoke(self, [p1], context)
-            end
-
             def opStringIntDict(p1, context=nil)
                 InitialPrx_mixin::OP_opStringIntDict.invoke(self, [p1], context)
             end
 
-            def opStringIntDictReq(p1, context=nil)
-                InitialPrx_mixin::OP_opStringIntDictReq.invoke(self, [p1], context)
-            end
-
             def opIntOneOptionalDict(p1, context=nil)
                 InitialPrx_mixin::OP_opIntOneOptionalDict.invoke(self, [p1], context)
-            end
-
-            def opIntOneOptionalDictReq(p1, context=nil)
-                InitialPrx_mixin::OP_opIntOneOptionalDictReq.invoke(self, [p1], context)
             end
 
             def opClassAndUnknownOptional(p, context=nil)
@@ -995,10 +875,6 @@ module ::Test
                 InitialPrx_mixin::OP_opMDict2.invoke(self, [p1], context)
             end
 
-            def supportsRequiredParams(context=nil)
-                InitialPrx_mixin::OP_supportsRequiredParams.invoke(self, [], context)
-            end
-
             def supportsJavaSerializable(context=nil)
                 InitialPrx_mixin::OP_supportsJavaSerializable.invoke(self, [], context)
             end
@@ -1026,66 +902,36 @@ module ::Test
         InitialPrx_mixin::OP_opDerivedException = ::Ice::__defineOperation('opDerivedException', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2]], [], nil, [::Test::T_OptionalException])
         InitialPrx_mixin::OP_opRequiredException = ::Ice::__defineOperation('opRequiredException', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2]], [], nil, [::Test::T_OptionalException])
         InitialPrx_mixin::OP_opByte = ::Ice::__defineOperation('opByte', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_byte, true, 2]], [[::Ice::T_byte, true, 3]], [::Ice::T_byte, true, 1], [])
-        InitialPrx_mixin::OP_opByteReq = ::Ice::__defineOperation('opByteReq', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_byte, true, 2]], [[::Ice::T_byte, true, 3]], [::Ice::T_byte, true, 1], [])
         InitialPrx_mixin::OP_opBool = ::Ice::__defineOperation('opBool', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_bool, true, 2]], [[::Ice::T_bool, true, 3]], [::Ice::T_bool, true, 1], [])
-        InitialPrx_mixin::OP_opBoolReq = ::Ice::__defineOperation('opBoolReq', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_bool, true, 2]], [[::Ice::T_bool, true, 3]], [::Ice::T_bool, true, 1], [])
         InitialPrx_mixin::OP_opShort = ::Ice::__defineOperation('opShort', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_short, true, 2]], [[::Ice::T_short, true, 3]], [::Ice::T_short, true, 1], [])
-        InitialPrx_mixin::OP_opShortReq = ::Ice::__defineOperation('opShortReq', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_short, true, 2]], [[::Ice::T_short, true, 3]], [::Ice::T_short, true, 1], [])
         InitialPrx_mixin::OP_opInt = ::Ice::__defineOperation('opInt', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, true, 2]], [[::Ice::T_int, true, 3]], [::Ice::T_int, true, 1], [])
-        InitialPrx_mixin::OP_opIntReq = ::Ice::__defineOperation('opIntReq', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, true, 2]], [[::Ice::T_int, true, 3]], [::Ice::T_int, true, 1], [])
         InitialPrx_mixin::OP_opLong = ::Ice::__defineOperation('opLong', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_long, true, 1]], [[::Ice::T_long, true, 2]], [::Ice::T_long, true, 3], [])
-        InitialPrx_mixin::OP_opLongReq = ::Ice::__defineOperation('opLongReq', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_long, true, 1]], [[::Ice::T_long, true, 2]], [::Ice::T_long, true, 3], [])
         InitialPrx_mixin::OP_opFloat = ::Ice::__defineOperation('opFloat', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_float, true, 2]], [[::Ice::T_float, true, 3]], [::Ice::T_float, true, 1], [])
-        InitialPrx_mixin::OP_opFloatReq = ::Ice::__defineOperation('opFloatReq', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_float, true, 2]], [[::Ice::T_float, true, 3]], [::Ice::T_float, true, 1], [])
         InitialPrx_mixin::OP_opDouble = ::Ice::__defineOperation('opDouble', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_double, true, 2]], [[::Ice::T_double, true, 3]], [::Ice::T_double, true, 1], [])
-        InitialPrx_mixin::OP_opDoubleReq = ::Ice::__defineOperation('opDoubleReq', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_double, true, 2]], [[::Ice::T_double, true, 3]], [::Ice::T_double, true, 1], [])
         InitialPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, true, 2]], [[::Ice::T_string, true, 3]], [::Ice::T_string, true, 1], [])
-        InitialPrx_mixin::OP_opStringReq = ::Ice::__defineOperation('opStringReq', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, true, 2]], [[::Ice::T_string, true, 3]], [::Ice::T_string, true, 1], [])
         InitialPrx_mixin::OP_opMyEnum = ::Ice::__defineOperation('opMyEnum', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_MyEnum, true, 2]], [[::Test::T_MyEnum, true, 3]], [::Test::T_MyEnum, true, 1], [])
-        InitialPrx_mixin::OP_opMyEnumReq = ::Ice::__defineOperation('opMyEnumReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_MyEnum, true, 2]], [[::Test::T_MyEnum, true, 3]], [::Test::T_MyEnum, true, 1], [])
         InitialPrx_mixin::OP_opSmallStruct = ::Ice::__defineOperation('opSmallStruct', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_SmallStruct, true, 2]], [[::Test::T_SmallStruct, true, 3]], [::Test::T_SmallStruct, true, 1], [])
-        InitialPrx_mixin::OP_opSmallStructReq = ::Ice::__defineOperation('opSmallStructReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_SmallStruct, true, 2]], [[::Test::T_SmallStruct, true, 3]], [::Test::T_SmallStruct, true, 1], [])
         InitialPrx_mixin::OP_opFixedStruct = ::Ice::__defineOperation('opFixedStruct', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FixedStruct, true, 2]], [[::Test::T_FixedStruct, true, 3]], [::Test::T_FixedStruct, true, 1], [])
-        InitialPrx_mixin::OP_opFixedStructReq = ::Ice::__defineOperation('opFixedStructReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FixedStruct, true, 2]], [[::Test::T_FixedStruct, true, 3]], [::Test::T_FixedStruct, true, 1], [])
         InitialPrx_mixin::OP_opVarStruct = ::Ice::__defineOperation('opVarStruct', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_VarStruct, true, 2]], [[::Test::T_VarStruct, true, 3]], [::Test::T_VarStruct, true, 1], [])
-        InitialPrx_mixin::OP_opVarStructReq = ::Ice::__defineOperation('opVarStructReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_VarStruct, true, 2]], [[::Test::T_VarStruct, true, 3]], [::Test::T_VarStruct, true, 1], [])
         InitialPrx_mixin::OP_opMyInterfaceProxy = ::Ice::__defineOperation('opMyInterfaceProxy', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_MyInterfacePrx, true, 2]], [[::Test::T_MyInterfacePrx, true, 3]], [::Test::T_MyInterfacePrx, true, 1], [])
-        InitialPrx_mixin::OP_opMyInterfaceProxyReq = ::Ice::__defineOperation('opMyInterfaceProxyReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_MyInterfacePrx, true, 2]], [[::Test::T_MyInterfacePrx, true, 3]], [::Test::T_MyInterfacePrx, true, 1], [])
         InitialPrx_mixin::OP_opOneOptional = ::Ice::__defineOperation('opOneOptional', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_OneOptional, false, 0]], [[::Test::T_OneOptional, false, 0]], [::Test::T_OneOptional, false, 0], [])
         InitialPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ByteSeq, true, 2]], [[::Test::T_ByteSeq, true, 3]], [::Test::T_ByteSeq, true, 1], [])
-        InitialPrx_mixin::OP_opByteSeqReq = ::Ice::__defineOperation('opByteSeqReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ByteSeq, true, 2]], [[::Test::T_ByteSeq, true, 3]], [::Test::T_ByteSeq, true, 1], [])
         InitialPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_BoolSeq, true, 2]], [[::Test::T_BoolSeq, true, 3]], [::Test::T_BoolSeq, true, 1], [])
-        InitialPrx_mixin::OP_opBoolSeqReq = ::Ice::__defineOperation('opBoolSeqReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_BoolSeq, true, 2]], [[::Test::T_BoolSeq, true, 3]], [::Test::T_BoolSeq, true, 1], [])
         InitialPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ShortSeq, true, 2]], [[::Test::T_ShortSeq, true, 3]], [::Test::T_ShortSeq, true, 1], [])
-        InitialPrx_mixin::OP_opShortSeqReq = ::Ice::__defineOperation('opShortSeqReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ShortSeq, true, 2]], [[::Test::T_ShortSeq, true, 3]], [::Test::T_ShortSeq, true, 1], [])
         InitialPrx_mixin::OP_opIntSeq = ::Ice::__defineOperation('opIntSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_IntSeq, true, 2]], [[::Test::T_IntSeq, true, 3]], [::Test::T_IntSeq, true, 1], [])
-        InitialPrx_mixin::OP_opIntSeqReq = ::Ice::__defineOperation('opIntSeqReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_IntSeq, true, 2]], [[::Test::T_IntSeq, true, 3]], [::Test::T_IntSeq, true, 1], [])
         InitialPrx_mixin::OP_opLongSeq = ::Ice::__defineOperation('opLongSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_LongSeq, true, 2]], [[::Test::T_LongSeq, true, 3]], [::Test::T_LongSeq, true, 1], [])
-        InitialPrx_mixin::OP_opLongSeqReq = ::Ice::__defineOperation('opLongSeqReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_LongSeq, true, 2]], [[::Test::T_LongSeq, true, 3]], [::Test::T_LongSeq, true, 1], [])
         InitialPrx_mixin::OP_opFloatSeq = ::Ice::__defineOperation('opFloatSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FloatSeq, true, 2]], [[::Test::T_FloatSeq, true, 3]], [::Test::T_FloatSeq, true, 1], [])
-        InitialPrx_mixin::OP_opFloatSeqReq = ::Ice::__defineOperation('opFloatSeqReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FloatSeq, true, 2]], [[::Test::T_FloatSeq, true, 3]], [::Test::T_FloatSeq, true, 1], [])
         InitialPrx_mixin::OP_opDoubleSeq = ::Ice::__defineOperation('opDoubleSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_DoubleSeq, true, 2]], [[::Test::T_DoubleSeq, true, 3]], [::Test::T_DoubleSeq, true, 1], [])
-        InitialPrx_mixin::OP_opDoubleSeqReq = ::Ice::__defineOperation('opDoubleSeqReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_DoubleSeq, true, 2]], [[::Test::T_DoubleSeq, true, 3]], [::Test::T_DoubleSeq, true, 1], [])
         InitialPrx_mixin::OP_opStringSeq = ::Ice::__defineOperation('opStringSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringSeq, true, 2]], [[::Test::T_StringSeq, true, 3]], [::Test::T_StringSeq, true, 1], [])
-        InitialPrx_mixin::OP_opStringSeqReq = ::Ice::__defineOperation('opStringSeqReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringSeq, true, 2]], [[::Test::T_StringSeq, true, 3]], [::Test::T_StringSeq, true, 1], [])
         InitialPrx_mixin::OP_opSmallStructSeq = ::Ice::__defineOperation('opSmallStructSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_SmallStructSeq, true, 2]], [[::Test::T_SmallStructSeq, true, 3]], [::Test::T_SmallStructSeq, true, 1], [])
-        InitialPrx_mixin::OP_opSmallStructSeqReq = ::Ice::__defineOperation('opSmallStructSeqReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_SmallStructSeq, true, 2]], [[::Test::T_SmallStructSeq, true, 3]], [::Test::T_SmallStructSeq, true, 1], [])
         InitialPrx_mixin::OP_opSmallStructList = ::Ice::__defineOperation('opSmallStructList', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_SmallStructList, true, 2]], [[::Test::T_SmallStructList, true, 3]], [::Test::T_SmallStructList, true, 1], [])
-        InitialPrx_mixin::OP_opSmallStructListReq = ::Ice::__defineOperation('opSmallStructListReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_SmallStructList, true, 2]], [[::Test::T_SmallStructList, true, 3]], [::Test::T_SmallStructList, true, 1], [])
         InitialPrx_mixin::OP_opFixedStructSeq = ::Ice::__defineOperation('opFixedStructSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FixedStructSeq, true, 2]], [[::Test::T_FixedStructSeq, true, 3]], [::Test::T_FixedStructSeq, true, 1], [])
-        InitialPrx_mixin::OP_opFixedStructSeqReq = ::Ice::__defineOperation('opFixedStructSeqReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FixedStructSeq, true, 2]], [[::Test::T_FixedStructSeq, true, 3]], [::Test::T_FixedStructSeq, true, 1], [])
         InitialPrx_mixin::OP_opFixedStructList = ::Ice::__defineOperation('opFixedStructList', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FixedStructList, true, 2]], [[::Test::T_FixedStructList, true, 3]], [::Test::T_FixedStructList, true, 1], [])
-        InitialPrx_mixin::OP_opFixedStructListReq = ::Ice::__defineOperation('opFixedStructListReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FixedStructList, true, 2]], [[::Test::T_FixedStructList, true, 3]], [::Test::T_FixedStructList, true, 1], [])
         InitialPrx_mixin::OP_opVarStructSeq = ::Ice::__defineOperation('opVarStructSeq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_VarStructSeq, true, 2]], [[::Test::T_VarStructSeq, true, 3]], [::Test::T_VarStructSeq, true, 1], [])
-        InitialPrx_mixin::OP_opVarStructSeqReq = ::Ice::__defineOperation('opVarStructSeqReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_VarStructSeq, true, 2]], [[::Test::T_VarStructSeq, true, 3]], [::Test::T_VarStructSeq, true, 1], [])
         InitialPrx_mixin::OP_opSerializable = ::Ice::__defineOperation('opSerializable', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_Serializable, true, 2]], [[::Test::T_Serializable, true, 3]], [::Test::T_Serializable, true, 1], [])
-        InitialPrx_mixin::OP_opSerializableReq = ::Ice::__defineOperation('opSerializableReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_Serializable, true, 2]], [[::Test::T_Serializable, true, 3]], [::Test::T_Serializable, true, 1], [])
         InitialPrx_mixin::OP_opIntIntDict = ::Ice::__defineOperation('opIntIntDict', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_IntIntDict, true, 2]], [[::Test::T_IntIntDict, true, 3]], [::Test::T_IntIntDict, true, 1], [])
-        InitialPrx_mixin::OP_opIntIntDictReq = ::Ice::__defineOperation('opIntIntDictReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_IntIntDict, true, 2]], [[::Test::T_IntIntDict, true, 3]], [::Test::T_IntIntDict, true, 1], [])
         InitialPrx_mixin::OP_opStringIntDict = ::Ice::__defineOperation('opStringIntDict', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringIntDict, true, 2]], [[::Test::T_StringIntDict, true, 3]], [::Test::T_StringIntDict, true, 1], [])
-        InitialPrx_mixin::OP_opStringIntDictReq = ::Ice::__defineOperation('opStringIntDictReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringIntDict, true, 2]], [[::Test::T_StringIntDict, true, 3]], [::Test::T_StringIntDict, true, 1], [])
         InitialPrx_mixin::OP_opIntOneOptionalDict = ::Ice::__defineOperation('opIntOneOptionalDict', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_IntOneOptionalDict, true, 2]], [[::Test::T_IntOneOptionalDict, true, 3]], [::Test::T_IntOneOptionalDict, true, 1], [])
-        InitialPrx_mixin::OP_opIntOneOptionalDictReq = ::Ice::__defineOperation('opIntOneOptionalDictReq', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_IntOneOptionalDict, true, 2]], [[::Test::T_IntOneOptionalDict, true, 3]], [::Test::T_IntOneOptionalDict, true, 1], [])
         InitialPrx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_A, false, 0]], [], nil, [])
         InitialPrx_mixin::OP_opG = ::Ice::__defineOperation('opG', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_G, false, 0]], [], [::Test::T_G, false, 0], [])
         InitialPrx_mixin::OP_opVoid = ::Ice::__defineOperation('opVoid', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
@@ -1095,7 +941,6 @@ module ::Test
         InitialPrx_mixin::OP_opMSeq2 = ::Ice::__defineOperation('opMSeq2', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringSeq, true, 2]], [[::Test::T_StringSeq, true, 3]], [::Test::T_StringSeq, true, 1], [])
         InitialPrx_mixin::OP_opMDict1 = ::Ice::__defineOperation('opMDict1', ::Ice::OperationMode::Normal, true, nil, [], [], [::Test::T_StringIntDict, true, 1], [])
         InitialPrx_mixin::OP_opMDict2 = ::Ice::__defineOperation('opMDict2', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringIntDict, true, 2]], [[::Test::T_StringIntDict, true, 3]], [::Test::T_StringIntDict, true, 1], [])
-        InitialPrx_mixin::OP_supportsRequiredParams = ::Ice::__defineOperation('supportsRequiredParams', ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsJavaSerializable = ::Ice::__defineOperation('supportsJavaSerializable', ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsCsharpSerializable = ::Ice::__defineOperation('supportsCsharpSerializable', ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
     end
