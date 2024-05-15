@@ -15817,8 +15817,6 @@ namespace Ice.operations
 
             public abstract float opFloat1(float opFloat1, global::Ice.Current current);
 
-            public abstract double opDouble1(double opDouble1, global::Ice.Current current);
-
             public abstract string opString1(string opString1, global::Ice.Current current);
 
             public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current);
@@ -15844,6 +15842,8 @@ namespace Ice.operations
             public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
 
             public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
+
+            public abstract double opDouble1(double opDouble1, global::Ice.Current current);
 
             #endregion
 
@@ -16432,8 +16432,6 @@ namespace Test2
 
         public abstract float opFloat1(float opFloat1, global::Ice.Current current);
 
-        public abstract double opDouble1(double opDouble1, global::Ice.Current current);
-
         public abstract string opString1(string opString1, global::Ice.Current current);
 
         public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current);
@@ -16459,6 +16457,8 @@ namespace Test2
         public abstract global::Ice.operations.Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current);
 
         public abstract global::Ice.operations.Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, global::Ice.Current current);
 
         #endregion
 
