@@ -1047,11 +1047,11 @@ namespace Ice.exceptions
                         {
                             throw ex;
                         }
-                        catch(A)
+                        catch(D)
                         {
                             throw;
                         }
-                        catch(D)
+                        catch(A)
                         {
                             throw;
                         }
