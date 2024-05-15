@@ -1438,9 +1438,9 @@ namespace @abstract
     {
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<int> checkedCastAsync(int clone, global::Ice.Current current);
-
         public abstract void @do(global::Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<int> checkedCastAsync(int clone, global::Ice.Current current);
 
         #endregion
 
