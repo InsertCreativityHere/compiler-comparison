@@ -6938,11 +6938,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -6994,11 +6994,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -8520,13 +8520,9 @@ namespace IceGrid
     {
         #region Inherited Slice operations
 
-        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current);
+        public abstract void applicationRemoved(int serial, string name, global::Ice.Current current);
 
-        public abstract void objectAdded(ObjectInfo info, global::Ice.Current current);
-
-        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current);
-
-        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current);
+        public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.Current current);
 
         public abstract void adapterInit(AdapterInfo[] adpts, global::Ice.Current current);
 
@@ -8540,9 +8536,13 @@ namespace IceGrid
 
         public abstract void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current);
 
-        public abstract void applicationRemoved(int serial, string name, global::Ice.Current current);
+        public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current);
 
-        public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.Current current);
+        public abstract void objectAdded(ObjectInfo info, global::Ice.Current current);
+
+        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current);
+
+        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current);
 
         #endregion
 

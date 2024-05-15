@@ -282,11 +282,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(global::Ice.AdapterNotFoundException)
+                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
-                    catch(global::Ice.AdapterAlreadyActiveException)
+                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
@@ -332,15 +332,15 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(global::Ice.AdapterNotFoundException)
-                    {
-                        throw;
-                    }
                     catch(global::Ice.InvalidReplicaGroupIdException)
                     {
                         throw;
                     }
                     catch(global::Ice.AdapterAlreadyActiveException)
+                    {
+                        throw;
+                    }
+                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
@@ -1457,11 +1457,11 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx? proxy, global::Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, global::Ice.ObjectPrx? proxy, global::Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx? proxy, global::Ice.Current current);
 
         #endregion
 
