@@ -737,231 +737,198 @@ namespace Test
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_add(MyObject obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
-            iceP_x = istr.readInt();
-            iceP_y = istr.readInt();
-            inS.endReadParams();
-            var ret = obj.add(iceP_x, iceP_y, current);
-            var ostr = inS.startWriteParams();
-            ostr.writeInt(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_addWithRetry(MyObject obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
-            iceP_x = istr.readInt();
-            iceP_y = istr.readInt();
-            inS.endReadParams();
-            var ret = obj.addWithRetry(iceP_x, iceP_y, current);
-            var ostr = inS.startWriteParams();
-            ostr.writeInt(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_badAdd(MyObject obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
-            iceP_x = istr.readInt();
-            iceP_y = istr.readInt();
-            inS.endReadParams();
-            var ret = obj.badAdd(iceP_x, iceP_y, current);
-            var ostr = inS.startWriteParams();
-            ostr.writeInt(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_notExistAdd(MyObject obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
-            iceP_x = istr.readInt();
-            iceP_y = istr.readInt();
-            inS.endReadParams();
-            var ret = obj.notExistAdd(iceP_x, iceP_y, current);
-            var ostr = inS.startWriteParams();
-            ostr.writeInt(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_amdAdd(MyObject obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
-            iceP_x = istr.readInt();
-            iceP_y = istr.readInt();
-            inS.endReadParams();
-            return inS.setResultTask<int>(obj.amdAddAsync(iceP_x, iceP_y, current),
-                (ostr, ret) =>
-                {
-                    ostr.writeInt(ret);
-                });
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_amdAddWithRetry(MyObject obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
-            iceP_x = istr.readInt();
-            iceP_y = istr.readInt();
-            inS.endReadParams();
-            return inS.setResultTask<int>(obj.amdAddWithRetryAsync(iceP_x, iceP_y, current),
-                (ostr, ret) =>
-                {
-                    ostr.writeInt(ret);
-                });
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_amdBadAdd(MyObject obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
-            iceP_x = istr.readInt();
-            iceP_y = istr.readInt();
-            inS.endReadParams();
-            return inS.setResultTask<int>(obj.amdBadAddAsync(iceP_x, iceP_y, current),
-                (ostr, ret) =>
-                {
-                    ostr.writeInt(ret);
-                });
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_amdNotExistAdd(MyObject obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_x;
-            int iceP_y;
-            iceP_x = istr.readInt();
-            iceP_y = istr.readInt();
-            inS.endReadParams();
-            return inS.setResultTask<int>(obj.amdNotExistAddAsync(iceP_x, iceP_y, current),
-                (ostr, ret) =>
-                {
-                    ostr.writeInt(ret);
-                });
-        }
-
-        private static readonly string[] _all =
-        {
-            "add",
-            "addWithRetry",
-            "amdAdd",
-            "amdAddWithRetry",
-            "amdBadAdd",
-            "amdNotExistAdd",
-            "badAdd",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "notExistAdd"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_add(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_addWithRetry(this, inS, current);
-                }
-                case 2:
-                {
-                    return iceD_amdAdd(this, inS, current);
-                }
-                case 3:
-                {
-                    return iceD_amdAddWithRetry(this, inS, current);
-                }
-                case 4:
-                {
-                    return iceD_amdBadAdd(this, inS, current);
-                }
-                case 5:
-                {
-                    return iceD_amdNotExistAdd(this, inS, current);
-                }
-                case 6:
-                {
-                    return iceD_badAdd(this, inS, current);
-                }
-                case 7:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 8:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 9:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 10:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 11:
-                {
-                    return iceD_notExistAdd(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "add" => MyObject.iceD_addAsync(this, request),
+                "addWithRetry" => MyObject.iceD_addWithRetryAsync(this, request),
+                "badAdd" => MyObject.iceD_badAddAsync(this, request),
+                "notExistAdd" => MyObject.iceD_notExistAddAsync(this, request),
+                "amdAdd" => MyObject.iceD_amdAddAsync(this, request),
+                "amdAddWithRetry" => MyObject.iceD_amdAddWithRetryAsync(this, request),
+                "amdBadAdd" => MyObject.iceD_amdBadAddAsync(this, request),
+                "amdNotExistAdd" => MyObject.iceD_amdNotExistAddAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
 
         #endregion
+    }
+}
+
+namespace Test
+{
+    public partial interface MyObject
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_addAsync(
+            MyObject obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_x;
+            int iceP_y;
+            iceP_x = istr.readInt();
+            iceP_y = istr.readInt();
+            istr.endEncapsulation();
+            var ret = obj.add(iceP_x, iceP_y, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            ostr.writeInt(ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_addWithRetryAsync(
+            MyObject obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_x;
+            int iceP_y;
+            iceP_x = istr.readInt();
+            iceP_y = istr.readInt();
+            istr.endEncapsulation();
+            var ret = obj.addWithRetry(iceP_x, iceP_y, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            ostr.writeInt(ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_badAddAsync(
+            MyObject obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_x;
+            int iceP_y;
+            iceP_x = istr.readInt();
+            iceP_y = istr.readInt();
+            istr.endEncapsulation();
+            var ret = obj.badAdd(iceP_x, iceP_y, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            ostr.writeInt(ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_notExistAddAsync(
+            MyObject obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_x;
+            int iceP_y;
+            iceP_x = istr.readInt();
+            iceP_y = istr.readInt();
+            istr.endEncapsulation();
+            var ret = obj.notExistAdd(iceP_x, iceP_y, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            ostr.writeInt(ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
+
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_amdAddAsync(
+            MyObject obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_x;
+            int iceP_y;
+            iceP_x = istr.readInt();
+            iceP_y = istr.readInt();
+            istr.endEncapsulation();
+            var result = await obj.amdAddAsync(iceP_x, iceP_y, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeInt(ret);
+                });
+        }
+
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_amdAddWithRetryAsync(
+            MyObject obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_x;
+            int iceP_y;
+            iceP_x = istr.readInt();
+            iceP_y = istr.readInt();
+            istr.endEncapsulation();
+            var result = await obj.amdAddWithRetryAsync(iceP_x, iceP_y, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeInt(ret);
+                });
+        }
+
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_amdBadAddAsync(
+            MyObject obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_x;
+            int iceP_y;
+            iceP_x = istr.readInt();
+            iceP_y = istr.readInt();
+            istr.endEncapsulation();
+            var result = await obj.amdBadAddAsync(iceP_x, iceP_y, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeInt(ret);
+                });
+        }
+
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_amdNotExistAddAsync(
+            MyObject obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_x;
+            int iceP_y;
+            iceP_x = istr.readInt();
+            iceP_y = istr.readInt();
+            istr.endEncapsulation();
+            var result = await obj.amdNotExistAddAsync(iceP_x, iceP_y, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeInt(ret);
+                });
+        }
     }
 }

@@ -465,64 +465,16 @@ namespace IceLocatorDiscovery
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_foundLocator(LookupReply obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            global::Ice.LocatorPrx? iceP_prx;
-            iceP_prx = global::Ice.LocatorPrxHelper.read(istr);
-            inS.endReadParams();
-            obj.foundLocator(iceP_prx, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        private static readonly string[] _all =
-        {
-            "foundLocator",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_foundLocator(this, inS, current);
-                }
-                case 1:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 4:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "foundLocator" => LookupReply.iceD_foundLocatorAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
 
         #endregion
     }
@@ -547,67 +499,56 @@ namespace IceLocatorDiscovery
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_findLocator(Lookup obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "findLocator" => Lookup.iceD_findLocatorAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
+
+        #endregion
+    }
+}
+
+namespace IceLocatorDiscovery
+{
+    public partial interface LookupReply
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_foundLocatorAsync(
+            LookupReply obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::Ice.LocatorPrx? iceP_prx;
+            iceP_prx = global::Ice.LocatorPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.foundLocator(iceP_prx, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
+    public partial interface Lookup
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_findLocatorAsync(
+            Lookup obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string iceP_instanceName;
             LookupReplyPrx? iceP_reply;
             iceP_instanceName = istr.readString();
             iceP_reply = LookupReplyPrxHelper.read(istr);
-            inS.endReadParams();
-            obj.findLocator(iceP_instanceName, iceP_reply, current);
-            return inS.setResult(inS.writeEmptyParams());
+            istr.endEncapsulation();
+            obj.findLocator(iceP_instanceName, iceP_reply, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
-
-        private static readonly string[] _all =
-        {
-            "findLocator",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
-            {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_findLocator(this, inS, current);
-                }
-                case 1:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 4:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        #endregion
     }
 }

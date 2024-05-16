@@ -652,88 +652,17 @@ namespace IceDiscovery
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_foundObjectById(LookupReply obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            global::Ice.ObjectPrx? iceP_prx;
-            iceP_id = new global::Ice.Identity(istr);
-            iceP_prx = istr.readProxy();
-            inS.endReadParams();
-            obj.foundObjectById(iceP_id, iceP_prx, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_foundAdapterById(LookupReply obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_id;
-            global::Ice.ObjectPrx? iceP_prx;
-            bool iceP_isReplicaGroup;
-            iceP_id = istr.readString();
-            iceP_prx = istr.readProxy();
-            iceP_isReplicaGroup = istr.readBool();
-            inS.endReadParams();
-            obj.foundAdapterById(iceP_id, iceP_prx, iceP_isReplicaGroup, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        private static readonly string[] _all =
-        {
-            "foundAdapterById",
-            "foundObjectById",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_foundAdapterById(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_foundObjectById(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 4:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 5:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "foundObjectById" => LookupReply.iceD_foundObjectByIdAsync(this, request),
+                "foundAdapterById" => LookupReply.iceD_foundAdapterByIdAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
 
         #endregion
     }
@@ -760,91 +689,97 @@ namespace IceDiscovery
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_findObjectById(Lookup obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "findObjectById" => Lookup.iceD_findObjectByIdAsync(this, request),
+                "findAdapterById" => Lookup.iceD_findAdapterByIdAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
+
+        #endregion
+    }
+}
+
+namespace IceDiscovery
+{
+    public partial interface LookupReply
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_foundObjectByIdAsync(
+            LookupReply obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::Ice.Identity iceP_id;
+            global::Ice.ObjectPrx? iceP_prx;
+            iceP_id = new global::Ice.Identity(istr);
+            iceP_prx = istr.readProxy();
+            istr.endEncapsulation();
+            obj.foundObjectById(iceP_id, iceP_prx, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_foundAdapterByIdAsync(
+            LookupReply obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_id;
+            global::Ice.ObjectPrx? iceP_prx;
+            bool iceP_isReplicaGroup;
+            iceP_id = istr.readString();
+            iceP_prx = istr.readProxy();
+            iceP_isReplicaGroup = istr.readBool();
+            istr.endEncapsulation();
+            obj.foundAdapterById(iceP_id, iceP_prx, iceP_isReplicaGroup, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
+    public partial interface Lookup
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_findObjectByIdAsync(
+            Lookup obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string iceP_domainId;
             global::Ice.Identity iceP_id;
             LookupReplyPrx? iceP_reply;
             iceP_domainId = istr.readString();
             iceP_id = new global::Ice.Identity(istr);
             iceP_reply = LookupReplyPrxHelper.read(istr);
-            inS.endReadParams();
-            obj.findObjectById(iceP_domainId, iceP_id, iceP_reply, current);
-            return inS.setResult(inS.writeEmptyParams());
+            istr.endEncapsulation();
+            obj.findObjectById(iceP_domainId, iceP_id, iceP_reply, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_findAdapterById(Lookup obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_findAdapterByIdAsync(
+            Lookup obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string iceP_domainId;
             string iceP_id;
             LookupReplyPrx? iceP_reply;
             iceP_domainId = istr.readString();
             iceP_id = istr.readString();
             iceP_reply = LookupReplyPrxHelper.read(istr);
-            inS.endReadParams();
-            obj.findAdapterById(iceP_domainId, iceP_id, iceP_reply, current);
-            return inS.setResult(inS.writeEmptyParams());
+            istr.endEncapsulation();
+            obj.findAdapterById(iceP_domainId, iceP_id, iceP_reply, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
-
-        private static readonly string[] _all =
-        {
-            "findAdapterById",
-            "findObjectById",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
-            {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_findAdapterById(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_findObjectById(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 4:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 5:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        #endregion
     }
 }

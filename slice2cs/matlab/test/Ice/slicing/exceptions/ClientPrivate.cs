@@ -2628,110 +2628,19 @@ namespace Test
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownPreservedAsBase(Relay obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.knownPreservedAsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownPreservedAsKnownPreserved(Relay obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.knownPreservedAsKnownPreserved(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownPreservedAsBase(Relay obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.unknownPreservedAsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownPreservedAsKnownPreserved(Relay obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.unknownPreservedAsKnownPreserved(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        private static readonly string[] _all =
-        {
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "knownPreservedAsBase",
-            "knownPreservedAsKnownPreserved",
-            "unknownPreservedAsBase",
-            "unknownPreservedAsKnownPreserved"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 1:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 4:
-                {
-                    return iceD_knownPreservedAsBase(this, inS, current);
-                }
-                case 5:
-                {
-                    return iceD_knownPreservedAsKnownPreserved(this, inS, current);
-                }
-                case 6:
-                {
-                    return iceD_unknownPreservedAsBase(this, inS, current);
-                }
-                case 7:
-                {
-                    return iceD_unknownPreservedAsKnownPreserved(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "knownPreservedAsBase" => Relay.iceD_knownPreservedAsBaseAsync(this, request),
+                "knownPreservedAsKnownPreserved" => Relay.iceD_knownPreservedAsKnownPreservedAsync(this, request),
+                "unknownPreservedAsBase" => Relay.iceD_unknownPreservedAsBaseAsync(this, request),
+                "unknownPreservedAsKnownPreserved" => Relay.iceD_unknownPreservedAsKnownPreservedAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
 
         #endregion
     }
@@ -2800,427 +2709,334 @@ namespace Test
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_baseAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.baseAsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownDerivedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.unknownDerivedAsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownDerivedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.knownDerivedAsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownDerivedAsKnownDerived(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.knownDerivedAsKnownDerived(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownIntermediateAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.unknownIntermediateAsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownIntermediateAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.knownIntermediateAsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownMostDerivedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.knownMostDerivedAsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownIntermediateAsKnownIntermediate(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.knownIntermediateAsKnownIntermediate(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownMostDerivedAsKnownIntermediate(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.knownMostDerivedAsKnownIntermediate(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownMostDerivedAsKnownMostDerived(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.knownMostDerivedAsKnownMostDerived(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownMostDerived1AsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.unknownMostDerived1AsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownMostDerived1AsKnownIntermediate(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.unknownMostDerived1AsKnownIntermediate(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownMostDerived2AsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.unknownMostDerived2AsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownMostDerived2AsBaseCompact(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.CompactFormat);
-            obj.unknownMostDerived2AsBaseCompact(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownPreservedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.knownPreservedAsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_knownPreservedAsKnownPreserved(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.knownPreservedAsKnownPreserved(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_relayKnownPreservedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            RelayPrx? iceP_r;
-            iceP_r = RelayPrxHelper.read(istr);
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.relayKnownPreservedAsBase(iceP_r, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_relayKnownPreservedAsKnownPreserved(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            RelayPrx? iceP_r;
-            iceP_r = RelayPrxHelper.read(istr);
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.relayKnownPreservedAsKnownPreserved(iceP_r, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownPreservedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.unknownPreservedAsBase(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_unknownPreservedAsKnownPreserved(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.unknownPreservedAsKnownPreserved(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_relayUnknownPreservedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            RelayPrx? iceP_r;
-            iceP_r = RelayPrxHelper.read(istr);
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.relayUnknownPreservedAsBase(iceP_r, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_relayUnknownPreservedAsKnownPreserved(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            RelayPrx? iceP_r;
-            iceP_r = RelayPrxHelper.read(istr);
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.relayUnknownPreservedAsKnownPreserved(iceP_r, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_shutdown(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.shutdown(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        private static readonly string[] _all =
-        {
-            "baseAsBase",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "knownDerivedAsBase",
-            "knownDerivedAsKnownDerived",
-            "knownIntermediateAsBase",
-            "knownIntermediateAsKnownIntermediate",
-            "knownMostDerivedAsBase",
-            "knownMostDerivedAsKnownIntermediate",
-            "knownMostDerivedAsKnownMostDerived",
-            "knownPreservedAsBase",
-            "knownPreservedAsKnownPreserved",
-            "relayKnownPreservedAsBase",
-            "relayKnownPreservedAsKnownPreserved",
-            "relayUnknownPreservedAsBase",
-            "relayUnknownPreservedAsKnownPreserved",
-            "shutdown",
-            "unknownDerivedAsBase",
-            "unknownIntermediateAsBase",
-            "unknownMostDerived1AsBase",
-            "unknownMostDerived1AsKnownIntermediate",
-            "unknownMostDerived2AsBase",
-            "unknownMostDerived2AsBaseCompact",
-            "unknownPreservedAsBase",
-            "unknownPreservedAsKnownPreserved"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_baseAsBase(this, inS, current);
-                }
-                case 1:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 4:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 5:
-                {
-                    return iceD_knownDerivedAsBase(this, inS, current);
-                }
-                case 6:
-                {
-                    return iceD_knownDerivedAsKnownDerived(this, inS, current);
-                }
-                case 7:
-                {
-                    return iceD_knownIntermediateAsBase(this, inS, current);
-                }
-                case 8:
-                {
-                    return iceD_knownIntermediateAsKnownIntermediate(this, inS, current);
-                }
-                case 9:
-                {
-                    return iceD_knownMostDerivedAsBase(this, inS, current);
-                }
-                case 10:
-                {
-                    return iceD_knownMostDerivedAsKnownIntermediate(this, inS, current);
-                }
-                case 11:
-                {
-                    return iceD_knownMostDerivedAsKnownMostDerived(this, inS, current);
-                }
-                case 12:
-                {
-                    return iceD_knownPreservedAsBase(this, inS, current);
-                }
-                case 13:
-                {
-                    return iceD_knownPreservedAsKnownPreserved(this, inS, current);
-                }
-                case 14:
-                {
-                    return iceD_relayKnownPreservedAsBase(this, inS, current);
-                }
-                case 15:
-                {
-                    return iceD_relayKnownPreservedAsKnownPreserved(this, inS, current);
-                }
-                case 16:
-                {
-                    return iceD_relayUnknownPreservedAsBase(this, inS, current);
-                }
-                case 17:
-                {
-                    return iceD_relayUnknownPreservedAsKnownPreserved(this, inS, current);
-                }
-                case 18:
-                {
-                    return iceD_shutdown(this, inS, current);
-                }
-                case 19:
-                {
-                    return iceD_unknownDerivedAsBase(this, inS, current);
-                }
-                case 20:
-                {
-                    return iceD_unknownIntermediateAsBase(this, inS, current);
-                }
-                case 21:
-                {
-                    return iceD_unknownMostDerived1AsBase(this, inS, current);
-                }
-                case 22:
-                {
-                    return iceD_unknownMostDerived1AsKnownIntermediate(this, inS, current);
-                }
-                case 23:
-                {
-                    return iceD_unknownMostDerived2AsBase(this, inS, current);
-                }
-                case 24:
-                {
-                    return iceD_unknownMostDerived2AsBaseCompact(this, inS, current);
-                }
-                case 25:
-                {
-                    return iceD_unknownPreservedAsBase(this, inS, current);
-                }
-                case 26:
-                {
-                    return iceD_unknownPreservedAsKnownPreserved(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "baseAsBase" => TestIntf.iceD_baseAsBaseAsync(this, request),
+                "unknownDerivedAsBase" => TestIntf.iceD_unknownDerivedAsBaseAsync(this, request),
+                "knownDerivedAsBase" => TestIntf.iceD_knownDerivedAsBaseAsync(this, request),
+                "knownDerivedAsKnownDerived" => TestIntf.iceD_knownDerivedAsKnownDerivedAsync(this, request),
+                "unknownIntermediateAsBase" => TestIntf.iceD_unknownIntermediateAsBaseAsync(this, request),
+                "knownIntermediateAsBase" => TestIntf.iceD_knownIntermediateAsBaseAsync(this, request),
+                "knownMostDerivedAsBase" => TestIntf.iceD_knownMostDerivedAsBaseAsync(this, request),
+                "knownIntermediateAsKnownIntermediate" => TestIntf.iceD_knownIntermediateAsKnownIntermediateAsync(this, request),
+                "knownMostDerivedAsKnownIntermediate" => TestIntf.iceD_knownMostDerivedAsKnownIntermediateAsync(this, request),
+                "knownMostDerivedAsKnownMostDerived" => TestIntf.iceD_knownMostDerivedAsKnownMostDerivedAsync(this, request),
+                "unknownMostDerived1AsBase" => TestIntf.iceD_unknownMostDerived1AsBaseAsync(this, request),
+                "unknownMostDerived1AsKnownIntermediate" => TestIntf.iceD_unknownMostDerived1AsKnownIntermediateAsync(this, request),
+                "unknownMostDerived2AsBase" => TestIntf.iceD_unknownMostDerived2AsBaseAsync(this, request),
+                "unknownMostDerived2AsBaseCompact" => TestIntf.iceD_unknownMostDerived2AsBaseCompactAsync(this, request),
+                "knownPreservedAsBase" => TestIntf.iceD_knownPreservedAsBaseAsync(this, request),
+                "knownPreservedAsKnownPreserved" => TestIntf.iceD_knownPreservedAsKnownPreservedAsync(this, request),
+                "relayKnownPreservedAsBase" => TestIntf.iceD_relayKnownPreservedAsBaseAsync(this, request),
+                "relayKnownPreservedAsKnownPreserved" => TestIntf.iceD_relayKnownPreservedAsKnownPreservedAsync(this, request),
+                "unknownPreservedAsBase" => TestIntf.iceD_unknownPreservedAsBaseAsync(this, request),
+                "unknownPreservedAsKnownPreserved" => TestIntf.iceD_unknownPreservedAsKnownPreservedAsync(this, request),
+                "relayUnknownPreservedAsBase" => TestIntf.iceD_relayUnknownPreservedAsBaseAsync(this, request),
+                "relayUnknownPreservedAsKnownPreserved" => TestIntf.iceD_relayUnknownPreservedAsKnownPreservedAsync(this, request),
+                "shutdown" => TestIntf.iceD_shutdownAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
 
         #endregion
+    }
+}
+
+namespace Test
+{
+    public partial interface Relay
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_knownPreservedAsBaseAsync(
+            Relay obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownPreservedAsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_knownPreservedAsKnownPreservedAsync(
+            Relay obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownPreservedAsKnownPreserved(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_unknownPreservedAsBaseAsync(
+            Relay obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownPreservedAsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_unknownPreservedAsKnownPreservedAsync(
+            Relay obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownPreservedAsKnownPreserved(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
+    public partial interface TestIntf
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_baseAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.baseAsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_unknownDerivedAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownDerivedAsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_knownDerivedAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownDerivedAsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_knownDerivedAsKnownDerivedAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownDerivedAsKnownDerived(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_unknownIntermediateAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownIntermediateAsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_knownIntermediateAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownIntermediateAsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_knownMostDerivedAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownMostDerivedAsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_knownIntermediateAsKnownIntermediateAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownIntermediateAsKnownIntermediate(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_knownMostDerivedAsKnownIntermediateAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownMostDerivedAsKnownIntermediate(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_knownMostDerivedAsKnownMostDerivedAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownMostDerivedAsKnownMostDerived(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_unknownMostDerived1AsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownMostDerived1AsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_unknownMostDerived1AsKnownIntermediateAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownMostDerived1AsKnownIntermediate(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_unknownMostDerived2AsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownMostDerived2AsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_unknownMostDerived2AsBaseCompactAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownMostDerived2AsBaseCompact(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_knownPreservedAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownPreservedAsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_knownPreservedAsKnownPreservedAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.knownPreservedAsKnownPreserved(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_relayKnownPreservedAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            RelayPrx? iceP_r;
+            iceP_r = RelayPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.relayKnownPreservedAsBase(iceP_r, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_relayKnownPreservedAsKnownPreservedAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            RelayPrx? iceP_r;
+            iceP_r = RelayPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.relayKnownPreservedAsKnownPreserved(iceP_r, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_unknownPreservedAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownPreservedAsBase(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_unknownPreservedAsKnownPreservedAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.unknownPreservedAsKnownPreserved(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_relayUnknownPreservedAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            RelayPrx? iceP_r;
+            iceP_r = RelayPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.relayUnknownPreservedAsBase(iceP_r, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_relayUnknownPreservedAsKnownPreservedAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            RelayPrx? iceP_r;
+            iceP_r = RelayPrxHelper.read(istr);
+            istr.endEncapsulation();
+            obj.relayUnknownPreservedAsKnownPreserved(iceP_r, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
     }
 }

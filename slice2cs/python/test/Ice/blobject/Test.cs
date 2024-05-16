@@ -445,118 +445,80 @@ namespace Test
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_sayHello(Hello obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "sayHello" => Hello.iceD_sayHelloAsync(this, request),
+                "add" => Hello.iceD_addAsync(this, request),
+                "raiseUE" => Hello.iceD_raiseUEAsync(this, request),
+                "shutdown" => Hello.iceD_shutdownAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
+
+        #endregion
+    }
+}
+
+namespace Test
+{
+    public partial interface Hello
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_sayHelloAsync(
+            Hello obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             int iceP_delay;
             iceP_delay = istr.readInt();
-            inS.endReadParams();
-            obj.sayHello(iceP_delay, current);
-            return inS.setResult(inS.writeEmptyParams());
+            istr.endEncapsulation();
+            obj.sayHello(iceP_delay, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_add(Hello obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_addAsync(
+            Hello obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             int iceP_s1;
             int iceP_s2;
             iceP_s1 = istr.readInt();
             iceP_s2 = istr.readInt();
-            inS.endReadParams();
-            var ret = obj.add(iceP_s1, iceP_s2, current);
-            var ostr = inS.startWriteParams();
+            istr.endEncapsulation();
+            var ret = obj.add(iceP_s1, iceP_s2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             ostr.writeInt(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_raiseUE(Hello obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_raiseUEAsync(
+            Hello obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            obj.raiseUE(current);
-            return inS.setResult(inS.writeEmptyParams());
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.raiseUE(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_shutdown(Hello obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+            Hello obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            obj.shutdown(current);
-            return inS.setResult(inS.writeEmptyParams());
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
-
-        private static readonly string[] _all =
-        {
-            "add",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "raiseUE",
-            "sayHello",
-            "shutdown"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
-            {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_add(this, inS, current);
-                }
-                case 1:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 4:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 5:
-                {
-                    return iceD_raiseUE(this, inS, current);
-                }
-                case 6:
-                {
-                    return iceD_sayHello(this, inS, current);
-                }
-                case 7:
-                {
-                    return iceD_shutdown(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        #endregion
     }
 }

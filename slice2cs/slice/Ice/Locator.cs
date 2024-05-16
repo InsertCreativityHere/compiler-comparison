@@ -1405,106 +1405,18 @@ namespace Ice
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_findObjectById(Locator obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
-            Identity iceP_id;
-            iceP_id = new Identity(istr);
-            inS.endReadParams();
-            return inS.setResultTask<ObjectPrx?>(obj.findObjectByIdAsync(iceP_id, current),
-                (ostr, ret) =>
-                {
-                    ostr.writeProxy(ret);
-                });
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_findAdapterById(Locator obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_id;
-            iceP_id = istr.readString();
-            inS.endReadParams();
-            return inS.setResultTask<ObjectPrx?>(obj.findAdapterByIdAsync(iceP_id, current),
-                (ostr, ret) =>
-                {
-                    ostr.writeProxy(ret);
-                });
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getRegistry(Locator obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.getRegistry(current);
-            var ostr = inS.startWriteParams();
-            LocatorRegistryPrxHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        private static readonly string[] _all =
-        {
-            "findAdapterById",
-            "findObjectById",
-            "getRegistry",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping"
-        };
-
-        public override global::System.Threading.Tasks.Task<OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_findAdapterById(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_findObjectById(this, inS, current);
-                }
-                case 2:
-                {
-                    return iceD_getRegistry(this, inS, current);
-                }
-                case 3:
-                {
-                    return ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 4:
-                {
-                    return ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 5:
-                {
-                    return ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 6:
-                {
-                    return ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "findObjectById" => Locator.iceD_findObjectByIdAsync(this, request),
+                "findAdapterById" => Locator.iceD_findAdapterByIdAsync(this, request),
+                "getRegistry" => Locator.iceD_getRegistryAsync(this, request),
+                "ice_id" => Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
+                _ => throw new OperationNotExistException()
+            };
 
         #endregion
     }
@@ -1533,105 +1445,18 @@ namespace Ice
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_setAdapterDirectProxy(LocatorRegistry obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_id;
-            ObjectPrx? iceP_proxy;
-            iceP_id = istr.readString();
-            iceP_proxy = istr.readProxy();
-            inS.endReadParams();
-            return inS.setResultTask(obj.setAdapterDirectProxyAsync(iceP_id, iceP_proxy, current));
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_setReplicatedAdapterDirectProxy(LocatorRegistry obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_adapterId;
-            string iceP_replicaGroupId;
-            ObjectPrx? iceP_proxy;
-            iceP_adapterId = istr.readString();
-            iceP_replicaGroupId = istr.readString();
-            iceP_proxy = istr.readProxy();
-            inS.endReadParams();
-            return inS.setResultTask(obj.setReplicatedAdapterDirectProxyAsync(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, current));
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_setServerProcessProxy(LocatorRegistry obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_id;
-            ProcessPrx? iceP_proxy;
-            iceP_id = istr.readString();
-            iceP_proxy = ProcessPrxHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask(obj.setServerProcessProxyAsync(iceP_id, iceP_proxy, current));
-        }
-
-        private static readonly string[] _all =
-        {
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "setAdapterDirectProxy",
-            "setReplicatedAdapterDirectProxy",
-            "setServerProcessProxy"
-        };
-
-        public override global::System.Threading.Tasks.Task<OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 1:
-                {
-                    return ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 2:
-                {
-                    return ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 3:
-                {
-                    return ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 4:
-                {
-                    return iceD_setAdapterDirectProxy(this, inS, current);
-                }
-                case 5:
-                {
-                    return iceD_setReplicatedAdapterDirectProxy(this, inS, current);
-                }
-                case 6:
-                {
-                    return iceD_setServerProcessProxy(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "setAdapterDirectProxy" => LocatorRegistry.iceD_setAdapterDirectProxyAsync(this, request),
+                "setReplicatedAdapterDirectProxy" => LocatorRegistry.iceD_setReplicatedAdapterDirectProxyAsync(this, request),
+                "setServerProcessProxy" => LocatorRegistry.iceD_setServerProcessProxyAsync(this, request),
+                "ice_id" => Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
+                _ => throw new OperationNotExistException()
+            };
 
         #endregion
     }
@@ -1656,65 +1481,147 @@ namespace Ice
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getLocator(LocatorFinder obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.getLocator(current);
-            var ostr = inS.startWriteParams();
-            LocatorPrxHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        private static readonly string[] _all =
-        {
-            "getLocator",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping"
-        };
-
-        public override global::System.Threading.Tasks.Task<OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_getLocator(this, inS, current);
-                }
-                case 1:
-                {
-                    return ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 2:
-                {
-                    return ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 3:
-                {
-                    return ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 4:
-                {
-                    return ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "getLocator" => LocatorFinder.iceD_getLocatorAsync(this, request),
+                "ice_id" => Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
+                _ => throw new OperationNotExistException()
+            };
 
         #endregion
+    }
+}
+
+namespace Ice
+{
+    public partial interface Locator
+    {
+        protected static async global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_findObjectByIdAsync(
+            Locator obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            Identity iceP_id;
+            iceP_id = new Identity(istr);
+            istr.endEncapsulation();
+            var result = await obj.findObjectByIdAsync(iceP_id, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeProxy(ret);
+                });
+        }
+
+        protected static async global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_findAdapterByIdAsync(
+            Locator obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_id;
+            iceP_id = istr.readString();
+            istr.endEncapsulation();
+            var result = await obj.findAdapterByIdAsync(iceP_id, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeProxy(ret);
+                });
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getRegistryAsync(
+            Locator obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getRegistry(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            LocatorRegistryPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
+    }
+
+    public partial interface LocatorRegistry
+    {
+        protected static async global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_setAdapterDirectProxyAsync(
+            LocatorRegistry obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_id;
+            ObjectPrx? iceP_proxy;
+            iceP_id = istr.readString();
+            iceP_proxy = istr.readProxy();
+            istr.endEncapsulation();
+            await obj.setAdapterDirectProxyAsync(iceP_id, iceP_proxy, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        protected static async global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_setReplicatedAdapterDirectProxyAsync(
+            LocatorRegistry obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_adapterId;
+            string iceP_replicaGroupId;
+            ObjectPrx? iceP_proxy;
+            iceP_adapterId = istr.readString();
+            iceP_replicaGroupId = istr.readString();
+            iceP_proxy = istr.readProxy();
+            istr.endEncapsulation();
+            await obj.setReplicatedAdapterDirectProxyAsync(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+
+        protected static async global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_setServerProcessProxyAsync(
+            LocatorRegistry obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_id;
+            ProcessPrx? iceP_proxy;
+            iceP_id = istr.readString();
+            iceP_proxy = ProcessPrxHelper.read(istr);
+            istr.endEncapsulation();
+            await obj.setServerProcessProxyAsync(iceP_id, iceP_proxy, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+        }
+    }
+
+    public partial interface LocatorFinder
+    {
+        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getLocatorAsync(
+            LocatorFinder obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getLocator(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            LocatorPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
     }
 }

@@ -1947,3 +1947,10 @@ namespace Ice.stream
         }
     }
 }
+
+namespace Ice.stream
+{
+    namespace Test
+    {
+    }
+}

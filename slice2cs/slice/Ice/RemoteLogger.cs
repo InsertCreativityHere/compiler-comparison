@@ -1095,84 +1095,17 @@ namespace Ice
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_init(RemoteLogger obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_prefix;
-            LogMessage[] iceP_logMessages;
-            iceP_prefix = istr.readString();
-            iceP_logMessages = LogMessageSeqHelper.read(istr);
-            inS.endReadParams();
-            obj.init(iceP_prefix, iceP_logMessages, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_log(RemoteLogger obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            LogMessage iceP_message;
-            iceP_message = new LogMessage(istr);
-            inS.endReadParams();
-            obj.log(iceP_message, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        private static readonly string[] _all =
-        {
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "init",
-            "log"
-        };
-
-        public override global::System.Threading.Tasks.Task<OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 1:
-                {
-                    return ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 2:
-                {
-                    return ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 3:
-                {
-                    return ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 4:
-                {
-                    return iceD_init(this, inS, current);
-                }
-                case 5:
-                {
-                    return iceD_log(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "init" => RemoteLogger.iceD_initAsync(this, request),
+                "log" => RemoteLogger.iceD_logAsync(this, request),
+                "ice_id" => Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
+                _ => throw new OperationNotExistException()
+            };
 
         #endregion
     }
@@ -1201,119 +1134,120 @@ namespace Ice
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_attachRemoteLogger(LoggerAdmin obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            RemoteLoggerPrx? iceP_prx;
-            LogMessageType[] iceP_messageTypes;
-            string[] iceP_traceCategories;
-            int iceP_messageMax;
-            iceP_prx = RemoteLoggerPrxHelper.read(istr);
-            iceP_messageTypes = LogMessageTypeSeqHelper.read(istr);
-            iceP_traceCategories = StringSeqHelper.read(istr);
-            iceP_messageMax = istr.readInt();
-            inS.endReadParams();
-            obj.attachRemoteLogger(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_detachRemoteLogger(LoggerAdmin obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            RemoteLoggerPrx? iceP_prx;
-            iceP_prx = RemoteLoggerPrxHelper.read(istr);
-            inS.endReadParams();
-            var ret = obj.detachRemoteLogger(iceP_prx, current);
-            var ostr = inS.startWriteParams();
-            ostr.writeBool(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getLog(LoggerAdmin obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            LogMessageType[] iceP_messageTypes;
-            string[] iceP_traceCategories;
-            int iceP_messageMax;
-            iceP_messageTypes = LogMessageTypeSeqHelper.read(istr);
-            iceP_traceCategories = StringSeqHelper.read(istr);
-            iceP_messageMax = istr.readInt();
-            inS.endReadParams();
-            string iceP_prefix;
-            var ret = obj.getLog(iceP_messageTypes, iceP_traceCategories, iceP_messageMax, out iceP_prefix, current);
-            var ostr = inS.startWriteParams();
-            ostr.writeString(iceP_prefix);
-            LogMessageSeqHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        private static readonly string[] _all =
-        {
-            "attachRemoteLogger",
-            "detachRemoteLogger",
-            "getLog",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping"
-        };
-
-        public override global::System.Threading.Tasks.Task<OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_attachRemoteLogger(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_detachRemoteLogger(this, inS, current);
-                }
-                case 2:
-                {
-                    return iceD_getLog(this, inS, current);
-                }
-                case 3:
-                {
-                    return ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 4:
-                {
-                    return ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 5:
-                {
-                    return ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 6:
-                {
-                    return ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "attachRemoteLogger" => LoggerAdmin.iceD_attachRemoteLoggerAsync(this, request),
+                "detachRemoteLogger" => LoggerAdmin.iceD_detachRemoteLoggerAsync(this, request),
+                "getLog" => LoggerAdmin.iceD_getLogAsync(this, request),
+                "ice_id" => Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
+                _ => throw new OperationNotExistException()
+            };
 
         #endregion
+    }
+}
+
+namespace Ice
+{
+    public partial interface RemoteLogger
+    {
+        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_initAsync(
+            RemoteLogger obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_prefix;
+            LogMessage[] iceP_logMessages;
+            iceP_prefix = istr.readString();
+            iceP_logMessages = LogMessageSeqHelper.read(istr);
+            istr.endEncapsulation();
+            obj.init(iceP_prefix, iceP_logMessages, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_logAsync(
+            RemoteLogger obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            LogMessage iceP_message;
+            iceP_message = new LogMessage(istr);
+            istr.endEncapsulation();
+            obj.log(iceP_message, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
+    public partial interface LoggerAdmin
+    {
+        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_attachRemoteLoggerAsync(
+            LoggerAdmin obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            RemoteLoggerPrx? iceP_prx;
+            LogMessageType[] iceP_messageTypes;
+            string[] iceP_traceCategories;
+            int iceP_messageMax;
+            iceP_prx = RemoteLoggerPrxHelper.read(istr);
+            iceP_messageTypes = LogMessageTypeSeqHelper.read(istr);
+            iceP_traceCategories = StringSeqHelper.read(istr);
+            iceP_messageMax = istr.readInt();
+            istr.endEncapsulation();
+            obj.attachRemoteLogger(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_detachRemoteLoggerAsync(
+            LoggerAdmin obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            RemoteLoggerPrx? iceP_prx;
+            iceP_prx = RemoteLoggerPrxHelper.read(istr);
+            istr.endEncapsulation();
+            var ret = obj.detachRemoteLogger(iceP_prx, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            ostr.writeBool(ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getLogAsync(
+            LoggerAdmin obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            LogMessageType[] iceP_messageTypes;
+            string[] iceP_traceCategories;
+            int iceP_messageMax;
+            iceP_messageTypes = LogMessageTypeSeqHelper.read(istr);
+            iceP_traceCategories = StringSeqHelper.read(istr);
+            iceP_messageMax = istr.readInt();
+            istr.endEncapsulation();
+            string iceP_prefix;
+            var ret = obj.getLog(iceP_messageTypes, iceP_traceCategories, iceP_messageMax, out iceP_prefix, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            ostr.writeString(iceP_prefix);
+            LogMessageSeqHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
     }
 }

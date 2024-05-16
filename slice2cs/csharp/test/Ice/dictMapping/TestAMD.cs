@@ -1095,238 +1095,213 @@ namespace Ice.dictMapping.AMD
 
             #region Operation dispatch
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_shutdown(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+                request.current.operation switch
+                {
+                    "shutdown" => MyClass.iceD_shutdownAsync(this, request),
+                    "opNV" => MyClass.iceD_opNVAsync(this, request),
+                    "opNR" => MyClass.iceD_opNRAsync(this, request),
+                    "opNDV" => MyClass.iceD_opNDVAsync(this, request),
+                    "opNDR" => MyClass.iceD_opNDRAsync(this, request),
+                    "opNDAIS" => MyClass.iceD_opNDAISAsync(this, request),
+                    "opNDGIS" => MyClass.iceD_opNDGISAsync(this, request),
+                    "opNDASS" => MyClass.iceD_opNDASSAsync(this, request),
+                    "opNDGSS" => MyClass.iceD_opNDGSSAsync(this, request),
+                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new global::Ice.OperationNotExistException()
+                };
+
+            #endregion
+        }
+    }
+}
+
+namespace Ice.dictMapping.AMD
+{
+    namespace Test
+    {
+        public partial interface MyClass
+        {
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+                MyClass obj,
+                global::Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                return inS.setResultTask(obj.shutdownAsync(current));
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                await obj.shutdownAsync(request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
             }
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opNV(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opNVAsync(
+                MyClass obj,
+                global::Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
                 global::System.Collections.Generic.Dictionary<int, int> iceP_i;
                 iceP_i = NVHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask<MyClass_OpNVResult>(obj.opNVAsync(iceP_i, current),
-                    (ostr, ret) =>
+                istr.endEncapsulation();
+                var result = await obj.opNVAsync(iceP_i, request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
                     {
                         NVHelper.write(ostr, ret.o);
                         NVHelper.write(ostr, ret.returnValue);
                     });
             }
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opNR(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opNRAsync(
+                MyClass obj,
+                global::Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
                 global::System.Collections.Generic.Dictionary<string, string> iceP_i;
                 iceP_i = NRHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask<MyClass_OpNRResult>(obj.opNRAsync(iceP_i, current),
-                    (ostr, ret) =>
+                istr.endEncapsulation();
+                var result = await obj.opNRAsync(iceP_i, request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
                     {
                         NRHelper.write(ostr, ret.o);
                         NRHelper.write(ostr, ret.returnValue);
                     });
             }
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opNDV(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opNDVAsync(
+                MyClass obj,
+                global::Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> iceP_i;
                 iceP_i = NDVHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask<MyClass_OpNDVResult>(obj.opNDVAsync(iceP_i, current),
-                    (ostr, ret) =>
+                istr.endEncapsulation();
+                var result = await obj.opNDVAsync(iceP_i, request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
                     {
                         NDVHelper.write(ostr, ret.o);
                         NDVHelper.write(ostr, ret.returnValue);
                     });
             }
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opNDR(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opNDRAsync(
+                MyClass obj,
+                global::Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> iceP_i;
                 iceP_i = NDRHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask<MyClass_OpNDRResult>(obj.opNDRAsync(iceP_i, current),
-                    (ostr, ret) =>
+                istr.endEncapsulation();
+                var result = await obj.opNDRAsync(iceP_i, request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
                     {
                         NDRHelper.write(ostr, ret.o);
                         NDRHelper.write(ostr, ret.returnValue);
                     });
             }
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opNDAIS(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opNDAISAsync(
+                MyClass obj,
+                global::Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
                 global::System.Collections.Generic.Dictionary<string, int[]> iceP_i;
                 iceP_i = NDAISHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask<MyClass_OpNDAISResult>(obj.opNDAISAsync(iceP_i, current),
-                    (ostr, ret) =>
+                istr.endEncapsulation();
+                var result = await obj.opNDAISAsync(iceP_i, request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
                     {
                         NDAISHelper.write(ostr, ret.o);
                         NDAISHelper.write(ostr, ret.returnValue);
                     });
             }
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opNDGIS(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opNDGISAsync(
+                MyClass obj,
+                global::Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> iceP_i;
                 iceP_i = NDGISHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask<MyClass_OpNDGISResult>(obj.opNDGISAsync(iceP_i, current),
-                    (ostr, ret) =>
+                istr.endEncapsulation();
+                var result = await obj.opNDGISAsync(iceP_i, request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
                     {
                         NDGISHelper.write(ostr, ret.o);
                         NDGISHelper.write(ostr, ret.returnValue);
                     });
             }
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opNDASS(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opNDASSAsync(
+                MyClass obj,
+                global::Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
                 global::System.Collections.Generic.Dictionary<string, string[]> iceP_i;
                 iceP_i = NDASSHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask<MyClass_OpNDASSResult>(obj.opNDASSAsync(iceP_i, current),
-                    (ostr, ret) =>
+                istr.endEncapsulation();
+                var result = await obj.opNDASSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
                     {
                         NDASSHelper.write(ostr, ret.o);
                         NDASSHelper.write(ostr, ret.returnValue);
                     });
             }
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opNDGSS(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opNDGSSAsync(
+                MyClass obj,
+                global::Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> iceP_i;
                 iceP_i = NDGSSHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask<MyClass_OpNDGSSResult>(obj.opNDGSSAsync(iceP_i, current),
-                    (ostr, ret) =>
+                istr.endEncapsulation();
+                var result = await obj.opNDGSSAsync(iceP_i, request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
                     {
                         NDGSSHelper.write(ostr, ret.o);
                         NDGSSHelper.write(ostr, ret.returnValue);
                     });
             }
-
-            private static readonly string[] _all =
-            {
-                "ice_id",
-                "ice_ids",
-                "ice_isA",
-                "ice_ping",
-                "opNDAIS",
-                "opNDASS",
-                "opNDGIS",
-                "opNDGSS",
-                "opNDR",
-                "opNDV",
-                "opNR",
-                "opNV",
-                "shutdown"
-            };
-
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-            iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-                if(pos < 0)
-                {
-                    throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                }
-
-                switch(pos)
-                {
-                    case 0:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                    }
-                    case 1:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                    }
-                    case 2:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                    }
-                    case 3:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                    }
-                    case 4:
-                    {
-                        return iceD_opNDAIS(this, inS, current);
-                    }
-                    case 5:
-                    {
-                        return iceD_opNDASS(this, inS, current);
-                    }
-                    case 6:
-                    {
-                        return iceD_opNDGIS(this, inS, current);
-                    }
-                    case 7:
-                    {
-                        return iceD_opNDGSS(this, inS, current);
-                    }
-                    case 8:
-                    {
-                        return iceD_opNDR(this, inS, current);
-                    }
-                    case 9:
-                    {
-                        return iceD_opNDV(this, inS, current);
-                    }
-                    case 10:
-                    {
-                        return iceD_opNR(this, inS, current);
-                    }
-                    case 11:
-                    {
-                        return iceD_opNV(this, inS, current);
-                    }
-                    case 12:
-                    {
-                        return iceD_shutdown(this, inS, current);
-                    }
-                }
-
-                global::System.Diagnostics.Debug.Assert(false);
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            #endregion
         }
     }
 }

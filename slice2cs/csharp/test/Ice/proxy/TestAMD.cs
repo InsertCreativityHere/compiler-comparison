@@ -551,78 +551,17 @@ namespace Ice.proxy.AMD
 
             #region Operation dispatch
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_shutdown(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                return inS.setResultTask(obj.shutdownAsync(current));
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_getContext(MyClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                return inS.setResultTask<global::System.Collections.Generic.Dictionary<string, string>>(obj.getContextAsync(current),
-                    (ostr, ret) =>
-                    {
-                        global::Ice.ContextHelper.write(ostr, ret);
-                    });
-            }
-
-            private static readonly string[] _all =
-            {
-                "getContext",
-                "ice_id",
-                "ice_ids",
-                "ice_isA",
-                "ice_ping",
-                "shutdown"
-            };
-
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-            iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-                if(pos < 0)
+            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+                request.current.operation switch
                 {
-                    throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                }
-
-                switch(pos)
-                {
-                    case 0:
-                    {
-                        return iceD_getContext(this, inS, current);
-                    }
-                    case 1:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                    }
-                    case 2:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                    }
-                    case 3:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                    }
-                    case 4:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                    }
-                    case 5:
-                    {
-                        return iceD_shutdown(this, inS, current);
-                    }
-                }
-
-                global::System.Diagnostics.Debug.Assert(false);
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
+                    "shutdown" => MyClass.iceD_shutdownAsync(this, request),
+                    "getContext" => MyClass.iceD_getContextAsync(this, request),
+                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new global::Ice.OperationNotExistException()
+                };
 
             #endregion
         }
@@ -655,79 +594,78 @@ namespace Ice.proxy.AMD
 
             #region Operation dispatch
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_echo(MyDerivedClass obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+                request.current.operation switch
+                {
+                    "shutdown" => MyClass.iceD_shutdownAsync(this, request),
+                    "getContext" => MyClass.iceD_getContextAsync(this, request),
+                    "echo" => MyDerivedClass.iceD_echoAsync(this, request),
+                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new global::Ice.OperationNotExistException()
+                };
+
+            #endregion
+        }
+    }
+}
+
+namespace Ice.proxy.AMD
+{
+    namespace Test
+    {
+        public partial interface MyClass
+        {
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+                MyClass obj,
+                global::Ice.IncomingRequest request)
             {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                await obj.shutdownAsync(request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
+            }
+
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getContextAsync(
+                MyClass obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var result = await obj.getContextAsync(request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
+                    {
+                        global::Ice.ContextHelper.write(ostr, ret);
+                    });
+            }
+        }
+
+        public partial interface MyDerivedClass
+        {
+            protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_echoAsync(
+                MyDerivedClass obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
                 global::Ice.ObjectPrx? iceP_obj;
                 iceP_obj = istr.readProxy();
-                inS.endReadParams();
-                return inS.setResultTask<global::Ice.ObjectPrx?>(obj.echoAsync(iceP_obj, current),
-                    (ostr, ret) =>
+                istr.endEncapsulation();
+                var result = await obj.echoAsync(iceP_obj, request.current).ConfigureAwait(false);
+                return global::Ice.CurrentExtensions.createOutgoingResponse(
+                    request.current,
+                    result,
+                    static (ostr, ret) =>
                     {
                         ostr.writeProxy(ret);
                     });
             }
-
-            private static readonly string[] _all =
-            {
-                "echo",
-                "getContext",
-                "ice_id",
-                "ice_ids",
-                "ice_isA",
-                "ice_ping",
-                "shutdown"
-            };
-
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-            iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-                if(pos < 0)
-                {
-                    throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                }
-
-                switch(pos)
-                {
-                    case 0:
-                    {
-                        return iceD_echo(this, inS, current);
-                    }
-                    case 1:
-                    {
-                        return MyClassDisp_.iceD_getContext(this, inS, current);
-                    }
-                    case 2:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                    }
-                    case 3:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                    }
-                    case 4:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                    }
-                    case 5:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                    }
-                    case 6:
-                    {
-                        return MyClassDisp_.iceD_shutdown(this, inS, current);
-                    }
-                }
-
-                global::System.Diagnostics.Debug.Assert(false);
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            #endregion
         }
     }
 }

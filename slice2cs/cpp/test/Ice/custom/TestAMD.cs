@@ -4348,375 +4348,511 @@ namespace Test
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opDoubleArray(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "opDoubleArray" => TestIntf.iceD_opDoubleArrayAsync(this, request),
+                "opBoolArray" => TestIntf.iceD_opBoolArrayAsync(this, request),
+                "opByteArray" => TestIntf.iceD_opByteArrayAsync(this, request),
+                "opVariableArray" => TestIntf.iceD_opVariableArrayAsync(this, request),
+                "opBoolSeq" => TestIntf.iceD_opBoolSeqAsync(this, request),
+                "opBoolList" => TestIntf.iceD_opBoolListAsync(this, request),
+                "opByteSeq" => TestIntf.iceD_opByteSeqAsync(this, request),
+                "opByteList" => TestIntf.iceD_opByteListAsync(this, request),
+                "opMyByteSeq" => TestIntf.iceD_opMyByteSeqAsync(this, request),
+                "opStringSeq" => TestIntf.iceD_opStringSeqAsync(this, request),
+                "opStringList" => TestIntf.iceD_opStringListAsync(this, request),
+                "opFixedSeq" => TestIntf.iceD_opFixedSeqAsync(this, request),
+                "opFixedList" => TestIntf.iceD_opFixedListAsync(this, request),
+                "opVariableSeq" => TestIntf.iceD_opVariableSeqAsync(this, request),
+                "opVariableList" => TestIntf.iceD_opVariableListAsync(this, request),
+                "opStringStringDictSeq" => TestIntf.iceD_opStringStringDictSeqAsync(this, request),
+                "opStringStringDictList" => TestIntf.iceD_opStringStringDictListAsync(this, request),
+                "opESeq" => TestIntf.iceD_opESeqAsync(this, request),
+                "opEList" => TestIntf.iceD_opEListAsync(this, request),
+                "opDPrxSeq" => TestIntf.iceD_opDPrxSeqAsync(this, request),
+                "opDPrxList" => TestIntf.iceD_opDPrxListAsync(this, request),
+                "opCSeq" => TestIntf.iceD_opCSeqAsync(this, request),
+                "opCList" => TestIntf.iceD_opCListAsync(this, request),
+                "opOutArrayByteSeq" => TestIntf.iceD_opOutArrayByteSeqAsync(this, request),
+                "opIntStringDict" => TestIntf.iceD_opIntStringDictAsync(this, request),
+                "opVarDict" => TestIntf.iceD_opVarDictAsync(this, request),
+                "opShortBuffer" => TestIntf.iceD_opShortBufferAsync(this, request),
+                "opBoolBuffer" => TestIntf.iceD_opBoolBufferAsync(this, request),
+                "opBufferStruct" => TestIntf.iceD_opBufferStructAsync(this, request),
+                "shutdown" => TestIntf.iceD_shutdownAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
+
+        #endregion
+    }
+}
+
+namespace Test
+{
+    public partial interface TestIntf
+    {
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opDoubleArrayAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             double[] iceP_inSeq;
             iceP_inSeq = DoubleSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpDoubleArrayResult>(obj.opDoubleArrayAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opDoubleArrayAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     DoubleSeqHelper.write(ostr, ret.outSeq);
                     DoubleSeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBoolArray(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBoolArrayAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             bool[] iceP_inSeq;
             iceP_inSeq = BoolSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpBoolArrayResult>(obj.opBoolArrayAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opBoolArrayAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     BoolSeqHelper.write(ostr, ret.outSeq);
                     BoolSeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteArray(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opByteArrayAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             byte[] iceP_inSeq;
             iceP_inSeq = ByteListHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpByteArrayResult>(obj.opByteArrayAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opByteArrayAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ByteListHelper.write(ostr, ret.outSeq);
                     ByteListHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opVariableArray(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opVariableArrayAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             Variable[] iceP_inSeq;
             iceP_inSeq = VariableListHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpVariableArrayResult>(obj.opVariableArrayAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opVariableArrayAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     VariableListHelper.write(ostr, ret.outSeq);
                     VariableListHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBoolSeq(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBoolSeqAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             bool[] iceP_inSeq;
             iceP_inSeq = BoolSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpBoolSeqResult>(obj.opBoolSeqAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opBoolSeqAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     BoolSeqHelper.write(ostr, ret.outSeq);
                     BoolSeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBoolList(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBoolListAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             bool[] iceP_inSeq;
             iceP_inSeq = BoolListHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpBoolListResult>(obj.opBoolListAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opBoolListAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     BoolListHelper.write(ostr, ret.outSeq);
                     BoolListHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteSeq(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opByteSeqAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             byte[] iceP_inSeq;
             iceP_inSeq = ByteSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpByteSeqResult>(obj.opByteSeqAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opByteSeqAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ByteSeqHelper.write(ostr, ret.outSeq);
                     ByteSeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteList(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opByteListAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             byte[] iceP_inSeq;
             iceP_inSeq = ByteListHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpByteListResult>(obj.opByteListAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opByteListAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ByteListHelper.write(ostr, ret.outSeq);
                     ByteListHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opMyByteSeq(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opMyByteSeqAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             byte[] iceP_inSeq;
             iceP_inSeq = ByteSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpMyByteSeqResult>(obj.opMyByteSeqAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opMyByteSeqAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ByteSeqHelper.write(ostr, ret.outSeq);
                     ByteSeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringSeq(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opStringSeqAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string[] iceP_inSeq;
             iceP_inSeq = StringSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpStringSeqResult>(obj.opStringSeqAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opStringSeqAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     StringSeqHelper.write(ostr, ret.outSeq);
                     StringSeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringList(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opStringListAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string[] iceP_inSeq;
             iceP_inSeq = StringListHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpStringListResult>(obj.opStringListAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opStringListAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     StringListHelper.write(ostr, ret.outSeq);
                     StringListHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opFixedSeq(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opFixedSeqAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             @Fixed[] iceP_inSeq;
             iceP_inSeq = FixedSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpFixedSeqResult>(obj.opFixedSeqAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opFixedSeqAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     FixedSeqHelper.write(ostr, ret.outSeq);
                     FixedSeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opFixedList(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opFixedListAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             @Fixed[] iceP_inSeq;
             iceP_inSeq = FixedListHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpFixedListResult>(obj.opFixedListAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opFixedListAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     FixedListHelper.write(ostr, ret.outSeq);
                     FixedListHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opVariableSeq(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opVariableSeqAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             Variable[] iceP_inSeq;
             iceP_inSeq = VariableSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpVariableSeqResult>(obj.opVariableSeqAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opVariableSeqAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     VariableSeqHelper.write(ostr, ret.outSeq);
                     VariableSeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opVariableList(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opVariableListAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             Variable[] iceP_inSeq;
             iceP_inSeq = VariableListHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpVariableListResult>(obj.opVariableListAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opVariableListAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     VariableListHelper.write(ostr, ret.outSeq);
                     VariableListHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringStringDictSeq(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opStringStringDictSeqAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             global::System.Collections.Generic.Dictionary<string, string>[] iceP_inSeq;
             iceP_inSeq = StringStringDictSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpStringStringDictSeqResult>(obj.opStringStringDictSeqAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opStringStringDictSeqAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     StringStringDictSeqHelper.write(ostr, ret.outSeq);
                     StringStringDictSeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringStringDictList(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opStringStringDictListAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             global::System.Collections.Generic.Dictionary<string, string>[] iceP_inSeq;
             iceP_inSeq = StringStringDictListHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpStringStringDictListResult>(obj.opStringStringDictListAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opStringStringDictListAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     StringStringDictListHelper.write(ostr, ret.outSeq);
                     StringStringDictListHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opESeq(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opESeqAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             E[] iceP_inSeq;
             iceP_inSeq = ESeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpESeqResult>(obj.opESeqAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opESeqAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ESeqHelper.write(ostr, ret.outSeq);
                     ESeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opEList(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opEListAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             E[] iceP_inSeq;
             iceP_inSeq = EListHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpEListResult>(obj.opEListAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opEListAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     EListHelper.write(ostr, ret.outSeq);
                     EListHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opDPrxSeq(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opDPrxSeqAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             DPrx?[] iceP_inSeq;
             iceP_inSeq = DPrxSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpDPrxSeqResult>(obj.opDPrxSeqAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opDPrxSeqAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     DPrxSeqHelper.write(ostr, ret.outSeq);
                     DPrxSeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opDPrxList(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opDPrxListAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             DPrx?[] iceP_inSeq;
             iceP_inSeq = DPrxListHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpDPrxListResult>(obj.opDPrxListAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opDPrxListAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     DPrxListHelper.write(ostr, ret.outSeq);
                     DPrxListHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opCSeq(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opCSeqAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             C?[] iceP_inSeq;
             iceP_inSeq = CSeqHelper.read(istr);
             istr.readPendingValues();
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpCSeqResult>(obj.opCSeqAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opCSeqAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     CSeqHelper.write(ostr, ret.outSeq);
                     CSeqHelper.write(ostr, ret.returnValue);
@@ -4724,18 +4860,22 @@ namespace Test
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opCList(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opCListAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             C?[] iceP_inSeq;
             iceP_inSeq = CListHelper.read(istr);
             istr.readPendingValues();
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpCListResult>(obj.opCListAsync(iceP_inSeq, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opCListAsync(iceP_inSeq, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     CListHelper.write(ostr, ret.outSeq);
                     CListHelper.write(ostr, ret.returnValue);
@@ -4743,306 +4883,138 @@ namespace Test
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opOutArrayByteSeq(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opOutArrayByteSeqAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             byte[] iceP_org;
             iceP_org = ByteSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<byte[]>(obj.opOutArrayByteSeqAsync(iceP_org, current),
-                (ostr, iceP_copy) =>
+            istr.endEncapsulation();
+            var result = await obj.opOutArrayByteSeqAsync(iceP_org, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, iceP_copy) =>
                 {
                     ByteSeqHelper.write(ostr, iceP_copy);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opIntStringDict(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opIntStringDictAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             global::System.Collections.Generic.Dictionary<int, string> iceP_idict;
             iceP_idict = IntStringDictHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpIntStringDictResult>(obj.opIntStringDictAsync(iceP_idict, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opIntStringDictAsync(iceP_idict, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     IntStringDictHelper.write(ostr, ret.odict);
                     IntStringDictHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opVarDict(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opVarDictAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             global::System.Collections.Generic.Dictionary<string, int> iceP_idict;
             iceP_idict = StringIntDictHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpVarDictResult>(obj.opVarDictAsync(iceP_idict, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opVarDictAsync(iceP_idict, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     StringIntDictHelper.write(ostr, ret.odict);
                     LongLongDictHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opShortBuffer(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opShortBufferAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             short[] iceP_inS;
             iceP_inS = ShortBufferHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpShortBufferResult>(obj.opShortBufferAsync(iceP_inS, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opShortBufferAsync(iceP_inS, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ShortBufferHelper.write(ostr, ret.outS);
                     ShortBufferHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBoolBuffer(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBoolBufferAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             bool[] iceP_inS;
             iceP_inS = BoolSeqHelper.read(istr);
-            inS.endReadParams();
-            return inS.setResultTask<TestIntf_OpBoolBufferResult>(obj.opBoolBufferAsync(iceP_inS, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opBoolBufferAsync(iceP_inS, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     BoolSeqHelper.write(ostr, ret.outS);
                     BoolSeqHelper.write(ostr, ret.returnValue);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBufferStruct(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBufferStructAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             BufferStruct iceP_s;
             iceP_s = new BufferStruct(istr);
-            inS.endReadParams();
-            return inS.setResultTask<BufferStruct>(obj.opBufferStructAsync(iceP_s, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.opBufferStructAsync(iceP_s, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     BufferStruct.ice_write(ostr, ret);
                 });
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_shutdown(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            return inS.setResultTask(obj.shutdownAsync(current));
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.shutdownAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
-
-        private static readonly string[] _all =
-        {
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "opBoolArray",
-            "opBoolBuffer",
-            "opBoolList",
-            "opBoolSeq",
-            "opBufferStruct",
-            "opByteArray",
-            "opByteList",
-            "opByteSeq",
-            "opCList",
-            "opCSeq",
-            "opDPrxList",
-            "opDPrxSeq",
-            "opDoubleArray",
-            "opEList",
-            "opESeq",
-            "opFixedList",
-            "opFixedSeq",
-            "opIntStringDict",
-            "opMyByteSeq",
-            "opOutArrayByteSeq",
-            "opShortBuffer",
-            "opStringList",
-            "opStringSeq",
-            "opStringStringDictList",
-            "opStringStringDictSeq",
-            "opVarDict",
-            "opVariableArray",
-            "opVariableList",
-            "opVariableSeq",
-            "shutdown"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
-            {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 1:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 4:
-                {
-                    return iceD_opBoolArray(this, inS, current);
-                }
-                case 5:
-                {
-                    return iceD_opBoolBuffer(this, inS, current);
-                }
-                case 6:
-                {
-                    return iceD_opBoolList(this, inS, current);
-                }
-                case 7:
-                {
-                    return iceD_opBoolSeq(this, inS, current);
-                }
-                case 8:
-                {
-                    return iceD_opBufferStruct(this, inS, current);
-                }
-                case 9:
-                {
-                    return iceD_opByteArray(this, inS, current);
-                }
-                case 10:
-                {
-                    return iceD_opByteList(this, inS, current);
-                }
-                case 11:
-                {
-                    return iceD_opByteSeq(this, inS, current);
-                }
-                case 12:
-                {
-                    return iceD_opCList(this, inS, current);
-                }
-                case 13:
-                {
-                    return iceD_opCSeq(this, inS, current);
-                }
-                case 14:
-                {
-                    return iceD_opDPrxList(this, inS, current);
-                }
-                case 15:
-                {
-                    return iceD_opDPrxSeq(this, inS, current);
-                }
-                case 16:
-                {
-                    return iceD_opDoubleArray(this, inS, current);
-                }
-                case 17:
-                {
-                    return iceD_opEList(this, inS, current);
-                }
-                case 18:
-                {
-                    return iceD_opESeq(this, inS, current);
-                }
-                case 19:
-                {
-                    return iceD_opFixedList(this, inS, current);
-                }
-                case 20:
-                {
-                    return iceD_opFixedSeq(this, inS, current);
-                }
-                case 21:
-                {
-                    return iceD_opIntStringDict(this, inS, current);
-                }
-                case 22:
-                {
-                    return iceD_opMyByteSeq(this, inS, current);
-                }
-                case 23:
-                {
-                    return iceD_opOutArrayByteSeq(this, inS, current);
-                }
-                case 24:
-                {
-                    return iceD_opShortBuffer(this, inS, current);
-                }
-                case 25:
-                {
-                    return iceD_opStringList(this, inS, current);
-                }
-                case 26:
-                {
-                    return iceD_opStringSeq(this, inS, current);
-                }
-                case 27:
-                {
-                    return iceD_opStringStringDictList(this, inS, current);
-                }
-                case 28:
-                {
-                    return iceD_opStringStringDictSeq(this, inS, current);
-                }
-                case 29:
-                {
-                    return iceD_opVarDict(this, inS, current);
-                }
-                case 30:
-                {
-                    return iceD_opVariableArray(this, inS, current);
-                }
-                case 31:
-                {
-                    return iceD_opVariableList(this, inS, current);
-                }
-                case 32:
-                {
-                    return iceD_opVariableSeq(this, inS, current);
-                }
-                case 33:
-                {
-                    return iceD_shutdown(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        #endregion
     }
 }

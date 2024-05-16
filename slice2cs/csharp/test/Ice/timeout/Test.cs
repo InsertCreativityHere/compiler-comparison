@@ -613,97 +613,18 @@ namespace Ice.timeout
 
             #region Operation dispatch
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_op(Timeout obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                obj.op(current);
-                return inS.setResult(inS.writeEmptyParams());
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_sendData(Timeout obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
-                byte[] iceP_seq;
-                iceP_seq = ByteSeqHelper.read(istr);
-                inS.endReadParams();
-                obj.sendData(iceP_seq, current);
-                return inS.setResult(inS.writeEmptyParams());
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_sleep(Timeout obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
-                int iceP_to;
-                iceP_to = istr.readInt();
-                inS.endReadParams();
-                obj.sleep(iceP_to, current);
-                return inS.setResult(inS.writeEmptyParams());
-            }
-
-            private static readonly string[] _all =
-            {
-                "ice_id",
-                "ice_ids",
-                "ice_isA",
-                "ice_ping",
-                "op",
-                "sendData",
-                "sleep"
-            };
-
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-            iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-                if(pos < 0)
+            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+                request.current.operation switch
                 {
-                    throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                }
-
-                switch(pos)
-                {
-                    case 0:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                    }
-                    case 1:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                    }
-                    case 2:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                    }
-                    case 3:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                    }
-                    case 4:
-                    {
-                        return iceD_op(this, inS, current);
-                    }
-                    case 5:
-                    {
-                        return iceD_sendData(this, inS, current);
-                    }
-                    case 6:
-                    {
-                        return iceD_sleep(this, inS, current);
-                    }
-                }
-
-                global::System.Diagnostics.Debug.Assert(false);
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
+                    "op" => Timeout.iceD_opAsync(this, request),
+                    "sendData" => Timeout.iceD_sendDataAsync(this, request),
+                    "sleep" => Timeout.iceD_sleepAsync(this, request),
+                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new global::Ice.OperationNotExistException()
+                };
 
             #endregion
         }
@@ -732,96 +653,104 @@ namespace Ice.timeout
 
             #region Operation dispatch
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_holdAdapter(Controller obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
-                int iceP_to;
-                iceP_to = istr.readInt();
-                inS.endReadParams();
-                obj.holdAdapter(iceP_to, current);
-                return inS.setResult(inS.writeEmptyParams());
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_resumeAdapter(Controller obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                obj.resumeAdapter(current);
-                return inS.setResult(inS.writeEmptyParams());
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_shutdown(Controller obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                obj.shutdown(current);
-                return inS.setResult(inS.writeEmptyParams());
-            }
-
-            private static readonly string[] _all =
-            {
-                "holdAdapter",
-                "ice_id",
-                "ice_ids",
-                "ice_isA",
-                "ice_ping",
-                "resumeAdapter",
-                "shutdown"
-            };
-
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-            iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-                if(pos < 0)
+            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+                request.current.operation switch
                 {
-                    throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                }
-
-                switch(pos)
-                {
-                    case 0:
-                    {
-                        return iceD_holdAdapter(this, inS, current);
-                    }
-                    case 1:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                    }
-                    case 2:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                    }
-                    case 3:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                    }
-                    case 4:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                    }
-                    case 5:
-                    {
-                        return iceD_resumeAdapter(this, inS, current);
-                    }
-                    case 6:
-                    {
-                        return iceD_shutdown(this, inS, current);
-                    }
-                }
-
-                global::System.Diagnostics.Debug.Assert(false);
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
+                    "holdAdapter" => Controller.iceD_holdAdapterAsync(this, request),
+                    "resumeAdapter" => Controller.iceD_resumeAdapterAsync(this, request),
+                    "shutdown" => Controller.iceD_shutdownAsync(this, request),
+                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new global::Ice.OperationNotExistException()
+                };
 
             #endregion
+        }
+    }
+}
+
+namespace Ice.timeout
+{
+    namespace Test
+    {
+        public partial interface Timeout
+        {
+            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opAsync(
+                Timeout obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.op(request.current);
+                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_sendDataAsync(
+                Timeout obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                byte[] iceP_seq;
+                iceP_seq = ByteSeqHelper.read(istr);
+                istr.endEncapsulation();
+                obj.sendData(iceP_seq, request.current);
+                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_sleepAsync(
+                Timeout obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                int iceP_to;
+                iceP_to = istr.readInt();
+                istr.endEncapsulation();
+                obj.sleep(iceP_to, request.current);
+                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+        }
+
+        public partial interface Controller
+        {
+            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_holdAdapterAsync(
+                Controller obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                int iceP_to;
+                iceP_to = istr.readInt();
+                istr.endEncapsulation();
+                obj.holdAdapter(iceP_to, request.current);
+                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_resumeAdapterAsync(
+                Controller obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.resumeAdapter(request.current);
+                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+                Controller obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.shutdown(request.current);
+                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
         }
     }
 }

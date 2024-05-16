@@ -648,11 +648,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
@@ -698,11 +698,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
@@ -1003,189 +1003,134 @@ namespace Glacier2
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getCategoryForClient(Router obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "getClientProxy" => global::Ice.Router.iceD_getClientProxyAsync(this, request),
+                "getServerProxy" => global::Ice.Router.iceD_getServerProxyAsync(this, request),
+                "addProxies" => global::Ice.Router.iceD_addProxiesAsync(this, request),
+                "getCategoryForClient" => Router.iceD_getCategoryForClientAsync(this, request),
+                "createSession" => Router.iceD_createSessionAsync(this, request),
+                "createSessionFromSecureConnection" => Router.iceD_createSessionFromSecureConnectionAsync(this, request),
+                "refreshSession" => Router.iceD_refreshSessionAsync(this, request),
+                "destroySession" => Router.iceD_destroySessionAsync(this, request),
+                "getSessionTimeout" => Router.iceD_getSessionTimeoutAsync(this, request),
+                "getACMTimeout" => Router.iceD_getACMTimeoutAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
+
+        #endregion
+    }
+}
+
+namespace Glacier2
+{
+    public partial interface Router
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getCategoryForClientAsync(
+            Router obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.getCategoryForClient(current);
-            var ostr = inS.startWriteParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getCategoryForClient(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             ostr.writeString(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_createSession(Router obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_createSessionAsync(
+            Router obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string iceP_userId;
             string iceP_password;
             iceP_userId = istr.readString();
             iceP_password = istr.readString();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SessionPrx?>(obj.createSessionAsync(iceP_userId, iceP_password, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.createSessionAsync(iceP_userId, iceP_password, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     SessionPrxHelper.write(ostr, ret);
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_createSessionFromSecureConnection(Router obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_createSessionFromSecureConnectionAsync(
+            Router obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SessionPrx?>(obj.createSessionFromSecureConnectionAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.createSessionFromSecureConnectionAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     SessionPrxHelper.write(ostr, ret);
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_refreshSession(Router obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_refreshSessionAsync(
+            Router obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            obj.refreshSession(current);
-            return inS.setResult(inS.writeEmptyParams());
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.refreshSession(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_destroySession(Router obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_destroySessionAsync(
+            Router obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            obj.destroySession(current);
-            return inS.setResult(inS.writeEmptyParams());
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.destroySession(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getSessionTimeout(Router obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getSessionTimeoutAsync(
+            Router obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.getSessionTimeout(current);
-            var ostr = inS.startWriteParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getSessionTimeout(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             ostr.writeLong(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getACMTimeout(Router obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getACMTimeoutAsync(
+            Router obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.getACMTimeout(current);
-            var ostr = inS.startWriteParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getACMTimeout(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             ostr.writeInt(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
-
-        private static readonly string[] _all =
-        {
-            "addProxies",
-            "createSession",
-            "createSessionFromSecureConnection",
-            "destroySession",
-            "getACMTimeout",
-            "getCategoryForClient",
-            "getClientProxy",
-            "getServerProxy",
-            "getSessionTimeout",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "refreshSession"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
-            {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return global::Ice.RouterDisp_.iceD_addProxies(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_createSession(this, inS, current);
-                }
-                case 2:
-                {
-                    return iceD_createSessionFromSecureConnection(this, inS, current);
-                }
-                case 3:
-                {
-                    return iceD_destroySession(this, inS, current);
-                }
-                case 4:
-                {
-                    return iceD_getACMTimeout(this, inS, current);
-                }
-                case 5:
-                {
-                    return iceD_getCategoryForClient(this, inS, current);
-                }
-                case 6:
-                {
-                    return global::Ice.RouterDisp_.iceD_getClientProxy(this, inS, current);
-                }
-                case 7:
-                {
-                    return global::Ice.RouterDisp_.iceD_getServerProxy(this, inS, current);
-                }
-                case 8:
-                {
-                    return iceD_getSessionTimeout(this, inS, current);
-                }
-                case 9:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 10:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 11:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 12:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 13:
-                {
-                    return iceD_refreshSession(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        #endregion
     }
 }

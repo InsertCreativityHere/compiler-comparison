@@ -2382,575 +2382,490 @@ namespace Test
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteString1(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "opByteString1" => Custom.iceD_opByteString1Async(this, request),
+                "opByteString2" => Custom.iceD_opByteString2Async(this, request),
+                "opByteList1" => Custom.iceD_opByteList1Async(this, request),
+                "opByteList2" => Custom.iceD_opByteList2Async(this, request),
+                "opStringList1" => Custom.iceD_opStringList1Async(this, request),
+                "opStringList2" => Custom.iceD_opStringList2Async(this, request),
+                "opStringTuple1" => Custom.iceD_opStringTuple1Async(this, request),
+                "opStringTuple2" => Custom.iceD_opStringTuple2Async(this, request),
+                "sendS" => Custom.iceD_sendSAsync(this, request),
+                "sendC" => Custom.iceD_sendCAsync(this, request),
+                "opBoolSeq" => Custom.iceD_opBoolSeqAsync(this, request),
+                "opByteSeq" => Custom.iceD_opByteSeqAsync(this, request),
+                "opShortSeq" => Custom.iceD_opShortSeqAsync(this, request),
+                "opIntSeq" => Custom.iceD_opIntSeqAsync(this, request),
+                "opLongSeq" => Custom.iceD_opLongSeqAsync(this, request),
+                "opFloatSeq" => Custom.iceD_opFloatSeqAsync(this, request),
+                "opDoubleSeq" => Custom.iceD_opDoubleSeqAsync(this, request),
+                "opBogusArrayNotExistsFactory" => Custom.iceD_opBogusArrayNotExistsFactoryAsync(this, request),
+                "opBogusArrayThrowFactory" => Custom.iceD_opBogusArrayThrowFactoryAsync(this, request),
+                "opBogusArrayType" => Custom.iceD_opBogusArrayTypeAsync(this, request),
+                "opBogusArrayNoneFactory" => Custom.iceD_opBogusArrayNoneFactoryAsync(this, request),
+                "opBogusArraySignatureFactory" => Custom.iceD_opBogusArraySignatureFactoryAsync(this, request),
+                "opBogusArrayNoCallableFactory" => Custom.iceD_opBogusArrayNoCallableFactoryAsync(this, request),
+                "opD" => Custom.iceD_opDAsync(this, request),
+                "shutdown" => Custom.iceD_shutdownAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
+
+        #endregion
+    }
+}
+
+namespace Test
+{
+    public partial interface Custom
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opByteString1Async(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             byte[] iceP_b1;
             iceP_b1 = ByteStringHelper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             byte[] iceP_b2;
-            var ret = obj.opByteString1(iceP_b1, out iceP_b2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opByteString1(iceP_b1, out iceP_b2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             ByteStringHelper.write(ostr, iceP_b2);
             ByteStringHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteString2(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opByteString2Async(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             byte[] iceP_b1;
             iceP_b1 = ByteStringHelper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             byte[] iceP_b2;
-            var ret = obj.opByteString2(iceP_b1, out iceP_b2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opByteString2(iceP_b1, out iceP_b2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             ByteStringHelper.write(ostr, iceP_b2);
             ByteStringHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteList1(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opByteList1Async(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             byte[] iceP_b1;
             iceP_b1 = ByteListHelper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             byte[] iceP_b2;
-            var ret = obj.opByteList1(iceP_b1, out iceP_b2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opByteList1(iceP_b1, out iceP_b2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             ByteListHelper.write(ostr, iceP_b2);
             ByteListHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteList2(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opByteList2Async(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             byte[] iceP_b1;
             iceP_b1 = ByteListHelper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             byte[] iceP_b2;
-            var ret = obj.opByteList2(iceP_b1, out iceP_b2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opByteList2(iceP_b1, out iceP_b2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             ByteListHelper.write(ostr, iceP_b2);
             ByteListHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringList1(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opStringList1Async(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string[] iceP_s1;
             iceP_s1 = StringListHelper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             string[] iceP_s2;
-            var ret = obj.opStringList1(iceP_s1, out iceP_s2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opStringList1(iceP_s1, out iceP_s2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             StringListHelper.write(ostr, iceP_s2);
             StringListHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringList2(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opStringList2Async(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string[] iceP_s1;
             iceP_s1 = StringListHelper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             string[] iceP_s2;
-            var ret = obj.opStringList2(iceP_s1, out iceP_s2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opStringList2(iceP_s1, out iceP_s2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             StringListHelper.write(ostr, iceP_s2);
             StringListHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringTuple1(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opStringTuple1Async(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string[] iceP_s1;
             iceP_s1 = StringTupleHelper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             string[] iceP_s2;
-            var ret = obj.opStringTuple1(iceP_s1, out iceP_s2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opStringTuple1(iceP_s1, out iceP_s2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             StringTupleHelper.write(ostr, iceP_s2);
             StringTupleHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opStringTuple2(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opStringTuple2Async(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string[] iceP_s1;
             iceP_s1 = StringTupleHelper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             string[] iceP_s2;
-            var ret = obj.opStringTuple2(iceP_s1, out iceP_s2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opStringTuple2(iceP_s1, out iceP_s2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             StringTupleHelper.write(ostr, iceP_s2);
             StringTupleHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_sendS(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_sendSAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             S iceP_val;
             iceP_val = new S(istr);
-            inS.endReadParams();
-            obj.sendS(iceP_val, current);
-            return inS.setResult(inS.writeEmptyParams());
+            istr.endEncapsulation();
+            obj.sendS(iceP_val, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_sendC(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_sendCAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             C? iceP_val = null;
             istr.readValue((C? v) => { iceP_val = v; });
             istr.readPendingValues();
-            inS.endReadParams();
-            obj.sendC(iceP_val, current);
-            return inS.setResult(inS.writeEmptyParams());
+            istr.endEncapsulation();
+            obj.sendC(iceP_val, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBoolSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBoolSeqAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             bool[] iceP_v1;
             iceP_v1 = BoolSeq1Helper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             bool[] iceP_v2;
-            var ret = obj.opBoolSeq(iceP_v1, out iceP_v2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opBoolSeq(iceP_v1, out iceP_v2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             BoolSeq2Helper.write(ostr, iceP_v2);
             BoolSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opByteSeqAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             byte[] iceP_v1;
             iceP_v1 = ByteSeq1Helper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             byte[] iceP_v2;
-            var ret = obj.opByteSeq(iceP_v1, out iceP_v2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opByteSeq(iceP_v1, out iceP_v2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             ByteSeq2Helper.write(ostr, iceP_v2);
             ByteSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opShortSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opShortSeqAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             short[] iceP_v1;
             iceP_v1 = ShortSeq1Helper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             short[] iceP_v2;
-            var ret = obj.opShortSeq(iceP_v1, out iceP_v2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opShortSeq(iceP_v1, out iceP_v2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             ShortSeq2Helper.write(ostr, iceP_v2);
             ShortSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opIntSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opIntSeqAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             int[] iceP_v1;
             iceP_v1 = IntSeq1Helper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             int[] iceP_v2;
-            var ret = obj.opIntSeq(iceP_v1, out iceP_v2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opIntSeq(iceP_v1, out iceP_v2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             IntSeq2Helper.write(ostr, iceP_v2);
             IntSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opLongSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opLongSeqAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             long[] iceP_v1;
             iceP_v1 = LongSeq1Helper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             long[] iceP_v2;
-            var ret = obj.opLongSeq(iceP_v1, out iceP_v2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opLongSeq(iceP_v1, out iceP_v2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             LongSeq2Helper.write(ostr, iceP_v2);
             LongSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opFloatSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opFloatSeqAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             float[] iceP_v1;
             iceP_v1 = FloatSeq1Helper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             float[] iceP_v2;
-            var ret = obj.opFloatSeq(iceP_v1, out iceP_v2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opFloatSeq(iceP_v1, out iceP_v2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             FloatSeq2Helper.write(ostr, iceP_v2);
             FloatSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opDoubleSeq(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opDoubleSeqAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             double[] iceP_v1;
             iceP_v1 = DoubleSeq1Helper.read(istr);
-            inS.endReadParams();
+            istr.endEncapsulation();
             double[] iceP_v2;
-            var ret = obj.opDoubleSeq(iceP_v1, out iceP_v2, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.opDoubleSeq(iceP_v1, out iceP_v2, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             DoubleSeq2Helper.write(ostr, iceP_v2);
             DoubleSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArrayNotExistsFactory(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBogusArrayNotExistsFactoryAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.opBogusArrayNotExistsFactory(current);
-            var ostr = inS.startWriteParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.opBogusArrayNotExistsFactory(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             BoolSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArrayThrowFactory(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBogusArrayThrowFactoryAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.opBogusArrayThrowFactory(current);
-            var ostr = inS.startWriteParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.opBogusArrayThrowFactory(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             BoolSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArrayType(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBogusArrayTypeAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.opBogusArrayType(current);
-            var ostr = inS.startWriteParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.opBogusArrayType(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             BoolSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArrayNoneFactory(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBogusArrayNoneFactoryAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.opBogusArrayNoneFactory(current);
-            var ostr = inS.startWriteParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.opBogusArrayNoneFactory(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             BoolSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArraySignatureFactory(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBogusArraySignatureFactoryAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.opBogusArraySignatureFactory(current);
-            var ostr = inS.startWriteParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.opBogusArraySignatureFactory(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             BoolSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBogusArrayNoCallableFactory(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opBogusArrayNoCallableFactoryAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.opBogusArrayNoCallableFactory(current);
-            var ostr = inS.startWriteParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.opBogusArrayNoCallableFactory(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             BoolSeq1Helper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opD(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_opDAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             D? iceP_d = null;
             istr.readValue((D? v) => { iceP_d = v; });
             istr.readPendingValues();
-            inS.endReadParams();
-            var ret = obj.opD(iceP_d, current);
-            var ostr = inS.startWriteParams();
+            istr.endEncapsulation();
+            var ret = obj.opD(iceP_d, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
             ostr.writeValue(ret);
             ostr.writePendingValues();
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_shutdown(Custom obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+            Custom obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            obj.shutdown(current);
-            return inS.setResult(inS.writeEmptyParams());
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.shutdown(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
-
-        private static readonly string[] _all =
-        {
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "opBogusArrayNoCallableFactory",
-            "opBogusArrayNoneFactory",
-            "opBogusArrayNotExistsFactory",
-            "opBogusArraySignatureFactory",
-            "opBogusArrayThrowFactory",
-            "opBogusArrayType",
-            "opBoolSeq",
-            "opByteList1",
-            "opByteList2",
-            "opByteSeq",
-            "opByteString1",
-            "opByteString2",
-            "opD",
-            "opDoubleSeq",
-            "opFloatSeq",
-            "opIntSeq",
-            "opLongSeq",
-            "opShortSeq",
-            "opStringList1",
-            "opStringList2",
-            "opStringTuple1",
-            "opStringTuple2",
-            "sendC",
-            "sendS",
-            "shutdown"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
-            {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 1:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 4:
-                {
-                    return iceD_opBogusArrayNoCallableFactory(this, inS, current);
-                }
-                case 5:
-                {
-                    return iceD_opBogusArrayNoneFactory(this, inS, current);
-                }
-                case 6:
-                {
-                    return iceD_opBogusArrayNotExistsFactory(this, inS, current);
-                }
-                case 7:
-                {
-                    return iceD_opBogusArraySignatureFactory(this, inS, current);
-                }
-                case 8:
-                {
-                    return iceD_opBogusArrayThrowFactory(this, inS, current);
-                }
-                case 9:
-                {
-                    return iceD_opBogusArrayType(this, inS, current);
-                }
-                case 10:
-                {
-                    return iceD_opBoolSeq(this, inS, current);
-                }
-                case 11:
-                {
-                    return iceD_opByteList1(this, inS, current);
-                }
-                case 12:
-                {
-                    return iceD_opByteList2(this, inS, current);
-                }
-                case 13:
-                {
-                    return iceD_opByteSeq(this, inS, current);
-                }
-                case 14:
-                {
-                    return iceD_opByteString1(this, inS, current);
-                }
-                case 15:
-                {
-                    return iceD_opByteString2(this, inS, current);
-                }
-                case 16:
-                {
-                    return iceD_opD(this, inS, current);
-                }
-                case 17:
-                {
-                    return iceD_opDoubleSeq(this, inS, current);
-                }
-                case 18:
-                {
-                    return iceD_opFloatSeq(this, inS, current);
-                }
-                case 19:
-                {
-                    return iceD_opIntSeq(this, inS, current);
-                }
-                case 20:
-                {
-                    return iceD_opLongSeq(this, inS, current);
-                }
-                case 21:
-                {
-                    return iceD_opShortSeq(this, inS, current);
-                }
-                case 22:
-                {
-                    return iceD_opStringList1(this, inS, current);
-                }
-                case 23:
-                {
-                    return iceD_opStringList2(this, inS, current);
-                }
-                case 24:
-                {
-                    return iceD_opStringTuple1(this, inS, current);
-                }
-                case 25:
-                {
-                    return iceD_opStringTuple2(this, inS, current);
-                }
-                case 26:
-                {
-                    return iceD_sendC(this, inS, current);
-                }
-                case 27:
-                {
-                    return iceD_sendS(this, inS, current);
-                }
-                case 28:
-                {
-                    return iceD_shutdown(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        #endregion
     }
 }

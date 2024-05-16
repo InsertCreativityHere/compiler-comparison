@@ -1443,67 +1443,16 @@ namespace Ice.inheritance
 
                 #region Operation dispatch
 
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-                iceD_iaop(IA obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-                {
-                    global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                    var istr = inS.startReadParams();
-                    IAPrx? iceP_p;
-                    iceP_p = IAPrxHelper.read(istr);
-                    inS.endReadParams();
-                    var ret = obj.iaop(iceP_p, current);
-                    var ostr = inS.startWriteParams();
-                    IAPrxHelper.write(ostr, ret);
-                    inS.endWriteParams(ostr);
-                    return inS.setResult(ostr);
-                }
-
-                private static readonly string[] _all =
-                {
-                    "iaop",
-                    "ice_id",
-                    "ice_ids",
-                    "ice_isA",
-                    "ice_ping"
-                };
-
-                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-                iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-                {
-                    int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-                    if(pos < 0)
+                public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+                    request.current.operation switch
                     {
-                        throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                    }
-
-                    switch(pos)
-                    {
-                        case 0:
-                        {
-                            return iceD_iaop(this, inS, current);
-                        }
-                        case 1:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                        }
-                        case 2:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                        }
-                        case 3:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                        }
-                        case 4:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                        }
-                    }
-
-                    global::System.Diagnostics.Debug.Assert(false);
-                    throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                }
+                        "iaop" => IA.iceD_iaopAsync(this, request),
+                        "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                        "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                        "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                        "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                        _ => throw new global::Ice.OperationNotExistException()
+                    };
 
                 #endregion
             }
@@ -1537,72 +1486,17 @@ namespace Ice.inheritance
 
                 #region Operation dispatch
 
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-                iceD_ib1op(IB1 obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-                {
-                    global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                    var istr = inS.startReadParams();
-                    IB1Prx? iceP_p;
-                    iceP_p = IB1PrxHelper.read(istr);
-                    inS.endReadParams();
-                    var ret = obj.ib1op(iceP_p, current);
-                    var ostr = inS.startWriteParams();
-                    IB1PrxHelper.write(ostr, ret);
-                    inS.endWriteParams(ostr);
-                    return inS.setResult(ostr);
-                }
-
-                private static readonly string[] _all =
-                {
-                    "iaop",
-                    "ib1op",
-                    "ice_id",
-                    "ice_ids",
-                    "ice_isA",
-                    "ice_ping"
-                };
-
-                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-                iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-                {
-                    int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-                    if(pos < 0)
+                public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+                    request.current.operation switch
                     {
-                        throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                    }
-
-                    switch(pos)
-                    {
-                        case 0:
-                        {
-                            return global::Ice.inheritance.Test.MA.IADisp_.iceD_iaop(this, inS, current);
-                        }
-                        case 1:
-                        {
-                            return iceD_ib1op(this, inS, current);
-                        }
-                        case 2:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                        }
-                        case 3:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                        }
-                        case 4:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                        }
-                        case 5:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                        }
-                    }
-
-                    global::System.Diagnostics.Debug.Assert(false);
-                    throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                }
+                        "iaop" => global::Ice.inheritance.Test.MA.IA.iceD_iaopAsync(this, request),
+                        "ib1op" => IB1.iceD_ib1opAsync(this, request),
+                        "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                        "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                        "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                        "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                        _ => throw new global::Ice.OperationNotExistException()
+                    };
 
                 #endregion
             }
@@ -1633,72 +1527,17 @@ namespace Ice.inheritance
 
                 #region Operation dispatch
 
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-                iceD_ib2op(IB2 obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-                {
-                    global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                    var istr = inS.startReadParams();
-                    IB2Prx? iceP_p;
-                    iceP_p = IB2PrxHelper.read(istr);
-                    inS.endReadParams();
-                    var ret = obj.ib2op(iceP_p, current);
-                    var ostr = inS.startWriteParams();
-                    IB2PrxHelper.write(ostr, ret);
-                    inS.endWriteParams(ostr);
-                    return inS.setResult(ostr);
-                }
-
-                private static readonly string[] _all =
-                {
-                    "iaop",
-                    "ib2op",
-                    "ice_id",
-                    "ice_ids",
-                    "ice_isA",
-                    "ice_ping"
-                };
-
-                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-                iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-                {
-                    int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-                    if(pos < 0)
+                public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+                    request.current.operation switch
                     {
-                        throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                    }
-
-                    switch(pos)
-                    {
-                        case 0:
-                        {
-                            return global::Ice.inheritance.Test.MA.IADisp_.iceD_iaop(this, inS, current);
-                        }
-                        case 1:
-                        {
-                            return iceD_ib2op(this, inS, current);
-                        }
-                        case 2:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                        }
-                        case 3:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                        }
-                        case 4:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                        }
-                        case 5:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                        }
-                    }
-
-                    global::System.Diagnostics.Debug.Assert(false);
-                    throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                }
+                        "iaop" => global::Ice.inheritance.Test.MA.IA.iceD_iaopAsync(this, request),
+                        "ib2op" => IB2.iceD_ib2opAsync(this, request),
+                        "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                        "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                        "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                        "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                        _ => throw new global::Ice.OperationNotExistException()
+                    };
 
                 #endregion
             }
@@ -1718,11 +1557,11 @@ namespace Ice.inheritance
 
                 #region Inherited Slice operations
 
+                public abstract global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.inheritance.Test.MB.IB2Prx? p, global::Ice.Current current);
+
                 public abstract IAPrx? iaop(IAPrx? p, global::Ice.Current current);
 
                 public abstract global::Ice.inheritance.Test.MB.IB1Prx? ib1op(global::Ice.inheritance.Test.MB.IB1Prx? p, global::Ice.Current current);
-
-                public abstract global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.inheritance.Test.MB.IB2Prx? p, global::Ice.Current current);
 
                 #endregion
 
@@ -1736,82 +1575,19 @@ namespace Ice.inheritance
 
                 #region Operation dispatch
 
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-                public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-                iceD_icop(IC obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-                {
-                    global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                    var istr = inS.startReadParams();
-                    ICPrx? iceP_p;
-                    iceP_p = ICPrxHelper.read(istr);
-                    inS.endReadParams();
-                    var ret = obj.icop(iceP_p, current);
-                    var ostr = inS.startWriteParams();
-                    ICPrxHelper.write(ostr, ret);
-                    inS.endWriteParams(ostr);
-                    return inS.setResult(ostr);
-                }
-
-                private static readonly string[] _all =
-                {
-                    "iaop",
-                    "ib1op",
-                    "ib2op",
-                    "ice_id",
-                    "ice_ids",
-                    "ice_isA",
-                    "ice_ping",
-                    "icop"
-                };
-
-                public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-                iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-                {
-                    int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-                    if(pos < 0)
+                public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+                    request.current.operation switch
                     {
-                        throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                    }
-
-                    switch(pos)
-                    {
-                        case 0:
-                        {
-                            return IADisp_.iceD_iaop(this, inS, current);
-                        }
-                        case 1:
-                        {
-                            return global::Ice.inheritance.Test.MB.IB1Disp_.iceD_ib1op(this, inS, current);
-                        }
-                        case 2:
-                        {
-                            return global::Ice.inheritance.Test.MB.IB2Disp_.iceD_ib2op(this, inS, current);
-                        }
-                        case 3:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                        }
-                        case 4:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                        }
-                        case 5:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                        }
-                        case 6:
-                        {
-                            return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                        }
-                        case 7:
-                        {
-                            return iceD_icop(this, inS, current);
-                        }
-                    }
-
-                    global::System.Diagnostics.Debug.Assert(false);
-                    throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                }
+                        "iaop" => IA.iceD_iaopAsync(this, request),
+                        "ib1op" => global::Ice.inheritance.Test.MB.IB1.iceD_ib1opAsync(this, request),
+                        "ib2op" => global::Ice.inheritance.Test.MB.IB2.iceD_ib2opAsync(this, request),
+                        "icop" => IC.iceD_icopAsync(this, request),
+                        "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                        "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                        "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                        "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                        _ => throw new global::Ice.OperationNotExistException()
+                    };
 
                 #endregion
             }
@@ -1845,135 +1621,190 @@ namespace Ice.inheritance
 
             #region Operation dispatch
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_shutdown(Initial obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                obj.shutdown(current);
-                return inS.setResult(inS.writeEmptyParams());
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_iaop(Initial obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                var ret = obj.iaop(current);
-                var ostr = inS.startWriteParams();
-                global::Ice.inheritance.Test.MA.IAPrxHelper.write(ostr, ret);
-                inS.endWriteParams(ostr);
-                return inS.setResult(ostr);
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_ib1op(Initial obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                var ret = obj.ib1op(current);
-                var ostr = inS.startWriteParams();
-                global::Ice.inheritance.Test.MB.IB1PrxHelper.write(ostr, ret);
-                inS.endWriteParams(ostr);
-                return inS.setResult(ostr);
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_ib2op(Initial obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                var ret = obj.ib2op(current);
-                var ostr = inS.startWriteParams();
-                global::Ice.inheritance.Test.MB.IB2PrxHelper.write(ostr, ret);
-                inS.endWriteParams(ostr);
-                return inS.setResult(ostr);
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_icop(Initial obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                var ret = obj.icop(current);
-                var ostr = inS.startWriteParams();
-                global::Ice.inheritance.Test.MA.ICPrxHelper.write(ostr, ret);
-                inS.endWriteParams(ostr);
-                return inS.setResult(ostr);
-            }
-
-            private static readonly string[] _all =
-            {
-                "iaop",
-                "ib1op",
-                "ib2op",
-                "ice_id",
-                "ice_ids",
-                "ice_isA",
-                "ice_ping",
-                "icop",
-                "shutdown"
-            };
-
-            public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-            iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-            {
-                int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-                if(pos < 0)
+            public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+                request.current.operation switch
                 {
-                    throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-                }
-
-                switch(pos)
-                {
-                    case 0:
-                    {
-                        return iceD_iaop(this, inS, current);
-                    }
-                    case 1:
-                    {
-                        return iceD_ib1op(this, inS, current);
-                    }
-                    case 2:
-                    {
-                        return iceD_ib2op(this, inS, current);
-                    }
-                    case 3:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                    }
-                    case 4:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                    }
-                    case 5:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                    }
-                    case 6:
-                    {
-                        return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                    }
-                    case 7:
-                    {
-                        return iceD_icop(this, inS, current);
-                    }
-                    case 8:
-                    {
-                        return iceD_shutdown(this, inS, current);
-                    }
-                }
-
-                global::System.Diagnostics.Debug.Assert(false);
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
+                    "shutdown" => Initial.iceD_shutdownAsync(this, request),
+                    "iaop" => Initial.iceD_iaopAsync(this, request),
+                    "ib1op" => Initial.iceD_ib1opAsync(this, request),
+                    "ib2op" => Initial.iceD_ib2opAsync(this, request),
+                    "icop" => Initial.iceD_icopAsync(this, request),
+                    "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new global::Ice.OperationNotExistException()
+                };
 
             #endregion
+        }
+    }
+}
+
+namespace Ice.inheritance
+{
+    namespace Test
+    {
+        namespace MA
+        {
+            public partial interface IA
+            {
+                protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_iaopAsync(
+                    IA obj,
+                    global::Ice.IncomingRequest request)
+                {
+                    global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    IAPrx? iceP_p;
+                    iceP_p = IAPrxHelper.read(istr);
+                    istr.endEncapsulation();
+                    var ret = obj.iaop(iceP_p, request.current);
+                    var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                    IAPrxHelper.write(ostr, ret);
+                    ostr.endEncapsulation();
+                    return new(new global::Ice.OutgoingResponse(ostr));
+                }
+            }
+        }
+
+        namespace MB
+        {
+            public partial interface IB1
+            {
+                protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_ib1opAsync(
+                    IB1 obj,
+                    global::Ice.IncomingRequest request)
+                {
+                    global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    IB1Prx? iceP_p;
+                    iceP_p = IB1PrxHelper.read(istr);
+                    istr.endEncapsulation();
+                    var ret = obj.ib1op(iceP_p, request.current);
+                    var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                    IB1PrxHelper.write(ostr, ret);
+                    ostr.endEncapsulation();
+                    return new(new global::Ice.OutgoingResponse(ostr));
+                }
+            }
+
+            public partial interface IB2
+            {
+                protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_ib2opAsync(
+                    IB2 obj,
+                    global::Ice.IncomingRequest request)
+                {
+                    global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    IB2Prx? iceP_p;
+                    iceP_p = IB2PrxHelper.read(istr);
+                    istr.endEncapsulation();
+                    var ret = obj.ib2op(iceP_p, request.current);
+                    var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                    IB2PrxHelper.write(ostr, ret);
+                    ostr.endEncapsulation();
+                    return new(new global::Ice.OutgoingResponse(ostr));
+                }
+            }
+        }
+
+        namespace MA
+        {
+            public partial interface IC
+            {
+                protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_icopAsync(
+                    IC obj,
+                    global::Ice.IncomingRequest request)
+                {
+                    global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                    var istr = request.inputStream;
+                    istr.startEncapsulation();
+                    ICPrx? iceP_p;
+                    iceP_p = ICPrxHelper.read(istr);
+                    istr.endEncapsulation();
+                    var ret = obj.icop(iceP_p, request.current);
+                    var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+                    ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                    ICPrxHelper.write(ostr, ret);
+                    ostr.endEncapsulation();
+                    return new(new global::Ice.OutgoingResponse(ostr));
+                }
+            }
+        }
+
+        public partial interface Initial
+        {
+            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+                Initial obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.shutdown(request.current);
+                return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_iaopAsync(
+                Initial obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.iaop(request.current);
+                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                global::Ice.inheritance.Test.MA.IAPrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new global::Ice.OutgoingResponse(ostr));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_ib1opAsync(
+                Initial obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.ib1op(request.current);
+                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                global::Ice.inheritance.Test.MB.IB1PrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new global::Ice.OutgoingResponse(ostr));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_ib2opAsync(
+                Initial obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.ib2op(request.current);
+                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                global::Ice.inheritance.Test.MB.IB2PrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new global::Ice.OutgoingResponse(ostr));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_icopAsync(
+                Initial obj,
+                global::Ice.IncomingRequest request)
+            {
+                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.icop(request.current);
+                var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+                global::Ice.inheritance.Test.MA.ICPrxHelper.write(ostr, ret);
+                ostr.endEncapsulation();
+                return new(new global::Ice.OutgoingResponse(ostr));
+            }
         }
     }
 }

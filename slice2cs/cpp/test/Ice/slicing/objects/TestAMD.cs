@@ -3505,772 +3505,693 @@ namespace Test
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_SBaseAsObject(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "SBaseAsObject" => TestIntf.iceD_SBaseAsObjectAsync(this, request),
+                "SBaseAsSBase" => TestIntf.iceD_SBaseAsSBaseAsync(this, request),
+                "SBSKnownDerivedAsSBase" => TestIntf.iceD_SBSKnownDerivedAsSBaseAsync(this, request),
+                "SBSKnownDerivedAsSBSKnownDerived" => TestIntf.iceD_SBSKnownDerivedAsSBSKnownDerivedAsync(this, request),
+                "SBSUnknownDerivedAsSBase" => TestIntf.iceD_SBSUnknownDerivedAsSBaseAsync(this, request),
+                "SBSUnknownDerivedAsSBaseCompact" => TestIntf.iceD_SBSUnknownDerivedAsSBaseCompactAsync(this, request),
+                "SUnknownAsObject" => TestIntf.iceD_SUnknownAsObjectAsync(this, request),
+                "checkSUnknown" => TestIntf.iceD_checkSUnknownAsync(this, request),
+                "oneElementCycle" => TestIntf.iceD_oneElementCycleAsync(this, request),
+                "twoElementCycle" => TestIntf.iceD_twoElementCycleAsync(this, request),
+                "D1AsB" => TestIntf.iceD_D1AsBAsync(this, request),
+                "D1AsD1" => TestIntf.iceD_D1AsD1Async(this, request),
+                "D2AsB" => TestIntf.iceD_D2AsBAsync(this, request),
+                "paramTest1" => TestIntf.iceD_paramTest1Async(this, request),
+                "paramTest2" => TestIntf.iceD_paramTest2Async(this, request),
+                "paramTest3" => TestIntf.iceD_paramTest3Async(this, request),
+                "paramTest4" => TestIntf.iceD_paramTest4Async(this, request),
+                "returnTest1" => TestIntf.iceD_returnTest1Async(this, request),
+                "returnTest2" => TestIntf.iceD_returnTest2Async(this, request),
+                "returnTest3" => TestIntf.iceD_returnTest3Async(this, request),
+                "sequenceTest" => TestIntf.iceD_sequenceTestAsync(this, request),
+                "dictionaryTest" => TestIntf.iceD_dictionaryTestAsync(this, request),
+                "exchangePBase" => TestIntf.iceD_exchangePBaseAsync(this, request),
+                "PBSUnknownAsPreserved" => TestIntf.iceD_PBSUnknownAsPreservedAsync(this, request),
+                "checkPBSUnknown" => TestIntf.iceD_checkPBSUnknownAsync(this, request),
+                "PBSUnknownAsPreservedWithGraph" => TestIntf.iceD_PBSUnknownAsPreservedWithGraphAsync(this, request),
+                "checkPBSUnknownWithGraph" => TestIntf.iceD_checkPBSUnknownWithGraphAsync(this, request),
+                "PBSUnknown2AsPreservedWithGraph" => TestIntf.iceD_PBSUnknown2AsPreservedWithGraphAsync(this, request),
+                "checkPBSUnknown2WithGraph" => TestIntf.iceD_checkPBSUnknown2WithGraphAsync(this, request),
+                "exchangePNode" => TestIntf.iceD_exchangePNodeAsync(this, request),
+                "throwBaseAsBase" => TestIntf.iceD_throwBaseAsBaseAsync(this, request),
+                "throwDerivedAsBase" => TestIntf.iceD_throwDerivedAsBaseAsync(this, request),
+                "throwDerivedAsDerived" => TestIntf.iceD_throwDerivedAsDerivedAsync(this, request),
+                "throwUnknownDerivedAsBase" => TestIntf.iceD_throwUnknownDerivedAsBaseAsync(this, request),
+                "useForward" => TestIntf.iceD_useForwardAsync(this, request),
+                "shutdown" => TestIntf.iceD_shutdownAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
+
+        #endregion
+    }
+}
+
+namespace Test
+{
+    public partial interface TestIntf
+    {
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_SBaseAsObjectAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<global::Ice.Value?>(obj.SBaseAsObjectAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.SBaseAsObjectAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_SBaseAsSBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_SBaseAsSBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SBase?>(obj.SBaseAsSBaseAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.SBaseAsSBaseAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_SBSKnownDerivedAsSBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_SBSKnownDerivedAsSBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SBase?>(obj.SBSKnownDerivedAsSBaseAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.SBSKnownDerivedAsSBaseAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_SBSKnownDerivedAsSBSKnownDerived(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_SBSKnownDerivedAsSBSKnownDerivedAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SBSKnownDerived?>(obj.SBSKnownDerivedAsSBSKnownDerivedAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.SBSKnownDerivedAsSBSKnownDerivedAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_SBSUnknownDerivedAsSBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_SBSUnknownDerivedAsSBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SBase?>(obj.SBSUnknownDerivedAsSBaseAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.SBSUnknownDerivedAsSBaseAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_SBSUnknownDerivedAsSBaseCompact(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_SBSUnknownDerivedAsSBaseCompactAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.CompactFormat);
-            return inS.setResultTask<SBase?>(obj.SBSUnknownDerivedAsSBaseCompactAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.SBSUnknownDerivedAsSBaseCompactAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.CompactFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_SUnknownAsObject(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_SUnknownAsObjectAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<global::Ice.Value?>(obj.SUnknownAsObjectAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.SUnknownAsObjectAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_checkSUnknown(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_checkSUnknownAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             global::Ice.Value? iceP_o = null;
             istr.readValue((global::Ice.Value? v) => { iceP_o = v; });
             istr.readPendingValues();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask(obj.checkSUnknownAsync(iceP_o, current));
+            istr.endEncapsulation();
+            await obj.checkSUnknownAsync(iceP_o, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_oneElementCycle(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_oneElementCycleAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<B?>(obj.oneElementCycleAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.oneElementCycleAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_twoElementCycle(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_twoElementCycleAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<B?>(obj.twoElementCycleAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.twoElementCycleAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_D1AsB(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_D1AsBAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<B?>(obj.D1AsBAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.D1AsBAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_D1AsD1(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_D1AsD1Async(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<D1?>(obj.D1AsD1Async(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.D1AsD1Async(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_D2AsB(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_D2AsBAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<B?>(obj.D2AsBAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.D2AsBAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_paramTest1(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_paramTest1Async(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<TestIntf_ParamTest1Result>(obj.paramTest1Async(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.paramTest1Async(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret.p1);
                     ostr.writeValue(ret.p2);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_paramTest2(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_paramTest2Async(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<TestIntf_ParamTest2Result>(obj.paramTest2Async(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.paramTest2Async(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret.p2);
                     ostr.writeValue(ret.p1);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_paramTest3(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_paramTest3Async(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<TestIntf_ParamTest3Result>(obj.paramTest3Async(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.paramTest3Async(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret.p1);
                     ostr.writeValue(ret.p2);
                     ostr.writeValue(ret.returnValue);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_paramTest4(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_paramTest4Async(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<TestIntf_ParamTest4Result>(obj.paramTest4Async(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.paramTest4Async(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret.p);
                     ostr.writeValue(ret.returnValue);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_returnTest1(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_returnTest1Async(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<TestIntf_ReturnTest1Result>(obj.returnTest1Async(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.returnTest1Async(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret.p1);
                     ostr.writeValue(ret.p2);
                     ostr.writeValue(ret.returnValue);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_returnTest2(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_returnTest2Async(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<TestIntf_ReturnTest2Result>(obj.returnTest2Async(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.returnTest2Async(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret.p2);
                     ostr.writeValue(ret.p1);
                     ostr.writeValue(ret.returnValue);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_returnTest3(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_returnTest3Async(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             B? iceP_p1 = null;
             B? iceP_p2 = null;
             istr.readValue((B? v) => { iceP_p1 = v; });
             istr.readValue((B? v) => { iceP_p2 = v; });
             istr.readPendingValues();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<B?>(obj.returnTest3Async(iceP_p1, iceP_p2, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.returnTest3Async(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_sequenceTest(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_sequenceTestAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             SS1? iceP_p1 = null;
             SS2? iceP_p2 = null;
             istr.readValue((SS1? v) => { iceP_p1 = v; });
             istr.readValue((SS2? v) => { iceP_p2 = v; });
             istr.readPendingValues();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<SS3>(obj.sequenceTestAsync(iceP_p1, iceP_p2, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.sequenceTestAsync(iceP_p1, iceP_p2, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     SS3.ice_write(ostr, ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_dictionaryTest(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_dictionaryTestAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             global::System.Collections.Generic.Dictionary<int, B?> iceP_bin;
             iceP_bin = BDictHelper.read(istr);
             istr.readPendingValues();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<TestIntf_DictionaryTestResult>(obj.dictionaryTestAsync(iceP_bin, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.dictionaryTestAsync(iceP_bin, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     BDictHelper.write(ostr, ret.bout);
                     BDictHelper.write(ostr, ret.returnValue);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_exchangePBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_exchangePBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             PBase? iceP_pb = null;
             istr.readValue((PBase? v) => { iceP_pb = v; });
             istr.readPendingValues();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<PBase?>(obj.exchangePBaseAsync(iceP_pb, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.exchangePBaseAsync(iceP_pb, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_PBSUnknownAsPreserved(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_PBSUnknownAsPreservedAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<Preserved?>(obj.PBSUnknownAsPreservedAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.PBSUnknownAsPreservedAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_checkPBSUnknown(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_checkPBSUnknownAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             Preserved? iceP_p = null;
             istr.readValue((Preserved? v) => { iceP_p = v; });
             istr.readPendingValues();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask(obj.checkPBSUnknownAsync(iceP_p, current));
+            istr.endEncapsulation();
+            await obj.checkPBSUnknownAsync(iceP_p, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_PBSUnknownAsPreservedWithGraph(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_PBSUnknownAsPreservedWithGraphAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<Preserved?>(obj.PBSUnknownAsPreservedWithGraphAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.PBSUnknownAsPreservedWithGraphAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_checkPBSUnknownWithGraph(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_checkPBSUnknownWithGraphAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             Preserved? iceP_p = null;
             istr.readValue((Preserved? v) => { iceP_p = v; });
             istr.readPendingValues();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask(obj.checkPBSUnknownWithGraphAsync(iceP_p, current));
+            istr.endEncapsulation();
+            await obj.checkPBSUnknownWithGraphAsync(iceP_p, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_PBSUnknown2AsPreservedWithGraph(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_PBSUnknown2AsPreservedWithGraphAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<Preserved?>(obj.PBSUnknown2AsPreservedWithGraphAsync(current),
-                (ostr, ret) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.PBSUnknown2AsPreservedWithGraphAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_checkPBSUnknown2WithGraph(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_checkPBSUnknown2WithGraphAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             Preserved? iceP_p = null;
             istr.readValue((Preserved? v) => { iceP_p = v; });
             istr.readPendingValues();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask(obj.checkPBSUnknown2WithGraphAsync(iceP_p, current));
+            istr.endEncapsulation();
+            await obj.checkPBSUnknown2WithGraphAsync(iceP_p, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_exchangePNode(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_exchangePNodeAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             PNode? iceP_pn = null;
             istr.readValue((PNode? v) => { iceP_pn = v; });
             istr.readPendingValues();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<PNode?>(obj.exchangePNodeAsync(iceP_pn, current),
-                (ostr, ret) =>
+            istr.endEncapsulation();
+            var result = await obj.exchangePNodeAsync(iceP_pn, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
                 {
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_throwBaseAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_throwBaseAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask(obj.throwBaseAsBaseAsync(current));
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.throwBaseAsBaseAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_throwDerivedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_throwDerivedAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask(obj.throwDerivedAsBaseAsync(current));
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.throwDerivedAsBaseAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_throwDerivedAsDerived(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_throwDerivedAsDerivedAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask(obj.throwDerivedAsDerivedAsync(current));
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.throwDerivedAsDerivedAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_throwUnknownDerivedAsBase(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_throwUnknownDerivedAsBaseAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask(obj.throwUnknownDerivedAsBaseAsync(current));
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.throwUnknownDerivedAsBaseAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_useForward(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_useForwardAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask<Forward?>(obj.useForwardAsync(current),
-                (ostr, iceP_f) =>
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var result = await obj.useForwardAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, iceP_f) =>
                 {
                     ostr.writeValue(iceP_f);
                     ostr.writePendingValues();
-                });
+                },
+                global::Ice.FormatType.SlicedFormat);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_shutdown(TestIntf obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_shutdownAsync(
+            TestIntf obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask(obj.shutdownAsync(current));
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            await obj.shutdownAsync(request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
-
-        private static readonly string[] _all =
-        {
-            "D1AsB",
-            "D1AsD1",
-            "D2AsB",
-            "PBSUnknown2AsPreservedWithGraph",
-            "PBSUnknownAsPreserved",
-            "PBSUnknownAsPreservedWithGraph",
-            "SBSKnownDerivedAsSBSKnownDerived",
-            "SBSKnownDerivedAsSBase",
-            "SBSUnknownDerivedAsSBase",
-            "SBSUnknownDerivedAsSBaseCompact",
-            "SBaseAsObject",
-            "SBaseAsSBase",
-            "SUnknownAsObject",
-            "checkPBSUnknown",
-            "checkPBSUnknown2WithGraph",
-            "checkPBSUnknownWithGraph",
-            "checkSUnknown",
-            "dictionaryTest",
-            "exchangePBase",
-            "exchangePNode",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "oneElementCycle",
-            "paramTest1",
-            "paramTest2",
-            "paramTest3",
-            "paramTest4",
-            "returnTest1",
-            "returnTest2",
-            "returnTest3",
-            "sequenceTest",
-            "shutdown",
-            "throwBaseAsBase",
-            "throwDerivedAsBase",
-            "throwDerivedAsDerived",
-            "throwUnknownDerivedAsBase",
-            "twoElementCycle",
-            "useForward"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
-            {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_D1AsB(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_D1AsD1(this, inS, current);
-                }
-                case 2:
-                {
-                    return iceD_D2AsB(this, inS, current);
-                }
-                case 3:
-                {
-                    return iceD_PBSUnknown2AsPreservedWithGraph(this, inS, current);
-                }
-                case 4:
-                {
-                    return iceD_PBSUnknownAsPreserved(this, inS, current);
-                }
-                case 5:
-                {
-                    return iceD_PBSUnknownAsPreservedWithGraph(this, inS, current);
-                }
-                case 6:
-                {
-                    return iceD_SBSKnownDerivedAsSBSKnownDerived(this, inS, current);
-                }
-                case 7:
-                {
-                    return iceD_SBSKnownDerivedAsSBase(this, inS, current);
-                }
-                case 8:
-                {
-                    return iceD_SBSUnknownDerivedAsSBase(this, inS, current);
-                }
-                case 9:
-                {
-                    return iceD_SBSUnknownDerivedAsSBaseCompact(this, inS, current);
-                }
-                case 10:
-                {
-                    return iceD_SBaseAsObject(this, inS, current);
-                }
-                case 11:
-                {
-                    return iceD_SBaseAsSBase(this, inS, current);
-                }
-                case 12:
-                {
-                    return iceD_SUnknownAsObject(this, inS, current);
-                }
-                case 13:
-                {
-                    return iceD_checkPBSUnknown(this, inS, current);
-                }
-                case 14:
-                {
-                    return iceD_checkPBSUnknown2WithGraph(this, inS, current);
-                }
-                case 15:
-                {
-                    return iceD_checkPBSUnknownWithGraph(this, inS, current);
-                }
-                case 16:
-                {
-                    return iceD_checkSUnknown(this, inS, current);
-                }
-                case 17:
-                {
-                    return iceD_dictionaryTest(this, inS, current);
-                }
-                case 18:
-                {
-                    return iceD_exchangePBase(this, inS, current);
-                }
-                case 19:
-                {
-                    return iceD_exchangePNode(this, inS, current);
-                }
-                case 20:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 21:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 22:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 23:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 24:
-                {
-                    return iceD_oneElementCycle(this, inS, current);
-                }
-                case 25:
-                {
-                    return iceD_paramTest1(this, inS, current);
-                }
-                case 26:
-                {
-                    return iceD_paramTest2(this, inS, current);
-                }
-                case 27:
-                {
-                    return iceD_paramTest3(this, inS, current);
-                }
-                case 28:
-                {
-                    return iceD_paramTest4(this, inS, current);
-                }
-                case 29:
-                {
-                    return iceD_returnTest1(this, inS, current);
-                }
-                case 30:
-                {
-                    return iceD_returnTest2(this, inS, current);
-                }
-                case 31:
-                {
-                    return iceD_returnTest3(this, inS, current);
-                }
-                case 32:
-                {
-                    return iceD_sequenceTest(this, inS, current);
-                }
-                case 33:
-                {
-                    return iceD_shutdown(this, inS, current);
-                }
-                case 34:
-                {
-                    return iceD_throwBaseAsBase(this, inS, current);
-                }
-                case 35:
-                {
-                    return iceD_throwDerivedAsBase(this, inS, current);
-                }
-                case 36:
-                {
-                    return iceD_throwDerivedAsDerived(this, inS, current);
-                }
-                case 37:
-                {
-                    return iceD_throwUnknownDerivedAsBase(this, inS, current);
-                }
-                case 38:
-                {
-                    return iceD_twoElementCycle(this, inS, current);
-                }
-                case 39:
-                {
-                    return iceD_useForward(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        #endregion
     }
 }

@@ -158,5 +158,5 @@ public class DerivedException extends OptionalException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 1470342810765121445L;
+    public static final long serialVersionUID = -270853065275831484L;
 }

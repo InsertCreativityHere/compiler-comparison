@@ -687,145 +687,106 @@ namespace IceGrid
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_keepAlive(Session obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            inS.readEmptyParams();
-            obj.keepAlive(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_allocateObjectById(Session obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            iceP_id = new global::Ice.Identity(istr);
-            inS.endReadParams();
-            return inS.setResultTask<global::Ice.ObjectPrx?>(obj.allocateObjectByIdAsync(iceP_id, current),
-                (ostr, ret) =>
-                {
-                    ostr.writeProxy(ret);
-                });
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_allocateObjectByType(Session obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_type;
-            iceP_type = istr.readString();
-            inS.endReadParams();
-            return inS.setResultTask<global::Ice.ObjectPrx?>(obj.allocateObjectByTypeAsync(iceP_type, current),
-                (ostr, ret) =>
-                {
-                    ostr.writeProxy(ret);
-                });
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_releaseObject(Session obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            global::Ice.Identity iceP_id;
-            iceP_id = new global::Ice.Identity(istr);
-            inS.endReadParams();
-            obj.releaseObject(iceP_id, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_setAllocationTimeout(Session obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_timeout;
-            iceP_timeout = istr.readInt();
-            inS.endReadParams();
-            obj.setAllocationTimeout(iceP_timeout, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        private static readonly string[] _all =
-        {
-            "allocateObjectById",
-            "allocateObjectByType",
-            "destroy",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "keepAlive",
-            "releaseObject",
-            "setAllocationTimeout"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_allocateObjectById(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_allocateObjectByType(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Glacier2.SessionDisp_.iceD_destroy(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 4:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 5:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 6:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 7:
-                {
-                    return iceD_keepAlive(this, inS, current);
-                }
-                case 8:
-                {
-                    return iceD_releaseObject(this, inS, current);
-                }
-                case 9:
-                {
-                    return iceD_setAllocationTimeout(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "destroy" => global::Glacier2.Session.iceD_destroyAsync(this, request),
+                "keepAlive" => Session.iceD_keepAliveAsync(this, request),
+                "allocateObjectById" => Session.iceD_allocateObjectByIdAsync(this, request),
+                "allocateObjectByType" => Session.iceD_allocateObjectByTypeAsync(this, request),
+                "releaseObject" => Session.iceD_releaseObjectAsync(this, request),
+                "setAllocationTimeout" => Session.iceD_setAllocationTimeoutAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
 
         #endregion
+    }
+}
+
+namespace IceGrid
+{
+    public partial interface Session
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_keepAliveAsync(
+            Session obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.keepAlive(request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_allocateObjectByIdAsync(
+            Session obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::Ice.Identity iceP_id;
+            iceP_id = new global::Ice.Identity(istr);
+            istr.endEncapsulation();
+            var result = await obj.allocateObjectByIdAsync(iceP_id, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeProxy(ret);
+                });
+        }
+
+        protected static async global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_allocateObjectByTypeAsync(
+            Session obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_type;
+            iceP_type = istr.readString();
+            istr.endEncapsulation();
+            var result = await obj.allocateObjectByTypeAsync(iceP_type, request.current).ConfigureAwait(false);
+            return global::Ice.CurrentExtensions.createOutgoingResponse(
+                request.current,
+                result,
+                static (ostr, ret) =>
+                {
+                    ostr.writeProxy(ret);
+                });
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_releaseObjectAsync(
+            Session obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::Ice.Identity iceP_id;
+            iceP_id = new global::Ice.Identity(istr);
+            istr.endEncapsulation();
+            obj.releaseObject(iceP_id, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_setAllocationTimeoutAsync(
+            Session obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            int iceP_timeout;
+            iceP_timeout = istr.readInt();
+            istr.endEncapsulation();
+            obj.setAllocationTimeout(iceP_timeout, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
     }
 }

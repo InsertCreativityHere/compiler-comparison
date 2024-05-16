@@ -142,5 +142,5 @@ public class S6 implements java.lang.Cloneable,
     private static final S6 _nullMarshalValue = new S6();
 
     /** @hidden */
-    public static final long serialVersionUID = 3216395947349677657L;
+    public static final long serialVersionUID = 3216396139692256175L;
 }

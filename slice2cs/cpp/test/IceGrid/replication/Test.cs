@@ -169,3 +169,7 @@ namespace Test
         #endregion
     }
 }
+
+namespace Test
+{
+}

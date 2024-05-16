@@ -1776,181 +1776,135 @@ namespace IceMX
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getMetricsViewNames(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "getMetricsViewNames" => MetricsAdmin.iceD_getMetricsViewNamesAsync(this, request),
+                "enableMetricsView" => MetricsAdmin.iceD_enableMetricsViewAsync(this, request),
+                "disableMetricsView" => MetricsAdmin.iceD_disableMetricsViewAsync(this, request),
+                "getMetricsView" => MetricsAdmin.iceD_getMetricsViewAsync(this, request),
+                "getMapMetricsFailures" => MetricsAdmin.iceD_getMapMetricsFailuresAsync(this, request),
+                "getMetricsFailures" => MetricsAdmin.iceD_getMetricsFailuresAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
+
+        #endregion
+    }
+}
+
+namespace IceMX
+{
+    public partial interface MetricsAdmin
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getMetricsViewNamesAsync(
+            MetricsAdmin obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
             string[] iceP_disabledViews;
-            var ret = obj.getMetricsViewNames(out iceP_disabledViews, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.getMetricsViewNames(out iceP_disabledViews, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.SlicedFormat);
             global::Ice.StringSeqHelper.write(ostr, iceP_disabledViews);
             global::Ice.StringSeqHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_enableMetricsView(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_enableMetricsViewAsync(
+            MetricsAdmin obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string iceP_name;
             iceP_name = istr.readString();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.enableMetricsView(iceP_name, current);
-            return inS.setResult(inS.writeEmptyParams());
+            istr.endEncapsulation();
+            obj.enableMetricsView(iceP_name, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_disableMetricsView(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_disableMetricsViewAsync(
+            MetricsAdmin obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string iceP_name;
             iceP_name = istr.readString();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            obj.disableMetricsView(iceP_name, current);
-            return inS.setResult(inS.writeEmptyParams());
+            istr.endEncapsulation();
+            obj.disableMetricsView(iceP_name, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getMetricsView(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getMetricsViewAsync(
+            MetricsAdmin obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string iceP_view;
             iceP_view = istr.readString();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
+            istr.endEncapsulation();
             long iceP_timestamp;
-            var ret = obj.getMetricsView(iceP_view, out iceP_timestamp, current);
-            var ostr = inS.startWriteParams();
+            var ret = obj.getMetricsView(iceP_view, out iceP_timestamp, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.SlicedFormat);
             ostr.writeLong(iceP_timestamp);
             MetricsViewHelper.write(ostr, ret);
             ostr.writePendingValues();
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getMapMetricsFailures(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getMapMetricsFailuresAsync(
+            MetricsAdmin obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string iceP_view;
             string iceP_map;
             iceP_view = istr.readString();
             iceP_map = istr.readString();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            var ret = obj.getMapMetricsFailures(iceP_view, iceP_map, current);
-            var ostr = inS.startWriteParams();
+            istr.endEncapsulation();
+            var ret = obj.getMapMetricsFailures(iceP_view, iceP_map, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.SlicedFormat);
             MetricsFailuresSeqHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getMetricsFailures(MetricsAdmin obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getMetricsFailuresAsync(
+            MetricsAdmin obj,
+            global::Ice.IncomingRequest request)
         {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
             string iceP_view;
             string iceP_map;
             string iceP_id;
             iceP_view = istr.readString();
             iceP_map = istr.readString();
             iceP_id = istr.readString();
-            inS.endReadParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            var ret = obj.getMetricsFailures(iceP_view, iceP_map, iceP_id, current);
-            var ostr = inS.startWriteParams();
+            istr.endEncapsulation();
+            var ret = obj.getMetricsFailures(iceP_view, iceP_map, iceP_id, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.SlicedFormat);
             MetricsFailures.ice_write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
         }
-
-        private static readonly string[] _all =
-        {
-            "disableMetricsView",
-            "enableMetricsView",
-            "getMapMetricsFailures",
-            "getMetricsFailures",
-            "getMetricsView",
-            "getMetricsViewNames",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
-            {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_disableMetricsView(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_enableMetricsView(this, inS, current);
-                }
-                case 2:
-                {
-                    return iceD_getMapMetricsFailures(this, inS, current);
-                }
-                case 3:
-                {
-                    return iceD_getMetricsFailures(this, inS, current);
-                }
-                case 4:
-                {
-                    return iceD_getMetricsView(this, inS, current);
-                }
-                case 5:
-                {
-                    return iceD_getMetricsViewNames(this, inS, current);
-                }
-                case 6:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 7:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 8:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 9:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        #endregion
     }
 }

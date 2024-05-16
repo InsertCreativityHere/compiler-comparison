@@ -1621,64 +1621,16 @@ namespace IceStorm
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_forward(TopicLink obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            EventData[] iceP_events;
-            iceP_events = EventDataSeqHelper.read(istr);
-            inS.endReadParams();
-            obj.forward(iceP_events, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        private static readonly string[] _all =
-        {
-            "forward",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_forward(this, inS, current);
-                }
-                case 1:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 4:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "forward" => TopicLink.iceD_forwardAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
 
         #endregion
     }
@@ -1729,132 +1681,27 @@ namespace IceStorm
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getLinkProxy(TopicInternal obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.getLinkProxy(current);
-            var ostr = inS.startWriteParams();
-            TopicLinkPrxHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_reap(TopicInternal obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            global::Ice.Identity[] iceP_id;
-            iceP_id = global::Ice.IdentitySeqHelper.read(istr);
-            inS.endReadParams();
-            obj.reap(iceP_id, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        private static readonly string[] _all =
-        {
-            "destroy",
-            "getLinkInfoSeq",
-            "getLinkProxy",
-            "getName",
-            "getNonReplicatedPublisher",
-            "getPublisher",
-            "getSubscribers",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "link",
-            "reap",
-            "subscribeAndGetPublisher",
-            "unlink",
-            "unsubscribe"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return TopicDisp_.iceD_destroy(this, inS, current);
-                }
-                case 1:
-                {
-                    return TopicDisp_.iceD_getLinkInfoSeq(this, inS, current);
-                }
-                case 2:
-                {
-                    return iceD_getLinkProxy(this, inS, current);
-                }
-                case 3:
-                {
-                    return TopicDisp_.iceD_getName(this, inS, current);
-                }
-                case 4:
-                {
-                    return TopicDisp_.iceD_getNonReplicatedPublisher(this, inS, current);
-                }
-                case 5:
-                {
-                    return TopicDisp_.iceD_getPublisher(this, inS, current);
-                }
-                case 6:
-                {
-                    return TopicDisp_.iceD_getSubscribers(this, inS, current);
-                }
-                case 7:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 8:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 9:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 10:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 11:
-                {
-                    return TopicDisp_.iceD_link(this, inS, current);
-                }
-                case 12:
-                {
-                    return iceD_reap(this, inS, current);
-                }
-                case 13:
-                {
-                    return TopicDisp_.iceD_subscribeAndGetPublisher(this, inS, current);
-                }
-                case 14:
-                {
-                    return TopicDisp_.iceD_unlink(this, inS, current);
-                }
-                case 15:
-                {
-                    return TopicDisp_.iceD_unsubscribe(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "getName" => Topic.iceD_getNameAsync(this, request),
+                "getPublisher" => Topic.iceD_getPublisherAsync(this, request),
+                "getNonReplicatedPublisher" => Topic.iceD_getNonReplicatedPublisherAsync(this, request),
+                "subscribeAndGetPublisher" => Topic.iceD_subscribeAndGetPublisherAsync(this, request),
+                "unsubscribe" => Topic.iceD_unsubscribeAsync(this, request),
+                "link" => Topic.iceD_linkAsync(this, request),
+                "unlink" => Topic.iceD_unlinkAsync(this, request),
+                "getLinkInfoSeq" => Topic.iceD_getLinkInfoSeqAsync(this, request),
+                "getSubscribers" => Topic.iceD_getSubscribersAsync(this, request),
+                "destroy" => Topic.iceD_destroyAsync(this, request),
+                "getLinkProxy" => TopicInternal.iceD_getLinkProxyAsync(this, request),
+                "reap" => TopicInternal.iceD_reapAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
 
         #endregion
     }
@@ -1871,11 +1718,11 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
-        public abstract TopicPrx? create(string name, global::Ice.Current current);
-
         public abstract TopicPrx? retrieve(string name, global::Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(global::Ice.Current current);
+
+        public abstract TopicPrx? create(string name, global::Ice.Current current);
 
         #endregion
 
@@ -1889,80 +1736,88 @@ namespace IceStorm
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getReplicaNode(TopicManagerInternal obj, global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.getReplicaNode(current);
-            var ostr = inS.startWriteParams();
-            global::IceStormElection.NodePrxHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        private static readonly string[] _all =
-        {
-            "create",
-            "getReplicaNode",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "retrieve",
-            "retrieveAll"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> dispatchAsync(global::Ice.IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return TopicManagerDisp_.iceD_create(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_getReplicaNode(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 4:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 5:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 6:
-                {
-                    return TopicManagerDisp_.iceD_retrieve(this, inS, current);
-                }
-                case 7:
-                {
-                    return TopicManagerDisp_.iceD_retrieveAll(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "create" => TopicManager.iceD_createAsync(this, request),
+                "retrieve" => TopicManager.iceD_retrieveAsync(this, request),
+                "retrieveAll" => TopicManager.iceD_retrieveAllAsync(this, request),
+                "getReplicaNode" => TopicManagerInternal.iceD_getReplicaNodeAsync(this, request),
+                "ice_id" => global::Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => global::Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => global::Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => global::Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new global::Ice.OperationNotExistException()
+            };
 
         #endregion
+    }
+}
+
+namespace IceStorm
+{
+    public partial interface TopicLink
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_forwardAsync(
+            TopicLink obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            EventData[] iceP_events;
+            iceP_events = EventDataSeqHelper.read(istr);
+            istr.endEncapsulation();
+            obj.forward(iceP_events, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
+    public partial interface TopicInternal
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getLinkProxyAsync(
+            TopicInternal obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getLinkProxy(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            TopicLinkPrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_reapAsync(
+            TopicInternal obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::Ice.Identity[] iceP_id;
+            iceP_id = global::Ice.IdentitySeqHelper.read(istr);
+            istr.endEncapsulation();
+            obj.reap(iceP_id, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+    }
+
+    public partial interface TopicManagerInternal
+    {
+        protected static global::System.Threading.Tasks.ValueTask<global::Ice.OutgoingResponse> iceD_getReplicaNodeAsync(
+            TopicManagerInternal obj,
+            global::Ice.IncomingRequest request)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.getReplicaNode(request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            global::IceStormElection.NodePrxHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
     }
 }

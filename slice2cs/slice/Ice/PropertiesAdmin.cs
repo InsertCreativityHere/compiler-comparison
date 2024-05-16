@@ -431,107 +431,75 @@ namespace Ice
 
         #region Operation dispatch
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getProperty(PropertiesAdmin obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_key;
-            iceP_key = istr.readString();
-            inS.endReadParams();
-            var ret = obj.getProperty(iceP_key, current);
-            var ostr = inS.startWriteParams();
-            ostr.writeString(ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_getPropertiesForPrefix(PropertiesAdmin obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_prefix;
-            iceP_prefix = istr.readString();
-            inS.endReadParams();
-            var ret = obj.getPropertiesForPrefix(iceP_prefix, current);
-            var ostr = inS.startWriteParams();
-            PropertyDictHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<OutputStream>
-        iceD_setProperties(PropertiesAdmin obj, global::Ice.Internal.Incoming inS, Current current)
-        {
-            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties;
-            iceP_newProperties = PropertyDictHelper.read(istr);
-            inS.endReadParams();
-            obj.setProperties(iceP_newProperties, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        private static readonly string[] _all =
-        {
-            "getPropertiesForPrefix",
-            "getProperty",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping",
-            "setProperties"
-        };
-
-        public override global::System.Threading.Tasks.Task<OutputStream>?
-        iceDispatch(global::Ice.Internal.Incoming inS, Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::Ice.UtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
+        public override global::System.Threading.Tasks.ValueTask<OutgoingResponse> dispatchAsync(IncomingRequest request) =>
+            request.current.operation switch
             {
-                throw new OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_getPropertiesForPrefix(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_getProperty(this, inS, current);
-                }
-                case 2:
-                {
-                    return ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 3:
-                {
-                    return ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 4:
-                {
-                    return ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 5:
-                {
-                    return ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 6:
-                {
-                    return iceD_setProperties(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new OperationNotExistException(current.id, current.facet, current.operation);
-        }
+                "getProperty" => PropertiesAdmin.iceD_getPropertyAsync(this, request),
+                "getPropertiesForPrefix" => PropertiesAdmin.iceD_getPropertiesForPrefixAsync(this, request),
+                "setProperties" => PropertiesAdmin.iceD_setPropertiesAsync(this, request),
+                "ice_id" => Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Object.iceD_ice_pingAsync(this, request),
+                _ => throw new OperationNotExistException()
+            };
 
         #endregion
+    }
+}
+
+namespace Ice
+{
+    public partial interface PropertiesAdmin
+    {
+        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getPropertyAsync(
+            PropertiesAdmin obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_key;
+            iceP_key = istr.readString();
+            istr.endEncapsulation();
+            var ret = obj.getProperty(iceP_key, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            ostr.writeString(ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_getPropertiesForPrefixAsync(
+            PropertiesAdmin obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_prefix;
+            iceP_prefix = istr.readString();
+            istr.endEncapsulation();
+            var ret = obj.getPropertiesForPrefix(iceP_prefix, request.current);
+            var ostr = global::Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, global::Ice.FormatType.DefaultFormat);
+            PropertyDictHelper.write(ostr, ret);
+            ostr.endEncapsulation();
+            return new(new global::Ice.OutgoingResponse(ostr));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<OutgoingResponse> iceD_setPropertiesAsync(
+            PropertiesAdmin obj,
+            IncomingRequest request)
+        {
+            ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            global::System.Collections.Generic.Dictionary<string, string> iceP_newProperties;
+            iceP_newProperties = PropertyDictHelper.read(istr);
+            istr.endEncapsulation();
+            obj.setProperties(iceP_newProperties, request.current);
+            return new(global::Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
     }
 }
