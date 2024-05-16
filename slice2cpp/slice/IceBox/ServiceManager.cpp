@@ -148,11 +148,11 @@ IceBox::ServiceManagerPrx::_iceI_startService(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
-            catch(const AlreadyStartedException&)
+            catch(const NoSuchServiceException&)
             {
                 throw;
             }
-            catch(const NoSuchServiceException&)
+            catch(const AlreadyStartedException&)
             {
                 throw;
             }
@@ -197,11 +197,11 @@ IceBox::ServiceManagerPrx::_iceI_stopService(const ::std::shared_ptr<::IceIntern
             {
                 ex.ice_throw();
             }
-            catch(const AlreadyStoppedException&)
+            catch(const NoSuchServiceException&)
             {
                 throw;
             }
-            catch(const NoSuchServiceException&)
+            catch(const AlreadyStoppedException&)
             {
                 throw;
             }

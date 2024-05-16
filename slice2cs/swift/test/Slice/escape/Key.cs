@@ -1212,9 +1212,9 @@ namespace and
     {
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<int> caseAsync(int @catch, global::Ice.Current current);
-
         public abstract void @public(global::Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<int> caseAsync(int @catch, global::Ice.Current current);
 
         #endregion
 
