@@ -1515,11 +1515,11 @@ namespace Ice.location
 
             #region Inherited Slice operations
 
-            public abstract global::Ice.LocatorRegistryPrx? getRegistry(global::Ice.Current current);
-
             public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findAdapterByIdAsync(string id, global::Ice.Current current);
+
+            public abstract global::Ice.LocatorRegistryPrx? getRegistry(global::Ice.Current current);
 
             #endregion
 
