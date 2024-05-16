@@ -6938,11 +6938,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -6994,11 +6994,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -8002,15 +8002,15 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
+        public abstract void replicaAdded(InternalRegistryPrx? replica, global::Ice.Current current);
+
+        public abstract void replicaRemoved(InternalRegistryPrx? replica, global::Ice.Current current);
+
         public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current);
 
         public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current);
 
         public abstract void replicaInit(InternalRegistryPrx?[] replicas, global::Ice.Current current);
-
-        public abstract void replicaAdded(InternalRegistryPrx? replica, global::Ice.Current current);
-
-        public abstract void replicaRemoved(InternalRegistryPrx? replica, global::Ice.Current current);
 
         #endregion
 
@@ -8520,10 +8520,6 @@ namespace IceGrid
     {
         #region Inherited Slice operations
 
-        public abstract void applicationRemoved(int serial, string name, global::Ice.Current current);
-
-        public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.Current current);
-
         public abstract void adapterInit(AdapterInfo[] adpts, global::Ice.Current current);
 
         public abstract void adapterAdded(AdapterInfo info, global::Ice.Current current);
@@ -8532,10 +8528,6 @@ namespace IceGrid
 
         public abstract void adapterRemoved(string id, global::Ice.Current current);
 
-        public abstract void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current);
-
-        public abstract void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current);
-
         public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current);
 
         public abstract void objectAdded(ObjectInfo info, global::Ice.Current current);
@@ -8543,6 +8535,14 @@ namespace IceGrid
         public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current);
 
         public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current);
+
+        public abstract void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current);
+
+        public abstract void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current);
+
+        public abstract void applicationRemoved(int serial, string name, global::Ice.Current current);
+
+        public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.Current current);
 
         #endregion
 

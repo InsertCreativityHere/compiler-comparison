@@ -282,11 +282,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(global::Ice.AdapterAlreadyActiveException)
+                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
-                    catch(global::Ice.AdapterNotFoundException)
+                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
@@ -332,15 +332,15 @@ namespace Test
                     {
                         throw ex;
                     }
+                    catch(global::Ice.AdapterNotFoundException)
+                    {
+                        throw;
+                    }
                     catch(global::Ice.InvalidReplicaGroupIdException)
                     {
                         throw;
                     }
                     catch(global::Ice.AdapterAlreadyActiveException)
-                    {
-                        throw;
-                    }
-                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
@@ -1564,11 +1564,11 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findAdapterByIdAsync(string id, global::Ice.Current current);
 
         public abstract global::Ice.LocatorRegistryPrx? getRegistry(global::Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current);
 
         #endregion
 
